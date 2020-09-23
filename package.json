@@ -1,16 +1,31 @@
 {
   "name": "lin-wx-ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "微信小程序原生ui组件库",
+  "author": "c10342",
+  "private": false,
+  "keywords": [
+    "wechat",
+    "UI",
+    "Component"
+  ],
+  "license": "MIT",
   "main": "index.js",
+  "homepage": "https://github.com/c10342/lin-wx-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-wx-ui"
+  },
+  "files": [
+    "examples",
+    "packages",
+    "src"
+  ],
   "scripts": {
     "dev": "gulp -f build/index.js dev",
     "build": "gulp -f build/index.js build",
     "watch": "gulp -f build/index.js watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "del": "^5.1.0",
     "gulp": "^4.0.2",
