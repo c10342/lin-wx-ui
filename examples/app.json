@@ -1,12 +1,24 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/navigator/index/index",
+    "pages/navigator/about/index",
+    "pages/navigator/basics/index",
+    "pages/navigator/cartoon/index",
+    "pages/navigator/form/index",
+    "pages/navigator/layout/index",
+    "pages/navigator/navigation/index",
+    "pages/navigator/operation/index",
+    "pages/navigator/view/index",
+    "pages/component/icon/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1989fa",
+    "navigationBarTitleText": "lin-wx-ui",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents":{
+    "component-cell":"/components/componentCell/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

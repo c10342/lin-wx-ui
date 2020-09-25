@@ -1,0 +1,4 @@
+<view class="component-cell" bindtap="onCellClick">
+<text>{{dataInfo.name}}</text>
+<text class="icon-youbian iconfont"></text>
+</view>
