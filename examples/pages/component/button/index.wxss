@@ -1,0 +1,7 @@
+.button-group{
+  margin-bottom: 20rpx;
+}
+.button-group button {
+  margin-right: 40rpx;
+  margin-bottom: 20rpx;
+}

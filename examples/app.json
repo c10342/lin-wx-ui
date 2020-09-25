@@ -9,7 +9,8 @@
     "pages/navigator/navigation/index",
     "pages/navigator/operation/index",
     "pages/navigator/view/index",
-    "pages/component/icon/index"
+    "pages/component/icon/index",
+    "pages/component/button/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,9 +18,10 @@
     "navigationBarTitleText": "lin-wx-ui",
     "navigationBarTextStyle": "white"
   },
-  "usingComponents":{
-    "component-cell":"/components/componentCell/index"
+  "usingComponents": {
+    "component-cell": "/components/componentCell/index",
+    "lin-button":"/dist/Button/index",
+    "lin-icon":"/dist/Icon/index"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

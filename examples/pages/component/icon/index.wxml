@@ -1,2 +1,8 @@
-<!--pages/component/icon/index.wxml-->
-<text>pages/component/icon/index.wxml</text>
+<view>
+<lin-icon icon='user' type='default' />
+<lin-icon icon='user' type='primary' />
+<lin-icon icon='user' type='success' />
+<lin-icon icon='user' type='info' />
+<lin-icon icon='user' type='warning' />
+<lin-icon icon='user' type='danger' />
+</view>

@@ -1,1 +1,5 @@
 @import './iconfont.wxss';
+
+.container{
+  padding: 20rpx;
+}

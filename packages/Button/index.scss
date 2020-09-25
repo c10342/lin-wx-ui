@@ -1,0 +1,108 @@
+@import "../../src/style/base.scss";
+
+.lin-button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #dcdfe6;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  //   padding: 0rpx 20rpx;
+  font-size: 28rpx;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  &::after {
+    border: none;
+  }
+  &.lin-button-block {
+    display: block;
+  }
+}
+
+.lin-button-big {
+  font-size: 30rpx;
+  padding: 5rpx 40rpx;
+}
+
+.lin-button-small {
+  font-size: 20rpx;
+}
+
+.lin-button-icon {
+  margin-right: 10rpx;
+}
+
+.lin-button-default {
+  &.lin-button-hover {
+    color: $primary;
+    border-color: lighten($primary, 10%);
+    background-color: lighten($primary, 30%);
+  }
+}
+
+@each $key, $val in $theme-color {
+  .lin-button-#{$key} {
+    color: #ffffff;
+    background-color: $val;
+    border-color: $val;
+    &.lin-button-hover {
+      background: lighten($val, 10%);
+      border-color: lighten($val, 10%);
+    }
+  }
+}
+
+@mixin button-plain($background, $border-color, $color) {
+  color: $color;
+  background: $background;
+  border-color: $border-color;
+}
+
+// 朴素的按钮
+
+.lin-button.lin-button-plain {
+  &.lin-button-hover {
+    @include button-plain(#ffffff, $primary, $primary);
+  }
+}
+@each $key, $val in $theme-color {
+  .lin-button-#{$key}.lin-button-plain {
+    @include button-plain(lighten($val, 30%), lighten($val, 10%), $val);
+    &.lin-button-hover {
+      @include button-plain($val, $val, #ffffff);
+    }
+  }
+}
+
+.lin-button.lin-button-round {
+  border-radius: 40rpx;
+}
+
+.lin-button.lin-button-circle {
+  border-radius: 50%;
+}
+
+.lin-button-disabled {
+  &.lin-button-default {
+    border-color: transparent;
+  }
+}
+@each $key, $val in $theme-color {
+  .lin-button-disabled {
+    &.lin-button-#{$key} {
+      background-color: lighten($val, 10%);
+      border-color: transparent;
+      &.lin-button-hover {
+        background-color: lighten($val, 20%);
+      }
+    }
+  }
+}
+
+.lin-button-loading {
+}

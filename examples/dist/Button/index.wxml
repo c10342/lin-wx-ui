@@ -1,0 +1,12 @@
+
+
+<button 
+class="lin-button lin-button-{{type}} {{block?'lin-button-block':''}} {{plain?'lin-button-plain':''}} {{round?'lin-button-round':''}} {{circle?'lin-button-circle':''}} {{disabled?'lin-button-disabled':''}} lin-button-{{size}}" 
+  hover-class="lin-button-hover" 
+  style='{{baseStyle}}'
+   >
+   <view wx:if='loading' class='lin-button-loading'></view>
+   <text wx:if='{{icon}}' class='iconfont icon-{{icon}}'></text>
+  <slot></slot>
+</button>
+

@@ -69,6 +69,20 @@
 					"id": -1,
 					"name": "基础组件",
 					"pathName": "pages/navigator/basics/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "button组件",
+					"pathName": "pages/component/button/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "icon组件",
+					"pathName": "pages/component/icon/index",
 					"scene": null
 				}
 			]
