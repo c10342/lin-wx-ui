@@ -10,7 +10,8 @@
     "pages/navigator/operation/index",
     "pages/navigator/view/index",
     "pages/component/icon/index",
-    "pages/component/button/index"
+    "pages/component/button/index",
+    "pages/navigator/logs/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,9 +21,9 @@
   },
   "usingComponents": {
     "component-cell": "/components/componentCell/index",
-    "demo-block":"/components/demoBlock/index",
-    "lin-button":"/dist/Button/index",
-    "lin-icon":"/dist/Icon/index"
+    "demo-block": "/components/demoBlock/index",
+    "lin-button": "/dist/Button/index",
+    "lin-icon": "/dist/Icon/index"
   },
   "sitemapLocation": "sitemap.json"
 }
