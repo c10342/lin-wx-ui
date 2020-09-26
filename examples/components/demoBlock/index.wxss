@@ -1,0 +1,21 @@
+.demo-block{
+  margin-bottom: 20px;
+}
+
+.demo-title{
+  color: #909DA3;
+  margin-bottom: 10px;
+  position: relative;
+  margin-left: 10px;
+  font-size: 36rpx;
+}
+
+.demo-title::before{
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0px;
+  width: 3px;
+  height: 100%;
+  background-color: #409eff;
+}

@@ -1,4 +1,4 @@
-@import "../../src/style/base.scss";
+@import "../../src/style/var.scss";
 
 @font-face {
   font-family: "iconfont";
@@ -9,7 +9,7 @@
   font-display: swap;
 }
 
-[class*="lin-icon-"] {
+.lin-iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
   font-style: normal;
@@ -41,7 +41,7 @@
   content: "\e628";
 }
 
-.lin-icon-up:before {
+.lin-icon-arrow-up:before {
   content: "\e60f";
 }
 
@@ -81,4 +81,15 @@
   .lin-icon-#{$key} {
     color: $val;
   }
+}
+@keyframes roating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360);
+  }
+}
+.lin-icon-loading {
+  animation: roating 2s linear infinite;
 }

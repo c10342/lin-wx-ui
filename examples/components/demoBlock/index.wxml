@@ -1,0 +1,6 @@
+<view class="demo-block">
+	<view class="demo-title">
+		<text>{{title}}</text>
+	</view>
+	<slot></slot>
+</view>

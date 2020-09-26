@@ -1,12 +1,31 @@
 
 
 <button 
-class="lin-button lin-button-{{type}} {{block?'lin-button-block':''}} {{plain?'lin-button-plain':''}} {{round?'lin-button-round':''}} {{circle?'lin-button-circle':''}} {{disabled?'lin-button-disabled':''}} lin-button-{{size}}" 
+  id="{{ id }}"
+  data-detail="{{ dataset }}"
+class="lin-button lin-button-{{type}} {{block?'lin-button-block':''}} {{plain?'lin-button-plain':''}} {{round?'lin-button-round':''}} {{circle?'lin-button-circle':''}} {{disabled?'lin-button-disabled':''}} lin-button-size-{{size}}" 
   hover-class="lin-button-hover" 
   style='{{baseStyle}}'
+  form-type="{{ formType }}"
+  lang="{{ lang }}"
+  open-type="{{ disabled ? '' : openType }}"
+  business-id="{{ businessId }}"
+  session-from="{{ sessionFrom }}"
+  send-message-title="{{ sendMessageTitle }}"
+  send-message-path="{{ sendMessagePath }}"
+  send-message-img="{{ sendMessageImg }}"
+  show-message-card="{{ showMessageCard }}"
+  app-parameter="{{ appParameter }}"
+  aria-label="{{ ariaLabel }}"
+  bindtap="onClick"
+  bindgetuserinfo="bindGetUserInfo"
+  bindcontact="bindContact"
+  bindgetphonenumber="bindGetPhoneNumber"
+  binderror="bindError"
+  bindlaunchapp="bindLaunchApp"
+  bindopensetting="bindOpenSetting"
    >
-   <view wx:if='loading' class='lin-button-loading'></view>
-   <text wx:if='{{icon}}' class='iconfont icon-{{icon}}'></text>
+   <lin-icon wx:if='{{icon}}'  icon='{{icon}}' size='{{iconSize}}' />
   <slot></slot>
 </button>
 

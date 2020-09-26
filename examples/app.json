@@ -20,6 +20,7 @@
   },
   "usingComponents": {
     "component-cell": "/components/componentCell/index",
+    "demo-block":"/components/demoBlock/index",
     "lin-button":"/dist/Button/index",
     "lin-icon":"/dist/Icon/index"
   },

@@ -1,20 +1,26 @@
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   properties: {
     icon: {
       type: String,
       require: true,
-      default: "",
+      value: "",
     },
     type: {
       type: String,
-      default: "default",
+      value: "default",
+    },
+    size: {
+      type: String,
+      value: "",
+    },
+    color: {
+      type: String,
+      value: "",
     },
   },
   data: {},
   methods: {},
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
 });

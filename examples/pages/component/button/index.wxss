@@ -1,7 +1,11 @@
+
 .button-group{
-  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.button-group button {
-  margin-right: 40rpx;
-  margin-bottom: 20rpx;
+.button-item{
+  width: 33.33%;
+  text-align: center;
+  margin-bottom: 10px;
 }

@@ -3,3 +3,11 @@
 .container{
   padding: 20rpx;
 }
+
+.component-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 40rpx;
+}
+

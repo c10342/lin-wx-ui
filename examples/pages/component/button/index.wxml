@@ -1,71 +1,162 @@
 <view class='container'>
-	<view class="button-group">
-		<lin-button type="default">默认按钮</lin-button>
-		<lin-button type="primary">主要按钮</lin-button>
-		<lin-button type="info">信息按钮</lin-button>
-		<lin-button type="warning">警告按钮</lin-button>
-		<lin-button type="danger">危险按钮</lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button plain="{{true}}" type="default">朴素按钮</lin-button>
-		<lin-button plain="{{true}}" type="primary">主要按钮</lin-button>
-		<lin-button plain="{{true}}" type="success">成功按钮</lin-button>
-		<lin-button plain="{{true}}" type="info">信息按钮</lin-button>
-		<lin-button plain="{{true}}" type="warning">警告按钮</lin-button>
-		<lin-button plain="{{true}}" type="danger">危险按钮</lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button round="{{true}}" type="default">圆形按钮</lin-button>
-		<lin-button round="{{true}}" type="primary">主要按钮</lin-button>
-		<lin-button round="{{true}}" type="success">成功按钮</lin-button>
-		<lin-button round="{{true}}" type="info">信息按钮</lin-button>
-		<lin-button round="{{true}}" type="warning">警告按钮</lin-button>
-		<lin-button round="{{true}}" type="danger">危险按钮</lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button icon="biaodan" circle="{{true}}" type="default"></lin-button>
-		<lin-button icon="biaodan" circle="{{true}}" type="primary"></lin-button>
-		<lin-button icon="biaodan" circle="{{true}}" type="success"></lin-button>
-		<lin-button icon="biaodan" circle="{{true}}" type="info"></lin-button>
-		<lin-button icon="biaodan" circle="{{true}}" type="warning"></lin-button>
-		<lin-button icon="biaodan" circle="{{true}}" type="danger"></lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button disabled="{{true}}" type="default">按钮</lin-button>
-		<lin-button disabled="{{true}}" type="primary">按钮</lin-button>
-		<lin-button disabled="{{true}}" type="success">按钮</lin-button>
-		<lin-button disabled="{{true}}" type="info">按钮</lin-button>
-		<lin-button disabled="{{true}}" type="warning">按钮</lin-button>
-		<lin-button disabled="{{true}}" type="danger">按钮</lin-button>
-	</view>
-
-	<view class="button-group">
+	<demo-block title='按钮类型'>
+		<view class="button-group">
+			<view class="button-item">
+				<lin-button type="default">默认按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="primary">主要按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="info">信息按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="warning">警告按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="danger">危险按钮</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='朴素按钮'>
+		<view class="button-group">
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="default">朴素按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="primary">主要按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="success">成功按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="info">信息按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="warning">警告按钮</lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button plain="{{true}}" type="danger">危险按钮</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='圆角按钮'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button round="{{true}}" type="default">圆形按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button round="{{true}}" type="primary">主要按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button round="{{true}}" type="success">成功按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button round="{{true}}" type="info">信息按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button round="{{true}}" type="warning">警告按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button round="{{true}}" type="danger">危险按钮</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='图标按钮'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button icon="setting" type="default">设置</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" type="primary">设置</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" type="success">设置</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" type="info">设置</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" type="warning">设置</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" type="danger">设置</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='圆形按钮'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="default"></lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="primary"></lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="success"></lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="info"></lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="warning"></lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button icon="setting" circle="{{true}}" type="danger"></lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='禁用状态'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="default">按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="primary">按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="success">按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="info">按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="warning">按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button disabled="{{true}}" type="danger">按钮</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='自定义颜色'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button color="#7232dd">单色按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button color="#7232dd" plain>单色按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button color="linear-gradient(to right, #4bb0ff, #6149f6)">
+				渐变色按钮
+			</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='尺寸按钮'>
+		<view class="button-group">
+			<view class="button-item">
+			<lin-button size="default">大型按钮</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button size="medium">默认尺寸</lin-button>
+			</view>
+			<view class="button-item">
+			<lin-button size="small">小型按钮</lin-button>
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='块级元素'>
 		<lin-button type="primary" block>块级元素</lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button color="#7232dd">单色按钮</lin-button>
-		<lin-button color="#7232dd" plain>单色按钮</lin-button>
-		<lin-button color="linear-gradient(to right, #4bb0ff, #6149f6)">
-			渐变色按钮
-		</lin-button>
-	</view>
-	<view class="button-group">
-		<lin-button icon="biaodan" type="default"></lin-button>
-		<lin-button icon="biaodan" type="primary"></lin-button>
-		<lin-button icon="biaodan" type="success"></lin-button>
-		<lin-button icon="biaodan" type="info">下载</lin-button>
-		<lin-button icon="biaodan" type="warning">上传</lin-button>
-		<lin-button icon="biaodan" type="danger">搜索</lin-button>
-	</view>
-
-	<view class="button-group">
-		<lin-button size="big">大型按钮</lin-button>
-		<lin-button size="default">默认尺寸</lin-button>
-		<lin-button size="small">小型按钮</lin-button>
-	</view>
+	</demo-block>
 </view>

@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    iconList:[
+      'arrow-right',
+      'arrow-left',
+      'arrow-down',
+      'arrow-up',
+      'password',
+      'eye',
+      'like',
+      'search',
+      'loading',
+      'delete',
+      'star',
+      'phone',
+      'user',
+      'setting',
+      'upload',
+    ]
   },
 
   /**

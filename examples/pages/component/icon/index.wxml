@@ -1,8 +1,57 @@
-<view>
-<lin-icon icon='user' type='default' />
-<lin-icon icon='user' type='primary' />
-<lin-icon icon='user' type='success' />
-<lin-icon icon='user' type='info' />
-<lin-icon icon='user' type='warning' />
-<lin-icon icon='user' type='danger' />
+<view class='container'>
+	<demo-block title='基础图标'>
+		<view class="component-group">
+			<view class="icon-item" wx:for='{{iconList}}' wx:key='item'>
+				<lin-icon size="30px" icon='{{item}}' />
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='主题风格'>
+		<view class="component-group">
+			<view class="icon-item">
+				<lin-icon size="30px" icon='setting' type='default' />
+			</view>
+			<view class="icon-item">
+				<lin-icon size="30px" icon='setting' type='primary' />
+			</view>
+			<view class="icon-item">
+				<lin-icon size="30px" icon='setting' type='info' />
+			</view>
+			<view class="icon-item">
+				<lin-icon size="30px" icon='setting' type='warning' />
+			</view>
+			<view class="icon-item">
+				<lin-icon size="30px" icon='setting' type='danger' />
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='不同尺寸'>
+		<view class="component-group">
+			<view class="icon-item">
+				<lin-icon icon="setting" size="20px" />
+			</view>
+			<view class="icon-item">
+				<lin-icon icon="setting" size="25px" />
+			</view>
+			<view class="icon-item">
+				<lin-icon icon="setting" size="30px" />
+			</view>
+			<view class="icon-item">
+				<lin-icon icon="setting" size="40px" />
+			</view>
+			<view class="icon-item">
+				<lin-icon icon="setting" size="45px" />
+			</view>
+		</view>
+	</demo-block>
+	<demo-block title='自定义颜色'>
+		<view class="component-group">
+			<view class="icon-item">
+				<lin-icon size="30px" color="red" icon='setting' />
+			</view>
+			<view class="icon-item">
+				<lin-icon size="30px" color="green" icon='setting' />
+			</view>
+		</view>
+	</demo-block>
 </view>

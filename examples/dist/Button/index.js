@@ -1,50 +1,70 @@
+import { openType } from "../mixins/open-type";
+import { button } from "../mixins/button";
+import { canIUseFormFieldButton } from "../common/version";
+
+const mixins = [button, openType];
+// 使用内置 behaviors
+// 对于 form 组件，目前可以自动识别下列内置 behaviors:
+// wx://form-field
+// wx://form-field-group
+// wx://form-field-button
+if (canIUseFormFieldButton()) {
+  mixins.push("wx://form-field-button");
+}
+
 Component({
   options: {
     addGlobalClass: true,
   },
+  mixins,
   /**
    * 组件的属性列表
    */
   properties: {
+    formType: String,
     disabled: {
       type: Boolean,
-      default: false,
+      value: false,
     },
     block: {
       type: Boolean,
-      default: false,
+      value: false,
     },
     type: {
       type: String,
-      default: "default",
+      value: "default",
     },
     plain: {
       type: Boolean,
-      default: false,
+      value: false,
     },
     round: {
       type: Boolean,
-      default: false,
+      value: false,
     },
     circle: {
       type: Boolean,
-      default: false,
+      value: false,
     },
     icon: {
       type: String,
-      default: "",
+      value: "",
+    },
+    iconSize: {
+      type: String,
     },
     size: {
       type: String,
-      default: "default",
+      value: "default",
     },
     loading: {
       type: Boolean,
-      default: false,
+      value: false,
     },
+    dataset: null,
     color: {
       type: String,
-      default: "",
+      value: "",
       observer(color) {
         let style = "";
         if (color) {
@@ -75,5 +95,11 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    onClick() {
+      if (!this.properties.disabled) {
+        this.triggerEvent("click");
+      }
+    },
+  },
 });
