@@ -1,0 +1,11 @@
+@import "../../src/style/var.scss";
+
+.lin-image-error {
+  background-color: $background-color;
+  color: $font-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-small;
+}

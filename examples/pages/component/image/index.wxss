@@ -1,0 +1,26 @@
+.component-group >view{
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  color: #7D7E80;
+  text-align: center;
+}
+
+.component-group >view>text{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.error-view{
+  height: 100%;
+  width:100%;
+  background-color: #e8f3fe;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-view >text{
+  font-size: 14px;
+}

@@ -11,7 +11,8 @@
     "pages/navigator/view/index",
     "pages/component/icon/index",
     "pages/component/button/index",
-    "pages/navigator/logs/index"
+    "pages/navigator/logs/index",
+    "pages/component/image/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +24,8 @@
     "component-cell": "/components/componentCell/index",
     "demo-block": "/components/demoBlock/index",
     "lin-button": "/dist/Button/index",
-    "lin-icon": "/dist/Icon/index"
+    "lin-icon": "/dist/Icon/index",
+    "lin-image":"/dist/Image/index"
   },
   "sitemapLocation": "sitemap.json"
 }

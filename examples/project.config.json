@@ -83,6 +83,13 @@
 					"id": -1,
 					"name": "icon组件",
 					"pathName": "pages/component/icon/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Image组件",
+					"pathName": "pages/component/image/index",
 					"scene": null
 				}
 			]

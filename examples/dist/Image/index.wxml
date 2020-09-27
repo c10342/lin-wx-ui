@@ -1,0 +1,17 @@
+<view style='{{viewStyle}}'>
+    <image 
+     style='{{viewStyle}}'
+    wx:if='{{!isError}}'
+    src="{{src}}"
+    mode='{{mode}}'
+    webp='{{webp}}'
+    lazy-load='{{lazyLoad}}'
+    show-menu-by-longpress='{{showMenuByLongpress}}'
+    binderror='onError'
+    bindload='onLoad'
+     />
+     <view style='{{viewStyle}}' class='lin-image-error' wx:if='{{!useErrorSlot&&isError}}' >
+         <text>{{errorTip?errorTip:'加载失败'}}</text>
+     </view>
+     <slot wx:if='{{useErrorSlot&&isError}}'></slot>
+</view>

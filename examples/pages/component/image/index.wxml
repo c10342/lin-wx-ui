@@ -1,0 +1,98 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-image imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+		</lin-image>
+	</demo-block>
+
+	<demo-block title='填充模式'>
+		<view class="component-group">
+			<view>
+				<lin-image mode='scaleToFill' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>scaleToFill</text>
+			</view>
+
+			<view>
+				<lin-image mode='aspectFit' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>aspectFit</text>
+			</view>
+
+			<view>
+				<lin-image mode='aspectFill' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>aspectFill</text>
+			</view>
+
+			<view>
+				<lin-image mode='widthFix' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>widthFix</text>
+			</view>
+
+			<view>
+				<lin-image mode='heightFix' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>heightFix</text>
+			</view>
+		</view>
+	</demo-block>
+
+
+	<demo-block title='圆形图片'>
+		<view class="component-group">
+			<view>
+				<lin-image round mode='scaleToFill' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>scaleToFill</text>
+			</view>
+
+			<view>
+				<lin-image round mode='aspectFit' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>aspectFit</text>
+			</view>
+
+			<view>
+				<lin-image round mode='aspectFill' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>aspectFill</text>
+			</view>
+
+			<view>
+				<lin-image round mode='widthFix' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>widthFix</text>
+			</view>
+
+			<view>
+				<lin-image round mode='heightFix' imageUrl='{{imgSrc}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>heightFix</text>
+			</view>
+		</view>
+	</demo-block>
+
+	<demo-block title='加载失败提示'>
+		<view class="component-group">
+			<view>
+				<lin-image imageUrl='{{[]}}' width='300rpx' height='300rpx'>
+				</lin-image>
+				<text>默认提示</text>
+			</view>
+
+			<view>
+				<lin-image useErrorSlot imageUrl='{{[]}}' width='300rpx' height='300rpx'>
+					<solt>
+						<view class="error-view">
+							<text>我是自定义提示</text>
+						</view>
+					</solt>
+				</lin-image>
+				<text>自定义提示</text>
+		
+		</view>
+</view>
+
+</demo-block>
+</view>
