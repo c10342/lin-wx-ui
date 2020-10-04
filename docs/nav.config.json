@@ -1,0 +1,90 @@
+{
+  "开发指南": [
+    {
+      "name": "giud",
+      "path": "/giud",
+      "desc": "介绍",
+      "type": "guide"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "安装",
+      "type": "guide"
+    },
+    {
+      "name": "start",
+      "path": "/start",
+      "desc": "快速开始",
+      "type": "guide"
+    },
+    {
+      "name": "index",
+      "path": "/",
+      "type": "pages"
+    },
+    {
+      "name": "logs",
+      "path": "logs",
+      "desc": "更新日志",
+      "type": "guide"
+    },
+    {
+      "name": "explain",
+      "path": "explain",
+      "desc": "演示说明",
+      "type": "guide"
+    }
+  ],
+  "组件": [
+    {
+      "desc": "基础组件",
+      "path": "/component",
+      "items": [
+        
+      ]
+    },
+    {
+      "desc": "动画组件",
+      "path": "/component",
+      "items": [
+       
+      ]
+    },
+    {
+      "desc": "布局组件",
+      "path": "/component",
+      "items": [
+        
+      ]
+    },
+    {
+      "desc": "导航组件",
+      "path": "/component",
+      "items": [
+       
+      ]
+    },
+    {
+      "desc": "视图组件",
+      "path": "/component",
+      "items": [
+       
+      ]
+    },
+    {
+      "desc": "操作反馈",
+      "path": "/component",
+      "items": [
+        
+      ]
+    },
+    {
+      "desc": "表单组件",
+      "path": "/component",
+      "items": [
+        
+      ]
+    }
+  ]
+}
