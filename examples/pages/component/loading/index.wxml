@@ -1,0 +1,104 @@
+<view class='container'>
+
+	<demo-block title='不同类型'>
+		<view class="component-group">
+			<view class="loading-item">
+				<lin-loading type='primary' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='success' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='info' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='warning' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='danger' />
+			</view>
+		</view>
+	</demo-block>
+
+	<demo-block title='不同尺寸'>
+		<view class="component-group">
+			<view class="loading-item">
+				<lin-loading type='primary' size='14px' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' size='16px' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' size='18px' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' size='20px' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' size='22px' />
+			</view>
+		</view>
+	</demo-block>
+
+
+	<demo-block title='加载文案'>
+		<view class="component-group">
+			<view class='loading-item-30'>
+				<lin-loading type='primary' text='加载中' />
+			</view>
+			<view class='loading-item-30'>
+				<lin-loading type='primary' text='加载中' textColor='#f56c6c' />
+			</view>
+			<view class='loading-item-30'>
+				<lin-loading type='primary' text='加载中' textSize='16px' />
+			</view>
+		</view>
+	</demo-block>
+
+	<demo-block title='转速时间'>
+		<view class="component-group">
+			<view class="loading-item">
+				<lin-loading type='primary' time='300ms' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' time='400ms' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' time='500ms' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' time='600ms' />
+			</view>
+			<view class="loading-item">
+				<lin-loading type='primary' time='700ms' />
+			</view>
+		</view>
+	</demo-block>
+
+
+	<demo-block title='自定义颜色'>
+		<view class="component-group">
+			<view class='loading-item-30'>
+				<lin-loading type='primary' color='red' />
+			</view>
+			<view class='loading-item-30'>
+				<lin-loading type='primary' color='green' />
+			</view>
+			<view class='loading-item-30'>
+				<lin-loading type='primary' color='blue' />
+			</view>
+		</view>
+	</demo-block>
+
+	<demo-block title='对齐方向'>
+		<view class="component-group">
+			<view class='loading-item-50'>
+				<lin-loading type='primary' text='加载中' vertical='row' />
+			</view>
+			<view class='loading-item-50'>
+				<lin-loading type='primary' text='加载中' vertical='col' />
+			</view>
+		</view>
+	</demo-block>
+
+</view>

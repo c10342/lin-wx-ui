@@ -25,7 +25,8 @@ class="lin-button lin-button-{{type}} {{block?'lin-button-block':''}} {{plain?'l
   bindlaunchapp="bindLaunchApp"
   bindopensetting="bindOpenSetting"
    >
-   <lin-icon wx:if='{{icon}}'  icon='{{icon}}' size='{{iconSize}}' />
-  <slot></slot>
+   <lin-loading size='{{loadingSize}}' color='{{loadingColor}}' class='lin-button-loading' wx:if='{{loading}}' />
+   <lin-icon wx:if='{{icon}}'  icon='{{icon}}' size='{{iconSize}}' class='lin-button-icon' />
+    <slot></slot>
 </button>
 

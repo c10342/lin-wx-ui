@@ -1,16 +1,11 @@
-// pages/basics/index.js
+// pages/component/loading/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {name:'Button 组件',path:'/pages/component/button/index'},
-      {name:'Icon 组件',path:'/pages/component/icon/index'},
-      {name:'Image 组件',path:'/pages/component/image/index'},
-      {name:'Loading 加载',path:'/pages/component/loading/index'}
-    ]
+
   },
 
   /**

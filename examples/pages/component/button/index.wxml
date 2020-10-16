@@ -1,3 +1,4 @@
+
 <view class='container'>
 	<demo-block title='按钮类型'>
 		<view class="button-group">
@@ -15,6 +16,9 @@
 			</view>
 			<view class="button-item">
 				<lin-button type="danger">危险按钮</lin-button>
+			</view>
+				<view class="button-item">
+				<lin-button type="success">成功按钮</lin-button>
 			</view>
 		</view>
 	</demo-block>
@@ -103,6 +107,20 @@
 			</view>
 			<view class="button-item">
 			<lin-button icon="setting" circle="{{true}}" type="danger"></lin-button>
+			</view>
+		</view>
+	</demo-block>
+
+	<demo-block title='加载状态'>
+		<view class="button-group">
+			<view class="button-item">
+				<lin-button type="primary" loading loadingColor='#fff'></lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="success" loading loadingColor='#fff'></lin-button>
+			</view>
+			<view class="button-item">
+				<lin-button type="danger" loading loadingColor='#fff'>加载</lin-button>
 			</view>
 		</view>
 	</demo-block>

@@ -82,14 +82,14 @@
     color: $val;
   }
 }
-@keyframes roating {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360);
-  }
-}
-.lin-icon-loading {
-  animation: roating 2s linear infinite;
-}
+// @keyframes roating {
+//   0% {
+//     transform: rotate(0);
+//   }
+//   100% {
+//     transform: rotate(360);
+//   }
+// }
+// .lin-icon-loading {
+//   animation: roating 2s linear infinite;
+// }

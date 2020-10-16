@@ -1,0 +1,17 @@
+.loading-item{
+  width: 20%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.loading-item-30{
+  width: 33.33%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.loading-item-50{
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+}

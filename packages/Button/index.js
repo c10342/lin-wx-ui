@@ -1,22 +1,20 @@
-import { openType } from "../mixins/open-type";
-import { button } from "../mixins/button";
 import { canIUseFormFieldButton } from "../common/version";
 
-const mixins = [button, openType];
+const behaviors = [];
 // 使用内置 behaviors
 // 对于 form 组件，目前可以自动识别下列内置 behaviors:
 // wx://form-field
 // wx://form-field-group
 // wx://form-field-button
 if (canIUseFormFieldButton()) {
-  mixins.push("wx://form-field-button");
+  behaviors.push("wx://form-field-button");
 }
 
 Component({
   options: {
     addGlobalClass: true,
   },
-  mixins,
+  behaviors,
   /**
    * 组件的属性列表
    */
@@ -33,6 +31,7 @@ Component({
     type: {
       type: String,
       value: "default",
+      options: ["primary", "success", "info", "warning", "danger", "default"],
     },
     plain: {
       type: Boolean,
@@ -61,6 +60,8 @@ Component({
       type: Boolean,
       value: false,
     },
+    loadingColor: String,
+    loadingSize: String,
     dataset: null,
     color: {
       type: String,
@@ -83,6 +84,18 @@ Component({
         }
       },
     },
+
+    id: String,
+    lang: String,
+    businessId: Number,
+    sessionFrom: String,
+    sendMessageTitle: String,
+    sendMessagePath: String,
+    sendMessageImg: String,
+    showMessageCard: Boolean,
+    appParameter: String,
+    ariaLabel: String,
+    openType: String,
   },
 
   /**
@@ -100,6 +113,29 @@ Component({
       if (!this.properties.disabled) {
         this.triggerEvent("click");
       }
+    },
+    bindGetUserInfo(event) {
+      this.triggerEvent("getuserinfo", event.detail);
+    },
+
+    bindContact(event) {
+      this.triggerEvent("contact", event.detail);
+    },
+
+    bindGetPhoneNumber(event) {
+      this.triggerEvent("getphonenumber", event.detail);
+    },
+
+    bindError(event) {
+      this.triggerEvent("error", event.detail);
+    },
+
+    bindLaunchApp(event) {
+      this.triggerEvent("launchapp", event.detail);
+    },
+
+    bindOpenSetting(event) {
+      this.triggerEvent("opensetting", event.detail);
     },
   },
 });

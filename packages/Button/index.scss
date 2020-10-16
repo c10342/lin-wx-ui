@@ -15,7 +15,8 @@
   flex-direction: row;
   align-items: center;
   font-size: 30rpx;
-  padding: 5rpx 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   &::after {
     border: none;
     width: 100%;
@@ -28,19 +29,27 @@
   &.lin-button-block {
     display: block;
   }
-}
+  &.lin-button-size-medium {
+    font-size: 28rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    &.lin-button-round {
+      border-radius: 35rpx;
+    }
+  }
 
-.lin-button-size-medium {
-  font-size: 28rpx;
-  padding: 0 28rpx;
-}
-
-.lin-button-size-small {
-  font-size: 20rpx;
+  &.lin-button-size-small {
+    font-size: 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    &.lin-button-round {
+      border-radius: 30rpx;
+    }
+  }
 }
 
 .lin-button-icon {
-  margin-right: 10rpx;
+  // margin-right: 10rpx;
 }
 
 .lin-button-default {
@@ -113,4 +122,17 @@
       }
     }
   }
+}
+
+.lin-button-loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // padding: 0 5px;
+  // margin-right: 10rpx;
+}
+
+.lin-button-icon {
+  // padding: 0 5rpx;
+  // margin-right: 10rpx;
 }
