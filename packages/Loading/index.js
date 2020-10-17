@@ -1,5 +1,8 @@
 //Component Object
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   properties: {
     text: String,
     type: {

@@ -1,0 +1,3 @@
+<view class='lin-row' style='{{viewStyle}}'>
+    <slot></slot>
+</view>

@@ -1,0 +1,13 @@
+.lin-col {
+  float: left;
+  box-sizing: border-box;
+}
+
+@for $i from 0 through 24 {
+  .lin-col-span-#{$i} {
+    width: (1 / 24 * $i) * 100%;
+  }
+  .lin-col-offset-#{$i} {
+    margin-left: (1 / 24 * $i) * 100%;
+  }
+}

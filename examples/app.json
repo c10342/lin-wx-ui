@@ -13,7 +13,8 @@
     "pages/component/button/index",
     "pages/navigator/logs/index",
     "pages/component/image/index",
-    "pages/component/loading/index"
+    "pages/component/loading/index",
+    "pages/component/layout/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +28,9 @@
     "lin-button": "/dist/Button/index",
     "lin-icon": "/dist/Icon/index",
     "lin-image": "/dist/Image/index",
-    "lin-loading": "/dist/Loading/index"
+    "lin-loading": "/dist/Loading/index",
+    "lin-row": "/dist/Row/index",
+    "lin-col": "/dist/Col/index"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,0 +1,22 @@
+lin-col .lin-col {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  background-clip: content-box;
+}
+
+lin-row lin-col:nth-child(odd) .lin-col {
+  background-color: #39a9ed;
+}
+
+lin-row lin-col:nth-child(even) .lin-col {
+  background-color: #66c6f2;
+}
+
+.grid-content {
+  width: 100%;
+  height: 100%;
+}

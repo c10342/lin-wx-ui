@@ -1,0 +1,84 @@
+<view class='container'>
+	<demo-block title='基本用法'>
+		<lin-row>
+			<lin-col span="8">span: 8</lin-col>
+			<lin-col span="8">span: 8</lin-col>
+			<lin-col span="8">span: 8</lin-col>
+		</lin-row>
+
+		<lin-row>
+			<lin-col span="4">span: 4</lin-col>
+			<lin-col span="10" offset="4">offset: 4, span: 10</lin-col>
+		</lin-row>
+
+		<lin-row>
+			<lin-col offset="12" span="12">offset: 12, span: 12</lin-col>
+		</lin-row>
+	</demo-block>
+
+	<demo-block title='设置列元素间距'>
+		<lin-row gutter="20">
+			<lin-col span="8">span: 8</lin-col>
+			<lin-col span="8">span: 8</lin-col>
+			<lin-col span="8">span: 8</lin-col>
+		</lin-row>
+	</demo-block>
+	<demo-block title='Flex 布局'>
+		<lin-row type="flex">
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+		</lin-row>
+		<lin-row type="flex" justify="center">
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+		</lin-row>
+		<lin-row type="flex" justify="end">
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+		</lin-row>
+		<lin-row type="flex" justify="between">
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+		</lin-row>
+		<lin-row type="flex" justify="around">
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+			<lin-col span="6">
+				<view class="grid-content"></view>
+			</lin-col>
+		</lin-row>
+	</demo-block>
+
+</view>

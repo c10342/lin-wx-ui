@@ -1,4 +1,7 @@
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   properties: {
     imageUrl: {
       type: Array,

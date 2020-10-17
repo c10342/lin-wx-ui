@@ -1,16 +1,18 @@
-.demo-block{
+.demo-block {
   margin-bottom: 20px;
 }
 
-.demo-title{
+.demo-title {
   color: #909DA3;
   margin-bottom: 10px;
   position: relative;
   margin-left: 10px;
-  font-size: 36rpx;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(69, 90, 100, .6);
 }
 
-.demo-title::before{
+.demo-title::before {
   content: '';
   position: absolute;
   left: -10px;

@@ -101,6 +101,13 @@
 					"id": -1,
 					"name": "Loading 加载",
 					"pathName": "pages/component/loading/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Layout 布局",
+					"pathName": "pages/component/layout/index",
 					"scene": null
 				}
 			]
