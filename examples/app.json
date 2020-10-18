@@ -14,7 +14,8 @@
     "pages/navigator/logs/index",
     "pages/component/image/index",
     "pages/component/loading/index",
-    "pages/component/layout/index"
+    "pages/component/layout/index",
+    "pages/component/cell/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +31,9 @@
     "lin-image": "/dist/Image/index",
     "lin-loading": "/dist/Loading/index",
     "lin-row": "/dist/Row/index",
-    "lin-col": "/dist/Col/index"
+    "lin-col": "/dist/Col/index",
+    "lin-cell": "/dist/Cell/index",
+    "lin-cell-group": "/dist/CellGroup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

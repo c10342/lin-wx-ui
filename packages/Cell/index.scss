@@ -1,0 +1,71 @@
+@import "../../src/style/var.scss";
+@import "../../src/style/mixins.scss";
+
+.lin-cell {
+  background-color: #ffffff;
+  padding: 22rpx 32rpx;
+  box-sizing: border-box;
+  position: relative;
+  &::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: " ";
+    pointer-events: none;
+    right: 32rpx;
+    bottom: 0px;
+    left: 32rpx;
+    border-bottom: 0px solid #ebedf0;
+  }
+  &.lin-cell-large {
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+  }
+}
+
+.lin-cell-border {
+  &::after {
+    border-width: 1px;
+  }
+}
+
+.lin-cell-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: $font-size-small;
+}
+
+.lin-cell-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-cell-title {
+  color: #323233;
+  text-align: left;
+  margin-right: 10rpx;
+  flex: 1;
+  width: 0;
+}
+
+.lin-cell-title-icon {
+  margin-right: 10rpx;
+}
+
+.lin-cell-value {
+  color: #969799;
+  text-align: right;
+  margin-left: 10rpx;
+  max-width: 50%;
+}
+
+.lin-cell-value-icon {
+  margin-left: 10rpx;
+}
+
+.lin-cell-content {
+  color: #969799;
+  font-size: $font-size-base;
+  margin-top: 10rpx;
+}

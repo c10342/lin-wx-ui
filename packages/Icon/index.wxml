@@ -1,1 +1,1 @@
-<text style='font-size:{{size}};color:{{color}}' class='lin-icon lin-iconfont lin-icon-{{icon}} lin-icon-{{type}}'></text>
+<text style='{{viewStyle}}' class='lin-icon lin-iconfont lin-icon-{{icon}} lin-icon-{{type}}'></text>

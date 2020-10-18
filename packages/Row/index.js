@@ -6,6 +6,11 @@ Component({
   relations: {
     "../Col/index": {
       type: "descendant",
+      linked(target) {
+        if (this.properties.gutter) {
+          target.setGutter(this.properties.gutter);
+        }
+      },
     },
   },
   properties: {

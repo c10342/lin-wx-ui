@@ -15,12 +15,30 @@ Component({
     size: {
       type: String,
       value: "",
+      observer: "setStyle",
     },
     color: {
       type: String,
-      value: "",
+      observer: "setStyle",
     },
   },
-  data: {},
-  methods: {},
+  data: {
+    viewStyle: "",
+  },
+  methods: {
+    setStyle() {
+      let style = "";
+      const { size, color } = this.properties;
+      if (size) {
+        style += `font-size:${size};`;
+      }
+      if (color) {
+        style += `color:${color};`;
+      }
+
+      if (style !== this.data.viewStyle) {
+        this.setData({ viewStyle: style });
+      }
+    },
+  },
 });

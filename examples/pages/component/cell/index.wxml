@@ -1,0 +1,42 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-cell-group>
+			<lin-cell title="单元格" value="内容" />
+			<lin-cell title="单元格" value="内容" label="描述信息" border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+	<demo-block title='单元格大小'>
+		<lin-cell title="单元格" value="内容" size="large" />
+		<lin-cell title="单元格" value="内容" size="large" label="描述信息" border="{{ false }}" />
+	</demo-block>
+	<demo-block title='展示图标'>
+		<lin-cell title="单元格" value="内容" icon="upload" border="{{ false }}" />
+	</demo-block>
+	<demo-block title='展示箭头'>
+		<lin-cell title="单元格" is-link />
+		<lin-cell title="单元格" is-link value="内容" />
+		<lin-cell title="单元格" is-link value="内容" arrow-direction="down" border="{{ false }}" />
+	</demo-block>
+	<demo-block title='页面跳转'>
+		<lin-cell is-link title="单元格" link-type="navigateTo" url="/pages/component/button/index" border="{{ false }}" />
+	</demo-block>
+	<demo-block title='分组标题'>
+		<lin-cell-group title="分组1">
+			<lin-cell title="单元格" value="内容" />
+		</lin-cell-group>
+		<lin-cell-group title="分组2">
+			<lin-cell title="单元格" value="内容" />
+		</lin-cell-group>
+	</demo-block>
+	<demo-block title='使用插槽'>
+		<lin-cell value="内容" icon="like" is-link>
+			<view slot="title">
+				<view class="cell-text">单元格</view>
+			</view>
+		</lin-cell>
+		<lin-cell title="单元格" border="{{ false }}">
+			<lin-icon slot="right-icon" icon="search" />
+		</lin-cell>
+	</demo-block>
+</view>
