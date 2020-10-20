@@ -1,0 +1,84 @@
+<view class='container'>
+	<demo-block title='基础使用'>
+		<lin-cell-group>
+			<lin-cell data-show='show1' bind:click='setShowData' title="Fade" is-link />
+			<lin-cell data-show='show2' bind:click='setShowData' title="Fade Up" is-link />
+			<lin-cell data-show='show3' bind:click='setShowData' title="Fade Down" is-link />
+			<lin-cell data-show='show4' bind:click='setShowData' title="Fade Left" is-link />
+			<lin-cell data-show='show5' bind:click='setShowData' title="Fade Right" is-link />
+			<lin-cell data-show='show6' bind:click='setShowData' title="Slide Up" is-link />
+			<lin-cell data-show='show7' bind:click='setShowData' title="Slide Down" is-link />
+			<lin-cell data-show='show8' bind:click='setShowData' title="Slide Left" is-link />
+			<lin-cell data-show='show9' bind:click='setShowData' title="Slide Right" is-link />
+			
+		</lin-cell-group>
+	</demo-block>
+	<demo-block title='自定义动画'>
+		<lin-cell-group>
+			<lin-cell data-show='show10' bind:click='setShowData' title="自定义" is-link />
+		</lin-cell-group>
+	</demo-block>
+</view>
+
+<view class="transition-wrapper">
+	<lin-transition bind:after-leave='afterLeave' data-show='show1' show="{{show1}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			fade
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="fade-up" data-show='show2' show="{{show2}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Fade Up
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="fade-down" data-show='show3' show="{{show3}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Fade Down
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="fade-left" data-show='show4' show="{{show4}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Fade Left
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="fade-right" data-show='show5' show="{{show5}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Fade Right
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="slide-up" data-show='show6' show="{{show6}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Slide Up
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="slide-down" data-show='show7' show="{{show7}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Slide Down
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="slide-left" data-show='show8' show="{{show8}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Slide Left
+		</view>
+	</lin-transition>
+
+	<lin-transition bind:after-leave='afterLeave' name="slide-right" data-show='show9' show="{{show9}}" bind:after-enter='afterEnter'>
+		<view class="transition-content">
+			Slide Right
+		</view>
+	</lin-transition>
+
+
+	<lin-transition bind:after-leave='afterLeave' bind:after-enter='afterEnter' data-show='show10' show="{{ show10 }}" name="" duration="{{ { enter: 300, leave: 1000 } }}" enter-class="tran-enter-class" enter-active-class="tran-enter-active-class" leave-active-class="tran-leave-active-class" leave-to-class="tran-leave-to-class">
+		<view class="transition-content">
+			自定义
+		</view>
+	</lin-transition>
+</view>

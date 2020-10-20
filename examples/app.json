@@ -15,7 +15,9 @@
     "pages/component/image/index",
     "pages/component/loading/index",
     "pages/component/layout/index",
-    "pages/component/cell/index"
+    "pages/component/cell/index",
+    "pages/component/mask/index",
+    "pages/component/transition/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,7 +35,9 @@
     "lin-row": "/dist/Row/index",
     "lin-col": "/dist/Col/index",
     "lin-cell": "/dist/Cell/index",
-    "lin-cell-group": "/dist/CellGroup/index"
+    "lin-cell-group": "/dist/CellGroup/index",
+    "lin-transition": "/dist/Transition/index",
+    "lin-mask": "/dist/Mask/index"
   },
   "sitemapLocation": "sitemap.json"
 }

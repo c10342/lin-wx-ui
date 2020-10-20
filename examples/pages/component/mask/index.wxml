@@ -1,0 +1,16 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+  <lin-button data-show="show1" type="success" bind:click='onClick'>
+  显示遮罩层
+  </lin-button>
+  </demo-block>
+	<demo-block title='嵌入内容'>
+  <lin-button data-show="show2" type="success" bind:click='onClick'>
+  嵌入内容
+  </lin-button>
+  </demo-block>
+</view>
+<lin-mask data-show="show1" show='{{show1}}' bind:click='onMaskClick' />
+<lin-mask class='mask-demo' data-show="show2" show='{{show2}}' bind:click='onMaskClick'>
+<view class="custom"></view>
+</lin-mask>

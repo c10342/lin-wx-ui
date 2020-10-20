@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:[
+      {name:'Transition 动画',path:'/pages/component/transition/index'}
+    ]
   },
 
   /**

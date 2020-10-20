@@ -115,6 +115,20 @@
 					"id": -1,
 					"name": "Cell 单元格",
 					"pathName": "pages/component/cell/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Mask 遮罩层",
+					"pathName": "pages/component/mask/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Transition 动画",
+					"pathName": "pages/component/transition/index",
 					"scene": null
 				}
 			]

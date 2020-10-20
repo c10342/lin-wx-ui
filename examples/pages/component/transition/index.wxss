@@ -1,0 +1,28 @@
+.transition-content{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #409eff;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition-wrapper{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.tran-enter-active-class,
+.tran-leave-active-class {
+  transition-property: background-color, transform;
+}
+
+.tran-enter-class,
+.tran-leave-to-class {
+  background-color: red;
+  transform: rotate(-360deg) translate3d(-100%, -100%, 0);
+}

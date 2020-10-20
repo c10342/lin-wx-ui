@@ -1,2 +1,3 @@
-<!--pages/view/index.wxml-->
-<text>pages/view/index.wxml</text>
+<view class="container">
+<component-cell wx:for="{{list}}" wx:key='item' dataInfo='{{item}}'></component-cell>
+</view>

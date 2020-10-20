@@ -1,0 +1,13 @@
+.custom{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #fff;
+}
+
+
+.mask-demo .lin-transition{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}

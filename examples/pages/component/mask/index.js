@@ -1,13 +1,22 @@
-// pages/view/index.js
+// pages/component/mask/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {name:'Mask 遮罩层',path:'/pages/component/mask/index'}
-    ]
+    show1:false,
+    show2:false
+  },
+
+  onClick(event){
+    const key = event.currentTarget.dataset.show
+    this.setData({[key]:true})
+  },
+
+  onMaskClick(event){
+    const key = event.currentTarget.dataset.show
+    this.setData({[key]:false})
   },
 
   /**
