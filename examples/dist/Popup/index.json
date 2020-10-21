@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+      "lin-icon": "/dist/Icon/index",
+      "lin-mask":"/dist/Mask/index"
+    }
+  }

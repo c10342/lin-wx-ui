@@ -1,0 +1,42 @@
+<view class='container'>
+	<demo-block title='展示弹出层'>
+		<lin-cell-group>
+			<lin-cell data-show='show1' bind:click='setShowData' title="展示弹出层" is-link />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='弹出位置'>
+		<lin-cell-group>
+			<lin-cell data-show='show2' bind:click='setShowData' title="顶部弹出" is-link />
+			<lin-cell data-show='show3' bind:click='setShowData' title="底部弹出" is-link />
+			<lin-cell data-show='show4' bind:click='setShowData' title="左侧弹出" is-link />
+			<lin-cell data-show='show5' bind:click='setShowData' title="右侧弹出" is-link />
+		</lin-cell-group>
+	</demo-block>
+
+		<demo-block title='关闭图标'>
+		<lin-cell-group>
+			<lin-cell data-show='show6' bind:click='setShowData' title="关闭图标" is-link />
+			<lin-cell data-show='show7' bind:click='setShowData' title="自定义图标" is-link />
+			<lin-cell data-show='show8' bind:click='setShowData' title="图标位置" is-link />
+		</lin-cell-group>
+	</demo-block>
+</view>
+
+<lin-popup data-show='show1' show='{{show1}}' bind:mask-click='onMaskClick'>
+	<view style="padding: 30px 50px;">内容</view>
+</lin-popup>
+
+<lin-popup data-show='show2' show="{{ show2 }}" bind:mask-click='onMaskClick' position="top" custom-style="height: 20%;" />
+
+<lin-popup data-show='show3' show="{{ show3 }}" bind:mask-click='onMaskClick' position="bottom" custom-style="height: 20%;" />
+
+<lin-popup data-show='show4' show="{{ show4 }}" bind:mask-click='onMaskClick' position="left" custom-style="width: 50%;height:100%;" />
+
+<lin-popup data-show='show5' show="{{ show5 }}" bind:mask-click='onMaskClick' position="right" custom-style="width: 50%;height:100%;" />
+
+<lin-popup closeIconSize='20px' data-show='show6' show="{{ show6 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />
+
+<lin-popup closeIcon='delete' data-show='show7' show="{{ show7 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />
+
+<lin-popup closeIconPosition='top-left' data-show='show8' show="{{ show8 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />

@@ -17,7 +17,8 @@
     "pages/component/layout/index",
     "pages/component/cell/index",
     "pages/component/mask/index",
-    "pages/component/transition/index"
+    "pages/component/transition/index",
+    "pages/component/popup/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,7 +38,8 @@
     "lin-cell": "/dist/Cell/index",
     "lin-cell-group": "/dist/CellGroup/index",
     "lin-transition": "/dist/Transition/index",
-    "lin-mask": "/dist/Mask/index"
+    "lin-mask": "/dist/Mask/index",
+    "lin-popup": "/dist/Popup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

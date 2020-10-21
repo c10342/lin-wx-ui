@@ -31,6 +31,8 @@ export const transition = (showDefaultValue) => {
       type: "",
       inited: false,
       display: false,
+      classes: "",
+      currentDuration: 0,
     },
     attached() {
       if (this.properties.show) {

@@ -129,6 +129,13 @@
 					"id": -1,
 					"name": "Transition 动画",
 					"pathName": "pages/component/transition/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Popup 弹出层",
+					"pathName": "pages/component/popup/index",
 					"scene": null
 				}
 			]

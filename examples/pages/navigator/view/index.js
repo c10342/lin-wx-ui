@@ -6,7 +6,8 @@ Page({
    */
   data: {
     list:[
-      {name:'Mask 遮罩层',path:'/pages/component/mask/index'}
+      {name:'Mask 遮罩层',path:'/pages/component/mask/index'},
+      {name:'Popup 弹出层',path:'/pages/component/popup/index'},
     ]
   },
 
