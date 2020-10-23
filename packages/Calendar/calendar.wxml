@@ -1,0 +1,36 @@
+<wxs src="./index.wxs" module="utils"></wxs>
+<template name="calendar">
+    <view class="lin-calendar">
+        <view class="lin-calendar-title" wx:if="{{showTitle}}">{{title}}</view>
+        <view class="lin-calendar-header">
+            <lin-icon class="lin-calendar-leftarrow" size='40rpx' icon='leftarrow' bind:tap="prevYear" />
+            <lin-icon size='40rpx' icon='arrow-left' bind:tap='prevMonth' />
+            <view class="lin-calendar-date">
+                {{utils.formatDate(time).year}}年{{utils.formatDate(time).month}}月
+            </view>
+            <lin-icon size='40rpx' icon='arrow-right' bind:tap='nextMonth' />
+            <lin-icon class="lin-calendar-rightarrow" size='40rpx' icon='rightarrow' bind:tap="nextYear" />
+        </view>
+        <view>
+            <view class="lin-calendar-panel">
+                <view style="{{rowHeight?'line-height:'+rowHeight:''}}" wx:for="{{daysList}}" wx:key="item" class="lin-calendar-panel-label">
+                    {{item}}
+                </view>
+            </view>
+            <view class="lin-calendar-panel" wx:for="{{[1, 2, 3, 4, 5, 6]}}" wx:for-item="i" wx:key="i">
+                <view style="{{rowHeight?'line-height:'+rowHeight:''}}" data-index='{{(i - 1) * 7 + (j - 1)}}' bind:tap="onLabelClick" class="lin-calendar-panel-label {{utils.isCurrentMonth(visibeDaysList[(i - 1) * 7 + (j - 1)],time)?'':'lin-calendar-not-current-month'}} {{utils.isEqual(visibeDaysList[(i - 1) * 7 + (j - 1)],selectTime)?'lin-calendar-selected':''}}" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="j" wx:key="j">
+                    {{utils.formatDate(visibeDaysList[(i - 1) * 7 + (j - 1)]).date}}
+                </view>
+            </view>
+        </view>
+        <view class="lin-calendar-button-group" wx:if="{{showConfirm || showReset}}">
+            <lin-button wx:if="{{showConfirm}}" class="lin-calendar-button" disabled='{{disabledConfirm}}' round block type='primary' bind:click='onConfirmClick'>
+                {{confirmText}}
+            </lin-button>
+            <view style="width:60rpx" wx:if="{{showConfirm && showReset}}"></view>
+            <lin-button wx:if="{{showReset}}" class="lin-calendar-button" disabled='{{disabledReset}}' round block type='default' bind:click='onResetClick'>
+                {{restText}}
+            </lin-button>
+        </view>
+    </view>
+</template>

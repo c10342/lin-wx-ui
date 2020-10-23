@@ -1,0 +1,67 @@
+function formatDate(time) {
+  if (!time) {
+    return "";
+  }
+  var d = getDate(time);
+  var year = d.getFullYear();
+  var month = d.getMonth() + 1;
+  var date = d.getDate();
+  return {
+    year: year,
+    month: month,
+    date: date,
+    str: year + "-" + month + "-" + date,
+  };
+}
+
+function isCurrentMonth(currentTime, time) {
+  var date1 = getDate(currentTime);
+  var date2 = getDate(time);
+  var year = date1.getFullYear();
+  var y = date2.getFullYear();
+  var month = date1.getMonth();
+  var m = date2.getMonth();
+  return year === y && month === m;
+}
+
+function compareDate(time1, time2, type) {
+  var date1 = getDate(time1);
+  var date2 = getDate(time2);
+  var newDate1 = getDate(date1.toLocaleDateString());
+  var newDate2 = getDate(date2.toLocaleDateString());
+  var obj = {
+    Equal: newDate1.getTime() == newDate2.getTime(),
+    EqAndLt: newDate1 <= newDate2,
+    EqAndGt: newDate1 >= newDate2,
+    Lt: newDate1 < newDate2,
+    Gt: newDate1 > newDate2,
+  };
+  return obj[type];
+}
+
+function isEqual(time1, time2) {
+  return compareDate(time1, time2, "Equal");
+}
+
+function isEqAndLt(time1, time2) {
+  return this.compareDate(time1, time2, "EqAndLt");
+}
+function isEqAndG(time1, time2) {
+  return this.compareDate(time1, time2, "EqAndGt");
+}
+function isLt(time1, time2) {
+  return this.compareDate(time1, time2, "Lt");
+}
+function isGt(time1, time2) {
+  return this.compareDate(time1, time2, "Gt");
+}
+
+function isSelectedval(currentTime, selectTime) {
+  return isEqual(selectTime, currentTime);
+}
+
+module.exports = {
+  formatDate: formatDate,
+  isCurrentMonth: isCurrentMonth,
+  isEqual: isEqual,
+};

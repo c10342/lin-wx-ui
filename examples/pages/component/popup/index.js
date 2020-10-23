@@ -14,8 +14,6 @@ Page({
     show7:false,
     show8:false,
     show9:false,
-    show10:false,
-    show11:false,
   },
 
   setShowData(event){

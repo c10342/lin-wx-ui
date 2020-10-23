@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+list:[
+  {name:'Mask 遮罩层',path:'/pages/component/mask/index'},
+]
   },
 
   /**

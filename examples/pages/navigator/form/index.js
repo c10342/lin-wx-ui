@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+list:[
+  {name:'Calendar 日历',path:'/pages/component/calendar/index'},
+]
   },
 
   /**

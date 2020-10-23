@@ -1,3 +1,5 @@
+$round: 40rpx !default;
+
 .lin-popup {
   position: fixed;
   max-height: 100%;
@@ -9,30 +11,45 @@
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+  &.lin-popup-round {
+    border-radius: $round;
+  }
 }
 
 .lin-popup-top {
   top: 0;
   left: 0;
   width: 100%;
+  &.lin-popup-round {
+    border-radius: 0 0 $round $round;
+  }
 }
 
 .lin-popup-right {
   top: 50%;
   right: 0;
   transform: translate3d(0, -50%, 0);
+  &.lin-popup-round {
+    border-radius: $round 0 0 $round;
+  }
 }
 
 .lin-popup-bottom {
   bottom: 0;
   left: 0;
   width: 100%;
+  &.lin-popup-round {
+    border-radius: $round $round 0 0;
+  }
 }
 
 .lin-popup-left {
   top: 50%;
   left: 0;
   transform: translate3d(0, -50%, 0);
+  &.lin-popup-round {
+    border-radius: 0 $round $round 0;
+  }
 }
 
 .lin-center-enter-active,

@@ -1,5 +1,8 @@
 import { transition } from "../behaviors/transition";
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   behaviors: [transition(false)],
   properties: {
     zIndex: {
@@ -32,6 +35,10 @@ Component({
     closeIconSize: {
       type: String,
       value: "40rpx",
+    },
+    round: {
+      type: Boolean,
+      value: false,
     },
   },
   data: {},

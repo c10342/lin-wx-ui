@@ -14,11 +14,17 @@
 		</lin-cell-group>
 	</demo-block>
 
-		<demo-block title='关闭图标'>
+	<demo-block title='关闭图标'>
 		<lin-cell-group>
 			<lin-cell data-show='show6' bind:click='setShowData' title="关闭图标" is-link />
 			<lin-cell data-show='show7' bind:click='setShowData' title="自定义图标" is-link />
 			<lin-cell data-show='show8' bind:click='setShowData' title="图标位置" is-link />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='圆角弹窗'>
+		<lin-cell-group>
+			<lin-cell data-show='show9' bind:click='setShowData' title="圆角弹窗" is-link />
 		</lin-cell-group>
 	</demo-block>
 </view>
@@ -40,3 +46,6 @@
 <lin-popup closeIcon='delete' data-show='show7' show="{{ show7 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />
 
 <lin-popup closeIconPosition='top-left' data-show='show8' show="{{ show8 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />
+
+
+<lin-popup data-show='show9' round show="{{ show9 }}" bind:mask-click='onMaskClick' position="bottom" custom-style="height: 20%;" />

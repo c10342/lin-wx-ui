@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "lin-icon": "/dist/Icon/index",
+    "lin-popup": "/dist/Popup/index",
+    "lin-button": "/dist/Button/index"
+  }
+}

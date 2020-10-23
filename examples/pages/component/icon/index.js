@@ -21,7 +21,11 @@ Page({
       'user',
       'setting',
       'upload',
-      "close"
+      "close",
+      "uparrow",
+      "downarrow",
+      "leftarrow",
+      "rightarrow",
     ]
   },
 

@@ -6,7 +6,7 @@ Page({
    */
   data: {
     list:[
-      {name:'Transition 动画',path:'/pages/component/transition/index'}
+      
     ]
   },
 

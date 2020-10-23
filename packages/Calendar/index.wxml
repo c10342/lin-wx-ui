@@ -1,0 +1,4 @@
+<import src="./calendar.wxml" />
+<lin-popup closeable round show="{{ show }}" bind:mask-click='onMaskClick' bind:close='onClose' position="bottom">
+    <template is="calendar" data='{{daysList,time,visibeDaysList,selectTime,title,showTitle,showConfirm,confirmText,disabledConfirm,rowHeight,restText,showReset,disabledReset}}' />
+</lin-popup>
