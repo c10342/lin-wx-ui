@@ -1,4 +1,4 @@
-<wxs src="./index.wxs" module="utils"></wxs>
+
 <template name="calendar">
     <view class="lin-calendar">
         <view class="lin-calendar-title" wx:if="{{showTitle}}">{{title}}</view>
@@ -6,7 +6,7 @@
             <lin-icon class="lin-calendar-leftarrow" size='40rpx' icon='leftarrow' bind:tap="prevYear" />
             <lin-icon size='40rpx' icon='arrow-left' bind:tap='prevMonth' />
             <view class="lin-calendar-date">
-                {{utils.formatDate(time).year}}年{{utils.formatDate(time).month}}月
+                {{time.label}}
             </view>
             <lin-icon size='40rpx' icon='arrow-right' bind:tap='nextMonth' />
             <lin-icon class="lin-calendar-rightarrow" size='40rpx' icon='rightarrow' bind:tap="nextYear" />
@@ -18,8 +18,8 @@
                 </view>
             </view>
             <view class="lin-calendar-panel" wx:for="{{[1, 2, 3, 4, 5, 6]}}" wx:for-item="i" wx:key="i">
-                <view style="{{rowHeight?'line-height:'+rowHeight:''}}" data-index='{{(i - 1) * 7 + (j - 1)}}' bind:tap="onLabelClick" class="lin-calendar-panel-label {{utils.isCurrentMonth(visibeDaysList[(i - 1) * 7 + (j - 1)],time)?'':'lin-calendar-not-current-month'}} {{utils.isEqual(visibeDaysList[(i - 1) * 7 + (j - 1)],selectTime)?'lin-calendar-selected':''}}" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="j" wx:key="j">
-                    {{utils.formatDate(visibeDaysList[(i - 1) * 7 + (j - 1)]).date}}
+                <view style="{{rowHeight?'line-height:'+rowHeight:''}}" data-index='{{(i - 1) * 7 + (j - 1)}}' bind:tap="onLabelClick" class="lin-calendar-panel-label {{visibeDaysList[(i - 1) * 7 + (j - 1)].isCurrentMonth?'':'lin-calendar-not-current-month'}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isSelected?'lin-calendar-selected':''}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isDisabled?'lin-calendar-disabled':''}}" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="j" wx:key="j">
+                    {{visibeDaysList[(i - 1) * 7 + (j - 1)].label}}
                 </view>
             </view>
         </view>

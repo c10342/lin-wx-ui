@@ -5,8 +5,31 @@
 			<lin-cell value='{{utils.formatDate(date1).str}}' data-show='show1' bind:click='setShowData' title="基础用法" is-link />
 		</lin-cell-group>
 	</demo-block>
+	<demo-block title='禁用日期'>
+		<lin-cell-group>
+			<lin-cell value='{{utils.formatDate(date2).str}}' data-show='show2' bind:click='setShowData' title="小于等于指定日期" is-link />
+
+			<lin-cell value='{{utils.formatDate(date3).str}}' data-show='show3' bind:click='setShowData' title="大于等于指定日期" is-link />
+
+			<lin-cell value='{{utils.formatDate(date4).str}}' data-show='show4' bind:click='setShowData' title="指定范围日期" is-link />
+
+			<lin-cell value='{{utils.formatDate(date5).str}}' data-show='show5' bind:click='setShowData' title="指定多个日期" is-link />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='平铺展示'>
+		<lin-calendar  poppable='{{false}}' showConfirm='{{false}}' />
+	</demo-block>
 </view>
 
 
 
 <lin-calendar value='{{date1}}' bind:confirm='onConfirm' bind:close='onMaskClick' bind:mask-click='onMaskClick' show='{{show1}}' data-show='show1' data-key='date1' />
+
+<lin-calendar disabledBeforeDate='{{disabledBeforeDate}}' value='{{date2}}' bind:confirm='onConfirm' bind:close='onMaskClick' bind:mask-click='onMaskClick' show='{{show2}}' data-show='show2' data-key='date2' />
+
+<lin-calendar disabledAfterDate='{{disabledAfterDate}}' value='{{date3}}' bind:confirm='onConfirm' bind:close='onMaskClick' bind:mask-click='onMaskClick' show='{{show3}}' data-show='show3' data-key='date3' />
+
+<lin-calendar disabledRangeDate='{{disabledRangeDate}}' value='{{date4}}' bind:confirm='onConfirm' bind:close='onMaskClick' bind:mask-click='onMaskClick' show='{{show4}}' data-show='show4' data-key='date4' />
+
+<lin-calendar disabledDate='{{disabledDate}}' value='{{date5}}' bind:confirm='onConfirm' bind:close='onMaskClick' bind:mask-click='onMaskClick' show='{{show5}}' data-show='show5' data-key='date5' />

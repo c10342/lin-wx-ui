@@ -1,11 +1,11 @@
-// pages/navigator/logs/index.js
+import list from './logs.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:list
   },
 
   /**

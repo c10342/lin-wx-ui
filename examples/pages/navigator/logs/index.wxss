@@ -1,1 +1,23 @@
-/* pages/navigator/logs/index.wxss */
+.time{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1f2f3d;
+}
+
+.message{
+  color: #555;
+  font-size: 32rpx;
+  text-indent: 0.5em;
+  line-height: 50rpx;
+}
+
+.message::before{
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #1f2f3d;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}

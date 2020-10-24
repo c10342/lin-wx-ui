@@ -1,2 +1,8 @@
-<!--pages/navigator/logs/index.wxml-->
-<text>pages/navigator/logs/index.wxml</text>
+<view class="container">
+  <view wx:for="{{list}}" wx:key='index'>
+    <view class="time">{{item.time}}</view>
+    <view wx:key='idx' wx:for-index='idx' wx:for-item='message' class="message" wx:for="{{item.messageList}}">{{
+      message
+      }}</view>
+  </view>
+</view>

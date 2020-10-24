@@ -31,10 +31,10 @@ const compareDate = (time1, time2, type) => {
   const date2 = new Date(time2);
 
   const newDate1 = new Date(
-    `${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`
+    date1.toLocaleDateString()
   );
   const newDate2 = new Date(
-    `${date2.getFullYear()}/${date2.getMonth()}/${date2.getDate()}`
+    date2.toLocaleDateString()
   );
   const obj = {
     Equal: newDate1.getTime() == newDate2.getTime(),
@@ -51,16 +51,16 @@ export const isEqual = (time1, time2) => {
 };
 
 export const isEqAndLt = (time1, time2) => {
-  return this.compareDate(time1, time2, "EqAndLt");
+  return compareDate(time1, time2, "EqAndLt");
 };
-export const isEqAndG = (time1, time2) => {
-  return this.compareDate(time1, time2, "EqAndGt");
+export const isEqAndGt = (time1, time2) => {
+  return compareDate(time1, time2, "EqAndGt");
 };
 export const isLt = (time1, time2) => {
-  return this.compareDate(time1, time2, "Lt");
+  return compareDate(time1, time2, "Lt");
 };
 export const isGt = (time1, time2) => {
-  return this.compareDate(time1, time2, "Gt");
+  return compareDate(time1, time2, "Gt");
 };
 
 export const isCurrentMonth = (time, currentTime) => {
@@ -72,3 +72,5 @@ export const isCurrentMonth = (time, currentTime) => {
     date1.getMonth() == date2.getMonth()
   );
 };
+
+
