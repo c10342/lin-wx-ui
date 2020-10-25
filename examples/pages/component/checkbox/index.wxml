@@ -51,4 +51,20 @@
 			<lin-checkbox name="c">复选框 c</lin-checkbox>
 		</lin-checkbox-group>
 	</demo-block>
+
+	<demo-block title='搭配单元格组件使用'>
+		<!-- <lin-checkbox-group data-key='result2' value="{{ result2 }}" bind:change="onGroupChange" max="{{ 2 }}">
+			<lin-checkbox name="a">复选框 a</lin-checkbox>
+			<lin-checkbox name="b">复选框 b</lin-checkbox>
+			<lin-checkbox name="c">复选框 c</lin-checkbox>
+		</lin-checkbox-group> -->
+
+		<lin-checkbox-group data-key='result3' value="{{ result3 }}" bind:change="onGroupChange">
+			<lin-cell-group>
+				<lin-cell wx:for="{{ list }}" wx:key="index" title="复选框 {{ item }}"  clickable data-index="{{ index }}" bind:click="toggle">
+					<lin-checkbox slot='value' class="checkboxes-{{ index }}" catch:tap="noop" name="{{ item }}" />
+				</lin-cell>
+			</lin-cell-group>
+		</lin-checkbox-group>
+	</demo-block>
 </view>

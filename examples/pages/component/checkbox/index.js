@@ -13,7 +13,9 @@ Page({
     checked6:false,
     checked7:false,
     result1:[],
-    result2:[]
+    result2:[],
+    result3:[],
+    list: ['a', 'b', 'c']
   },
 
   onChange(event){
@@ -30,10 +32,13 @@ Page({
     })
   },
 
-  submit(event){
-    console.log(event);
-    
+  toggle(event) {
+    const { index } = event.currentTarget.dataset;
+    const checkbox = this.selectComponent(`.checkboxes-${index}`);
+    checkbox.toggle();
   },
+
+  noop() {},
 
   /**
    * 生命周期函数--监听页面加载
