@@ -1,3 +1,5 @@
+@import "../../src/style/var.scss";
+
 .lin-calendar {
   padding: 0 40rpx 40rpx;
   color: #323233;
@@ -62,24 +64,22 @@
   box-sizing: border-box;
   position: relative;
   flex: 1;
-  font-size: 32rpx;
+  font-size: $font-size-normal;
 }
 
 .lin-calendar-not-current-month {
-  color: #c0c4cc;
+  color: $disabled-font-color;
 }
-
-
 
 .lin-calendar-disabled {
   cursor: not-allowed;
-  background-color: #f5f7fa;
-  border-color: #f5f7fa;
-  color: #c0c4cc;
+  background-color: $disabled-background-color;
+  border-color: $disabled-background-color;
+  color: $disabled-font-color;
 }
 
 .lin-calendar-selected {
-  background-color: #409eff;
+  background-color: $primary;
   color: #fff;
   border-radius: 8rpx;
 }

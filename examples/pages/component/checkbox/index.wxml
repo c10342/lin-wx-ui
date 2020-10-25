@@ -1,0 +1,54 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-checkbox data-key='checked1' value="{{ checked1 }}" bind:change="onChange">复选框</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='禁用状态'>
+		<lin-checkbox data-key='checked2' disabled value="{{ checked2 }}" bind:change="onChange">复选框</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='自定义形状'>
+		<lin-checkbox data-key='checked3' shape="square" value="{{ checked3 }}" bind:change="onChange">自定义形状</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='自定义颜色'>
+		<lin-checkbox data-key='checked4' value="{{ checked4 }}" checked-color="#07c160" bind:change="onChange">
+			自定义颜色
+		</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='自定义大小'>
+		<lin-checkbox data-key='checked5' value="{{ checked5 }}" icon-size="25px" bind:change="onChange">
+			自定义大小
+		</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='自定义图标'>
+		<lin-checkbox use-icon-slot data-key='checked6' value="{{ checked6 }}" bind:change="onChange">
+			<lin-icon icon='search' slot="icon" color="{{checked6?'red':''}}" />
+			自定义图标
+		</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='禁用文本点击'>
+		<lin-checkbox label-disabled data-key='checked7' value="{{ checked7 }}" bind:change="onChange">
+			禁用文本点击
+		</lin-checkbox>
+	</demo-block>
+
+	<demo-block title='复选框组'>
+		<lin-checkbox-group data-key='result1' value="{{ result1 }}" bind:change="onGroupChange">
+			<lin-checkbox name="a">复选框 a</lin-checkbox>
+			<lin-checkbox name="b">复选框 b</lin-checkbox>
+			<lin-checkbox name="c">复选框 c</lin-checkbox>
+		</lin-checkbox-group>
+	</demo-block>
+
+	<demo-block title='限制最大可选数'>
+		<lin-checkbox-group data-key='result2' value="{{ result2 }}" bind:change="onGroupChange" max="{{ 2 }}">
+			<lin-checkbox name="a">复选框 a</lin-checkbox>
+			<lin-checkbox name="b">复选框 b</lin-checkbox>
+			<lin-checkbox name="c">复选框 c</lin-checkbox>
+		</lin-checkbox-group>
+	</demo-block>
+</view>

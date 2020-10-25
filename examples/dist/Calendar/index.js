@@ -8,6 +8,9 @@ import {
 } from "./utils.js";
 const nowDate = new Date().getTime();
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   properties: {
     show: {
       type: Boolean,
@@ -74,7 +77,7 @@ Component({
     selectTime: "",
   },
   observers: {
-    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function(
+    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function (
       time,
       selectTime,
       disabledBeforeDate,
@@ -230,14 +233,14 @@ Component({
       };
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created: function () {},
+  attached: function () {},
+  ready: function () {
     const handleValue = this.handleValue();
     this.setData({
       time: handleValue,
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved: function () {},
+  detached: function () {},
 });

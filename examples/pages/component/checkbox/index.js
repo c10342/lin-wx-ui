@@ -1,36 +1,38 @@
-// pages/component/icon/index.js
+// pages/component/checkbox/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    iconList:[
-      'arrow-right',
-      'arrow-left',
-      'arrow-down',
-      'arrow-up',
-      'password',
-      'eye',
-      'like',
-      'search',
-      'loading',
-      'delete',
-      'star',
-      'phone',
-      'user',
-      'setting',
-      'upload',
-      "close",
-      "uparrow",
-      "downarrow",
-      "leftarrow",
-      "rightarrow",
-      "round",
-      "round-active",
-      "square",
-      "square-active",
-    ]
+    checked1:false,
+    checked2:false,
+    checked3:false,
+    checked4:false,
+    checked5:false,
+    checked6:false,
+    checked7:false,
+    result1:[],
+    result2:[]
+  },
+
+  onChange(event){
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]:event.detail
+    })
+  },
+
+  onGroupChange(event){
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]:event.detail
+    })
+  },
+
+  submit(event){
+    console.log(event);
+    
   },
 
   /**

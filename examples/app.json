@@ -19,7 +19,8 @@
     "pages/component/mask/index",
     "pages/component/transition/index",
     "pages/component/popup/index",
-    "pages/component/calendar/index"
+    "pages/component/calendar/index",
+    "pages/component/checkbox/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,7 +42,9 @@
     "lin-transition": "/dist/Transition/index",
     "lin-mask": "/dist/Mask/index",
     "lin-popup": "/dist/Popup/index",
-    "lin-calendar": "/dist/Calendar/index"
+    "lin-calendar": "/dist/Calendar/index",
+    "lin-checkbox": "/dist/Checkbox/index",
+    "lin-checkbox-group": "/dist/CheckboxGroup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

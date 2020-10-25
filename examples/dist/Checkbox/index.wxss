@@ -1,0 +1,1 @@
+.lin-checkbox{display:flex;flex-direction:row;align-items:center;color:#323233;font-size:32rpx;line-height:60rpx;height:60rpx}.lin-checkbox-icon-wrapper{margin-right:14rpx}.lin-checkbox-icon{color:#c8c9cc}.lin-checkbox-checked .lin-checkbox-icon{color:#409eff}.lin-checkbox-disabled{cursor:not-allowed;color:#c8c9cc}
