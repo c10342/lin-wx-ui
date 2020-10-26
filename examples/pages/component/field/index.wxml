@@ -1,0 +1,21 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-cell-group>
+			<lin-field border="{{ false }}" label='文本' data-key='value1' value="{{ value1 }}" placeholder="请输入文本" bind:change="onChange" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='双向绑定'>
+		<lin-cell-group>
+			<lin-field titleWidth='0' model:value="{{ value2 }}" placeholder="请输入文本" border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='自定义类型'>
+		<lin-cell-group>
+			<lin-field bind:change="onChange" bind:clear='onChange' data-key='value3' value="{{ value3 }}" required clearable label="用户名" rightIcon="user" placeholder="请输入用户名" bind:click-icon="onClickIcon" />
+
+			<lin-field clearable bind:change="onChange" data-key='value4' value="{{ value4 }}" type="password" label="密码" placeholder="请输入密码" required border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+</view>

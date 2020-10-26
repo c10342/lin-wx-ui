@@ -157,6 +157,13 @@
 					"id": -1,
 					"name": "CheckBox 复选框",
 					"pathName": "pages/component/checkbox/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Field 输入框",
+					"pathName": "pages/component/field/index",
 					"scene": null
 				}
 			]

@@ -45,7 +45,6 @@
   color: #323233;
   text-align: left;
   margin-right: 10rpx;
-  flex: 1;
   width: 0;
 }
 
@@ -57,7 +56,8 @@
   color: #969799;
   text-align: right;
   margin-left: 10rpx;
-  max-width: 50%;
+  // max-width: 50%;
+  flex: 1;
 }
 
 .lin-cell-value-icon {
@@ -68,4 +68,19 @@
   color: #969799;
   font-size: $font-size-base;
   margin-top: 10rpx;
+}
+
+.lin-cell-required {
+  &::before {
+    content: "*";
+    position: absolute;
+    left: 8px;
+    color: #ee0a24;
+    font-size: 28rpx;
+  }
+}
+
+.lin-cell-item-value {
+  text-align: right;
+  flex: 1;
 }

@@ -20,7 +20,8 @@
     "pages/component/transition/index",
     "pages/component/popup/index",
     "pages/component/calendar/index",
-    "pages/component/checkbox/index"
+    "pages/component/checkbox/index",
+    "pages/component/field/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -44,7 +45,8 @@
     "lin-popup": "/dist/Popup/index",
     "lin-calendar": "/dist/Calendar/index",
     "lin-checkbox": "/dist/Checkbox/index",
-    "lin-checkbox-group": "/dist/CheckboxGroup/index"
+    "lin-checkbox-group": "/dist/CheckboxGroup/index",
+    "lin-field": "/dist/Field/index"
   },
   "sitemapLocation": "sitemap.json"
 }

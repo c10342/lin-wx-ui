@@ -1,15 +1,36 @@
-// pages/form/index.js
+// pages/component/field/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-list:[
-  {name:'Calendar 日历',path:'/pages/component/calendar/index'},
-  {name:'Checkbox 复选框',path:'/pages/component/checkbox/index'},
-  {name:'Field 输入框',path:'/pages/component/field/index'},
-]
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
+    value5: '',
+    value6: '',
+    value7: '',
+    value8: '',
+  },
+
+  onChange(event) {
+    
+    const {
+      key
+    } = event.currentTarget.dataset;
+    // console.log(key,event.detail);
+  // console.log(1);
+  
+    this.setData({
+      [key]: event.detail
+    })
+  },
+
+  onClickIcon(){
+    console.log(123123);
+    
   },
 
   /**

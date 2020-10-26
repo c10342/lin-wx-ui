@@ -1,6 +1,4 @@
-page{
-  background-color: #F7F8FA;
-}
+
 
 .cell-text{
   background-color: #ee0a24;

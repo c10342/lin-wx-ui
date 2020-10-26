@@ -1,5 +1,7 @@
 @import './iconfont.wxss';
-
+page{
+  background-color: #F7F8FA;
+}
 .container{
   padding: 20rpx;
 }

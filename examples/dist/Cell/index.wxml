@@ -1,6 +1,6 @@
 <view bindtap="onClick" class='lin-cell {{border?borderBottom?"lin-cell-border":"":""}} {{size==="large"?"lin-cell-large":""}}'>
     <view class='lin-cell-header'>
-        <view class='lin-cell-text lin-cell-title'>
+        <view class='lin-cell-text lin-cell-title {{required?"lin-cell-required":""}}' style="{{titleWidth?('width:'+titleWidth):'flex:1'}}">
             <lin-icon wx:if='{{icon}}' icon='{{icon}}' class='lin-cell-title-icon' />
             <slot name="icon" wx:else></slot>
             <view wx:if='{{title}}' class='lin-cell-item'>{{title}}</view>
@@ -9,8 +9,8 @@
             </view>
         </view>
         <view class='lin-cell-text lin-cell-value'>
-            <view wx:if='{{value}}' class='lin-cell-item'>{{value}}</view>
-            <view wx:else>
+            <view wx:if='{{value}}' class='lin-cell-item lin-cell-item-value'>{{value}}</view>
+            <view wx:else class="lin-cell-item-value">
                 <slot name='value' />
             </view>
             <lin-icon wx:if='{{isLink}}' icon='arrow-{{arrowDirection}}' class='lin-cell-value-icon' />

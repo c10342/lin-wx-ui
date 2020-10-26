@@ -1,0 +1,26 @@
+.lin-field-input {
+  text-align: left;
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+.lin-field-input-align-left {
+  text-align-last: left;
+}
+.lin-field-input-align-center {
+  text-align: center;
+}
+.lin-field-input-align-right {
+  text-align: right;
+}
+
+.lin-field-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-field-close-icon {
+  width: 40rpx;
+  height: 40rpx;
+}

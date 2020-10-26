@@ -20,6 +20,7 @@ Component({
     size: { type: String, options: ["large"] },
     icon: String,
     isLink: Boolean,
+    required: Boolean,
     arrowDirection: {
       type: String,
       value: "right",
@@ -36,6 +37,7 @@ Component({
         "reLaunch",
       ],
     },
+    titleWidth: String,
   },
   data: {
     borderBottom: true,
