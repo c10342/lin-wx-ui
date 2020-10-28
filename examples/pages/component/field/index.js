@@ -13,6 +13,7 @@ Page({
     value6: '',
     value7: '',
     value8: '',
+    errorMessage:'用户名不能为空'
   },
 
   onChange(event) {
@@ -20,8 +21,6 @@ Page({
     const {
       key
     } = event.currentTarget.dataset;
-    // console.log(key,event.detail);
-  // console.log(1);
   
     this.setData({
       [key]: event.detail

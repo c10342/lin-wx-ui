@@ -2,6 +2,12 @@
   text-align: left;
   flex: 1;
   margin-right: 10rpx;
+  color: #323233;
+  width: 0;
+}
+
+.lin-cell-title {
+  height: 46rpx;
 }
 
 .lin-field-input-align-left {
@@ -23,4 +29,16 @@
 .lin-field-close-icon {
   width: 40rpx;
   height: 40rpx;
+}
+
+.lin-field-disabled {
+  color: #c8c9cc;
+}
+
+.lin-field-errorMessage {
+  color: #ee0a24;
+  font-size: 24rpx;
+  text-align: left;
+  margin-top: 10rpx;
+  box-sizing: border-box;
 }

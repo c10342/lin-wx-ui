@@ -1,5 +1,9 @@
 import { commonProps, inputProps, textareaProps } from "./props";
 Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
   properties: {
     ...commonProps,
     ...inputProps,
@@ -23,6 +27,8 @@ Component({
     inputAlign: String,
     rightIcon: String,
     clearable: { type: Boolean, observer: "setShowClear" },
+    errorMessage: String,
+    useButtonSlot: Boolean,
   },
   data: {
     inputValue: "",

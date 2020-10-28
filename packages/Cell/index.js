@@ -5,6 +5,7 @@ Component({
       type: "ancestor",
     },
   },
+  externalClasses: ["lin-title"],
   options: {
     addGlobalClass: true,
     multipleSlots: true,

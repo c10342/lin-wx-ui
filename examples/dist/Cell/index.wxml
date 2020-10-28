@@ -1,6 +1,6 @@
-<view bindtap="onClick" class='lin-cell {{border?borderBottom?"lin-cell-border":"":""}} {{size==="large"?"lin-cell-large":""}}'>
+<view bindtap="onClick" class='lin-cell {{border&&borderBottom?"lin-cell-border":""}} {{size==="large"?"lin-cell-large":""}}'>
     <view class='lin-cell-header'>
-        <view class='lin-cell-text lin-cell-title {{required?"lin-cell-required":""}}' style="{{titleWidth?('width:'+titleWidth):'flex:1'}}">
+        <view class='lin-title lin-cell-text lin-cell-title {{required?"lin-cell-required":""}}' style="{{titleWidth?('width:'+titleWidth):'flex:1'}}">
             <lin-icon wx:if='{{icon}}' icon='{{icon}}' class='lin-cell-title-icon' />
             <slot name="icon" wx:else></slot>
             <view wx:if='{{title}}' class='lin-cell-item'>{{title}}</view>

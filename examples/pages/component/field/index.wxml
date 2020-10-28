@@ -13,9 +13,51 @@
 
 	<demo-block title='自定义类型'>
 		<lin-cell-group>
-			<lin-field bind:change="onChange" bind:clear='onChange' data-key='value3' value="{{ value3 }}" required clearable label="用户名" rightIcon="user" placeholder="请输入用户名" bind:click-icon="onClickIcon" />
+			<lin-field label="文本" placeholder="请输入文本" />
+			<lin-field type='number' label="整数" placeholder="请输入整数" />
+			<lin-field type='idcard' label="身份证" placeholder="请输入身份证" />
+			<lin-field type='digit' label="小数点" placeholder="请输入小数点" />
+			<lin-field border="{{ false }}" type="password" label="密码" placeholder="请输入密码" />
+		</lin-cell-group>
+	</demo-block>
 
-			<lin-field clearable bind:change="onChange" data-key='value4' value="{{ value4 }}" type="password" label="密码" placeholder="请输入密码" required border="{{ false }}" />
+	<demo-block title='禁用输入框'>
+		<lin-cell-group>
+			<lin-field value="输入框已禁用" label="文本" disabled />
+			<lin-field border="{{ false }}" value="输入框制只读" label="文本" readonly />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='显示图标'>
+		<lin-cell-group>
+			<lin-field placeholder="显示图标" label="文本" rightIcon='user' leftIcon='user' />
+			<lin-field border="{{ false }}" placeholder="显示清除图标" label="文本" leftIcon='user' clearable />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='错误提示'>
+		<lin-cell-group>
+			<lin-field border="{{ false }}" data-key='value3' value="{{ value3 }}" bind:change="onChange" required label="用户名" placeholder="请输入用户名" errorMessage="{{value3?'':errorMessage}}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='内容对齐方式'>
+		<lin-cell-group>
+			<lin-field border="{{ false }}" input-align="right" label="文本" placeholder="输入框内容右对齐" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='高度自适应'>
+		<lin-cell-group>
+			<lin-field label="留言" type="textarea" placeholder="请输入留言" autoHeight border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='高度自适应'>
+		<lin-cell-group>
+			<lin-field clearable label="短信验证码" placeholder="请输入短信验证码" border="{{ false }}" use-button-slot>
+				<lin-button slot="button" size="small" type="success">发送验证码</lin-button>
+			</lin-field>
 		</lin-cell-group>
 	</demo-block>
 </view>
