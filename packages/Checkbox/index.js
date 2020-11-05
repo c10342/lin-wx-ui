@@ -36,9 +36,9 @@ Component({
     },
   },
   observers: {
-    "value,disabled,shape": function (value, disabled, shape) {
+    "value,shape": function (value, shape) {
       let iconName = shape;
-      if (value || disabled) {
+      if (value) {
         iconName = `${iconName}-active`;
       }
       this.setData({

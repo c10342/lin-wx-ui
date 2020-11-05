@@ -21,7 +21,8 @@
     "pages/component/popup/index",
     "pages/component/calendar/index",
     "pages/component/checkbox/index",
-    "pages/component/field/index"
+    "pages/component/field/index",
+    "pages/component/radio/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -46,7 +47,9 @@
     "lin-calendar": "/dist/Calendar/index",
     "lin-checkbox": "/dist/Checkbox/index",
     "lin-checkbox-group": "/dist/CheckboxGroup/index",
-    "lin-field": "/dist/Field/index"
+    "lin-field": "/dist/Field/index",
+    "lin-radio": "/dist/Radio/index",
+    "lin-radio-group": "/dist/RadioGroup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

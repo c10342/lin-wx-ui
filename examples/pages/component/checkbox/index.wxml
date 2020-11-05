@@ -53,11 +53,6 @@
 	</demo-block>
 
 	<demo-block title='搭配单元格组件使用'>
-		<!-- <lin-checkbox-group data-key='result2' value="{{ result2 }}" bind:change="onGroupChange" max="{{ 2 }}">
-			<lin-checkbox name="a">复选框 a</lin-checkbox>
-			<lin-checkbox name="b">复选框 b</lin-checkbox>
-			<lin-checkbox name="c">复选框 c</lin-checkbox>
-		</lin-checkbox-group> -->
 
 		<lin-checkbox-group data-key='result3' value="{{ result3 }}" bind:change="onGroupChange">
 			<lin-cell-group>

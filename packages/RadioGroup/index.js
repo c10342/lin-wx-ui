@@ -1,8 +1,7 @@
-//Component Object
 Component({
   behaviors: ["wx://form-field"],
   relations: {
-    "../Checkbox/index": {
+    "../Radio/index": {
       type: "descendant",
       linked(child) {
         this.children = this.children || [];
@@ -16,30 +15,26 @@ Component({
   },
   properties: {
     value: {
-      type: Array,
+      type: null,
       observer: "updateChildren",
     },
     disabled: {
       type: Boolean,
       observer: "updateChildren",
     },
-    max: Number,
     name: String,
   },
   data: {},
   methods: {
-    updateChildren() {
-      (this.children || []).forEach((child) => this.updateChild(child));
-    },
     updateChild(child) {
       const { value, disabled } = this.properties;
       child.setData({
-        value: value.indexOf(child.data.name) !== -1,
+        value: value === child.data.name,
         parentDisabled: disabled,
       });
     },
-    emitChange(value) {
-      this.triggerEvent("change", value);
+    updateChildren() {
+      (this.children || []).forEach((child) => this.updateChild(child));
     },
   },
   created: function () {},

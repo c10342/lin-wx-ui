@@ -1,0 +1,69 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-radio-group data-key='radio1' value="{{ radio1 }}" bind:change="onChange">
+			<lin-radio name="1">单选框 1</lin-radio>
+			<lin-radio name="2">单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='禁用状态'>
+		<lin-radio-group data-key='radio2' disabled value="{{ radio2 }}" bind:change="onChange">
+			<lin-radio name="1">单选框 1</lin-radio>
+			<lin-radio name="2">单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='自定义形状'>
+		<lin-radio-group data-key='radio3' value="{{ radio3 }}" bind:change="onChange">
+			<lin-radio shape="square" name="1">单选框 1</lin-radio>
+			<lin-radio shape="square" name="2">单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='自定义颜色'>
+		<lin-radio-group data-key='radio4' value="{{ radio4 }}" bind:change="onChange">
+			<lin-radio checked-color="#07c160" name="1">单选框 1</lin-radio>
+			<lin-radio checked-color="#07c160" name="2">单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='自定义大小'>
+		<lin-radio-group data-key='radio5' value="{{ radio5 }}" bind:change="onChange">
+			<lin-radio name="1" icon-size="24px">单选框 1</lin-radio>
+			<lin-radio name="2" icon-size="24px">单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='自定义图标'>
+		<lin-radio-group data-key='radio6' value="{{ radio6 }}" bind:change="onChange">
+			<lin-radio name="1" use-icon-slot>
+				单选框 1
+				<lin-icon icon='search' slot="icon" color="{{radio6==1?'red':''}}" />
+			</lin-radio>
+			<lin-radio name="2" use-icon-slot>
+				单选框 2
+				<lin-icon icon='search' slot="icon" color="{{radio6==2?'red':''}}" />
+			</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='禁用文本点击'>
+		<lin-radio-group data-key='radio7' value="{{ radio7 }}" bind:change="onChange">
+			<lin-radio name="1" label-disabled>单选框 1</lin-radio>
+			<lin-radio name="2" label-disabled>单选框 2</lin-radio>
+		</lin-radio-group>
+	</demo-block>
+
+	<demo-block title='与 Cell 组件一起使用'>
+		<lin-radio-group data-key='radio8' value="{{ radio8 }}" bind:change="onChange">
+			<lin-cell-group>
+				<lin-cell title="单选框 1"  data-name="1" bind:click="onClick">
+					<lin-radio slot="right-icon" name="1" />
+				</lin-cell>
+				<lin-cell title="单选框 2" data-name="2" bind:click="onClick">
+					<lin-radio slot="right-icon" name="2" />
+				</lin-cell>
+			</lin-cell-group>
+		</lin-radio-group>
+	</demo-block>
+</view>

@@ -1,5 +1,6 @@
 //Component Object
 Component({
+  behaviors: ["wx://form-field"],
   relations: {
     "../Checkbox/index": {
       type: "descendant",
@@ -23,6 +24,7 @@ Component({
       observer: "updateChildren",
     },
     max: Number,
+    name: String,
   },
   data: {},
   methods: {

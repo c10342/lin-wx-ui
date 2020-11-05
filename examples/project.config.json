@@ -164,6 +164,20 @@
 					"id": -1,
 					"name": "Field 输入框",
 					"pathName": "pages/component/field/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "表单组件",
+					"pathName": "pages/navigator/form/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Radio 单选框",
+					"pathName": "pages/component/radio/index",
 					"scene": null
 				}
 			]
