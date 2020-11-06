@@ -1,18 +1,15 @@
-// pages/form/index.js
+// pages/component/rate/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-list:[
-  {name:'Calendar 日历',path:'/pages/component/calendar/index'},
-  {name:'Checkbox 复选框',path:'/pages/component/checkbox/index'},
-  {name:'Field 输入框',path:'/pages/component/field/index'},
-  {name:'Radio 单选框',path:'/pages/component/radio/index'},
-  {name:'Rate 评分',path:'/pages/component/rate/index'},
-]
+    value1:1,
+    value2:1.5,
   },
+
+  onChange(){},
 
   /**
    * 生命周期函数--监听页面加载

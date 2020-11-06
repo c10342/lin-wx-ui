@@ -1,0 +1,8 @@
+<view class='container'>
+<demo-block title='基础用法'>
+<lin-rate value="{{ value1 }}" bind:change="onChange" />
+</demo-block>
+<demo-block title='半星'>
+<lin-rate value="{{ value2 }}" allowHalf bind:change="onChange" />
+</demo-block>
+</view>

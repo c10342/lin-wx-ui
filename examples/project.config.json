@@ -178,6 +178,13 @@
 					"id": -1,
 					"name": "Radio 单选框",
 					"pathName": "pages/component/radio/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Rate 评分",
+					"pathName": "pages/component/rate/index",
 					"scene": null
 				}
 			]

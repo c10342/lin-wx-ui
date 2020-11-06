@@ -1,0 +1,8 @@
+<view class="lin-rate">
+    <view class="lin-rate-o">
+        <lin-icon id="lin-rate-{{index}}" color='{{color}}' data-index='{{index}}' bind:tap="onClick" style="margin-right:{{index===innerCountArray.length-1?'0':gutter}}" size='{{iconSize}}' icon='star1-o' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
+    </view>
+    <view class="lin-rate-fill" style="width:{{width}}">
+        <lin-icon bind:tap='onClick' data-index='{{index}}' color='{{voidColor}}' style="margin-right:{{index===innerCountArray.length-1?'0':gutter}}" size='{{iconSize}}' icon='star1' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+.lin-rate {
+  position: relative;
+  display: inline-block;
+}
+
+.lin-rate-o {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.lin-rate-fill {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //   width: 50%;
+  overflow: hidden;
+}

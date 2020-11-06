@@ -30,6 +30,10 @@ Page({
       "round-active",
       "square",
       "square-active",
+      "star1-o",
+      "star1",
+      "like1",
+      "like1-o",
     ]
   },
 
