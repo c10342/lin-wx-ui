@@ -1,6 +1,6 @@
-<view bindtap="onClick" class='lin-cell {{border&&borderBottom?"lin-cell-border":""}} {{size==="large"?"lin-cell-large":""}}'>
+<view bindtap="onClick" class='custom-class lin-cell {{border&&borderBottom?"lin-cell-border":""}} {{size==="large"?"lin-cell-large":""}}'>
     <view class='lin-cell-header'>
-        <view class='lin-title lin-cell-text lin-cell-title {{required?"lin-cell-required":""}}' style="{{titleWidth?('width:'+titleWidth):'flex:1'}}">
+        <view class='title-class lin-cell-text lin-cell-title {{required?"lin-cell-required":""}}' style="{{titleWidth?('width:'+titleWidth):'flex:1'}}">
             <lin-icon wx:if='{{icon}}' icon='{{icon}}' class='lin-cell-title-icon' />
             <slot name="icon" wx:else></slot>
             <view wx:if='{{title}}' class='lin-cell-item'>{{title}}</view>
@@ -8,7 +8,7 @@
                 <slot name='title' />
             </view>
         </view>
-        <view class='lin-cell-text lin-cell-value'>
+        <view class='value-class lin-cell-text lin-cell-value'>
             <view wx:if='{{value}}' class='lin-cell-item lin-cell-item-value'>{{value}}</view>
             <view wx:else class="lin-cell-item-value">
                 <slot name='value' />
@@ -17,7 +17,7 @@
             <slot name='right-icon' wx:else />
         </view>
     </view>
-    <view class='lin-cell-content' wx:if='{{label}}'>
+    <view class='label-class lin-cell-content' wx:if='{{label}}'>
         <text>{{label}}</text>
     </view>
     <slot wx:else name='label' />

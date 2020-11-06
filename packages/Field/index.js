@@ -4,6 +4,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
+  externalClasses: ["label-class", "input-class", "right-icon-class"],
   properties: {
     ...commonProps,
     ...inputProps,

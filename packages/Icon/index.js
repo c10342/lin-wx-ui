@@ -2,6 +2,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class"],
   properties: {
     icon: {
       type: String,

@@ -5,7 +5,12 @@ Component({
       type: "ancestor",
     },
   },
-  externalClasses: ["lin-title"],
+  externalClasses: [
+    "custom-class",
+    "title-class",
+    "value-class",
+    "label-class",
+  ],
   options: {
     addGlobalClass: true,
     multipleSlots: true,

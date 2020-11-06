@@ -14,6 +14,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class", "loading-class", "icon-class"],
   behaviors,
   /**
    * 组件的属性列表

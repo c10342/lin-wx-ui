@@ -1,16 +1,15 @@
+@import "../../src/style/var.scss";
+
 .lin-radio {
   display: flex;
   flex-direction: row;
   align-items: center;
-  //   height: 60rpx;
-  //   line-height: 60rpx;
   padding: 10rpx;
   color: #323233;
 }
 
 .lin-radio-icon {
   margin-right: 5rpx;
-  //   color: #c8c9cc;
 }
 
 .lin-radio-label {
@@ -19,7 +18,7 @@
 
 .lin-radio-checked {
   .lin-radio-icon-wrapper {
-    color: #409eff;
+    color: $primary;
   }
 }
 

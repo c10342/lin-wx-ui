@@ -1,6 +1,7 @@
 const shapeValue = "round";
 Component({
   behaviors: ["wx://form-field"],
+  externalClasses: ["custom-class", "icon-class", "label-class"],
   relations: {
     "../RadioGroup/index": {
       type: "ancestor",

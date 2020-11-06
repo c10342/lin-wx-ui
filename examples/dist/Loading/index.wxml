@@ -1,4 +1,4 @@
-<view class='lin-loading lin-loading-{{vertical}}'>
-    <view class='lin-loading-spinner lin-loading-{{type}}' style='{{loadingStyle}}'></view>
-    <view style='{{textStyle}}' wx:if='{{text}}' class='lin-loading-text'>{{text}}</view>
+<view class='custom-class lin-loading lin-loading-{{vertical}}'>
+    <view class='loading-class lin-loading-spinner lin-loading-{{type}}' style='{{loadingStyle}}'></view>
+    <view style='{{textStyle}}' wx:if='{{text}}' class='text-class lin-loading-text'>{{text}}</view>
 </view>

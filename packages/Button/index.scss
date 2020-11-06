@@ -48,10 +48,6 @@
   }
 }
 
-.lin-button-icon {
-  // margin-right: 10rpx;
-}
-
 .lin-button-default {
   &.lin-button-hover {
     color: $primary;
@@ -128,7 +124,4 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.lin-button-icon {
 }

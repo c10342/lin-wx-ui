@@ -2,6 +2,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class", "image-class", "error-class"],
   properties: {
     imageUrl: {
       type: Array,

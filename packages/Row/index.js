@@ -3,6 +3,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class"],
   relations: {
     "../Col/index": {
       type: "descendant",

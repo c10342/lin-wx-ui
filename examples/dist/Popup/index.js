@@ -3,6 +3,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class"],
   behaviors: [transition(false)],
   properties: {
     zIndex: {

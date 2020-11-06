@@ -1,5 +1,6 @@
 //Component Object
 Component({
+  externalClasses: ["custom-class", "title-class"],
   relations: {
     "../Cell/index": {
       type: "descendant",

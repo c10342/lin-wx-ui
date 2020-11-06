@@ -3,6 +3,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  externalClasses: ["custom-class", "text-class", "loading-class"],
   properties: {
     text: String,
     type: {
