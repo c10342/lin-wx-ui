@@ -57,7 +57,7 @@
 		<lin-checkbox-group data-key='result3' value="{{ result3 }}" bind:change="onGroupChange">
 			<lin-cell-group>
 				<lin-cell wx:for="{{ list }}" wx:key="index" title="复选框 {{ item }}"  clickable data-index="{{ index }}" bind:click="toggle">
-					<lin-checkbox slot='value' class="checkboxes-{{ index }}" catch:tap="noop" name="{{ item }}" />
+					<lin-checkbox slot='right-icon' class="checkboxes-{{ index }}" catch:tap="noop" name="{{ item }}" />
 				</lin-cell>
 			</lin-cell-group>
 		</lin-checkbox-group>

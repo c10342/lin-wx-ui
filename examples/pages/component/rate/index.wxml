@@ -1,8 +1,30 @@
 <view class='container'>
-<demo-block title='基础用法'>
-<lin-rate value="{{ value1 }}" bind:change="onChange" />
-</demo-block>
-<demo-block title='半星'>
-<lin-rate value="{{ value2 }}" allowHalf bind:change="onChange" />
-</demo-block>
+  <demo-block title='基础用法'>
+    <lin-rate data-key="value1" value="{{ value1 }}" bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='自定义图标'>
+    <lin-rate icon='like1' voidIcon='like1-o' data-key="value2" value="{{ value2 }}" bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='自定义样式'>
+    <lin-rate data-key="value3" value="{{ value3 }}" size="25px" color="rgb(255, 210, 30)"
+      void-color="rgb(255, 210, 30)" bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='半星'>
+    <lin-rate data-key="value4" value="{{ value4 }}" allowHalf bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='自定义数量'>
+    <lin-rate data-key="value5" value="{{ value5 }}" count="{{ 8 }}" bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='禁用状态'>
+    <lin-rate data-key="value6" value="{{ value6 }}" disabled bind:change="onChange" />
+  </demo-block>
+
+  <demo-block title='只读状态'>
+    <lin-rate data-key="value7" value="{{ value7 }}" readonly bind:change="onChange" />
+  </demo-block>
 </view>

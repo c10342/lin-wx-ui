@@ -6,10 +6,20 @@ Page({
    */
   data: {
     value1:1,
-    value2:1.5,
+    value2:2,
+    value3:2,
+    value4:2.5,
+    value5:2,
+    value6:2,
+    value7:2,
   },
 
-  onChange(){},
+  onChange(event){
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]:event.detail
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

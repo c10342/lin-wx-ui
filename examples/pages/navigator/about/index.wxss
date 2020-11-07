@@ -1,1 +1,62 @@
-/* pages/about/index.wxss */
+.image-logo{
+  width: 500rpx;
+  height: 180rpx;
+  display: block;
+}
+
+
+.header{
+  background-color: #fff;
+  width           : 690rpx;
+  margin          : 0 auto 20rpx auto;
+  padding: 40rpx;
+  box-sizing: border-box;
+  color    : #8c98ae;
+  font-size: 26rpx;
+}
+
+.info-item + .info-item{
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.ui-name{
+  font-weight: bold;
+  color: #000000;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+.address-container {
+  width           : 690rpx;
+  margin          : 0 auto 2rpx auto;
+  height          : 142rpx;
+  display         : flex;
+  flex-direction  : row;
+  align-items     : center;
+  background-color: #fff;
+}
+
+.dot {
+  width           : 24rpx;
+  height          : 24rpx;
+  border-radius   : 50%;
+  background-color: #3963bc;
+  margin-left     : 40rpx;
+}
+
+.doc-container {
+  display       : flex;
+  flex-direction: column;
+  margin-left   : 20rpx;
+}
+
+.doc-txt {
+  color    : #8c98ae;
+  font-size: 24rpx;
+}
+
+.address {
+  font-size: 28rpx;
+  color    : #596c8e;
+}
