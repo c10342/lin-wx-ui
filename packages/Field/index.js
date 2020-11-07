@@ -1,4 +1,5 @@
-import { commonProps, inputProps, textareaProps } from "./props";
+import { commonProps, inputProps, textareaProps } from "./props.js";
+import { canIUseModel } from "../common/version.js";
 Component({
   options: {
     addGlobalClass: true,
@@ -38,7 +39,10 @@ Component({
   },
   methods: {
     emitChange() {
-      this.setData({ value: this.value });
+      // 双向数据绑定
+      if (canIUseModel()) {
+        this.setData({ value: this.value });
+      }
       wx.nextTick(() => {
         this.triggerEvent("change", this.value);
       });
@@ -91,12 +95,12 @@ Component({
       });
     },
   },
-  created: function () {
+  created: function() {
     this.value = this.properties.value;
     this.setData({ inputValue: this.value });
   },
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
 });

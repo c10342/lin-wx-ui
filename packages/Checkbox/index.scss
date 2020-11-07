@@ -1,8 +1,10 @@
+@import '../../src/style/var.scss';
+
 .lin-checkbox {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #323233;
+  color: $font-color-dark;
   font-size: 32rpx;
   line-height: 60rpx;
   height: 60rpx;
@@ -12,17 +14,14 @@
   margin-right: 14rpx;
 }
 
-.lin-checkbox-icon {
-  color: #c8c9cc;
-}
 
 .lin-checkbox-checked {
   .lin-checkbox-icon {
-    color: #409eff;
+    color: $primary;
   }
 }
 
 .lin-checkbox-disabled {
   cursor: not-allowed;
-  color: #c8c9cc;
+  color: $disabled-font-color;
 }

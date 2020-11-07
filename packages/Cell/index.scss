@@ -14,7 +14,7 @@
     right: 32rpx;
     bottom: 0px;
     left: 32rpx;
-    border-bottom: 0px solid #ebedf0;
+    border-bottom: 0px solid $disabled-border-color;
   }
   &.lin-cell-large {
     padding-top: 26rpx;
@@ -43,7 +43,7 @@
 }
 
 .lin-cell-title {
-  color: #323233;
+  color: $font-color-dark;
   text-align: left;
   margin-right: 10rpx;
   width: 0;
@@ -54,7 +54,7 @@
 }
 
 .lin-cell-value {
-  color: #969799;
+  color:$font-color;
   text-align: right;
   margin-left: 10rpx;
   flex: 1;
@@ -65,7 +65,7 @@
 }
 
 .lin-cell-content {
-  color: #969799;
+  color:$font-color;
   font-size: $font-size-base;
   margin-top: 10rpx;
 }

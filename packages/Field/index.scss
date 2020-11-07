@@ -1,8 +1,10 @@
+@import '../../src/style/var.scss';
+
 .lin-field-input {
   text-align: left;
   flex: 1;
   margin-right: 10rpx;
-  color: #323233;
+  color: $font-color-dark;
   width: 0;
 }
 
@@ -32,7 +34,7 @@
 }
 
 .lin-field-disabled {
-  color: #c8c9cc;
+  color: $disabled-font-color;
 }
 
 .lin-field-errorMessage {

@@ -2,7 +2,7 @@
 
 .lin-calendar {
   padding: 0 40rpx 40rpx;
-  color: #323233;
+  color: $font-color-dark;
   background-color: #ffffff;
 }
 
@@ -16,7 +16,6 @@
 
 .lin-calendar-button {
   flex: 1;
-  // width: 49%;
 }
 
 .lin-calendar-title {
