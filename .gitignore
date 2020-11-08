@@ -2,6 +2,7 @@
 node_modules
 /docs-dist
 /dist
+/build/config.js
 
 
 # local env files

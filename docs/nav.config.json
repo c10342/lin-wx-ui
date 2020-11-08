@@ -19,11 +19,6 @@
       "type": "guide"
     },
     {
-      "name": "index",
-      "path": "/",
-      "type": "pages"
-    },
-    {
       "name": "logs",
       "path": "logs",
       "desc": "更新日志",
@@ -40,51 +35,27 @@
     {
       "desc": "基础组件",
       "path": "/component",
-      "items": [
-        
-      ]
-    },
-    {
-      "desc": "动画组件",
-      "path": "/component",
-      "items": [
-       
-      ]
-    },
-    {
-      "desc": "布局组件",
-      "path": "/component",
-      "items": [
-        
-      ]
-    },
-    {
-      "desc": "导航组件",
-      "path": "/component",
-      "items": [
-       
-      ]
-    },
-    {
-      "desc": "视图组件",
-      "path": "/component",
-      "items": [
-       
-      ]
-    },
-    {
-      "desc": "操作反馈",
-      "path": "/component",
-      "items": [
-        
-      ]
+      "items": []
     },
     {
       "desc": "表单组件",
       "path": "/component",
-      "items": [
-        
-      ]
+      "items": []
+    },
+    {
+      "desc": "反馈组件",
+      "path": "/component",
+      "items": []
+    },
+    {
+      "desc": "展示组件",
+      "path": "/component",
+      "items": []
+    },
+    {
+      "desc": "导航组件",
+      "path": "/component",
+      "items": []
     }
   ]
 }

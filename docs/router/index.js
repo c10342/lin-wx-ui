@@ -16,21 +16,30 @@ let addComponent = (router) => {
       addComponent(route.items);
       routes = routes.concat(route.items);
     } else {
-      if (route.type === "pages") {
-        route.component = () => import(`../pages/${route.name}.vue`);
-        return;
-      } else if (route.type === "guide") {
-        route.component = () => import(`../md/guide/${route.name}.md`);
+      if (route.type === "guide") {
+        route.component = () => import(`../markdown/guide/${route.name}.md`);
         return;
       }
-      route.component = () => import(`../md/components/${route.name}.md`);
+      route.component = () => import(`../markdown/components/${route.name}.md`);
     }
   });
 };
 addComponent(routes);
 
 export default new Router({
-  routes: routes,
+  routes: [
+    {
+      path: "/",
+      name: "index",
+      component: () => import(`../pages/index.vue`),
+    },
+    {
+      path: "/component",
+      name: "component",
+      component: () => import(`../pages/components.vue`),
+      children: routes,
+    },
+  ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
