@@ -35,7 +35,7 @@
 		"packNpmRelationList": []
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.13.0",
+	"libVersion": "2.10.4",
 	"appid": "wxfd42849555bd7a4d",
 	"projectname": "examples",
 	"debugOptions": {
@@ -192,6 +192,13 @@
 					"id": -1,
 					"name": "关于",
 					"pathName": "pages/navigator/about/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "模拟更新",
+					"pathName": "pages/navigator/index/index",
 					"scene": null
 				}
 			]

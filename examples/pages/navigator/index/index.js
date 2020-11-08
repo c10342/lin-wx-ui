@@ -11,8 +11,6 @@ Page({
       {name:'更新日志',iconName:'icon-rizhi',path:'/pages/navigator/logs/index'},
       {name:'关于',iconName:'icon-yewu',path:'/pages/navigator/about/index'},
 
-      // {name:'动画组件',iconName:'icon-donghua',path:'/pages/navigator/cartoon/index'},
-      // {name:'布局组件',iconName:'icon-layout',path:'/pages/navigator/layout/index'},
     ]
   },
   onLoad: function () {
@@ -24,5 +22,9 @@ Page({
         url: data.detail.path
       })
     }
+  },
+
+  onShareAppMessage: function () {
+
   }
 })
