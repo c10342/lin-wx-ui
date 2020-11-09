@@ -5,7 +5,13 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["label-class", "input-class", "right-icon-class"],
+  externalClasses: [
+    "label-class",
+    "input-class",
+    "right-icon-class",
+    "value-class",
+    "header-class",
+  ],
   properties: {
     ...commonProps,
     ...inputProps,
@@ -31,6 +37,7 @@ Component({
     clearable: { type: Boolean, observer: "setShowClear" },
     errorMessage: String,
     useButtonSlot: Boolean,
+    customStyle: String,
   },
   data: {
     inputValue: "",
