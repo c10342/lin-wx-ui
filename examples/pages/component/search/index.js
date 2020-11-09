@@ -1,18 +1,39 @@
-// pages/form/index.js
+// pages/component/search/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-list:[
-  {name:'Calendar 日历',path:'/pages/component/calendar/index'},
-  {name:'Checkbox 复选框',path:'/pages/component/checkbox/index'},
-  {name:'Field 输入框',path:'/pages/component/field/index'},
-  {name:'Radio 单选框',path:'/pages/component/radio/index'},
-  {name:'Rate 评分',path:'/pages/component/rate/index'},
-  {name:'Search 搜索',path:'/pages/component/search/index'},
-]
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
+    value5: '',
+    value6: '',
+  },
+
+  onSearch(event) {
+    console.log('search', event);
+    wx.showToast({
+      title: event.detail,
+    })
+  },
+
+  onCancel(event) {
+    wx.showToast({
+      title: '取消'
+    })
+  },
+
+  onChange(event) {
+    console.log('change', event.detail);
+  },
+
+  onClick() {
+    wx.showToast({
+      title: 'click',
+    })
   },
 
   /**

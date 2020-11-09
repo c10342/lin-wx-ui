@@ -23,7 +23,8 @@
     "pages/component/checkbox/index",
     "pages/component/field/index",
     "pages/component/radio/index",
-    "pages/component/rate/index"
+    "pages/component/rate/index",
+    "pages/component/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -51,7 +52,8 @@
     "lin-field": "/dist/Field/index",
     "lin-radio": "/dist/Radio/index",
     "lin-radio-group": "/dist/RadioGroup/index",
-    "lin-rate": "/dist/Rate/index"
+    "lin-rate": "/dist/Rate/index",
+    "lin-search": "/dist/Search/index"
   },
   "sitemapLocation": "sitemap.json"
 }

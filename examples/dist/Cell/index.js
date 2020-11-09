@@ -10,6 +10,7 @@ Component({
     "title-class",
     "value-class",
     "label-class",
+    "header-class",
   ],
   options: {
     addGlobalClass: true,
@@ -44,6 +45,7 @@ Component({
       ],
     },
     titleWidth: String,
+    customStyle: String,
   },
   data: {
     borderBottom: true,
@@ -63,9 +65,9 @@ Component({
       this.setData({ borderBottom: value });
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created: function() {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
 });

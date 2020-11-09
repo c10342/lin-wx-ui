@@ -199,6 +199,13 @@
 					"id": -1,
 					"name": "模拟更新",
 					"pathName": "pages/navigator/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Search 搜索",
+					"pathName": "pages/component/search/index",
 					"scene": null
 				}
 			]
