@@ -1,19 +1,34 @@
-// pages/form/index.js
+// pages/component/slider/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-list:[
-  {name:'Calendar 日历',path:'/pages/component/calendar/index'},
-  {name:'Checkbox 复选框',path:'/pages/component/checkbox/index'},
-  {name:'Field 输入框',path:'/pages/component/field/index'},
-  {name:'Radio 单选框',path:'/pages/component/radio/index'},
-  {name:'Rate 评分',path:'/pages/component/rate/index'},
-  {name:'Search 搜索',path:'/pages/component/search/index'},
-  {name:'Slider 滑块',path:'/pages/component/slider/index'},
-]
+    value1:50,
+    value2:10,
+    value3:50,
+    value4:50,
+    value5:50,
+    value6:50,
+  },
+
+  onDrag(event) {
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+
+  onChange(event){
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]:event.detail
+    })
+    wx.showToast({
+      icon:'none',
+      title: `当前值是${event.detail}`,
+    })
   },
 
   /**

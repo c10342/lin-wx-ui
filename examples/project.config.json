@@ -206,6 +206,13 @@
 					"id": -1,
 					"name": "Search 搜索",
 					"pathName": "pages/component/search/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Slider 滑块",
+					"pathName": "pages/component/slider/index",
 					"scene": null
 				}
 			]

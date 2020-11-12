@@ -16,12 +16,14 @@ Page({
   onSearch(event) {
     console.log('search', event);
     wx.showToast({
+      icon:'none',
       title: event.detail,
     })
   },
 
   onCancel(event) {
     wx.showToast({
+      icon:'none',
       title: '取消'
     })
   },

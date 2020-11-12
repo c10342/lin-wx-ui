@@ -1,0 +1,29 @@
+<view class='container'>
+	<demo-block title='基本用法'>
+		<lin-slider data-key="value1" value="{{value1}}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='指定选择范围'>
+		<lin-slider min="-50" max="50" data-key="value2" value="{{value2}}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='禁用'>
+		<lin-slider disabled data-key="value3" value="{{value3}}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='指定步长'>
+		<lin-slider step="10" data-key="value4" value="{{value4}}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='自定义样式'>
+		<lin-slider bar-height="4px" active-color="#ee0a24" data-key="value5" value="{{value5}}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='自定义按钮'>
+		<lin-slider active-color="#ee0a24" use-button-slot data-key="value6" value="{{value6}}" bind:drag="onDrag">
+			<view class="slider-custom-button" slot="button">
+				{{ value6 }}
+			</view>
+		</lin-slider>
+	</demo-block>
+</view>
