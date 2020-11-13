@@ -85,7 +85,11 @@ Component({
       let value = this.getValue(offsetWidth);
       const remainder = value % step;
       if (remainder != 0) {
-        value = value - remainder;
+        if (remainder >= step / 2) {
+          value = value + (step - remainder);
+        } else {
+          value = value - remainder;
+        }
         offsetWidth = Math.ceil(this.getOffsetWidthByValue(value));
       }
       this.setStyleWidth(offsetWidth);
