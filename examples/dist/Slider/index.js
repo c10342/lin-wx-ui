@@ -4,6 +4,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
+  externalClasses: ["custom-class", "bar-class", "button-class"],
   properties: {
     value: {
       type: Number,

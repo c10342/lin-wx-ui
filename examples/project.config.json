@@ -213,6 +213,13 @@
 					"id": -1,
 					"name": "Slider 滑块",
 					"pathName": "pages/component/slider/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Stepper 步进器",
+					"pathName": "pages/component/stepper/index",
 					"scene": null
 				}
 			]

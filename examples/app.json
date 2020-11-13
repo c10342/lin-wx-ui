@@ -25,7 +25,8 @@
     "pages/component/radio/index",
     "pages/component/rate/index",
     "pages/component/search/index",
-    "pages/component/slider/index"
+    "pages/component/slider/index",
+    "pages/component/stepper/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -55,7 +56,8 @@
     "lin-radio-group": "/dist/RadioGroup/index",
     "lin-rate": "/dist/Rate/index",
     "lin-search": "/dist/Search/index",
-    "lin-slider": "/dist/Slider/index"
+    "lin-slider": "/dist/Slider/index",
+    "lin-stepper": "/dist/Stepper/index"
   },
   "sitemapLocation": "sitemap.json"
 }

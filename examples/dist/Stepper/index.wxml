@@ -1,0 +1,9 @@
+<view class="lin-stepper">
+    <view bind:tap="onMinus" class="lin-stepper-minus lin-stepper-button {{disabled||(min&&inputValue<=min)?'lin-stepper-disabled':''}}">
+        -
+    </view>
+    <input bind:blur='onBlur' bind:focus="onFocus" type="{{integer?'number':'digit'}}" class="lin-stepper-input {{disabled?'lin-stepper-disabled':''}}" value="{{inputValue}}" disabled="{{disabled}}" />
+    <view bind:tap='onPlus' class="lin-stepper-plus lin-stepper-button {{disabled||(max&&inputValue>=max)?'lin-stepper-disabled':''}}">
+        +
+    </view>
+</view>

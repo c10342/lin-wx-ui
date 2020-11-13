@@ -1,0 +1,21 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-stepper value="{{ 2 }}" bind:change="onChange" />
+	</demo-block>
+	<demo-block title='步长设置'>
+		<lin-stepper value="{{ 1 }}" step="2" bind:change="onChange" />
+	</demo-block>
+	<demo-block title='限制输入范围'>
+		<lin-stepper value="{{ 5 }}" min="5" max="8" bind:change="onChange" />
+	</demo-block>
+	<demo-block title='限制输入整数'>
+		<lin-stepper value="{{ 1 }}" integer bind:change="onChange" />
+	</demo-block>
+	<demo-block title='禁用状态'>
+		<lin-stepper value="{{ 1 }}" disabled />
+	</demo-block>
+
+  	<demo-block title='固定小数位数'>
+		<lin-stepper value="{{ 1 }}" step="0.2" decimal-length="{{ 1 }}" bind:change="onChange" />
+	</demo-block>
+</view>
