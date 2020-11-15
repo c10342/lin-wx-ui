@@ -2,13 +2,22 @@ function add(num1, num2) {
   const cardinal = 10 ** 10;
   return Math.round((num1 + num2) * cardinal) / cardinal;
 }
+const timeSecond=500
 Component({
+  options: {
+    addGlobalClass: true,
+  },
+  externalClasses: ["custom-class", "input-class", "plus-class", "minus-class"],
   properties: {
+    name: String,
     value: {
       type: Number,
       value: null,
       observer(value) {
-        this.setData({ currentValue: this.formatValue(value) });
+        if (this.properties.asyncChange) {
+          wx.hideLoading()
+        }
+        this.setData({ inputValue: this.formatValue(value) });
       },
     },
     min: {
@@ -29,28 +38,116 @@ Component({
       type: Number,
       value: null,
     },
+    inputWidth: {
+      type: String,
+      value: '64rpx'
+    },
+    buttonSize: {
+      type: String,
+      value: '56rpx'
+    },
+    buttonFontSize: {
+      type: String,
+      value: '40rpx'
+    },
+    inputFontSize: {
+      type: String,
+      value: '30rpx'
+    },
+    disableInput: Boolean,
+    showPlus: {
+      type: Boolean,
+      value: true
+    },
+    showMinus: {
+      type: Boolean,
+      value: true
+    },
+    disablePlus: Boolean,
+    disableMinus: Boolean,
+    asyncChange: Boolean,
+    longPress:{
+      type:Boolean,
+      value:true
+    }
+  },
+  observers: {
+    'disabled,disableMinus,min,inputValue': function (disabled, disableMinus, min, inputValue) {
+      if (disabled || disableMinus || (min != null && inputValue <= min)) {
+        this.setData({
+          isMinusDisable: true
+        })
+      } else {
+        this.setData({
+          isMinusDisable: false
+        })
+      }
+    },
+    'disabled,disablePlus,max,inputValue': function (disabled, disablePlus, max, inputValue) {
+      if (disabled || disablePlus || (max != null && inputValue >= max)) {
+        this.setData({
+          isPlusDisable: true
+        })
+      } else {
+        this.setData({
+          isPlusDisable: false
+        })
+      }
+    }
   },
   data: {
     inputValue: "",
+    isMinusDisable: false,
+    isPlusDisable: false,
   },
   methods: {
+    onTouchend(){
+      if(this.timer){
+        clearInterval(this.timer)
+        this.timer = null
+      }
+    },
+    onMinusLongpress(){
+      if(this.data.isMinusDisable || !this.properties.longPress){
+        return
+      }
+      this.onTouchend()
+      this.timer = setInterval(() => {
+        this.onMinus()
+      }, timeSecond);
+    },
+    onPlusLongpress(){
+      if(this.data.isPlusDisable || !this.properties.longPress){
+        return
+      }
+      this.onTouchend()
+      this.timer = setInterval(() => {
+        this.onPlus()
+      }, timeSecond);
+    },
     onMinus() {
-      const { step, disabled } = this.properties;
-      if (disabled) {
+      const { step } = this.properties;
+      const { inputValue, isMinusDisable } = this.data;
+      if (isMinusDisable) {
+        this.triggerEvent('overlimit', {
+          type: 'minus'
+        })
         return;
       }
-      const { inputValue } = this.data;
 
       let value = add(inputValue * 1, -(step * 1));
       this.emitChange(value);
       this.triggerEvent("minus");
     },
     onPlus() {
-      const { step, disabled } = this.properties;
-      if (disabled) {
+      const { step } = this.properties;
+      const { inputValue, isPlusDisable } = this.data;
+      if (isPlusDisable) {
+        this.triggerEvent('overlimit', {
+          type: 'plus'
+        })
         return;
       }
-      const { inputValue } = this.data;
       let value = add(inputValue * 1, step * 1);
       this.emitChange(value);
       this.triggerEvent("plus");
@@ -83,16 +180,22 @@ Component({
     emitChange(value) {
       if (value != this.data.inputValue) {
         const inputValue = this.formatValue(value);
-        this.setData({
-          inputValue: inputValue,
-        });
+        if (this.properties.asyncChange) {
+          wx.showLoading()
+        } else {
+          this.setData({
+            inputValue: inputValue,
+          });
+        }
+
         this.triggerEvent("change", inputValue);
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created: function () { },
+  attached: function () { },
+  ready: function () {
+    this.timer = null
     const { value, min } = this.properties;
     let inputValue = 0;
     if (value) {
@@ -104,6 +207,8 @@ Component({
       inputValue: this.formatValue(inputValue),
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved: function () { },
+  detached: function () { 
+    this.onTouchend()
+  },
 });

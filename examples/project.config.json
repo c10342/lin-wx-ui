@@ -1,228 +1,228 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": false,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": false,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"useMultiFrameRuntime": false,
-		"useApiHook": true,
-		"packNpmManually": false,
-		"packNpmRelationList": []
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "wxfd42849555bd7a4d",
-	"projectname": "examples",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"scripts": {},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "基础组件",
-					"pathName": "pages/navigator/basics/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "button组件",
-					"pathName": "pages/component/button/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "icon组件",
-					"pathName": "pages/component/icon/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Image组件",
-					"pathName": "pages/component/image/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Loading 加载",
-					"pathName": "pages/component/loading/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Layout 布局",
-					"pathName": "pages/component/layout/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Cell 单元格",
-					"pathName": "pages/component/cell/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Mask 遮罩层",
-					"pathName": "pages/component/mask/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Transition 动画",
-					"pathName": "pages/component/transition/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Popup 弹出层",
-					"pathName": "pages/component/popup/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Calendar 日历",
-					"pathName": "pages/component/calendar/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "logs 更新日志",
-					"pathName": "pages/navigator/logs/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "CheckBox 复选框",
-					"pathName": "pages/component/checkbox/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Field 输入框",
-					"pathName": "pages/component/field/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "表单组件",
-					"pathName": "pages/navigator/form/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Radio 单选框",
-					"pathName": "pages/component/radio/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Rate 评分",
-					"pathName": "pages/component/rate/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "关于",
-					"pathName": "pages/navigator/about/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "模拟更新",
-					"pathName": "pages/navigator/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Search 搜索",
-					"pathName": "pages/component/search/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Slider 滑块",
-					"pathName": "pages/component/slider/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "Stepper 步进器",
-					"pathName": "pages/component/stepper/index",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": false,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.4",
+  "appid": "wxfd42849555bd7a4d",
+  "projectname": "examples",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": -1,
+          "name": "基础组件",
+          "pathName": "pages/navigator/basics/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "button组件",
+          "pathName": "pages/component/button/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "icon组件",
+          "pathName": "pages/component/icon/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Image组件",
+          "pathName": "pages/component/image/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Loading 加载",
+          "pathName": "pages/component/loading/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Layout 布局",
+          "pathName": "pages/component/layout/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Cell 单元格",
+          "pathName": "pages/component/cell/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Mask 遮罩层",
+          "pathName": "pages/component/mask/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Transition 动画",
+          "pathName": "pages/component/transition/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Popup 弹出层",
+          "pathName": "pages/component/popup/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Calendar 日历",
+          "pathName": "pages/component/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "logs 更新日志",
+          "pathName": "pages/navigator/logs/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "CheckBox 复选框",
+          "pathName": "pages/component/checkbox/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Field 输入框",
+          "pathName": "pages/component/field/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "表单组件",
+          "pathName": "pages/navigator/form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Radio 单选框",
+          "pathName": "pages/component/radio/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Rate 评分",
+          "pathName": "pages/component/rate/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "关于",
+          "pathName": "pages/navigator/about/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "模拟更新",
+          "pathName": "pages/navigator/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Search 搜索",
+          "pathName": "pages/component/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Slider 滑块",
+          "pathName": "pages/component/slider/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Stepper 步进器",
+          "pathName": "pages/component/stepper/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
