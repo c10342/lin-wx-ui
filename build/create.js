@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const path = require("path");
 
-const appJson = require("../example/app.json");
+const appJson = require("../examples/app.json");
 
 const argv = process.argv;
 
@@ -195,7 +195,7 @@ function createPackageComponent() {
 function createExampleComponent() {
   const pathSrc = path.resolve(
     examplePath,
-    "./pages/components",
+    "./pages/component",
     componentNameLine
   );
   const result = createDir(pathSrc);

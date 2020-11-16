@@ -27,7 +27,8 @@
     "watch": "gulp -f build/index.js watch",
     "serve": "vue-cli-service serve",
     "build:docs": "vue-cli-service build",
-    "upload:docs": "npm run build:docs && node ./build/qiniu.js"
+    "upload:docs": "npm run build:docs && node ./build/qiniu.js",
+    "create": "node ./build/create.js"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
