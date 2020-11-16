@@ -1,6 +1,7 @@
 import { commonProps, inputProps, textareaProps } from "./props.js";
 import { canIUseModel } from "../common/version.js";
 Component({
+  behaviors: ["wx://form-field"],
   options: {
     addGlobalClass: true,
     multipleSlots: true,
