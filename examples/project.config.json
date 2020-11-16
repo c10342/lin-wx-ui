@@ -220,6 +220,13 @@
 					"id": -1,
 					"name": "Stepper 步进器",
 					"pathName": "pages/component/stepper/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Switch 开关",
+					"pathName": "pages/component/switch/index",
 					"scene": null
 				}
 			]

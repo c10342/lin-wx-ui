@@ -14,6 +14,7 @@ list:[
   {name:'Search 搜索',path:'/pages/component/search/index'},
   {name:'Slider 滑块',path:'/pages/component/slider/index'},
   {name:'Stepper 步进器',path:'/pages/component/stepper/index'},
+  {name:'Switch 开关',path:'/pages/component/switch/index'},
 ]
   },
 
