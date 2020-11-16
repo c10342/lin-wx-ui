@@ -1,5 +1,6 @@
 //Component Object
 Component({
+  behaviors: ["wx://form-field"],
   options: {
     addGlobalClass: true,
     multipleSlots: true,
