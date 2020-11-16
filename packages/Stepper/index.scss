@@ -1,3 +1,4 @@
+@import "../../src/style/var.scss";
 .lin-stepper {
   display: flex;
   flex-direction: row;
@@ -7,12 +8,9 @@
 .lin-stepper-button {
   position: relative;
   box-sizing: border-box;
-  // width: 56rpx;
-  // height: 56rpx;
   text-align: center;
-  // line-height: 56rpx;
-  color: #323233;
-  background-color: #f2f3f5;
+  color: $font-color-dark;
+  background-color: $background-color;
   cursor: pointer;
 }
 
@@ -26,14 +24,12 @@
 
 .lin-stepper-input {
   box-sizing: border-box;
-  // width: 64rpx;
-  // height: 56rpx;
   margin: 0 2px;
   padding: 0;
-  color: #323233;
+  color: $font-color-dark;
   font-size: 28rpx;
   text-align: center;
-  background-color: #f2f3f5;
+  background-color: $background-color;
 }
 
 .lin-stepper-disabled {
