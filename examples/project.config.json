@@ -227,6 +227,13 @@
 					"id": -1,
 					"name": "Switch 开关",
 					"pathName": "pages/component/switch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Picker 选择器",
+					"pathName": "pages/component/picker/index",
 					"scene": null
 				}
 			]

@@ -27,7 +27,8 @@
     "pages/component/search/index",
     "pages/component/slider/index",
     "pages/component/stepper/index",
-    "pages/component/switch/index"
+    "pages/component/switch/index",
+    "pages/component/picker/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -59,7 +60,8 @@
     "lin-search": "/dist/Search/index",
     "lin-slider": "/dist/Slider/index",
     "lin-stepper": "/dist/Stepper/index",
-    "lin-switch": "/dist/Switch/index"
+    "lin-switch": "/dist/Switch/index",
+    "lin-picker": "/dist/Picker/index"
   },
   "sitemapLocation": "sitemap.json"
 }
