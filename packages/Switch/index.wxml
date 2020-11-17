@@ -1,3 +1,5 @@
-<view style="background-color:{{checked?activeColor:inactiveColor}}" class='custom-class lin-switch' bind:tap="onClick">
-    <view class="lin-switch-node {{checked?'lin-switch-node-on':''}}"></view>
+<view style="background-color:{{checked?activeColor:inactiveColor}};{{size?'font-size:'+size:''}};" class="custom-class lin-switch {{disabled?'lin-switch-disabled':''}}" bind:tap="onClick">
+    <view class="node-class lin-switch-node {{checked?'lin-switch-node-on':''}}">
+        <lin-loading class="lin-switch-loading" wx:if="{{loading}}" />
+    </view>
 </view>

@@ -1,4 +1,4 @@
-
 {
-    "component": true
+  "component": true,
+  "lin-loading": "../Loading/index"
 }
