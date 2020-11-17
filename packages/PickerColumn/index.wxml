@@ -1,0 +1,5 @@
+<view class='custom-class lin-picker-column' bind:touchmove="onTouchMove" bind:touchstart="onTouchStart">
+    <view style="transform: translateY({{translateY}}px)" class="lin-picker-column-container">
+        <view class="lin-picker-column-item" wx:key="index" wx:for="{{optionsList}}">{{item}}</view>
+    </view>
+</view>

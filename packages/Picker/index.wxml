@@ -1,0 +1,6 @@
+<view class='custom-class lin-picker'>
+    <view>
+        <lin-picker-column optionsList='{{columns}}' />
+    </view>
+    <view class="lin-picker-frame"></view>
+</view>
