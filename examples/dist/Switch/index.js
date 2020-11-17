@@ -4,7 +4,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "node-class"],
   properties: {
     checked: {
       type: Boolean,
@@ -28,13 +28,20 @@ Component({
       type: null,
       value: false,
     },
+    disabled: Boolean,
+    loading: Boolean,
+    size: String,
   },
   data: {
     value: false,
   },
   methods: {
     onClick() {
-      this.triggerEvent("change", !this.properties.checked);
+      const { disabled, checked } = this.properties;
+      if (disabled) {
+        return;
+      }
+      this.triggerEvent("change", !checked);
     },
     updateValue() {
       const { checked, activeValue, inactiveValue } = this.properties;

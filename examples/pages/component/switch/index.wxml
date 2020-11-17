@@ -1,6 +1,31 @@
-
 <view class='container'>
 	<demo-block title='基础用法'>
 		<lin-switch data-key="value1" checked="{{ value1 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='禁用状态'>
+		<lin-switch disabled data-key="value2" checked="{{ value2 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='加载状态'>
+		<lin-switch loading data-key="value3" checked="{{ value3 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='自定义大小'>
+		<lin-switch size="24px" data-key="value4" checked="{{ value4 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='自定义颜色'>
+		<lin-switch active-color="#07c160" inactive-color="#ee0a24" data-key="value5" checked="{{ value5 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='异步控制'>
+		<lin-switch data-key="value6" checked="{{ value6 }}" bind:change="onChange1" />
+	</demo-block>
+
+		<demo-block title='搭配单元格使用'>
+		<lin-cell border='{{false}}' title='标题'>
+		<lin-switch size="20px" slot='value' data-key="value7" checked="{{ value7 }}" bind:change="onChange" />
+		</lin-cell>
 	</demo-block>
 </view>
