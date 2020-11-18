@@ -5,7 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-      columns1:['杭州', '宁波', '温州', '嘉兴', '湖州','福州', '厦门', '莆田', '三明', '泉州']
+      columns1:['杭州', '宁波', '温州', '嘉兴', '湖州'],
+    },
+
+    onChange(data){
+      wx.showToast({
+        title: `${data.detail.index} - ${data.detail.data}`,
+        icon:'none'
+      })
     },
   
     /**

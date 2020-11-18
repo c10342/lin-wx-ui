@@ -1,1 +1,1 @@
-.lin-picker-column{height:220px;overflow:hidden}.lin-picker-column-item{height:44px;line-height:44px}
+.lin-picker-column{overflow:hidden}.lin-picker-column-item{text-align:center;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}

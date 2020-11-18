@@ -1,6 +1,6 @@
 
 <view class='container'>
 	<demo-block title='基础用法'>
-		<lin-picker columns="{{ columns1 }}" bind:change="onChange" />
+		<lin-picker title='标题' columns="{{ columns1 }}" bind:change="onChange" showToolbar />
 	</demo-block>
 </view>
