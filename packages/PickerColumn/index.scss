@@ -1,9 +1,10 @@
+@import "../../src/style/mixins.scss";
+
 .lin-picker-column {
-  height: 220px;
   overflow: hidden;
 }
 
 .lin-picker-column-item {
-  height: 44px;
-  line-height: 44px;
+  text-align: center;
+  @include one-line();
 }

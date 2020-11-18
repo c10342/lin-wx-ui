@@ -1,6 +1,12 @@
+<import src="./toolbar.wxml" />
 <view class='custom-class lin-picker'>
-    <view>
-        <lin-picker-column optionsList='{{columns}}' />
+    <template is="toolbar" wx:if="{{toolbarPosition==='top'}}" data="{{title,confirmButtonText,cancelButtonText,showToolbar}}"></template>
+    <view class="lin-picker-column-container">
+        <view class="lin-picker-column-wrapper">
+            <lin-picker-column bind:change='onChange' topVisible='{{topVisible}}' valueKey='{{valueKey}}' visibleItemCount='{{visibleItemCount}}' itemHeight='{{itemHeight}}' optionsList='{{columns}}' />
+        </view>
+        <view class="lin-picker-mask" style="background-size: 100% {{itemHeight * topVisible + itemHeight / 2}}px;"></view>
+        <view class="lin-picker-frame" style="height:{{itemHeight}}px"></view>
     </view>
-    <view class="lin-picker-frame"></view>
+    <template is="toolbar" wx:if="{{toolbarPosition==='bottom'}}" data="{{title,confirmButtonText,cancelButtonText,showToolbar}}"></template>
 </view>
