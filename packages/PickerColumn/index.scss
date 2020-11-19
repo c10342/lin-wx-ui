@@ -8,3 +8,8 @@
   text-align: center;
   @include one-line();
 }
+
+.lin-picker-column-item-disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}

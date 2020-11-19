@@ -1,6 +1,26 @@
-
 <view class='container'>
 	<demo-block title='基础用法'>
-		<lin-picker title='标题' columns="{{ columns1 }}" bind:change="onChange" showToolbar />
+		<lin-picker columns="{{ columns1 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='默认选中项'>
+		<lin-picker default-index="{{ 2 }}" columns="{{ columns1 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='展示顶部栏'>
+		<lin-picker bind:cancel='onCancel' bind:confirm='onConfirm' show-toolbar title="标题" columns="{{ columns1 }}" bind:change="onChange" />
+	</demo-block>
+
+	<demo-block title='多列联动'>
+		<lin-picker columns="{{ columns2 }}" bind:change="onChange1" />
+	</demo-block>
+
+	<demo-block title='禁用选项'>
+		<lin-picker columns="{{ columns3 }}" />
+	</demo-block>
+
+
+	<demo-block title='加载状态'>
+		<lin-picker columns="{{ columns1 }}" loading />
 	</demo-block>
 </view>

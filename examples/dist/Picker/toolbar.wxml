@@ -1,5 +1,5 @@
 <template name="toolbar">
-    <view class="lin-picker-toolbar" wx:if="{{showToolbar}}">
+    <view class="toolbar-class lin-picker-toolbar" wx:if="{{showToolbar}}">
         <view bind:tap='onCancel' class="lin-picker-cancel">{{cancelButtonText}}</view>
         <view class="lin-picker-title" wx:if='{{title}}'>{{title}}</view>
         <view bind:tap='onConfirm' class="lin-picker-confirm">{{confirmButtonText}}</view>

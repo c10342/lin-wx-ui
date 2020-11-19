@@ -1,13 +1,16 @@
+import { isObj } from "../common/utils";
+
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "active-class"],
   properties: {
-    optionsList: {
+    initialOptions: {
       type: Array,
       value: [],
+      observer: "updateOptionsList",
     },
     itemHeight: {
       type: Number,
@@ -36,22 +39,34 @@ Component({
     translateY: 110,
     transitionStyle: "transition: all 300ms",
     currentIndex: 0,
+    optionsList: [],
   },
   methods: {
+    getValue() {
+      const { currentIndex, optionsList } = this.data;
+      return optionsList[currentIndex];
+    },
+    updateOptionsList() {
+      this.setData({
+        optionsList: this.properties.initialOptions,
+      });
+    },
     updateIndex() {
-      let { defaultIndex, optionsList } = this.properties;
-      defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
-      defaultIndex =
-        defaultIndex > optionsList.length - 1
-          ? optionsList.length - 1
-          : defaultIndex;
+      let { defaultIndex } = this.properties;
+
+      defaultIndex = this.adjustIndex(defaultIndex);
+      const index = this.findNotDisabled(defaultIndex);
+      if (index != null) {
+        defaultIndex = index;
+      }
       this.setData({
         currentIndex: defaultIndex,
       });
       this.setTransYByIndex(defaultIndex);
     },
     updateTranslateY() {
-      const { itemHeight, optionsList, topVisible } = this.properties;
+      const { itemHeight, topVisible } = this.properties;
+      const { optionsList } = this.data;
       const translateY = itemHeight * topVisible + itemHeight / 2;
       this.startTranslateY = translateY;
       this.endTranslateY = translateY - optionsList.length * itemHeight;
@@ -86,15 +101,22 @@ Component({
         transitionStyle: "transition: all 300ms",
       });
       const { translateY } = this.data;
-      const len = this.properties.optionsList.length;
+      const len = this.data.optionsList.length;
       let index = this.getIndex(translateY);
       index = index < 0 ? 0 : index;
       index = index > len - 1 ? len - 1 : index;
-      this.setTransYByIndex(index);
-      this.emitChange(index);
+      index = this.findNotDisabled(index);
+      if (index != null) {
+        this.setTransYByIndex(index);
+        this.emitChange(index);
+      }
     },
     onClick(event) {
       const index = event.currentTarget.dataset.index;
+      const { optionsList } = this.data;
+      if (optionsList[index] && optionsList[index].disabled) {
+        return;
+      }
       this.setTransYByIndex(index * 1);
       this.emitChange(index * 1);
     },
@@ -124,8 +146,7 @@ Component({
       this.setData({ translateY: this.startTranslateY - index * itemHeight });
     },
     emitChange(index) {
-      const { currentIndex } = this.data;
-      const { optionsList } = this.properties;
+      const { currentIndex, optionsList } = this.data;
       if (index !== currentIndex) {
         this.triggerEvent("change", {
           index,
@@ -136,6 +157,44 @@ Component({
         });
       }
     },
+    adjustIndex(index) {
+      const { optionsList } = this.data;
+      index = index < 0 ? 0 : index;
+      index = index > optionsList.length - 1 ? optionsList.length - 1 : index;
+      return index;
+    },
+    findNotDisabled(index) {
+      const { optionsList } = this.data;
+      for (let i = index; i < optionsList.length; i++) {
+        if (!this.isDisabled(optionsList[i])) return i;
+      }
+      for (let i = index - 1; i >= 0; i--) {
+        if (!this.isDisabled(optionsList[i])) return i;
+      }
+      return null;
+    },
+    isDisabled(option) {
+      return isObj(option) && option.disabled;
+    },
+    setIndex(index) {
+      this.setData({
+        currentIndex: index,
+      });
+      this.setTransYByIndex(index);
+    },
+    getOptionText(option) {
+      const { value } = this.properties;
+      return isObj(option) && value in option ? option[value] : option;
+    },
+    setValue(value) {
+      const { optionsList } = this.data;
+      for (let i = 0; i < optionsList.length; i++) {
+        if (this.getOptionText(optionsList[i]) === value) {
+          return this.setIndex(i);
+        }
+      }
+      return Promise.resolve();
+    },
   },
   created: function() {},
   attached: function() {},
@@ -145,6 +204,7 @@ Component({
     this.endTranslateY = 0;
     this.updateTranslateY();
     this.updateIndex();
+    this.updateOptionsList();
   },
   moved: function() {},
   detached: function() {},
