@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-field": "/dist/Field/index"
+    "lin-field": "../Field/index"
   }
 }
