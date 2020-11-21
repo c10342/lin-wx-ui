@@ -12,9 +12,9 @@
   </view>
   <view class='address-container'>
     <view class='dot' />
-    <view class='doc-container'>
+    <view class='doc-container' bindtap='copyLink' data-link="http://wxui.linjiafu.top">
       <text class='doc-txt'>Web端文档</text>
-      <text class='address'>正在建设</text>
+      <text class='address'>http://wxui.linjiafu.top</text>
     </view>
   </view>
   <view class='address-container'>
