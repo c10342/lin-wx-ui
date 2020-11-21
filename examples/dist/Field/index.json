@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-cell": "/dist/Cell/index",
-    "lin-icon": "/dist/Icon/index"
+    "lin-cell": "../Cell/index",
+    "lin-icon": "../Icon/index"
   }
 }
