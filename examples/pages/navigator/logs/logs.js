@@ -1,4 +1,23 @@
-export default [{
+export default [
+  {
+    time: '2020-11-22',
+    messageList: [
+      '新增 Uploader 文件上传组件'
+    ]
+  },
+  {
+    time: '2020-11-19',
+    messageList: [
+      '新增 Picker 选择器组件'
+    ]
+  },
+  {
+    time: '2020-11-17',
+    messageList: [
+      '新增 Switch 开关组件'
+    ]
+  },
+  {
     time: '2020-11-15',
     messageList: [
       '新增 Stepper 步进器组件'

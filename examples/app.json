@@ -28,7 +28,8 @@
     "pages/component/slider/index",
     "pages/component/stepper/index",
     "pages/component/switch/index",
-    "pages/component/picker/index"
+    "pages/component/picker/index",
+    "pages/component/uploader/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -61,7 +62,8 @@
     "lin-slider": "/dist/Slider/index",
     "lin-stepper": "/dist/Stepper/index",
     "lin-switch": "/dist/Switch/index",
-    "lin-picker": "/dist/Picker/index"
+    "lin-picker": "/dist/Picker/index",
+    "lin-uploader": "/dist/Uploader/index"
   },
   "sitemapLocation": "sitemap.json"
 }

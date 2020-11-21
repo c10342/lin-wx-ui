@@ -46,7 +46,7 @@ Component({
       let style = "";
       const { size, time, color } = this.properties;
       if (size) {
-        style += `width:${size};height:${size}`;
+        style += `width:${size};height:${size};`;
       }
       if (time) {
         style += `animation-duration:${time};`;

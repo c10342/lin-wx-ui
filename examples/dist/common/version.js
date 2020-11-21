@@ -36,3 +36,8 @@ export function canIUseFormFieldButton() {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, "2.10.3") >= 0;
 }
+
+export function canIUsePreviewMedia() {
+  const system = getSystemInfoSync();
+  return compareVersion(system.SDKVersion, "2.12.0") >= 0;
+}

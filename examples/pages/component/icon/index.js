@@ -34,6 +34,10 @@ Page({
       "star1",
       "like1",
       "like1-o",
+      "error",
+      "file",
+      "add",
+      "camera",
     ]
   },
 

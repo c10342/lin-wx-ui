@@ -1,4 +1,6 @@
 {
   "component": true,
-  "lin-loading": "../Loading/index"
+  "usingComponents": {
+    "lin-loading": "../Loading/index"
+  }
 }

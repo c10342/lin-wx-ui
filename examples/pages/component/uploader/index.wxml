@@ -1,0 +1,41 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-uploader data-key="fileList1" file-list="{{ fileList1 }}" bind:after-read="afterRead" bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='上传视频'>
+		<lin-uploader accept='video' data-key="fileList3" file-list="{{ fileList3 }}" bind:after-read="afterRead1"
+			bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='图片预览'>
+		<lin-uploader data-key="fileList2" file-list="{{ fileList2 }}" bind:after-read="afterRead" bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='上传状态'>
+		<lin-uploader data-key="fileList4" file-list="{{ fileList4 }}" bind:after-read="afterRead" bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='限制上传数量'>
+		<lin-uploader max-count="2" data-key="fileList5" file-list="{{ fileList5 }}" bind:after-read="afterRead"
+			bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='上传前校验'>
+		<lin-uploader data-key="fileList6" file-list="{{ fileList6 }}" bind:after-read="afterRead" accept="media"
+			use-before-read bind:before-read="beforeRead" bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='上传其他文件'>
+		<lin-uploader data-key="fileList7" file-list="{{ fileList7 }}" bind:after-read="afterRead" accept="all"
+		bind:delete='onDelete' />
+	</demo-block>
+
+	<demo-block title='自定义上传样式'>
+		<lin-uploader data-key="fileList8" file-list="{{ fileList8 }}" bind:after-read="afterRead"
+		bind:delete='onDelete'>
+		<lin-button icon="camera" type="success">上传图片</lin-button>
+		</lin-uploader>
+	</demo-block>
+
+</view>
