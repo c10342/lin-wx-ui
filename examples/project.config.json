@@ -241,6 +241,13 @@
           "id": -1,
           "name": "Uploader 文件上传",
           "pathName": "pages/component/uploader/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "ActionSheet 上拉菜单",
+          "pathName": "pages/component/action-sheet/index",
           "scene": null
         }
       ]
