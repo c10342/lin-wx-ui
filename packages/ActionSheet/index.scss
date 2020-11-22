@@ -1,0 +1,82 @@
+
+@import '../../src/style/mixins.scss';
+.lin-action-sheet{
+background-color: $gray-1;
+box-sizing: border-box;
+}
+
+
+.lin-action-sheet-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 28rpx 32rpx;
+    font-size: 32rpx;
+    background-color: $white;
+    line-height: 44rpx;
+    &::after{
+        border: none;
+    }
+}
+
+
+.lin-action-sheet-name{
+
+}
+
+.lin-action-sheet-subname{
+    margin-top: 16rpx;
+    color: $gray-6;
+    font-size: 24rpx;
+}
+
+.lin-action-sheet-cancelText{
+    color: $gray-7;
+    padding: 28rpx 32rpx;
+    font-size: 32rpx;
+    background-color: $white;
+    margin-top: 16rpx;
+    text-align: center;
+    line-height: 44rpx;
+}
+
+.lin-action-sheet-description{
+    position: relative;
+    flex-shrink: 0;
+    padding: 40rpx 32rpx;
+    color: $gray-6;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    text-align: center;
+    background-color: $white;
+}
+
+.lin-action-sheet-disabled{
+    color: $gray-5;
+}
+
+.lin-action-sheet-title{
+    font-weight: 500;
+    font-size: 32rpx;
+    line-height: 96rpx;
+    text-align: center;
+    position: relative;
+    background-color: $white;
+    border-bottom: 1px solid $gray-3;
+}
+
+.lin-action-sheet-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 16px;
+}
+
+.lin-action-sheet-button-hover{
+    background-color: $gray-2;
+}
+
+.lin-action-sheet-cancelText-hover{
+    background-color: $gray-2;
+}

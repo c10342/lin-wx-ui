@@ -1,0 +1,69 @@
+<lin-popup
+ show='{{show}}'
+ position='bottom'
+ closeOnClickMask="{{ closeOnClickMask }}"
+ bind:close='onClickMask'
+ round='{{round}}'
+ zIndex='{{zIndex}}'
+ mask='{{mask}}'
+>
+	<view class='custom-class lin-action-sheet'>
+		<view wx:if="{{title}}" class='title-class lin-action-sheet-title'>
+			{{title}}
+			<lin-icon
+			 wx:if="{{showCloseIcon}}"
+			 bind:tap='onClose'
+			 icon='close'
+			 class='lin-action-sheet-close'
+			/>
+		</view>
+		<view wx:if="{{description}}" class='description-class lin-action-sheet-description'>
+			{{description}}
+		</view>
+		<view wx:if="{{actions && actions.length}}" class='actions-wrapper-class'>
+			<button
+			 custom-class='button-class'
+			 style='{{item.color?"color:"+item.color:""}}'
+			 data-index='{{index}}'
+			 bindtap="onSelect"
+			 class='lin-action-sheet-button {{item.disabled?"lin-action-sheet-disabled":""}}'
+			 hover-class='lin-action-sheet-button-hover'
+			 wx:for="{{actions}}"
+			 wx:key="index"
+			 open-type='{{item.openType}}'
+			 bindgetuserinfo="bindGetUserInfo"
+			 bindcontact="bindContact"
+			 bindgetphonenumber="bindGetPhoneNumber"
+			 binderror="bindError"
+			 bindlaunchapp="bindLaunchApp"
+			 bindopensetting="bindOpenSetting"
+			 lang="{{ item.lang }}"
+			 session-from="{{ item.sessionFrom }}"
+			 send-message-title="{{ item.sendMessageTitle }}"
+			 send-message-path="{{ item.sendMessagePath }}"
+			 send-message-img="{{ item.sendMessageImg }}"
+			 show-message-card="{{ item.showMessageCard }}"
+			 app-parameter="{{ item.appParameter }}"
+			>
+				<block wx:if="{{ !item.loading }}">
+					<view class='lin-action-sheet-name'>
+						{{item.name}}
+					</view>
+					<view class='lin-action-sheet-subname' wx:if="{{item.subname}}">{{item.subname}}</view>
+				</block>
+				<lin-loading wx:else size='40rpx' />
+			</button>
+		</view>
+		<slot/>
+		<view
+		 hover-class='lin-action-sheet-cancelText-hover'
+		 wx:if="{{cancelText}}"
+		 class='cancelText-class lin-action-sheet-cancelText'
+		 bindtap='onCancel'
+		>
+			{{cancelText}}
+		</view>
+	</view>
+
+</lin-popup>
+
