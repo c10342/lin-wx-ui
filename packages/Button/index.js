@@ -1,6 +1,10 @@
 import { canIUseFormFieldButton } from "../common/version";
+import {button} from '../behaviors/button'
+import {openType} from '../behaviors/open-type'
 
 const behaviors = [];
+behaviors.push(button)
+behaviors.push(openType)
 // 使用内置 behaviors
 // 对于 form 组件，目前可以自动识别下列内置 behaviors:
 // wx://form-field
@@ -86,17 +90,17 @@ Component({
       },
     },
 
-    id: String,
-    lang: String,
-    businessId: Number,
-    sessionFrom: String,
-    sendMessageTitle: String,
-    sendMessagePath: String,
-    sendMessageImg: String,
-    showMessageCard: Boolean,
-    appParameter: String,
-    ariaLabel: String,
-    openType: String,
+    // id: String,
+    // lang: String,
+    // businessId: Number,
+    // sessionFrom: String,
+    // sendMessageTitle: String,
+    // sendMessagePath: String,
+    // sendMessageImg: String,
+    // showMessageCard: Boolean,
+    // appParameter: String,
+    // ariaLabel: String,
+    // openType: String,
   },
 
   /**
@@ -115,28 +119,28 @@ Component({
         this.triggerEvent("click");
       }
     },
-    bindGetUserInfo(event) {
-      this.triggerEvent("getuserinfo", event.detail);
-    },
+    // bindGetUserInfo(event) {
+    //   this.triggerEvent("getuserinfo", event.detail);
+    // },
 
-    bindContact(event) {
-      this.triggerEvent("contact", event.detail);
-    },
+    // bindContact(event) {
+    //   this.triggerEvent("contact", event.detail);
+    // },
 
-    bindGetPhoneNumber(event) {
-      this.triggerEvent("getphonenumber", event.detail);
-    },
+    // bindGetPhoneNumber(event) {
+    //   this.triggerEvent("getphonenumber", event.detail);
+    // },
 
-    bindError(event) {
-      this.triggerEvent("error", event.detail);
-    },
+    // bindError(event) {
+    //   this.triggerEvent("error", event.detail);
+    // },
 
-    bindLaunchApp(event) {
-      this.triggerEvent("launchapp", event.detail);
-    },
+    // bindLaunchApp(event) {
+    //   this.triggerEvent("launchapp", event.detail);
+    // },
 
-    bindOpenSetting(event) {
-      this.triggerEvent("opensetting", event.detail);
-    },
+    // bindOpenSetting(event) {
+    //   this.triggerEvent("opensetting", event.detail);
+    // },
   },
 });
