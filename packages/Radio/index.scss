@@ -5,7 +5,7 @@
   flex-direction: row;
   align-items: center;
   padding: 10rpx;
-  color: $font-color-dark;
+  color: $gray-8;
 }
 
 .lin-radio-icon {
@@ -24,8 +24,8 @@
 
 .lin-radio-disabled {
   cursor: not-allowed;
-  color: $disabled-font-color;
+  color: $gray-5;
   .lin-radio-icon-wrapper {
-    color: $disabled-font-color;
+    color: $gray-5;
   }
 }

@@ -4,7 +4,7 @@
   text-align: left;
   flex: 1;
   margin-right: 10rpx;
-  color: $font-color-dark;
+  color: $gray-8;
   width: 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .lin-field-disabled {
-  color: $disabled-font-color;
+  color: $gray-5;
 }
 
 .lin-field-errorMessage {

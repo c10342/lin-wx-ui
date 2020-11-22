@@ -5,12 +5,12 @@
   box-sizing: border-box;
   text-align: center;
   border-radius: 2px;
-  border: 1px solid $border-color;
+  border: 1px solid $gray-4;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 
-  background-color: #ffffff;
-  color: $font-color;
+  background-color: $white;
+  color: $gray-7;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -58,7 +58,7 @@
 
 @each $key, $val in $theme-color {
   .lin-button-#{$key} {
-    color: #ffffff;
+    color: $white;
     background-color: $val;
     border-color: $val;
     &.lin-button-hover {
@@ -68,24 +68,24 @@
   }
 }
 
-@mixin button-plain($background, $border-color, $color) {
+@mixin button-plain($background, $gray-4, $color) {
   color: $color;
   background: $background;
-  border-color: $border-color;
+  border-color: $gray-4;
 }
 
 // 朴素的按钮
 
 .lin-button.lin-button-plain {
   &.lin-button-hover {
-    @include button-plain(#ffffff, $primary, $primary);
+    @include button-plain($white, $primary, $primary);
   }
 }
 @each $key, $val in $theme-color {
   .lin-button-#{$key}.lin-button-plain {
     @include button-plain(lighten($val, 30%), lighten($val, 10%), $val);
     &.lin-button-hover {
-      @include button-plain($val, $val, #ffffff);
+      @include button-plain($val, $val, $white);
     }
   }
 }
@@ -100,11 +100,11 @@
 
 .lin-button-disabled {
   &.lin-button-default {
-    background-color: #f5f7fa;
+    background-color: $gray-2;
     &.lin-button-hover {
-      background-color: darken(#f5f7fa, 5%);
-      color: $font-color;
-      border-color: $border-color;
+      background-color: darken($gray-2, 5%);
+      color: $gray-7;
+      border-color: $gray-4;
     }
   }
 }

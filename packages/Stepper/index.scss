@@ -9,8 +9,8 @@
   position: relative;
   box-sizing: border-box;
   text-align: center;
-  color: $font-color-dark;
-  background-color: $background-color;
+  color: $gray-8;
+  background-color: $gray-2;
   // cursor: pointer;
 }
 
@@ -26,14 +26,14 @@
   box-sizing: border-box;
   margin: 0 2px;
   padding: 0;
-  color: $font-color-dark;
+  color: $gray-8;
   font-size: 28rpx;
   text-align: center;
-  background-color: $background-color;
+  background-color: $gray-2;
 }
 
 .lin-stepper-disabled {
-  color: #c8c9cc;
-  background-color: #f7f8fa;
+  color: $gray-5;
+  background-color: $gray-1;
   cursor: not-allowed;
 }

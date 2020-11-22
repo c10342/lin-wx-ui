@@ -1,4 +1,5 @@
 @import "../../src/style/mixins.scss";
+@import '../../src/style/var.scss';
 
 .lin-picker {
   position: relative;
@@ -16,8 +17,8 @@
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-  border-top: 1px solid #ebedf0;
-  border-bottom: 1px solid #ebedf0;
+  border-top: 1px solid $gray-3;
+  border-bottom: 1px solid $gray-3;
 }
 
 .lin-picker-mask {
@@ -45,7 +46,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: $white;
 }
 
 .lin-picker-cancel {
@@ -53,7 +54,7 @@
   padding: 0 16px;
   font-size: 14px;
   cursor: grab;
-  color: #969799;
+  color: $gray-6;
   line-height: 44px;
 }
 
@@ -71,7 +72,7 @@
   padding: 0 16px;
   font-size: 14px;
   cursor: grab;
-  color: #576b95;
+  color: $gray-7;
   line-height: 44px;
 }
 
@@ -89,7 +90,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba($white, 0.9);
   z-index: 3;
 
   display: flex;

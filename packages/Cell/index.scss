@@ -2,7 +2,7 @@
 @import "../../src/style/mixins.scss";
 
 .lin-cell {
-  background-color: #ffffff;
+  background-color: $white;
   padding: 22rpx 32rpx;
   box-sizing: border-box;
   position: relative;
@@ -14,7 +14,7 @@
     right: 32rpx;
     bottom: 0px;
     left: 32rpx;
-    border-bottom: 0px solid $disabled-border-color;
+    border-bottom: 0px solid $gray-3;
   }
   &.lin-cell-large {
     padding-top: 26rpx;
@@ -43,7 +43,7 @@
 }
 
 .lin-cell-title {
-  color: $font-color-dark;
+  color: $gray-8;
   text-align: left;
   margin-right: 10rpx;
   width: 0;
@@ -54,7 +54,7 @@
 }
 
 .lin-cell-value {
-  color:$font-color;
+  color:$gray-7;
   text-align: right;
   margin-left: 10rpx;
   flex: 1;
@@ -65,7 +65,7 @@
 }
 
 .lin-cell-content {
-  color:$font-color;
+  color:$gray-7;
   font-size: $font-size-base;
   margin-top: 10rpx;
 }

@@ -2,8 +2,8 @@
 
 .lin-calendar {
   padding: 0 40rpx 40rpx;
-  color: $font-color-dark;
-  background-color: #ffffff;
+  color: $gray-8;
+  background-color: $white;
 }
 
 .lin-calendar-button-group {
@@ -67,18 +67,18 @@
 }
 
 .lin-calendar-not-current-month {
-  color: $disabled-font-color;
+  color: $gray-5;
 }
 
 .lin-calendar-disabled {
   cursor: not-allowed;
-  background-color: $disabled-background-color;
-  border-color: $disabled-background-color;
-  color: $disabled-font-color;
+  background-color: $gray-1;
+  border-color: $gray-1;
+  color: $gray-5;
 }
 
 .lin-calendar-selected {
   background-color: $primary;
-  color: #fff;
+  color: $white;
   border-radius: 8rpx;
 }

@@ -25,7 +25,7 @@
     right:0;
     width:28rpx;
     height:28rpx;
-    background-color:rgba(0,0,0,.7);
+    background-color:rgba($black,.7);
     border-radius:0 0 0 24rpx;
 }
 
@@ -53,7 +53,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color:#fff;
+    color:$white;
     background-color:rgba(50,50,51,.88)
 }
 
@@ -62,7 +62,7 @@
     padding:0 8rpx;
     font-size:24rpx;
     line-height:28rpx;
-    color:#fff;
+    color:$white;
 }
 
 .lin-uploader-file{
@@ -70,7 +70,7 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    background-color:$disabled-background-color;
+    background-color:$gray-1;
 }
 
 .lin-uploader-file-name{
@@ -78,7 +78,7 @@
     width:100%;
     margin-top:16rpx;
     padding:0 8rpx;
-    color:$font-color;
+    color:$gray-7;
     font-size:24rpx;
     text-align:center;
     @include one-line();
@@ -91,7 +91,7 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    background-color:$disabled-background-color;
+    background-color:$gray-1;
     box-sizing:border-box;
     width:80px;height:80px;
     margin:0 8px 8px 0;
@@ -99,7 +99,7 @@
 
 .lin-uploader-uploadText{
     margin-top:8px;
-    color:#969799;
+    color:$gray-6;
     font-size:24rpx
 }
 

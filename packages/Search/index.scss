@@ -2,7 +2,7 @@
 .lin-search {
   box-sizing: border-box;
   padding: 10px 12px;
-  background-color: #fff;
+  background-color: $white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,7 +13,7 @@
 
 .lin-search-wrapper {
   padding-left: 12px;
-  background-color: $background-color;
+  background-color: $gray-2;
   border-radius: 2px;
   flex: 1;
   display: flex;
@@ -27,13 +27,13 @@
 
 .lin-search-label {
   margin-right: 20rpx;
-  color: $font-color-dark;
+  color: $gray-8;
   font-size: $font-size-small;
 }
 
 .lin-search-action {
   padding: 16rpx 16rpx;
-  color: $font-color-dark;
+  color: $gray-8;
   font-size: $font-size-small;
   // cursor: pointer;
   -webkit-user-select: none;
@@ -49,5 +49,5 @@
 }
 
 .lin-search-action-hover {
-  background-color: $background-color;
+  background-color: $gray-2;
 }
