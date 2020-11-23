@@ -30,7 +30,8 @@
     "pages/component/switch/index",
     "pages/component/picker/index",
     "pages/component/uploader/index",
-    "pages/component/action-sheet/index"
+    "pages/component/action-sheet/index",
+    "pages/component/dialog/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -65,7 +66,8 @@
     "lin-switch": "/dist/Switch/index",
     "lin-picker": "/dist/Picker/index",
     "lin-uploader": "/dist/Uploader/index",
-    "lin-action-sheet": "/dist/ActionSheet/index"
+    "lin-action-sheet": "/dist/ActionSheet/index",
+    "lin-dialog": "/dist/Dialog/index"
   },
   "sitemapLocation": "sitemap.json"
 }

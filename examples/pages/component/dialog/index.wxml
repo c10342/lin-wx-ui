@@ -1,0 +1,8 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		
+	</demo-block>
+</view>
+
+<lin-dialog show='{{true}}' title='标题' message='内容' />

@@ -8,6 +8,7 @@ Page({
 list:[
   {name:'Mask 遮罩层',path:'/pages/component/mask/index'},
   {name:'ActionSheet 上拉菜单',path:'/pages/component/action-sheet/index'},
+  {name:'Dialog 弹出框',path:'/pages/component/dialog/index'},
 ]
   },
 

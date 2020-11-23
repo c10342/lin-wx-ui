@@ -1,0 +1,19 @@
+<lin-popup closeOnClickMask='{{closeOnClickMask}}' show='{{show}}' z-index='{{zIndex}}' mask='{{mask}}' maskStyle='{{maskStyle}}' custom-class='lin-dialog lin-dialog-{{theme}} className' customStyle='width:{{width}};{{customStyle}}'>
+    <view class="lin-dialog-header" wx:if="{{title || useTitleSlot}}">
+        <slot wx:if="{{useTitleSlot}}" name="title"></slot>
+        <block wx:elif="{{title}}">{{title}}</block>
+    </view>
+    <view class="lin-dialog-content">
+        <view class="lin-dialog-message {{title?'lin-dialog-message-hastitle':''}} lin-dialog-{{messageAlign}}">
+            {{message}}
+        </view>
+    </view>
+    <view class="lin-dialog-footer">
+        <button class="lin-dialog-button lin-dialog-cancel" wx:if="{{showCancelButton}}" style="color:{{cancelButtonColor}}">
+            {{cancelButtonText}}
+        </button>
+        <button wx:if="{{showConfirmButton}}" open-type="{{confirmButtonOpenType}}" class="lin-dialog-button lin-dialog-confirm" style="color:{{confirmButtonColor}}">
+            {{confirmButtonText}}
+        </button>
+    </view>
+</lin-popup>
