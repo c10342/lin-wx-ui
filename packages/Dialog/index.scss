@@ -1,8 +1,9 @@
+@import "../../src/style/var.scss";
+
 .lin-dialog {
-  //   width: 90%;
   overflow: hidden;
-  font-size: 32rpx;
-  background-color: #fff;
+  font-size: $font-size-normal;
+  background-color: $white;
   border-radius: 32rpx;
 }
 
@@ -13,16 +14,12 @@
   text-align: center;
 }
 
-.lin-dialog-content {
-}
-
 .lin-dialog-message {
   max-height: 60vh;
   padding: 52rpx 48rpx;
   overflow-y: auto;
-  font-size: 28rpx;
+  font-size: $font-size-small;
   line-height: 40rpx;
-  //   white-space: pre-wrap;
 }
 
 .lin-dialog-center {
@@ -39,27 +36,50 @@
 
 .lin-dialog-message-hastitle {
   padding-top: 8px;
-  color: #646566;
+  color: $gray-7;
 }
 
 .lin-dialog-footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  //   border-top: 1px solid #000;
-}
-
-.lin-dialog-confirm {
-  //   color: #ee0a24;
 }
 
 .lin-dialog-button {
   flex: 1;
-  font-size: 32rpx;
-  background-color: #fff;
+  font-size: $font-size-normal;
+  background-color: $white;
   height: 96rpx;
-  border-top: 1px solid #ebedf0;
+  border-top: 1px solid $gray-3;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   &::after {
     border: none;
   }
+}
+
+.lin-dialog-loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.lin-dialog-button-border {
+  border-left: 1px solid $gray-3;
+}
+
+.lin-dialog-round-button {
+  .lin-dialog-footer {
+    padding: 16rpx 48rpx 32rpx;
+  }
+}
+
+.lin-dialog-button-round-button {
+  border-radius: 9999px;
+  border: 1px solid $gray-3;
 }
