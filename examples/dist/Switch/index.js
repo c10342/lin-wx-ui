@@ -1,3 +1,4 @@
+import {BLUE,WHITE} from '../common/color'
 Component({
   behaviors: ["wx://form-field"],
   options: {
@@ -14,11 +15,11 @@ Component({
     name: String,
     activeColor: {
       type: String,
-      value: "#1989fa",
+      value: BLUE,
     },
     inactiveColor: {
       type: String,
-      value: "#fff",
+      value: WHITE,
     },
     activeValue: {
       type: null,
