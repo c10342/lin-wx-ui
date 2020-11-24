@@ -41,6 +41,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    transition:{
+      type:String,
+      observer: "observeClass",
+    }
   },
   data: {},
   methods: {
@@ -51,8 +55,8 @@ Component({
       }
     },
     observeClass() {
-      const { position } = this.properties;
-      this.setData({ name: position });
+      const { position,transition } = this.properties;
+      this.setData({ name: transition || position });
     },
     onCloseClick() {
       this.triggerEvent("close");
