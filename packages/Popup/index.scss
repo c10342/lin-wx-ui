@@ -119,3 +119,27 @@ $round: 40rpx !default;
     left: 20rpx;
   }
 }
+
+
+.lin-scale-enter-active,
+.lin-scale-leave-active {
+  transition-property: opacity, transform;
+}
+
+.lin-scale-enter,
+.lin-scale-leave-to {
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+  opacity: 0;
+}
+
+
+.lin-fade-enter-active,
+.lin-fade-leave-active {
+  transition-property: opacity;
+}
+
+.lin-fade-enter,
+.lin-fade-leave-to {
+  opacity: 0;
+}
+
