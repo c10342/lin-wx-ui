@@ -1,4 +1,4 @@
-//Component Object
+import {WHITE} from '../common/color'
 Component({
   behaviors: ["wx://form-field"],
   options: {
@@ -40,7 +40,7 @@ Component({
     },
     background: {
       type: String,
-      value: "#fff",
+      value: WHITE,
     },
     shape: {
       type: String,

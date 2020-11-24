@@ -1,4 +1,4 @@
-//Component Object
+import {BLUE} from '../common/color'
 Component({
   options: {
     addGlobalClass: true,
@@ -30,7 +30,7 @@ Component({
     },
     activeColor: {
       type: String,
-      value: "#1989fa",
+      value: BLUE,
     },
     inactiveColor: {
       type: String,

@@ -1,4 +1,4 @@
-//Component Object
+import {RED} from '../common/color'
 Component({
   behaviors: ["wx://form-field"],
   externalClasses: ["custom-class", "icon-class","void-icon-class"],
@@ -12,7 +12,7 @@ Component({
     },
     color: {
       type: String,
-      value: "#ee0a24",
+      value: RED,
     },
     voidColor: {
       type: String,
