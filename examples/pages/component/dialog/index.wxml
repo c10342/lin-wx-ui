@@ -1,8 +1,41 @@
-
 <view class='container'>
 	<demo-block title='基础用法'>
-		
+		<lin-cell-group>
+			<lin-cell title="提示弹框" is-link bind:click='onClick1' />
+			<lin-cell title="提示弹窗（无标题）" is-link bind:click='onClick2' />
+			<lin-cell title="确认弹窗" is-link bind:click='onClick3' border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='圆角按钮样式'>
+		<lin-cell-group>
+			<lin-cell title="提示弹框" is-link bind:click='onClick4' />
+			<lin-cell title="提示弹窗（无标题）" is-link bind:click='onClick5' border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+		<demo-block title='异步关闭'>
+		<lin-cell-group>
+			<lin-cell title="异步关闭" is-link bind:click='onClick6' border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+			<demo-block title='组件调用'>
+		<lin-cell-group>
+			<lin-cell title="组件调用" is-link bind:click='onClick7' border="{{ false }}" />
+		</lin-cell-group>
 	</demo-block>
 </view>
 
-<lin-dialog show='{{true}}' title='标题' message='内容' />
+<lin-dialog
+  use-slot
+  title="标题"
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="share"
+  bind:close="onClose"
+>
+  <image class="dialog-image" src="/images/cat.png" />
+</lin-dialog>
+
+<lin-dialog id='lin-dialog' />
