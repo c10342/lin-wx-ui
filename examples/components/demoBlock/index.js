@@ -1,5 +1,9 @@
 // components/demoBlock/index.js
 Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
   /**
    * 组件的属性列表
    */

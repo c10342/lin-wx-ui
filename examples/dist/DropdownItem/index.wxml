@@ -1,0 +1,8 @@
+<view class="lin-dropdown-item-wrapper" style="{{wrapperStyle}}">
+    <lin-popup show='{{true}}' custom-style="position: absolute;{{ popupStyle }}" mask-style="position: absolute;" position='top'>
+        <view class="lin-dropdown-item" wx:for="{{options}}" wx:key="index">
+            <view>{{item.text}}</view>
+            <lin-icon icon='close' />
+        </view>
+    </lin-popup>
+</view>

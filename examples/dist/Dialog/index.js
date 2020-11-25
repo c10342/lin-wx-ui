@@ -7,7 +7,14 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: [
+    "custom-class",
+    "header-class",
+    "content-class",
+    "footer-class",
+    "cancel-class",
+    "confirm-class",
+  ],
   behaviors: [button, openType],
   properties: {
     show: {

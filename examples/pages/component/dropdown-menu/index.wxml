@@ -1,0 +1,8 @@
+<view class='dropdown-container'>
+	<demo-block title='基础用法'>
+		<lin-dropdown-menu>
+			<lin-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+			<lin-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+		</lin-dropdown-menu>
+	</demo-block>
+</view>

@@ -255,6 +255,13 @@
 					"id": -1,
 					"name": "Dialog 弹出框",
 					"pathName": "pages/component/dialog/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "DropdownMenu 下拉菜单",
+					"pathName": "pages/component/dropdown-menu/index",
 					"scene": null
 				}
 			]
