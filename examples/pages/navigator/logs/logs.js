@@ -1,5 +1,11 @@
 export default [
   {
+  time: '2020-11-26',
+  messageList: [
+    '新增 ActionSheet 上拉菜单组件'
+  ]
+},
+  {
     time: '2020-11-22',
     messageList: [
       '新增 Uploader 文件上传组件'
