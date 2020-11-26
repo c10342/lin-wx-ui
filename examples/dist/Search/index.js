@@ -1,4 +1,4 @@
-import {WHITE} from '../common/color'
+// import {WHITE} from '../common/color'
 Component({
   behaviors: ["wx://form-field"],
   options: {
@@ -38,10 +38,7 @@ Component({
       type: String,
       value: "取消",
     },
-    background: {
-      type: String,
-      value: WHITE,
-    },
+    background: String,
     shape: {
       type: String,
       value: "square",

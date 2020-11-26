@@ -1,4 +1,4 @@
-import { RED, GRAY } from "../common/color";
+// import { RED, GRAY } from "../common/color";
 import { button } from "../behaviors/button";
 import { openType } from "../behaviors/open-type";
 
@@ -60,14 +60,8 @@ Component({
       type: String,
       value: "取消",
     },
-    confirmButtonColor: {
-      type: String,
-      value: RED,
-    },
-    cancelButtonColor: {
-      type: String,
-      value: GRAY,
-    },
+    confirmButtonColor: String,
+    cancelButtonColor: String,
     showConfirmButton: {
       type: Boolean,
       value: true,
