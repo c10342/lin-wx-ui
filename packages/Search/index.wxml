@@ -1,4 +1,4 @@
-<view class="custom-class lin-search" style="background: {{ background }}">
+<view class="custom-class lin-search" style="{{background?'background:'+background:''}}">
     <view class="lin-search-wrapper lin-search-{{shape}}">
         <view wx:if="{{label}}" class="lin-search-label">{{label}}</view>
         <slot wx:else name="label" />

@@ -1,4 +1,4 @@
-import {BLUE} from '../common/color'
+// import { BLUE } from "../common/color";
 Component({
   options: {
     addGlobalClass: true,
@@ -28,14 +28,8 @@ Component({
       type: String,
       value: "2px",
     },
-    activeColor: {
-      type: String,
-      value: BLUE,
-    },
-    inactiveColor: {
-      type: String,
-      value: "#e5e5e5",
-    },
+    activeColor: String,
+    inactiveColor: String,
     useButtonSlot: Boolean,
   },
   data: {
