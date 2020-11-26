@@ -4,6 +4,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: hidden;
 }
 
 .lin-dropdown-item {
@@ -34,4 +35,12 @@
       border-bottom: 1px solid #ebedf0;
     }
   }
+}
+
+.lin-dropdown-item-active {
+  color: #ee0a24;
+}
+
+.lin-dropdown-item-icon {
+  height: 48rpx;
 }
