@@ -1,6 +1,6 @@
-<view class="lin-dropdown-item-wrapper" style="{{wrapperStyle}}" wx:if="{{showWrapper}}">
+<view class="custom-class lin-dropdown-item-wrapper" style="{{wrapperStyle}}" wx:if="{{showWrapper}}">
     <lin-popup duration='{{transition?duration:0}}' show='{{showPopup}}' custom-style="position: absolute;{{ popupStyle }}" mask-style="position: absolute;" position='{{direction==="down"?"top":"bottom"}}' closeOnClickMask='{{closeOnClickMask}}' mask='{{mask}}' bind:enter='onOpen' bind:leave='onClose' bind:close='onMaskClose' bind:after-enter='onOpened' bind:after-leave='onClosed'>
-        <view bind:tap="onOptionTap" data-option='{{item}}' class="lin-dropdown-item {{value==item.value?'lin-dropdown-item-active':''}}" wx:for="{{options}}" wx:key="index" style="{{(value==item.value&&activeColor)?'color:'+activeColor:''}}">
+        <view bind:tap="onOptionTap" data-option='{{item}}' class="item-class lin-dropdown-item {{value==item.value?'lin-dropdown-item-active':''}}" wx:for="{{options}}" wx:key="index" style="{{(value==item.value&&activeColor)?'color:'+activeColor:''}}">
             <view>
                 <lin-icon wx:if="{{item.icon}}" icon='{{item.icon}}' />
                 {{item.text}}
