@@ -38,6 +38,13 @@ Page({
       "file",
       "add",
       "camera",
+      "qrcode",
+      "link",
+      "wechat",
+      "qq",
+      "weibo",
+      "gou",
+      "pic",
     ]
   },
 

@@ -68,6 +68,7 @@ export const transition = (showDefaultValue) => {
           .then(() => {
             this.checkStatus("enter");
             this.transitionEnded = false;
+            setTimeout(() => this.onTransitionEnd(), currentDuration);
             this.setData({
               classes: classNames["enter-to"],
             });

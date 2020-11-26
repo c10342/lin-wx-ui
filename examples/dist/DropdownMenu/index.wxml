@@ -1,10 +1,9 @@
 <wxs src="./index.wxs" module="computed"></wxs>
 <view class='custom-class lin-dropdown-menu'>
     <view class='lin-dropdown-menu-bar-wrapper'>
-        <view class="lin-dropdown-menu-bar-item" wx:for="{{itemListData}}" wx:key="index" data-index='{{index}}'>
-            <view class="lin-dropdown-menu-title {{index==0?'lin-dropdown-menu-title-active':''}}">
+        <view class="lin-dropdown-menu-bar-item {{item.disabled?'lin-dropdown-menu-bar-disabled':''}}" bind:tap="onTitleTap" wx:for="{{itemListData}}" wx:key="index" data-index='{{index}}'>
+            <view class="lin-dropdown-menu-title {{item.showPopup?'lin-dropdown-menu-title-active':''}}" style="{{(item.showPopup&&activeColor)?'color:'+activeColor:''}}">
                 {{computed.displayTitle(item)}}
-                <!-- <view class="lin-dropdown-menu-text">{{computed.displayTitle(item)}}</view> -->
             </view>
         </view>
     </view>

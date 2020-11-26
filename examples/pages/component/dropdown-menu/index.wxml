@@ -1,8 +1,49 @@
 <view class='dropdown-container'>
 	<demo-block title='基础用法'>
-		<lin-dropdown-menu>
-			<lin-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
-			<lin-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+		<lin-dropdown-menu zIndex='20'>
+			<lin-dropdown-item bind:change='onChange' data-key='value1' value="{{ value1 }}" options="{{ option1 }}" />
+			<lin-dropdown-item bind:change='onChange' data-key='value2' value="{{ value2 }}" options="{{ option2 }}" />
 		</lin-dropdown-menu>
 	</demo-block>
+
+	<demo-block title='自定义菜单内容'>
+		<lin-dropdown-menu zIndex='20'>
+			<lin-dropdown-item bind:change='onChange' data-key='value3' value="{{ value3 }}" options="{{ option3 }}" />
+			<lin-dropdown-item id="item" title="{{ itemTitle }}">
+				<lin-cell title="{{ switchTitle1 }}">
+					<lin-switch slot="right-icon" size="24px" style="height: 26px" checked="{{ switch1 }}" data-key="switch1" active-color="#ee0a24" bind:change="onSwitchChange" />
+				</lin-cell>
+				<lin-cell title="{{ switchTitle2 }}">
+					<lin-switch data-key="switch2" slot="right-icon" size="24px" style="height: 26px" checked="{{ switch2 }}" active-color="#ee0a24" bind:change="onSwitchChange" />
+				</lin-cell>
+				<view style="padding: 5px 16px;">
+					<lin-button type="danger" block round bind:click="onConfirm">
+						确认
+					</lin-button>
+				</view>
+			</lin-dropdown-item>
+		</lin-dropdown-menu>
+	</demo-block>
+
+	<demo-block title='自定义选中状态颜色'>
+		<lin-dropdown-menu active-color="#1989fa" zIndex='20'>
+			<lin-dropdown-item bind:change='onChange' data-key='value4' value="{{ value4 }}" options="{{ option1 }}" />
+			<lin-dropdown-item bind:change='onChange' data-key='value5' value="{{ value5 }}" options="{{ option2 }}" />
+		</lin-dropdown-menu>
+	</demo-block>
+
+	<demo-block title='向上展开'>
+		<lin-dropdown-menu direction='up' zIndex='20'>
+			<lin-dropdown-item bind:change='onChange' data-key='value6' value="{{ value6 }}" options="{{ option1 }}" />
+			<lin-dropdown-item bind:change='onChange' data-key='value7' value="{{ value7 }}" options="{{ option2 }}" />
+		</lin-dropdown-menu>
+	</demo-block>
+
+		<demo-block title='禁用菜单'>
+		<lin-dropdown-menu zIndex='20'>
+			<lin-dropdown-item bind:change='onChange' data-key='value8' disabled value="{{ value8 }}" options="{{ option1 }}" />
+			<lin-dropdown-item bind:change='onChange' data-key='value9' disabled value="{{ value9 }}" options="{{ option2 }}" />
+		</lin-dropdown-menu>
+	</demo-block>
+
 </view>

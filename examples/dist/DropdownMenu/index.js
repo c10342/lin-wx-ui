@@ -1,4 +1,5 @@
-import { RED } from "../common/color";
+import { getSystemInfoSync } from "../common/utils";
+import defaulrProps from "./props";
 
 let ARRAY = [];
 
@@ -25,7 +26,8 @@ Component({
   properties: {
     activeColor: {
       type: String,
-      value: RED,
+      value: defaulrProps.activeColor,
+      observer: "updateChildrenData",
     },
     zIndex: {
       type: Number,
@@ -33,20 +35,24 @@ Component({
     },
     duration: {
       type: Number,
-      value: 200,
+      value: defaulrProps.duration,
+      observer: "updateChildrenData",
     },
     direction: {
       type: String,
-      value: "down",
+      value: defaulrProps.direction,
       options: ["down", "up"],
+      observer: "updateChildrenData",
     },
     mask: {
       type: Boolean,
-      value: true,
+      value: defaulrProps.mask,
+      observer: "updateChildrenData",
     },
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: defaulrProps.closeOnClickMask,
+      observer: "updateChildrenData",
     },
     closeOnClickOutside: {
       type: Boolean,
@@ -57,9 +63,45 @@ Component({
     itemListData: [],
   },
   methods: {
+    onTitleTap(event) {
+      const index = event.currentTarget.dataset.index;
+      const child = this.children[index];
+      if (!child.properties.disabled) {
+        ARRAY.forEach((menuItem) => {
+          if (
+            menuItem &&
+            menuItem.properties.closeOnClickOutside &&
+            menuItem !== this
+          ) {
+            menuItem.close();
+          }
+        });
+        this.toggleItem(index);
+      }
+    },
+    close() {
+      (this.children || []).forEach((child) => {
+        child.hide(true);
+      });
+    },
+    toggleItem(activeIndex) {
+      (this.children || []).forEach((child, index) => {
+        const { showPopup } = child.data;
+        if (index == activeIndex) {
+          child.toggle();
+        } else if (showPopup) {
+          child.hide(true);
+        }
+      });
+    },
     updateItemListData() {
       this.setData({
         itemListData: this.children.map((child) => child.data),
+      });
+    },
+    updateChildrenData() {
+      (this.children || []).forEach((child) => {
+        child.updateDataFromParent();
       });
     },
     getChildWrapperStyle() {
@@ -72,6 +114,8 @@ Component({
           let wrapperStyle = `z-index:${zIndex};`;
           if (direction === "down") {
             wrapperStyle += `top:${bottom}px;`;
+          } else {
+            wrapperStyle += `bottom:${this.windowHeight - top}px`;
           }
 
           resolve(wrapperStyle);
@@ -82,6 +126,8 @@ Component({
   created: function() {},
   attached: function() {},
   ready: function() {
+    const { windowHeight } = getSystemInfoSync();
+    this.windowHeight = windowHeight;
     ARRAY.push(this);
   },
   moved: function() {},
