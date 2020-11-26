@@ -22,7 +22,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "wrapper-class", "item-class"],
   properties: {
     activeColor: {
       type: String,

@@ -1,4 +1,3 @@
-import { RED } from "../common/color";
 import defaultProps from "../DropdownMenu/props";
 Component({
   relations: {
@@ -13,6 +12,7 @@ Component({
       },
     },
   },
+  externalClasses: ["custom-class", "item-class"],
   properties: {
     value: {
       type: null,
