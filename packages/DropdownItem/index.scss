@@ -1,3 +1,5 @@
+@import '../../src/style/var.scss';
+
 .lin-dropdown-item-wrapper {
   position: fixed;
   top: 0;
@@ -17,10 +19,10 @@
   width: 100%;
   padding: 20rpx 32rpx;
   overflow: hidden;
-  color: #323233;
-  font-size: 28rpx;
+  color: $gray-8;
+  font-size: $font-size-5;
   line-height: 48rpx;
-  background-color: #fff;
+  background-color: $white;
   position: relative;
 
   & + .lin-dropdown-item {
@@ -32,13 +34,13 @@
       right: 32rpx;
       top: 0;
       left: 32rpx;
-      border-bottom: 1px solid #ebedf0;
+      border-bottom: 1px solid $gray-3;
     }
   }
 }
 
 .lin-dropdown-item-active {
-  color: #ee0a24;
+  color: $red;
 }
 
 .lin-dropdown-item-icon {

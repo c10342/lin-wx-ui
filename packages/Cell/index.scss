@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: $font-size-small;
+  font-size: $font-size-5;
 }
 
 .lin-cell-text {
@@ -66,7 +66,7 @@
 
 .lin-cell-content {
   color:$gray-7;
-  font-size: $font-size-base;
+  font-size: $font-size-3;
   margin-top: 10rpx;
 }
 
@@ -75,8 +75,8 @@
     content: "*";
     position: absolute;
     left: 8px;
-    color: #ee0a24;
-    font-size: 28rpx;
+    color: $red;
+    font-size: $font-size-5;
   }
 }
 

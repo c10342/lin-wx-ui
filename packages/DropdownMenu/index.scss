@@ -1,5 +1,4 @@
-.lin-dropdown-menu {
-}
+@import '../../src/style/var.scss';
 
 .lin-dropdown-menu-bar-wrapper {
   display: flex;
@@ -30,8 +29,8 @@
   box-sizing: border-box;
   max-width: 100%;
   padding: 0 16rpx;
-  color: #323233;
-  font-size: 30rpx;
+  color: $gray-8;
+  font-size: $font-size-6;
   line-height: 44rpx;
 
   &::after {
@@ -40,7 +39,7 @@
     right: -4px;
     margin-top: -5px;
     border: 3px solid;
-    border-color: transparent transparent #dcdee0 #dcdee0;
+    border-color: transparent transparent $gray-4 $gray-4;
     transform: rotate(-45deg);
     opacity: 0.8;
     content: "";
@@ -48,7 +47,7 @@
 }
 
 .lin-dropdown-menu-title-active {
-  color: #ee0a24;
+  color: $red;
   &::after {
     margin-top: -1px;
     transform: rotate(135deg);

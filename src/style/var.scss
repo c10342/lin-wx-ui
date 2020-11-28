@@ -4,6 +4,7 @@ $info: #909399 !default;
 $warning: #e6a23c !default;
 $danger: #f56c6c !default;
 
+$red:#ee0a24 !default;
 $black: #000 !default;
 $white: #fff !default;
 $gray-1: #f7f8fa !default;
@@ -25,13 +26,16 @@ $theme-color: (
 
 $theme: $primary;
 
-$font-size-base: 24rpx !default;
+$font-size-1:20rpx !default;
+$font-size-2:22rpx !default;
+$font-size-3:24rpx !default;
+$font-size-4:26rpx !default;
+$font-size-5:28rpx !default;
+$font-size-6:30rpx !default;
+$font-size-7:32rpx !default;
+$font-size-8:34rpx !default;
+$font-size-9:36rpx !default;
+$font-size-10:38rpx !default;
+$font-size-11:40rpx !default;
 
-$font-size-small: 28rpx !default;
-
-$font-size-normal: 32rpx !default;
-
-$font-size-big: 36rpx !default;
-
-$font-size-bigger: 40rpx !default;
 

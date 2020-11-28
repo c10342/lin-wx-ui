@@ -52,7 +52,7 @@
 .lin-picker-cancel {
   height: 100%;
   padding: 0 16px;
-  font-size: 14px;
+  font-size: $font-size-5;
   cursor: grab;
   color: $gray-6;
   line-height: 44px;
@@ -61,7 +61,7 @@
 .lin-picker-title {
   max-width: 50%;
   font-weight: 500;
-  font-size: 16px;
+  font-size: $font-size-7;
   line-height: 44px;
   text-align: center;
   @include one-line();
@@ -70,7 +70,7 @@
 .lin-picker-confirm {
   height: 100%;
   padding: 0 16px;
-  font-size: 14px;
+  font-size: $font-size-5;
   cursor: grab;
   color: $gray-7;
   line-height: 44px;

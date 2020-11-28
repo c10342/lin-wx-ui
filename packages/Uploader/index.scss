@@ -60,7 +60,7 @@
 .lin-uploader-message{
     margin-top:12rpx;
     padding:0 8rpx;
-    font-size:24rpx;
+    font-size:$font-size-3;
     line-height:28rpx;
     color:$white;
 }
@@ -79,7 +79,7 @@
     margin-top:16rpx;
     padding:0 8rpx;
     color:$gray-7;
-    font-size:24rpx;
+    font-size:$font-size-3;
     text-align:center;
     @include one-line();
 }

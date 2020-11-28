@@ -2,7 +2,7 @@
 
 .lin-dialog {
   overflow: hidden;
-  font-size: $font-size-normal;
+  font-size: $font-size-7;
   background-color: $white;
   border-radius: 32rpx;
 }
@@ -18,7 +18,7 @@
   max-height: 60vh;
   padding: 52rpx 48rpx;
   overflow-y: auto;
-  font-size: $font-size-small;
+  font-size: $font-size-5;
   line-height: 40rpx;
 }
 
@@ -47,7 +47,7 @@
 
 .lin-dialog-button {
   flex: 1;
-  font-size: $font-size-normal;
+  font-size: $font-size-7;
   background-color: $white;
   height: 96rpx;
   border-top: 1px solid $gray-3;
@@ -89,5 +89,5 @@
 }
 
 .lin-dialog-confirm {
-  color: #ee0a24;
+  color: $red;
 }
