@@ -1,0 +1,68 @@
+@import '../../../src/style/var.scss';
+.lin-share-sheet-scroll{
+    width: 100%;
+}
+
+.lin-share-sheet-options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    padding: 32rpx 16rpx;
+}
+
+.lin-share-sheet-option{
+    flex-shrink: 0;
+    min-width: 160rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lin-share-sheet-button{
+    background-color: $white;
+    text-align: center;
+border-radius: 0rpx;
+padding:0rpx;
+margin:0rpx;
+display: inline-block;
+line-height: 1;
+    &::after{
+        border: none;
+    }
+}
+
+.lin-share-sheet-icon{
+    width: 96rpx;
+    height: 96rpx;
+}
+
+.lin-share-sheet-name{
+    margin-top: 16rpx;
+    padding: 0 8rpx;
+    color: $gray-7;
+    font-size: $font-size-3;
+    text-align: center;
+}
+
+.lin-share-sheet-option-description{
+    padding: 0 8rpx;
+    color: $gray-5;
+    font-size: $font-size-3;
+    text-align: center;
+}
+
+.lin-share-sheet-border{
+    position: relative;
+    &::before{
+        position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    top: 0;
+    right: 32rpx;
+    left: 32rpx;
+    border-top: 1px solid $gray-3;
+    // transform: scaleY(0.5);
+    }
+}
