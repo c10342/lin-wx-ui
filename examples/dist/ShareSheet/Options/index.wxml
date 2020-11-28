@@ -9,7 +9,7 @@
 		>
 			<button class='lin-share-sheet-button' open-type='{{item.openType}}'>
 				<image src="{{item.icon}}" wx:if="{{item.isImage}}" class='lin-share-sheet-icon' />
-				<lin-icon icon='{{item.icon}}' size='{{item.iconSize?item.iconSize:"60rpx"}}' />
+				<lin-icon color='{{item.iconColor?item.iconColor:""}}' icon='{{item.icon}}' size='{{item.iconSize?item.iconSize:"60rpx"}}' />
 			</button>
 			<view wx:if="{{item.name}}" class='lin-share-sheet-name'>
 				{{item.name}}
