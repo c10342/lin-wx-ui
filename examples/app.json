@@ -32,7 +32,8 @@
     "pages/component/uploader/index",
     "pages/component/action-sheet/index",
     "pages/component/dialog/index",
-    "pages/component/dropdown-menu/index"
+    "pages/component/dropdown-menu/index",
+    "pages/component/notify/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -70,7 +71,8 @@
     "lin-action-sheet": "/dist/ActionSheet/index",
     "lin-dialog": "/dist/Dialog/index",
     "lin-dropdown-menu": "/dist/DropdownMenu/index",
-    "lin-dropdown-item": "/dist/DropdownItem/index"
+    "lin-dropdown-item": "/dist/DropdownItem/index",
+    "lin-notify": "/dist/Notify/index"
   },
   "sitemapLocation": "sitemap.json"
 }

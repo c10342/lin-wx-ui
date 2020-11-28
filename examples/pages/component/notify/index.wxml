@@ -1,0 +1,28 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-cell-group>
+			<lin-cell title="基础用法"  border="{{ false }}" is-link bind:click='onClick1' />
+		
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='通知类型'>
+		<lin-cell-group>
+			<lin-cell data-type='primary' title="主要通知" is-link bind:click='onClick2' />
+			<lin-cell data-type='success' title="成功通知" is-link bind:click='onClick2' />
+			<lin-cell data-type='danger' title="危险通知" is-link bind:click='onClick2'/>
+			<lin-cell data-type='warning' title="警告通知" is-link bind:click='onClick2'/>
+			<lin-cell data-type='info' title="消息通知" is-link bind:click='onClick2' border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='自定义通知'>
+		<lin-cell-group>
+			<lin-cell title="自定义颜色" is-link bind:click='onClick3' />
+			<lin-cell title="自定义时长" is-link bind:click='onClick4' border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+</view>
+
+<lin-notify id="lin-notify" />
