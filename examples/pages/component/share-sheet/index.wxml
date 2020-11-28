@@ -1,0 +1,63 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-cell-group>
+			<lin-cell title="基础用法" data-key="showShare1" bind:click='onClick' is-link border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='展示多行选项'>
+		<lin-cell-group>
+			<lin-cell title="展示多行选项" data-key="showShare2" bind:click='onClick' is-link border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='自定义图片'>
+		<lin-cell-group>
+			<lin-cell title="自定义图片" data-key="showShare3" bind:click='onClick' is-link border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+
+	<demo-block title='展示描述信息'>
+		<lin-cell-group>
+			<lin-cell title="展示描述信息" data-key="showShare4" bind:click='onClick' is-link border="{{ false }}" />
+		</lin-cell-group>
+	</demo-block>
+</view>
+
+<lin-share-sheet
+data-key="showShare1"
+  show="{{ showShare1 }}"
+  title="立即分享给好友"
+  options="{{ options1 }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>
+
+<lin-share-sheet
+data-key="showShare2"
+  show="{{ showShare2 }}"
+  title="立即分享给好友"
+  options="{{ options2 }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>
+
+<lin-share-sheet
+data-key="showShare3"
+  show="{{ showShare3 }}"
+  title="立即分享给好友"
+  options="{{ options3 }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>
+
+<lin-share-sheet
+data-key="showShare4"
+  show="{{ showShare4 }}"
+  title="立即分享给好友"
+	description="描述信息"
+  options="{{ options4 }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>

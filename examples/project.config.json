@@ -269,6 +269,13 @@
           "id": -1,
           "name": "Notify 消息提示",
           "pathName": "pages/component/notify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "ShareSheet 分享面板",
+          "pathName": "pages/component/share-sheet/index",
           "scene": null
         }
       ]

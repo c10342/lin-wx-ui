@@ -5,13 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-list:[
-  {name:'Mask 遮罩层',path:'/pages/component/mask/index'},
-  {name:'ActionSheet 上拉菜单',path:'/pages/component/action-sheet/index'},
-  {name:'Dialog 弹出框',path:'/pages/component/dialog/index'},
-  {name:'DropdownMenu 下拉菜单',path:'/pages/component/dropdown-menu/index'},
-  {name:'Notify 消息提示',path:'/pages/component/notify/index'},
-]
+    list: [{
+        name: 'Mask 遮罩层',
+        path: '/pages/component/mask/index'
+      },
+      {
+        name: 'ActionSheet 上拉菜单',
+        path: '/pages/component/action-sheet/index'
+      },
+      {
+        name: 'Dialog 弹出框',
+        path: '/pages/component/dialog/index'
+      },
+      {
+        name: 'DropdownMenu 下拉菜单',
+        path: '/pages/component/dropdown-menu/index'
+      },
+      {
+        name: 'Notify 消息提示',
+        path: '/pages/component/notify/index'
+      },
+      {
+        name: 'ShareSheet 分享面板',
+        path: '/pages/component/share-sheet/index'
+      },
+    ]
   },
 
   /**
