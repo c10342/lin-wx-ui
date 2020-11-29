@@ -283,6 +283,13 @@
 					"id": -1,
 					"name": "Toast 轻提示",
 					"pathName": "pages/component/toast/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "SwipeCell 滑动单元格",
+					"pathName": "pages/component/swipe-cell/index",
 					"scene": null
 				}
 			]

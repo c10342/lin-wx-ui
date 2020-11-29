@@ -3,7 +3,13 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: [
+    "custom-class",
+    "icon-class",
+    "loading-class",
+    "message-class",
+    "text-class",
+  ],
   properties: {
     show: {
       type: Boolean,

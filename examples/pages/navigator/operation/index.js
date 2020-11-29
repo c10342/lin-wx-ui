@@ -33,6 +33,10 @@ Page({
         name: 'Toast 轻提示',
         path: '/pages/component/toast/index'
       },
+      {
+        name: 'SwipeCell 滑动单元格',
+        path: '/pages/component/swipe-cell/index'
+      },
     ]
   },
 

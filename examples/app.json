@@ -35,7 +35,8 @@
     "pages/component/dropdown-menu/index",
     "pages/component/notify/index",
     "pages/component/share-sheet/index",
-    "pages/component/toast/index"
+    "pages/component/toast/index",
+    "pages/component/swipe-cell/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -76,7 +77,8 @@
     "lin-dropdown-item": "/dist/DropdownItem/index",
     "lin-notify": "/dist/Notify/index",
     "lin-share-sheet": "/dist/ShareSheet/index",
-    "lin-toast": "/dist/Toast/index"
+    "lin-toast": "/dist/Toast/index",
+    "lin-swipe-cell": "/dist/SwipeCell/index"
   },
   "sitemapLocation": "sitemap.json"
 }
