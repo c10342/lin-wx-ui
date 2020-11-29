@@ -45,6 +45,8 @@ Page({
       "weibo",
       "gou",
       "pic",
+      "success",
+      "fail",
     ]
   },
 
