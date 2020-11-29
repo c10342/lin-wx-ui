@@ -1,29 +1,11 @@
-<lin-mask
- show='{{show}}'
- wx:if="{{mask || forbidClick}}"
- z-index='{{zIndex}}'
- custom-style='{{mask?"":"background-color: transparent;"}}'
-/>
-
+<lin-mask show='{{show}}' wx:if="{{mask || forbidClick}}" z-index='{{zIndex}}' custom-style='{{mask?"":"background-color: transparent;"}}' />
 <lin-transition show='{{show}}' custom-style='z-index:{{zIndex}}'>
-	<view class='custom-class lin-toast lin-toast-{{position}}'>
-		<text wx:if="{{type==='text'}}">{{message}}</text>
-
-		<block wx:else>
-			<lin-loading
-			 wx:if="{{type==='loading'}}"
-			 class='lin-toast-loading'
-			 color='#fff'
-			 size='60rpx'
-			/>
-			<lin-icon
-			 wx:else
-			 class='lin-toast-icon'
-			 icon='gou'
-			 size='100rpx'
-			/>
-			<text wx:if="{{message}}" class='lin-toast-text'>{{message}}</text>
-		</block>
-	</view>
+				<view class='custom-class lin-toast lin-toast-{{position}} {{type==="text"?"lin-toast-only-text":""}}'>
+								<text wx:if="{{type==='text'}}">{{message}}</text>
+								<block wx:else>
+												<lin-loading wx:if="{{type==='loading'}}" class='lin-toast-loading' color='#fff' size='60rpx' />
+												<lin-icon wx:else class='lin-toast-icon' icon='{{type}}' size='100rpx' />
+												<text wx:if="{{message}}" class='lin-toast-text'>{{message}}</text>
+								</block>
+				</view>
 </lin-transition>
-
