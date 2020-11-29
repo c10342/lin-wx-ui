@@ -1,0 +1,8 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		
+	</demo-block>
+</view>
+
+<lin-toast id="lin-toast" />

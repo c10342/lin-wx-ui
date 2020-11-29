@@ -276,6 +276,13 @@
           "id": -1,
           "name": "ShareSheet 分享面板",
           "pathName": "pages/component/share-sheet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Toast 轻提示",
+          "pathName": "pages/component/toast/index",
           "scene": null
         }
       ]

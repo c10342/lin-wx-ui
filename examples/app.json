@@ -34,7 +34,8 @@
     "pages/component/dialog/index",
     "pages/component/dropdown-menu/index",
     "pages/component/notify/index",
-    "pages/component/share-sheet/index"
+    "pages/component/share-sheet/index",
+    "pages/component/toast/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -74,7 +75,8 @@
     "lin-dropdown-menu": "/dist/DropdownMenu/index",
     "lin-dropdown-item": "/dist/DropdownItem/index",
     "lin-notify": "/dist/Notify/index",
-    "lin-share-sheet": "/dist/ShareSheet/index"
+    "lin-share-sheet": "/dist/ShareSheet/index",
+    "lin-toast": "/dist/Toast/index"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -29,6 +29,10 @@ Page({
         name: 'ShareSheet 分享面板',
         path: '/pages/component/share-sheet/index'
       },
+      {
+        name: 'Toast 轻提示',
+        path: '/pages/component/toast/index'
+      },
     ]
   },
 
