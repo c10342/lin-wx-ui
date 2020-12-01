@@ -13,8 +13,10 @@
             <view wx:else class="lin-cell-item-value">
                 <slot name='value' />
             </view>
-            <lin-icon wx:if='{{isLink}}' icon='arrow-{{arrowDirection}}' class='lin-cell-value-icon' />
-            <slot name='right-icon' wx:else />
+            <view class="right-icon-class">
+                <lin-icon wx:if='{{isLink}}' icon='arrow-{{arrowDirection}}' class='lin-cell-value-icon' />
+                <slot name='right-icon' wx:else />
+            </view>
         </view>
     </view>
     <view class='label-class lin-cell-content' wx:if='{{label}}'>

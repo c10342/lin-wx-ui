@@ -11,6 +11,7 @@ Component({
     "value-class",
     "label-class",
     "header-class",
+    "right-icon-class",
   ],
   options: {
     addGlobalClass: true,

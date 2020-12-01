@@ -1,0 +1,72 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-collapse data-key='activeNames1' value="{{ activeNames1 }}" bind:change="onChange">
+			<lin-collapse-item title="微商城" name="1">
+				提供多样店铺模板，快速搭建网上商城
+			</lin-collapse-item>
+			<lin-collapse-item title="零售" name="2">
+				网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+			</lin-collapse-item>
+			<lin-collapse-item title="美业" name="3">
+				线上拓客，随时预约，贴心顺手的开单收银
+			</lin-collapse-item>
+		</lin-collapse>
+	</demo-block>
+
+	<demo-block title='手风琴'>
+		<lin-collapse accordion data-key='activeNames2' value="{{ activeNames2 }}" bind:change="onChange">
+			<lin-collapse-item title="微商城" name="1">
+				提供多样店铺模板，快速搭建网上商城
+			</lin-collapse-item>
+			<lin-collapse-item title="零售" name="2">
+				网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+			</lin-collapse-item>
+			<lin-collapse-item title="美业" name="3">
+				线上拓客，随时预约，贴心顺手的开单收银
+			</lin-collapse-item>
+		</lin-collapse>
+	</demo-block>
+
+	<demo-block title='事件监听'>
+		<lin-collapse data-key='activeNames3' value="{{ activeNames3 }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose">
+			<lin-collapse-item title="微商城" name="1">
+				提供多样店铺模板，快速搭建网上商城
+			</lin-collapse-item>
+			<lin-collapse-item title="零售" name="2">
+				网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+			</lin-collapse-item>
+			<lin-collapse-item title="美业" name="3">
+				线上拓客，随时预约，贴心顺手的开单收银
+			</lin-collapse-item>
+		</lin-collapse>
+	</demo-block>
+
+	<demo-block title='禁用状态'>
+		<lin-collapse data-key='activeNames4' value="{{ activeNames4 }}" bind:change="onChange">
+			<lin-collapse-item title="微商城" name="1">
+				提供多样店铺模板，快速搭建网上商城
+			</lin-collapse-item>
+			<lin-collapse-item disabled title="零售" name="2">
+				网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+			</lin-collapse-item>
+			<lin-collapse-item disabled title="美业" name="3">
+				线上拓客，随时预约，贴心顺手的开单收银
+			</lin-collapse-item>
+		</lin-collapse>
+	</demo-block>
+
+	<demo-block title='禁用状态'>
+		<lin-collapse data-key='activeNames5' value="{{ activeNames5 }}" bind:change="onChange">
+			<lin-collapse-item name="1">
+				<view slot="title">
+				微商城
+					<lin-icon icon="user" />
+				</view>
+				提供多样店铺模板，快速搭建网上商城
+			</lin-collapse-item>
+			<lin-collapse-item title="零售" name="2" icon="search">
+				网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+			</lin-collapse-item>
+		</lin-collapse>
+	</demo-block>
+</view>

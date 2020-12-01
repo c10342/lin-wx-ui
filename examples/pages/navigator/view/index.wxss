@@ -1,1 +1,3 @@
-/* pages/view/index.wxss */
+page{
+  background-color: #fff;
+}

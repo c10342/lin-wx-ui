@@ -1,10 +1,45 @@
-export default [
+export default [{
+    time: '2020-12-30',
+    messageList: [
+      '新增 SwipeCell 滑动单元格组件'
+    ]
+  },
   {
-  time: '2020-11-26',
-  messageList: [
-    '新增 ActionSheet 上拉菜单组件'
-  ]
-},
+    time: '2020-12-23',
+    messageList: [
+      '新增 Toast 轻提示组件'
+    ]
+  },
+  {
+    time: '2020-12-19',
+    messageList: [
+      '新增 ShareSheet 分享面板组件'
+    ]
+  },
+  {
+    time: '2020-12-15',
+    messageList: [
+      '新增 Notify 消息提示组件'
+    ]
+  },
+  {
+    time: '2020-12-12',
+    messageList: [
+      '新增 DropdownMenu 下拉菜单组件'
+    ]
+  },
+  {
+    time: '2020-12-06',
+    messageList: [
+      '新增 Dialog 弹出框组件'
+    ]
+  },
+  {
+    time: '2020-11-26',
+    messageList: [
+      '新增 ActionSheet 上拉菜单组件'
+    ]
+  },
   {
     time: '2020-11-22',
     messageList: [
