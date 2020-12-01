@@ -6,7 +6,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "left-class", "right-class"],
   properties: {
     showLeft: {
       type: Boolean,
