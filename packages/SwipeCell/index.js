@@ -204,13 +204,14 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created: function() {
     this.startX = 0;
     this.leftWidth = 0;
     this.rightWidth = 0;
     this.position = "cell";
+  },
+  attached: function() {},
+  ready: function() {
     this.getLeftAndRightWidth();
   },
   moved: function() {},
