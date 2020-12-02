@@ -37,7 +37,8 @@
     "pages/component/share-sheet/index",
     "pages/component/toast/index",
     "pages/component/swipe-cell/index",
-    "pages/component/collapse/index"
+    "pages/component/collapse/index",
+    "pages/component/count-down/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -81,7 +82,8 @@
     "lin-toast": "/dist/Toast/index",
     "lin-swipe-cell": "/dist/SwipeCell/index",
     "lin-collapse": "/dist/Collapse/index",
-    "lin-collapse-item": "/dist/CollapseItem/index"
+    "lin-collapse-item": "/dist/CollapseItem/index",
+    "lin-count-down": "/dist/CountDown/index"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -196,12 +196,13 @@ Component({
       return Promise.resolve();
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created: function() {
     this.startY = 0;
     this.startTranslateY = 0;
     this.endTranslateY = 0;
+  },
+  attached: function() {},
+  ready: function() {
     this.updateTranslateY();
     this.updateIndex();
     this.updateOptionsList();

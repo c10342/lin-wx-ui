@@ -1,0 +1,30 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-count-down time="{{ time1 }}" />
+	</demo-block>
+
+	<demo-block title='自定义格式'>
+		<lin-count-down time="{{ time1 }}" format="DD 天 HH 时 mm 分 ss 秒" />
+	</demo-block>
+
+	<demo-block title='毫秒级渲染'>
+		<lin-count-down millisecond time="{{ time1 }}" format="HH:mm:ss:SSS" />
+	</demo-block>
+
+	<demo-block title='自定义样式'>
+		<lin-count-down use-slot time="{{ time2 }}" bind:change="onChange">
+			<text class="item">{{ timeData.hours }}</text>
+			<text class="item">{{ timeData.minutes }}</text>
+			<text class="item">{{ timeData.seconds }}</text>
+		</lin-count-down>
+	</demo-block>
+
+	<demo-block title='手动控制'>
+		<lin-count-down class="control-count-down" millisecond time="{{ 3000 }}" auto-start="{{ false }}" format="ss:SSS" bind:finish="finished" />
+		<view class="button-group">
+			<lin-button class="button-item" bind:click='start'>开始</lin-button>
+			<lin-button class="button-item" bind:click='pause'>暂停</lin-button>
+			<lin-button class="button-item" bind:click='reset'>重置</lin-button>
+		</view>
+	</demo-block>
+</view>
