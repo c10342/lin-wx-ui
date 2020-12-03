@@ -1,0 +1,62 @@
+
+@import '../../src/style/var.scss';
+
+.lin-divider{
+    display: flex;
+    align-items: center;
+    margin: 32rpx 0;
+    color: $gray-6;
+    font-size: $font-size-5;
+    line-height:48rpx;
+    border-color: $gray-3;
+    border-style: solid;
+    border-width: 0;
+
+    &::before,&::after{
+    flex: 1;
+    box-sizing: border-box;
+    height: 1px;
+    border-color: inherit;
+    border-style: inherit;
+    border-width: 1px 0 0;
+    }
+
+    &::before{
+        content: '';
+    }
+}
+
+.lin-divider-hairline{
+    &::before{
+        transform: scale(0.5);
+    }
+    &::after{
+        transform: scale(0.5);
+    }
+}
+
+.lin-divider-center,.lin-divider-left,.lin-divider-right{
+    &::before{
+        margin-right: 32rpx;
+    }
+    &::after{
+        margin-left: 32rpx;
+        content: '';
+    }
+}
+
+.lin-divider-left{
+    &::after{
+        max-width: 10%;
+    }
+}
+
+.lin-divider-right{
+    &::before{
+        max-width: 10%;
+    }
+}
+
+.lin-divider-dashed{
+    border-style: dashed;
+}
