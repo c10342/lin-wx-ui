@@ -1,0 +1,41 @@
+
+.lin-empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 64rpx 0;
+}
+
+
+.lin-empty-image-wrapper{
+    width: 160rpx;
+    height: 160rpx;
+    &:empty{
+        display: none;
+    }
+}
+
+.lin-empty-image{
+    width: 100%;
+    height: 100%;
+}
+
+.lin-empty-description{
+    margin-top: 32rpx;
+    padding: 0 120rpx;
+    color: #969799;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    &:empty{
+        display: none;
+    }
+}
+
+.lin-empty-bottom{
+    margin-top: 48rpx;
+    &:empty{
+        display: none;
+    }
+}
