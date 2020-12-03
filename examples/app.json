@@ -38,7 +38,10 @@
     "pages/component/toast/index",
     "pages/component/swipe-cell/index",
     "pages/component/collapse/index",
-    "pages/component/count-down/index"
+    "pages/component/count-down/index",
+    "pages/component/divider/index",
+    "pages/component/empty/index",
+    "pages/component/notice-bar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -83,7 +86,10 @@
     "lin-swipe-cell": "/dist/SwipeCell/index",
     "lin-collapse": "/dist/Collapse/index",
     "lin-collapse-item": "/dist/CollapseItem/index",
-    "lin-count-down": "/dist/CountDown/index"
+    "lin-count-down": "/dist/CountDown/index",
+    "lin-divider": "/dist/Divider/index",
+    "lin-empty": "/dist/Empty/index",
+    "lin-notice-bar": "/dist/NoticeBar/index"
   },
   "sitemapLocation": "sitemap.json"
 }

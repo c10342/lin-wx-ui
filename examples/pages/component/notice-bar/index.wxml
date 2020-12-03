@@ -1,0 +1,29 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-notice-bar left-icon="search" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+	</demo-block>
+
+	<demo-block title='滚动播放'>
+		<!-- 文字较短时，通过设置 scrollable 属性开启滚动播放 -->
+		<lin-notice-bar speed='20' scrollable text="技术是开发它的人的共同灵魂。" />
+		<view style="height:40rpx;"></view>
+		<!-- 文字较长时，通过禁用 scrollable 属性关闭滚动播放 -->
+		<lin-notice-bar scrollable="{{ false }}" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+	</demo-block>
+
+	<demo-block title='多行展示'>
+		<lin-notice-bar wrapable scrollable="{{ false }}" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+	</demo-block>
+
+	<demo-block title='通知栏模式'>
+		<!-- closeable 模式，在右侧显示关闭按钮 -->
+		<lin-notice-bar scrollable="{{ false }}" mode="closeable" text="技术是开发它的人的共同灵魂。" />
+		<view style="height:40rpx;"></view>
+		<!-- link 模式，在右侧显示链接箭头 -->
+		<lin-notice-bar scrollable="{{ false }}" mode="link" text="技术是开发它的人的共同灵魂。" />
+	</demo-block>
+
+	<demo-block title='自定义样式'>
+		<lin-notice-bar color='rgb(25, 137, 250)' background='rgb(236, 249, 255)' text="技术是开发它的人的共同灵魂。" speed="20" left-icon="success" />
+	</demo-block>
+</view>

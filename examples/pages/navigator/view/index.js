@@ -14,6 +14,18 @@ Page({
         name: 'CountDown 倒计时',
         path: '/pages/component/count-down/index'
       },
+      {
+        name: 'Divider 分割线',
+        path: '/pages/component/divider/index'
+      },
+      {
+        name: 'Empty 空状态',
+        path: '/pages/component/empty/index'
+      },
+      {
+        name: 'NoticeBar 通告栏',
+        path: '/pages/component/notice-bar/index'
+      },
     ]
   },
 

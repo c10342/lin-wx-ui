@@ -303,6 +303,26 @@
           "pathName": "pages/component/count-down/index",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Divider 分割线",
+          "pathName": "pages/component/divider/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Empty 空状态",
+          "pathName": "pages/component/empty/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "NoticeBar 通告栏",
+          "pathName": "pages/component/notice-bar/index",
+          "scene": null
         }
       ]
     }

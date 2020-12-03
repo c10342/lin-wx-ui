@@ -1,0 +1,21 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-empty description="描述文字" />
+	</demo-block>
+	<demo-block title='图片类型'>
+		<!-- 通用错误 -->
+		<lin-empty type="error" description="描述文字" />
+		<!-- 网络错误 -->
+		<lin-empty type="network" description="描述文字" />
+		<!-- 搜索提示 -->
+		<lin-empty type="search" description="描述文字" />
+	</demo-block>
+	<demo-block title='自定义图片'>
+		<lin-empty image="/images/cat.png" description="描述文字" />
+	</demo-block>
+	<demo-block title='底部内容'>
+		<lin-empty description="描述文字">
+			<lin-button round type="danger" custom-class="bottom-button">按钮</lin-button>
+		</lin-empty>
+	</demo-block>
+</view>
