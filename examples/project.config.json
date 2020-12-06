@@ -28,14 +28,14 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": false,
+    "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "bundle": false
+    "userConfirmedBundleSwitch": false,
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.10.4",
@@ -322,6 +322,13 @@
           "id": -1,
           "name": "NoticeBar 通告栏",
           "pathName": "pages/component/notice-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Panel 面板",
+          "pathName": "pages/component/panel/index",
           "scene": null
         }
       ]

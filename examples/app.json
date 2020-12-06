@@ -41,7 +41,8 @@
     "pages/component/count-down/index",
     "pages/component/divider/index",
     "pages/component/empty/index",
-    "pages/component/notice-bar/index"
+    "pages/component/notice-bar/index",
+    "pages/component/panel/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -89,7 +90,8 @@
     "lin-count-down": "/dist/CountDown/index",
     "lin-divider": "/dist/Divider/index",
     "lin-empty": "/dist/Empty/index",
-    "lin-notice-bar": "/dist/NoticeBar/index"
+    "lin-notice-bar": "/dist/NoticeBar/index",
+    "lin-panel": "/dist/Panel/index"
   },
   "sitemapLocation": "sitemap.json"
 }

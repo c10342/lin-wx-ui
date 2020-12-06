@@ -1,0 +1,16 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-panel title="标题" desc="描述信息" status="状态">
+			<view>内容</view>
+		</lin-panel>
+	</demo-block>
+	<demo-block title='高级用法'>
+		<lin-panel title="标题" desc="描述信息" status="状态" use-footer-slot>
+			<view>内容</view>
+			<view slot="footer" class="panel-footer">
+				<lin-button>按钮</lin-button>
+				<lin-button class="panel-button" type="danger">按钮</lin-button>
+			</view>
+		</lin-panel>
+	</demo-block>
+</view>

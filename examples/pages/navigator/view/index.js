@@ -26,6 +26,10 @@ Page({
         name: 'NoticeBar 通告栏',
         path: '/pages/component/notice-bar/index'
       },
+      {
+        name: 'Panel 面板',
+        path: '/pages/component/panel/index'
+      },
     ]
   },
 
