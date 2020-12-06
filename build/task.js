@@ -14,12 +14,24 @@ const wxmlmin = require("gulp-htmlmin");
 
 const rename = require("gulp-rename");
 
+const insert = require('gulp-insert')
+
 const del = require("del");
+
+const path = require('path')
 
 const buildWxss = (srcPath, distPath) => () =>
   src(srcPath)
     .pipe(sass().on("error", sass.logError))
     .pipe(cssmin())
+    .pipe(insert.transform((contents,file)=>{
+      const commonScssPath = `packages${path.sep}common`
+      if(!file.path.includes(commonScssPath)){
+        const relativePath = '../common/base.wxss'
+        contents = `@import '${relativePath}';${contents}`
+      }
+      return contents
+    }))
     .pipe(
       rename((srcPath) => {
         srcPath.extname = ".wxss";
