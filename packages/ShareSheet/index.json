@@ -3,6 +3,6 @@
     "component": true,
     "usingComponents":{
         "lin-popup":"../Popup/index",
-        "options":"./Options/index"
+        "options":"./options"
     }
 }

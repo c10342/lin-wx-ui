@@ -2,6 +2,6 @@
 {
     "component": true,
     "usingComponents":{
-        "lin-icon":"../../Icon/index"
+        "lin-icon":"../Icon/index"
     }
 }
