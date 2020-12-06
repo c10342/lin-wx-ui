@@ -1,0 +1,74 @@
+
+@import '../../src/style/var.scss';
+.lin-panel{
+    position: relative;
+    background-color: $white;
+    // &::after{
+    //     content: '';
+    //     position: absolute;
+    //     top: -50%;
+    //     left: -50%;
+    //     bottom: -50%;
+    //     right: -50%;
+    //     border-style: solid;
+    //     border-color: #ebedf0;
+    //     border-width: 1px 0;
+    //     box-sizing: border-box;
+    //     transform: scale(0.5);
+    // }
+}
+
+.lin-panel-header{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding:20rpx 32rpx;
+}
+
+.lin-panel-left{
+    flex: 1;
+}
+
+.lin-panel-status{
+    flex: 1;
+    min-width: fit-content;
+    color: $red;
+    text-align: right;
+}
+
+.lin-panel-title{
+    color: $gray-8;
+    font-size: $font-size-5;
+    line-height: 48rpx;
+}
+
+.lin-panel-desc{
+    margin-top: 8rpx;
+    color: $gray-6;
+    font-size: $font-size-3;
+    line-height: 36rpx;
+}
+
+.lin-panel-content{
+    box-sizing: border-box;
+    padding: 40rpx 32rpx;
+    &::before{
+        left: 32rpx;
+        right: 32rpx;
+    }
+}
+
+.lin-panel-footer{
+    box-sizing: border-box;
+    padding: 16rpx 32rpx;
+    &::before{
+        left: 32rpx;
+        right: 32rpx;
+    }
+}
+
+
+
+
+
+
