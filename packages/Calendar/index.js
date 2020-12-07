@@ -41,7 +41,9 @@ Component({
       type: Boolean,
       value: false,
     },
-    rowHeight: String,
+    rowHeight: {
+      type: [String, Number],
+    },
     restText: {
       type: String,
       value: "重置",
@@ -77,7 +79,7 @@ Component({
     selectTime: "",
   },
   observers: {
-    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function (
+    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function(
       time,
       selectTime,
       disabledBeforeDate,
@@ -233,14 +235,14 @@ Component({
       };
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {
+  created: function() {},
+  attached: function() {},
+  ready: function() {
     const handleValue = this.handleValue();
     this.setData({
       time: handleValue,
     });
   },
-  moved: function () {},
-  detached: function () {},
+  moved: function() {},
+  detached: function() {},
 });

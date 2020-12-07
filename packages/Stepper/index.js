@@ -40,19 +40,19 @@ Component({
       value: null,
     },
     inputWidth: {
-      type: String,
+      type: [String, Number],
       value: "64rpx",
     },
     buttonSize: {
-      type: String,
+      type: [String, Number],
       value: "56rpx",
     },
     buttonFontSize: {
-      type: String,
+      type: [String, Number],
       value: "40rpx",
     },
     inputFontSize: {
-      type: String,
+      type: [String, Number],
       value: "30rpx",
     },
     disableInput: Boolean,

@@ -1,5 +1,6 @@
-<view style="height:{{barHeight}};{{inactiveColor?'background-color:'+inactiveColor+';':''}}" id="linsliderContainer" class="custom-class lin-slider {{disabled?'lin-slider-disabled':''}}" bind:tap="onClick">
-    <view style="width:{{width}}px;height:{{barHeight}};{{activeColor?'background-color:'+activeColor+';':''}} {{transition}}" class="bar-class lin-slider-bar"></view>
+<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<view style="{{styleUtils.singleUnit('height',barHeight)}}{{inactiveColor?'background-color:'+inactiveColor+';':''}}" id="linsliderContainer" class="custom-class lin-slider {{disabled?'lin-slider-disabled':''}}" bind:tap="onClick">
+    <view style="width:{{width}}px;{{styleUtils.singleUnit('height',barHeight)}}{{activeColor?'background-color:'+activeColor+';':''}} {{transition}}" class="bar-class lin-slider-bar"></view>
     <view id="linSliderBar" style="left:{{left}}px;{{transition}}" bind:touchstart="onTouchStart" catch:touchmove="onTouchMove" bind:touchend="onTouchEnd" bind:touchcancel="onTouchEnd" class="button-class lin-slider-button-wrapper">
         <view class="lin-slider-button" wx:if="{{!useButtonSlot}}"></view>
         <slot wx:else name="button"></slot>

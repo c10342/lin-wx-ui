@@ -45,7 +45,7 @@ Component({
     closeOnClickMask: Boolean,
     confirmButtonOpenType: String,
     width: {
-      type: String,
+      type: [String, Number],
       value: "640rpx",
     },
     zIndex: {

@@ -45,7 +45,9 @@ Component({
         "reLaunch",
       ],
     },
-    titleWidth: String,
+    titleWidth: {
+      type: [String, Number],
+    },
     customStyle: String,
   },
   data: {
