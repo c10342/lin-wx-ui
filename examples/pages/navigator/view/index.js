@@ -30,6 +30,14 @@ Page({
         name: 'Panel 面板',
         path: '/pages/component/panel/index'
       },
+      {
+        name: 'Progress 进度条',
+        path: '/pages/component/progress/index'
+      },
+      {
+        name: 'Skeleton 骨架屏',
+        path: '/pages/component/skeleton/index'
+      },
     ]
   },
 

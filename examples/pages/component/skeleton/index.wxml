@@ -1,0 +1,16 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-skeleton title row="3" />
+	</demo-block>
+	<demo-block title='显示头像'>
+		<lin-skeleton title avatar row="3" />
+	</demo-block>
+	<demo-block title='展示子组件'>
+		<view class="lin-switch-item">
+			<lin-switch checked='{{loading}}' bind:change='onChange' />
+		</view>
+		<lin-skeleton title avatar row="3" loading="{{ !loading }}">
+			<view>实际内容</view>
+		</lin-skeleton>
+	</demo-block>
+</view>

@@ -1,0 +1,3 @@
+.lin-progress-item{
+    height: 40rpx;
+}

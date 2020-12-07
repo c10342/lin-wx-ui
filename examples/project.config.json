@@ -49,12 +49,6 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -329,6 +323,19 @@
           "id": -1,
           "name": "Panel 面板",
           "pathName": "pages/component/panel/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Progress 进度条",
+          "pathName": "pages/component/progress/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Skeleton 骨架屏",
+          "pathName": "pages/component/skeleton/index",
           "scene": null
         }
       ]
