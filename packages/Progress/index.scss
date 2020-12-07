@@ -1,0 +1,35 @@
+@import '../../src/style/var.scss';
+
+.lin-progress {
+  position: relative;
+  height: 8rpx;
+  background: $gray-3;
+  border-radius: 8rpx;
+}
+
+.lin-progress-portion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: $primary;
+  border-radius: inherit;
+}
+
+.lin-progress-pivot {
+  background-color: inherit;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  box-sizing: border-box;
+  min-width: 3.6em;
+  padding: 0 10rpx;
+  color: $white;
+  font-size: $font-size-1;
+  line-height: 1.6;
+  text-align: center;
+  word-break: keep-all;
+  border-radius: 1em;
+  transform: translate(0, -50%);
+}
