@@ -27,7 +27,7 @@ Component({
     },
     checkedColor: String,
     iconSize: {
-      type: String,
+      type: [String, Number],
       value: "40rpx",
     },
     useIconSlot: Boolean,
@@ -37,7 +37,7 @@ Component({
     },
   },
   observers: {
-    "value,shape": function (value, shape) {
+    "value,shape": function(value, shape) {
       let iconName = shape;
       if (value) {
         iconName = `${iconName}-active`;
@@ -96,9 +96,9 @@ Component({
       }
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created: function() {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
 });

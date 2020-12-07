@@ -1,4 +1,4 @@
-import {BLUE,WHITE} from '../common/color'
+import { BLUE, WHITE } from "../common/color";
 Component({
   behaviors: ["wx://form-field"],
   options: {
@@ -31,7 +31,9 @@ Component({
     },
     disabled: Boolean,
     loading: Boolean,
-    size: String,
+    size: {
+      type: [String, Number],
+    },
   },
   data: {
     value: false,

@@ -1,6 +1,6 @@
-<lin-transition name="slide-down" bindtap="onTap" custom-style='z-index:{{zIndex}};top:{{top}}' custom-class='lin-notify-container' show='{{show}}'>
-	<view style='{{background?"background:"+background+";":""}} color:{{color}};' class='custom-class lin-notify lin-notify-{{type}}'>
-		<text>{{message}}</text>
-	</view>
+<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<lin-transition name="slide-down" bindtap="onTap" custom-style='z-index:{{zIndex}};{{styleUtils.singleUnit("top",top)}}' custom-class='lin-notify-container' show='{{show}}'>
+				<view style='{{background?"background:"+background+";":""}} color:{{color}};' class='custom-class lin-notify lin-notify-{{type}}'>
+								<text>{{message}}</text>
+				</view>
 </lin-transition>
-

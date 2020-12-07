@@ -25,7 +25,7 @@ Component({
     label: String,
     clickable: Boolean,
     titleWidth: {
-      type: String,
+      type: [String, Number],
       value: "6.2em",
     },
     arrowDirection: String,

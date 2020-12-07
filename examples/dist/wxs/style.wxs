@@ -14,7 +14,7 @@ function multStyle() {
   return style;
 }
 
-var REGEXP = getRegExp("^d+(.d+)?$");
+var REGEXP = getRegExp("^[0-9]+$");
 
 function addUnit(value) {
   if (value == null) {
@@ -45,5 +45,5 @@ module.exports = {
   multStyle: multStyle,
   addUnit: addUnit,
   multUnit: multUnit,
-  singleUnit:singleUnit
+  singleUnit: singleUnit,
 };

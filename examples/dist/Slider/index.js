@@ -25,7 +25,7 @@ Component({
       value: 1,
     },
     barHeight: {
-      type: String,
+      type: [String, Number],
       value: "2px",
     },
     activeColor: String,
