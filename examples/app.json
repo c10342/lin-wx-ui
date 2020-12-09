@@ -44,7 +44,8 @@
     "pages/component/notice-bar/index",
     "pages/component/panel/index",
     "pages/component/progress/index",
-    "pages/component/skeleton/index"
+    "pages/component/skeleton/index",
+    "pages/component/steps/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -95,7 +96,8 @@
     "lin-notice-bar": "/dist/NoticeBar/index",
     "lin-panel": "/dist/Panel/index",
     "lin-progress": "/dist/Progress/index",
-    "lin-skeleton": "/dist/Skeleton/index"
+    "lin-skeleton": "/dist/Skeleton/index",
+    "lin-steps": "/dist/Steps/index"
   },
   "sitemapLocation": "sitemap.json"
 }

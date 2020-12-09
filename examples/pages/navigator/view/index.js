@@ -38,6 +38,10 @@ Page({
         name: 'Skeleton 骨架屏',
         path: '/pages/component/skeleton/index'
       },
+      {
+        name: 'Steps 步骤条',
+        path: '/pages/component/steps/index'
+      },
     ]
   },
 

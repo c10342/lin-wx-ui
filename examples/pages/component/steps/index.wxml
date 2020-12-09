@@ -1,0 +1,17 @@
+
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-steps steps="{{ steps1 }}" active="{{ active1 }}" />
+		<lin-button data-steps="steps1" data-key="active1" bind:click='onClick'>下一步</lin-button>
+	</demo-block>
+
+	<demo-block title='自定义样式'>
+		<lin-steps steps="{{ steps2 }}" active="{{ active2 }}" active-color="#38f" active-icon="success" />
+		<lin-button data-steps="steps2" data-key="active2" bind:click='onClick'>下一步</lin-button>
+	</demo-block>
+
+	<demo-block title='竖向步骤条'>
+		<lin-steps steps="{{ steps1 }}" active="{{ active3 }}" direction="vertical"/>
+		<lin-button data-steps="steps1" data-key="active3" bind:click='onClick'>下一步</lin-button>
+	</demo-block>
+</view>

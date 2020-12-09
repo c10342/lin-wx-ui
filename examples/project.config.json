@@ -336,6 +336,12 @@
         {
           "name": "Skeleton 骨架屏",
           "pathName": "pages/component/skeleton/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Steps 步骤条",
+          "pathName": "pages/component/steps/index",
           "scene": null
         }
       ]
