@@ -3,7 +3,13 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: [
+    "custom-class",
+    "avatar-class",
+    "title-class",
+    "row-class",
+    "slot-class",
+  ],
   properties: {
     row: {
       type: String,
