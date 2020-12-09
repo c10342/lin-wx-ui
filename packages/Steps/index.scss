@@ -1,0 +1,100 @@
+@import "../../src/style/var.scss";
+
+.lin-steps {
+  overflow: hidden;
+  background-color: $white;
+}
+
+.lin-steps-horizontal {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 20rpx 44rpx;
+  margin: 0 0 20rpx;
+
+  .lin-steps-step {
+    flex: 1;
+    &.lin-steps-step-last {
+      flex: none;
+    }
+  }
+  .lin-steps-step-first {
+    .lin-steps-message {
+      transform: none;
+    }
+  }
+  .lin-steps-step-last {
+    .lin-steps-message {
+      transform: none;
+    }
+  }
+  .lin-steps-line {
+    bottom: -22rpx;
+    width: 100%;
+    height: 1px;
+  }
+  .lin-steps-circle-container {
+    left: 0;
+    bottom: -22rpx;
+    transform: translateY(50%);
+    padding: 0 16rpx;
+  }
+}
+
+.lin-steps-vertical {
+  padding-left: 64rpx;
+  .lin-steps-step {
+    padding: 20rpx 20rpx 20rpx 0;
+  }
+  .lin-steps-circle-container {
+    top: 38rpx;
+    left: -30rpx;
+    height: fit-content;
+    transform: translateX(-50%);
+  }
+  .lin-steps-line {
+    top: 38rpx;
+    left: -30rpx;
+    width: 1px;
+    height: 100%;
+  }
+}
+
+.lin-steps-step {
+  color: $gray-6;
+  font-size: $font-size-2;
+  line-height: 36rpx;
+  transition: all 400ms;
+}
+
+.lin-steps-circle {
+  width: 10rpx;
+  height: 10rpx;
+  background-color: $gray-6;
+  border-radius: 50%;
+}
+
+.lin-steps-step {
+  position: relative;
+}
+
+.lin-steps-step-active {
+  color: $success;
+}
+.lin-steps-line {
+  position: absolute;
+  background-color: $gray-3;
+}
+.lin-steps-circle-container {
+  position: absolute;
+  background-color: $white;
+  z-index: 100;
+}
+.lin-steps-step-finish {
+  color: $gray-8;
+  .lin-steps-line {
+    background-color: $success;
+  }
+  .lin-steps-circle {
+    background-color: $success;
+  }
+}
