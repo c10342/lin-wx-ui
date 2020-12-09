@@ -1,31 +1,31 @@
-function singleClass(classname,classFlag){
-    if(classFlag){
-        return classname
-    }
-    return ''
+function singleClass(classname, classFlag) {
+  if (classFlag) {
+    return classname;
+  }
+  return "";
 }
 
-function concatClass(classname,classFlag){
-    if(classFlag){
-        return classname+'-'+classFlag
-    }
-    return ''
+function concatClass(classname, classFlag) {
+  if (classFlag) {
+    return classname + "-" + classFlag;
+  }
+  return "";
 }
 
-function multCalss(){
-    var classname = '';
-    for(var i=0;i<arguments.length;i++){
-        var classItem = arguments[i]
-        classname+=singleStyle(classItem[0],classItem[1])+' '
-    }
-    if(classname){
-        classname.substring(0,classname.length-1)
-    }
-    return classname
+function multCalss() {
+  var classname = "";
+  for (var i = 0; i < arguments.length; i++) {
+    var classItem = arguments[i];
+    classname += singleClass(classItem[0], classItem[1]) + " ";
+  }
+  if (classname) {
+    classname.substring(0, classname.length - 1);
+  }
+  return classname;
 }
 
 module.exports = {
-    singleClass:singleClass,
-    multCalss:multCalss,
-    concatClass:concatClass
-}
+  singleClass: singleClass,
+  multCalss: multCalss,
+  concatClass: concatClass,
+};
