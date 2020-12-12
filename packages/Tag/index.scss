@@ -1,0 +1,52 @@
+
+@import '../../src/style/var.scss';
+
+.lin-tag{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8rpx;
+    color: $white;
+    font-size: $font-size-3;
+    line-height: 32rpx;
+    border-radius: 4rpx;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    &.lin-tag-round{
+        border-radius: 999px;
+    }
+    &.lin-tag-mark{
+        border-radius: 0 999px 999px 0;
+    }
+    &.lin-tag-size-medium{
+        padding: 4rpx 12rpx;
+    }
+    &.lin-tag-size-large{
+        padding: 8rpx 16rpx;
+    font-size: 28rpx;
+    border-radius: 8rpx;
+    }
+}
+
+@each $key,$val in $theme-color {
+    .lin-tag-type-#{$key}{
+        background-color: $val;
+    }
+}
+
+.lin-tag-plain{
+    border-color: currentColor;
+    @each $key,$val in $theme-color {
+        &.lin-tag-type-#{$key}{
+            color: $val;
+            background-color: $white;
+        }
+    } 
+}
+
+.lin-tag-icon{
+    display: flex;
+    margin-left: 2px;
+}
