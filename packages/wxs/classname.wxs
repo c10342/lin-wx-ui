@@ -12,6 +12,18 @@ function concatClass(classname, classFlag) {
   return "";
 }
 
+function concatMultClass() {
+  var classname = "";
+  for (var i = 0; i < arguments.length; i++) {
+    var classItem = arguments[i];
+    classname += concatClass(classItem[0], classItem[1]) + " ";
+  }
+  if (classname) {
+    classname.substring(0, classname.length - 1);
+  }
+  return classname;
+}
+
 function multCalss() {
   var classname = "";
   for (var i = 0; i < arguments.length; i++) {
@@ -28,4 +40,5 @@ module.exports = {
   singleClass: singleClass,
   multCalss: multCalss,
   concatClass: concatClass,
+  concatMultClass:concatMultClass
 };
