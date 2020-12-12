@@ -50,6 +50,10 @@ Page({
         name: 'Tag 标签',
         path: '/pages/component/tag/index'
       },
+      {
+        name: 'TreeSelect 分类选择',
+        path: '/pages/component/tree-select/index'
+      },
     ]
   },
 

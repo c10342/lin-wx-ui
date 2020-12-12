@@ -1,0 +1,23 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-tree-select data-index="mainActiveIndex1" data-key="activeId1" bind:item-click='onClickItem1'
+			bind:nav-click='onClickNav1' activeId='{{activeId1}}' items='{{items1}}' mainActiveIndex='{{mainActiveIndex1}}' />
+	</demo-block>
+	<demo-block title='多选模式'>
+		<lin-tree-select max='{{max}}' bind:item-click='onClickItem2' bind:nav-click='onClickNav2' activeId='{{activeId2}}'
+			items='{{items1}}' mainActiveIndex='{{mainActiveIndex2}}' />
+	</demo-block>
+	<demo-block title='自定义内容'>
+		<lin-tree-select data-index="mainActiveIndex3" data-key="activeId3" bind:item-click='onClickItem1'
+			bind:nav-click='onClickNav1' activeId='{{activeId3}}' items='{{items3}}' mainActiveIndex='{{mainActiveIndex3}}'>
+			<view slot='content'>
+				我是分组-{{mainActiveIndex3 +1}}
+			</view>
+			</lin-tree-select>
+	</demo-block>
+
+	<demo-block title='徽标提示'>
+		<lin-tree-select data-index="mainActiveIndex4" data-key="activeId4" bind:item-click='onClickItem1'
+			bind:nav-click='onClickNav1' activeId='{{activeId4}}' items='{{items4}}' mainActiveIndex='{{mainActiveIndex4}}' />
+	</demo-block>
+</view>

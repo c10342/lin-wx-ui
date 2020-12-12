@@ -1,0 +1,12 @@
+var Array = require('../wxs/array.wxs')
+
+function isActive(activeId,currentId){
+    if(Array.isArray(activeId)){
+        return activeId.indexOf(currentId)>-1
+    }
+    return activeId === currentId
+}
+
+module.exports={
+    isActive:isActive
+}

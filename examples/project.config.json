@@ -352,6 +352,13 @@
           "id": -1,
           "name": "Tag 标签",
           "pathName": "pages/component/tag/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "TreeSelect 分类选择",
+          "pathName": "pages/component/tree-select/index",
           "scene": null
         }
       ]

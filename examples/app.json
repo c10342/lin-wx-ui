@@ -47,7 +47,8 @@
     "pages/component/skeleton/index",
     "pages/component/steps/index",
     "pages/component/sticky/index",
-    "pages/component/tag/index"
+    "pages/component/tag/index",
+    "pages/component/tree-select/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -101,7 +102,8 @@
     "lin-skeleton": "/dist/Skeleton/index",
     "lin-steps": "/dist/Steps/index",
     "lin-sticky": "/dist/Sticky/index",
-    "lin-tag": "/dist/Tag/index"
+    "lin-tag": "/dist/Tag/index",
+    "lin-tree-select": "/dist/TreeSelect/index"
   },
   "sitemapLocation": "sitemap.json"
 }
