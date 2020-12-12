@@ -1,0 +1,109 @@
+
+@import '../../src/style/var.scss';
+
+.lin-tree-select{
+height: 600rpx;
+font-size: $font-size-5;
+display: flex;
+flex-direction: row;
+}
+
+.lin-tree-select-scroll{
+    height: 100%;
+}
+
+.lin-tree-select-left{
+    flex: 1;
+    background-color: $gray-1;
+}
+
+.lin-tree-select-right{
+    flex: 2;
+    background-color: $white;
+}
+
+.lin-tree-select-nav-item{
+    position: relative;
+    box-sizing: border-box;
+    padding: 28rpx 24rpx;
+    overflow: hidden;
+    color: $gray-8;
+    font-size: $font-size-5;
+    line-height: 40rpx;
+}
+
+.lin-tree-select-nav-disabled{
+    color: $gray-5;
+}
+
+.lin-tree-select-content-item{
+    position: relative;
+    padding: 0 64rpx 0 32rpx;
+    font-weight: 500;
+    line-height: 96rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.lin-tree-select-content-disabled{
+    color: $gray-5;
+}
+
+.lin-tree-select-content-active{
+    color: $red;
+}
+
+.lin-tree-select-icon{
+    position: absolute;
+    top: 50%;
+    right: 10rpx;
+    transform: translateY(-50%);
+}
+
+.lin-tree-select-nav-active{
+    background-color: $white;
+    &::before{
+        position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8rpx;
+    height: 32rpx;
+    background-color: $red;
+    transform: translateY(-50%);
+    content: '';
+
+    }
+}
+
+.lin-tree-select-nav-text{
+    position: relative;
+    display: inline-block;
+}
+
+.lin-tree-select-info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    min-width: 32rpx;
+    padding: 0 6rpx;
+    color: $white;
+    font-weight: 500;
+    font-size: $font-size-3;
+    line-height: 1.2;
+    text-align: center;
+    background-color: $red;
+    border: 1px solid $white;
+    border-radius: 32rpx;
+    transform: translate(50%, -50%);
+    transform-origin: 100%;
+}
+
+
+.lin-tree-select-dot{
+    width: 16rpx;
+    min-width: 0;
+    height: 16rpx;
+    background-color: $red;
+    border-radius: 100%;
+}
