@@ -345,6 +345,13 @@
           "id": -1,
           "name": "Sticky 粘性布局",
           "pathName": "pages/component/sticky/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Tag 标签",
+          "pathName": "pages/component/tag/index",
           "scene": null
         }
       ]

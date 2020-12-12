@@ -1,0 +1,3 @@
+.lin-tag-item+.lin-tag-item{
+  margin-left: 20rpx;
+}

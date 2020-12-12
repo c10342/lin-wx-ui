@@ -46,6 +46,10 @@ Page({
         name: 'Sticky 粘性布局',
         path: '/pages/component/sticky/index'
       },
+      {
+        name: 'Tag 标签',
+        path: '/pages/component/tag/index'
+      },
     ]
   },
 
