@@ -8,7 +8,7 @@ Component({
     properties: {
       type:{
         type:String,
-      value:'',
+      value:'primary',
       options:['primary','success','danger','warning','info']
       },
       size:{
