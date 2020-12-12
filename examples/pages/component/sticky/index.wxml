@@ -1,0 +1,35 @@
+<view class='container'>
+	<demo-block title='基础用法'>
+		<lin-sticky>
+			<lin-button type="primary">基础用法</lin-button>
+		</lin-sticky>
+	</demo-block>
+	<demo-block title='吸顶距离'>
+		<lin-sticky offset-top="{{ 50 }}">
+			<lin-button style="margin-left:100px" type="primary">吸顶距离</lin-button>
+		</lin-sticky>
+	</demo-block>
+
+
+	<demo-block title='指定容器'>
+		<view id="container" style="height: 150px;">
+			<lin-sticky container="{{ container }}">
+				<lin-button style="margin-left:200px" type="warning">
+					指定容器
+				</lin-button>
+			</lin-sticky>
+		</view>
+	</demo-block>
+
+	<demo-block title='嵌套在 scroll-view 内使用'>
+		<scroll-view bind:scroll="onScroll" scroll-y id="scroller" style="height: 200px;">
+			<view style="height: 400px; padding-top: 50px;">
+				<lin-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}">
+					<lin-button type="warning">
+						嵌套在 scroll-view 内
+					</lin-button>
+				</lin-sticky>
+			</view>
+		</scroll-view>
+	</demo-block>
+</view>

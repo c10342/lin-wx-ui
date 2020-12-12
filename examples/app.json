@@ -45,7 +45,8 @@
     "pages/component/panel/index",
     "pages/component/progress/index",
     "pages/component/skeleton/index",
-    "pages/component/steps/index"
+    "pages/component/steps/index",
+    "pages/component/sticky/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -97,7 +98,8 @@
     "lin-panel": "/dist/Panel/index",
     "lin-progress": "/dist/Progress/index",
     "lin-skeleton": "/dist/Skeleton/index",
-    "lin-steps": "/dist/Steps/index"
+    "lin-steps": "/dist/Steps/index",
+    "lin-sticky": "/dist/Sticky/index"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -42,6 +42,10 @@ Page({
         name: 'Steps 步骤条',
         path: '/pages/component/steps/index'
       },
+      {
+        name: 'Sticky 粘性布局',
+        path: '/pages/component/sticky/index'
+      },
     ]
   },
 
