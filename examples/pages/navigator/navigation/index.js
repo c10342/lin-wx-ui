@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+list:[
+  {
+    name: 'Grid 宫格',
+    path: '/pages/component/grid/index'
+  }
+]
   },
 
   /**

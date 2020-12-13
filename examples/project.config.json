@@ -359,6 +359,13 @@
           "id": -1,
           "name": "TreeSelect 分类选择",
           "pathName": "pages/component/tree-select/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Grid 宫格",
+          "pathName": "pages/component/grid/index",
           "scene": null
         }
       ]

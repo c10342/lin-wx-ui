@@ -1,0 +1,3 @@
+<view class="container">
+<component-cell wx:for="{{list}}" wx:key='item' dataInfo='{{item}}'></component-cell>
+</view>

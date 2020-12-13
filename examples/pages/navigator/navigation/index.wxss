@@ -1,1 +1,3 @@
-/* pages/navigation/index.wxss */
+page{
+  background-color: #ffffff;
+}
