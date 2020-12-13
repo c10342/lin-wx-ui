@@ -49,14 +49,6 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -342,6 +334,17 @@
           "scene": null
         },
         {
+          "name": "Skeleton 骨架屏",
+          "pathName": "pages/component/skeleton/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Steps 步骤条",
+          "pathName": "pages/component/steps/index",
+          "scene": null
+        },
+        {
           "id": -1,
           "name": "Sticky 粘性布局",
           "pathName": "pages/component/sticky/index",
@@ -366,6 +369,7 @@
           "id": -1,
           "name": "Grid 宫格",
           "pathName": "pages/component/grid/index",
+          "query": "",
           "scene": null
         }
       ]
