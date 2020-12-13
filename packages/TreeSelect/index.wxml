@@ -5,8 +5,8 @@
 
 <view class='custom-class lin-tree-select' style='{{styleUtils.singleUnit("height",height)}}'>
 <scroll-view scroll-y class='lin-tree-select-scroll lin-tree-select-left'>
-    <view class='lin-tree-select-nav'>
-    <view bindtap="onNavClick" data-index='{{index}}' wx:for="{{items}}" wx:key="index" class='lin-tree-select-nav-item one-line {{classname.multCalss(["lin-tree-select-nav-disabled",item.disabled],["lin-tree-select-nav-active",index===mainActiveIndex])}}'>
+    <view class='nav-class lin-tree-select-nav'>
+    <view bindtap="onNavClick" data-index='{{index}}' wx:for="{{items}}" wx:key="index" class='nav-item-class lin-tree-select-nav-item one-line {{classname.multCalss(["lin-tree-select-nav-disabled",item.disabled],["lin-tree-select-nav-active",index===mainActiveIndex])}}'>
             <view class='lin-tree-select-nav-text'>
                 {{item[navLabelKey]}}
             <view wx:if="{{item.dot}}" class='lin-tree-select-info lin-tree-select-dot'></view>
@@ -16,9 +16,9 @@
     </view>
 </scroll-view>
 <scroll-view scroll-y class='lin-tree-select-scroll lin-tree-select-right'>
-    <view class='lin-tree-select-content'>
+    <view class='content-class lin-tree-select-content'>
     <slot name='content' />
-    <view bindtap="onItemClick" data-item='{{item}}' wx:for="{{subItems}}" wx:key="index" class='lin-tree-select-content-item one-line {{classname.multCalss(["lin-tree-select-content-disabled",item.disabled],["lin-tree-select-content-active",wxs.isActive(activeId,item[contentValueKey])])}}'>
+    <view bindtap="onItemClick" data-item='{{item}}' wx:for="{{subItems}}" wx:key="index" class='content-item-class lin-tree-select-content-item one-line {{classname.multCalss(["lin-tree-select-content-disabled",item.disabled],["lin-tree-select-content-active",wxs.isActive(activeId,item[contentValueKey])])}}'>
             {{item[contentLabelKey]}}
             <lin-icon wx:if="{{wxs.isActive(activeId,item[contentValueKey])}}" class='lin-tree-select-icon' icon='{{selectedIcon || "gou"}}' size='50rpx'/>
         </view>

@@ -5,7 +5,7 @@ Component({
       addGlobalClass: true,
       multipleSlots: true,
     },
-    externalClasses: ["custom-class"],
+    externalClasses: ["custom-class",'nav-class','nav-item-class','content-class','content-item-class'],
     properties: {
       items:{
         type:Array,
