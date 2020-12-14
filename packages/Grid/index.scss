@@ -1,4 +1,10 @@
-
-.lin-grid{
-
+.lin-grid {
+  //   display: flex;
+  //   flex-direction: row;
+  //   flex-wrap: wrap;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }

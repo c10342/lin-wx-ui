@@ -1,4 +1,6 @@
-
 {
-    "component": true
+  "component": true,
+  "usingComponents": {
+    "lin-icon": "../Icon/index"
+  }
 }
