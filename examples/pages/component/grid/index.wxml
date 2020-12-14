@@ -1,11 +1,51 @@
-
 <view class='container'>
-	<demo-block title='基础用法'>
-		<lin-grid>
-  <lin-grid-item icon="photo-o" text="文字" />
-  <lin-grid-item icon="photo-o" text="文字" />
-  <lin-grid-item icon="photo-o" text="文字" />
-  <lin-grid-item icon="photo-o" text="文字" />
-</lin-grid>
-	</demo-block>
+  <demo-block title='基础用法'>
+    <lin-grid>
+      <lin-grid-item icon="pic" text="文字" />
+      <lin-grid-item icon="pic" text="文字" />
+      <lin-grid-item icon="pic" text="文字" />
+      <lin-grid-item icon="pic" text="文字" />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='自定义列数'>
+    <lin-grid column-num="3">
+      <lin-grid-item icon="pic" text="文字" wx:for="{{ 6 }}" wx:key='index' />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='自定义内容'>
+    <lin-grid column-num="3" border="{{ false }}">
+      <lin-grid-item useSlot wx:for="{{ 3 }}" wx:key='index'>
+        <view>我是自定义内容---{{index}}</view>
+      </lin-grid-item>
+    </lin-grid>
+  </demo-block>
+  <demo-block title='正方形格子'>
+    <lin-grid square>
+      <lin-grid-item wx:key='index' icon="pic" text="文字" wx:for="{{ 8 }}" />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='格子间距'>
+    <lin-grid gutter="{{ 10 }}">
+      <lin-grid-item wx:key='index' icon="pic" text="文字" wx:for="{{ 8 }}" />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='内容横排'>
+    <lin-grid direction="horizontal" column-num="3">
+      <lin-grid-item icon="pic" text="文字" />
+      <lin-grid-item icon="pic" text="文字" />
+      <lin-grid-item icon="pic" text="文字" />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='页面跳转'>
+    <lin-grid clickable column-num="2">
+      <lin-grid-item icon="pic" link-type="navigateTo" url="/pages/navigator/index/index" text="Navigate 跳转" />
+      <lin-grid-item icon="search" link-type="reLaunch" url="/pages/navigator/index/index" text="ReLaunch 跳转" />
+    </lin-grid>
+  </demo-block>
+  <demo-block title='提示信息'>
+    <lin-grid column-num="2">
+      <lin-grid-item icon="pic" text="文字" dot />
+      <lin-grid-item icon="search" text="文字" badge="99+" />
+    </lin-grid>
+  </demo-block>
 </view>

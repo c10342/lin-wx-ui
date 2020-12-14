@@ -1,1 +1,1 @@
-@import '../common/base.wxss';
+@import '../common/base.wxss';.lin-grid::after{content:"";display:table;clear:both}

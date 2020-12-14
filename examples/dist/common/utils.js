@@ -18,16 +18,11 @@ export function nextTick(fn) {
   }, 1000 / 30);
 }
 
-// export function requestAnimationFrame(cb) {
-//   const systemInfo = getSystemInfoSync();
-//   if (systemInfo.platform === "devtools") {
-//     return nextTick(cb);
-//   }
-//   return wx
-//     .createSelectorQuery()
-//     .selectViewport()
-//     .boundingClientRect()
-//     .exec(() => {
-//       cb();
-//     });
-// }
+const REGEXP = /^[0-9]+$/;
+export function addUnit(value) {
+  if (value == null) {
+    return undefined;
+  }
+
+  return REGEXP.test("" + value) ? value + "px" : value;
+}

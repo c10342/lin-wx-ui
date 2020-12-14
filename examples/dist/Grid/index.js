@@ -1,45 +1,82 @@
-
 Component({
-    options: {
-      addGlobalClass: true,
-      multipleSlots: true,
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  relations: {
+    "../GridItem/index": {
+      type: "descendant",
+      linked(child) {
+        this.children = this.children || [];
+        this.children.push(child);
+        this.updateChildren();
+      },
+      unlinked(child) {
+        this.children = (this.children || []).filter((it) => it !== child);
+        this.updateChildren();
+      },
     },
-    externalClasses: ["custom-class"],
-    properties: {
-      columnNum:{
-        type:Number,
-        value:4
-      },
-      iconSize:{
-        type:String,
-        value:'56rpx'
-      },
-      gutter:{
-        type:[String,Number],
-        value:0
-      },
-      border:{
-        type:Boolean,
-        value:true
-      },
-      center:{
-        type:Boolean,
-        value:true
-      },
-      square:Boolean,
-      clickable:Boolean,
-      direction:{
-        type:String,
-        value:'vertical',
-        options:['vertical','horizontal']
-      },
-      useSlot:Boolean
+  },
+  externalClasses: ["custom-class"],
+  properties: {
+    // 1
+    columnNum: {
+      type: Number,
+      value: 4,
+      observer: "updateChildren",
     },
-    data: {},
-    methods: {},
-    created: function () {},
-    attached: function () {},
-    ready: function () {},
-    moved: function () {},
-    detached: function () {},
+    // 1
+    iconSize: {
+      type: [String, Number],
+      value: "56rpx",
+      observer: "updateChildren",
+    },
+    // 1
+    gutter: {
+      type: [String, Number],
+      value: 0,
+      observer: "updateChildren",
+    },
+    // 1
+    border: {
+      type: Boolean,
+      value: true,
+      observer: "updateChildren",
+    },
+    // 1
+    center: {
+      type: Boolean,
+      value: true,
+      observer: "updateChildren",
+    },
+    // 1
+    square: {
+      type: Boolean,
+      observer: "updateChildren",
+    },
+    // clickable: {
+    //   type: Boolean,
+    //   observer: "updateChildren",
+    // },
+    // 1
+    direction: {
+      type: String,
+      value: "vertical",
+      options: ["vertical", "horizontal"],
+      observer: "updateChildren",
+    },
+  },
+  data: {},
+  methods: {
+    updateChildren() {
+      (this.children || []).forEach((child) => {
+        child.updateStyle();
+      });
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
 });

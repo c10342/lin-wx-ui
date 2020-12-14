@@ -1,4 +1,4 @@
-
-<view class='custom-class lin-grid'>
-
+<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<view class='custom-class lin-grid' style="{{styleUtils.singleUnit('padding-left',gutter)}}">
+    <slot></slot>
 </view>
