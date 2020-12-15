@@ -1,1 +1,1 @@
-@import '../common/base.wxss';.lin-row::after{content:"";display:table;clear:both}
+@import '../common/base.wxss';

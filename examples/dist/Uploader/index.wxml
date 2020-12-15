@@ -5,7 +5,9 @@
 								<video class='preview-image-class lin-uploader-preview-image' wx:elif="{{ item.isVideo }}" src="{{item.url || item.path}}" autoplay="{{item.autoplay}}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index="{{ index }}" bind:tap="onPreviewVideo" />
 								<view class='preview-file-class lin-uploader-file' wx:else style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}'>
 												<lin-icon icon='file' size='40rpx' />
-												<view class='lin-uploader-file-name'>{{ item.name || item.url || item.path }}</view>
+												<view class='lin-uploader-file-name one-line'>
+																{{ item.name || item.url || item.path }}
+												</view>
 								</view>
 								<view catch:tap='deleteItem' class='delete-class lin-uploader-preview-delete' data-index="{{ index }}" wx:if="{{deletable && item.deletable}}">
 												<lin-icon icon='close' color='#fff' class='lin-uploader-preview-delete-icon' />
