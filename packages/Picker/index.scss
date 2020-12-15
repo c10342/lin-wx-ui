@@ -1,5 +1,4 @@
-@import "../../src/style/mixins.scss";
-@import '../../src/style/var.scss';
+@import "../../src/style/var.scss";
 
 .lin-picker {
   position: relative;
@@ -64,7 +63,6 @@
   font-size: $font-size-7;
   line-height: 44px;
   text-align: center;
-  @include one-line();
 }
 
 .lin-picker-confirm {

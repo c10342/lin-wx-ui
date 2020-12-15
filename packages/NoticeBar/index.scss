@@ -1,4 +1,3 @@
-@import "../../src/style/mixins.scss";
 @import "../../src/style/var.scss";
 
 @keyframes lin-notice-bar-move {
@@ -57,7 +56,6 @@
 
 .lin-notice-bar-hide {
   width: 100%;
-  @include one-line();
 }
 
 .lin-notice-bar-left-icon {

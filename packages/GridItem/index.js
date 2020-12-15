@@ -10,34 +10,30 @@ Component({
       type: "ancestor",
       linked(parent) {
         this.parent = parent;
-        // this.updateDataFromParent();
       },
       unlinked() {
         this.parent = null;
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: [
+    "custom-class",
+    "content-class",
+    "icon-class",
+    "text-class",
+  ],
   properties: {
-    // 1
     text: String,
-    // 1
     icon: String,
-    // 1
     iconColor: String,
-    // 1
     dot: Boolean,
-    // 1
     badge: String,
-    // 1
     url: String,
-    // 1
     linkType: {
       type: String,
       value: "navigateTo",
       options: ["navigateTo", "redirectTo", "switchTab", "reLaunch"],
     },
-    // 1
     useSlot: {
       type: Boolean,
     },

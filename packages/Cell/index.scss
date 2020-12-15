@@ -1,5 +1,4 @@
 @import "../../src/style/var.scss";
-@import "../../src/style/mixins.scss";
 
 .lin-cell {
   background-color: $white;
@@ -54,7 +53,7 @@
 }
 
 .lin-cell-value {
-  color:$gray-7;
+  color: $gray-7;
   text-align: right;
   margin-left: 10rpx;
   flex: 1;
@@ -65,7 +64,7 @@
 }
 
 .lin-cell-content {
-  color:$gray-7;
+  color: $gray-7;
   font-size: $font-size-3;
   margin-top: 10rpx;
 }

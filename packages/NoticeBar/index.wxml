@@ -1,7 +1,7 @@
 <view wx:if="{{show}}" style="{{color?'color:'+color+';':''}}{{background?'background:'+background+';':''}}" class="custom-class lin-notice-bar {{wrapable&&!scrollable?'lin-notice-bar-wrap':''}}" bind:tap="onClick">
     <lin-icon class="left-icon-class lin-notice-bar-left-icon" size='32rpx' icon='{{leftIcon}}' wx:if="{{leftIcon}}" />
     <view id="bar-wrapper" class="wrapper-class lin-notice-bar-wrapper">
-        <view id="bar-content" class="content-class lin-notice-bar-content {{scrollable?'lin-notice-bar-scroll':''}} {{!scrollable&&!wrapable?'lin-notice-bar-hide':''}}" style="{{contentStyle}}">
+        <view id="bar-content" class="content-class lin-notice-bar-content {{scrollable?'lin-notice-bar-scroll':''}} {{!scrollable&&!wrapable?'lin-notice-bar-hide one-line':''}}" style="{{contentStyle}}">
             {{text}}
         </view>
     </view>

@@ -1,12 +1,9 @@
-@import "../../src/style/mixins.scss";
-
 .lin-picker-column {
   overflow: hidden;
 }
 
 .lin-picker-column-item {
   text-align: center;
-  @include one-line();
 }
 
 .lin-picker-column-item-disabled {
