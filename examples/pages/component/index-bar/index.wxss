@@ -1,0 +1,7 @@
+.index-bar-tabs{
+  /* height: 60rpx; */
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}

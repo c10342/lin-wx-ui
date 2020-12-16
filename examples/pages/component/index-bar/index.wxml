@@ -1,0 +1,15 @@
+<!-- <view class='container'>
+	<demo-block title='基础用法'>
+		
+	</demo-block>
+</view> -->
+
+<view class="index-bar-tabs">
+基础示例
+</view>
+
+<lin-index-bar>
+	<lin-index-anchor index='{{item}}' wx:for="{{anchorList}}" wx:key='index'>
+		<lin-cell title="文本" wx:for="{{3}}" wx:key='index' />
+	</lin-index-anchor>
+</lin-index-bar>

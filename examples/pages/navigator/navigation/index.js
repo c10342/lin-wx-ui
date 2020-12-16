@@ -9,6 +9,10 @@ list:[
   {
     name: 'Grid 宫格',
     path: '/pages/component/grid/index'
+  },
+  {
+    name: 'IndexBar 索引栏',
+    path: '/pages/component/index-bar/index'
   }
 ]
   },

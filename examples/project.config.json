@@ -342,6 +342,7 @@
         {
           "name": "Steps 步骤条",
           "pathName": "pages/component/steps/index",
+          "query": "",
           "scene": null
         },
         {
@@ -370,6 +371,11 @@
           "name": "Grid 宫格",
           "pathName": "pages/component/grid/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "IndexBar 索引栏",
+          "pathName": "pages/component/index-bar/index",
           "scene": null
         }
       ]
