@@ -1,0 +1,24 @@
+.lin-index-anchor {
+}
+
+.lin-index-anchor-index {
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  color: #323233;
+  font-weight: 500;
+  font-size: 28rpx;
+  line-height: 64rpx;
+  background-color: transparent;
+  width: 100%;
+  position: relative;
+}
+
+.lin-index-anchor-index-fixed {
+  position: fixed;
+}
+
+.lin-index-anchor-index-leaveClient {
+  background-color: #fff;
+  color: #ee0a24;
+}

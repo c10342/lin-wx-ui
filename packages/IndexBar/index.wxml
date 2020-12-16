@@ -1,0 +1,9 @@
+<wxs src="../wxs/classname.wxs" module="classname"></wxs>
+<view class='custom-class lin-index-bar'>
+    <slot></slot>
+    <view class="lin-index-bar-sidebar">
+        <view class="lin-index-bar-index {{classname.singleClass('lin-index-bar-index-active',activeIndex===item)}}" wx:for="{{barList}}" wx:key="index">
+            {{item}}
+        </view>
+    </view>
+</view>
