@@ -3,5 +3,5 @@
     <view style='{{viewStyle}}' class='error-class lin-image-error' wx:if='{{!useErrorSlot&&isError}}'>
         <text>{{errorTip?errorTip:'加载失败'}}</text>
     </view>
-    <slot wx:if='{{useErrorSlot&&isError}}'></slot>
+    <slot wx:if='{{useErrorSlot&&isError}}' />
 </view>

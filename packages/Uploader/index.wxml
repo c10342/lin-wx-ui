@@ -1,4 +1,4 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <view class='custom-class lin-uploader'>
 				<view class='preview-class lin-uploader-preview' wx:if="{{ previewImage }}" wx:for='{{lists}}' wx:key="index" data-index='{{index}}' bind:tap='onClickPreview'>
 								<image class='preview-image-class lin-uploader-preview-image' wx:if="{{item.isImage}}" mode="{{ imageFit }}" src="{{ item.url || item.path }}" alt="{{ item.name || ('图片' + index) }}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index='{{index}}' bind:tap="onPreviewImage" />

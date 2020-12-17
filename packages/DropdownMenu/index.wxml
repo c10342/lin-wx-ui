@@ -1,4 +1,4 @@
-<wxs src="./index.wxs" module="computed"></wxs>
+<wxs src="./index.wxs" module="computed" />
 <view class='custom-class lin-dropdown-menu'>
     <view class='wrapper-class lin-dropdown-menu-bar-wrapper'>
         <view class="item-class lin-dropdown-menu-bar-item {{item.disabled?'lin-dropdown-menu-bar-disabled':''}}" bind:tap="onTitleTap" wx:for="{{itemListData}}" wx:key="index" data-index='{{index}}'>
@@ -7,5 +7,5 @@
             </view>
         </view>
     </view>
-    <slot></slot>
+    <slot />
 </view>

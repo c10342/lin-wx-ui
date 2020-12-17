@@ -1,1 +1,1 @@
-<text style='{{viewStyle}}' class='custom-class lin-icon lin-iconfont lin-icon-{{icon}} lin-icon-type-{{type}}'></text>
+<text style='{{viewStyle}}' class='custom-class lin-icon lin-iconfont lin-icon-{{icon}} lin-icon-type-{{type}}' />

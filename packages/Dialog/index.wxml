@@ -1,10 +1,10 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <lin-popup transition='{{transition}}' closeOnClickMask='{{closeOnClickMask}}' show='{{show}}' z-index='{{zIndex}}' mask='{{mask}}' maskStyle='{{maskStyle}}' custom-class='custom-class lin-dialog lin-dialog-{{theme}} {{className}}' customStyle='{{styleUtils.singleUnit("width",width)}}{{customStyle}}' bind:close='onMaskClick'>
     <view class="header-class lin-dialog-header" wx:if="{{title || useTitleSlot}}">
-        <slot wx:if="{{useTitleSlot}}" name="title"></slot>
+        <slot wx:if="{{useTitleSlot}}" name="title" />
         <block wx:elif="{{title}}">{{title}}</block>
     </view>
-    <slot wx:if="{{useSlot}}"></slot>
+    <slot wx:if="{{useSlot}}" />
     <view class="content-class lin-dialog-content" wx:elif="{{message}}">
         <view class="lin-dialog-message {{title?'lin-dialog-message-hastitle':''}} lin-dialog-{{messageAlign}} lin-dialog-message-{{theme}}">
             {{message}}

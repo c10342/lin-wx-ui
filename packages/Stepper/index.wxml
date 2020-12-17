@@ -1,4 +1,4 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <view class="custom-class lin-stepper">
     <view wx:if='{{showMinus}}' style='{{styleUtils.multUnit(["width",buttonSize],["height",buttonSize],["line-height",buttonSize],["font-size",buttonFontSize])}}' bind:tap="onMinus" bind:longpress='onMinusLongpress' bind:touchend='onTouchend' class="minus-class lin-stepper-minus lin-stepper-button {{isMinusDisable?'lin-stepper-disabled':''}}">
         -

@@ -1,4 +1,4 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <view class='custom-class lin-divider {{contentPosition?"lin-divider-"+contentPosition:""}} {{dashed?"lin-divider-dashed":""}} {{hairline?"lin-divider-hairline":""}}' style="{{styleUtils.singleUnit('font-size',fontSize)}} {{borderColor?'border-color:'+borderColor+';':''}} {{textColor?'color:'+textColor+';':''}} {{customStyle}}">
-    <slot></slot>
+    <slot />
 </view>

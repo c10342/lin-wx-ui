@@ -1,4 +1,4 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <template name="calendar">
     <view class="lin-calendar">
         <view class="lin-calendar-title" wx:if="{{showTitle}}">{{title}}</view>
@@ -25,7 +25,7 @@
             <lin-button wx:if="{{showConfirm}}" class="lin-calendar-button" disabled='{{disabledConfirm}}' round block type='primary' bind:click='onConfirmClick'>
                 {{confirmText}}
             </lin-button>
-            <view style="width:60rpx" wx:if="{{showConfirm && showReset}}"></view>
+            <view style="width:60rpx" wx:if="{{showConfirm && showReset}}" />
             <lin-button wx:if="{{showReset}}" class="lin-calendar-button" disabled='{{disabledReset}}' round block type='default' bind:click='onResetClick'>
                 {{restText}}
             </lin-button>
