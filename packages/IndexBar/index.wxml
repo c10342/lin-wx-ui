@@ -1,8 +1,9 @@
-<wxs src="../wxs/classname.wxs" module="classname"></wxs>
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <view class='custom-class lin-index-bar'>
-    <slot></slot>
-    <view class="lin-index-bar-sidebar">
-        <view class="lin-index-bar-index {{classname.singleClass('lin-index-bar-index-active',activeIndex===item)}}" wx:for="{{barList}}" wx:key="index">
+    <slot />
+    <view class="sidebar-class lin-index-bar-sidebar" style="{{styleUtils.multStyle(['z-index',zIndex+1])}}">
+        <view bind:tap="onSidebarClick" data-index='{{item}}' style="{{styleUtils.multStyle(['color',activeIndex===item?highlightColor:''])}}" class="sidebar-item-class lin-index-bar-index {{classname.singleClass('lin-index-bar-index-active',activeIndex===item)}}" wx:for="{{barList}}" wx:key="index">
             {{item}}
         </view>
     </view>

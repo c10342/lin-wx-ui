@@ -21,23 +21,11 @@ Component({
   },
   behaviors: [
     pageScrollBehaviors(function(event) {
-      // console.log(event);
       this.onScroll(event);
     }),
   ],
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class",'sidebar-class','sidebar-item-class'],
   properties: {
-    indexList: {
-      type: Array,
-      value: null,
-      observer(val) {
-        if (Array.isArray(val)) {
-          this.setData({
-            barList: val,
-          });
-        }
-      },
-    },
     zIndex: {
       type: Number,
       value: 1,
@@ -68,11 +56,9 @@ Component({
       (this.children || []).forEach((child) => {
         barList.push(child.properties.index);
       });
-      if (Array.isArray(this.data.barList)) {
         this.setData({
           barList,
         });
-      }
     },
     updateChildren() {
       (this.children || []).forEach((child) => {
@@ -83,7 +69,7 @@ Component({
       (this.children || []).forEach((child) => {
         child.onScroll(event);
       });
-      const child = (this.children || []).find((child) => child.data.fixed);
+      const child = (this.children || []).find((child) => child.data.isActive);
       let activeIndex = -1;
       if (child) {
         activeIndex = child.properties.index;
@@ -93,6 +79,33 @@ Component({
           activeIndex: activeIndex,
         });
       }
+    },
+    onSidebarClick(event) {
+      const { index } = event.currentTarget.dataset;
+      this.triggerEvent('select',index)
+      const child = (this.children || []).find(
+        (child) => index === child.properties.index
+      );
+      if (child) {
+        Promise.all([this.getViewPort(), child.getContainerRect()]).then(
+          (res) => {
+            const data = res[0].scrollTop + res[1].top; // 顶部距离该id值得距离
+            wx.pageScrollTo({
+              scrollTop: data,
+              duration: 300,
+            });
+          }
+        );
+      }
+    },
+    getViewPort() {
+      return new Promise((resolve) => {
+        const query = wx.createSelectorQuery().in(this);
+        query
+          .selectViewport()
+          .scrollOffset(resolve)
+          .exec();
+      });
     },
   },
   created: function() {},

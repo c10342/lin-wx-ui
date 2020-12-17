@@ -1,3 +1,5 @@
+@import '../../src/style/var.scss';
+
 .lin-index-bar {
   position: relative;
 }
@@ -20,5 +22,5 @@
 }
 
 .lin-index-bar-index-active {
-  color: #ee0a24;
+  color: $red;
 }

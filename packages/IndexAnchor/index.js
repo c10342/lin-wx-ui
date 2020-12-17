@@ -15,7 +15,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class",'index-class'],
   properties: {
     index: {
       type: [String, Number],
@@ -30,8 +30,7 @@ Component({
     fixed: false,
     transform: 0,
     indexwapperHeight: "",
-    // 是否离开了容器粘性的位置
-    leaveClient: false,
+    isActive: false,
   },
   methods: {
     updateDataFromParent() {
@@ -50,36 +49,48 @@ Component({
         });
       }
     },
-    onScroll(event) {
+    onScroll(event = {}) {
       this.getRect().then((res) => {
-        const { stickyOffsetTop } = this.data;
+        const { stickyOffsetTop, sticky } = this.data;
         const wrapper = res[0];
         const indexContainer = res[1];
         let obj = {};
-        if (wrapper.top > stickyOffsetTop) {
-          obj = {
-            fixed: false,
-            transform: 0,
-            indexwapperHeight: "",
-            leaveClient: false,
-          };
+        if (sticky) {
+          if (wrapper.top > stickyOffsetTop) {
+            obj = {
+              fixed: false,
+              transform: 0,
+              indexwapperHeight: "",
+            };
+          } else if (
+            wrapper.top <= stickyOffsetTop &&
+            wrapper.height - stickyOffsetTop + wrapper.top >
+              indexContainer.height
+          ) {
+            obj = {
+              fixed: true,
+              transform: 0,
+              indexwapperHeight: indexContainer.height,
+            };
+          } else {
+            obj = {
+              fixed: false,
+              transform: wrapper.height - indexContainer.height,
+              indexwapperHeight: indexContainer.height,
+            };
+          }
+        }
+        const offsetTop = sticky?stickyOffsetTop:0
+        if (wrapper.top > offsetTop) {
+          obj.isActive = false;
         } else if (
-          wrapper.top <= stickyOffsetTop &&
-          wrapper.height - stickyOffsetTop + wrapper.top > indexContainer.height
+          wrapper.height - offsetTop + wrapper.top >
+            indexContainer.height ||
+          wrapper.height - offsetTop + wrapper.top > 0
         ) {
-          obj = {
-            fixed: true,
-            transform: 0,
-            indexwapperHeight: indexContainer.height,
-            leaveClient: true,
-          };
+          obj.isActive = true;
         } else {
-          obj = {
-            fixed: false,
-            transform: wrapper.height - indexContainer.height,
-            indexwapperHeight: indexContainer.height,
-            leaveClient: true,
-          };
+          obj.isActive = false;
         }
         this.setDiffData(obj);
       });
@@ -94,13 +105,26 @@ Component({
       this.setData(data);
     },
     getRect() {
+      return Promise.all([this.getContainerRect(), this.getIndexRect()]);
+    },
+
+    getIndexRect() {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
-        query.select(".lin-index-anchor").boundingClientRect();
-        query.select(".lin-index-anchor-index").boundingClientRect();
-        query.exec((rect) => {
-          resolve(rect);
-        });
+        query
+          .select(".lin-index-anchor-index")
+          .boundingClientRect(resolve)
+          .exec();
+      });
+    },
+
+    getContainerRect() {
+      return new Promise((resolve) => {
+        const query = this.createSelectorQuery();
+        query
+          .select(".lin-index-anchor")
+          .boundingClientRect(resolve)
+          .exec();
       });
     },
   },
