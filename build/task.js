@@ -14,24 +14,26 @@ const wxmlmin = require("gulp-htmlmin");
 
 const rename = require("gulp-rename");
 
-const insert = require('gulp-insert')
+const insert = require("gulp-insert");
 
 const del = require("del");
 
-const path = require('path')
+const path = require("path");
 
 const buildWxss = (srcPath, distPath) => () =>
   src(srcPath)
     .pipe(sass().on("error", sass.logError))
     .pipe(cssmin())
-    .pipe(insert.transform((contents,file)=>{
-      const commonScssPath = `packages${path.sep}common`
-      if(!file.path.includes(commonScssPath)){
-        const relativePath = '../common/base.wxss'
-        contents = `@import '${relativePath}';${contents}`
-      }
-      return contents
-    }))
+    .pipe(
+      insert.transform((contents, file) => {
+        const commonScssPath = `packages${path.sep}common`;
+        if (!file.path.includes(commonScssPath)) {
+          const relativePath = "../common/base.wxss";
+          contents = `@import '${relativePath}';${contents}`;
+        }
+        return contents;
+      })
+    )
     .pipe(
       rename((srcPath) => {
         srcPath.extname = ".wxss";
@@ -44,7 +46,13 @@ const copy = (srcPath, distPath, ext) => () =>
 
 const buildWxml = (srcPath, distPath) => () =>
   src(srcPath)
-    .pipe(wxmlmin())
+    .pipe(
+      wxmlmin({
+        removeComments: true,
+        keepClosingSlash: true,
+        caseSensitive: true,
+      })
+    )
     .pipe(dest(distPath));
 
 const buildJson = (srcPath, distPath) => () =>
@@ -56,6 +64,8 @@ const buildJs = (srcPath, distPath) => () =>
   src(srcPath)
     .pipe(jsmin())
     .pipe(dest(distPath));
+
+const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
 
 const buildImage = (srcPath, distPath) => () =>
   src(srcPath)
@@ -86,4 +96,5 @@ module.exports = {
   copyStatic,
   clean,
   copy,
+  buildWxs,
 };
