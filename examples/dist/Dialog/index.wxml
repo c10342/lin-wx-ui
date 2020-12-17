@@ -1,10 +1,10 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
-<lin-popup transition='{{transition}}' closeOnClickMask='{{closeOnClickMask}}' show='{{show}}' z-index='{{zIndex}}' mask='{{mask}}' maskStyle='{{maskStyle}}' custom-class='custom-class lin-dialog lin-dialog-{{theme}} {{className}}' customStyle='{{styleUtils.singleUnit("width",width)}}{{customStyle}}' bind:close='onMaskClick'>
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
+<lin-popup transition="{{transition}}" closeOnClickMask="{{closeOnClickMask}}" show="{{show}}" z-index="{{zIndex}}" mask="{{mask}}" maskStyle="{{maskStyle}}" custom-class="custom-class lin-dialog lin-dialog-{{theme}} {{className}}" customStyle='{{styleUtils.singleUnit("width",width)}}{{customStyle}}' bind:close="onMaskClick">
     <view class="header-class lin-dialog-header" wx:if="{{title || useTitleSlot}}">
-        <slot wx:if="{{useTitleSlot}}" name="title"></slot>
+        <slot wx:if="{{useTitleSlot}}" name="title"/>
         <block wx:elif="{{title}}">{{title}}</block>
     </view>
-    <slot wx:if="{{useSlot}}"></slot>
+    <slot wx:if="{{useSlot}}"/>
     <view class="content-class lin-dialog-content" wx:elif="{{message}}">
         <view class="lin-dialog-message {{title?'lin-dialog-message-hastitle':''}} lin-dialog-{{messageAlign}} lin-dialog-message-{{theme}}">
             {{message}}
@@ -12,11 +12,11 @@
     </view>
     <view class="footer-class lin-dialog-footer">
         <button class="cancel-class lin-dialog-button lin-dialog-cancel lin-dialog-button-{{theme}}" wx:if="{{showCancelButton}}" style="{{cancelButtonColor?'color:'+cancelButtonColor:''}}" bind:tap="onCancel">
-            <lin-loading class="lin-dialog-loading" wx:if="{{loading.cancel}}" />
+            <lin-loading class="lin-dialog-loading" wx:if="{{loading.cancel}}"/>
             <block wx:else>{{cancelButtonText}}</block>
         </button>
         <button wx:if="{{showConfirmButton}}" class="confirm-class lin-dialog-button lin-dialog-confirm lin-dialog-button-{{theme}} {{showCancelButton&&showConfirmButton?'lin-dialog-button-border':''}}" style="{{confirmButtonColor?'color:'+confirmButtonColor:''}}" open-type="{{confirmButtonOpenType}}" lang="{{ lang }}" business-id="{{ businessId }}" session-from="{{ sessionFrom }}" send-message-title="{{ sendMessageTitle }}" send-message-path="{{ sendMessagePath }}" send-message-img="{{ sendMessageImg }}" show-message-card="{{ showMessageCard }}" app-parameter="{{ appParameter }}" bind:tap="onConfirm" bindgetuserinfo="bindGetUserInfo" bindcontact="bindContact" bindgetphonenumber="bindGetPhoneNumber" binderror="bindError" bindlaunchapp="bindLaunchApp" bindopensetting="bindOpenSetting">
-            <lin-loading class="lin-dialog-loading" wx:if="{{loading.confirm}}" />
+            <lin-loading class="lin-dialog-loading" wx:if="{{loading.confirm}}"/>
             <block wx:else>{{confirmButtonText}}</block>
         </button>
     </view>

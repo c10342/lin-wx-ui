@@ -1,8 +1,1 @@
-
-{
-    "component": true,
-    "usingComponents":{
-        "lin-popup":"../Popup/index",
-        "options":"./options"
-    }
-}
+{"component":true,"usingComponents":{"lin-popup":"../Popup/index","options":"./options"}}

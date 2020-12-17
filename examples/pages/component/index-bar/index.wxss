@@ -1,7 +1,32 @@
-.index-bar-tabs{
-  /* height: 60rpx; */
+.index-bar-tabs {
   line-height: 100rpx;
   padding: 0 40rpx;
   box-sizing: border-box;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  color: #323233;
+  font-weight: 500;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.tab-item {
+  position: relative;
+}
+
+.active-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 40px;
+  height: 3px;
+  background-color: #ee0a24;
+  border-radius: 3px;
 }

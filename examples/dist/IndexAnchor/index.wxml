@@ -1,12 +1,12 @@
-<wxs src="../wxs/classname.wxs" module="classname"></wxs>
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
-<wxs src="./index.wxs" module="computed"></wxs>
-<view class='custom-class lin-index-anchor'>
+<wxs src="../wxs/classname.wxs" module="classname"/>
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
+<wxs src="./index.wxs" module="computed"/>
+<view class="custom-class lin-index-anchor">
     <view style="{{styleUtils.singleUnit('height',indexwapperHeight)}}">
-        <view class="lin-index-anchor-index {{classname.multCalss(['lin-index-anchor-index-fixed lin-border-bottom',fixed],['lin-index-anchor-index-leaveClient',leaveClient])}}" style="{{computed.indexStyle({stickyOffsetTop,fixed,transform,zIndex})}}">
-            <slot wx:if="{{useSlot}}" name="index"></slot>
+        <view class="index-class lin-index-anchor-index {{classname.multCalss(['lin-index-anchor-index-fixed lin-border-bottom',fixed],['lin-index-anchor-index-active',isActive&&sticky])}}" style="{{computed.indexStyle({stickyOffsetTop,fixed,transform,zIndex})}} {{styleUtils.singleStyle('color',isActive&&sticky?highlightColor:'')}}">
+            <slot wx:if="{{useSlot}}" name="index"/>
             <block wx:else>{{index}}</block>
         </view>
     </view>
-    <slot></slot>
+    <slot/>
 </view>

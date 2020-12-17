@@ -1,7 +1,1 @@
-{
-  "component": true,
-  "usingComponents": {
-    "lin-popup": "../Popup/index",
-    "lin-loading":"../Loading/index"
-  }
-}
+{"component":true,"usingComponents":{"lin-popup":"../Popup/index","lin-loading":"../Loading/index"}}

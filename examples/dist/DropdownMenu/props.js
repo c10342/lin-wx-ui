@@ -1,9 +1,1 @@
-// import { RED } from "../common/color";
-
-export default {
-  activeColor: "",
-  duration: 200,
-  direction: "down",
-  mask: true,
-  closeOnClickMask: true,
-};
+export default{activeColor:"",duration:200,direction:"down",mask:!0,closeOnClickMask:!0};

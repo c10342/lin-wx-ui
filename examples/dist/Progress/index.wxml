@@ -1,5 +1,5 @@
-<wxs src='../wxs/style.wxs' module='styleUtils' />
-<view class='custom-class lin-progress' style="{{styleUtils.multStyle(['height',styleUtils.addUnit(strokeWidth)],['background',inactive?'':trackColor])}}">
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
+<view class="custom-class lin-progress" style="{{styleUtils.multStyle(['height',styleUtils.addUnit(strokeWidth)],['background',inactive?'':trackColor])}}">
     <view class="portion-class lin-progress-portion" style="{{styleUtils.multStyle(['width',progressWidth],['background',inactive?grayColor:color])}}">
         <view wx:if="{{showPivot}}" class="pivot-class lin-progress-pivot" style="{{styleUtils.multStyle(['right',pivotRight],['color',textColor],['background',inactive?grayColor:pivotColor])}}">
             {{pivotText?pivotText:percentage+'%'}}

@@ -1,6 +1,6 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
 <view style="background-color:{{checked?activeColor:inactiveColor}};{{styleUtils.singleUnit('font-size',size)}}" class="custom-class lin-switch {{disabled?'lin-switch-disabled':''}}" bind:tap="onClick">
     <view class="node-class lin-switch-node {{checked?'lin-switch-node-on':''}}">
-        <lin-loading class="lin-switch-loading" wx:if="{{loading}}" />
+        <lin-loading class="lin-switch-loading" wx:if="{{loading}}"/>
     </view>
 </view>

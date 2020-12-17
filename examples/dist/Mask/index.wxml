@@ -1,3 +1,3 @@
-<lin-transition bind:click='onClick' custom-class='lin-mask' show='{{show}}' duration='{{duration}}' customStyle='background-color: rgba(0, 0, 0, {{opacity}});z-index:{{zIndex}};{{customStyle}}'>
-    <slot></slot>
+<lin-transition bind:click="onClick" custom-class="lin-mask" show="{{show}}" duration="{{duration}}" customStyle="background-color: rgba(0, 0, 0, {{opacity}});z-index:{{zIndex}};{{customStyle}}">
+    <slot/>
 </lin-transition>

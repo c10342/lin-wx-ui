@@ -1,8 +1,1 @@
-{
-  "component": true,
-  "usingComponents": {
-    "lin-icon": "../Icon/index",
-    "lin-popup": "../Popup/index",
-    "lin-button": "../Button/index"
-  }
-}
+{"component":true,"usingComponents":{"lin-icon":"../Icon/index","lin-popup":"../Popup/index","lin-button":"../Button/index"}}

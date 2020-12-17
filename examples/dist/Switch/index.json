@@ -1,6 +1,1 @@
-{
-  "component": true,
-  "usingComponents": {
-    "lin-loading": "../Loading/index"
-  }
-}
+{"component":true,"usingComponents":{"lin-loading":"../Loading/index"}}

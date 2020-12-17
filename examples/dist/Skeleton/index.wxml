@@ -1,12 +1,12 @@
-<wxs src="../wxs/classname.wxs" module="classname"></wxs>
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
+<wxs src="../wxs/classname.wxs" module="classname"/>
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
 <view class="custom-class lin-skeleton {{classname.singleClass('lin-skeleton-animate',animate)}}" wx:if="{{loading}}">
-    <view wx:if="{{avatar}}" style="{{styleUtils.multUnit(['width',avatarSize],['height',avatarSize])}}" class="avatar-class lin-skeleton-avatar {{classname.concatClass('lin-skeleton-avatar',avatarShape)}}"></view>
+    <view wx:if="{{avatar}}" style="{{styleUtils.multUnit(['width',avatarSize],['height',avatarSize])}}" class="avatar-class lin-skeleton-avatar {{classname.concatClass('lin-skeleton-avatar',avatarShape)}}"/>
     <view class="lin-skeleton-content">
-        <view class="title-class lin-skeleton-title" wx:if="{{title}}" style="{{styleUtils.singleUnit('width',titleWidth)}}"></view>
-        <view class="row-class lin-skeleton-row" wx:key="index" wx:for="{{rowArray}}" style="{{styleUtils.singleUnit('width',isArray?rowWidth[index]:rowWidth)}}"></view>
+        <view class="title-class lin-skeleton-title" wx:if="{{title}}" style="{{styleUtils.singleUnit('width',titleWidth)}}"/>
+        <view class="row-class lin-skeleton-row" wx:key="index" wx:for="{{rowArray}}" style="{{styleUtils.singleUnit('width',isArray?rowWidth[index]:rowWidth)}}"/>
     </view>
 </view>
 <view wx:else class="slot-class lin-skeleton-slot">
-    <slot></slot>
+    <slot/>
 </view>

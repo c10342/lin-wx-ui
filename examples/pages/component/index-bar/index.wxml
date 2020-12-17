@@ -1,15 +1,19 @@
-<!-- <view class='container'>
-	<demo-block title='基础用法'>
-		
-	</demo-block>
-</view> -->
-
 <view class="index-bar-tabs">
-基础示例
+	<view data-index="1" bindtap="onTabClick" class="tab-item {{activeTab==='1'?'active-tab':''}}">基础用法</view>
+	<view data-index="2" bindtap="onTabClick" class="tab-item {{activeTab==='2'?'active-tab':''}}">自定义索引列表</view>
 </view>
 
-<lin-index-bar>
+<lin-index-bar wx:if="{{activeTab==='1'}}">
 	<lin-index-anchor index='{{item}}' wx:for="{{anchorList}}" wx:key='index'>
+		<lin-cell title="文本" wx:for="{{3}}" wx:key='index' />
+	</lin-index-anchor>
+</lin-index-bar>
+
+<lin-index-bar wx:if="{{activeTab==='2'}}">
+	<lin-index-anchor index='{{item}}' wx:for="{{indexList}}" wx:key='index' useSlot>
+		<view slot='index'>
+			标题-{{item}}
+		</view>
 		<lin-cell title="文本" wx:for="{{3}}" wx:key='index' />
 	</lin-index-anchor>
 </lin-index-bar>

@@ -1,30 +1,30 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"></wxs>
-<view class='custom-class lin-uploader'>
-				<view class='preview-class lin-uploader-preview' wx:if="{{ previewImage }}" wx:for='{{lists}}' wx:key="index" data-index='{{index}}' bind:tap='onClickPreview'>
-								<image class='preview-image-class lin-uploader-preview-image' wx:if="{{item.isImage}}" mode="{{ imageFit }}" src="{{ item.url || item.path }}" alt="{{ item.name || ('图片' + index) }}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index='{{index}}' bind:tap="onPreviewImage" />
-								<video class='preview-image-class lin-uploader-preview-image' wx:elif="{{ item.isVideo }}" src="{{item.url || item.path}}" autoplay="{{item.autoplay}}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index="{{ index }}" bind:tap="onPreviewVideo" />
-								<view class='preview-file-class lin-uploader-file' wx:else style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}'>
-												<lin-icon icon='file' size='40rpx' />
-												<view class='lin-uploader-file-name one-line'>
+<wxs src="../wxs/style.wxs" module="styleUtils"/>
+<view class="custom-class lin-uploader">
+				<view class="preview-class lin-uploader-preview" wx:if="{{ previewImage }}" wx:for="{{lists}}" wx:key="index" data-index="{{index}}" bind:tap="onClickPreview">
+								<image class="preview-image-class lin-uploader-preview-image" wx:if="{{item.isImage}}" mode="{{ imageFit }}" src="{{ item.url || item.path }}" alt="{{ item.name || ('图片' + index) }}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index="{{index}}" bind:tap="onPreviewImage"/>
+								<video class="preview-image-class lin-uploader-preview-image" wx:elif="{{ item.isVideo }}" src="{{item.url || item.path}}" autoplay="{{item.autoplay}}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' data-index="{{ index }}" bind:tap="onPreviewVideo"/>
+								<view class="preview-file-class lin-uploader-file" wx:else style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}'>
+												<lin-icon icon="file" size="40rpx"/>
+												<view class="lin-uploader-file-name one-line">
 																{{ item.name || item.url || item.path }}
 												</view>
 								</view>
-								<view catch:tap='deleteItem' class='delete-class lin-uploader-preview-delete' data-index="{{ index }}" wx:if="{{deletable && item.deletable}}">
-												<lin-icon icon='close' color='#fff' class='lin-uploader-preview-delete-icon' />
+								<view catch:tap="deleteItem" class="delete-class lin-uploader-preview-delete" data-index="{{ index }}" wx:if="{{deletable && item.deletable}}">
+												<lin-icon icon="close" color="#fff" class="lin-uploader-preview-delete-icon"/>
 								</view>
-								<view class='mask-class lin-uploader-mask' wx:if="{{ item.status === 'uploading' || item.status === 'failed' }}">
-												<lin-loading color='#fff' wx:if="{{item.status === 'uploading'}}" />
-												<lin-icon icon='error' color='#fff' wx:if="{{item.status === 'failed'}}" />
-												<text wx:if="{{item.message}}" class='lin-uploader-message'>{{item.message}}</text>
+								<view class="mask-class lin-uploader-mask" wx:if="{{ item.status === 'uploading' || item.status === 'failed' }}">
+												<lin-loading color="#fff" wx:if="{{item.status === 'uploading'}}"/>
+												<lin-icon icon="error" color="#fff" wx:if="{{item.status === 'failed'}}"/>
+												<text wx:if="{{item.message}}" class="lin-uploader-message">{{item.message}}</text>
 								</view>
 				</view>
 				<block wx:if="{{showUploadBtn}}">
-								<view class='lin-uploader-slot' bind:tap='startUpload'>
-												<slot />
+								<view class="lin-uploader-slot" bind:tap="startUpload">
+												<slot/>
 								</view>
-								<view wx:if="{{ showUpload }}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' class='upload-class lin-uploader-upload {{disabled?"lin-uploader-upload-disabled":""}}' bind:tap='startUpload'>
-												<lin-icon icon='{{uploadIcon}}' size='40rpx' />
-												<text class='lin-uploader-uploadText' wx:if="{{uploadText}}">{{uploadText}}</text>
+								<view wx:if="{{ showUpload }}" style='{{styleUtils.multUnit(["width",previewSize],["height",previewSize])}}' class='upload-class lin-uploader-upload {{disabled?"lin-uploader-upload-disabled":""}}' bind:tap="startUpload">
+												<lin-icon icon="{{uploadIcon}}" size="40rpx"/>
+												<text class="lin-uploader-uploadText" wx:if="{{uploadText}}">{{uploadText}}</text>
 								</view>
 				</block>
 </view>

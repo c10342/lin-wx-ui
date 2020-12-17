@@ -1,5 +1,5 @@
-<lin-mask show='{{show}}' wx:if="{{mask}}" zIndex='{{zIndex}}' customStyle='{{maskStyle}}' duration='{{duration}}' bind:click='onMaskClick'></lin-mask>
+<lin-mask show="{{show}}" wx:if="{{mask}}" zIndex="{{zIndex}}" customStyle="{{maskStyle}}" duration="{{duration}}" bind:click="onMaskClick"></lin-mask>
 <view wx:if="{{inited}}" class="custom-class lin-popup lin-popup-{{position}} {{classes}} {{round?'lin-popup-round':''}}" style="z-index:{{zIndex}};-webkit-transition-duration:{{ currentDuration }}ms; transition-duration:{{ currentDuration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle?customStyle:'' }}">
-    <slot></slot>
-    <lin-icon bind:tap="onCloseClick" wx:if='{{closeable}}' icon='{{closeIcon}}' size='{{closeIconSize}}' class='lin-popup-close-icon lin-popup-close-{{closeIconPosition}}' />
+    <slot/>
+    <lin-icon bind:tap="onCloseClick" wx:if="{{closeable}}" icon="{{closeIcon}}" size="{{closeIconSize}}" class="lin-popup-close-icon lin-popup-close-{{closeIconPosition}}"/>
 </view>

@@ -1,15 +1,15 @@
 <view class="custom-class lin-search" style="{{background?'background:'+background:''}}">
     <view class="lin-search-wrapper lin-search-{{shape}}">
         <view wx:if="{{label}}" class="lin-search-label">{{label}}</view>
-        <slot wx:else name="label" />
-        <lin-field header-class='lin-search-header-class' class="lin-search-field field-class" value-class='lin-search-value-class' titleWidth='auto' bind:blur="onBlur" bind:focus="onFocus" bind:change="onChange" bind:confirm="onSearch" bind:clear="onClear" focus="{{ focus }}" value="{{ value }}" disabled="{{ disabled }}" readonly="{{ readonly }}" clearable="{{ clearable }}" maxlength="{{ maxlength }}" input-align="{{ inputAlign }}" placeholder="{{ placeholder }}" placeholder-style="{{ placeholderStyle }}" custom-style="padding: 5px 10px 5px 0; background-color: transparent;" input-class="input-class" left-icon="{{ !useLeftIconSlot ? leftIcon : '' }}" right-icon="{{ !useRightIconSlot ? rightIcon : '' }}" type='search' border='{{false}}' confirm-type="search">
-            <slot wx:if="{{ useLeftIconSlot }}" name="left-icon" slot="left-icon" />
-            <slot wx:if="{{ useRightIconSlot }}" name="right-icon" slot="right-icon" />
+        <slot wx:else name="label"/>
+        <lin-field header-class="lin-search-header-class" class="lin-search-field field-class" value-class="lin-search-value-class" titleWidth="auto" bind:blur="onBlur" bind:focus="onFocus" bind:change="onChange" bind:confirm="onSearch" bind:clear="onClear" focus="{{ focus }}" value="{{ value }}" disabled="{{ disabled }}" readonly="{{ readonly }}" clearable="{{ clearable }}" maxlength="{{ maxlength }}" input-align="{{ inputAlign }}" placeholder="{{ placeholder }}" placeholder-style="{{ placeholderStyle }}" custom-style="padding: 5px 10px 5px 0; background-color: transparent;" input-class="input-class" left-icon="{{ !useLeftIconSlot ? leftIcon : '' }}" right-icon="{{ !useRightIconSlot ? rightIcon : '' }}" type="search" border="{{false}}" confirm-type="search">
+            <slot wx:if="{{ useLeftIconSlot }}" name="left-icon" slot="left-icon"/>
+            <slot wx:if="{{ useRightIconSlot }}" name="right-icon" slot="right-icon"/>
         </lin-field>
     </view>
     <view wx:if="{{showAction || useActionSlot}}" class="lin-search-action">
-        <slot wx:if="{{useActionSlot}}" name="action" />
-        <view bind:tap='onCancel' hover-class="lin-search-action-hover" hover-stay-time="70" class="cancel-class lin-search-action-text" wx:else>
+        <slot wx:if="{{useActionSlot}}" name="action"/>
+        <view bind:tap="onCancel" hover-class="lin-search-action-hover" hover-stay-time="70" class="cancel-class lin-search-action-text" wx:else>
             {{actionText}}
         </view>
     </view>

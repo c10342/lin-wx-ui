@@ -1,21 +1,15 @@
-<scroll-view class='lin-share-sheet-scroll' scroll-x='{{true}}'>
+<scroll-view class="lin-share-sheet-scroll" scroll-x="{{true}}">
 	<view class='lin-share-sheet-options {{showBorder?"lin-share-sheet-border":""}}'>
-		<view
-		 wx:for="{{options}}"
-		 wx:key="index"
-		 class='lin-share-sheet-option'
-		 data-index='{{index}}'
-		 bindtap="onSelect"
-		>
-			<button class='lin-share-sheet-button' open-type='{{item.openType}}'>
-				<image src="{{item.icon}}" wx:if="{{item.isImage}}" class='lin-share-sheet-icon' />
-				<lin-icon color='{{item.iconColor?item.iconColor:""}}' icon='{{item.icon}}' size='{{item.iconSize?item.iconSize:"60rpx"}}' />
+		<view wx:for="{{options}}" wx:key="index" class="lin-share-sheet-option" data-index="{{index}}" bindtap="onSelect">
+			<button class="lin-share-sheet-button" open-type="{{item.openType}}">
+				<image src="{{item.icon}}" wx:if="{{item.isImage}}" class="lin-share-sheet-icon"/>
+				<lin-icon color='{{item.iconColor?item.iconColor:""}}' icon="{{item.icon}}" size='{{item.iconSize?item.iconSize:"60rpx"}}'/>
 			</button>
-			<view wx:if="{{item.name}}" class='lin-share-sheet-name'>
+			<view wx:if="{{item.name}}" class="lin-share-sheet-name">
 				{{item.name}}
 			</view>
 
-			<view wx:if="{{item.description}}" class='lin-share-sheet-option-description'>
+			<view wx:if="{{item.description}}" class="lin-share-sheet-option-description">
 				{{item.description}}
 			</view>
 		</view>
