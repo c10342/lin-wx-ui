@@ -1,1 +1,42 @@
-Component({externalClasses:["custom-class","title-class"],relations:{"../Cell/index":{type:"descendant",linked(){this.setCellBorder()}}},options:{addGlobalClass:!0},properties:{title:String,border:{type:Boolean,value:!0}},data:{},methods:{setCellBorder(){const e=this.getRelationNodes("../Cell/index");e.forEach((t,o)=>{o+1===e.length?t.setBorder(!1):t.setBorder(!0)})}},created:function(){},attached:function(){},ready:function(){this.setCellBorder()},moved:function(){},detached:function(){}});
+//Component Object
+Component({
+  externalClasses: ["custom-class", "title-class"],
+  relations: {
+    "../Cell/index": {
+      type: "descendant",
+      linked() {
+        this.setCellBorder();
+      },
+    },
+  },
+  options: {
+    addGlobalClass: true,
+  },
+  properties: {
+    title: String,
+    border: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  data: {},
+  methods: {
+    setCellBorder() {
+      const nodes = this.getRelationNodes("../Cell/index");
+      nodes.forEach((cell, index) => {
+        if (index + 1 === nodes.length) {
+          cell.setBorder(false);
+        } else {
+          cell.setBorder(true);
+        }
+      });
+    },
+  },
+  created: function () {},
+  attached: function () {},
+  ready: function () {
+    this.setCellBorder();
+  },
+  moved: function () {},
+  detached: function () {},
+});

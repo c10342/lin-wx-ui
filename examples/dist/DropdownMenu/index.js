@@ -1,1 +1,137 @@
-import{getSystemInfoSync}from"../common/utils";import defaulrProps from"./props";let ARRAY=[];Component({options:{addGlobalClass:!0,multipleSlots:!0},relations:{"../DropdownItem/index":{type:"descendant",linked(e){this.children=this.children||[],this.children.push(e),this.updateItemListData()},unlinked(e){this.children=(this.children||[]).filter(t=>t!==e),this.updateItemListData()}}},externalClasses:["custom-class","wrapper-class","item-class"],properties:{activeColor:{type:String,value:defaulrProps.activeColor,observer:"updateChildrenData"},zIndex:{type:Number,value:10},duration:{type:Number,value:defaulrProps.duration,observer:"updateChildrenData"},direction:{type:String,value:defaulrProps.direction,options:["down","up"],observer:"updateChildrenData"},mask:{type:Boolean,value:defaulrProps.mask,observer:"updateChildrenData"},closeOnClickMask:{type:Boolean,value:defaulrProps.closeOnClickMask,observer:"updateChildrenData"},closeOnClickOutside:{type:Boolean,value:!0}},data:{itemListData:[]},methods:{onTitleTap(e){const t=e.currentTarget.dataset.index;this.children[t].properties.disabled||(ARRAY.forEach(e=>{e&&e.properties.closeOnClickOutside&&e!==this&&e.close()}),this.toggleItem(t))},close(){(this.children||[]).forEach(e=>{e.hide(!0)})},toggleItem(e){(this.children||[]).forEach((t,i)=>{const{showPopup:a}=t.data;i==e?t.toggle():a&&t.hide(!0)})},updateItemListData(){this.setData({itemListData:this.children.map(e=>e.data)})},updateChildrenData(){(this.children||[]).forEach(e=>{e.updateDataFromParent()})},getChildWrapperStyle(){const{zIndex:e,direction:t}=this.properties;return new Promise((i,a)=>{const o=this.createSelectorQuery();o.select(".lin-dropdown-menu-bar-wrapper").boundingClientRect(),o.exec(a=>{const{top:o=0,bottom:r=0}=a[0];let s=`z-index:${e};`;s+="down"===t?`top:${r}px;`:`bottom:${this.windowHeight-o}px`,i(s)})})}},created:function(){},attached:function(){},ready:function(){const{windowHeight:e}=getSystemInfoSync();this.windowHeight=e,ARRAY.push(this)},moved:function(){},detached:function(){ARRAY=ARRAY.filter(e=>e!==this)}});
+import { getSystemInfoSync } from "../common/utils";
+import defaulrProps from "./props";
+
+let ARRAY = [];
+
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  relations: {
+    "../DropdownItem/index": {
+      type: "descendant",
+      linked(child) {
+        this.children = this.children || [];
+        this.children.push(child);
+        this.updateItemListData();
+      },
+      unlinked(child) {
+        this.children = (this.children || []).filter((it) => it !== child);
+        this.updateItemListData();
+      },
+    },
+  },
+  externalClasses: ["custom-class", "wrapper-class", "item-class"],
+  properties: {
+    activeColor: {
+      type: String,
+      value: defaulrProps.activeColor,
+      observer: "updateChildrenData",
+    },
+    zIndex: {
+      type: Number,
+      value: 10,
+    },
+    duration: {
+      type: Number,
+      value: defaulrProps.duration,
+      observer: "updateChildrenData",
+    },
+    direction: {
+      type: String,
+      value: defaulrProps.direction,
+      options: ["down", "up"],
+      observer: "updateChildrenData",
+    },
+    mask: {
+      type: Boolean,
+      value: defaulrProps.mask,
+      observer: "updateChildrenData",
+    },
+    closeOnClickMask: {
+      type: Boolean,
+      value: defaulrProps.closeOnClickMask,
+      observer: "updateChildrenData",
+    },
+    closeOnClickOutside: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  data: {
+    itemListData: [],
+  },
+  methods: {
+    onTitleTap(event) {
+      const index = event.currentTarget.dataset.index;
+      const child = this.children[index];
+      if (!child.properties.disabled) {
+        ARRAY.forEach((menuItem) => {
+          if (
+            menuItem &&
+            menuItem.properties.closeOnClickOutside &&
+            menuItem !== this
+          ) {
+            menuItem.close();
+          }
+        });
+        this.toggleItem(index);
+      }
+    },
+    close() {
+      (this.children || []).forEach((child) => {
+        child.hide(true);
+      });
+    },
+    toggleItem(activeIndex) {
+      (this.children || []).forEach((child, index) => {
+        const { showPopup } = child.data;
+        if (index == activeIndex) {
+          child.toggle();
+        } else if (showPopup) {
+          child.hide(true);
+        }
+      });
+    },
+    updateItemListData() {
+      this.setData({
+        itemListData: this.children.map((child) => child.data),
+      });
+    },
+    updateChildrenData() {
+      (this.children || []).forEach((child) => {
+        child.updateDataFromParent();
+      });
+    },
+    getChildWrapperStyle() {
+      const { zIndex, direction } = this.properties;
+      return new Promise((resolve, reject) => {
+        const query = this.createSelectorQuery();
+        query.select(".lin-dropdown-menu-bar-wrapper").boundingClientRect();
+        query.exec((rect) => {
+          const { top = 0, bottom = 0 } = rect[0];
+          let wrapperStyle = `z-index:${zIndex};`;
+          if (direction === "down") {
+            wrapperStyle += `top:${bottom}px;`;
+          } else {
+            wrapperStyle += `bottom:${this.windowHeight - top}px`;
+          }
+
+          resolve(wrapperStyle);
+        });
+      });
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {
+    const { windowHeight } = getSystemInfoSync();
+    this.windowHeight = windowHeight;
+    ARRAY.push(this);
+  },
+  moved: function() {},
+  detached: function() {
+    ARRAY = ARRAY.filter((item) => item !== this);
+  },
+});

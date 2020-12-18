@@ -1,1 +1,88 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class","portion-class","pivot-class"],properties:{inactive:{type:Boolean,value:!1},percentage:{type:Number,value:0,observer:"setProgressWidth"},strokeWidth:{type:[String,Number]},showPivot:{type:Boolean,value:!0},color:String,textColor:String,trackColor:String,pivotText:{type:String,value:"",observer:"setProgressWidth"},pivotColor:String},data:{progressWidth:"0px",pivotRight:"0px",grayColor:"rgb(202, 202, 202)"},methods:{setProgressWidth(){let{percentage:t}=this.properties;t<=0?t=0:t>=100&&(t=100);const e=this.progressWidth*(t/100);this.setData({progressWidth:e+"px"}),wx.nextTick(async()=>{const{width:t}=await this.getWidth(".lin-progress-pivot");let s=0;s=e+t/2>=this.progressWidth?0:e<=t/2?e-t:-t/2,this.setData({pivotRight:s+"px"})})},getWidth(t){return new Promise(e=>{const s=this.createSelectorQuery();s.select(t).boundingClientRect(),s.exec(t=>{e(t[0])})})}},created:function(){this.progressWidth=0},attached:function(){},ready:function(){this.getWidth(".lin-progress").then(t=>{this.progressWidth=t.width,this.setProgressWidth()})},moved:function(){},detached:function(){}});
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: ["custom-class", "portion-class", "pivot-class"],
+  properties: {
+    inactive: {
+      type: Boolean,
+      value: false,
+    },
+    percentage: {
+      type: Number,
+      value: 0,
+      observer: "setProgressWidth",
+    },
+    strokeWidth: {
+      type: [String, Number],
+    },
+    showPivot: {
+      type: Boolean,
+      value: true,
+    },
+    color: String,
+    textColor: String,
+    trackColor: String,
+    pivotText: {
+      type: String,
+      value: "",
+      observer: "setProgressWidth",
+    },
+    pivotColor: String,
+  },
+  data: {
+    progressWidth: "0px",
+    pivotRight: "0px",
+    grayColor: "rgb(202, 202, 202)",
+  },
+  methods: {
+    setProgressWidth() {
+      let { percentage } = this.properties;
+      if (percentage <= 0) {
+        percentage = 0;
+      } else if (percentage >= 100) {
+        percentage = 100;
+      }
+      const offsetWidth = this.progressWidth * (percentage / 100);
+      this.setData({ progressWidth: `${offsetWidth}px` });
+      wx.nextTick(async () => {
+        const { width: pivotWidth } = await this.getWidth(
+          ".lin-progress-pivot"
+        );
+        let pivotRight = 0;
+        if (offsetWidth + pivotWidth / 2 >= this.progressWidth) {
+          pivotRight = 0;
+        } else if (offsetWidth <= pivotWidth / 2) {
+          pivotRight = offsetWidth - pivotWidth;
+        } else {
+          pivotRight = -(pivotWidth / 2);
+        }
+        this.setData({
+          pivotRight: `${pivotRight}px`,
+        });
+      });
+    },
+    getWidth(dom) {
+      return new Promise((resolve) => {
+        const query = this.createSelectorQuery();
+        query.select(dom).boundingClientRect();
+        query.exec((rect) => {
+          resolve(rect[0]);
+        });
+      });
+    },
+  },
+  created: function() {
+    this.progressWidth = 0;
+  },
+  attached: function() {},
+  ready: function() {
+    this.getWidth(".lin-progress").then((res) => {
+      this.progressWidth = res.width;
+      this.setProgressWidth();
+    });
+  },
+  moved: function() {},
+  detached: function() {},
+});

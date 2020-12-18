@@ -13,7 +13,11 @@ list:[
   {
     name: 'IndexBar 索引栏',
     path: '/pages/component/index-bar/index'
-  }
+  },
+  {
+    name: 'Sidebar 侧边导航',
+    path: '/pages/component/sidebar/index'
+  },
 ]
   },
 

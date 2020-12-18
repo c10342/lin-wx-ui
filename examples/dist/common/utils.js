@@ -1,1 +1,28 @@
-let systemInfo;export function getSystemInfoSync(){return null==systemInfo&&(systemInfo=wx.getSystemInfoSync()),systemInfo}export function isObj(t){const n=typeof t;return null!==t&&("object"===n||"function"===n)}export function nextTick(t){setTimeout(()=>{t()},1e3/30)}const REGEXP=/^[0-9]+$/;export function addUnit(t){if(null!=t)return REGEXP.test(""+t)?t+"px":t}
+let systemInfo;
+export function getSystemInfoSync() {
+  if (systemInfo == null) {
+    systemInfo = wx.getSystemInfoSync();
+  }
+
+  return systemInfo;
+}
+
+export function isObj(obj) {
+  const type = typeof obj;
+  return obj !== null && (type === "object" || type === "function");
+}
+
+export function nextTick(fn) {
+  setTimeout(() => {
+    fn();
+  }, 1000 / 30);
+}
+
+const REGEXP = /^[0-9]+$/;
+export function addUnit(value) {
+  if (value == null) {
+    return undefined;
+  }
+
+  return REGEXP.test("" + value) ? value + "px" : value;
+}

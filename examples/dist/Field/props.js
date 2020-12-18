@@ -1,1 +1,65 @@
-export const commonProps={value:{type:String,observer(e){e!==this.value&&(this.setData({inputValue:e}),this.value=e)}},placeholder:String,placeholderStyle:String,placeholderClass:String,disabled:Boolean,maxlength:{type:Number,value:-1},cursorSpacing:{type:Number,value:50},autoFocus:Boolean,focus:Boolean,cursor:{type:Number,value:-1},selectionStart:{type:Number,value:-1},selectionEnd:{type:Number,value:-1},adjustPosition:{type:Boolean,value:!0},holdKeyboard:Boolean};export const inputProps={type:{type:String,value:"text"},password:Boolean,confirmType:String,confirmHold:Boolean};export const textareaProps={autoHeight:Boolean,fixed:Boolean,showConfirmBar:{type:Boolean,value:!0},disableDefaultPadding:{type:Boolean,value:!0}};
+export const commonProps = {
+  value: {
+    type: String,
+    observer(value) {
+      if (value !== this.value) {
+        this.setData({ inputValue: value });
+        this.value = value;
+      }
+    },
+  },
+  placeholder: String,
+  placeholderStyle: String,
+  placeholderClass: String,
+  disabled: Boolean,
+  maxlength: {
+    type: Number,
+    value: -1,
+  },
+  cursorSpacing: {
+    type: Number,
+    value: 50,
+  },
+  autoFocus: Boolean,
+  focus: Boolean,
+  cursor: {
+    type: Number,
+    value: -1,
+  },
+  selectionStart: {
+    type: Number,
+    value: -1,
+  },
+  selectionEnd: {
+    type: Number,
+    value: -1,
+  },
+  adjustPosition: {
+    type: Boolean,
+    value: true,
+  },
+  holdKeyboard: Boolean,
+};
+
+export const inputProps = {
+  type: {
+    type: String,
+    value: "text",
+  },
+  password: Boolean,
+  confirmType: String,
+  confirmHold: Boolean,
+};
+
+export const textareaProps = {
+  autoHeight: Boolean,
+  fixed: Boolean,
+  showConfirmBar: {
+    type: Boolean,
+    value: true,
+  },
+  disableDefaultPadding: {
+    type: Boolean,
+    value: true,
+  },
+};

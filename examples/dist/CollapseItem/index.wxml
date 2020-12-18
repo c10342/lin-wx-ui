@@ -1,13 +1,13 @@
-<view class="custom-class lin-collapse-item">
-    <lin-cell class="{{expanded?'lin-collapse-item-expanded':''}}" right-icon-class="lin-collapse-item-right-icon-class" custom-class="{{disabled?'lin-collapse-item-disabled':''}}" bind:click="onClick" title="{{title}}" icon="{{icon}}" value="{{value}}" label="{{label}}" is-link="{{isLink}}" border="{{border}}">
-        <slot name="title" slot="title"/>
-        <slot name="icon" slot="icon"/>
-        <slot name="value" slot="value"/>
-        <slot name="right-icon" slot="right-icon"/>
+<view class='custom-class lin-collapse-item'>
+    <lin-cell class="{{expanded?'lin-collapse-item-expanded':''}}" right-icon-class='lin-collapse-item-right-icon-class' custom-class="{{disabled?'lin-collapse-item-disabled':''}}" bind:click='onClick' title='{{title}}' icon='{{icon}}' value='{{value}}' label='{{label}}' is-link='{{isLink}}' border='{{border}}'>
+        <slot name="title" slot='title' />
+        <slot name="icon" slot='icon' />
+        <slot name="value" slot='value' />
+        <slot name="right-icon" slot='right-icon' />
     </lin-cell>
-    <view class="lin-collapse-item-wrapper lin-collapse-item-border" style="height:0;" animation="{{animation}}">
+    <view class="lin-collapse-item-wrapper lin-collapse-item-border" style="height:0;" animation='{{animation}}'>
         <view class="content-class lin-collapse-item-content">
-            <slot/>
+            <slot />
         </view>
     </view>
 </view>

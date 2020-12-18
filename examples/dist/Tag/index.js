@@ -1,1 +1,36 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class"],properties:{type:{type:String,value:"primary",options:["primary","success","danger","warning","info"]},size:{type:String,options:["large","medium"]},color:String,plain:Boolean,round:Boolean,mark:Boolean,textColor:String,closeable:Boolean},data:{},methods:{onClick(){this.triggerEvent("close",!1)}},created:function(){},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+
+Component({
+    options: {
+      addGlobalClass: true,
+      multipleSlots: true,
+    },
+    externalClasses: ["custom-class"],
+    properties: {
+      type:{
+        type:String,
+      value:'primary',
+      options:['primary','success','danger','warning','info']
+      },
+      size:{
+        type:String,
+        options:['large','medium']
+      },
+      color:String,
+      plain:Boolean,
+      round:Boolean,
+      mark:Boolean,
+      textColor:String,
+      closeable:Boolean
+    },
+    data: {},
+    methods: {
+      onClick(){
+        this.triggerEvent('close',false)
+      }
+    },
+    created: function () {},
+    attached: function () {},
+    ready: function () {},
+    moved: function () {},
+    detached: function () {},
+});

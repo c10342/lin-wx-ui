@@ -1,1 +1,225 @@
-function add(e,t){return Math.round((e+t)*10**10)/10**10}const timeSecond=500;Component({behaviors:["wx://form-field"],options:{addGlobalClass:!0},externalClasses:["custom-class","input-class","plus-class","minus-class"],properties:{name:String,value:{type:Number,value:null,observer(e){this.properties.asyncChange&&wx.hideLoading(),this.setData({inputValue:this.formatValue(e)})}},min:{type:Number,value:1},max:{type:Number,value:null},step:{type:Number,value:1},integer:Boolean,disabled:Boolean,decimalLength:{type:Number,value:null},inputWidth:{type:[String,Number],value:"64rpx"},buttonSize:{type:[String,Number],value:"56rpx"},buttonFontSize:{type:[String,Number],value:"40rpx"},inputFontSize:{type:[String,Number],value:"30rpx"},disableInput:Boolean,showPlus:{type:Boolean,value:!0},showMinus:{type:Boolean,value:!0},disablePlus:Boolean,disableMinus:Boolean,asyncChange:Boolean,longPress:{type:Boolean,value:!0}},observers:{"disabled,disableMinus,min,inputValue":function(e,t,i,s){e||t||null!=i&&s<=i?this.setData({isMinusDisable:!0}):this.setData({isMinusDisable:!1})},"disabled,disablePlus,max,inputValue":function(e,t,i,s){e||t||null!=i&&s>=i?this.setData({isPlusDisable:!0}):this.setData({isPlusDisable:!1})}},data:{inputValue:"",isMinusDisable:!1,isPlusDisable:!1},methods:{onTouchend(){this.timer&&(clearInterval(this.timer),this.timer=null)},onMinusLongpress(){!this.data.isMinusDisable&&this.properties.longPress&&(this.onTouchend(),this.timer=setInterval(()=>{this.onMinus()},500))},onPlusLongpress(){!this.data.isPlusDisable&&this.properties.longPress&&(this.onTouchend(),this.timer=setInterval(()=>{this.onPlus()},500))},onMinus(){const{step:e}=this.properties,{inputValue:t,isMinusDisable:i}=this.data;if(i)return void this.triggerEvent("overlimit",{type:"minus"});let s=add(1*t,-1*e);this.emitChange(s),this.triggerEvent("minus")},onPlus(){const{step:e}=this.properties,{inputValue:t,isPlusDisable:i}=this.data;if(i)return void this.triggerEvent("overlimit",{type:"plus"});let s=add(1*t,1*e);this.emitChange(s),this.triggerEvent("plus")},onBlur(e){let t=e.detail.value;this.emitChange(t),this.triggerEvent("blur")},onFocus(){this.triggerEvent("focus")},formatValue(e){e*=1;const{integer:t,max:i,min:s,decimalLength:n}=this.properties;return t&&(e=parseInt(e)),null!=i&&i<e&&(e=i),null!=s&&s>e&&(e=s),n&&(e=e.toFixed(n)),e},emitChange(e){if(e!=this.data.inputValue){const t=this.formatValue(e);this.properties.asyncChange?wx.showLoading():this.setData({inputValue:t}),this.triggerEvent("change",t)}}},created:function(){},attached:function(){},ready:function(){this.timer=null;const{value:e,min:t}=this.properties;let i=0;e?i=e:t&&(i=t),this.setData({inputValue:this.formatValue(i)})},moved:function(){},detached:function(){this.onTouchend()}});
+function add(num1, num2) {
+  const cardinal = 10 ** 10;
+  return Math.round((num1 + num2) * cardinal) / cardinal;
+}
+const timeSecond = 500;
+Component({
+  behaviors: ["wx://form-field"],
+  options: {
+    addGlobalClass: true,
+  },
+  externalClasses: ["custom-class", "input-class", "plus-class", "minus-class"],
+  properties: {
+    name: String,
+    value: {
+      type: Number,
+      value: null,
+      observer(value) {
+        if (this.properties.asyncChange) {
+          wx.hideLoading();
+        }
+        this.setData({ inputValue: this.formatValue(value) });
+      },
+    },
+    min: {
+      type: Number,
+      value: 1,
+    },
+    max: {
+      type: Number,
+      value: null,
+    },
+    step: {
+      type: Number,
+      value: 1,
+    },
+    integer: Boolean,
+    disabled: Boolean,
+    decimalLength: {
+      type: Number,
+      value: null,
+    },
+    inputWidth: {
+      type: [String, Number],
+      value: "64rpx",
+    },
+    buttonSize: {
+      type: [String, Number],
+      value: "56rpx",
+    },
+    buttonFontSize: {
+      type: [String, Number],
+      value: "40rpx",
+    },
+    inputFontSize: {
+      type: [String, Number],
+      value: "30rpx",
+    },
+    disableInput: Boolean,
+    showPlus: {
+      type: Boolean,
+      value: true,
+    },
+    showMinus: {
+      type: Boolean,
+      value: true,
+    },
+    disablePlus: Boolean,
+    disableMinus: Boolean,
+    asyncChange: Boolean,
+    longPress: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  observers: {
+    "disabled,disableMinus,min,inputValue": function(
+      disabled,
+      disableMinus,
+      min,
+      inputValue
+    ) {
+      if (disabled || disableMinus || (min != null && inputValue <= min)) {
+        this.setData({
+          isMinusDisable: true,
+        });
+      } else {
+        this.setData({
+          isMinusDisable: false,
+        });
+      }
+    },
+    "disabled,disablePlus,max,inputValue": function(
+      disabled,
+      disablePlus,
+      max,
+      inputValue
+    ) {
+      if (disabled || disablePlus || (max != null && inputValue >= max)) {
+        this.setData({
+          isPlusDisable: true,
+        });
+      } else {
+        this.setData({
+          isPlusDisable: false,
+        });
+      }
+    },
+  },
+  data: {
+    inputValue: "",
+    isMinusDisable: false,
+    isPlusDisable: false,
+  },
+  methods: {
+    onTouchend() {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+    },
+    onMinusLongpress() {
+      if (this.data.isMinusDisable || !this.properties.longPress) {
+        return;
+      }
+      this.onTouchend();
+      this.timer = setInterval(() => {
+        this.onMinus();
+      }, timeSecond);
+    },
+    onPlusLongpress() {
+      if (this.data.isPlusDisable || !this.properties.longPress) {
+        return;
+      }
+      this.onTouchend();
+      this.timer = setInterval(() => {
+        this.onPlus();
+      }, timeSecond);
+    },
+    onMinus() {
+      const { step } = this.properties;
+      const { inputValue, isMinusDisable } = this.data;
+      if (isMinusDisable) {
+        this.triggerEvent("overlimit", {
+          type: "minus",
+        });
+        return;
+      }
+
+      let value = add(inputValue * 1, -(step * 1));
+      this.emitChange(value);
+      this.triggerEvent("minus");
+    },
+    onPlus() {
+      const { step } = this.properties;
+      const { inputValue, isPlusDisable } = this.data;
+      if (isPlusDisable) {
+        this.triggerEvent("overlimit", {
+          type: "plus",
+        });
+        return;
+      }
+      let value = add(inputValue * 1, step * 1);
+      this.emitChange(value);
+      this.triggerEvent("plus");
+    },
+    onBlur(event) {
+      let value = event.detail.value;
+      this.emitChange(value);
+      this.triggerEvent("blur");
+    },
+    onFocus() {
+      this.triggerEvent("focus");
+    },
+    formatValue(value) {
+      value = value * 1;
+      const { integer, max, min, decimalLength } = this.properties;
+      if (integer) {
+        value = parseInt(value);
+      }
+      if (max != null && max < value) {
+        value = max;
+      }
+      if (min != null && min > value) {
+        value = min;
+      }
+      if (decimalLength) {
+        value = value.toFixed(decimalLength);
+      }
+      return value;
+    },
+    emitChange(value) {
+      if (value != this.data.inputValue) {
+        const inputValue = this.formatValue(value);
+        if (this.properties.asyncChange) {
+          wx.showLoading();
+        } else {
+          this.setData({
+            inputValue: inputValue,
+          });
+        }
+
+        this.triggerEvent("change", inputValue);
+      }
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {
+    this.timer = null;
+    const { value, min } = this.properties;
+    let inputValue = 0;
+    if (value) {
+      inputValue = value;
+    } else if (min) {
+      inputValue = min;
+    }
+    this.setData({
+      inputValue: this.formatValue(inputValue),
+    });
+  },
+  moved: function() {},
+  detached: function() {
+    this.onTouchend();
+  },
+});

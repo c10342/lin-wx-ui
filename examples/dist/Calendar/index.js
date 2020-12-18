@@ -1,1 +1,248 @@
-import{getYearMonthDay,getDate,isCurrentMonth,isEqual,isEqAndLt,isEqAndGt}from"./utils.js";const nowDate=(new Date).getTime();Component({options:{addGlobalClass:!0},properties:{show:{type:Boolean,value:!1,observer:"handleShow"},value:{type:String,optionalTypes:[String,Number]},title:{type:String,value:"日期选择"},showTitle:{type:Boolean,value:!0},showConfirm:{type:Boolean,value:!0},confirmText:{type:String,value:"确定"},disabledConfirm:{type:Boolean,value:!1},rowHeight:{type:[String,Number]},restText:{type:String,value:"重置"},showReset:{type:Boolean,value:!1},disabledReset:{type:Boolean,value:!1},disabledBeforeDate:{type:Number,optionalTypes:[String,Number]},disabledAfterDate:{type:String,optionalTypes:[String,Number]},disabledRangeDate:Array,disabledDate:Array,disabled:Boolean,poppable:{type:Boolean,value:!0}},data:{daysList:["日","一","二","三","四","五","六"],time:nowDate,visibeDaysList:[],selectTime:""},observers:{"time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled":function(e,t,i,a,s,n,r){const{year:l,month:o}=getYearMonthDay(e.date),h=getDate(l,o,1),g=h.getDay(),m=h-60*g*60*1e3*24,d=[];for(let l=0;l<42;l++){const o=new Date(m+60*l*60*1e3*24);d.push({...this.getVisibeTimeObj(o),isCurrentMonth:isCurrentMonth(o,e.date),isSelected:t&&isEqual(o,t.date),isDisabled:r||i&&isEqAndLt(o,i)||a&&isEqAndGt(o,a)||s&&this.handleRangeDate(o,s)||n&&n.some(e=>isEqual(e,o))})}this.setData({visibeDaysList:d})}},methods:{handleRangeDate(e,t){if(Array.isArray(t)&&0!==t.length){if(1===t.length){const i=new Date(t[0]);if(isEqAndLt(i,e))return!0}if(t.length>=2){const i=new Date(t[0]),a=new Date(t[1]);if(isEqAndLt(i,e)&&isEqAndGt(a,e))return!0}}return!1},handleShow(e){const t=this.properties.value;if(t&&e){const e=new Date(t);this.setData({selectTime:this.getVisibeTimeObj(e),time:this.getTime(t)})}},onMaskClick(){this.triggerEvent("mask-click")},handleValue(){let e=null;return e=this.properties.value?new Date(this.properties.value):new Date(nowDate),{label:`${e.getFullYear()}年${e.getMonth()+1}月`,date:e,times:e.getTime()}},onLabelClick(e){const t=e.target.dataset.index,i=this.data.visibeDaysList[t];isEqual(i.times,this.data.selectTime.times)||i.isDisabled||(this.setData({selectTime:i,time:this.getTime(i.times)}),this.triggerEvent("change",i.times))},prevMonth(){const e=new Date(this.data.time.times);e.setMonth(e.getMonth()-1),this.setData({time:this.getTime(e.getTime())}),this.triggerEvent("prevMonth",e)},nextMonth(){const e=new Date(this.data.time.times);e.setMonth(e.getMonth()+1),this.setData({time:this.getTime(e.getTime())}),this.triggerEvent("nextMonth",e)},prevYear(){const e=new Date(this.data.time.times);e.setFullYear(e.getFullYear()-1),this.setData({time:this.getTime(e.getTime())}),this.triggerEvent("prevYear",e)},nextYear(){const e=new Date(this.data.time.times);e.setFullYear(e.getFullYear()+1),this.setData({time:this.getTime(e.getTime())}),this.triggerEvent("nextYear",e)},onConfirmClick(){this.triggerEvent("confirm",this.data.selectTime.times)},onResetClick(){this.setData({selectTime:""}),this.triggerEvent("reset")},onClose(){this.triggerEvent("close")},getTime:e=>({label:`${(e=new Date(e)).getFullYear()}年${e.getMonth()+1}月`,date:e,times:e.getTime()}),getVisibeTimeObj:e=>({label:e.getDate(),date:e,times:e.getTime()})},created:function(){},attached:function(){},ready:function(){const e=this.handleValue();this.setData({time:e})},moved:function(){},detached:function(){}});
+import {
+  getYearMonthDay,
+  getDate,
+  isCurrentMonth,
+  isEqual,
+  isEqAndLt,
+  isEqAndGt,
+} from "./utils.js";
+const nowDate = new Date().getTime();
+Component({
+  options: {
+    addGlobalClass: true,
+  },
+  properties: {
+    show: {
+      type: Boolean,
+      value: false,
+      observer: "handleShow",
+    },
+    value: {
+      type: String,
+      optionalTypes: [String, Number],
+    },
+    title: {
+      type: String,
+      value: "日期选择",
+    },
+    showTitle: {
+      type: Boolean,
+      value: true,
+    },
+    showConfirm: {
+      type: Boolean,
+      value: true,
+    },
+    confirmText: {
+      type: String,
+      value: "确定",
+    },
+    disabledConfirm: {
+      type: Boolean,
+      value: false,
+    },
+    rowHeight: {
+      type: [String, Number],
+    },
+    restText: {
+      type: String,
+      value: "重置",
+    },
+    showReset: {
+      type: Boolean,
+      value: false,
+    },
+    disabledReset: {
+      type: Boolean,
+      value: false,
+    },
+    disabledBeforeDate: {
+      type: Number,
+      optionalTypes: [String, Number],
+    },
+    disabledAfterDate: {
+      type: String,
+      optionalTypes: [String, Number],
+    },
+    disabledRangeDate: Array,
+    disabledDate: Array,
+    disabled: Boolean,
+    poppable: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  data: {
+    daysList: ["日", "一", "二", "三", "四", "五", "六"],
+    time: nowDate,
+    visibeDaysList: [],
+    selectTime: "",
+  },
+  observers: {
+    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function(
+      time,
+      selectTime,
+      disabledBeforeDate,
+      disabledAfterDate,
+      disabledRangeDate,
+      disabledDate,
+      disabled
+    ) {
+      const { year, month } = getYearMonthDay(time.date);
+      //   本月1号的时间对象
+      const currentFirstDay = getDate(year, month, 1);
+      //   本月1号星期几
+      const week = currentFirstDay.getDay();
+      //   日历上第一行第一列的开始时间
+      const startDay = currentFirstDay - week * 60 * 60 * 1000 * 24;
+      const arr = [];
+      //   42:日历上6行7列
+      for (let i = 0; i < 42; i++) {
+        const da = new Date(startDay + i * 60 * 60 * 1000 * 24);
+        arr.push({
+          ...this.getVisibeTimeObj(da),
+          isCurrentMonth: isCurrentMonth(da, time.date),
+          isSelected: selectTime && isEqual(da, selectTime.date),
+          isDisabled:
+            disabled ||
+            (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate)) ||
+            (disabledAfterDate && isEqAndGt(da, disabledAfterDate)) ||
+            (disabledRangeDate &&
+              this.handleRangeDate(da, disabledRangeDate)) ||
+            (disabledDate && disabledDate.some((item) => isEqual(item, da))),
+        });
+      }
+      this.setData({
+        visibeDaysList: arr,
+      });
+    },
+  },
+  methods: {
+    handleRangeDate(date, disabledRangeDate) {
+      if (Array.isArray(disabledRangeDate) && disabledRangeDate.length !== 0) {
+        if (disabledRangeDate.length === 1) {
+          const d = new Date(disabledRangeDate[0]);
+          if (isEqAndLt(d, date)) {
+            return true;
+          }
+        }
+        if (disabledRangeDate.length >= 2) {
+          const d1 = new Date(disabledRangeDate[0]);
+          const d2 = new Date(disabledRangeDate[1]);
+          if (isEqAndLt(d1, date) && isEqAndGt(d2, date)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    },
+    handleShow(val) {
+      const value = this.properties.value;
+      if (value && val) {
+        const da = new Date(value);
+        this.setData({
+          selectTime: this.getVisibeTimeObj(da),
+          time: this.getTime(value),
+        });
+      }
+    },
+    onMaskClick() {
+      this.triggerEvent("mask-click");
+    },
+    handleValue() {
+      let date = null;
+      if (this.properties.value) {
+        date = new Date(this.properties.value);
+      } else {
+        date = new Date(nowDate);
+      }
+      return {
+        label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
+        date: date,
+        times: date.getTime(),
+      };
+    },
+    onLabelClick(event) {
+      const index = event.target.dataset.index;
+      const selectTime = this.data.visibeDaysList[index];
+      if (
+        isEqual(selectTime.times, this.data.selectTime.times) ||
+        selectTime.isDisabled
+      ) {
+        return;
+      }
+      this.setData({
+        selectTime: selectTime,
+        time: this.getTime(selectTime.times),
+      });
+      this.triggerEvent("change", selectTime.times);
+    },
+    prevMonth() {
+      const date = new Date(this.data.time.times);
+      date.setMonth(date.getMonth() - 1);
+      this.setData({
+        time: this.getTime(date.getTime()),
+      });
+      this.triggerEvent("prevMonth", date);
+    },
+    nextMonth() {
+      const date = new Date(this.data.time.times);
+      date.setMonth(date.getMonth() + 1);
+      this.setData({
+        time: this.getTime(date.getTime()),
+      });
+      this.triggerEvent("nextMonth", date);
+    },
+    prevYear() {
+      const date = new Date(this.data.time.times);
+      date.setFullYear(date.getFullYear() - 1);
+      this.setData({
+        time: this.getTime(date.getTime()),
+      });
+      this.triggerEvent("prevYear", date);
+    },
+    nextYear() {
+      const date = new Date(this.data.time.times);
+      date.setFullYear(date.getFullYear() + 1);
+      this.setData({
+        time: this.getTime(date.getTime()),
+      });
+      this.triggerEvent("nextYear", date);
+    },
+    onConfirmClick() {
+      this.triggerEvent("confirm", this.data.selectTime.times);
+    },
+    onResetClick() {
+      this.setData({ selectTime: "" });
+      this.triggerEvent("reset");
+    },
+    onClose() {
+      this.triggerEvent("close");
+    },
+    getTime(date) {
+      date = new Date(date);
+      return {
+        label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
+        date: date,
+        times: date.getTime(),
+      };
+    },
+    getVisibeTimeObj(date) {
+      return {
+        label: date.getDate(),
+        date: date,
+        times: date.getTime(),
+      };
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {
+    const handleValue = this.handleValue();
+    this.setData({
+      time: handleValue,
+    });
+  },
+  moved: function() {},
+  detached: function() {},
+});

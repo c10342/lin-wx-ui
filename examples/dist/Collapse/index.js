@@ -1,1 +1,63 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class"],relations:{"../CollapseItem/index":{type:"descendant",linked(e){this.children=this.children||[],this.children.push(e)},unlinked(e){this.children=(this.children||[]).filter(t=>t!==e)}}},properties:{value:{type:null,observer:"updateExpanded"},accordion:{type:Boolean,observer:"updateExpanded"},border:{type:Boolean,value:!0}},data:{},methods:{updateExpanded(){(this.children||[]).forEach(e=>{e.updateExpanded()})},switch(e,t){const{accordion:n,value:i}=this.properties,d=e;e=n?t?e:"":t?(i||[]).concat(e):(i||[]).filter(t=>t!==e),t?this.triggerEvent("open",d):this.triggerEvent("close",d),this.triggerEvent("change",e)}},created:function(){},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: ["custom-class"],
+  relations: {
+    "../CollapseItem/index": {
+      type: "descendant",
+      linked(child) {
+        this.children = this.children || [];
+        this.children.push(child);
+      },
+      unlinked(child) {
+        this.children = (this.children || []).filter((it) => it !== child);
+      },
+    },
+  },
+  properties: {
+    value: {
+      type: null,
+      observer: "updateExpanded",
+    },
+    accordion: {
+      type: Boolean,
+      observer: "updateExpanded",
+    },
+    border: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  data: {},
+  methods: {
+    updateExpanded() {
+      (this.children || []).forEach((child) => {
+        child.updateExpanded();
+      });
+    },
+    switch(currentName, expanded) {
+      const { accordion, value } = this.properties;
+      const changeItem = currentName;
+      if (!accordion) {
+        currentName = expanded
+          ? (value || []).concat(currentName)
+          : (value || []).filter((activeName) => activeName !== currentName);
+      } else {
+        currentName = expanded ? currentName : "";
+      }
+      if (expanded) {
+        this.triggerEvent("open", changeItem);
+      } else {
+        this.triggerEvent("close", changeItem);
+      }
+      this.triggerEvent("change", currentName);
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
+});

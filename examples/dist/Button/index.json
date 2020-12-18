@@ -1,1 +1,7 @@
-{"component":true,"usingComponents":{"lin-icon":"../Icon/index","lin-loading":"../Loading/index"}}
+{
+  "component": true,
+  "usingComponents": {
+    "lin-icon": "../Icon/index",
+    "lin-loading": "../Loading/index"
+  }
+}

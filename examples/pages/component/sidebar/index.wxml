@@ -1,0 +1,31 @@
+<view class='container sidebar-container'>
+    <demo-block class="demo-block" title='基础用法'>
+        <lin-sidebar data-key="activeKey1" bind:change='onChange' active-key="{{ activeKey1 }}">
+            <lin-sidebar-item title="标签名" />
+            <lin-sidebar-item title="标签名" />
+            <lin-sidebar-item title="标签名" />
+        </lin-sidebar>
+    </demo-block>
+    <demo-block class="demo-block" title='徽标提示'>
+        <lin-sidebar  data-key="activeKey2" active-key="{{ activeKey2 }}" bind:change='onChange' >
+            <lin-sidebar-item title="标签名" dot />
+            <lin-sidebar-item title="标签名" badge="5" />
+            <lin-sidebar-item title="标签名" badge="99+" />
+        </lin-sidebar>
+    </demo-block>
+
+    <demo-block class="demo-block" title='禁用选项'>
+        <lin-sidebar  data-key="activeKey3" active-key="{{ activeKey3 }}" bind:change='onChange' >
+            <lin-sidebar-item title="标签名" />
+            <lin-sidebar-item title="标签名" disabled />
+            <lin-sidebar-item title="标签名" />
+        </lin-sidebar>
+    </demo-block>
+    <demo-block class="demo-block" title='监听切换事件'>
+        <lin-sidebar  data-key="activeKey4" active-key="{{ activeKey4 }}" bind:change='onChange1' >
+            <lin-sidebar-item title="标签名1" />
+            <lin-sidebar-item title="标签名2" />
+            <lin-sidebar-item title="标签名3" />
+        </lin-sidebar>
+    </demo-block>
+</view>

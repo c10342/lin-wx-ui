@@ -1,1 +1,138 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},relations:{"../IndexBar/index":{type:"ancestor",linked(t){this.parent=t,this.updateDataFromParent()},unlinked(){this.parent=null}}},externalClasses:["custom-class","index-class"],properties:{index:{type:[String,Number]},useSlot:Boolean},data:{zIndex:1,sticky:!0,stickyOffsetTop:0,highlightColor:"",fixed:!1,transform:0,indexwapperHeight:"",isActive:!1},methods:{updateDataFromParent(){if(this.parent){const{zIndex:t,sticky:e,stickyOffsetTop:i,highlightColor:n}=this.parent.properties;this.setData({zIndex:t,sticky:e,stickyOffsetTop:i,highlightColor:n})}},onScroll(t={}){this.getRect().then(t=>{const{stickyOffsetTop:e,sticky:i}=this.data,n=t[0],s=t[1];let o={};i&&(o=n.top>e?{fixed:!1,transform:0,indexwapperHeight:""}:n.top<=e&&n.height-e+n.top>s.height?{fixed:!0,transform:0,indexwapperHeight:s.height}:{fixed:!1,transform:n.height-s.height,indexwapperHeight:s.height});const a=i?e:0;n.top>a?o.isActive=!1:n.height-a+n.top>s.height||n.height-a+n.top>0?o.isActive=!0:o.isActive=!1,this.setDiffData(o)})},setDiffData(t){const e=Object.keys(t).reduce((e,i)=>(t[i]!==this.data[i]&&(e[i]=t[i]),e),{});this.setData(e)},getRect(){return Promise.all([this.getContainerRect(),this.getIndexRect()])},getIndexRect(){return new Promise(t=>{this.createSelectorQuery().select(".lin-index-anchor-index").boundingClientRect(t).exec()})},getContainerRect(){return new Promise(t=>{this.createSelectorQuery().select(".lin-index-anchor").boundingClientRect(t).exec()})}},created:function(){},attached:function(){},ready:function(){this.onScroll()},moved:function(){},detached:function(){}});
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  relations: {
+    "../IndexBar/index": {
+      type: "ancestor",
+      linked(parent) {
+        this.parent = parent;
+        this.updateDataFromParent();
+      },
+      unlinked() {
+        this.parent = null;
+      },
+    },
+  },
+  externalClasses: ["custom-class",'index-class'],
+  properties: {
+    index: {
+      type: [String, Number],
+    },
+    useSlot: Boolean,
+  },
+  data: {
+    zIndex: 1,
+    sticky: true,
+    stickyOffsetTop: 0,
+    highlightColor: "",
+    fixed: false,
+    transform: 0,
+    indexwapperHeight: "",
+    isActive: false,
+  },
+  methods: {
+    updateDataFromParent() {
+      if (this.parent) {
+        const {
+          zIndex,
+          sticky,
+          stickyOffsetTop,
+          highlightColor,
+        } = this.parent.properties;
+        this.setData({
+          zIndex,
+          sticky,
+          stickyOffsetTop,
+          highlightColor,
+        });
+      }
+    },
+    onScroll(event = {}) {
+      this.getRect().then((res) => {
+        const { stickyOffsetTop, sticky } = this.data;
+        const wrapper = res[0];
+        const indexContainer = res[1];
+        let obj = {};
+        if (sticky) {
+          if (wrapper.top > stickyOffsetTop) {
+            obj = {
+              fixed: false,
+              transform: 0,
+              indexwapperHeight: "",
+            };
+          } else if (
+            wrapper.top <= stickyOffsetTop &&
+            wrapper.height - stickyOffsetTop + wrapper.top >
+              indexContainer.height
+          ) {
+            obj = {
+              fixed: true,
+              transform: 0,
+              indexwapperHeight: indexContainer.height,
+            };
+          } else {
+            obj = {
+              fixed: false,
+              transform: wrapper.height - indexContainer.height,
+              indexwapperHeight: indexContainer.height,
+            };
+          }
+        }
+        const offsetTop = sticky?stickyOffsetTop:0
+        if (wrapper.top > offsetTop) {
+          obj.isActive = false;
+        } else if (
+          wrapper.height - offsetTop + wrapper.top >
+            indexContainer.height ||
+          wrapper.height - offsetTop + wrapper.top > 0
+        ) {
+          obj.isActive = true;
+        } else {
+          obj.isActive = false;
+        }
+        this.setDiffData(obj);
+      });
+    },
+    setDiffData(obj) {
+      const data = Object.keys(obj).reduce((prev, key) => {
+        if (obj[key] !== this.data[key]) {
+          prev[key] = obj[key];
+        }
+        return prev;
+      }, {});
+      this.setData(data);
+    },
+    getRect() {
+      return Promise.all([this.getContainerRect(), this.getIndexRect()]);
+    },
+
+    getIndexRect() {
+      return new Promise((resolve) => {
+        const query = this.createSelectorQuery();
+        query
+          .select(".lin-index-anchor-index")
+          .boundingClientRect(resolve)
+          .exec();
+      });
+    },
+
+    getContainerRect() {
+      return new Promise((resolve) => {
+        const query = this.createSelectorQuery();
+        query
+          .select(".lin-index-anchor")
+          .boundingClientRect(resolve)
+          .exec();
+      });
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {
+    this.onScroll();
+  },
+  moved: function() {},
+  detached: function() {},
+});

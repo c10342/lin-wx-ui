@@ -1,1 +1,86 @@
-import{isObj}from"../common/utils";const defaultOptions={type:"text",mask:!1,show:!0,zIndex:1e3,duration:2e3,position:"middle",forbidClick:!1,selector:"#lin-toast"};let queue=[],currentOptions={...defaultOptions};function parseOptions(e){return isObj(e)?e:{message:e}}function getContext(){const e=getCurrentPages();return e[e.length-1]}function Toast(e){const t=((e={...currentOptions,...parseOptions(e)}).context||getContext()).selectComponent(e.selector);if(t)return delete e.context,delete e.selector,t.clear=()=>{t.setData({show:!1}),e.onClose&&e.onClose()},queue.push(t),t.setData(e),clearTimeout(t.timer),e.duration>0&&(t.timer=setTimeout(()=>{t.clear(),queue=queue.filter(e=>e!==t)},e.duration)),t;console.warn("未找到 lin-toast 节点，请确认 selector 及 context 是否正确")}const createMethod=e=>t=>Toast({type:e,...parseOptions(t)});Toast.loading=createMethod("loading"),Toast.success=createMethod("success"),Toast.fail=createMethod("fail"),Toast.clear=()=>{queue.forEach(e=>{e.clear()}),queue=[]},Toast.setDefaultOptions=e=>{Object.assign(currentOptions,e)},Toast.resetDefaultOptions=()=>{currentOptions={...defaultOptions}};export default Toast;
+import { isObj } from "../common/utils";
+
+const defaultOptions = {
+  type: "text",
+  mask: false,
+  show: true,
+  zIndex: 1000,
+  duration: 2000,
+  position: "middle",
+  forbidClick: false,
+  selector: "#lin-toast",
+};
+
+let queue = [];
+
+let currentOptions = { ...defaultOptions };
+
+function parseOptions(message) {
+  return isObj(message) ? message : { message };
+}
+
+function getContext() {
+  const pages = getCurrentPages();
+  return pages[pages.length - 1];
+}
+
+function Toast(options) {
+  options = { ...currentOptions, ...parseOptions(options) };
+
+  const context = options.context || getContext();
+  const toast = context.selectComponent(options.selector);
+
+  if (!toast) {
+    console.warn("未找到 lin-toast 节点，请确认 selector 及 context 是否正确");
+    return;
+  }
+
+  delete options.context;
+  delete options.selector;
+
+  toast.clear = () => {
+    toast.setData({ show: false });
+    if (options.onClose) {
+      options.onClose();
+    }
+  };
+
+  queue.push(toast);
+  toast.setData(options);
+  clearTimeout(toast.timer);
+  if (options.duration > 0) {
+    toast.timer = setTimeout(() => {
+      toast.clear();
+      queue = queue.filter((item) => item !== toast);
+    }, options.duration);
+  }
+  return toast;
+}
+
+const createMethod = (type) => (options) => {
+  return Toast({
+    type,
+    ...parseOptions(options),
+  });
+};
+
+Toast.loading = createMethod("loading");
+Toast.success = createMethod("success");
+Toast.fail = createMethod("fail");
+
+Toast.clear = () => {
+  queue.forEach((toast) => {
+    toast.clear();
+  });
+  queue = [];
+};
+
+Toast.setDefaultOptions = (options) => {
+  Object.assign(currentOptions, options);
+};
+
+Toast.resetDefaultOptions = () => {
+  currentOptions = { ...defaultOptions };
+};
+
+export default Toast;

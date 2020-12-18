@@ -1,1 +1,168 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class","bar-class","button-class"],properties:{value:{type:Number,value:0,observer:"setBarWidth"},disabled:Boolean,max:{type:Number,value:100},min:{type:Number,value:0},step:{type:Number,value:1},barHeight:{type:[String,Number],value:"2px"},activeColor:String,inactiveColor:String,useButtonSlot:Boolean},data:{width:0,left:0,transition:"transition: all 300ms"},methods:{setBarWidth(){const t=this.getOffsetWidthByValue(this.properties.value);this.setStyleWidth(t)},getOffsetWidthByValue(t){const{max:e,min:i}=this.properties;let s=0;if(t>=e)s=1;else if(t<i)s=0;else{s=(t-i)/(e-i)}return this.containerWidth*s},setStyleWidth(t){let e=(t=parseInt(t))-this.barWidth/2;e<=0&&(e=0),e>=this.containerWidth-this.barWidth&&(e=this.containerWidth-this.barWidth),this.setData({left:e,width:t})},onClick(t){if(this.properties.disabled)return;const{step:e}=this.properties;let i=t.detail.x-this.containerLeft,s=this.getValue(i);const n=s%e;0!=n&&(n>=e/2?s+=e-n:s-=n,i=Math.ceil(this.getOffsetWidthByValue(s))),this.setStyleWidth(i),this.emitChange()},onTouchStart(){this.properties.disabled||(this.setData({transition:"transition: none"}),this.triggerEvent("drag-start"))},onTouchMove(t){if(this.properties.disabled)return;let e=t.touches[0].clientX-this.containerLeft;e<=0&&(e=0),e>=this.containerWidth&&(e=this.containerWidth);const{step:i}=this.properties;0==this.getValue(e)%i&&(this.setStyleWidth(e),this.emitDrag())},onTouchEnd(){this.properties.disabled||(this.setData({transition:"transition: all 300ms"}),this.emitChange(),this.triggerEvent("drag-end"))},getValue(t){const e=t/this.containerWidth,{max:i,min:s}=this.properties;return parseInt(s+(i-s)*e)},emitChange(){this.triggerEvent("change",this.getValue(this.data.width))},emitDrag(){this.triggerEvent("drag",this.getValue(this.data.width))}},created:function(){},attached:function(){},ready:function(){this.containerLeft=0,this.containerWidth=0,this.barWidth=0;const t=this.createSelectorQuery();t.select("#linsliderContainer").boundingClientRect(),t.select("#linSliderBar").boundingClientRect(),t.exec(t=>{this.containerLeft=t[0].left,this.containerWidth=t[0].width,this.barWidth=t[1].width,this.setBarWidth()})},moved:function(){},detached:function(){}});
+// import { BLUE } from "../common/color";
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: ["custom-class", "bar-class", "button-class"],
+  properties: {
+    value: {
+      type: Number,
+      value: 0,
+      observer: "setBarWidth",
+    },
+    disabled: Boolean,
+    max: {
+      type: Number,
+      value: 100,
+    },
+    min: {
+      type: Number,
+      value: 0,
+    },
+    step: {
+      type: Number,
+      value: 1,
+    },
+    barHeight: {
+      type: [String, Number],
+      value: "2px",
+    },
+    activeColor: String,
+    inactiveColor: String,
+    useButtonSlot: Boolean,
+  },
+  data: {
+    width: 0,
+    left: 0,
+    transition: "transition: all 300ms",
+  },
+  methods: {
+    setBarWidth() {
+      const offsetWidth = this.getOffsetWidthByValue(this.properties.value);
+      this.setStyleWidth(offsetWidth);
+    },
+    getOffsetWidthByValue(value) {
+      const { max, min } = this.properties;
+      let offsetNum = max - min;
+      let percent = 0;
+      if (value >= max) {
+        percent = 1;
+      } else if (value < min) {
+        percent = 0;
+      } else {
+        const leftNum = value - min;
+        percent = leftNum / offsetNum;
+      }
+      return this.containerWidth * percent;
+    },
+    setStyleWidth(offsetWidth) {
+      offsetWidth = parseInt(offsetWidth);
+      let left = offsetWidth - this.barWidth / 2;
+      if (left <= 0) {
+        left = 0;
+      }
+      if (left >= this.containerWidth - this.barWidth) {
+        left = this.containerWidth - this.barWidth;
+      }
+      this.setData({
+        left: left,
+        width: offsetWidth,
+      });
+    },
+    onClick(event) {
+      if (this.properties.disabled) {
+        return;
+      }
+      const { step } = this.properties;
+      const x = event.detail.x;
+      let offsetWidth = x - this.containerLeft;
+      let value = this.getValue(offsetWidth);
+      const remainder = value % step;
+      if (remainder != 0) {
+        if (remainder >= step / 2) {
+          value = value + (step - remainder);
+        } else {
+          value = value - remainder;
+        }
+        offsetWidth = Math.ceil(this.getOffsetWidthByValue(value));
+      }
+      this.setStyleWidth(offsetWidth);
+
+      this.emitChange();
+    },
+    onTouchStart() {
+      if (this.properties.disabled) {
+        return;
+      }
+      this.setData({
+        transition: "transition: none",
+      });
+      this.triggerEvent("drag-start");
+    },
+    onTouchMove(event) {
+      if (this.properties.disabled) {
+        return;
+      }
+      const clientX = event.touches[0].clientX;
+      let offsetWidth = clientX - this.containerLeft;
+      if (offsetWidth <= 0) {
+        offsetWidth = 0;
+      }
+      if (offsetWidth >= this.containerWidth) {
+        offsetWidth = this.containerWidth;
+      }
+
+      const { step } = this.properties;
+      let value = this.getValue(offsetWidth);
+      const remainder = value % step;
+      if (remainder != 0) {
+        return;
+      }
+
+      this.setStyleWidth(offsetWidth);
+      this.emitDrag();
+    },
+    onTouchEnd() {
+      if (this.properties.disabled) {
+        return;
+      }
+      this.setData({
+        transition: "transition: all 300ms",
+      });
+      this.emitChange();
+      this.triggerEvent("drag-end");
+    },
+    getValue(offsetWidth) {
+      const percent = offsetWidth / this.containerWidth;
+      const { max, min } = this.properties;
+      const offsetNum = max - min;
+      const leftNum = offsetNum * percent;
+      return parseInt(min + leftNum);
+    },
+    emitChange() {
+      this.triggerEvent("change", this.getValue(this.data.width));
+    },
+    emitDrag() {
+      this.triggerEvent("drag", this.getValue(this.data.width));
+    },
+  },
+  created: function() {},
+  attached: function() {},
+  ready: function() {
+    this.containerLeft = 0;
+    this.containerWidth = 0;
+    this.barWidth = 0;
+    const query = this.createSelectorQuery();
+    query.select("#linsliderContainer").boundingClientRect();
+    query.select("#linSliderBar").boundingClientRect();
+    query.exec((rect) => {
+      this.containerLeft = rect[0].left;
+      this.containerWidth = rect[0].width;
+      this.barWidth = rect[1].width;
+      this.setBarWidth();
+    });
+  },
+  moved: function() {},
+  detached: function() {},
+});

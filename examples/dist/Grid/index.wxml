@@ -1,4 +1,4 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"/>
-<view class="custom-class lin-grid lin-clearfix" style="{{styleUtils.singleUnit('padding-left',gutter)}}">
-    <slot/>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class='custom-class lin-grid lin-clearfix' style="{{styleUtils.singleUnit('padding-left',gutter)}}">
+    <slot />
 </view>

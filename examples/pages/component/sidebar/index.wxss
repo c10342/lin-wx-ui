@@ -1,0 +1,15 @@
+page{
+  background-color: #ffffff;
+}
+
+
+.sidebar-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.demo-block{
+  width: 50%;
+}

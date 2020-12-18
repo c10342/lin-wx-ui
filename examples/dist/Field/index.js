@@ -1,1 +1,114 @@
-import{commonProps,inputProps,textareaProps}from"./props.js";import{canIUseModel}from"../common/version.js";Component({behaviors:["wx://form-field"],options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["label-class","input-class","right-icon-class","value-class","header-class"],properties:{...commonProps,...inputProps,...textareaProps,size:String,isLink:Boolean,border:{type:Boolean,value:!0},required:Boolean,leftIcon:String,label:String,clickable:Boolean,titleWidth:{type:[String,Number],value:"6.2em"},arrowDirection:String,readonly:{type:Boolean,observer:"setShowClear"},inputAlign:String,rightIcon:String,clearable:{type:Boolean,observer:"setShowClear"},errorMessage:String,useButtonSlot:Boolean,customStyle:String},data:{inputValue:"",showClear:!1},methods:{emitChange(){canIUseModel()&&this.setData({value:this.value}),wx.nextTick(()=>{this.triggerEvent("change",this.value)})},onInput(e){const{value:t=""}=e.detail||{};this.value=t,this.setShowClear(),this.emitChange()},onBlur(e){this.focused=!1,this.setShowClear(),this.triggerEvent("blur",e.detail)},onFocus(e){this.focused=!0,this.setShowClear(),this.triggerEvent("focus",e.detail)},onClear(){this.setData({inputValue:""}),this.value="",this.setShowClear(),wx.nextTick(()=>{this.emitChange(),this.triggerEvent("clear","")})},onConfirm(e){const{value:t=""}=e.detail||{};this.value=t,this.setShowClear(),this.triggerEvent("confirm",t)},onLineChange(e){this.triggerEvent("linechange",e.detail)},onKeyboardHeightChange(e){this.triggerEvent("keyboardheightchange",e.detail)},onRightIconClick(){this.triggerEvent("click-icon")},setShowClear(){const{clearable:e,readonly:t}=this.properties,{focused:i,value:o}=this;this.setData({showClear:!(!e||!i||!o||t)})}},created:function(){this.value=this.properties.value,this.setData({inputValue:this.value})},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+import { commonProps, inputProps, textareaProps } from "./props.js";
+import { canIUseModel } from "../common/version.js";
+Component({
+  behaviors: ["wx://form-field"],
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: [
+    "label-class",
+    "input-class",
+    "right-icon-class",
+    "value-class",
+    "header-class",
+  ],
+  properties: {
+    ...commonProps,
+    ...inputProps,
+    ...textareaProps,
+    size: String,
+    isLink: Boolean,
+    border: { type: Boolean, value: true },
+    required: Boolean,
+    leftIcon: String,
+    label: String,
+    clickable: Boolean,
+    titleWidth: {
+      type: [String, Number],
+      value: "6.2em",
+    },
+    arrowDirection: String,
+    readonly: {
+      type: Boolean,
+      observer: "setShowClear",
+    },
+    inputAlign: String,
+    rightIcon: String,
+    clearable: { type: Boolean, observer: "setShowClear" },
+    errorMessage: String,
+    useButtonSlot: Boolean,
+    customStyle: String,
+  },
+  data: {
+    inputValue: "",
+    // focused: false,
+    showClear: false,
+  },
+  methods: {
+    emitChange() {
+      // 双向数据绑定
+      if (canIUseModel()) {
+        this.setData({ value: this.value });
+      }
+      wx.nextTick(() => {
+        this.triggerEvent("change", this.value);
+      });
+    },
+    onInput(event) {
+      const { value = "" } = event.detail || {};
+      this.value = value;
+      this.setShowClear();
+      this.emitChange();
+    },
+    onBlur(event) {
+      this.focused = false;
+      this.setShowClear();
+      this.triggerEvent("blur", event.detail);
+    },
+    onFocus(event) {
+      this.focused = true;
+      this.setShowClear();
+      this.triggerEvent("focus", event.detail);
+    },
+    onClear() {
+      this.setData({ inputValue: "" });
+      this.value = "";
+      this.setShowClear();
+      wx.nextTick(() => {
+        this.emitChange();
+        this.triggerEvent("clear", "");
+      });
+    },
+    onConfirm(event) {
+      const { value = "" } = event.detail || {};
+      this.value = value;
+      this.setShowClear();
+      this.triggerEvent("confirm", value);
+    },
+    onLineChange(event) {
+      this.triggerEvent("linechange", event.detail);
+    },
+    onKeyboardHeightChange(event) {
+      this.triggerEvent("keyboardheightchange", event.detail);
+    },
+    onRightIconClick() {
+      this.triggerEvent("click-icon");
+    },
+    setShowClear() {
+      const { clearable, readonly } = this.properties;
+      const { focused, value } = this;
+      this.setData({
+        showClear: !!clearable && !!focused && !!value && !readonly,
+      });
+    },
+  },
+  created: function() {
+    this.value = this.properties.value;
+    this.setData({ inputValue: this.value });
+  },
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
+});

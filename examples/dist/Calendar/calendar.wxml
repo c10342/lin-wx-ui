@@ -1,13 +1,13 @@
-<wxs src="../wxs/style.wxs" module="styleUtils"/>
+<wxs src="../wxs/style.wxs" module="styleUtils" />
 <template name="calendar">
     <view class="lin-calendar">
         <view class="lin-calendar-title" wx:if="{{showTitle}}">{{title}}</view>
         <view class="lin-calendar-header">
-            <lin-icon class="lin-calendar-leftarrow" size="40rpx" icon="leftarrow" bind:tap="prevYear"/>
-            <lin-icon size="40rpx" icon="arrow-left" bind:tap="prevMonth"/>
+            <lin-icon class="lin-calendar-leftarrow" size='40rpx' icon='leftarrow' bind:tap="prevYear" />
+            <lin-icon size='40rpx' icon='arrow-left' bind:tap='prevMonth' />
             <view class="lin-calendar-date">{{time.label}}</view>
-            <lin-icon size="40rpx" icon="arrow-right" bind:tap="nextMonth"/>
-            <lin-icon class="lin-calendar-rightarrow" size="40rpx" icon="rightarrow" bind:tap="nextYear"/>
+            <lin-icon size='40rpx' icon='arrow-right' bind:tap='nextMonth' />
+            <lin-icon class="lin-calendar-rightarrow" size='40rpx' icon='rightarrow' bind:tap="nextYear" />
         </view>
         <view>
             <view class="lin-calendar-panel">
@@ -16,17 +16,17 @@
                 </view>
             </view>
             <view class="lin-calendar-panel" wx:for="{{[1, 2, 3, 4, 5, 6]}}" wx:for-item="i" wx:key="i">
-                <view style="{{styleUtils.singleUnit('line-height',rowHeight)}}" data-index="{{(i - 1) * 7 + (j - 1)}}" bind:tap="onLabelClick" class="lin-calendar-panel-label {{visibeDaysList[(i - 1) * 7 + (j - 1)].isCurrentMonth?'':'lin-calendar-not-current-month'}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isSelected?'lin-calendar-selected':''}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isDisabled?'lin-calendar-disabled':''}}" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="j" wx:key="j">
+                <view style="{{styleUtils.singleUnit('line-height',rowHeight)}}" data-index='{{(i - 1) * 7 + (j - 1)}}' bind:tap="onLabelClick" class="lin-calendar-panel-label {{visibeDaysList[(i - 1) * 7 + (j - 1)].isCurrentMonth?'':'lin-calendar-not-current-month'}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isSelected?'lin-calendar-selected':''}} {{visibeDaysList[(i - 1) * 7 + (j - 1)].isDisabled?'lin-calendar-disabled':''}}" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="j" wx:key="j">
                     {{visibeDaysList[(i - 1) * 7 + (j - 1)].label}}
                 </view>
             </view>
         </view>
         <view class="lin-calendar-button-group" wx:if="{{showConfirm || showReset}}">
-            <lin-button wx:if="{{showConfirm}}" class="lin-calendar-button" disabled="{{disabledConfirm}}" round block type="primary" bind:click="onConfirmClick">
+            <lin-button wx:if="{{showConfirm}}" class="lin-calendar-button" disabled='{{disabledConfirm}}' round block type='primary' bind:click='onConfirmClick'>
                 {{confirmText}}
             </lin-button>
-            <view style="width:60rpx" wx:if="{{showConfirm && showReset}}"/>
-            <lin-button wx:if="{{showReset}}" class="lin-calendar-button" disabled="{{disabledReset}}" round block type="default" bind:click="onResetClick">
+            <view style="width:60rpx" wx:if="{{showConfirm && showReset}}" />
+            <lin-button wx:if="{{showReset}}" class="lin-calendar-button" disabled='{{disabledReset}}' round block type='default' bind:click='onResetClick'>
                 {{restText}}
             </lin-button>
         </view>

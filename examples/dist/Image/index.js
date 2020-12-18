@@ -1,1 +1,125 @@
-Component({options:{addGlobalClass:!0},externalClasses:["custom-class","image-class","error-class"],properties:{imageUrl:{type:Array,value:[],observer(){this.getImageSrc()}},width:{type:String,value:"320px",observer:"setStyle"},height:{type:String,value:"240px",observer:"setStyle"},useErrorSlot:{type:Boolean,value:!1},errorTip:{type:String,value:""},radius:{type:String,observer:"setStyle"},round:{type:String,value:!1,observer:"setStyle"},mode:{type:String,value:"scaleToFill"},webp:{type:Boolean,value:!1},lazyLoad:{type:Boolean,value:!1},showMenuByLongpress:{type:Boolean,value:!1}},data:{src:"",index:-1,errorMessage:[],isError:!1,viewStyle:""},methods:{setStyle(){let e="";const{width:t,height:r,round:s,radius:a}=this.properties;t&&(e+=`width:${t};`),r&&(e+=`height:${r};`),s?e+="border-radius:50%;":a&&(e+=`border-radius:${a};`),this.setData({viewStyle:e})},getImageSrc(){const e=this.properties.imageUrl;if(e.length>0){let t=this.data.index;for(;t<e.length-1;){t++;let r=e[t];if(this.setData({index:t}),r){this.setData({src:e[t]});break}}}else this.setData({isError:!0})},onError(e){const t=this.data.errorMessage;t.push({index:this.data.index,src:this.data.src,event:e}),this.setData({errorMessage:t}),this.data.index===this.properties.imageUrl.length-1?(this.setData({isError:!0}),this.triggerEvent("error",t)):this.getImageSrc()},onLoad(e){this.triggerEvent("success",{index:this.data.index,src:this.data.src,event:e})}}});
+Component({
+  options: {
+    addGlobalClass: true,
+  },
+  externalClasses: ["custom-class", "image-class", "error-class"],
+  properties: {
+    imageUrl: {
+      type: Array,
+      value: [],
+      observer() {
+        this.getImageSrc();
+      },
+    },
+    width: {
+      type: String,
+      value: "320px",
+      observer: "setStyle",
+    },
+    height: {
+      type: String,
+      value: "240px",
+      observer: "setStyle",
+    },
+    useErrorSlot: {
+      type: Boolean,
+      value: false,
+    },
+    errorTip: {
+      type: String,
+      value: "",
+    },
+    radius: {
+      type: String,
+      observer: "setStyle",
+    },
+    round: {
+      type: String,
+      value: false,
+      observer: "setStyle",
+    },
+    mode: {
+      type: String,
+      value: "scaleToFill",
+    },
+    webp: {
+      type: Boolean,
+      value: false,
+    },
+    lazyLoad: {
+      type: Boolean,
+      value: false,
+    },
+    showMenuByLongpress: {
+      type: Boolean,
+      value: false,
+    },
+  },
+  data: {
+    src: "",
+    index: -1,
+    errorMessage: [],
+    isError: false,
+    viewStyle: "",
+  },
+  methods: {
+    setStyle() {
+      'width:{{width}};height:{{height}};border-radius:{{round?"50%":radius}};';
+      let style = "";
+      const { width, height, round, radius } = this.properties;
+      if (width) {
+        style += `width:${width};`;
+      }
+      if (height) {
+        style += `height:${height};`;
+      }
+      if (round) {
+        style += `border-radius:50%;`;
+      } else if (radius) {
+        style += `border-radius:${radius};`;
+      }
+      this.setData({ viewStyle: style });
+    },
+    getImageSrc() {
+      const val = this.properties.imageUrl;
+      if (val.length > 0) {
+        let index = this.data.index;
+        while (index < val.length - 1) {
+          index++;
+          let src = val[index];
+          this.setData({ index });
+          if (src) {
+            this.setData({ src: val[index] });
+            break;
+          }
+        }
+      } else {
+        this.setData({ isError: true });
+      }
+    },
+    onError(event) {
+      const errorMessage = this.data.errorMessage;
+      errorMessage.push({
+        index: this.data.index,
+        src: this.data.src,
+        event,
+      });
+      this.setData({
+        errorMessage,
+      });
+      if (this.data.index === this.properties.imageUrl.length - 1) {
+        this.setData({ isError: true });
+        this.triggerEvent("error", errorMessage);
+      } else {
+        this.getImageSrc();
+      }
+    },
+    onLoad(event) {
+      this.triggerEvent("success", {
+        index: this.data.index,
+        src: this.data.src,
+        event,
+      });
+    },
+  },
+});

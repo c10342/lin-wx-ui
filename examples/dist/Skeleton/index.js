@@ -1,1 +1,69 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class","avatar-class","title-class","row-class","slot-class"],properties:{row:{type:String,value:0,observer(a){this.setData({rowArray:Array.from({length:a})})}},rowWidth:{type:[String,Array],observer(a){this.setData({isArray:a instanceof Array})}},title:{type:Boolean,value:!1},titleWidth:{type:[String,Number]},avatar:{type:Boolean,value:!1},avatarSize:{type:[String,Number]},avatarShape:{type:String,value:"round",options:["round","square"]},loading:{type:Boolean,value:!0},animate:{type:Boolean,value:!0}},data:{rowArray:[],isArray:!1},methods:{},created:function(){},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: [
+    "custom-class",
+    "avatar-class",
+    "title-class",
+    "row-class",
+    "slot-class",
+  ],
+  properties: {
+    row: {
+      type: String,
+      value: 0,
+      observer(newVal) {
+        this.setData({
+          rowArray: Array.from({ length: newVal }),
+        });
+      },
+    },
+    rowWidth: {
+      type: [String, Array],
+      observer(newVal) {
+        this.setData({
+          isArray: newVal instanceof Array,
+        });
+      },
+    },
+    title: {
+      type: Boolean,
+      value: false,
+    },
+    titleWidth: {
+      type: [String, Number],
+    },
+    avatar: {
+      type: Boolean,
+      value: false,
+    },
+    avatarSize: {
+      type: [String, Number],
+    },
+    avatarShape: {
+      type: String,
+      value: "round",
+      options: ["round", "square"],
+    },
+    loading: {
+      type: Boolean,
+      value: true,
+    },
+    animate: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  data: {
+    rowArray: [],
+    isArray: false,
+  },
+  methods: {},
+  created: function() {},
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {},
+});

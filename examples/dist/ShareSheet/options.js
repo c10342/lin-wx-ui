@@ -1,1 +1,28 @@
-Component({options:{addGlobalClass:!0,multipleSlots:!0},externalClasses:["custom-class"],properties:{options:{type:Array,value:[]},showBorder:Boolean},data:{},methods:{onSelect(t){const{index:e}=t.currentTarget.dataset,o=this.properties.options[e];this.triggerEvent("select",{...o,index:e})}},created:function(){},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+
+Component({
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true,
+  },
+  externalClasses: ["custom-class"],
+  properties: {
+    options: {
+      type: Array,
+      value: []
+    },
+    showBorder:Boolean
+  },
+  data: {},
+  methods: {
+    onSelect(event){
+      const {index} = event.currentTarget.dataset
+      const option = this.properties.options[index]
+      this.triggerEvent('select',{...option,index})
+    }
+  },
+  created: function () { },
+  attached: function () { },
+  ready: function () { },
+  moved: function () { },
+  detached: function () { },
+});

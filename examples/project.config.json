@@ -376,6 +376,12 @@
         {
           "name": "IndexBar 索引栏",
           "pathName": "pages/component/index-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Sidebar 侧边导航",
+          "pathName": "pages/component/sidebar/index",
           "scene": null
         }
       ]

@@ -50,7 +50,8 @@
     "pages/component/tag/index",
     "pages/component/tree-select/index",
     "pages/component/grid/index",
-    "pages/component/index-bar/index"
+    "pages/component/index-bar/index",
+    "pages/component/sidebar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -109,7 +110,9 @@
     "lin-grid": "/dist/Grid/index",
     "lin-grid-item": "/dist/GridItem/index",
     "lin-index-bar": "/dist/IndexBar/index",
-    "lin-index-anchor": "/dist/IndexAnchor/index"
+    "lin-index-anchor": "/dist/IndexAnchor/index",
+    "lin-sidebar": "/dist/Sidebar/index",
+    "lin-sidebar-item": "/dist/SidebarItem/index"
   },
   "sitemapLocation": "sitemap.json"
 }

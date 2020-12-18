@@ -1,1 +1,45 @@
-Component({behaviors:["wx://form-field"],relations:{"../Radio/index":{type:"descendant",linked(e){this.children=this.children||[],this.children.push(e),this.updateChild(e)},unlinked(e){this.children=(this.children||[]).filter(t=>t!==e)}}},properties:{value:{type:null,observer:"updateChildren"},disabled:{type:Boolean,observer:"updateChildren"},name:String},data:{},methods:{updateChild(e){const{value:t,disabled:i}=this.properties;e.setData({value:t===e.data.name,parentDisabled:i})},updateChildren(){(this.children||[]).forEach(e=>this.updateChild(e))}},created:function(){},attached:function(){},ready:function(){},moved:function(){},detached:function(){}});
+Component({
+  behaviors: ["wx://form-field"],
+  relations: {
+    "../Radio/index": {
+      type: "descendant",
+      linked(child) {
+        this.children = this.children || [];
+        this.children.push(child);
+        this.updateChild(child);
+      },
+      unlinked(child) {
+        this.children = (this.children || []).filter((it) => it !== child);
+      },
+    },
+  },
+  properties: {
+    value: {
+      type: null,
+      observer: "updateChildren",
+    },
+    disabled: {
+      type: Boolean,
+      observer: "updateChildren",
+    },
+    name: String,
+  },
+  data: {},
+  methods: {
+    updateChild(child) {
+      const { value, disabled } = this.properties;
+      child.setData({
+        value: value === child.data.name,
+        parentDisabled: disabled,
+      });
+    },
+    updateChildren() {
+      (this.children || []).forEach((child) => this.updateChild(child));
+    },
+  },
+  created: function () {},
+  attached: function () {},
+  ready: function () {},
+  moved: function () {},
+  detached: function () {},
+});
