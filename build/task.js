@@ -51,6 +51,7 @@ const buildWxml = (srcPath, distPath) => () =>
         removeComments: true,
         keepClosingSlash: true,
         caseSensitive: true,
+        collapseWhitespace:true
       })
     )
     .pipe(dest(distPath));
