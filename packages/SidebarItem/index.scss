@@ -1,0 +1,38 @@
+@import "../../src/style/var.scss";
+
+.lin-sidebar-item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 40rpx 24rpx;
+  overflow: hidden;
+  color: $gray-8;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background-color: $gray-1;
+}
+
+.lin-sidebar-item-content {
+  position: relative;
+  display: inline-block;
+  word-break: break-all;
+}
+
+.lin-sidebar-item-active {
+  background-color: $white;
+  color: $gray-8;
+  font-weight: 500;
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8rpx;
+    height: 32rpx;
+    background-color: $red;
+    transform: translateY(-50%);
+    content: "";
+  }
+}
+
+.lin-sidebar-item-disabled {
+  color: $gray-5;
+}
