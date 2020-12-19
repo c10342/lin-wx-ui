@@ -1,0 +1,53 @@
+
+@import '../../src/style/var.scss';
+
+.lin-nav-bar {
+  position: relative;
+  z-index: 1;
+  background-color: $white;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+}
+
+.lin-nav-bar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.lin-nav-bar-left,
+.lin-nav-bar-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  font-size: $font-size-5;
+}
+
+.lin-nav-bar-left {
+  left: 0;
+}
+
+.lin-nav-bar-right {
+  right: 0;
+}
+
+.lin-nav-bar-left-content {
+  color:$primary;
+}
+
+.lin-nav-bar-text {
+  color:$primary;
+}
+
+.lin-nav-bar-title {
+  max-width: 60%;
+  margin: 0 auto;
+  color: $gray-8;
+  font-weight: 500;
+  font-size: $font-size-7;
+}
