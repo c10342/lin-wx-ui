@@ -1,0 +1,11 @@
+<view class='container'>
+    <demo-block title='基础用法'>
+        <lin-nav-bar title="标题" left-text="返回" right-text="按钮" left-arrow bind:click-left="onClickLeft"
+            bind:click-right="onClickRight" />
+    </demo-block>
+    <demo-block title='高级用法'>
+        <lin-nav-bar title="标题" left-text="返回" left-arrow>
+            <lin-icon icon="search" slot="right" />
+        </lin-nav-bar>
+    </demo-block>
+</view>

@@ -7,10 +7,7 @@
             <view bindtap="onNavClick" data-index='{{index}}' wx:for="{{items}}" wx:key="index" class='nav-item-class lin-tree-select-nav-item one-line {{classname.multCalss(["lin-tree-select-nav-disabled",item.disabled],["lin-tree-select-nav-active",index===mainActiveIndex])}}'>
                 <view class='lin-tree-select-nav-text'>
                     {{item[navLabelKey]}}
-                    <view wx:if="{{item.dot}}" class='lin-info lin-info-dot' />
-                    <view wx:if="{{item.badge || item.badge===0}}" class='lin-info lin-info-badge'>
-                        {{item.badge}}
-                    </view>
+                    <lin-info dot='{{item.dot}}' info='{{item.badge}}' />
                 </view>
             </view>
         </view>

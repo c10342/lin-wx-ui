@@ -1,0 +1,1 @@
+@import '../common/base.wxss';.lin-tab{padding:48rpx 40rpx;background-color:#fff;box-sizing:border-box}

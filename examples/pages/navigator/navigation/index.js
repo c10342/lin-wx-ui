@@ -18,6 +18,14 @@ list:[
     name: 'Sidebar 侧边导航',
     path: '/pages/component/sidebar/index'
   },
+  {
+    name: 'NavBar 导航栏',
+    path: '/pages/component/nav-bar/index'
+  },
+  {
+    name: 'Tab 标签页',
+    path: '/pages/component/tab/index'
+  },
 ]
   },
 

@@ -1,0 +1,27 @@
+<wxs module="getters" src="./index.wxs" />
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class="custom-class lin-tabs {{classname.concatClass('lin-tabs-type',type)}} {{classname.singleClass('lin-border-surround',border&&type==='line')}}">
+    <lin-sticky disabled='{{!sticky}}' z-index='{{zIndex}}' offsetTop='{{offsetTop}}' container='{{container}}' wrapper-class='lin-tabs-wrapper-class'>
+        <view class="wrapper-class lin-tabs-wrapper">
+            <slot name="nav-left" />
+            <scroll-view class="scroll-class lin-tabs-scroll {{classname.multCalss(['lin-tabs-scroll-scrollable',scrollable],['lin-border-bottom',border&&type==='line'])}}" scroll-x='{{scrollable}}' scroll-with-animation scroll-left="{{scrollLeft}}" style="{{styleUtils.multStyle(['border-color',type==='card'?color:''])}}">
+                <view class="list-class lin-tabs-list">
+                    <view wx:if="{{type==='line'}}" class="line-class lin-tabs-line" style="{{getters.lineStyle({lineWidth,duration,lineOffsetLeft,color})}}"></view>
+                    <view data-index='{{index}}' style="{{styleUtils.multStyle(['color',type==='card'&&index!==currentIndex?color:''],['border-right',type==='card'?color:''],['background-color',type==='card'&&index===currentIndex?color:''],['color',index===currentIndex?titleActiveColor:titleInactiveColor])}} {{item.titleStyle}}" bind:tap="onTabClick" class="tab-item-class lin-tabs-item {{classname.multCalss(['lin-tabs-item-disabled',item.disabled],['lin-tabs-item-active',index===currentIndex],['one-line',ellipsis])}}" wx:for="{{tabs}}" wx:key="index">
+                        <view class="title-class lin-tabs-title">
+                            {{item.title}}
+                            <lin-info dot='{{item.dot}}' info='{{item.info}}' />
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <slot name="nav-right" />
+        </view>
+    </lin-sticky>
+    <view class="content-class lin-tabs-content" bind:touchstart="onTouchStart" bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchmove="onTouchMove">
+        <view class="track-class lin-tabs-track" style="{{getters.trackStyle({animated,duration,currentIndex})}}">
+            <slot />
+        </view>
+    </view>
+</view>
