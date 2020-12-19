@@ -1,0 +1,104 @@
+@import "../../src/style/var.scss";
+
+.lin-tabs-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 88rpx;
+  width: 100%;
+}
+
+.lin-tabs-scroll {
+  width: 0;
+  flex: 1;
+  height: 100%;
+  z-index: 2;
+}
+
+.lin-tabs-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.lin-tabs-item {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 8rpx;
+  color: $gray-7;
+  font-size: $font-size-5;
+  height: 100%;
+  background-color: $white;
+}
+
+.lin-tabs-scroll-scrollable {
+  .lin-tabs-item {
+    flex: 1 0 auto;
+    padding: 0 24rpx;
+  }
+}
+
+.lin-tabs-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 80rpx;
+  height: 6rpx;
+  background-color: $red;
+  border-radius: 6rpx;
+  transition-duration: 0.3s;
+}
+
+.lin-tabs-item-disabled {
+  color: $gray-5;
+}
+
+.lin-tabs-wrapper-class {
+  width: 100%;
+}
+
+.lin-tabs-type-card {
+  .lin-tabs-wrapper {
+    height: 60rpx;
+  }
+  .lin-tabs-item {
+    color: $red;
+    border-right: 1px solid $red;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .lin-tabs-scroll {
+    border: 1px solid $red;
+  }
+  .lin-tabs-list {
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 4rpx;
+  }
+  .lin-tabs-item-active {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+.lin-tabs-content {
+  overflow: hidden;
+}
+
+.lin-tabs-track {
+  display: flex;
+  flex-direction: row;
+  transition-duration: 0.3s;
+}
+
+.lin-tabs-title {
+  position: relative;
+}
