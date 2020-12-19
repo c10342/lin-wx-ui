@@ -9,6 +9,9 @@ function lineStyle(data) {
   if (!isNull(data.lineWidth)) {
     style.push(["width", styleUtils.addUnit(data.lineWidth)]);
   }
+  if (!isNull(data.lineHeight)) {
+    style.push(["height", styleUtils.addUnit(data.lineHeight)]);
+  }
   if (!isNull(data.duration)) {
     style.push(["transition-duration", data.duration + "s"]);
   }
