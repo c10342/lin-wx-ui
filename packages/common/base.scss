@@ -60,36 +60,8 @@
 
 .one-line {
   overflow: hidden;
-  -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.lin-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  min-width: 32rpx;
-  padding: 0 6rpx;
-  color: $white;
-  font-weight: 500;
-  font-size: $font-size-3;
-  line-height: 1.2;
-  text-align: center;
-  background-color: $red;
-  border: 1px solid $white;
-  border-radius: 32rpx;
-  transform: translate(50%, -50%);
-  transform-origin: 100%;
-}
-
-.lin-info-dot {
-  width: 16rpx;
-  min-width: 0;
-  height: 16rpx;
-  background-color: $red;
-  border-radius: 100%;
 }
 
 .lin-clearfix {
