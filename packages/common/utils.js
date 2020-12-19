@@ -26,3 +26,23 @@ export function addUnit(value) {
 
   return REGEXP.test("" + value) ? value + "px" : value;
 }
+
+export function getRect(context, element) {
+  return new Promise((resolve) => {
+    wx.createSelectorQuery()
+      .in(context)
+      .select(element)
+      .boundingClientRect(resolve)
+      .exec();
+  });
+}
+
+export function getAllRect(context, element) {
+  return new Promise((resolve) => {
+    wx.createSelectorQuery()
+      .in(context)
+      .selectAll(element)
+      .boundingClientRect()
+      .exec((rect = []) => resolve(rect[0]));
+  });
+}
