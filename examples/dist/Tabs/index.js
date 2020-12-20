@@ -54,6 +54,9 @@ Component({
     lineWidth: {
       type: [String, Number],
     },
+    lineHeight: {
+      type: [String, Number],
+    },
     animated: {
       type: Boolean,
       observer() {
@@ -120,6 +123,9 @@ Component({
         }
         return;
       }
+      this.triggerEvent("click", {
+        name: this.children[index].getComponentName(),
+      });
       this.emitChange(index);
     },
     setLineOffsetByIndex(index) {

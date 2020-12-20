@@ -7,7 +7,7 @@
             <slot name="nav-left" />
             <scroll-view class="scroll-class lin-tabs-scroll {{classname.multCalss(['lin-tabs-scroll-scrollable',scrollable],['lin-border-bottom',border&&type==='line'])}}" scroll-x='{{scrollable}}' scroll-with-animation scroll-left="{{scrollLeft}}" style="{{styleUtils.multStyle(['border-color',type==='card'?color:''])}}">
                 <view class="list-class lin-tabs-list">
-                    <view wx:if="{{type==='line'}}" class="line-class lin-tabs-line" style="{{getters.lineStyle({lineWidth,duration,lineOffsetLeft,color})}}"></view>
+                    <view wx:if="{{type==='line'}}" class="line-class lin-tabs-line" style="{{getters.lineStyle({lineWidth,lineHeight,duration,lineOffsetLeft,color})}}"></view>
                     <view data-index='{{index}}' style="{{styleUtils.multStyle(['color',type==='card'&&index!==currentIndex?color:''],['border-right',type==='card'?color:''],['background-color',type==='card'&&index===currentIndex?color:''],['color',index===currentIndex?titleActiveColor:titleInactiveColor])}} {{item.titleStyle}}" bind:tap="onTabClick" class="tab-item-class lin-tabs-item {{classname.multCalss(['lin-tabs-item-disabled',item.disabled],['lin-tabs-item-active',index===currentIndex],['one-line',ellipsis])}}" wx:for="{{tabs}}" wx:key="index">
                         <view class="title-class lin-tabs-title">
                             {{item.title}}
