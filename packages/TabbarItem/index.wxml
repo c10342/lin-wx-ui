@@ -1,0 +1,5 @@
+<wxs src="../wxs/classname.wxs" module="classname" />
+<view class="custom-class lin-tabbar-item {{classname.singleClass('lin-tabbar-item-active',active)}}" style="width:{{width}};">
+    <lin-icon size='50rpx' icon='{{icon}}' class="lin-tabbar-item-icon" />
+    <slot />
+</view>
