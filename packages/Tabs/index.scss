@@ -71,6 +71,7 @@
   .lin-tabs-item {
     color: $red;
     border-right: 1px solid $red;
+    transition: all 0.3s;
     &:last-child {
       border-right: none;
     }
@@ -86,6 +87,13 @@
   .lin-tabs-item-active {
     color: $white;
     background-color: $red;
+  }
+}
+
+.lin-tabs-type-line {
+  .lin-tabs-item-active {
+    color: $gray-8;
+    font-weight: 500;
   }
 }
 
