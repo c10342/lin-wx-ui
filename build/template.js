@@ -20,26 +20,26 @@ Component({
 
 const compJsonTemplate = () => {
   return `
-    {
-        "component": true
-    }
-    `;
+{
+   "component": true
+}
+`;
 };
 
 const compScssTemplate = (componentNameLine) => {
   return `
-    .lin-${componentNameLine}{
+.lin-${componentNameLine}{
     
-    }
-    `;
+}
+`;
 };
 
 const compWxmlTemplate = (componentNameLine) => {
   return `
-    <view class='custom-class lin-${componentNameLine}'>
+<view class='custom-class lin-${componentNameLine}'>
     
-    </view>
-    `;
+</view>
+`;
 };
 
 const pageJsTemplate = () => {
@@ -113,29 +113,29 @@ Page({
 
 const pageJsonTemplate = (componentName) => {
   return `
-    {
-        "usingComponents": {},
-        "navigationBarTitleText": "${componentName}"
-    }
-    `;
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "${componentName}"
+}
+`;
 };
 
 const pageWxmlTemplate = () => {
   return `
-    <view class='container'>
-        <demo-block title='基础用法'>
+<view class='container'>
+   <demo-block title='基础用法'>
             
-        </demo-block>
-    </view>
-    `;
+    </demo-block>
+</view>
+`;
 };
 
 module.exports = {
-    compJsTemplate,
-    compJsonTemplate,
-    compScssTemplate,
-    compWxmlTemplate,
-    pageJsTemplate,
-    pageJsonTemplate,
-    pageWxmlTemplate
-}
+  compJsTemplate,
+  compJsonTemplate,
+  compScssTemplate,
+  compWxmlTemplate,
+  pageJsTemplate,
+  pageJsonTemplate,
+  pageWxmlTemplate,
+};
