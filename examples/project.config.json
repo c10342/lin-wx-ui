@@ -49,12 +49,6 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -376,6 +370,7 @@
         {
           "name": "Sidebar 侧边导航",
           "pathName": "pages/component/sidebar/index",
+          "query": "",
           "scene": null
         },
         {
@@ -389,6 +384,12 @@
           "id": -1,
           "name": "Tab 标签页",
           "pathName": "pages/component/tab/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Tabbar 标签栏",
+          "pathName": "pages/component/tabbar/index",
           "scene": null
         }
       ]

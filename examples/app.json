@@ -53,7 +53,8 @@
     "pages/component/index-bar/index",
     "pages/component/sidebar/index",
     "pages/component/nav-bar/index",
-    "pages/component/tab/index"
+    "pages/component/tab/index",
+    "pages/component/tabbar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -118,7 +119,9 @@
     "lin-nav-bar": "/dist/NavBar/index",
     "lin-tab": "/dist/Tab/index",
     "lin-tabs": "/dist/Tabs/index",
-    "lin-info": "/dist/Info/index"
+    "lin-info": "/dist/Info/index",
+    "lin-tabbar": "/dist/Tabbar/index",
+    "lin-tabbar-item": "/dist/TabbarItem/index"
   },
   "sitemapLocation": "sitemap.json"
 }

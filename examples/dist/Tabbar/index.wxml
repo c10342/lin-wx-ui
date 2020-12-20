@@ -1,0 +1,3 @@
+<view class='custom-class lin-tabbar lin-clearfix'>
+    <slot />
+</view>
