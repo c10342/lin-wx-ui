@@ -36,6 +36,29 @@
   }
 }
 
+.lin-border-bottom-top {
+  position: relative;
+  &::before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    border-bottom: 1px solid #ebedf0;
+    border-top: 1px solid #ebedf0;
+  }
+  &-hairline {
+    &::before {
+      transform: scaleY(0.5);
+      left: 50%;
+      right: 50%;
+      top: 50%;
+      bottom: 50%;
+    }
+  }
+}
+
 .lin-border-surround {
   position: relative;
   &::after {
