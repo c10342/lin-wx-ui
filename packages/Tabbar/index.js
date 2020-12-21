@@ -1,3 +1,4 @@
+import { getRect } from "../common/utils";
 Component({
   options: {
     addGlobalClass: true,
@@ -23,7 +24,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "placeholder-class"],
   properties: {
     active: {
       type: [String, Number],
@@ -35,21 +36,29 @@ Component({
     fixed: {
       type: Boolean,
       value: true,
+      observer: "initPlaceholderView",
     },
-    placeholder: Boolean,
+    placeholder: {
+      type: Boolean,
+      observer: "initPlaceholderView",
+    },
     border: {
       type: Boolean,
       value: true,
     },
-    zIndex: {
-      type: Number,
-      value: 1,
+    zIndex: Number,
+    activeColor: {
+      type: String,
+      observer: "updateChildren",
     },
-    activeColor: String,
-    inactiveColor: String,
+    inactiveColor: {
+      type: String,
+      observer: "updateChildren",
+    },
   },
   data: {
     currentIndex: 0,
+    height: 0,
   },
   methods: {
     updateChildren() {
@@ -58,19 +67,26 @@ Component({
       });
     },
     updateCurrentIndex() {
-      const { active } = this.properties(this.children || []).forEach(
-        (child, index) => {
-          if (active === child.getComponentName()) {
-            this.setData({
-              currentIndex: index,
-            });
-          }
-          child.setActive(active === child.getComponentName());
+      const { active } = this.properties;
+      (this.children || []).forEach((child, index) => {
+        if (active === child.getComponentName()) {
+          this.setData({
+            currentIndex: index,
+          });
         }
-      );
+        child.setActive(active === child.getComponentName());
+      });
     },
     emitChange(name) {
       this.triggerEvent("change", name);
+    },
+    initPlaceholderView() {
+      const { placeholder, fixed } = this.properties;
+      if (placeholder && fixed) {
+        getRect(this, ".lin-tabbar").then((res) => {
+          this.setData({ height: res.height });
+        });
+      }
     },
   },
   created: function() {},

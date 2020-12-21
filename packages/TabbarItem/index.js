@@ -15,7 +15,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ["custom-class", "content-class"],
   properties: {
     name: {
       type: [String, Number],
@@ -29,6 +29,8 @@ Component({
   data: {
     width: 0,
     active: false,
+    activeColor: "",
+    inactiveColor: "",
   },
   methods: {
     getComponentName() {
@@ -41,10 +43,12 @@ Component({
     updateFromParent() {
       if (this.parent) {
         const params = {};
-        const { children, data, properties } = this.parent;
+        const { children, properties } = this.parent;
         const width = `${100 / children.length}%`;
         params.width = width;
         params.active = properties.active === this.getComponentName();
+        params.activeColor = properties.activeColor;
+        params.inactiveColor = properties.inactiveColor;
         this.setDiffData(params);
       }
     },
@@ -60,6 +64,12 @@ Component({
     },
     setActive(active) {
       this.setData({ active });
+    },
+    onClick() {
+      if (this.data.active || !this.parent) {
+        return;
+      }
+      this.parent.emitChange(this.getComponentName());
     },
   },
   created: function() {},

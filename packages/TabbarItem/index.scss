@@ -1,3 +1,5 @@
+@import "../../src/style/var.scss";
+
 .lin-tabbar-item {
   display: flex;
   flex-direction: column;
@@ -5,17 +7,25 @@
   justify-content: center;
   float: left;
 
-  color: #646566;
-  font-size: 24rpx;
+  color: $gray-7;
+  font-size: $font-size-3;
   height: 100%;
 }
 
 .lin-tabbar-item-icon {
   position: relative;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
 }
 
 .lin-tabbar-item-active {
-  color: #1989fa;
-  background-color: #fff;
+  color: $primary;
+  background-color: $white;
+}
+
+.lin-tabbar-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
