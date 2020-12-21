@@ -1,5 +1,5 @@
 <view class="demo-block">
-	<view class="demo-title">
+	<view class="demo-title {{titlePadding?'demo-title-paddding':''}}">
 		<text>{{title}}</text>
 	</view>
 	<slot></slot>

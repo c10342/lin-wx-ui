@@ -21,3 +21,11 @@
   height: 100%;
   background-color: #409eff;
 }
+
+.demo-title-paddding{
+  padding-left: 20rpx;
+}
+
+.demo-title-paddding::before{
+  left: 0;
+}

@@ -10,7 +10,8 @@ Component({
   properties: {
     title:{
       type:String
-    }
+    },
+    titlePadding:Boolean
   },
 
   /**

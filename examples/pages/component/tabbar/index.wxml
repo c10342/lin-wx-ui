@@ -1,6 +1,47 @@
 <view class='container'>
-    <demo-block title='基础用法'>
-        <lin-tabbar data-key="active1" active="{{ active1 }}" bind:change="onChange">
+    <demo-block titlePadding title='基础用法'>
+        <lin-tabbar fixed='{{false}}' border='{{false}}' data-key="active1" active="{{ active1 }}"
+            bind:change="onChange">
+            <lin-tabbar-item icon="like">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="search">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="user">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="setting">标签</lin-tabbar-item>
+        </lin-tabbar>
+    </demo-block>
+    <demo-block titlePadding title='通过名称匹配'>
+        <lin-tabbar fixed='{{false}}' border='{{false}}' data-key="active2" active="{{ active2 }}"
+            bind:change="onChange">
+            <lin-tabbar-item name='like' icon="like">标签</lin-tabbar-item>
+            <lin-tabbar-item name='search' icon="search">标签</lin-tabbar-item>
+            <lin-tabbar-item name='user' icon="user">标签</lin-tabbar-item>
+            <lin-tabbar-item name='setting' icon="setting">标签</lin-tabbar-item>
+        </lin-tabbar>
+    </demo-block>
+    <demo-block titlePadding title='显示徽标'>
+        <lin-tabbar fixed='{{false}}' border='{{false}}' data-key="active3" active="{{ active3 }}"
+            bind:change="onChange">
+            <lin-tabbar-item icon="like">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="search" dot>标签</lin-tabbar-item>
+            <lin-tabbar-item icon="user" info="5">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="setting" info="20">标签</lin-tabbar-item>
+        </lin-tabbar>
+    </demo-block>
+    <demo-block titlePadding title='自定义图标'>
+        <lin-tabbar fixed='{{false}}' border='{{false}}' data-key="active4" active="{{ active4 }}"
+            bind:change="onChange">
+            <lin-tabbar-item info="3">
+                <lin-icon size='50rpx' icon='star' slot="icon" />
+                <lin-icon size='50rpx' icon='star' slot="icon-active" />
+                自定义
+            </lin-tabbar-item>
+            <lin-tabbar-item icon="search">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="user">标签</lin-tabbar-item>
+            <lin-tabbar-item icon="setting">标签</lin-tabbar-item>
+        </lin-tabbar>
+    </demo-block>
+    <demo-block titlePadding title='自定义颜色'>
+        <lin-tabbar active-color="#07c160" inactive-color="#000" fixed='{{false}}' border='{{false}}' data-key="active5"
+            active="{{ active5 }}" bind:change="onChange">
             <lin-tabbar-item icon="like">标签</lin-tabbar-item>
             <lin-tabbar-item icon="search">标签</lin-tabbar-item>
             <lin-tabbar-item icon="user">标签</lin-tabbar-item>

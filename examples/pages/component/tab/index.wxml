@@ -1,5 +1,5 @@
 <view class='container'>
-    <demo-block title='基础用法'>
+    <demo-block titlePadding title='基础用法'>
         <lin-tabs data-key="active1" active="{{ active1 }}" bind:change="onChange">
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
@@ -8,14 +8,14 @@
         </lin-tabs>
     </demo-block>
 
-    <demo-block title='通过名称匹配'>
+    <demo-block titlePadding title='通过名称匹配'>
         <lin-tabs data-key="active2" active="{{ active2 }}" bind:change="onChange">
             <lin-tab title="标签 1" name="a">内容 1</lin-tab>
             <lin-tab title="标签 2" name="b">内容 2</lin-tab>
             <lin-tab title="标签 3" name="c">内容 3</lin-tab>
         </lin-tabs>
     </demo-block>
-    <demo-block title='横向滚动'>
+    <demo-block titlePadding title='横向滚动'>
         <lin-tabs data-key="active3" active="{{ active3 }}" bind:change="onChange">
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
@@ -32,7 +32,7 @@
         </lin-tabs>
     </demo-block>
 
-    <demo-block title='禁用标签'>
+    <demo-block titlePadding title='禁用标签'>
         <lin-tabs data-key="active4" active="{{ active4 }}" bind:change="onChange" bind:disabled="onClickDisabled">
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2" disabled>内容 2</lin-tab>
@@ -40,21 +40,21 @@
         </lin-tabs>
     </demo-block>
 
-    <demo-block title='样式风格'>
+    <demo-block titlePadding title='样式风格'>
         <lin-tabs data-key="active5" active="{{ active5 }}" bind:change="onChange" type="card">
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
             <lin-tab title="标签 3">内容 3</lin-tab>
         </lin-tabs>
     </demo-block>
-    <demo-block title='粘性布局'>
+    <demo-block titlePadding title='粘性布局'>
         <lin-tabs data-key="active6" active="{{ active6 }}" bind:change="onChange" sticky>
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
             <lin-tab title="标签 3">内容 3</lin-tab>
         </lin-tabs>
     </demo-block>
-    <demo-block title='切换动画'>
+    <demo-block titlePadding title='切换动画'>
         <lin-tabs data-key="active7" active="{{ active7 }}" bind:change="onChange" animated>
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
@@ -62,7 +62,7 @@
             <lin-tab title="标签 4">内容 4</lin-tab>
         </lin-tabs>
     </demo-block>
-    <demo-block title='滑动切换'>
+    <demo-block titlePadding title='滑动切换'>
         <lin-tabs data-key="active8" active="{{ active8 }}" bind:change="onChange" swipeable>
             <lin-tab title="标签 1">内容 1</lin-tab>
             <lin-tab title="标签 2">内容 2</lin-tab>
@@ -71,14 +71,8 @@
         </lin-tabs>
     </demo-block>
 
-    <demo-block title='嵌套 popup'>
-        <!-- <lin-tabs data-key="active8" active="{{ active8 }}" bind:change="onChange" swipeable>
-            <lin-tab title="标签 1">内容 1</lin-tab>
-            <lin-tab title="标签 2">内容 2</lin-tab>
-            <lin-tab title="标签 3">内容 3</lin-tab>
-            <lin-tab title="标签 4">内容 4</lin-tab>
-        </lin-tabs> -->
-        <lin-button bind:click='onClick'>显示</lin-button>
+    <demo-block titlePadding title='嵌套 popup'>
+        <lin-button style="margin-left:20rpx;" bind:click='onClick'>显示</lin-button>
     </demo-block>
 </view>
 
