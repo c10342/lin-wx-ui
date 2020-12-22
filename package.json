@@ -1,6 +1,6 @@
 {
   "name": "lin-wx-ui",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "微信小程序原生ui组件库",
   "author": "c10342",
   "private": false,
@@ -17,9 +17,9 @@
     "url": "https://github.com/c10342/lin-wx-ui"
   },
   "files": [
-    "examples",
     "packages",
-    "src"
+    "src",
+    "dist"
   ],
   "scripts": {
     "dev": "gulp -f build/index.js dev",
