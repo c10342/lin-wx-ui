@@ -54,7 +54,8 @@
     "pages/component/sidebar/index",
     "pages/component/nav-bar/index",
     "pages/component/tab/index",
-    "pages/component/tabbar/index"
+    "pages/component/tabbar/index",
+    "pages/navigator/business/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
