@@ -79,6 +79,7 @@
   flex-direction: row;
   .lin-picker-column {
     flex: 1;
+    flex-shrink: 0;
   }
 }
 
