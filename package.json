@@ -36,6 +36,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "cheerio": "^1.0.0-rc.3",
+    "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
