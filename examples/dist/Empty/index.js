@@ -1,3 +1,5 @@
+import { emptyCompImages } from "../common/config";
+
 const typeOpt = ["error", "network", "search", "default"];
 
 Component({
@@ -5,7 +7,13 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class",'image-wrapper-class','image-class','description-class','bottom-class'],
+  externalClasses: [
+    "custom-class",
+    "image-wrapper-class",
+    "image-class",
+    "description-class",
+    "bottom-class",
+  ],
   properties: {
     type: {
       type: String,
@@ -33,7 +41,7 @@ Component({
       } else {
         const index = typeOpt.findIndex((item) => item === type);
         if (index > -1) {
-          imageUrl = `./images/${type}.png`;
+          imageUrl = emptyCompImages[type];
         }
       }
       if (imageUrl) {
@@ -46,7 +54,7 @@ Component({
   created: function() {},
   attached: function() {},
   ready: function() {
-    this.updateImage()
+    this.updateImage();
   },
   moved: function() {},
   detached: function() {},
