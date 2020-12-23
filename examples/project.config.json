@@ -390,6 +390,12 @@
         {
           "name": "Tabbar 标签栏",
           "pathName": "pages/component/tabbar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Area 省市区选择",
+          "pathName": "pages/component/area/index",
           "scene": null
         }
       ]

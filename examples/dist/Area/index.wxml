@@ -1,0 +1,4 @@
+<!-- <view class='custom-class lin-area'>
+    
+</view> -->
+<lin-picker bind:cancel='onCancel' bind:confirm='onConfirm' show-toolbar title="标题" columns="{{ columns }}" bind:change="onChange" />
