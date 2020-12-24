@@ -1,6 +1,6 @@
 
 <view class='container'>
    <demo-block title='基础用法'>
-    <lin-area area-list="{{ areaList }}" /> 
+    <lin-area area-list="{{ areaList }}" title='标题' value='{{value}}' bind:confirm='onConfirm' /> 
     </demo-block>
 </view>

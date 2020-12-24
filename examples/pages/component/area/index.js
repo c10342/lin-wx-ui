@@ -8,7 +8,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-      areaList:{}
+      areaList:{},
+      value:''
+    },
+
+    onConfirm(event){
+      const data = event.detail
+      console.log(data[data.length-1].code);
+      this.setData({
+        value:data[data.length-1].code
+      })
     },
 
     getAreaList(){
