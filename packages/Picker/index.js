@@ -144,6 +144,7 @@ Component({
           },
           () => {
             column.setIndex(0);
+            column.updateTranslateY();
             resolve();
           }
         );
