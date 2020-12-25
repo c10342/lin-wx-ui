@@ -14,7 +14,6 @@ Page({
 
     onConfirm(event){
       const data = event.detail
-      console.log(data[data.length-1].code);
       this.setData({
         value:data[data.length-1].code
       })

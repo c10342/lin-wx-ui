@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  // externalClasses: ["custom-class"],
   properties: {
     areaList: {
       type: Object,
@@ -54,6 +54,7 @@ Component({
       this.triggerEvent("cancel");
     },
     onChange(event) {
+      this.triggerEvent("change", event.detail);
       const { index, picker } = event.detail;
       if (index === 0) {
         this.provinceChange(picker);
@@ -131,7 +132,6 @@ Component({
               });
               countyIndex = countyIndex > -1 ? countyIndex : 0;
             }
-            console.log(provinceIndex, cityIndex, countyIndex);
             columns.push({
               values: countyList,
               defaultIndex: countyIndex,

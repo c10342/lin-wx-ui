@@ -51,6 +51,7 @@ Component({
         optionsList: this.properties.initialOptions,
       });
       this.updateTranslateY();
+      this.updateIndex();
     },
     updateIndex() {
       let { defaultIndex } = this.properties;
@@ -143,10 +144,8 @@ Component({
       return result;
     },
     setTransYByIndex(index) {
-      wx.nextTick(() => {
-        const { itemHeight } = this.properties;
-        this.setData({ translateY: this.startTranslateY - index * itemHeight });
-      });
+      const { itemHeight } = this.properties;
+      this.setData({ translateY: this.startTranslateY - index * itemHeight });
     },
     emitChange(index) {
       const { currentIndex, optionsList } = this.data;

@@ -1,6 +1,15 @@
 
 <view class='container'>
    <demo-block title='基础用法'>
-    <lin-area area-list="{{ areaList }}" title='标题' value='{{value}}' bind:confirm='onConfirm' /> 
+    <lin-area area-list="{{ areaList }}" title='标题' /> 
+    </demo-block>
+   <demo-block title='选中省市区'>
+    <lin-area area-list="{{ areaList }}" title='标题' value='440106' /> 
+    </demo-block>
+   <demo-block title='配置显示列'>
+    <lin-area area-list="{{ areaList }}" title='标题' columns-num="{{ 2 }}" /> 
+    </demo-block>
+   <demo-block title='配置列占位提示文字'>
+    <lin-area area-list="{{ areaList }}" title='标题' columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}" /> 
     </demo-block>
 </view>
