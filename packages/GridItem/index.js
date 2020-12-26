@@ -1,10 +1,12 @@
 import { addUnit } from "../common/utils";
+import { Link } from "../behaviors/link";
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
+  behaviors: [Link],
   relations: {
     "../Grid/index": {
       type: "ancestor",
@@ -29,11 +31,6 @@ Component({
     dot: Boolean,
     badge: String,
     url: String,
-    linkType: {
-      type: String,
-      value: "navigateTo",
-      options: ["navigateTo", "redirectTo", "switchTab", "reLaunch"],
-    },
     useSlot: {
       type: Boolean,
     },
@@ -96,10 +93,8 @@ Component({
     },
     onClick() {
       this.triggerEvent("click");
-      const { url, linkType } = this.properties;
-      if (url) {
-        wx[linkType]({ url });
-      }
+      const { url } = this.properties;
+      this.jump(url);
     },
   },
   created: function() {},
