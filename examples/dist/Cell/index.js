@@ -1,10 +1,11 @@
-//Component Object
+import { Link } from "../behaviors/link";
 Component({
   relations: {
     "../CellGroup/index": {
       type: "ancestor",
     },
   },
+  behaviors: [Link],
   externalClasses: [
     "custom-class",
     "title-class",
@@ -34,17 +35,6 @@ Component({
       value: "right",
     },
     url: String,
-    linkType: {
-      type: String,
-      value: "navigateTo",
-      options: [
-        "navigateTo",
-        "redirectTo",
-        "switchTab",
-        "switchTab",
-        "reLaunch",
-      ],
-    },
     titleWidth: {
       type: [String, Number],
     },
@@ -59,10 +49,8 @@ Component({
       this.jumpLink();
     },
     jumpLink() {
-      const { url, linkType } = this.properties;
-      if (url) {
-        wx[linkType]({ url });
-      }
+      const { url } = this.properties;
+      this.jump(url);
     },
     setBorder(value) {
       this.setData({ borderBottom: value });

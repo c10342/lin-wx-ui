@@ -396,6 +396,12 @@
         {
           "name": "Area 省市区选择",
           "pathName": "pages/component/area/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Card 商品卡片",
+          "pathName": "pages/component/card/index",
           "scene": null
         }
       ]

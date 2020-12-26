@@ -5,10 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[{
+    list: [
+      {
       name: 'Area 省市区选择',
       path: '/pages/component/area/index'
-    }]
+    },
+      {
+      name: 'Card 商品卡片',
+      path: '/pages/component/card/index'
+    },
+  ]
   },
 
   /**

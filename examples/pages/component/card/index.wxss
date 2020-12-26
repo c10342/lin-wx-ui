@@ -1,0 +1,7 @@
+page{
+  background-color: #ffffff;
+}
+
+.footer{
+  text-align: right;
+}

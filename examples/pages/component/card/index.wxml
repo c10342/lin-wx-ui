@@ -1,0 +1,20 @@
+<view class='container'>
+    <demo-block title='基础用法'>
+        <lin-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}" />
+    </demo-block>
+    <demo-block title='营销信息'>
+        <lin-card tag='标签' origin-price='10.00' num="2" price="2.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}" />
+    </demo-block>
+    <demo-block title='高级用法'>
+        <lin-card num="2" price="10.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}">
+            <view slot='tags'>
+                <lin-tag style="margin-right:10rpx" plain type='danger'>标签</lin-tag>
+                <lin-tag plain type='danger'>标签</lin-tag>
+            </view>
+            <view slot="footer" class="footer">
+                <lin-button style="margin-right:10rpx" size="small">按钮</lin-button>
+                <lin-button size="small">按钮</lin-button>
+            </view>
+        </lin-card>
+    </demo-block>
+</view>

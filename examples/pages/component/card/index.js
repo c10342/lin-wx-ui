@@ -1,6 +1,3 @@
-import {areaJsonPath} from '../../../dist/common/config'
-
-import Request from '../../../dist/common/request'
 
 Page({
 
@@ -8,36 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-      areaList:{},
-      value:''
-    },
-
-    onConfirm(event){
-      const data = event.detail
-      this.setData({
-        value:data[data.length-1].code
-      })
-    },
-
-    getAreaList(){
-      Request.get({url:areaJsonPath})
-      .then(res=>{
-        this.setData({
-          areaList:res
-        })
-      }).catch(err=>{
-        wx.showToast({
-          title:'请求失败',
-          icon:"none"
-        })
-      })
+      imageURL:'/images/cat.png'
     },
   
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getAreaList()
+  
     },
   
     /**
