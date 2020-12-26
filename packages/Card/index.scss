@@ -1,0 +1,93 @@
+@import "../../src/style/var.scss";
+
+.lin-card {
+  position: relative;
+  box-sizing: border-box;
+  padding: 16rpx 32rpx;
+  color: $gray-8;
+  font-size: $font-size-3;
+  background-color: #fafafa;
+}
+
+.lin-card-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.lin-card-thumb {
+  position: relative;
+  width: 176rpx;
+  height: 176rpx;
+  margin-right: 16rpx;
+}
+
+.lin-card-tag {
+  position: absolute;
+  top: 4rpx;
+  left: 0;
+}
+
+.lin-card-image {
+  border-radius: 16rpx;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.lin-card-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 176rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lin-card-title {
+  max-height: 64rpx;
+  font-weight: 500;
+  line-height: 32rpx;
+}
+
+.lin-card-desc {
+  max-height: 40rpx;
+  color: $gray-7;
+  line-height: 40rpx;
+}
+
+.lin-card-bottom {
+  line-height: 40rpx;
+}
+
+.lin-card-price {
+  display: inline-block;
+  color: $gray-8;
+  font-weight: 500;
+  font-size: $font-size-3;
+  width: fit-content;
+}
+
+.lin-card-origin-price {
+  display: inline-block;
+  margin-left: 10rpx;
+  color: $gray-6;
+  font-size: $font-size-1;
+  text-decoration: line-through;
+}
+
+.lin-card-currency {
+  display: inline-block;
+}
+
+.lin-card-integer {
+  font-size: $font-size-7;
+  font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+}
+.lin-card-decimal {
+  font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+}
+
+.lin-card-num {
+  float: right;
+  color: $gray-6;
+}
