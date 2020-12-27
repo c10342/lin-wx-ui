@@ -1,0 +1,59 @@
+@import "../../src/style/var.scss";
+
+.lin-submit-bar {
+  width: 100%;
+}
+
+.lin-submit-bar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100rpx;
+  padding: 0 32rpx;
+  font-size: $font-size-5;
+  background-color: $white;
+}
+
+.lin-submit-bar-text {
+  flex: 1;
+  padding-right: 24rpx;
+  color: $gray-8;
+  text-align: right;
+}
+
+.lin-submit-bar-price {
+  color: $red;
+  font-weight: 500;
+  font-size: $font-size-5;
+  display: inline-block;
+}
+
+.lin-submit-bar-integer {
+  font-size: $font-size-11;
+  font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+}
+
+.lin-submit-bar-icon {
+  margin-right: 10rpx;
+}
+
+.lin-submit-bar-tip {
+  padding: 16rpx 24rpx;
+  color: $danger;
+  font-size: $font-size-3;
+  line-height: 1.5;
+  background-color: #fff7cc;
+}
+
+.lin-submit-bar-tip-text {
+  vertical-align: middle;
+}
+
+.lin-submit-bar-button {
+  min-width: 156rpx;
+  justify-content: center;
+}
+.lin-submit-bar-suffixLabel {
+  margin-left: 10rpx;
+}
