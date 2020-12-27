@@ -1,0 +1,15 @@
+@import "../../src/style/var.scss";
+.lin-goods-action {
+  display: flex;
+  flex-direction: row;
+  background-color: $white;
+  height: 100rpx;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+  lin-goods-action-button {
+    flex: 1;
+    box-sizing: border-box;
+  }
+}

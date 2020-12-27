@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponent": {
+    "lin-button": "../Button/index"
+  }
+}

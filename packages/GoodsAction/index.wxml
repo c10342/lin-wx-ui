@@ -1,0 +1,3 @@
+<view class='custom-class lin-goods-action'>
+    <slot />
+</view>
