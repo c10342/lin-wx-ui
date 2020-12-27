@@ -58,7 +58,8 @@
     "pages/navigator/business/index",
     "pages/component/area/index",
     "pages/component/card/index",
-    "pages/component/submit-bar/index"
+    "pages/component/submit-bar/index",
+    "pages/component/goods-action/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -128,7 +129,10 @@
     "lin-tabbar-item": "/dist/TabbarItem/index",
     "lin-area": "/dist/Area/index",
     "lin-card": "/dist/Card/index",
-    "lin-submit-bar": "/dist/SubmitBar/index"
+    "lin-submit-bar": "/dist/SubmitBar/index",
+    "lin-goods-action": "/dist/GoodsAction/index",
+    "lin-goods-action-icon": "/dist/GoodsActionIcon/index",
+    "lin-goods-action-button": "/dist/GoodsActionButton/index"
   },
   "sitemapLocation": "sitemap.json"
 }

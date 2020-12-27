@@ -47,6 +47,9 @@ Page({
       "pic",
       "success",
       "fail",
+      "cart-o",
+      "shop-o",
+      "chat-o",
     ]
   },
 

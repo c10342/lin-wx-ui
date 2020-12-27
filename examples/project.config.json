@@ -408,6 +408,12 @@
         {
           "name": "SubmitBar 提交订单栏",
           "pathName": "pages/component/submit-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "GoodsAction 商品导航",
+          "pathName": "pages/component/goods-action/index",
           "scene": null
         }
       ]

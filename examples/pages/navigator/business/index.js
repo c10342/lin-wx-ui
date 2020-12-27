@@ -17,6 +17,10 @@ Page({
         name: 'SubmitBar 提交订单栏',
         path: '/pages/component/submit-bar/index'
       },
+      {
+        name: 'GoodsAction 商品导航',
+        path: '/pages/component/goods-action/index'
+      },
     ]
   },
 
