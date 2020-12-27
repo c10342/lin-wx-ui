@@ -57,7 +57,8 @@
     "pages/component/tabbar/index",
     "pages/navigator/business/index",
     "pages/component/area/index",
-    "pages/component/card/index"
+    "pages/component/card/index",
+    "pages/component/submit-bar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -126,7 +127,8 @@
     "lin-tabbar": "/dist/Tabbar/index",
     "lin-tabbar-item": "/dist/TabbarItem/index",
     "lin-area": "/dist/Area/index",
-    "lin-card": "/dist/Card/index"
+    "lin-card": "/dist/Card/index",
+    "lin-submit-bar": "/dist/SubmitBar/index"
   },
   "sitemapLocation": "sitemap.json"
 }

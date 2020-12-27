@@ -1,0 +1,20 @@
+<view class='container'>
+    <demo-block title='基础用法' title-padding>
+        <lin-submit-bar price="30.50" button-text="提交订单" bind:submit="onSubmit" />
+    </demo-block>
+    <demo-block title='禁用状态' title-padding>
+        <lin-submit-bar disabled price="{{ 30.50 }}" button-text="提交订单" tip="您的收货地址不支持同城送, 我们已为您推荐快递"
+            tip-icon="search" bind:submit="onSubmit" />
+    </demo-block>
+
+    <demo-block title='加载状态' title-padding>
+        <lin-submit-bar loading price="30.50" button-text="提交订单" bind:submit="onSubmit" />
+    </demo-block>
+
+    <demo-block title='高级用法' title-padding>
+        <lin-submit-bar price="30.50" button-text="提交订单" bind:submit="onSubmit">
+            <lin-checkbox bind:change='onChange' value='{{checked}}'>全选</lin-checkbox>
+  <view class="tip-wrapper" slot="tip">您的收货地址不支持同城送, <text class="tip-text">修改地址</text></view>
+        </lin-submit-bar>
+    </demo-block>
+</view>

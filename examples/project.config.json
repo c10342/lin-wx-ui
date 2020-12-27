@@ -402,6 +402,12 @@
         {
           "name": "Card 商品卡片",
           "pathName": "pages/component/card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "SubmitBar 提交订单栏",
+          "pathName": "pages/component/submit-bar/index",
           "scene": null
         }
       ]

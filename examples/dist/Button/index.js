@@ -1,10 +1,10 @@
 import { canIUseFormFieldButton } from "../common/version";
-import {button} from '../behaviors/button'
-import {openType} from '../behaviors/open-type'
+import { button } from "../behaviors/button";
+import { openType } from "../behaviors/open-type";
 
 const behaviors = [];
-behaviors.push(button)
-behaviors.push(openType)
+behaviors.push(button);
+behaviors.push(openType);
 // 使用内置 behaviors
 // 对于 form 组件，目前可以自动识别下列内置 behaviors:
 // wx://form-field
@@ -115,7 +115,8 @@ Component({
    */
   methods: {
     onClick() {
-      if (!this.properties.disabled) {
+      const { disabled, loading } = this.properties;
+      if (!disabled && !loading) {
         this.triggerEvent("click");
       }
     },

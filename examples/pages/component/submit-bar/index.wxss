@@ -1,0 +1,15 @@
+.container{
+  padding: 20rpx 0;
+}
+
+.tip-wrapper{
+  padding: 16rpx 24rpx;
+  color: #f56723;
+  font-size: 24rpx;
+  line-height: 1.5;
+  background-color: #fff7cc;
+}
+
+.tip-text{
+  color: #1989fa;
+}
