@@ -3,7 +3,20 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: [
+    "custom-class",
+    "tip-class",
+    "tip-text-class",
+    "content-class",
+    "text-class",
+    "label-class",
+    "price-class",
+    "currency-class",
+    "integer-class",
+    "decimal-class",
+    "suffixLabel-class",
+    "button-class",
+  ],
   properties: {
     price: {
       type: [String, Number],

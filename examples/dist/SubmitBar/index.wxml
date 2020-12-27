@@ -1,22 +1,26 @@
 <view class='custom-class lin-submit-bar'>
-    <view class="lin-submit-bar-tip" wx:if="{{tipIcon || tip}}">
+    <view class="tip-class lin-submit-bar-tip" wx:if="{{tipIcon || tip}}">
         <lin-icon wx:if="{{tipIcon}}" icon='{{tipIcon}}' class="lin-submit-bar-icon" />
-        <text wx:if="{{tip}}" class="lin-submit-bar-tip-text">{{tip}}</text>
+        <text wx:if="{{tip}}" class="lin-submit-bar-tip-text tip-text-class">{{tip}}</text>
     </view>
     <slot name="tip" wx:else />
-    <view class="lin-submit-bar-content">
+    <view class="content-class lin-submit-bar-content">
         <slot />
-        <view class="lin-submit-bar-text">
-            <text class="lin-submit-bar-label" wx:if="{{label}}">{{label}}</text>
-            <view class="lin-submit-bar-price">
-                <text class="lin-submit-bar-currency" wx:if="{{currency}}">{{currency}}</text>
-                <text class="lin-submit-bar-integer">{{integer}}</text>
+        <view class="text-class lin-submit-bar-text">
+            <text class="label-class lin-submit-bar-label" wx:if="{{label}}">{{label}}</text>
+            <view class="price-class lin-submit-bar-price">
+                <text class="currency-class lin-submit-bar-currency" wx:if="{{currency}}">
+                    {{currency}}
+                </text>
+                <text class="integer-class lin-submit-bar-integer">{{integer}}</text>
                 <text>.</text>
-                <text class="lin-submit-bar-decimal">{{decimal}}</text>
+                <text class="decimal-class lin-submit-bar-decimal">{{decimal}}</text>
             </view>
-            <text class="lin-submit-bar-suffixLabel" wx:if="{{suffixLabel}}">{{suffixLabel}}</text>
+            <text class="suffixLabel-class lin-submit-bar-suffixLabel" wx:if="{{suffixLabel}}">
+                {{suffixLabel}}
+            </text>
         </view>
-        <lin-button custom-class="lin-submit-bar-button" loading='{{loading}}' loadingColor='#fff' bind:click='onButtonClick' disabled='{{disabled}}' round type='{{buttonType}}' wx:if="{{buttonText}}">
+        <lin-button custom-class="button-class lin-submit-bar-button" loading='{{loading}}' loadingColor='#fff' bind:click='onButtonClick' disabled='{{disabled}}' round type='{{buttonType}}' wx:if="{{buttonText}}">
             {{loading?'':buttonText}}
         </lin-button>
     </view>
