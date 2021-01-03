@@ -1,14 +1,17 @@
-<div align='center' ><h1 style='font-weight: 700'>lin-wx-ui</h1></div>
+<div align='center' >
+<img alt="logo" src="https://wxui.linjiafu.top/static/images/logo.png" style="margin-bottom: 10px;"/>
+<h1 style='font-weight: 700'>轻量、灵活的微信小程序组件</h1>
+</div>
 
 <p align="center">
     <a href="https://www.npmjs.org/package/lin-wx-ui">
-    <img src="https://img.shields.io/npm/v/lin-wx-ui.svg">
+    <img src="https://img.shields.io/npm/v/lin-wx-ui.svg"/>
   </a>
     <a href="https://npmcharts.com/compare/lin-wx-ui?minimal=true">
-    <img src="http://img.shields.io/npm/dm/lin-wx-ui.svg">
+    <img src="http://img.shields.io/npm/dm/lin-wx-ui.svg"/>
   </a>
     <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
   </a>
 </p>
 
@@ -23,7 +26,7 @@
 ## 预览
 
 扫描下方小程序二维码，体验组件库示例：
-![qrcode](qrcode.jpg)
+<img alt="qrcode" src="https://wxui.linjiafu.top/static/images/qrcode.jpg" style="margin-top: 10px;"/>
 
 ## 特性
 
