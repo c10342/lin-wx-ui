@@ -29,7 +29,9 @@
     "build:docs": "vue-cli-service build",
     "upload:docs": "npm run build:docs && node ./build/qiniu.js",
     "create": "node ./build/create.js",
-    "createComponent": "node ./build/createComponent.js"
+    "createComponent": "node ./build/createComponent.js",
+    "lint": "eslint --ext .js packages",
+    "lint-fix": "eslint --fix --ext .js packages"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -39,6 +41,9 @@
     "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
     "del": "^5.1.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",

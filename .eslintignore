@@ -1,0 +1,9 @@
+/examples
+/docs
+/docs-dist
+/lib
+/build
+/packages/*/*.wxs
+vue.config.js
+node_modules
+.vscode
