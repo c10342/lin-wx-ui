@@ -1,49 +1,49 @@
-//Component Object
+// Component Object
 Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class", "text-class", "loading-class"],
+  externalClasses: ['custom-class', 'text-class', 'loading-class'],
   properties: {
     text: String,
     type: {
       type: String,
-      value: "primary",
-      options: ["primary", "success", "info", "warning", "danger"],
+      value: 'primary',
+      options: ['primary', 'success', 'info', 'warning', 'danger'],
     },
     size: {
       type: String,
-      observer: "setLoadingStyle",
+      observer: 'setLoadingStyle',
     },
     color: {
       type: String,
-      observer: "setLoadingStyle",
+      observer: 'setLoadingStyle',
     },
     textColor: {
       type: String,
-      observer: "setTextStyle",
+      observer: 'setTextStyle',
     },
     textSize: {
       type: String,
-      observer: "setTextStyle",
+      observer: 'setTextStyle',
     },
     time: {
       type: String,
-      observer: "setLoadingStyle",
+      observer: 'setLoadingStyle',
     },
     vertical: {
       type: String,
-      options: ["row", "col"],
-      value: "row",
+      options: ['row', 'col'],
+      value: 'row',
     },
   },
   data: {
-    loadingStyle: "",
-    textStyle: "",
+    loadingStyle: '',
+    textStyle: '',
   },
   methods: {
     setLoadingStyle() {
-      let style = "";
+      let style = '';
       const { size, time, color } = this.properties;
       if (size) {
         style += `width:${size};height:${size};`;
@@ -61,7 +61,7 @@ Component({
       }
     },
     setTextStyle() {
-      let style = "";
+      let style = '';
       const { textColor, textSize } = this.properties;
       if (textColor) {
         style += `color:${textColor};`;
@@ -74,9 +74,9 @@ Component({
       }
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

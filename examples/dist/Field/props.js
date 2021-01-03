@@ -44,7 +44,7 @@ export const commonProps = {
 export const inputProps = {
   type: {
     type: String,
-    value: "text",
+    value: 'text',
   },
   password: Boolean,
   confirmType: String,

@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../Tabbar/index": {
-      type: "ancestor",
+    '../Tabbar/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
         this.updateFromParent();
@@ -15,7 +15,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class", "content-class"],
+  externalClasses: ['custom-class', 'content-class'],
   properties: {
     name: {
       type: [String, Number],
@@ -29,8 +29,8 @@ Component({
   data: {
     width: 0,
     active: false,
-    activeColor: "",
-    inactiveColor: "",
+    activeColor: '',
+    inactiveColor: '',
   },
   methods: {
     getComponentName() {
@@ -72,9 +72,9 @@ Component({
       this.parent.emitChange(this.getComponentName());
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

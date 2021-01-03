@@ -1,6 +1,6 @@
 // import { RED, GRAY } from "../common/color";
-import { button } from "../behaviors/button";
-import { openType } from "../behaviors/open-type";
+import ButtonBehavior from '../behaviors/button';
+import OpenTypeBehavior from '../behaviors/open-type';
 
 Component({
   options: {
@@ -8,14 +8,14 @@ Component({
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "header-class",
-    "content-class",
-    "footer-class",
-    "cancel-class",
-    "confirm-class",
+    'custom-class',
+    'header-class',
+    'content-class',
+    'footer-class',
+    'cancel-class',
+    'confirm-class',
   ],
-  behaviors: [button, openType],
+  behaviors: [ButtonBehavior, OpenTypeBehavior],
   properties: {
     show: {
       type: Boolean,
@@ -29,7 +29,7 @@ Component({
     message: String,
     theme: {
       type: String,
-      value: "default",
+      value: 'default',
     },
     useSlot: Boolean,
     className: String,
@@ -37,7 +37,7 @@ Component({
     asyncClose: Boolean,
     messageAlign: {
       type: String,
-      value: "center",
+      value: 'center',
     },
     maskStyle: String,
     useTitleSlot: Boolean,
@@ -46,7 +46,7 @@ Component({
     confirmButtonOpenType: String,
     width: {
       type: [String, Number],
-      value: "640rpx",
+      value: '640rpx',
     },
     zIndex: {
       type: Number,
@@ -54,11 +54,11 @@ Component({
     },
     confirmButtonText: {
       type: String,
-      value: "确认",
+      value: '确认',
     },
     cancelButtonText: {
       type: String,
-      value: "取消",
+      value: '取消',
     },
     confirmButtonColor: String,
     cancelButtonColor: String,
@@ -72,7 +72,7 @@ Component({
     },
     transition: {
       type: String,
-      value: "scale",
+      value: 'scale',
     },
   },
   data: {
@@ -85,19 +85,19 @@ Component({
   },
   methods: {
     onMaskClick() {
-      this.onClose("mask");
+      this.onClose('mask');
     },
     onConfirm() {
       if (this.data.loading.confirm) {
         return;
       }
-      this.handleAction("confirm");
+      this.handleAction('confirm');
     },
     onCancel() {
       if (this.data.loading.cancel) {
         return;
       }
-      this.handleAction("cancel");
+      this.handleAction('cancel');
     },
     handleAction(action) {
       if (this.data.asyncClose) {
@@ -107,9 +107,9 @@ Component({
       }
       this.onClose(action);
     },
-    onCancel(action) {
-      this.onClose(action);
-    },
+    // onCancel(action) {
+    //   this.onClose(action);
+    // },
     close() {
       this.setData({
         show: false,
@@ -127,21 +127,21 @@ Component({
       if (!this.properties.asyncClose) {
         this.close();
       }
-      this.triggerEvent("close", action);
+      this.triggerEvent('close', action);
       this.triggerEvent(action, {
         dialog: this,
       });
       const callback = this.data[
-        action === "confirm" ? "onConfirm" : "onCancel"
+        action === 'confirm' ? 'onConfirm' : 'onCancel'
       ];
       if (callback) {
         callback(this);
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

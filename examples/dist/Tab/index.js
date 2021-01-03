@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../Tabs/index": {
-      type: "ancestor",
+    '../Tabs/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
         this.updateWidth();
@@ -15,30 +15,30 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     name: {
       type: [String, Number],
     },
     title: {
       type: String,
-      observer: "update",
+      observer: 'update',
     },
     disabled: {
       type: Boolean,
-      observer: "update",
+      observer: 'update',
     },
     dot: {
       type: Boolean,
-      observer: "update",
+      observer: 'update',
     },
     info: {
       type: [String, Number],
-      observer: "update",
+      observer: 'update',
     },
     titleStyle: {
       type: String,
-      observer: "update",
+      observer: 'update',
     },
   },
   data: {
@@ -79,9 +79,9 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

@@ -1,12 +1,13 @@
-import { getRect } from "../common/utils";
+import { getRect } from '../common/utils';
+
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
   relations: {
-    "../TabbarItem/index": {
-      type: "descendant",
+    '../TabbarItem/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -16,15 +17,15 @@ Component({
       unlinked(child) {
         this.children = (this.children || [])
           .filter((it) => it !== child)
-          .map((child, index) => {
-            child.index = index;
-            return child;
+          .map((childData, index) => {
+            childData.index = index;
+            return childData;
           });
         this.updateChildren();
       },
     },
   },
-  externalClasses: ["custom-class", "placeholder-class"],
+  externalClasses: ['custom-class', 'placeholder-class'],
   properties: {
     active: {
       type: [String, Number],
@@ -36,11 +37,11 @@ Component({
     fixed: {
       type: Boolean,
       value: true,
-      observer: "initPlaceholderView",
+      observer: 'initPlaceholderView',
     },
     placeholder: {
       type: Boolean,
-      observer: "initPlaceholderView",
+      observer: 'initPlaceholderView',
     },
     border: {
       type: Boolean,
@@ -49,11 +50,11 @@ Component({
     zIndex: Number,
     activeColor: {
       type: String,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     inactiveColor: {
       type: String,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
   },
   data: {
@@ -78,20 +79,20 @@ Component({
       });
     },
     emitChange(name) {
-      this.triggerEvent("change", name);
+      this.triggerEvent('change', name);
     },
     initPlaceholderView() {
       const { placeholder, fixed } = this.properties;
       if (placeholder && fixed) {
-        getRect(this, ".lin-tabbar").then((res) => {
+        getRect(this, '.lin-tabbar').then((res) => {
           this.setData({ height: res.height });
         });
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

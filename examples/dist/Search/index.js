@@ -1,15 +1,15 @@
 // import {WHITE} from '../common/color'
 Component({
-  behaviors: ["wx://form-field"],
+  behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "input-class",
-    "field-class",
-    "cancel-class",
+    'custom-class',
+    'input-class',
+    'field-class',
+    'cancel-class',
   ],
   properties: {
     label: String,
@@ -17,7 +17,7 @@ Component({
     useRightIconSlot: Boolean,
     leftIcon: {
       type: String,
-      value: "search",
+      value: 'search',
     },
     rightIcon: String,
     focus: Boolean,
@@ -36,45 +36,45 @@ Component({
     useActionSlot: Boolean,
     actionText: {
       type: String,
-      value: "取消",
+      value: '取消',
     },
     background: String,
     shape: {
       type: String,
-      value: "square",
+      value: 'square',
     },
     name: String,
   },
   data: {},
   methods: {
     onChange(event) {
-      this.triggerEvent("change", event.detail);
+      this.triggerEvent('change', event.detail);
     },
 
-    onCancel(event) {
-      this.triggerEvent("cancel");
-      this.triggerEvent("change", "");
+    onCancel() {
+      this.triggerEvent('cancel');
+      this.triggerEvent('change', '');
     },
 
     onSearch(event) {
-      this.triggerEvent("search", event.detail);
+      this.triggerEvent('search', event.detail);
     },
 
     onFocus(event) {
-      this.triggerEvent("focus", event.detail);
+      this.triggerEvent('focus', event.detail);
     },
 
     onBlur(event) {
-      this.triggerEvent("blur", event.detail);
+      this.triggerEvent('blur', event.detail);
     },
 
     onClear(event) {
-      this.triggerEvent("clear", event.detail);
+      this.triggerEvent('clear', event.detail);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

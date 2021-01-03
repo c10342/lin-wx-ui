@@ -1,5 +1,5 @@
-import { getSystemInfoSync } from "../common/utils";
-import defaulrProps from "./props";
+import { getSystemInfoSync } from '../common/utils';
+import defaulrProps from './props';
 
 let ARRAY = [];
 
@@ -9,8 +9,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../DropdownItem/index": {
-      type: "descendant",
+    '../DropdownItem/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -22,12 +22,12 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class", "wrapper-class", "item-class"],
+  externalClasses: ['custom-class', 'wrapper-class', 'item-class'],
   properties: {
     activeColor: {
       type: String,
       value: defaulrProps.activeColor,
-      observer: "updateChildrenData",
+      observer: 'updateChildrenData',
     },
     zIndex: {
       type: Number,
@@ -36,23 +36,23 @@ Component({
     duration: {
       type: Number,
       value: defaulrProps.duration,
-      observer: "updateChildrenData",
+      observer: 'updateChildrenData',
     },
     direction: {
       type: String,
       value: defaulrProps.direction,
-      options: ["down", "up"],
-      observer: "updateChildrenData",
+      options: ['down', 'up'],
+      observer: 'updateChildrenData',
     },
     mask: {
       type: Boolean,
       value: defaulrProps.mask,
-      observer: "updateChildrenData",
+      observer: 'updateChildrenData',
     },
     closeOnClickMask: {
       type: Boolean,
       value: defaulrProps.closeOnClickMask,
-      observer: "updateChildrenData",
+      observer: 'updateChildrenData',
     },
     closeOnClickOutside: {
       type: Boolean,
@@ -69,9 +69,9 @@ Component({
       if (!child.properties.disabled) {
         ARRAY.forEach((menuItem) => {
           if (
-            menuItem &&
-            menuItem.properties.closeOnClickOutside &&
-            menuItem !== this
+            menuItem
+            && menuItem.properties.closeOnClickOutside
+            && menuItem !== this
           ) {
             menuItem.close();
           }
@@ -87,7 +87,7 @@ Component({
     toggleItem(activeIndex) {
       (this.children || []).forEach((child, index) => {
         const { showPopup } = child.data;
-        if (index == activeIndex) {
+        if (index === activeIndex) {
           child.toggle();
         } else if (showPopup) {
           child.hide(true);
@@ -106,13 +106,13 @@ Component({
     },
     getChildWrapperStyle() {
       const { zIndex, direction } = this.properties;
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const query = this.createSelectorQuery();
-        query.select(".lin-dropdown-menu-bar-wrapper").boundingClientRect();
+        query.select('.lin-dropdown-menu-bar-wrapper').boundingClientRect();
         query.exec((rect) => {
           const { top = 0, bottom = 0 } = rect[0];
           let wrapperStyle = `z-index:${zIndex};`;
-          if (direction === "down") {
+          if (direction === 'down') {
             wrapperStyle += `top:${bottom}px;`;
           } else {
             wrapperStyle += `bottom:${this.windowHeight - top}px`;
@@ -123,15 +123,15 @@ Component({
       });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     const { windowHeight } = getSystemInfoSync();
     this.windowHeight = windowHeight;
     ARRAY.push(this);
   },
-  moved: function() {},
-  detached: function() {
+  moved() {},
+  detached() {
     ARRAY = ARRAY.filter((item) => item !== this);
   },
 });

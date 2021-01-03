@@ -3,10 +3,10 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "content-class"],
+  externalClasses: ['custom-class', 'content-class'],
   relations: {
-    "../Collapse/index": {
-      type: "ancestor",
+    '../Collapse/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
       },
@@ -50,9 +50,9 @@ Component({
 
       let expanded = false;
       if (accordion) {
-        expanded = value == currentName;
+        expanded = value === currentName;
       } else {
-        expanded = (value || []).some((name) => name == currentName);
+        expanded = (value || []).some((expandedName) => expandedName === currentName);
       }
       if (expanded !== this.data.expanded) {
         this.updateStyle(expanded);
@@ -62,14 +62,14 @@ Component({
     updateStyle(expanded) {
       const { inited } = this;
       const query = this.createSelectorQuery();
-      query.select(".lin-collapse-item-content").boundingClientRect();
+      query.select('.lin-collapse-item-content').boundingClientRect();
       query.exec((rect) => {
         this.leftWidth = rect[0].width;
         const { height } = rect[0];
         const { myAnimation } = this;
         if (expanded) {
           if (height === 0) {
-            myAnimation.height("auto").step();
+            myAnimation.height('auto').step();
           } else {
             myAnimation.height(height).step({
               duration: inited ? 300 : 1,
@@ -93,17 +93,17 @@ Component({
       this.parent.switch(currentName, !expanded);
     },
   },
-  created: function() {},
-  attached: function() {
+  created() {},
+  attached() {
     this.myAnimation = wx.createAnimation({
       duration: 0,
-      timingFunction: "ease-in-out",
+      timingFunction: 'ease-in-out',
     });
   },
-  ready: function() {
+  ready() {
     this.updateExpanded();
     this.inited = true;
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

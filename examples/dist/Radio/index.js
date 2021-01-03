@@ -1,10 +1,10 @@
-const shapeValue = "round";
+const shapeValue = 'round';
 Component({
-  behaviors: ["wx://form-field"],
-  externalClasses: ["custom-class", "icon-class", "label-class"],
+  behaviors: ['wx://form-field'],
+  externalClasses: ['custom-class', 'icon-class', 'label-class'],
   relations: {
-    "../RadioGroup/index": {
-      type: "ancestor",
+    '../RadioGroup/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
       },
@@ -21,11 +21,11 @@ Component({
     useIconSlot: Boolean,
     iconSize: {
       type: String,
-      value: "40rpx",
+      value: '40rpx',
     },
     shape: {
       type: String,
-      options: ["round", "square"],
+      options: ['round', 'square'],
       value: shapeValue,
     },
     checkedColor: String,
@@ -39,7 +39,7 @@ Component({
     labelDisabled: Boolean,
   },
   observers: {
-    "value,shape": function (value, shape) {
+    'value,shape': function (value, shape) {
       let iconName = shape;
       if (value) {
         iconName = `${iconName}-active`;
@@ -56,8 +56,8 @@ Component({
   methods: {
     emitChange(value) {
       const instance = this.parent || this;
-      instance.triggerEvent("input", value);
-      instance.triggerEvent("change", value);
+      instance.triggerEvent('input', value);
+      instance.triggerEvent('change', value);
     },
     onIconClick() {
       const { disabled } = this.properties;
@@ -74,9 +74,9 @@ Component({
       }
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

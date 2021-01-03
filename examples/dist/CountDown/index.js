@@ -1,19 +1,19 @@
-import { isSameSecond, parseFormat, parseTimeDate } from "./utils";
+import { isSameSecond, parseFormat, parseTimeDate } from './utils';
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     time: {
       type: Number,
-      observer: "updateTime",
+      observer: 'updateTime',
     },
     format: {
       type: String,
-      value: "HH:mm:ss",
+      value: 'HH:mm:ss',
     },
     autoStart: {
       type: Boolean,
@@ -23,7 +23,7 @@ Component({
     useSlot: Boolean,
   },
   data: {
-    formattedTime: "0",
+    formattedTime: '0',
   },
   methods: {
     updateTime() {
@@ -95,7 +95,7 @@ Component({
 
       const { format } = this.properties;
 
-      this.triggerEvent("change", timeDate);
+      this.triggerEvent('change', timeDate);
 
       this.setData({
         formattedTime: parseFormat(format, timeDate),
@@ -103,20 +103,20 @@ Component({
 
       if (currentTime === 0) {
         this.pause();
-        this.triggerEvent("finish");
+        this.triggerEvent('finish');
       }
     },
   },
-  created: function() {
+  created() {
     this.timer = null;
     this.mainTime = 0;
     this.counting = false;
     this.endTime = null;
   },
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;

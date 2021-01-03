@@ -1,8 +1,8 @@
 Component({
-  behaviors: ["wx://form-field"],
+  behaviors: ['wx://form-field'],
   relations: {
-    "../Radio/index": {
-      type: "descendant",
+    '../Radio/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -16,11 +16,11 @@ Component({
   properties: {
     value: {
       type: null,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     disabled: {
       type: Boolean,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     name: String,
   },
@@ -37,9 +37,9 @@ Component({
       (this.children || []).forEach((child) => this.updateChild(child));
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

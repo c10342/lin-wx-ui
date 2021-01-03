@@ -4,10 +4,10 @@ Component({
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "active-class",
-    "toolbar-class",
-    "column-class",
+    'custom-class',
+    'active-class',
+    'toolbar-class',
+    'column-class',
   ],
   properties: {
     columns: {
@@ -20,27 +20,27 @@ Component({
     },
     valueKey: {
       type: String,
-      value: "text",
+      value: 'text',
     },
     showToolbar: Boolean,
     title: String,
     confirmButtonText: {
       type: String,
-      value: "确认",
+      value: '确认',
     },
     cancelButtonText: {
       type: String,
-      value: "取消",
+      value: '取消',
     },
     toolbarPosition: {
       type: String,
-      value: "top",
-      options: ["top", "bottom"],
+      value: 'top',
+      options: ['top', 'bottom'],
     },
     visibleItemCount: {
       type: Number,
       value: 6,
-      observer: "updateTopVisible",
+      observer: 'updateTopVisible',
     },
     defaultIndex: {
       type: Number,
@@ -58,7 +58,7 @@ Component({
     },
     updateTopVisible() {
       const { visibleItemCount } = this.properties;
-      const topVisible = parseInt(visibleItemCount / 2) - 1;
+      const topVisible = parseInt(visibleItemCount / 2, 10) - 1;
       this.setData({
         topVisible,
       });
@@ -66,13 +66,13 @@ Component({
     onChange(event) {
       wx.nextTick(() => {
         if (this.isSimple()) {
-          this.triggerEvent("change", {
+          this.triggerEvent('change', {
             picker: this,
             value: this.getColumnValue(0),
             index: this.getColumnIndex(0),
           });
         } else {
-          this.triggerEvent("change", {
+          this.triggerEvent('change', {
             picker: this,
             value: this.getValues(),
             index: event.currentTarget.dataset.index,
@@ -81,10 +81,10 @@ Component({
       });
     },
     onCancel() {
-      this.emitByType("cancel");
+      this.emitByType('cancel');
     },
     onConfirm() {
-      this.emitByType("confirm");
+      this.emitByType('confirm');
     },
     emitByType(type) {
       if (this.isSimple()) {
@@ -107,11 +107,11 @@ Component({
     // 获取对应列选中项的索引
     getColumnIndex(index) {
       const column = this.getColumn(index);
-      return column ? column.data.currentIndex : "";
+      return column ? column.data.currentIndex : '';
     },
     getColumn(index) {
-      const children = this.selectAllComponents(".lin-picker-column");
-      if (index == null || index == undefined) {
+      const children = this.selectAllComponents('.lin-picker-column');
+      if (index == null || index === undefined) {
         return children;
       }
       return children[index];
@@ -130,10 +130,9 @@ Component({
     setColumnValues(index, options) {
       const column = this.getColumn(index);
       if (column == null) {
-        return Promise.reject(new Error("setColumnValues: 对应列不存在"));
+        return Promise.reject(new Error('setColumnValues: 对应列不存在'));
       }
-      const isSame =
-        JSON.stringify(column.data.optionsList) === JSON.stringify(options);
+      const isSame = JSON.stringify(column.data.optionsList) === JSON.stringify(options);
       if (isSame) {
         return Promise.resolve();
       }
@@ -146,38 +145,36 @@ Component({
             column.setIndex(0);
             column.updateTranslateY();
             resolve();
-          }
+          },
         );
       });
     },
     // 设置所有列选中的值
     setValues(values = []) {
-      const stack = values.map((value, index) => {
-        return this.setColumnValues(index, value);
-      });
+      const stack = values.map((value, index) => this.setColumnValues(index, value));
       return Promise.all(stack);
     },
     // 设置对应列选中项的索引
     setColumnIndex(columnIndex, optionIndex) {
       const column = this.getColumn(columnIndex);
       if (column == null) {
-        return Promise.reject(new Error("setColumnIndex: 对应列不存在"));
+        return Promise.reject(new Error('setColumnIndex: 对应列不存在'));
       }
       column.setIndex(optionIndex);
       return Promise.resolve();
     },
     // 设置所有列选中值对应的索引
     setIndexes(indexes = []) {
-      const stack = indexes.map((optionIndex, columnIndex) => {
-        return this.setColumnIndex(columnIndex, optionIndex);
-      });
+      const stack = indexes.map(
+        (optionIndex, columnIndex) => this.setColumnIndex(columnIndex, optionIndex),
+      );
       return Promise.all(stack);
     },
     // 设置对应列选中的值
     setColumnValue(index, value) {
       const column = this.getColumn(index);
       if (column == null) {
-        return Promise.reject(new Error("setColumnValue: 对应列不存在"));
+        return Promise.reject(new Error('setColumnValue: 对应列不存在'));
       }
       column.setValue(value);
       return Promise.resolve();
@@ -188,11 +185,11 @@ Component({
       return column.data.optionsList;
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.updateTopVisible();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

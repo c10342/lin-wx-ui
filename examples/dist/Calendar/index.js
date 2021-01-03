@@ -5,7 +5,8 @@ import {
   isEqual,
   isEqAndLt,
   isEqAndGt,
-} from "./utils.js";
+} from './utils';
+
 const nowDate = new Date().getTime();
 Component({
   options: {
@@ -15,7 +16,7 @@ Component({
     show: {
       type: Boolean,
       value: false,
-      observer: "handleShow",
+      observer: 'handleShow',
     },
     value: {
       type: String,
@@ -23,7 +24,7 @@ Component({
     },
     title: {
       type: String,
-      value: "日期选择",
+      value: '日期选择',
     },
     showTitle: {
       type: Boolean,
@@ -35,7 +36,7 @@ Component({
     },
     confirmText: {
       type: String,
-      value: "确定",
+      value: '确定',
     },
     disabledConfirm: {
       type: Boolean,
@@ -46,7 +47,7 @@ Component({
     },
     restText: {
       type: String,
-      value: "重置",
+      value: '重置',
     },
     showReset: {
       type: Boolean,
@@ -73,20 +74,20 @@ Component({
     },
   },
   data: {
-    daysList: ["日", "一", "二", "三", "四", "五", "六"],
+    daysList: ['日', '一', '二', '三', '四', '五', '六'],
     time: nowDate,
     visibeDaysList: [],
-    selectTime: "",
+    selectTime: '',
   },
   observers: {
-    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function(
+    'time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled': function (
       time,
       selectTime,
       disabledBeforeDate,
       disabledAfterDate,
       disabledRangeDate,
       disabledDate,
-      disabled
+      disabled,
     ) {
       const { year, month } = getYearMonthDay(time.date);
       //   本月1号的时间对象
@@ -104,12 +105,12 @@ Component({
           isCurrentMonth: isCurrentMonth(da, time.date),
           isSelected: selectTime && isEqual(da, selectTime.date),
           isDisabled:
-            disabled ||
-            (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate)) ||
-            (disabledAfterDate && isEqAndGt(da, disabledAfterDate)) ||
-            (disabledRangeDate &&
-              this.handleRangeDate(da, disabledRangeDate)) ||
-            (disabledDate && disabledDate.some((item) => isEqual(item, da))),
+            disabled
+            || (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate))
+            || (disabledAfterDate && isEqAndGt(da, disabledAfterDate))
+            || (disabledRangeDate
+              && this.handleRangeDate(da, disabledRangeDate))
+            || (disabledDate && disabledDate.some((item) => isEqual(item, da))),
         });
       }
       this.setData({
@@ -137,7 +138,7 @@ Component({
       return false;
     },
     handleShow(val) {
-      const value = this.properties.value;
+      const { value } = this.properties;
       if (value && val) {
         const da = new Date(value);
         this.setData({
@@ -147,7 +148,7 @@ Component({
       }
     },
     onMaskClick() {
-      this.triggerEvent("mask-click");
+      this.triggerEvent('mask-click');
     },
     handleValue() {
       let date = null;
@@ -158,24 +159,24 @@ Component({
       }
       return {
         label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
-        date: date,
+        date,
         times: date.getTime(),
       };
     },
     onLabelClick(event) {
-      const index = event.target.dataset.index;
+      const { index } = event.target.dataset;
       const selectTime = this.data.visibeDaysList[index];
       if (
-        isEqual(selectTime.times, this.data.selectTime.times) ||
-        selectTime.isDisabled
+        isEqual(selectTime.times, this.data.selectTime.times)
+        || selectTime.isDisabled
       ) {
         return;
       }
       this.setData({
-        selectTime: selectTime,
+        selectTime,
         time: this.getTime(selectTime.times),
       });
-      this.triggerEvent("change", selectTime.times);
+      this.triggerEvent('change', selectTime.times);
     },
     prevMonth() {
       const date = new Date(this.data.time.times);
@@ -183,7 +184,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime()),
       });
-      this.triggerEvent("prevMonth", date);
+      this.triggerEvent('prevMonth', date);
     },
     nextMonth() {
       const date = new Date(this.data.time.times);
@@ -191,7 +192,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime()),
       });
-      this.triggerEvent("nextMonth", date);
+      this.triggerEvent('nextMonth', date);
     },
     prevYear() {
       const date = new Date(this.data.time.times);
@@ -199,7 +200,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime()),
       });
-      this.triggerEvent("prevYear", date);
+      this.triggerEvent('prevYear', date);
     },
     nextYear() {
       const date = new Date(this.data.time.times);
@@ -207,42 +208,42 @@ Component({
       this.setData({
         time: this.getTime(date.getTime()),
       });
-      this.triggerEvent("nextYear", date);
+      this.triggerEvent('nextYear', date);
     },
     onConfirmClick() {
-      this.triggerEvent("confirm", this.data.selectTime.times);
+      this.triggerEvent('confirm', this.data.selectTime.times);
     },
     onResetClick() {
-      this.setData({ selectTime: "" });
-      this.triggerEvent("reset");
+      this.setData({ selectTime: '' });
+      this.triggerEvent('reset');
     },
     onClose() {
-      this.triggerEvent("close");
+      this.triggerEvent('close');
     },
     getTime(date) {
       date = new Date(date);
       return {
         label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
-        date: date,
+        date,
         times: date.getTime(),
       };
     },
     getVisibeTimeObj(date) {
       return {
         label: date.getDate(),
-        date: date,
+        date,
         times: date.getTime(),
       };
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     const handleValue = this.handleValue();
     this.setData({
       time: handleValue,
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

@@ -8,22 +8,22 @@ Component({
     areaList: {
       type: Object,
       value: {},
-      observer: "updateColumns",
+      observer: 'updateColumns',
     },
     value: {
       type: String,
-      observer: "updateColumns",
+      observer: 'updateColumns',
     },
     title: String,
     columnsNum: {
       type: Number,
       value: 3,
-      observer: "updateColumns",
+      observer: 'updateColumns',
     },
     columnsPlaceholder: {
       type: Array,
       value: [],
-      observer: "updateColumns",
+      observer: 'updateColumns',
     },
     loading: Boolean,
     itemHeight: {
@@ -36,11 +36,11 @@ Component({
     },
     confirmButtonText: {
       type: String,
-      value: "确定",
+      value: '确定',
     },
     cancelButtonText: {
       type: String,
-      value: "取消",
+      value: '取消',
     },
   },
   data: {
@@ -48,13 +48,13 @@ Component({
   },
   methods: {
     onConfirm(event) {
-      this.triggerEvent("confirm", event.detail.value);
+      this.triggerEvent('confirm', event.detail.value);
     },
     onCancel() {
-      this.triggerEvent("cancel");
+      this.triggerEvent('cancel');
     },
     onChange(event) {
-      this.triggerEvent("change", event.detail);
+      this.triggerEvent('change', event.detail);
       const { index, picker } = event.detail;
       if (index === 0) {
         this.provinceChange(picker);
@@ -85,9 +85,9 @@ Component({
     },
     updateColumns() {
       const { columnsNum, value } = this.properties;
-      let provinceCode = "";
-      let cityCode = "";
-      let countyCode = "";
+      let provinceCode = '';
+      let cityCode = '';
+      let countyCode = '';
       if (value) {
         provinceCode = value.substring(0, 2);
         cityCode = value.substring(0, 4);
@@ -99,7 +99,7 @@ Component({
         let provinceIndex = 0;
         if (provinceCode) {
           provinceIndex = provinceList.findIndex((item) => {
-            const code = (item.code || "").toString().substring(0, 2);
+            const code = (item.code || '').toString().substring(0, 2);
             return provinceCode === code;
           });
           provinceIndex = provinceIndex > -1 ? provinceIndex : 0;
@@ -113,7 +113,7 @@ Component({
           let cityIndex = 0;
           if (cityCode) {
             cityIndex = cityList.findIndex((item) => {
-              const code = (item.code || "").toString().substring(0, 4);
+              const code = (item.code || '').toString().substring(0, 4);
               return cityCode === code;
             });
             cityIndex = cityIndex > -1 ? cityIndex : 0;
@@ -127,7 +127,7 @@ Component({
             let countyIndex = 0;
             if (countyCode) {
               countyIndex = countyList.findIndex((item) => {
-                const code = (item.code || "").toString().substring(0, 6);
+                const code = (item.code || '').toString().substring(0, 6);
                 return countyCode === code;
               });
               countyIndex = countyIndex > -1 ? countyIndex : 0;
@@ -153,12 +153,18 @@ Component({
           code: -1,
         });
       }
-      for (const key in province_list) {
+      // for (const key in province_list) {
+      //   provinceList.push({
+      //     text: province_list[key],
+      //     code: key,
+      //   });
+      // }
+      Object.keys(province_list).forEach((key) => {
         provinceList.push({
           text: province_list[key],
           code: key,
         });
-      }
+      });
       return provinceList;
     },
     getCity(province) {
@@ -175,14 +181,22 @@ Component({
         return cityList;
       }
       const code = province.code.substring(0, 2);
-      for (const key in city_list) {
+      // for (const key in city_list) {
+      //   if (key.substring(0, 2) === code) {
+      //     cityList.push({
+      //       text: city_list[key],
+      //       code: key,
+      //     });
+      //   }
+      // }
+      Object.keys(city_list).forEach((key) => {
         if (key.substring(0, 2) === code) {
           cityList.push({
             text: city_list[key],
             code: key,
           });
         }
-      }
+      });
       return cityList;
     },
     getCounty(city) {
@@ -200,22 +214,30 @@ Component({
       }
 
       const code = city.code.substring(0, 4);
-      for (const key in county_list) {
+      // for (const key in county_list) {
+      //   if (key.substring(0, 4) === code) {
+      //     countyList.push({
+      //       text: county_list[key],
+      //       code: key,
+      //     });
+      //   }
+      // }
+      Object.keys(county_list).forEach((key) => {
         if (key.substring(0, 4) === code) {
           countyList.push({
             text: county_list[key],
             code: key,
           });
         }
-      }
+      });
       return countyList;
     },
   },
-  created: function() {
+  created() {
     this.provinceList = [];
   },
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

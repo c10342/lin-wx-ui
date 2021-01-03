@@ -1,9 +1,9 @@
-export const Link = Behavior({
+const LinkBehavior = Behavior({
   properties: {
     linkType: {
       type: String,
-      value: "navigateTo",
-      options: ["navigateTo", "redirectTo", "switchTab", "reLaunch"],
+      value: 'navigateTo',
+      options: ['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'],
     },
   },
   methods: {
@@ -15,3 +15,4 @@ export const Link = Behavior({
     },
   },
 });
+export default LinkBehavior;

@@ -2,7 +2,7 @@ Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class", "image-class", "error-class"],
+  externalClasses: ['custom-class', 'image-class', 'error-class'],
   properties: {
     imageUrl: {
       type: Array,
@@ -13,13 +13,13 @@ Component({
     },
     width: {
       type: String,
-      value: "320px",
-      observer: "setStyle",
+      value: '320px',
+      observer: 'setStyle',
     },
     height: {
       type: String,
-      value: "240px",
-      observer: "setStyle",
+      value: '240px',
+      observer: 'setStyle',
     },
     useErrorSlot: {
       type: Boolean,
@@ -27,20 +27,20 @@ Component({
     },
     errorTip: {
       type: String,
-      value: "",
+      value: '',
     },
     radius: {
       type: String,
-      observer: "setStyle",
+      observer: 'setStyle',
     },
     round: {
       type: String,
       value: false,
-      observer: "setStyle",
+      observer: 'setStyle',
     },
     mode: {
       type: String,
-      value: "scaleToFill",
+      value: 'scaleToFill',
     },
     webp: {
       type: Boolean,
@@ -56,17 +56,20 @@ Component({
     },
   },
   data: {
-    src: "",
+    src: '',
     index: -1,
     errorMessage: [],
     isError: false,
-    viewStyle: "",
+    viewStyle: '',
   },
   methods: {
     setStyle() {
       'width:{{width}};height:{{height}};border-radius:{{round?"50%":radius}};';
-      let style = "";
-      const { width, height, round, radius } = this.properties;
+
+      let style = '';
+      const {
+        width, height, round, radius,
+      } = this.properties;
       if (width) {
         style += `width:${width};`;
       }
@@ -74,7 +77,7 @@ Component({
         style += `height:${height};`;
       }
       if (round) {
-        style += `border-radius:50%;`;
+        style += 'border-radius:50%;';
       } else if (radius) {
         style += `border-radius:${radius};`;
       }
@@ -86,7 +89,7 @@ Component({
         let index = this.data.index;
         while (index < val.length - 1) {
           index++;
-          let src = val[index];
+          const src = val[index];
           this.setData({ index });
           if (src) {
             this.setData({ src: val[index] });
@@ -109,13 +112,13 @@ Component({
       });
       if (this.data.index === this.properties.imageUrl.length - 1) {
         this.setData({ isError: true });
-        this.triggerEvent("error", errorMessage);
+        this.triggerEvent('error', errorMessage);
       } else {
         this.getImageSrc();
       }
     },
     onLoad(event) {
-      this.triggerEvent("success", {
+      this.triggerEvent('success', {
         index: this.data.index,
         src: this.data.src,
         event,

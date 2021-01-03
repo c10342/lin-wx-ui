@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../SidebarItem/index": {
-      type: "descendant",
+    '../SidebarItem/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -17,12 +17,12 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     activeKey: {
       type: [String, Number],
       value: 0,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
   },
   data: {},
@@ -34,12 +34,12 @@ Component({
       });
     },
     emitChange(index) {
-      this.triggerEvent("change", index);
+      this.triggerEvent('change', index);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

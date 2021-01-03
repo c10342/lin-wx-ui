@@ -1,14 +1,15 @@
-import {RED} from '../common/color'
+import { RED } from '../common/color';
+
 Component({
-  behaviors: ["wx://form-field"],
-  externalClasses: ["custom-class", "icon-class","void-icon-class"],
+  behaviors: ['wx://form-field'],
+  externalClasses: ['custom-class', 'icon-class', 'void-icon-class'],
   options: {
     addGlobalClass: true,
   },
   properties: {
     gutter: {
       type: String,
-      value: "4px",
+      value: '4px',
     },
     color: {
       type: String,
@@ -16,40 +17,40 @@ Component({
     },
     voidColor: {
       type: String,
-      value: "#c8c9cc",
+      value: '#c8c9cc',
     },
     allowHalf: Boolean,
     iconSize: {
       type: String,
-      value: "50rpx",
+      value: '50rpx',
     },
     value: {
       type: Number,
-      observer: "setWidth",
+      observer: 'setWidth',
     },
     count: {
       type: Number,
       value: 5,
-      observer: "setCount",
+      observer: 'setCount',
     },
     icon: {
       type: String,
-      value: "star1",
+      value: 'star1',
     },
     voidIcon: {
       type: String,
-      value: "star1-o",
+      value: 'star1-o',
     },
     readonly: Boolean,
     disabled: Boolean,
     disabledColor: {
       type: String,
-      value: "#bdbdbd",
+      value: '#bdbdbd',
     },
   },
   data: {
     innerCountArray: Array.from({ length: 5 }),
-    width: "0",
+    width: '0',
   },
   methods: {
     setCount() {
@@ -74,19 +75,24 @@ Component({
       const inNum = Math.floor(value);
       let gutterWidth = Math.ceil(value - 1) * gutter;
       gutterWidth = gutterWidth < 0 ? 0 : gutterWidth;
-      width =
-        inNum * this.rateWidth + gutterWidth + (value - inNum) * this.rateWidth;
+      width = inNum * this.rateWidth + gutterWidth + (value - inNum) * this.rateWidth;
 
       this.setData({
         width: `${width}px`,
       });
     },
     onClick(event) {
-      let { gutter, allowHalf, readonly, disabled } = this.properties;
+      // let {
+      //   gutter,
+      // } = this.properties;
+      const {
+        allowHalf, readonly, disabled,
+      } = this.properties;
+
       if (readonly || disabled) {
         return;
       }
-      gutter = parseFloat(gutter);
+      // gutter = parseFloat(gutter);
       let index = event.currentTarget.dataset.index;
       if (allowHalf) {
         const offsetLeft = event.currentTarget.offsetLeft;
@@ -94,30 +100,30 @@ Component({
         const diffx = x - offsetLeft;
 
         if (diffx > this.rateWidth / 2) {
-          index = index + 1;
+          index += 1;
         } else {
-          index = index + 0.5;
+          index += 0.5;
         }
       } else {
-        index = index + 1;
+        index += 1;
       }
 
-      this.triggerEvent("change", index);
+      this.triggerEvent('change', index);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.setCount();
     const query = this.createSelectorQuery();
-    query.select("#lin-rate-0").boundingClientRect();
-    query.select("#lin-rate-o").boundingClientRect();
+    query.select('#lin-rate-0').boundingClientRect();
+    query.select('#lin-rate-o').boundingClientRect();
     query.exec((res) => {
       this.rateWidth = res[0].width;
       this.containerLeft = res[1].left;
       this.setWidth();
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

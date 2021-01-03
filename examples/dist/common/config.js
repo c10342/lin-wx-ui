@@ -1,4 +1,4 @@
-export const publicPath = "https://wxui.linjiafu.top";
+export const publicPath = 'https://wxui.linjiafu.top';
 
 export const staticPath = `${publicPath}/static`;
 

@@ -1,15 +1,15 @@
-import { addUnit } from "../common/utils";
-import { Link } from "../behaviors/link";
+import { addUnit } from '../common/utils';
+import LinkBehavior from '../behaviors/link';
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  behaviors: [Link],
+  behaviors: [LinkBehavior],
   relations: {
-    "../Grid/index": {
-      type: "ancestor",
+    '../Grid/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
       },
@@ -19,10 +19,10 @@ Component({
     },
   },
   externalClasses: [
-    "custom-class",
-    "content-class",
-    "icon-class",
-    "text-class",
+    'custom-class',
+    'content-class',
+    'icon-class',
+    'text-class',
   ],
   properties: {
     text: String,
@@ -36,13 +36,13 @@ Component({
     },
   },
   data: {
-    wrapperStyle: "",
+    wrapperStyle: '',
     center: true,
-    iconSize: "56rpx",
-    direction: "vertical",
+    iconSize: '56rpx',
+    direction: 'vertical',
     border: true,
     square: false,
-    contentStyle: "",
+    contentStyle: '',
   },
   methods: {
     updateStyle() {
@@ -73,17 +73,17 @@ Component({
           wrapperStyle.push(`margin-top:${addUnit(gutter)}`);
         }
       }
-      let contentStyle = [];
+      const contentStyle = [];
       if (gutter && square) {
         const gutterValue = addUnit(gutter);
 
         contentStyle.push(`right:${gutterValue}`);
         contentStyle.push(`bottom:${gutterValue}`);
-        contentStyle.push(`height:auto`);
+        contentStyle.push('height:auto');
       }
       this.setData({
-        wrapperStyle: wrapperStyle.join(";"),
-        contentStyle: contentStyle.join(";"),
+        wrapperStyle: wrapperStyle.join(';'),
+        contentStyle: contentStyle.join(';'),
         center,
         iconSize,
         direction,
@@ -92,16 +92,16 @@ Component({
       });
     },
     onClick() {
-      this.triggerEvent("click");
+      this.triggerEvent('click');
       const { url } = this.properties;
       this.jump(url);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.updateStyle();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

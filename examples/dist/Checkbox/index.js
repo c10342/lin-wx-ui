@@ -1,10 +1,10 @@
-const shapeValue = "round";
+const shapeValue = 'round';
 Component({
-  behaviors: ["wx://form-field"],
-  externalClasses: ["custom-class", "icon-class", "label-class"],
+  behaviors: ['wx://form-field'],
+  externalClasses: ['custom-class', 'icon-class', 'label-class'],
   relations: {
-    "../CheckboxGroup/index": {
-      type: "ancestor",
+    '../CheckboxGroup/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
       },
@@ -22,13 +22,13 @@ Component({
     disabled: Boolean,
     shape: {
       type: String,
-      options: ["round", "square"],
+      options: ['round', 'square'],
       value: shapeValue,
     },
     checkedColor: String,
     iconSize: {
       type: [String, Number],
-      value: "40rpx",
+      value: '40rpx',
     },
     useIconSlot: Boolean,
     labelDisabled: Boolean,
@@ -37,7 +37,7 @@ Component({
     },
   },
   observers: {
-    "value,shape": function(value, shape) {
+    'value,shape': function (value, shape) {
       let iconName = shape;
       if (value) {
         iconName = `${iconName}-active`;
@@ -60,9 +60,9 @@ Component({
     },
     onLabelClick() {
       if (
-        this.properties.disabled ||
-        this.data.parentDisabled ||
-        this.properties.labelDisabled
+        this.properties.disabled
+        || this.data.parentDisabled
+        || this.properties.labelDisabled
       ) {
         return;
       }
@@ -72,11 +72,12 @@ Component({
       if (this.parent) {
         this.setParentValue(!this.properties.value);
       } else {
-        this.triggerEvent("change", !this.properties.value);
+        this.triggerEvent('change', !this.properties.value);
       }
     },
     setParentValue(value) {
-      let { value: parentValue, max } = this.parent.properties;
+      let { value: parentValue } = this.parent.properties;
+      const { max } = this.parent.properties;
       parentValue = parentValue.slice();
       const { name } = this.properties;
       if (value) {
@@ -88,7 +89,7 @@ Component({
           this.parent.emitChange(parentValue);
         }
       } else {
-        const index = parentValue.findIndex((item) => item == name);
+        const index = parentValue.findIndex((item) => item === name);
         if (index > -1) {
           parentValue.splice(index, 1);
           this.parent.emitChange(parentValue);
@@ -96,9 +97,9 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

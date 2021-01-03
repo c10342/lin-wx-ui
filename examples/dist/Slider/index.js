@@ -4,12 +4,12 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "bar-class", "button-class"],
+  externalClasses: ['custom-class', 'bar-class', 'button-class'],
   properties: {
     value: {
       type: Number,
       value: 0,
-      observer: "setBarWidth",
+      observer: 'setBarWidth',
     },
     disabled: Boolean,
     max: {
@@ -26,7 +26,7 @@ Component({
     },
     barHeight: {
       type: [String, Number],
-      value: "2px",
+      value: '2px',
     },
     activeColor: String,
     inactiveColor: String,
@@ -35,7 +35,7 @@ Component({
   data: {
     width: 0,
     left: 0,
-    transition: "transition: all 300ms",
+    transition: 'transition: all 300ms',
   },
   methods: {
     setBarWidth() {
@@ -44,7 +44,7 @@ Component({
     },
     getOffsetWidthByValue(value) {
       const { max, min } = this.properties;
-      let offsetNum = max - min;
+      const offsetNum = max - min;
       let percent = 0;
       if (value >= max) {
         percent = 1;
@@ -57,7 +57,7 @@ Component({
       return this.containerWidth * percent;
     },
     setStyleWidth(offsetWidth) {
-      offsetWidth = parseInt(offsetWidth);
+      offsetWidth = parseInt(offsetWidth, 10);
       let left = offsetWidth - this.barWidth / 2;
       if (left <= 0) {
         left = 0;
@@ -66,7 +66,7 @@ Component({
         left = this.containerWidth - this.barWidth;
       }
       this.setData({
-        left: left,
+        left,
         width: offsetWidth,
       });
     },
@@ -79,11 +79,11 @@ Component({
       let offsetWidth = x - this.containerLeft;
       let value = this.getValue(offsetWidth);
       const remainder = value % step;
-      if (remainder != 0) {
+      if (remainder !== 0) {
         if (remainder >= step / 2) {
-          value = value + (step - remainder);
+          value += (step - remainder);
         } else {
-          value = value - remainder;
+          value -= remainder;
         }
         offsetWidth = Math.ceil(this.getOffsetWidthByValue(value));
       }
@@ -96,9 +96,9 @@ Component({
         return;
       }
       this.setData({
-        transition: "transition: none",
+        transition: 'transition: none',
       });
-      this.triggerEvent("drag-start");
+      this.triggerEvent('drag-start');
     },
     onTouchMove(event) {
       if (this.properties.disabled) {
@@ -114,9 +114,9 @@ Component({
       }
 
       const { step } = this.properties;
-      let value = this.getValue(offsetWidth);
+      const value = this.getValue(offsetWidth);
       const remainder = value % step;
-      if (remainder != 0) {
+      if (remainder !== 0) {
         return;
       }
 
@@ -128,34 +128,34 @@ Component({
         return;
       }
       this.setData({
-        transition: "transition: all 300ms",
+        transition: 'transition: all 300ms',
       });
       this.emitChange();
-      this.triggerEvent("drag-end");
+      this.triggerEvent('drag-end');
     },
     getValue(offsetWidth) {
       const percent = offsetWidth / this.containerWidth;
       const { max, min } = this.properties;
       const offsetNum = max - min;
       const leftNum = offsetNum * percent;
-      return parseInt(min + leftNum);
+      return parseInt(min + leftNum, 10);
     },
     emitChange() {
-      this.triggerEvent("change", this.getValue(this.data.width));
+      this.triggerEvent('change', this.getValue(this.data.width));
     },
     emitDrag() {
-      this.triggerEvent("drag", this.getValue(this.data.width));
+      this.triggerEvent('drag', this.getValue(this.data.width));
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.containerLeft = 0;
     this.containerWidth = 0;
     this.barWidth = 0;
     const query = this.createSelectorQuery();
-    query.select("#linsliderContainer").boundingClientRect();
-    query.select("#linSliderBar").boundingClientRect();
+    query.select('#linsliderContainer').boundingClientRect();
+    query.select('#linSliderBar').boundingClientRect();
     query.exec((rect) => {
       this.containerLeft = rect[0].left;
       this.containerWidth = rect[0].width;
@@ -163,6 +163,6 @@ Component({
       this.setBarWidth();
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

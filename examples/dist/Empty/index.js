@@ -1,6 +1,6 @@
-import { emptyCompImages } from "../common/config";
+import { emptyCompImages } from '../common/config';
 
-const typeOpt = ["error", "network", "search", "default"];
+const typeOpt = ['error', 'network', 'search', 'default'];
 
 Component({
   options: {
@@ -8,29 +8,29 @@ Component({
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "image-wrapper-class",
-    "image-class",
-    "description-class",
-    "bottom-class",
+    'custom-class',
+    'image-wrapper-class',
+    'image-class',
+    'description-class',
+    'bottom-class',
   ],
   properties: {
     type: {
       type: String,
-      value: "default",
+      value: 'default',
       options: typeOpt,
-      observer: "updateImage",
+      observer: 'updateImage',
     },
     image: {
       type: String,
-      observer: "updateImage",
+      observer: 'updateImage',
     },
     description: String,
     useImageSlot: Boolean,
     useDescSlot: Boolean,
   },
   data: {
-    imageUrl: "",
+    imageUrl: '',
   },
   methods: {
     updateImage() {
@@ -51,11 +51,11 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.updateImage();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

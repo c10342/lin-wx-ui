@@ -1,74 +1,73 @@
+import OpenTypeBehavior from '../behaviors/open-type';
 
-
-import { openType } from '../behaviors/open-type'
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  behaviors: [openType],
-  externalClasses: ["custom-class",'title-class','description-class','actions-wrapper-class','button-class','cancelText-class'],
+  behaviors: [OpenTypeBehavior],
+  externalClasses: ['custom-class', 'title-class', 'description-class', 'actions-wrapper-class', 'button-class', 'cancelText-class'],
   properties: {
     show: Boolean,
     actions: {
       type: Array,
-      value: []
+      value: [],
     },
     round: {
       type: Boolean,
-      value: true
+      value: true,
     },
     closeOnClickAction: {
       type: Boolean,
       value: true,
     },
-    closeOnClickMask:{
+    closeOnClickMask: {
       type: Boolean,
       value: true,
     },
-    cancelText:String,
-    description:String,
-    title:String,
-    showCloseIcon:{
-      type:Boolean,
-      value:true
+    cancelText: String,
+    description: String,
+    title: String,
+    showCloseIcon: {
+      type: Boolean,
+      value: true,
     },
-    zIndex:{
-      type:Number,
-      value:100
+    zIndex: {
+      type: Number,
+      value: 100,
     },
-    mask:{
-      type:Boolean,
-      value:true
-    }
+    mask: {
+      type: Boolean,
+      value: true,
+    },
   },
   data: {},
   methods: {
     onSelect(event) {
-      const { actions,closeOnClickAction } = this.properties
-      const index = event.currentTarget.dataset.index
-      const item = actions[index]
+      const { actions, closeOnClickAction } = this.properties;
+      const { index } = event.currentTarget.dataset;
+      const item = actions[index];
       if (item && !item.disabled && !item.loading) {
-        this.triggerEvent('select', item)
-        if(closeOnClickAction){
-          this.onClose()
+        this.triggerEvent('select', item);
+        if (closeOnClickAction) {
+          this.onClose();
         }
       }
     },
-    onCancel(){
-      this.triggerEvent('cancel')
+    onCancel() {
+      this.triggerEvent('cancel');
     },
-    onClose(){
-      this.triggerEvent('close')
+    onClose() {
+      this.triggerEvent('close');
     },
-    onClickMask(){
-      this.triggerEvent('mask-click')
-      this.onClose()
-    }
+    onClickMask() {
+      this.triggerEvent('mask-click');
+      this.onClose();
+    },
   },
-  created: function () { },
-  attached: function () { },
-  ready: function () { },
-  moved: function () { },
-  detached: function () { },
+  created() { },
+  attached() { },
+  ready() { },
+  moved() { },
+  detached() { },
 });

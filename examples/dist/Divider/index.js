@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     dashed: {
       type: Boolean,
@@ -15,7 +15,7 @@ Component({
     },
     contentPosition: {
       type: String,
-      options: ["left", "center", "right"],
+      options: ['left', 'center', 'right'],
     },
     fontSize: {
       type: [String, Number],
@@ -32,9 +32,9 @@ Component({
   },
   data: {},
   methods: {},
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

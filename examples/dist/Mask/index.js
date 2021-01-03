@@ -1,4 +1,4 @@
-//Component Object
+// Component Object
 Component({
   options: {
     addGlobalClass: true,
@@ -25,12 +25,12 @@ Component({
   data: {},
   methods: {
     onClick() {
-      this.triggerEvent("click");
+      this.triggerEvent('click');
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

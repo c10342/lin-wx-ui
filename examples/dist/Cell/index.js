@@ -1,18 +1,19 @@
-import { Link } from "../behaviors/link";
+import LinkBehavior from '../behaviors/link';
+
 Component({
   relations: {
-    "../CellGroup/index": {
-      type: "ancestor",
+    '../CellGroup/index': {
+      type: 'ancestor',
     },
   },
-  behaviors: [Link],
+  behaviors: [LinkBehavior],
   externalClasses: [
-    "custom-class",
-    "title-class",
-    "value-class",
-    "label-class",
-    "header-class",
-    "right-icon-class",
+    'custom-class',
+    'title-class',
+    'value-class',
+    'label-class',
+    'header-class',
+    'right-icon-class',
   ],
   options: {
     addGlobalClass: true,
@@ -26,13 +27,13 @@ Component({
       type: Boolean,
       value: true,
     },
-    size: { type: String, options: ["large"] },
+    size: { type: String, options: ['large'] },
     icon: String,
     isLink: Boolean,
     required: Boolean,
     arrowDirection: {
       type: String,
-      value: "right",
+      value: 'right',
     },
     url: String,
     titleWidth: {
@@ -45,7 +46,7 @@ Component({
   },
   methods: {
     onClick(event) {
-      this.triggerEvent("click", event);
+      this.triggerEvent('click', event);
       this.jumpLink();
     },
     jumpLink() {
@@ -56,9 +57,9 @@ Component({
       this.setData({ borderBottom: value });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

@@ -1,30 +1,30 @@
-import { isObj } from "../common/utils";
+import { isObj } from '../common/utils';
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "active-class"],
+  externalClasses: ['custom-class', 'active-class'],
   properties: {
     initialOptions: {
       type: Array,
       value: [],
-      observer: "updateOptionsList",
+      observer: 'updateOptionsList',
     },
     itemHeight: {
       type: Number,
       value: 44,
-      observer: "updateTranslateY",
+      observer: 'updateTranslateY',
     },
     valueKey: {
       type: String,
-      value: "text",
+      value: 'text',
     },
     defaultIndex: {
       type: Number,
       value: 0,
-      observer: "updateIndex",
+      observer: 'updateIndex',
     },
     visibleItemCount: {
       type: Number,
@@ -37,7 +37,7 @@ Component({
   },
   data: {
     translateY: 110,
-    transitionStyle: "transition: all 300ms",
+    transitionStyle: 'transition: all 300ms',
     currentIndex: 0,
     optionsList: [],
   },
@@ -81,7 +81,7 @@ Component({
       const { itemHeight } = this.properties;
       const endY = event.touches[0].clientY;
       const offsetY = this.startY - endY;
-      translateY = translateY - offsetY;
+      translateY -= offsetY;
       this.startY = endY;
       if (translateY >= this.startTranslateY + itemHeight) {
         translateY = this.startTranslateY + itemHeight;
@@ -94,13 +94,13 @@ Component({
     },
     onTouchStart(event) {
       this.setData({
-        transitionStyle: "transition: none",
+        transitionStyle: 'transition: none',
       });
       this.startY = event.touches[0].clientY;
     },
     onTouchEnd() {
       this.setData({
-        transitionStyle: "transition: all 300ms",
+        transitionStyle: 'transition: all 300ms',
       });
       const { translateY } = this.data;
       const len = this.data.optionsList.length;
@@ -124,7 +124,7 @@ Component({
     },
     getIndex(transY) {
       const { itemHeight, topVisible } = this.properties;
-      transY = transY - itemHeight / 2;
+      transY -= itemHeight / 2;
       let result = (itemHeight * topVisible - transY) / itemHeight;
       const half = itemHeight / 2;
       const yu = transY % itemHeight;
@@ -134,12 +134,10 @@ Component({
         } else {
           result = Math.floor(result);
         }
+      } else if (-yu < half) {
+        result = Math.floor(result);
       } else {
-        if (-yu < half) {
-          result = Math.floor(result);
-        } else {
-          result = Math.ceil(result);
-        }
+        result = Math.ceil(result);
       }
       return result;
     },
@@ -150,7 +148,7 @@ Component({
     emitChange(index) {
       const { currentIndex, optionsList } = this.data;
       if (index !== currentIndex) {
-        this.triggerEvent("change", {
+        this.triggerEvent('change', {
           index,
           data: optionsList[index],
         });
@@ -198,17 +196,17 @@ Component({
       return Promise.resolve();
     },
   },
-  created: function() {
+  created() {
     this.startY = 0;
     this.startTranslateY = 0;
     this.endTranslateY = 0;
   },
-  attached: function() {},
-  ready: function() {
+  attached() {},
+  ready() {
     this.updateTranslateY();
     this.updateIndex();
     this.updateOptionsList();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

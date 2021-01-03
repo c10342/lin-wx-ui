@@ -1,8 +1,9 @@
-import defaultProps from "../DropdownMenu/props";
+import defaultProps from '../DropdownMenu/props';
+
 Component({
   relations: {
-    "../DropdownMenu/index": {
-      type: "ancestor",
+    '../DropdownMenu/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
         this.updateDataFromParent();
@@ -12,30 +13,30 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class", "item-class"],
+  externalClasses: ['custom-class', 'item-class'],
   properties: {
     value: {
       type: null,
-      observer: "rerender",
+      observer: 'rerender',
     },
     title: {
       type: String,
-      observer: "rerender",
+      observer: 'rerender',
     },
     options: {
       type: Array,
       value: [],
-      observer: "rerender",
+      observer: 'rerender',
     },
     disabled: Boolean,
     titleClass: {
       type: String,
-      observer: "rerender",
+      observer: 'rerender',
     },
     popupStyle: String,
   },
   data: {
-    wrapperStyle: "",
+    wrapperStyle: '',
     showPopup: false,
     showWrapper: false,
     transition: false,
@@ -49,28 +50,28 @@ Component({
     onOptionTap(event) {
       const option = event.currentTarget.dataset.option;
       const { value } = option;
-      const shouldEmitChange = this.properties.value != value;
-      this.triggerEvent("close");
+      const shouldEmitChange = this.properties.value !== value;
+      this.triggerEvent('close');
       this.setData({
         transition: true,
         showPopup: false,
       });
       this.rerender();
       if (shouldEmitChange) {
-        this.triggerEvent("change", value);
+        this.triggerEvent('change', value);
       }
     },
     onOpen() {
-      this.triggerEvent("open");
+      this.triggerEvent('open');
     },
     onClose() {
-      this.triggerEvent("close");
+      this.triggerEvent('close');
     },
     onOpened() {
-      this.triggerEvent("opended");
+      this.triggerEvent('opended');
     },
     onClosed() {
-      this.triggerEvent("closed");
+      this.triggerEvent('closed');
       this.setData({ showWrapper: false, showPopup: false });
     },
     rerender() {
@@ -93,7 +94,7 @@ Component({
     },
     hide(immediate = false) {
       const { showPopup } = this.data;
-      if (showPopup == false) {
+      if (showPopup === false) {
         return;
       }
       this.setData({
@@ -104,7 +105,7 @@ Component({
     },
     show(immediate = false) {
       const { showPopup } = this.data;
-      if (showPopup == true) {
+      if (showPopup === true) {
         return;
       }
       this.setData({
@@ -140,9 +141,9 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });
