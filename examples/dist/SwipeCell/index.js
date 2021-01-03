@@ -63,6 +63,9 @@ Component({
       });
     },
     close() {
+      if (this.data.translateX === 0) {
+        return;
+      }
       this.setData({
         transitionStyle: TRANSITIONAll,
         translateX: 0,

@@ -9,7 +9,8 @@ Page({
      */
     data: {
       areaList:{},
-      value:''
+      value:'',
+      loading:false
     },
 
     onConfirm(event){
@@ -20,16 +21,19 @@ Page({
     },
 
     getAreaList(){
+      this.setData({loading:true})
       Request.get({url:areaJsonPath})
       .then(res=>{
         this.setData({
-          areaList:res
+          areaList:res,
+          loading:false
         })
       }).catch(err=>{
         wx.showToast({
           title:'请求失败',
           icon:"none"
         })
+        this.setData({loading:false})
       })
     },
   
