@@ -1,21 +1,22 @@
-import { transition } from "../behaviors/transition";
+import TransitionBehavior from '../behaviors/transition';
+
 Component({
   options: {
     addGlobalClass: true,
   },
-  behaviors: [transition(true)],
+  behaviors: [TransitionBehavior(true)],
   externalClasses: [
-    "custom-class",
-    "enter-class",
-    "enter-active-class",
-    "enter-to-class",
-    "leave-class",
-    "leave-active-class",
-    "leave-to-class",
+    'custom-class',
+    'enter-class',
+    'enter-active-class',
+    'enter-to-class',
+    'leave-class',
+    'leave-active-class',
+    'leave-to-class',
   ],
   methods: {
     onClick() {
-      this.triggerEvent("click");
+      this.triggerEvent('click');
     },
   },
 });

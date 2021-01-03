@@ -1,9 +1,9 @@
-//Component Object
+// Component Object
 Component({
-  externalClasses: ["custom-class", "title-class"],
+  externalClasses: ['custom-class', 'title-class'],
   relations: {
-    "../Cell/index": {
-      type: "descendant",
+    '../Cell/index': {
+      type: 'descendant',
       linked() {
         this.setCellBorder();
       },
@@ -22,7 +22,7 @@ Component({
   data: {},
   methods: {
     setCellBorder() {
-      const nodes = this.getRelationNodes("../Cell/index");
+      const nodes = this.getRelationNodes('../Cell/index');
       nodes.forEach((cell, index) => {
         if (index + 1 === nodes.length) {
           cell.setBorder(false);
@@ -32,11 +32,11 @@ Component({
       });
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {
+  created() {},
+  attached() {},
+  ready() {
     this.setCellBorder();
   },
-  moved: function () {},
-  detached: function () {},
+  moved() {},
+  detached() {},
 });

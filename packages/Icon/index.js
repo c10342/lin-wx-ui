@@ -2,33 +2,33 @@ Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     icon: {
       type: String,
       require: true,
-      value: "",
+      value: '',
     },
     type: {
       type: String,
-      value: "default",
+      value: 'default',
     },
     size: {
       type: String,
-      value: "",
-      observer: "setStyle",
+      value: '',
+      observer: 'setStyle',
     },
     color: {
       type: String,
-      observer: "setStyle",
+      observer: 'setStyle',
     },
   },
   data: {
-    viewStyle: "",
+    viewStyle: '',
   },
   methods: {
     setStyle() {
-      let style = "";
+      let style = '';
       const { size, color } = this.properties;
       if (size) {
         style += `font-size:${size};`;

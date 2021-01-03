@@ -1,10 +1,11 @@
-import { transition } from "../behaviors/transition";
+import TransitionBehavior from '../behaviors/transition';
+
 Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class"],
-  behaviors: [transition(false)],
+  externalClasses: ['custom-class'],
+  behaviors: [TransitionBehavior(false)],
   properties: {
     zIndex: {
       type: Number,
@@ -17,17 +18,17 @@ Component({
     maskStyle: String,
     position: {
       type: String,
-      value: "center",
-      observer: "observeClass",
+      value: 'center',
+      observer: 'observeClass',
     },
     closeable: {
       type: Boolean,
       value: false,
     },
-    closeIcon: { type: String, value: "close" },
+    closeIcon: { type: String, value: 'close' },
     closeIconPosition: {
       type: String,
-      value: "top-right",
+      value: 'top-right',
     },
     closeOnClickMask: {
       type: Boolean,
@@ -35,38 +36,38 @@ Component({
     },
     closeIconSize: {
       type: String,
-      value: "40rpx",
+      value: '40rpx',
     },
     round: {
       type: Boolean,
       value: false,
     },
-    transition:{
-      type:String,
-      observer: "observeClass",
-    }
+    transition: {
+      type: String,
+      observer: 'observeClass',
+    },
   },
   data: {},
   methods: {
     onMaskClick() {
-      this.triggerEvent("mask-click");
+      this.triggerEvent('mask-click');
       if (this.properties.closeOnClickMask) {
-        this.triggerEvent("close");
+        this.triggerEvent('close');
       }
     },
     observeClass() {
-      const { position,transition } = this.properties;
+      const { position, transition } = this.properties;
       this.setData({ name: transition || position });
     },
     onCloseClick() {
-      this.triggerEvent("close");
+      this.triggerEvent('close');
     },
   },
-  created: function () {
+  created() {
     this.observeClass();
   },
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

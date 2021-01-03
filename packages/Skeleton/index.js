@@ -4,11 +4,11 @@ Component({
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "avatar-class",
-    "title-class",
-    "row-class",
-    "slot-class",
+    'custom-class',
+    'avatar-class',
+    'title-class',
+    'row-class',
+    'slot-class',
   ],
   properties: {
     row: {
@@ -44,8 +44,8 @@ Component({
     },
     avatarShape: {
       type: String,
-      value: "round",
-      options: ["round", "square"],
+      value: 'round',
+      options: ['round', 'square'],
     },
     loading: {
       type: Boolean,
@@ -61,9 +61,9 @@ Component({
     isArray: false,
   },
   methods: {},
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../Sidebar/index": {
-      type: "ancestor",
+    '../Sidebar/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
         this.updateFromParent();
@@ -15,13 +15,13 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class", "content-class"],
+  externalClasses: ['custom-class', 'content-class'],
   properties: {
     title: String,
     dot: Boolean,
     badge: {
       type: [String, Number],
-      value: "",
+      value: '',
     },
     disabled: Boolean,
   },
@@ -48,9 +48,9 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

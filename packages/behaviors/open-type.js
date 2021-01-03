@@ -1,6 +1,4 @@
-
-
-export const openType = Behavior({
+const OpenTypeBehavior = Behavior({
   properties: {
     openType: String,
   },
@@ -31,3 +29,5 @@ export const openType = Behavior({
     },
   },
 });
+
+export default OpenTypeBehavior;

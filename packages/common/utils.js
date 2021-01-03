@@ -9,7 +9,7 @@ export function getSystemInfoSync() {
 
 export function isObj(obj) {
   const type = typeof obj;
-  return obj !== null && (type === "object" || type === "function");
+  return obj !== null && (type === 'object' || type === 'function');
 }
 
 export function nextTick(fn) {
@@ -24,7 +24,7 @@ export function addUnit(value) {
     return undefined;
   }
 
-  return REGEXP.test("" + value) ? value + "px" : value;
+  return REGEXP.test(`${value}`) ? `${value}px` : value;
 }
 
 export function getRect(context, element) {

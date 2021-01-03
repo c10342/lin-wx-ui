@@ -4,25 +4,25 @@ let queue = [];
 
 const defaultOptions = {
   show: false,
-  title: "",
-  width: "640rpx",
-  theme: "default",
-  message: "",
+  title: '',
+  width: '640rpx',
+  theme: 'default',
+  message: '',
   zIndex: 100,
   mask: true,
-  selector: "#lin-dialog",
-  className: "",
+  selector: '#lin-dialog',
+  className: '',
   asyncClose: false,
-  transition: "scale",
-  customStyle: "",
-  messageAlign: "center",
-  maskStyle: "",
-  confirmButtonText: "确认",
-  cancelButtonText: "取消",
+  transition: 'scale',
+  customStyle: '',
+  messageAlign: 'center',
+  maskStyle: '',
+  confirmButtonText: '确认',
+  cancelButtonText: '取消',
   showConfirmButton: true,
   showCancelButton: false,
   closeOnClickMask: false,
-  confirmButtonOpenType: "",
+  confirmButtonOpenType: '',
   // confirmButtonColor: RED,
   // cancelButtonColor: GRAY,
 };
@@ -61,7 +61,7 @@ const Dialog = (options) => {
       queue.push(dialog);
     } else {
       console.warn(
-        "未找到 lin-dialog 节点，请确认 selector 及 context 是否正确"
+        '未找到 lin-dialog 节点，请确认 selector 及 context 是否正确',
       );
     }
   });
@@ -69,11 +69,10 @@ const Dialog = (options) => {
 
 Dialog.alert = (options) => Dialog(options);
 
-Dialog.confirm = (options) =>
-  Dialog({
-    showCancelButton: true,
-    ...options,
-  });
+Dialog.confirm = (options) => Dialog({
+  showCancelButton: true,
+  ...options,
+});
 
 Dialog.close = () => {
   queue.forEach((dialog) => {

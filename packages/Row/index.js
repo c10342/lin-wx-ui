@@ -1,12 +1,12 @@
-//Component Object
+// Component Object
 Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   relations: {
-    "../Col/index": {
-      type: "descendant",
+    '../Col/index': {
+      type: 'descendant',
       linked(target) {
         if (this.properties.gutter) {
           target.setGutter(this.properties.gutter);
@@ -17,11 +17,11 @@ Component({
   properties: {
     gutter: {
       type: Number,
-      observer: "setGutter",
+      observer: 'setGutter',
     },
   },
   data: {
-    viewStyle: "",
+    viewStyle: '',
   },
   methods: {
     setGutter() {
@@ -31,18 +31,18 @@ Component({
         const viewStyle = `margin-right: ${margin}; margin-left: ${margin};`;
         this.setData({ viewStyle });
       }
-      this.getRelationNodes("../Col/index").forEach((col) => {
+      this.getRelationNodes('../Col/index').forEach((col) => {
         col.setGutter(gutter);
       });
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {
+  created() {},
+  attached() {},
+  ready() {
     if (this.properties.gutter) {
       this.setGutter();
     }
   },
-  moved: function () {},
-  detached: function () {},
+  moved() {},
+  detached() {},
 });

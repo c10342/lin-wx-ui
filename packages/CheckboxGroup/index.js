@@ -1,9 +1,9 @@
-//Component Object
+// Component Object
 Component({
-  behaviors: ["wx://form-field"],
+  behaviors: ['wx://form-field'],
   relations: {
-    "../Checkbox/index": {
-      type: "descendant",
+    '../Checkbox/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -17,11 +17,11 @@ Component({
   properties: {
     value: {
       type: Array,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     disabled: {
       type: Boolean,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     max: Number,
     name: String,
@@ -39,12 +39,12 @@ Component({
       });
     },
     emitChange(value) {
-      this.triggerEvent("change", value);
+      this.triggerEvent('change', value);
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

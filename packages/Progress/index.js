@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "portion-class", "pivot-class"],
+  externalClasses: ['custom-class', 'portion-class', 'pivot-class'],
   properties: {
     inactive: {
       type: Boolean,
@@ -12,7 +12,7 @@ Component({
     percentage: {
       type: Number,
       value: 0,
-      observer: "setProgressWidth",
+      observer: 'setProgressWidth',
     },
     strokeWidth: {
       type: [String, Number],
@@ -26,15 +26,15 @@ Component({
     trackColor: String,
     pivotText: {
       type: String,
-      value: "",
-      observer: "setProgressWidth",
+      value: '',
+      observer: 'setProgressWidth',
     },
     pivotColor: String,
   },
   data: {
-    progressWidth: "0px",
-    pivotRight: "0px",
-    grayColor: "rgb(202, 202, 202)",
+    progressWidth: '0px',
+    pivotRight: '0px',
+    grayColor: 'rgb(202, 202, 202)',
   },
   methods: {
     setProgressWidth() {
@@ -48,7 +48,7 @@ Component({
       this.setData({ progressWidth: `${offsetWidth}px` });
       wx.nextTick(async () => {
         const { width: pivotWidth } = await this.getWidth(
-          ".lin-progress-pivot"
+          '.lin-progress-pivot',
         );
         let pivotRight = 0;
         if (offsetWidth + pivotWidth / 2 >= this.progressWidth) {
@@ -73,16 +73,16 @@ Component({
       });
     },
   },
-  created: function() {
+  created() {
     this.progressWidth = 0;
   },
-  attached: function() {},
-  ready: function() {
-    this.getWidth(".lin-progress").then((res) => {
+  attached() {},
+  ready() {
+    this.getWidth('.lin-progress').then((res) => {
       this.progressWidth = res.width;
       this.setProgressWidth();
     });
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

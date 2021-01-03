@@ -1,12 +1,12 @@
-const TRANSITIONAll = "transition: all 500ms";
-const TRANSITIONNONE = "transition: none";
+const TRANSITIONAll = 'transition: all 500ms';
+const TRANSITIONNONE = 'transition: none';
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "left-class", "right-class"],
+  externalClasses: ['custom-class', 'left-class', 'right-class'],
   properties: {
     showLeft: {
       type: Boolean,
@@ -18,11 +18,11 @@ Component({
     },
     leftWidth: {
       type: Number,
-      observer: "getLeftWidth",
+      observer: 'getLeftWidth',
     },
     rightWidth: {
       type: Number,
-      observer: "getRightWidth",
+      observer: 'getRightWidth',
     },
     disabled: Boolean,
     disabledLeft: Boolean,
@@ -30,7 +30,7 @@ Component({
     asyncClose: Boolean,
     name: {
       type: String,
-      value: "",
+      value: '',
     },
   },
   data: {
@@ -39,15 +39,15 @@ Component({
   },
   methods: {
     onClick(event) {
-      const { key: position = "outside" } = event.currentTarget.dataset;
-      this.triggerEvent("click", position);
+      const { key: position = 'outside' } = event.currentTarget.dataset;
+      this.triggerEvent('click', position);
       const { translateX, name } = this.data;
-      if (translateX == 0) {
+      if (translateX === 0) {
         return;
       }
       this.position = position;
       if (this.properties.asyncClose) {
-        this.triggerEvent("before-close", {
+        this.triggerEvent('before-close', {
           position,
           instance: this,
           name,
@@ -70,7 +70,7 @@ Component({
       this.emitClose();
     },
     emitClose(position) {
-      this.triggerEvent("close", {
+      this.triggerEvent('close', {
         position: position || this.position,
         name: this.properties.name,
       });
@@ -80,17 +80,17 @@ Component({
       if (!position || disabled) {
         return;
       }
-      if (position === "left" && !disabledLeft) {
+      if (position === 'left' && !disabledLeft) {
         this.setTranslateX(this.leftWidth);
         this.emitOpen(position);
-      } else if (position === "right" && !disabledRight) {
+      } else if (position === 'right' && !disabledRight) {
         this.setTranslateX(-this.rightWidth);
         this.emitOpen(position);
       }
     },
     emitOpen(position) {
       const { name } = this.properties;
-      this.triggerEvent("open", {
+      this.triggerEvent('open', {
         position,
         name,
       });
@@ -139,19 +139,19 @@ Component({
       if (translateX > 0 && showLeft && !disabledLeft) {
         if (translateX > this.leftWidth / 2) {
           translateX = this.leftWidth;
-          this.emitOpen("left");
+          this.emitOpen('left');
         } else {
           translateX = 0;
-          this.emitClose("left");
+          this.emitClose('left');
         }
         this.setTranslateX(translateX);
       } else if (translateX < 0 && showRight && !disabledRight) {
         if (-translateX > this.rightWidth / 2) {
           translateX = -this.rightWidth;
-          this.emitOpen("right");
+          this.emitOpen('right');
         } else {
           translateX = 0;
-          this.emitClose("right");
+          this.emitClose('right');
         }
         this.setTranslateX(translateX);
       }
@@ -178,7 +178,7 @@ Component({
           this.leftWidth = leftWidth;
         } else {
           const query = this.createSelectorQuery();
-          query.select("#left").boundingClientRect();
+          query.select('#left').boundingClientRect();
           query.exec((rect) => {
             this.leftWidth = rect[0].width;
           });
@@ -194,7 +194,7 @@ Component({
           this.rightWidth = rightWidth;
         } else {
           const query = this.createSelectorQuery();
-          query.select("#right").boundingClientRect();
+          query.select('#right').boundingClientRect();
           query.exec((rect) => {
             this.rightWidth = rect[0].width;
           });
@@ -204,16 +204,16 @@ Component({
       }
     },
   },
-  created: function() {
+  created() {
     this.startX = 0;
     this.leftWidth = 0;
     this.rightWidth = 0;
-    this.position = "cell";
+    this.position = 'cell';
   },
-  attached: function() {},
-  ready: function() {
+  attached() {},
+  ready() {
     this.getLeftAndRightWidth();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

@@ -1,4 +1,4 @@
-import { pageScrollBehaviors } from "../behaviors/page-scroll";
+import pageScrollBehavior from '../behaviors/page-scroll';
 
 Component({
   options: {
@@ -6,8 +6,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../IndexAnchor/index": {
-      type: "descendant",
+    '../IndexAnchor/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -20,30 +20,30 @@ Component({
     },
   },
   behaviors: [
-    pageScrollBehaviors(function(event) {
+    pageScrollBehavior(function (event) {
       this.onScroll(event);
     }),
   ],
-  externalClasses: ["custom-class",'sidebar-class','sidebar-item-class'],
+  externalClasses: ['custom-class', 'sidebar-class', 'sidebar-item-class'],
   properties: {
     zIndex: {
       type: Number,
       value: 1,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     sticky: {
       type: Boolean,
       value: true,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     stickyOffsetTop: {
       type: Number,
       value: 0,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     highlightColor: {
       type: String,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
   },
   data: {
@@ -56,9 +56,9 @@ Component({
       (this.children || []).forEach((child) => {
         barList.push(child.properties.index);
       });
-        this.setData({
-          barList,
-        });
+      this.setData({
+        barList,
+      });
     },
     updateChildren() {
       (this.children || []).forEach((child) => {
@@ -69,22 +69,22 @@ Component({
       (this.children || []).forEach((child) => {
         child.onScroll(event);
       });
-      const child = (this.children || []).find((child) => child.data.isActive);
+      const child = (this.children || []).find((scrollChild) => scrollChild.data.isActive);
       let activeIndex = -1;
       if (child) {
         activeIndex = child.properties.index;
       }
       if (activeIndex !== this.data.activeIndex) {
         this.setData({
-          activeIndex: activeIndex,
+          activeIndex,
         });
       }
     },
     onSidebarClick(event) {
       const { index } = event.currentTarget.dataset;
-      this.triggerEvent('select',index)
+      this.triggerEvent('select', index);
       const child = (this.children || []).find(
-        (child) => index === child.properties.index
+        (childData) => index === childData.properties.index,
       );
       if (child) {
         Promise.all([this.getViewPort(), child.getContainerRect()]).then(
@@ -94,7 +94,7 @@ Component({
               scrollTop: data,
               duration: 300,
             });
-          }
+          },
         );
       }
     },
@@ -108,9 +108,9 @@ Component({
       });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

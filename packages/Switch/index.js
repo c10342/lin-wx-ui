@@ -1,16 +1,17 @@
-import { BLUE, WHITE } from "../common/color";
+import { BLUE, WHITE } from '../common/color';
+
 Component({
-  behaviors: ["wx://form-field"],
+  behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class", "node-class"],
+  externalClasses: ['custom-class', 'node-class'],
   properties: {
     checked: {
       type: Boolean,
       value: false,
-      observer: "updateValue",
+      observer: 'updateValue',
     },
     name: String,
     activeColor: {
@@ -44,7 +45,7 @@ Component({
       if (disabled) {
         return;
       }
-      this.triggerEvent("change", !checked);
+      this.triggerEvent('change', !checked);
     },
     updateValue() {
       const { checked, activeValue, inactiveValue } = this.properties;
@@ -59,11 +60,11 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.updateValue();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

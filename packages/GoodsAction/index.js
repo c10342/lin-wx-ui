@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../GoodsActionButton/index": {
-      type: "descendant",
+    '../GoodsActionButton/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -17,7 +17,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {},
   data: {},
   methods: {
@@ -29,9 +29,9 @@ Component({
       });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

@@ -1,6 +1,6 @@
-import { Link } from "../behaviors/link";
-import { openType } from "../behaviors/open-type";
-import { button } from "../behaviors/button";
+import LinkBehavior from '../behaviors/link';
+import OpenTypeBehavior from '../behaviors/open-type';
+import ButtonBehavior from '../behaviors/button';
 
 Component({
   options: {
@@ -8,8 +8,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../GoodsAction/index": {
-      type: "ancestor",
+    '../GoodsAction/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
       },
@@ -18,8 +18,8 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
-  behaviors: [Link, openType, button],
+  externalClasses: ['custom-class'],
+  behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
   properties: {
     text: String,
     color: String,
@@ -28,7 +28,7 @@ Component({
     plain: Boolean,
     type: {
       type: String,
-      value: "danger",
+      value: 'danger',
     },
     url: String,
   },
@@ -44,14 +44,14 @@ Component({
       });
     },
     onClick() {
-      this.triggerEvent("click");
+      this.triggerEvent('click');
       const { url } = this.properties;
       this.jump(url);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

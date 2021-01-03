@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../IndexBar/index": {
-      type: "ancestor",
+    '../IndexBar/index': {
+      type: 'ancestor',
       linked(parent) {
         this.parent = parent;
         this.updateDataFromParent();
@@ -15,7 +15,7 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class",'index-class'],
+  externalClasses: ['custom-class', 'index-class'],
   properties: {
     index: {
       type: [String, Number],
@@ -26,10 +26,10 @@ Component({
     zIndex: 1,
     sticky: true,
     stickyOffsetTop: 0,
-    highlightColor: "",
+    highlightColor: '',
     fixed: false,
     transform: 0,
-    indexwapperHeight: "",
+    indexwapperHeight: '',
     isActive: false,
   },
   methods: {
@@ -49,7 +49,7 @@ Component({
         });
       }
     },
-    onScroll(event = {}) {
+    onScroll() {
       this.getRect().then((res) => {
         const { stickyOffsetTop, sticky } = this.data;
         const wrapper = res[0];
@@ -60,12 +60,12 @@ Component({
             obj = {
               fixed: false,
               transform: 0,
-              indexwapperHeight: "",
+              indexwapperHeight: '',
             };
           } else if (
-            wrapper.top <= stickyOffsetTop &&
-            wrapper.height - stickyOffsetTop + wrapper.top >
-              indexContainer.height
+            wrapper.top <= stickyOffsetTop
+            && wrapper.height - stickyOffsetTop + wrapper.top
+              > indexContainer.height
           ) {
             obj = {
               fixed: true,
@@ -80,13 +80,13 @@ Component({
             };
           }
         }
-        const offsetTop = sticky?stickyOffsetTop:0
+        const offsetTop = sticky ? stickyOffsetTop : 0;
         if (wrapper.top > offsetTop) {
           obj.isActive = false;
         } else if (
-          wrapper.height - offsetTop + wrapper.top >
-            indexContainer.height ||
-          wrapper.height - offsetTop + wrapper.top > 0
+          wrapper.height - offsetTop + wrapper.top
+            > indexContainer.height
+          || wrapper.height - offsetTop + wrapper.top > 0
         ) {
           obj.isActive = true;
         } else {
@@ -112,7 +112,7 @@ Component({
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query
-          .select(".lin-index-anchor-index")
+          .select('.lin-index-anchor-index')
           .boundingClientRect(resolve)
           .exec();
       });
@@ -122,17 +122,17 @@ Component({
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query
-          .select(".lin-index-anchor")
+          .select('.lin-index-anchor')
           .boundingClientRect(resolve)
           .exec();
       });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.onScroll();
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

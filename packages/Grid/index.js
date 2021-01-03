@@ -4,8 +4,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../GridItem/index": {
-      type: "descendant",
+    '../GridItem/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -17,42 +17,42 @@ Component({
       },
     },
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     columnNum: {
       type: Number,
       value: 4,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     iconSize: {
       type: [String, Number],
-      value: "56rpx",
-      observer: "updateChildren",
+      value: '56rpx',
+      observer: 'updateChildren',
     },
     gutter: {
       type: [String, Number],
       value: 0,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     border: {
       type: Boolean,
       value: true,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     center: {
       type: Boolean,
       value: true,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     square: {
       type: Boolean,
-      observer: "updateChildren",
+      observer: 'updateChildren',
     },
     direction: {
       type: String,
-      value: "vertical",
-      options: ["vertical", "horizontal"],
-      observer: "updateChildren",
+      value: 'vertical',
+      options: ['vertical', 'horizontal'],
+      observer: 'updateChildren',
     },
   },
   data: {},
@@ -63,9 +63,9 @@ Component({
       });
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

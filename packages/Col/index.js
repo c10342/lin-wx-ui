@@ -1,12 +1,12 @@
-//Component Object
+// Component Object
 Component({
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   relations: {
-    "../Row/index": {
-      type: "ancestor",
+    '../Row/index': {
+      type: 'ancestor',
     },
   },
   properties: {
@@ -14,22 +14,22 @@ Component({
     offset: Number,
   },
   data: {
-    viewStyle: "",
+    viewStyle: '',
   },
   methods: {
     setGutter(gutter) {
       const padding = `${gutter / 2}px`;
       const viewStyle = gutter
         ? `padding-left: ${padding}; padding-right: ${padding};`
-        : "";
+        : '';
       if (viewStyle !== this.data.viewStyle) {
         this.setData({ viewStyle });
       }
     },
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

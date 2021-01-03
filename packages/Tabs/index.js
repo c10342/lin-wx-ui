@@ -1,4 +1,4 @@
-import { getAllRect, getRect } from "../common/utils.js";
+import { getAllRect, getRect } from '../common/utils';
 
 Component({
   options: {
@@ -6,8 +6,8 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    "../Tab/index": {
-      type: "descendant",
+    '../Tab/index': {
+      type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
@@ -17,30 +17,30 @@ Component({
       unlinked(child) {
         this.children = (this.children || [])
           .filter((it) => it !== child)
-          .map((child, index) => {
-            child.index = index;
-            return child;
+          .map((childData, index) => {
+            childData.index = index;
+            return childData;
           });
         this.updateTabs();
       },
     },
   },
   externalClasses: [
-    "custom-class",
-    "wrapper-class",
-    "scroll-class",
-    "list-class",
-    "line-class",
-    "tab-item-class",
-    "title-class",
-    "content-class",
-    "track-class",
+    'custom-class',
+    'wrapper-class',
+    'scroll-class',
+    'list-class',
+    'line-class',
+    'tab-item-class',
+    'title-class',
+    'content-class',
+    'track-class',
   ],
   properties: {
     type: {
       type: String,
-      value: "line",
-      options: ["line", "card"],
+      value: 'line',
+      options: ['line', 'card'],
     },
     color: String,
     active: {
@@ -100,7 +100,7 @@ Component({
       if (index === this.data.currentIndex) {
         return;
       }
-      this.triggerEvent("change", {
+      this.triggerEvent('change', {
         name: this.children[index].getComponentName(),
       });
     },
@@ -117,25 +117,25 @@ Component({
       const currentTab = this.data.tabs[index];
       if (currentTab.disabled) {
         if (index !== this.data.currentIndex) {
-          this.triggerEvent("disabled", {
+          this.triggerEvent('disabled', {
             name: this.children[index].getComponentName(),
           });
         }
         return;
       }
-      this.triggerEvent("click", {
+      this.triggerEvent('click', {
         name: this.children[index].getComponentName(),
       });
       this.emitChange(index);
     },
     setLineOffsetByIndex(index) {
       const { type } = this.properties;
-      if (index <= -1 || type !== "line") {
+      if (index <= -1 || type !== 'line') {
         return;
       }
       Promise.all([
-        getAllRect(this, ".lin-tabs-item"),
-        getRect(this, ".lin-tabs-line"),
+        getAllRect(this, '.lin-tabs-item'),
+        getRect(this, '.lin-tabs-line'),
       ]).then(([rects = [], lineRect]) => {
         let lineOffsetLeft = rects
           .slice(0, index)
@@ -152,8 +152,8 @@ Component({
         return;
       }
       Promise.all([
-        getAllRect(this, ".lin-tabs-item"),
-        getRect(this, ".lin-tabs-list"),
+        getAllRect(this, '.lin-tabs-item'),
+        getRect(this, '.lin-tabs-list'),
       ]).then(([itemRect, listRect]) => {
         const offsetLeft = itemRect
           .slice(0, index)
@@ -166,13 +166,13 @@ Component({
     findCurrentIndex() {
       const { active } = this.properties;
       const index = (this.children || []).findIndex(
-        (child) => child.getComponentName() === active
+        (child) => child.getComponentName() === active,
       );
       return index;
     },
     setCurrentIndex() {
       const index = this.findCurrentIndex();
-      if (index === this.data.currentIndex || index == -1) {
+      if (index === this.data.currentIndex || index === -1) {
         return;
       }
       this.setData({
@@ -202,7 +202,7 @@ Component({
     },
     updateContainer() {
       this.setData({
-        container: () => this.createSelectorQuery().select(".lin-tabs"),
+        container: () => this.createSelectorQuery().select('.lin-tabs'),
       });
     },
     onTouchStart(event) {
@@ -223,9 +223,9 @@ Component({
       let { currentIndex } = this.data;
       if (Math.abs(offsetX) > 50) {
         if (offsetX < 0) {
-          currentIndex = this.findNotDisabledTab(currentIndex - 1, "left");
+          currentIndex = this.findNotDisabledTab(currentIndex - 1, 'left');
         } else {
-          currentIndex = this.findNotDisabledTab(currentIndex + 1, "right");
+          currentIndex = this.findNotDisabledTab(currentIndex + 1, 'right');
         }
         if (currentIndex > -1) {
           this.emitChange(currentIndex);
@@ -234,14 +234,14 @@ Component({
     },
     findNotDisabledTab(index, type) {
       const { tabs } = this.data;
-      if (type === "left") {
+      if (type === 'left') {
         while (index >= 0) {
           if (!tabs[index].disabled) {
             return index;
           }
           index--;
         }
-      } else if (type === "right") {
+      } else if (type === 'right') {
         while (index < tabs.length) {
           if (!tabs[index].disabled) {
             return index;
@@ -259,17 +259,17 @@ Component({
       this.endX = event.touches[0].clientX;
     },
     getTrackWidth() {
-      return getRect(this, ".lin-tabs-track");
+      return getRect(this, '.lin-tabs-track');
     },
   },
-  created: function() {
+  created() {
     this.startX = 0;
     this.endX = 0;
   },
-  attached: function() {},
-  ready: function() {
+  attached() {},
+  ready() {
     this.setCurrentIndex(this.findCurrentIndex());
   },
-  moved: function() {},
-  detached: function() {},
+  moved() {},
+  detached() {},
 });

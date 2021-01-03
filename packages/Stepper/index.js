@@ -4,11 +4,11 @@ function add(num1, num2) {
 }
 const timeSecond = 500;
 Component({
-  behaviors: ["wx://form-field"],
+  behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
   },
-  externalClasses: ["custom-class", "input-class", "plus-class", "minus-class"],
+  externalClasses: ['custom-class', 'input-class', 'plus-class', 'minus-class'],
   properties: {
     name: String,
     value: {
@@ -41,19 +41,19 @@ Component({
     },
     inputWidth: {
       type: [String, Number],
-      value: "64rpx",
+      value: '64rpx',
     },
     buttonSize: {
       type: [String, Number],
-      value: "56rpx",
+      value: '56rpx',
     },
     buttonFontSize: {
       type: [String, Number],
-      value: "40rpx",
+      value: '40rpx',
     },
     inputFontSize: {
       type: [String, Number],
-      value: "30rpx",
+      value: '30rpx',
     },
     disableInput: Boolean,
     showPlus: {
@@ -73,11 +73,11 @@ Component({
     },
   },
   observers: {
-    "disabled,disableMinus,min,inputValue": function(
+    'disabled,disableMinus,min,inputValue': function (
       disabled,
       disableMinus,
       min,
-      inputValue
+      inputValue,
     ) {
       if (disabled || disableMinus || (min != null && inputValue <= min)) {
         this.setData({
@@ -89,11 +89,11 @@ Component({
         });
       }
     },
-    "disabled,disablePlus,max,inputValue": function(
+    'disabled,disablePlus,max,inputValue': function (
       disabled,
       disablePlus,
       max,
-      inputValue
+      inputValue,
     ) {
       if (disabled || disablePlus || (max != null && inputValue >= max)) {
         this.setData({
@@ -107,7 +107,7 @@ Component({
     },
   },
   data: {
-    inputValue: "",
+    inputValue: '',
     isMinusDisable: false,
     isPlusDisable: false,
   },
@@ -140,42 +140,44 @@ Component({
       const { step } = this.properties;
       const { inputValue, isMinusDisable } = this.data;
       if (isMinusDisable) {
-        this.triggerEvent("overlimit", {
-          type: "minus",
+        this.triggerEvent('overlimit', {
+          type: 'minus',
         });
         return;
       }
 
-      let value = add(inputValue * 1, -(step * 1));
+      const value = add(inputValue * 1, -(step * 1));
       this.emitChange(value);
-      this.triggerEvent("minus");
+      this.triggerEvent('minus');
     },
     onPlus() {
       const { step } = this.properties;
       const { inputValue, isPlusDisable } = this.data;
       if (isPlusDisable) {
-        this.triggerEvent("overlimit", {
-          type: "plus",
+        this.triggerEvent('overlimit', {
+          type: 'plus',
         });
         return;
       }
-      let value = add(inputValue * 1, step * 1);
+      const value = add(inputValue * 1, step * 1);
       this.emitChange(value);
-      this.triggerEvent("plus");
+      this.triggerEvent('plus');
     },
     onBlur(event) {
-      let value = event.detail.value;
+      const value = event.detail.value;
       this.emitChange(value);
-      this.triggerEvent("blur");
+      this.triggerEvent('blur');
     },
     onFocus() {
-      this.triggerEvent("focus");
+      this.triggerEvent('focus');
     },
     formatValue(value) {
-      value = value * 1;
-      const { integer, max, min, decimalLength } = this.properties;
+      value *= 1;
+      const {
+        integer, max, min, decimalLength,
+      } = this.properties;
       if (integer) {
-        value = parseInt(value);
+        value = parseInt(value, 10);
       }
       if (max != null && max < value) {
         value = max;
@@ -189,23 +191,23 @@ Component({
       return value;
     },
     emitChange(value) {
-      if (value != this.data.inputValue) {
+      if (value !== this.data.inputValue) {
         const inputValue = this.formatValue(value);
         if (this.properties.asyncChange) {
           wx.showLoading();
         } else {
           this.setData({
-            inputValue: inputValue,
+            inputValue,
           });
         }
 
-        this.triggerEvent("change", inputValue);
+        this.triggerEvent('change', inputValue);
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.timer = null;
     const { value, min } = this.properties;
     let inputValue = 0;
@@ -218,8 +220,8 @@ Component({
       inputValue: this.formatValue(inputValue),
     });
   },
-  moved: function() {},
-  detached: function() {
+  moved() {},
+  detached() {
     this.onTouchend();
   },
 });

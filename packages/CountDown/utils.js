@@ -1,7 +1,7 @@
 function padZero(num, len = 2) {
-  let str = num + "";
+  let str = `${num}`;
   while (str.length < len) {
-    str = "0" + str;
+    str = `0${str}`;
   }
   return str;
 }
@@ -34,31 +34,33 @@ export function parseTimeDate(time) {
 
 export function parseFormat(format, timeDate) {
   const { days } = timeDate;
-  let { hours, minutes, seconds, milliseconds } = timeDate;
+  let {
+    hours, minutes, seconds, milliseconds,
+  } = timeDate;
 
-  if (format.indexOf("DD") > -1) {
-    format = format.replace("DD", padZero(days));
+  if (format.indexOf('DD') > -1) {
+    format = format.replace('DD', padZero(days));
   } else {
     hours += days * 24;
   }
 
-  if (format.indexOf("HH") > -1) {
-    format = format.replace("HH", padZero(hours));
+  if (format.indexOf('HH') > -1) {
+    format = format.replace('HH', padZero(hours));
   } else {
     minutes += hours * 60;
   }
 
-  if (format.indexOf("mm") > -1) {
-    format = format.replace("mm", padZero(minutes));
+  if (format.indexOf('mm') > -1) {
+    format = format.replace('mm', padZero(minutes));
   } else {
     seconds += minutes * 60;
   }
 
-  if (format.indexOf("ss") > -1) {
-    format = format.replace("ss", padZero(seconds));
+  if (format.indexOf('ss') > -1) {
+    format = format.replace('ss', padZero(seconds));
   } else {
     milliseconds += seconds * 1000;
   }
 
-  return format.replace("SSS", padZero(milliseconds, 3));
+  return format.replace('SSS', padZero(milliseconds, 3));
 }

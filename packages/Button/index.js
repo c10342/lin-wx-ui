@@ -1,17 +1,17 @@
-import { canIUseFormFieldButton } from "../common/version";
-import { button } from "../behaviors/button";
-import { openType } from "../behaviors/open-type";
+import { canIUseFormFieldButton } from '../common/version';
+import ButtonBehavior from '../behaviors/button';
+import OpenTypeBehavior from '../behaviors/open-type';
 
 const behaviors = [];
-behaviors.push(button);
-behaviors.push(openType);
+behaviors.push(ButtonBehavior);
+behaviors.push(OpenTypeBehavior);
 // 使用内置 behaviors
 // 对于 form 组件，目前可以自动识别下列内置 behaviors:
 // wx://form-field
 // wx://form-field-group
 // wx://form-field-button
 if (canIUseFormFieldButton()) {
-  behaviors.push("wx://form-field-button");
+  behaviors.push('wx://form-field-button');
 }
 
 Component({
@@ -19,10 +19,10 @@ Component({
     addGlobalClass: true,
   },
   externalClasses: [
-    "custom-class",
-    "loading-class",
-    "icon-class",
-    "hover-class",
+    'custom-class',
+    'loading-class',
+    'icon-class',
+    'hover-class',
   ],
   behaviors,
   /**
@@ -40,8 +40,8 @@ Component({
     },
     type: {
       type: String,
-      value: "default",
-      options: ["primary", "success", "info", "warning", "danger", "default"],
+      value: 'default',
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'default'],
     },
     plain: {
       type: Boolean,
@@ -57,14 +57,14 @@ Component({
     },
     icon: {
       type: String,
-      value: "",
+      value: '',
     },
     iconSize: {
       type: String,
     },
     size: {
       type: String,
-      value: "default",
+      value: 'default',
     },
     loading: {
       type: Boolean,
@@ -75,16 +75,16 @@ Component({
     dataset: null,
     color: {
       type: String,
-      value: "",
+      value: '',
       observer(color) {
-        let style = "";
+        let style = '';
         if (color) {
-          style += `color: ${this.data.plain ? color : "white"};`;
+          style += `color: ${this.data.plain ? color : 'white'};`;
           if (!this.data.plain) {
             style += `background: ${color};`;
           }
-          if (color.indexOf("gradient") !== -1) {
-            style += "border: none;";
+          if (color.indexOf('gradient') !== -1) {
+            style += 'border: none;';
           } else {
             style += `border-color:${color};`;
           }
@@ -112,7 +112,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    baseStyle: "",
+    baseStyle: '',
   },
 
   /**
@@ -122,7 +122,7 @@ Component({
     onClick() {
       const { disabled, loading } = this.properties;
       if (!disabled && !loading) {
-        this.triggerEvent("click");
+        this.triggerEvent('click');
       }
     },
     // bindGetUserInfo(event) {

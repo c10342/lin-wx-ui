@@ -1,4 +1,4 @@
-import { Link } from "../behaviors/link";
+import LinkBehavior from '../behaviors/link';
 
 Component({
   options: {
@@ -6,26 +6,26 @@ Component({
     multipleSlots: true,
   },
   externalClasses: [
-    "custom-class",
-    "thumb-class",
-    "tag-class",
-    "image-class",
-    "content-class",
-    "title-class",
-    "desc-class",
-    "price-class",
-    "currency-class",
-    "integer-class",
-    "decimal-class",
-    "origin-price-class",
-    "num-class",
+    'custom-class',
+    'thumb-class',
+    'tag-class',
+    'image-class',
+    'content-class',
+    'title-class',
+    'desc-class',
+    'price-class',
+    'currency-class',
+    'integer-class',
+    'decimal-class',
+    'origin-price-class',
+    'num-class',
   ],
-  behaviors: [Link],
+  behaviors: [LinkBehavior],
   properties: {
     thumb: String,
     thumbMode: {
       type: String,
-      value: "aspectFit",
+      value: 'aspectFit',
     },
     title: String,
     desc: String,
@@ -35,21 +35,21 @@ Component({
     },
     price: {
       type: [String, Number],
-      observer: "updatePrice",
+      observer: 'updatePrice',
     },
     originPrice: {
       type: [String, Number],
     },
     currency: {
       type: String,
-      value: "¥",
+      value: '¥',
     },
     thumbLink: String,
     lazyLoad: Boolean,
   },
   data: {
-    integer: "0",
-    decimal: "00",
+    integer: '0',
+    decimal: '00',
   },
   methods: {
     updatePrice() {
@@ -58,13 +58,13 @@ Component({
     },
     handelPrice(price) {
       const priceObj = {
-        integer: "0",
-        decimal: "00",
+        integer: '0',
+        decimal: '00',
       };
       price = price.toString();
-      const priceArr = price.split(".");
+      const priceArr = price.split('.');
       priceObj.integer = priceArr[0];
-      let decimal = priceArr[1] || "00";
+      let decimal = priceArr[1] || '00';
       if (decimal.length < 2) {
         decimal = `${decimal}0`;
       }
@@ -76,9 +76,9 @@ Component({
       this.jump(thumbLink);
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

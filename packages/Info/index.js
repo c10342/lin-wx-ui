@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     dot: Boolean,
     info: {
@@ -13,9 +13,9 @@ Component({
   },
   data: {},
   methods: {},
-  created: function() {},
-  attached: function() {},
-  ready: function() {},
-  moved: function() {},
-  detached: function() {},
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

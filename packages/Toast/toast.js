@@ -1,14 +1,14 @@
-import { isObj } from "../common/utils";
+import { isObj } from '../common/utils';
 
 const defaultOptions = {
-  type: "text",
+  type: 'text',
   mask: false,
   show: true,
   zIndex: 1000,
   duration: 2000,
-  position: "middle",
+  position: 'middle',
   forbidClick: false,
-  selector: "#lin-toast",
+  selector: '#lin-toast',
 };
 
 let queue = [];
@@ -31,7 +31,7 @@ function Toast(options) {
   const toast = context.selectComponent(options.selector);
 
   if (!toast) {
-    console.warn("未找到 lin-toast 节点，请确认 selector 及 context 是否正确");
+    console.warn('未找到 lin-toast 节点，请确认 selector 及 context 是否正确');
     return;
   }
 
@@ -57,16 +57,14 @@ function Toast(options) {
   return toast;
 }
 
-const createMethod = (type) => (options) => {
-  return Toast({
-    type,
-    ...parseOptions(options),
-  });
-};
+const createMethod = (type) => (options) => Toast({
+  type,
+  ...parseOptions(options),
+});
 
-Toast.loading = createMethod("loading");
-Toast.success = createMethod("success");
-Toast.fail = createMethod("fail");
+Toast.loading = createMethod('loading');
+Toast.success = createMethod('success');
+Toast.fail = createMethod('fail');
 
 Toast.clear = () => {
   queue.forEach((toast) => {

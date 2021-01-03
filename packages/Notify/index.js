@@ -1,16 +1,16 @@
-import { WHITE } from "../common/color";
+import { WHITE } from '../common/color';
 
 Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true,
   },
-  externalClasses: ["custom-class"],
+  externalClasses: ['custom-class'],
   properties: {
     type: {
       type: String,
-      value: "danger",
-      options: ["success", "primary", "warning", "danger", "info"],
+      value: 'danger',
+      options: ['success', 'primary', 'warning', 'danger', 'info'],
     },
     message: String,
     duration: {
@@ -23,7 +23,7 @@ Component({
     },
     top: {
       type: [String, Number],
-      value: "0px",
+      value: '0px',
     },
     background: String,
     zIndex: {
@@ -73,13 +73,13 @@ Component({
       }
     },
   },
-  created: function() {},
-  attached: function() {},
-  ready: function() {
+  created() {},
+  attached() {},
+  ready() {
     this.timer = null;
   },
-  moved: function() {},
-  detached: function() {
+  moved() {},
+  detached() {
     if (this.timer) {
       clearTimeout(this.timer);
     }
