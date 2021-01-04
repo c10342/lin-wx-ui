@@ -3,37 +3,36 @@
 .lin-dropdown-item-wrapper {
   position: fixed;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   overflow: hidden;
 }
 
 .lin-dropdown-item {
+  position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  box-sizing: border-box;
   width: 100%;
   padding: 20rpx 32rpx;
   overflow: hidden;
-  color: $gray-8;
   font-size: $font-size-5;
   line-height: 48rpx;
+  color: $gray-8;
   background-color: $white;
-  position: relative;
 
   & + .lin-dropdown-item {
     &::before {
       position: absolute;
-      box-sizing: border-box;
-      content: " ";
-      pointer-events: none;
-      right: 32rpx;
       top: 0;
+      right: 32rpx;
       left: 32rpx;
+      box-sizing: border-box;
+      pointer-events: none;
+      content: " ";
       border-bottom: 1px solid $gray-3;
     }
   }

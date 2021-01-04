@@ -46,17 +46,18 @@
 }
 
 .lin-dialog-button {
-  flex: 1;
-  font-size: $font-size-7;
-  background-color: $white;
-  height: 96rpx;
-  border-top: 1px solid $gray-3;
-  border-radius: 0;
   box-sizing: border-box;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 96rpx;
+  font-size: $font-size-7;
+  background-color: $white;
+  border-top: 1px solid $gray-3;
+  border-radius: 0;
+
   &::after {
     border: none;
   }
@@ -80,8 +81,8 @@
 }
 
 .lin-dialog-button-round-button {
-  border-radius: 9999px;
   border: 1px solid $gray-3;
+  border-radius: 9999px;
 }
 
 .lin-dialog-cancel {

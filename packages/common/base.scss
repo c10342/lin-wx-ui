@@ -2,15 +2,17 @@
 
 .lin-border-top {
   position: relative;
+
   &::before {
-    top: 0;
     position: absolute;
-    left: 0;
+    top: 0;
     right: 0;
-    content: "";
+    left: 0;
     height: 1px;
+    content: "";
     background-color: $gray-3;
   }
+
   &-hairline {
     &::before {
       transform: scaleY(0.5);
@@ -20,15 +22,17 @@
 
 .lin-border-bottom {
   position: relative;
+
   &::after {
-    bottom: 0;
     position: absolute;
-    left: 0;
     right: 0;
-    content: "";
+    bottom: 0;
+    left: 0;
     height: 1px;
+    content: "";
     background-color: $gray-3;
   }
+
   &-hairline {
     &::after {
       transform: scaleY(0.5);
@@ -38,46 +42,50 @@
 
 .lin-border-bottom-top {
   position: relative;
+
   &::before {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 0;
+    right: 0;
     bottom: 0;
+    left: 0;
     content: "";
-    border-bottom: 1px solid #ebedf0;
     border-top: 1px solid #ebedf0;
+    border-bottom: 1px solid #ebedf0;
   }
+
   &-hairline {
     &::before {
-      transform: scaleY(0.5);
-      left: 50%;
-      right: 50%;
       top: 50%;
+      right: 50%;
       bottom: 50%;
+      left: 50%;
+      transform: scaleY(0.5);
     }
   }
 }
 
 .lin-border-surround {
   position: relative;
+
   &::after {
     position: absolute;
-    box-sizing: border-box;
-    content: " ";
-    pointer-events: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    content: " ";
     border: 1px solid $gray-3;
   }
+
   &-hairline {
-    transform: scale(0.5);
     top: -50%;
     right: -50%;
     bottom: -50%;
     left: -50%;
+    transform: scale(0.5);
   }
 }
 
@@ -97,8 +105,8 @@
 
 .lin-clearfix {
   &::after {
-    content: "";
     display: table;
     clear: both;
+    content: "";
   }
 }

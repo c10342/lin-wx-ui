@@ -5,9 +5,9 @@
   box-sizing: border-box;
   padding: 40rpx 24rpx;
   overflow: hidden;
-  color: $gray-8;
   font-size: 28rpx;
   line-height: 40rpx;
+  color: $gray-8;
   background-color: $gray-1;
 }
 
@@ -18,18 +18,19 @@
 }
 
 .lin-sidebar-item-active {
-  background-color: $white;
-  color: $gray-8;
   font-weight: 500;
+  color: $gray-8;
+  background-color: $white;
+
   &::before {
     position: absolute;
     top: 50%;
     left: 0;
     width: 8rpx;
     height: 32rpx;
+    content: "";
     background-color: $red;
     transform: translateY(-50%);
-    content: "";
   }
 }
 

@@ -4,10 +4,10 @@
 .lin-nav-bar {
   position: relative;
   z-index: 1;
-  background-color: $white;
-  height: 92rpx;
   display: flex;
   align-items: center;
+  height: 92rpx;
+  background-color: $white;
 }
 
 .lin-nav-bar-fixed {
@@ -37,17 +37,17 @@
 }
 
 .lin-nav-bar-left-content {
-  color:$primary;
+  color: $primary;
 }
 
 .lin-nav-bar-text {
-  color:$primary;
+  color: $primary;
 }
 
 .lin-nav-bar-title {
   max-width: 60%;
   margin: 0 auto;
-  color: $gray-8;
-  font-weight: 500;
   font-size: $font-size-7;
+  font-weight: 500;
+  color: $gray-8;
 }

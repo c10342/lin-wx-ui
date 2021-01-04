@@ -9,10 +9,12 @@ $round: 40rpx !default;
   background-color: $white;
   transition: transform 0.3s;
 }
+
 .lin-popup-center {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+
   &.lin-popup-round {
     border-radius: $round;
   }
@@ -22,6 +24,7 @@ $round: 40rpx !default;
   top: 0;
   left: 0;
   width: 100%;
+
   &.lin-popup-round {
     border-radius: 0 0 $round $round;
   }
@@ -31,6 +34,7 @@ $round: 40rpx !default;
   top: 50%;
   right: 0;
   transform: translate3d(0, -50%, 0);
+
   &.lin-popup-round {
     border-radius: $round 0 0 $round;
   }
@@ -40,6 +44,7 @@ $round: 40rpx !default;
   bottom: 0;
   left: 0;
   width: 100%;
+
   &.lin-popup-round {
     border-radius: $round $round 0 0;
   }
@@ -49,6 +54,7 @@ $round: 40rpx !default;
   top: 50%;
   left: 0;
   transform: translate3d(0, -50%, 0);
+
   &.lin-popup-round {
     border-radius: 0 $round $round 0;
   }
@@ -103,23 +109,25 @@ $round: 40rpx !default;
 
 .lin-popup-close {
   &-top-left {
-    left: 20rpx;
     top: 20rpx;
+    left: 20rpx;
   }
+
   &-top-right {
     top: 20rpx;
     right: 20rpx;
   }
+
   &-bottom-right {
-    bottom: 20rpx;
     right: 20rpx;
+    bottom: 20rpx;
   }
+
   &-bottom-left {
     bottom: 20rpx;
     left: 20rpx;
   }
 }
-
 
 .lin-scale-enter-active,
 .lin-scale-leave-active {
@@ -128,10 +136,9 @@ $round: 40rpx !default;
 
 .lin-scale-enter,
 .lin-scale-leave-to {
-  transform: translate3d(-50%, -50%, 0) scale(0.7);
   opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
 }
-
 
 .lin-fade-enter-active,
 .lin-fade-leave-active {
@@ -142,4 +149,3 @@ $round: 40rpx !default;
 .lin-fade-leave-to {
   opacity: 0;
 }
-

@@ -13,17 +13,17 @@
   align-items: center;
   height: 80rpx;
   padding: 0 32rpx;
-  color: $warning;
   font-size: $font-size-5;
   line-height: 80rpx;
+  color: $warning;
   background-color: #fffbe8;
 }
 
 .lin-notice-bar-wrapper {
-  flex: 1;
-  overflow: hidden;
   position: relative;
+  flex: 1;
   height: 100%;
+  overflow: hidden;
 }
 
 .lin-notice-bar-content {
@@ -33,24 +33,25 @@
 .lin-notice-bar-scroll {
   white-space: nowrap;
   animation-name: lin-notice-bar-move;
-  animation-delay: 0s;
   animation-duration: 10s;
-  animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
 }
 
 .lin-notice-bar-wrap {
   height: auto;
-  line-height: 48rpx;
   padding: 16rpx 32rpx;
+  line-height: 48rpx;
+
   .lin-notice-bar-wrapper {
-    overflow: inherit;
     height: auto;
+    overflow: inherit;
   }
 
   .lin-notice-bar-content {
-    white-space: inherit;
     position: relative;
+    white-space: inherit;
   }
 }
 

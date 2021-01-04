@@ -1,15 +1,17 @@
 @import "../../src/style/var.scss";
+
 .lin-goods-action {
-  display: flex;
-  flex-direction: row;
-  background-color: $white;
-  height: 100rpx;
-  align-items: center;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100rpx;
   padding-right: 10rpx;
+  background-color: $white;
+
   lin-goods-action-button {
-    flex: 1;
     box-sizing: border-box;
+    flex: 1;
   }
 }

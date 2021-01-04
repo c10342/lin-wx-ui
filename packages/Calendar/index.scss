@@ -7,11 +7,11 @@
 }
 
 .lin-calendar-button-group {
-  padding-top: 20rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-top: 20rpx;
 }
 
 .lin-calendar-button {
@@ -20,9 +20,9 @@
 
 .lin-calendar-title {
   height: 88rpx;
+  font-size: $font-size-8;
   line-height: 88rpx;
   text-align: center;
-  font-size: $font-size-8;
 }
 
 .lin-calendar-leftarrow {
@@ -39,8 +39,8 @@
   align-items: center;
   width: 100%;
   height: 88rpx;
-  line-height: 88rpx;
   font-size: $font-size-8;
+  line-height: 88rpx;
 }
 
 .lin-calendar-date {
@@ -54,15 +54,15 @@
 }
 
 .lin-calendar-panel-label {
+  position: relative;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 15rpx;
   margin: 5rpx;
-  box-sizing: border-box;
-  position: relative;
-  flex: 1;
   font-size: $font-size-7;
 }
 
@@ -71,14 +71,14 @@
 }
 
 .lin-calendar-disabled {
+  color: $gray-5;
   cursor: not-allowed;
   background-color: $gray-1;
   border-color: $gray-1;
-  color: $gray-5;
 }
 
 .lin-calendar-selected {
-  background-color: $primary;
   color: $white;
+  background-color: $primary;
   border-radius: 8rpx;
 }

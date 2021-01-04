@@ -23,8 +23,9 @@
 }
 
 .lin-radio-disabled {
-  cursor: not-allowed;
   color: $gray-5;
+  cursor: not-allowed;
+
   .lin-radio-icon-wrapper {
     color: $gray-5;
   }

@@ -24,21 +24,22 @@
 
 .lin-collapse-item-border {
   position: relative;
+
   &::after {
-    content: "";
     position: absolute;
-    bottom: 0;
-    height: 1px;
-    left: 32rpx;
     right: 32rpx;
+    bottom: 0;
+    left: 32rpx;
+    height: 1px;
+    content: "";
     background-color: #ebedf0;
   }
 }
 
 .lin-collapse-item-content {
   padding: 24rpx 32rpx;
-  color: #969799;
   font-size: 28rpx;
   line-height: 1.5;
+  color: #969799;
   background-color: #fff;
 }

@@ -1,4 +1,5 @@
 @import "../../src/style/var.scss";
+
 .lin-uploader {
   display: flex;
   flex-direction: row;
@@ -28,25 +29,25 @@
 }
 
 .lin-uploader-preview-delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 28rpx;
   height: 28rpx;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
   transform: scale(0.6);
 }
 
 .lin-uploader-mask {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,8 +57,8 @@
 }
 
 .lin-uploader-message {
-  margin-top: 12rpx;
   padding: 0 8rpx;
+  margin-top: 12rpx;
   font-size: $font-size-3;
   line-height: 28rpx;
   color: $white;
@@ -74,35 +75,36 @@
 .lin-uploader-file-name {
   box-sizing: border-box;
   width: 100%;
-  margin-top: 16rpx;
   padding: 0 8rpx;
-  color: $gray-7;
+  margin-top: 16rpx;
   font-size: $font-size-3;
+  color: $gray-7;
   text-align: center;
 }
 
 .lin-uploader-upload {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $gray-1;
-  box-sizing: border-box;
   width: 80px;
   height: 80px;
   margin: 0 8px 8px 0;
+  background-color: $gray-1;
 }
 
 .lin-uploader-uploadText {
   margin-top: 8px;
-  color: $gray-6;
   font-size: 24rpx;
+  color: $gray-6;
 }
 
 .lin-uploader-slot {
   &:empty {
     display: none;
   }
+
   &:not(:empty) + .lin-uploader-upload {
     display: none !important;
   }

@@ -4,16 +4,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: $gray-8;
+  height: 60rpx;
   font-size: $font-size-7;
   line-height: 60rpx;
-  height: 60rpx;
+  color: $gray-8;
 }
 
 .lin-checkbox-icon-wrapper {
   margin-right: 14rpx;
 }
-
 
 .lin-checkbox-checked {
   .lin-checkbox-icon {
@@ -22,6 +21,6 @@
 }
 
 .lin-checkbox-disabled {
-  cursor: not-allowed;
   color: $gray-5;
+  cursor: not-allowed;
 }

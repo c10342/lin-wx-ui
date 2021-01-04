@@ -1,16 +1,16 @@
 @import '../../src/style/var.scss';
 
 .lin-index-anchor-index {
+  position: relative;
   z-index: 1;
   box-sizing: border-box;
-  padding: 0 32rpx;
-  color: $gray-8;
-  font-weight: 500;
-  font-size: 28rpx;
-  line-height: 64rpx;
-  background-color: transparent;
   width: 100%;
-  position: relative;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 64rpx;
+  color: $gray-8;
+  background-color: transparent;
 }
 
 .lin-index-anchor-index-fixed {
@@ -18,6 +18,6 @@
 }
 
 .lin-index-anchor-index-active {
-  background-color: $white;
   color: $red;
+  background-color: $white;
 }

@@ -1,11 +1,11 @@
 @import '../../src/style/var.scss';
 
 .lin-field-input {
-  text-align: left;
   flex: 1;
+  width: 0;
   margin-right: 10rpx;
   color: $gray-8;
-  width: 0;
+  text-align: left;
 }
 
 .lin-cell-title {
@@ -15,9 +15,11 @@
 .lin-field-input-align-left {
   text-align-last: left;
 }
+
 .lin-field-input-align-center {
   text-align: center;
 }
+
 .lin-field-input-align-right {
   text-align: right;
 }
@@ -38,9 +40,9 @@
 }
 
 .lin-field-errorMessage {
-  color: $red;
-  font-size: $font-size-3;
-  text-align: left;
-  margin-top: 10rpx;
   box-sizing: border-box;
+  margin-top: 10rpx;
+  font-size: $font-size-3;
+  color: $red;
+  text-align: left;
 }

@@ -1,11 +1,11 @@
 @import "../../src/style/var.scss";
 
 .lin-image-error {
-  background-color: $gray-2;
-  color: $gray-7;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: $font-size-5;
+  color: $gray-7;
+  background-color: $gray-2;
 }

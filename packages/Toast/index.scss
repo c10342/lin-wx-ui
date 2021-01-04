@@ -1,19 +1,20 @@
 @import "../../src/style/var.scss";
+
 .lin-toast {
   position: fixed;
+  z-index: 101;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 240rpx;
   min-width: 240rpx;
   max-width: 70%;
-  color: $white;
+  min-height: 240rpx;
   font-size: $font-size-5;
   line-height: 40rpx;
+  color: $white;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 16rpx;
-  z-index: 101;
 }
 
 .lin-toast-middle {
@@ -21,11 +22,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .lin-toast-top {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
+
 .lin-toast-bottom {
   bottom: 0;
   left: 50%;
@@ -39,23 +42,23 @@
 
 .lin-toast-only-text {
   width: fit-content;
-  padding: 16rpx 24rpx;
-  min-height: 0;
   min-width: 192rpx;
+  min-height: 0;
+  padding: 16rpx 24rpx;
 }
 
 .lin-toast-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72rpx;
   width: 72rpx;
+  height: 72rpx;
 }
 
 .lin-toast-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72rpx;
   width: 72rpx;
+  height: 72rpx;
 }

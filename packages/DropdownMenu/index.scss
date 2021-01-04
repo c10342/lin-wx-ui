@@ -1,20 +1,19 @@
 @import '../../src/style/var.scss';
 
 .lin-dropdown-menu-bar-wrapper {
+  position: relative;
+  z-index: 11;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   height: 96rpx;
   background-color: #fff;
   box-shadow: 0 4rpx 24rpx rgba(100, 101, 102, 0.12);
-  position: relative;
-  z-index: 11;
 }
 
 .lin-dropdown-menu-bar-item {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -29,28 +28,29 @@
   box-sizing: border-box;
   max-width: 100%;
   padding: 0 16rpx;
-  color: $gray-8;
   font-size: $font-size-6;
   line-height: 44rpx;
+  color: $gray-8;
 
   &::after {
     position: absolute;
     top: 50%;
     right: -4px;
     margin-top: -5px;
+    content: "";
     border: 3px solid;
     border-color: transparent transparent $gray-4 $gray-4;
-    transform: rotate(-45deg);
     opacity: 0.8;
-    content: "";
+    transform: rotate(-45deg);
   }
 }
 
 .lin-dropdown-menu-title-active {
   color: $red;
+
   &::after {
     margin-top: -1px;
-    transform: rotate(135deg);
     border-color: transparent transparent currentColor currentColor;
+    transform: rotate(135deg);
   }
 }

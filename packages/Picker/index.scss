@@ -11,13 +11,13 @@
 .lin-picker-frame {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   left: 0;
+  box-sizing: border-box;
   width: 100%;
   pointer-events: none;
-  box-sizing: border-box;
   border-top: 1px solid $gray-3;
   border-bottom: 1px solid $gray-3;
+  transform: translateY(-50%);
 }
 
 .lin-picker-mask {
@@ -27,7 +27,9 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
+  pointer-events: none;
+  background-image:
+    linear-gradient(
       180deg,
       hsla(0, 0%, 100%, 0.9),
       hsla(0, 0%, 100%, 0.4)
@@ -36,15 +38,14 @@
   background-repeat: no-repeat;
   background-position: top, bottom;
   transform: translateZ(0);
-  pointer-events: none;
 }
 
 .lin-picker-toolbar {
-  height: 44px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 44px;
   background-color: $white;
 }
 
@@ -52,15 +53,15 @@
   height: 100%;
   padding: 0 16px;
   font-size: $font-size-5;
-  cursor: grab;
-  color: $gray-6;
   line-height: 44px;
+  color: $gray-6;
+  cursor: grab;
 }
 
 .lin-picker-title {
   max-width: 50%;
-  font-weight: 500;
   font-size: $font-size-7;
+  font-weight: 500;
   line-height: 44px;
   text-align: center;
 }
@@ -69,14 +70,15 @@
   height: 100%;
   padding: 0 16px;
   font-size: $font-size-5;
-  cursor: grab;
-  color: $gray-7;
   line-height: 44px;
+  color: $gray-7;
+  cursor: grab;
 }
 
 .lin-picker-column-wrapper {
   display: flex;
   flex-direction: row;
+
   .lin-picker-column {
     flex: 1;
     flex-shrink: 0;
@@ -87,12 +89,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($white, 0.9);
   z-index: 3;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($white, 0.9);
 }

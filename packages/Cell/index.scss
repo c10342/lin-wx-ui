@@ -1,20 +1,22 @@
 @import "../../src/style/var.scss";
 
 .lin-cell {
-  background-color: $white;
-  padding: 22rpx 32rpx;
-  box-sizing: border-box;
   position: relative;
+  box-sizing: border-box;
+  padding: 22rpx 32rpx;
+  background-color: $white;
+
   &::after {
     position: absolute;
-    box-sizing: border-box;
-    content: " ";
-    pointer-events: none;
     right: 32rpx;
-    bottom: 0px;
+    bottom: 0;
     left: 32rpx;
-    border-bottom: 0px solid $gray-3;
+    box-sizing: border-box;
+    pointer-events: none;
+    content: " ";
+    border-bottom: 0 solid $gray-3;
   }
+
   &.lin-cell-large {
     padding-top: 26rpx;
     padding-bottom: 26rpx;
@@ -42,10 +44,10 @@
 }
 
 .lin-cell-title {
+  width: 0;
+  margin-right: 10rpx;
   color: $gray-8;
   text-align: left;
-  margin-right: 10rpx;
-  width: 0;
 }
 
 .lin-cell-title-icon {
@@ -53,10 +55,10 @@
 }
 
 .lin-cell-value {
+  flex: 1;
+  margin-left: 10rpx;
   color: $gray-7;
   text-align: right;
-  margin-left: 10rpx;
-  flex: 1;
 }
 
 .lin-cell-value-icon {
@@ -64,22 +66,22 @@
 }
 
 .lin-cell-content {
-  color: $gray-7;
-  font-size: $font-size-3;
   margin-top: 10rpx;
+  font-size: $font-size-3;
+  color: $gray-7;
 }
 
 .lin-cell-required {
   &::before {
-    content: "*";
     position: absolute;
     left: 8px;
-    color: $red;
     font-size: $font-size-5;
+    color: $red;
+    content: "*";
   }
 }
 
 .lin-cell-item-value {
-  text-align: right;
   flex: 1;
+  text-align: right;
 }

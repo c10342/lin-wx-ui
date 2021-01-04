@@ -1,36 +1,36 @@
 
 @import '../../src/style/var.scss';
 
-.lin-share-sheet-header{
-    padding: 24rpx 32rpx 8rpx;
-    text-align: center;
+.lin-share-sheet-header {
+  padding: 24rpx 32rpx 8rpx;
+  text-align: center;
 }
 
-.lin-share-sheet-title{
-    margin-top: 16rpx;
-    color: $gray-8;
-    font-weight: normal;
-    font-size: $font-size-5;
-    line-height: 40rpx;
+.lin-share-sheet-title {
+  margin-top: 16rpx;
+  font-size: $font-size-5;
+  font-weight: normal;
+  line-height: 40rpx;
+  color: $gray-8;
 }
 
-.lin-share-sheet-description{
-    margin-top: 16rpx;
-    color: $gray-6;
-    font-size: $font-size-3;
-    line-height: 32rpx;
+.lin-share-sheet-description {
+  margin-top: 16rpx;
+  font-size: $font-size-3;
+  line-height: 32rpx;
+  color: $gray-6;
 }
 
-.lin-share-sheet-cancel{
-    &::before{
-        display: block;
+.lin-share-sheet-cancel {
+  &::before {
+    display: block;
     height: 16rpx;
-    background-color: $gray-1;
     content: ' ';
-    }
-    font-size: $font-size-7;
-    line-height: 96rpx;
-    text-align: center;
-    background: $white;
-}
+    background-color: $gray-1;
+  }
 
+  font-size: $font-size-7;
+  line-height: 96rpx;
+  text-align: center;
+  background: $white;
+}

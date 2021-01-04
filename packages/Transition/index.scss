@@ -25,26 +25,26 @@
 
 .lin-fade-up-enter,
 .lin-fade-up-leave-to {
-  transform: translate3d(0, 100%, 0);
   opacity: 0;
+  transform: translate3d(0, 100%, 0);
 }
 
 .lin-fade-down-enter,
 .lin-fade-down-leave-to {
-  transform: translate3d(0, -100%, 0);
   opacity: 0;
+  transform: translate3d(0, -100%, 0);
 }
 
 .lin-fade-left-enter,
 .lin-fade-left-leave-to {
-  transform: translate3d(-100%, 0, 0);
   opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
 
 .lin-fade-right-enter,
 .lin-fade-right-leave-to {
-  transform: translate3d(100%, 0, 0);
   opacity: 0;
+  transform: translate3d(100%, 0, 0);
 }
 
 .lin-slide-up-enter-active,

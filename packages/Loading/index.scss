@@ -5,6 +5,7 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -19,12 +20,15 @@
 
 .lin-loading-row {
   flex-direction: row;
+
   .lin-loading-text {
     margin-left: 5px;
   }
 }
+
 .lin-loading-col {
   flex-direction: column;
+
   .lin-loading-text {
     margin-top: 5px;
   }
@@ -33,8 +37,8 @@
 .lin-loading-spinner {
   width: 16px;
   height: 16px;
-  border-width: 1px;
   border-style: solid;
+  border-width: 1px;
   border-left-color: transparent;
   border-radius: 50%;
   animation: roating 700ms linear infinite;
@@ -42,8 +46,8 @@
 
 @each $key, $val in $theme-color {
   .lin-loading-#{$key} {
-    border-right-color: $val;
     border-top-color: $val;
+    border-right-color: $val;
     border-bottom-color: $val;
   }
 }
