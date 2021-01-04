@@ -106,7 +106,6 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-standard": "^6.0.0",
     "cheerio": "^1.0.0-rc.3",
     "commitizen": "^4.2.2",
     "copy-webpack-plugin": "^6.0.3",
