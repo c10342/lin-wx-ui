@@ -1,0 +1,6 @@
+dist
+docs
+docs-dist
+node_modules
+examples
+src/fonts/iconfont.css

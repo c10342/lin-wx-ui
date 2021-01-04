@@ -31,7 +31,8 @@
     "create": "node ./build/create.js",
     "createComponent": "node ./build/createComponent.js",
     "lint": "eslint --ext .js packages",
-    "lint-fix": "eslint --fix --ext .js packages"
+    "lint-fix": "eslint --fix --ext .js packages",
+    "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -60,6 +61,12 @@
     "qiniu": "^7.3.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
     "vue": "^2.6.11",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.2.0",
