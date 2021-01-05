@@ -1,0 +1,17 @@
+{
+    "eslint.validate": [
+      {
+        "language": "html",
+        "autoFix": true
+      },
+      {
+        "language": "javascript",
+        "autoFix": true
+      },
+    ],
+    "eslint.autoFixOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    }
+  }
