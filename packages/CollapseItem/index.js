@@ -1,19 +1,19 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'content-class'],
   relations: {
     '../Collapse/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     name: null,
@@ -24,20 +24,20 @@ Component({
     disabled: Boolean,
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     isLink: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     expanded: false,
     index: -1,
-    animation: null,
+    animation: null
   },
   methods: {
-    updateExpanded() {
+    updateExpanded () {
       if (!this.parent) {
         return Promise.resolve();
       }
@@ -59,7 +59,7 @@ Component({
       }
       this.setData({ index, expanded });
     },
-    updateStyle(expanded) {
+    updateStyle (expanded) {
       const { inited } = this;
       const query = this.createSelectorQuery();
       query.select('.lin-collapse-item-content').boundingClientRect();
@@ -72,7 +72,7 @@ Component({
             myAnimation.height('auto').step();
           } else {
             myAnimation.height(height).step({
-              duration: inited ? 300 : 1,
+              duration: inited ? 300 : 1
             });
           }
           this.setData({ animation: myAnimation.export() });
@@ -82,7 +82,7 @@ Component({
         this.setData({ animation: myAnimation.export() });
       });
     },
-    onClick() {
+    onClick () {
       const { expanded } = this.data;
       const { name, disabled } = this.properties;
       if (disabled) {
@@ -91,19 +91,19 @@ Component({
       const index = this.parent.children.indexOf(this);
       const currentName = name == null ? index : name;
       this.parent.switch(currentName, !expanded);
-    },
+    }
   },
-  created() {},
-  attached() {
+  created () {},
+  attached () {
     this.myAnimation = wx.createAnimation({
       duration: 0,
-      timingFunction: 'ease-in-out',
+      timingFunction: 'ease-in-out'
     });
   },
-  ready() {
+  ready () {
     this.updateExpanded();
     this.inited = true;
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

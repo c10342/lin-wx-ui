@@ -5,38 +5,38 @@ Component({
   relations: {
     '../RadioGroup/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   properties: {
     useIconSlot: Boolean,
     iconSize: {
       type: String,
-      value: '40rpx',
+      value: '40rpx'
     },
     shape: {
       type: String,
       options: ['round', 'square'],
-      value: shapeValue,
+      value: shapeValue
     },
     checkedColor: String,
     value: {
-      type: null,
+      type: null
     },
     disabled: Boolean,
     name: {
-      type: null,
+      type: null
     },
-    labelDisabled: Boolean,
+    labelDisabled: Boolean
   },
   observers: {
     'value,shape': function (value, shape) {
@@ -45,38 +45,38 @@ Component({
         iconName = `${iconName}-active`;
       }
       this.setData({
-        iconName,
+        iconName
       });
-    },
+    }
   },
   data: {
     iconName: shapeValue,
-    parentDisabled: false,
+    parentDisabled: false
   },
   methods: {
-    emitChange(value) {
+    emitChange (value) {
       const instance = this.parent || this;
       instance.triggerEvent('input', value);
       instance.triggerEvent('change', value);
     },
-    onIconClick() {
+    onIconClick () {
       const { disabled } = this.properties;
       const { parentDisabled } = this.data;
       if (!disabled && !parentDisabled) {
         this.emitChange(this.properties.name);
       }
     },
-    onLabelClick() {
+    onLabelClick () {
       const { disabled, labelDisabled } = this.properties;
       const { parentDisabled } = this.data;
       if (!disabled && !labelDisabled && !parentDisabled) {
         this.emitChange(this.properties.name);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

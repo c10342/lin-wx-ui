@@ -5,7 +5,7 @@ const getClassName = (name) => ({
   enter: `lin-${name}-enter lin-${name}-enter-active enter-class enter-active-class`,
   'enter-to': `lin-${name}-enter-to lin-${name}-enter-active enter-to-class enter-active-class`,
   leave: `lin-${name}-leave lin-${name}-leave-active leave-class leave-active-class`,
-  'leave-to': `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`,
+  'leave-to': `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`
 });
 const TransitionBehavior = (showDefaultValue) => Behavior({
   properties: {
@@ -13,32 +13,32 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
     show: {
       type: Boolean,
       value: showDefaultValue,
-      observer: 'observeShow',
+      observer: 'observeShow'
     },
     duration: {
       type: null,
       value: 300,
-      observer: 'observeDuration',
+      observer: 'observeDuration'
     },
     name: {
       type: String,
-      value: 'fade',
-    },
+      value: 'fade'
+    }
   },
   data: {
     type: '',
     inited: false,
     display: false,
     classes: '',
-    currentDuration: 0,
+    currentDuration: 0
   },
-  attached() {
+  attached () {
     if (this.properties.show) {
       this.enter();
     }
   },
   methods: {
-    observeShow(newVal, oldVal) {
+    observeShow (newVal, oldVal) {
       if (newVal === oldVal) {
         return;
       }
@@ -49,7 +49,7 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
       }
       // newVal ? this.enter() : this.leave();
     },
-    enter() {
+    enter () {
       const { duration, name } = this.properties;
       const classNames = getClassName(name);
       const currentDuration = isObj(duration) ? duration.enter : duration;
@@ -64,7 +64,7 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
             inited: true,
             display: true,
             classes: classNames.enter,
-            currentDuration,
+            currentDuration
           });
         })
         .then(nextTick)
@@ -73,12 +73,12 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
           this.transitionEnded = false;
           setTimeout(() => this.onTransitionEnd(), currentDuration);
           this.setData({
-            classes: classNames['enter-to'],
+            classes: classNames['enter-to']
           });
         })
         .catch(() => {});
     },
-    leave() {
+    leave () {
       if (!this.data.display) {
         return;
       }
@@ -94,7 +94,7 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
           this.triggerEvent('leave');
           this.setData({
             classes: classNames.leave,
-            currentDuration,
+            currentDuration
           });
         })
         .then(nextTick)
@@ -103,17 +103,17 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
           this.transitionEnded = false;
           setTimeout(() => this.onTransitionEnd(), currentDuration);
           this.setData({
-            classes: classNames['leave-to'],
+            classes: classNames['leave-to']
           });
         })
         .catch(() => {});
     },
-    checkStatus(status) {
+    checkStatus (status) {
       if (status !== this.status) {
         throw new Error(`incongruent status: ${status}`);
       }
     },
-    onTransitionEnd() {
+    onTransitionEnd () {
       if (this.transitionEnded) {
         return;
       }
@@ -123,8 +123,8 @@ const TransitionBehavior = (showDefaultValue) => Behavior({
       if (!show && display) {
         this.setData({ display: false });
       }
-    },
-  },
+    }
+  }
 });
 
 export default TransitionBehavior;

@@ -2,72 +2,72 @@ import TransitionBehavior from '../behaviors/transition';
 
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class'],
   behaviors: [TransitionBehavior(false)],
   properties: {
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     mask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     maskStyle: String,
     position: {
       type: String,
       value: 'center',
-      observer: 'observeClass',
+      observer: 'observeClass'
     },
     closeable: {
       type: Boolean,
-      value: false,
+      value: false
     },
     closeIcon: { type: String, value: 'close' },
     closeIconPosition: {
       type: String,
-      value: 'top-right',
+      value: 'top-right'
     },
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     closeIconSize: {
       type: String,
-      value: '40rpx',
+      value: '40rpx'
     },
     round: {
       type: Boolean,
-      value: false,
+      value: false
     },
     transition: {
       type: String,
-      observer: 'observeClass',
-    },
+      observer: 'observeClass'
+    }
   },
   data: {},
   methods: {
-    onMaskClick() {
+    onMaskClick () {
       this.triggerEvent('mask-click');
       if (this.properties.closeOnClickMask) {
         this.triggerEvent('close');
       }
     },
-    observeClass() {
+    observeClass () {
       const { position, transition } = this.properties;
       this.setData({ name: transition || position });
     },
-    onCloseClick() {
+    onCloseClick () {
       this.triggerEvent('close');
-    },
+    }
   },
-  created() {
+  created () {
     this.observeClass();
   },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

@@ -31,17 +31,17 @@ const compareDate = (time1, time2, type) => {
   const date2 = new Date(time2);
 
   const newDate1 = new Date(
-    date1.toLocaleDateString(),
+    date1.toLocaleDateString()
   );
   const newDate2 = new Date(
-    date2.toLocaleDateString(),
+    date2.toLocaleDateString()
   );
   const obj = {
     Equal: newDate1.getTime() === newDate2.getTime(),
     EqAndLt: newDate1 <= newDate2,
     EqAndGt: newDate1 >= newDate2,
     Lt: newDate1 < newDate2,
-    Gt: newDate1 > newDate2,
+    Gt: newDate1 > newDate2
   };
   return obj[type];
 };
@@ -58,7 +58,7 @@ export const isCurrentMonth = (time, currentTime) => {
   const date2 = new Date(currentTime);
 
   return (
-    date1.getFullYear() === date2.getFullYear()
-    && date1.getMonth() === date2.getMonth()
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth()
   );
 };

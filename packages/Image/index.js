@@ -1,74 +1,74 @@
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'image-class', 'error-class'],
   properties: {
     imageUrl: {
       type: Array,
       value: [],
-      observer() {
+      observer () {
         this.getImageSrc();
-      },
+      }
     },
     width: {
       type: String,
       value: '320px',
-      observer: 'setStyle',
+      observer: 'setStyle'
     },
     height: {
       type: String,
       value: '240px',
-      observer: 'setStyle',
+      observer: 'setStyle'
     },
     useErrorSlot: {
       type: Boolean,
-      value: false,
+      value: false
     },
     errorTip: {
       type: String,
-      value: '',
+      value: ''
     },
     radius: {
       type: String,
-      observer: 'setStyle',
+      observer: 'setStyle'
     },
     round: {
       type: String,
       value: false,
-      observer: 'setStyle',
+      observer: 'setStyle'
     },
     mode: {
       type: String,
-      value: 'scaleToFill',
+      value: 'scaleToFill'
     },
     webp: {
       type: Boolean,
-      value: false,
+      value: false
     },
     lazyLoad: {
       type: Boolean,
-      value: false,
+      value: false
     },
     showMenuByLongpress: {
       type: Boolean,
-      value: false,
-    },
+      value: false
+    }
   },
   data: {
     src: '',
     index: -1,
     errorMessage: [],
     isError: false,
-    viewStyle: '',
+    viewStyle: ''
   },
   methods: {
-    setStyle() {
+    setStyle () {
       'width:{{width}};height:{{height}};border-radius:{{round?"50%":radius}};';
 
       let style = '';
       const {
-        width, height, round, radius,
+        width, height, round, radius
       } = this.properties;
       if (width) {
         style += `width:${width};`;
@@ -83,7 +83,7 @@ Component({
       }
       this.setData({ viewStyle: style });
     },
-    getImageSrc() {
+    getImageSrc () {
       const val = this.properties.imageUrl;
       if (val.length > 0) {
         let index = this.data.index;
@@ -100,15 +100,15 @@ Component({
         this.setData({ isError: true });
       }
     },
-    onError(event) {
+    onError (event) {
       const errorMessage = this.data.errorMessage;
       errorMessage.push({
         index: this.data.index,
         src: this.data.src,
-        event,
+        event
       });
       this.setData({
-        errorMessage,
+        errorMessage
       });
       if (this.data.index === this.properties.imageUrl.length - 1) {
         this.setData({ isError: true });
@@ -117,12 +117,12 @@ Component({
         this.getImageSrc();
       }
     },
-    onLoad(event) {
+    onLoad (event) {
       this.triggerEvent('success', {
         index: this.data.index,
         src: this.data.src,
-        event,
+        event
       });
-    },
-  },
+    }
+  }
 });

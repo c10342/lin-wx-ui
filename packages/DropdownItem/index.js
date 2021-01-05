@@ -4,36 +4,36 @@ Component({
   relations: {
     '../DropdownMenu/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
         this.updateDataFromParent();
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'item-class'],
   properties: {
     value: {
       type: null,
-      observer: 'rerender',
+      observer: 'rerender'
     },
     title: {
       type: String,
-      observer: 'rerender',
+      observer: 'rerender'
     },
     options: {
       type: Array,
       value: [],
-      observer: 'rerender',
+      observer: 'rerender'
     },
     disabled: Boolean,
     titleClass: {
       type: String,
-      observer: 'rerender',
+      observer: 'rerender'
     },
-    popupStyle: String,
+    popupStyle: String
   },
   data: {
     wrapperStyle: '',
@@ -44,47 +44,47 @@ Component({
     duration: defaultProps.duration,
     direction: defaultProps.direction,
     mask: defaultProps.mask,
-    closeOnClickMask: defaultProps.closeOnClickMask,
+    closeOnClickMask: defaultProps.closeOnClickMask
   },
   methods: {
-    onOptionTap(event) {
+    onOptionTap (event) {
       const option = event.currentTarget.dataset.option;
       const { value } = option;
       const shouldEmitChange = this.properties.value !== value;
       this.triggerEvent('close');
       this.setData({
         transition: true,
-        showPopup: false,
+        showPopup: false
       });
       this.rerender();
       if (shouldEmitChange) {
         this.triggerEvent('change', value);
       }
     },
-    onOpen() {
+    onOpen () {
       this.triggerEvent('open');
     },
-    onClose() {
+    onClose () {
       this.triggerEvent('close');
     },
-    onOpened() {
+    onOpened () {
       this.triggerEvent('opended');
     },
-    onClosed() {
+    onClosed () {
       this.triggerEvent('closed');
       this.setData({ showWrapper: false, showPopup: false });
     },
-    rerender() {
+    rerender () {
       wx.nextTick(() => {
         if (this.parent) {
           this.parent.updateItemListData();
         }
       });
     },
-    onMaskClose() {
+    onMaskClose () {
       this.toggle();
     },
-    toggle(immediate = false) {
+    toggle (immediate = false) {
       const { showPopup } = this.data;
       if (showPopup) {
         this.hide(immediate);
@@ -92,58 +92,58 @@ Component({
         this.show(immediate);
       }
     },
-    hide(immediate = false) {
+    hide (immediate = false) {
       const { showPopup } = this.data;
       if (showPopup === false) {
         return;
       }
       this.setData({
         transition: !immediate,
-        showPopup: false,
+        showPopup: false
       });
       this.rerender();
     },
-    show(immediate = false) {
+    show (immediate = false) {
       const { showPopup } = this.data;
       if (showPopup === true) {
         return;
       }
       this.setData({
         showPopup: true,
-        transition: !immediate,
+        transition: !immediate
       });
       if (this.parent) {
         this.parent.getChildWrapperStyle().then((wrapperStyle) => {
           this.setData({
             wrapperStyle,
-            showWrapper: true,
+            showWrapper: true
           });
           this.rerender();
         });
       }
     },
-    updateDataFromParent() {
+    updateDataFromParent () {
       if (this.parent) {
         const {
           activeColor,
           duration,
           direction,
           mask,
-          closeOnClickMask,
+          closeOnClickMask
         } = this.parent.properties;
         this.setData({
           activeColor,
           duration,
           direction,
           mask,
-          closeOnClickMask,
+          closeOnClickMask
         });
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

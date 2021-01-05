@@ -4,7 +4,7 @@ const ROOT_ELEMENT = '.lin-sticky';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [
     pageScrollBehavior(function (event) {
@@ -12,46 +12,46 @@ Component({
         return;
       }
       this.onScroll(event);
-    }),
+    })
   ],
   externalClasses: ['custom-class', 'wrapper-class'],
   properties: {
     offsetTop: {
       type: Number,
       value: 0,
-      observer: 'onScroll',
+      observer: 'onScroll'
     },
     zIndex: {
       type: Number,
-      value: 99,
+      value: 99
     },
     disabled: {
       type: Boolean,
-      observer: 'onScroll',
+      observer: 'onScroll'
     },
     container: {
       type: null,
-      observer: 'onScroll',
+      observer: 'onScroll'
     },
     scrollTop: {
       type: null,
-      observer(val) {
+      observer (val) {
         this.onScroll({ scrollTop: val });
-      },
-    },
+      }
+    }
   },
   data: {
     fixed: false,
     transform: 0,
-    height: 0,
+    height: 0
   },
   methods: {
-    onScroll({ scrollTop } = {}) {
+    onScroll ({ scrollTop } = {}) {
       const { container, offsetTop, disabled } = this.properties;
       if (disabled) {
         this.setDataAfterDiff({
           fixed: false,
-          transform: 0,
+          transform: 0
         });
         return;
       }
@@ -65,19 +65,19 @@ Component({
             // 容器离开视区
               this.setDataAfterDiff({
                 fixed: false,
-                transform: wrapperContainer.height - root.height,
+                transform: wrapperContainer.height - root.height
               });
             } else if (offsetTop >= root.top) {
             // 容器粘性的位置
               this.setDataAfterDiff({
                 fixed: true,
                 height: root.height,
-                transform: 0,
+                transform: 0
               });
             } else {
               this.setDataAfterDiff({
                 fixed: false,
-                transform: 0,
+                transform: 0
               });
             }
           });
@@ -88,14 +88,14 @@ Component({
         if (offsetTop > root.top) {
           this.setDataAfterDiff({
             fixed: true,
-            height: root.height,
+            height: root.height
           });
         } else {
           this.setDataAfterDiff({ fixed: false });
         }
       });
     },
-    setDataAfterDiff(data) {
+    setDataAfterDiff (data) {
       wx.nextTick(() => {
         const diff = Object.keys(data).reduce((prev, key) => {
           if (data[key] !== this.properties[key]) {
@@ -108,11 +108,11 @@ Component({
 
         this.triggerEvent('scroll', {
           scrollTop: this.scrollTop,
-          isFixed: data.fixed || this.data.fixed,
+          isFixed: data.fixed || this.data.fixed
         });
       });
     },
-    getRect(element) {
+    getRect (element) {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query.select(element).boundingClientRect();
@@ -121,16 +121,16 @@ Component({
         });
       });
     },
-    getContainerRect() {
+    getContainerRect () {
       const nodeRef = this.properties.container();
       return new Promise((resolve) => {
         nodeRef.boundingClientRect(resolve).exec();
       });
-    },
+    }
   },
-  created() { },
-  attached() { },
-  ready() { },
-  moved() { },
-  detached() { },
+  created () { },
+  attached () { },
+  ready () { },
+  moved () { },
+  detached () { }
 });

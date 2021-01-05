@@ -4,80 +4,80 @@ import {
   isCurrentMonth,
   isEqual,
   isEqAndLt,
-  isEqAndGt,
+  isEqAndGt
 } from './utils';
 
 const nowDate = new Date().getTime();
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   properties: {
     show: {
       type: Boolean,
       value: false,
-      observer: 'handleShow',
+      observer: 'handleShow'
     },
     value: {
       type: String,
-      optionalTypes: [String, Number],
+      optionalTypes: [String, Number]
     },
     title: {
       type: String,
-      value: '日期选择',
+      value: '日期选择'
     },
     showTitle: {
       type: Boolean,
-      value: true,
+      value: true
     },
     showConfirm: {
       type: Boolean,
-      value: true,
+      value: true
     },
     confirmText: {
       type: String,
-      value: '确定',
+      value: '确定'
     },
     disabledConfirm: {
       type: Boolean,
-      value: false,
+      value: false
     },
     rowHeight: {
-      type: [String, Number],
+      type: [String, Number]
     },
     restText: {
       type: String,
-      value: '重置',
+      value: '重置'
     },
     showReset: {
       type: Boolean,
-      value: false,
+      value: false
     },
     disabledReset: {
       type: Boolean,
-      value: false,
+      value: false
     },
     disabledBeforeDate: {
       type: Number,
-      optionalTypes: [String, Number],
+      optionalTypes: [String, Number]
     },
     disabledAfterDate: {
       type: String,
-      optionalTypes: [String, Number],
+      optionalTypes: [String, Number]
     },
     disabledRangeDate: Array,
     disabledDate: Array,
     disabled: Boolean,
     poppable: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     daysList: ['日', '一', '二', '三', '四', '五', '六'],
     time: nowDate,
     visibeDaysList: [],
-    selectTime: '',
+    selectTime: ''
   },
   observers: {
     'time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled': function (
@@ -87,7 +87,7 @@ Component({
       disabledAfterDate,
       disabledRangeDate,
       disabledDate,
-      disabled,
+      disabled
     ) {
       const { year, month } = getYearMonthDay(time.date);
       //   本月1号的时间对象
@@ -105,21 +105,21 @@ Component({
           isCurrentMonth: isCurrentMonth(da, time.date),
           isSelected: selectTime && isEqual(da, selectTime.date),
           isDisabled:
-            disabled
-            || (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate))
-            || (disabledAfterDate && isEqAndGt(da, disabledAfterDate))
-            || (disabledRangeDate
-              && this.handleRangeDate(da, disabledRangeDate))
-            || (disabledDate && disabledDate.some((item) => isEqual(item, da))),
+            disabled ||
+            (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate)) ||
+            (disabledAfterDate && isEqAndGt(da, disabledAfterDate)) ||
+            (disabledRangeDate &&
+              this.handleRangeDate(da, disabledRangeDate)) ||
+            (disabledDate && disabledDate.some((item) => isEqual(item, da)))
         });
       }
       this.setData({
-        visibeDaysList: arr,
+        visibeDaysList: arr
       });
-    },
+    }
   },
   methods: {
-    handleRangeDate(date, disabledRangeDate) {
+    handleRangeDate (date, disabledRangeDate) {
       if (Array.isArray(disabledRangeDate) && disabledRangeDate.length !== 0) {
         if (disabledRangeDate.length === 1) {
           const d = new Date(disabledRangeDate[0]);
@@ -137,20 +137,20 @@ Component({
       }
       return false;
     },
-    handleShow(val) {
+    handleShow (val) {
       const { value } = this.properties;
       if (value && val) {
         const da = new Date(value);
         this.setData({
           selectTime: this.getVisibeTimeObj(da),
-          time: this.getTime(value),
+          time: this.getTime(value)
         });
       }
     },
-    onMaskClick() {
+    onMaskClick () {
       this.triggerEvent('mask-click');
     },
-    handleValue() {
+    handleValue () {
       let date = null;
       if (this.properties.value) {
         date = new Date(this.properties.value);
@@ -160,90 +160,90 @@ Component({
       return {
         label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
         date,
-        times: date.getTime(),
+        times: date.getTime()
       };
     },
-    onLabelClick(event) {
+    onLabelClick (event) {
       const { index } = event.target.dataset;
       const selectTime = this.data.visibeDaysList[index];
       if (
-        isEqual(selectTime.times, this.data.selectTime.times)
-        || selectTime.isDisabled
+        isEqual(selectTime.times, this.data.selectTime.times) ||
+        selectTime.isDisabled
       ) {
         return;
       }
       this.setData({
         selectTime,
-        time: this.getTime(selectTime.times),
+        time: this.getTime(selectTime.times)
       });
       this.triggerEvent('change', selectTime.times);
     },
-    prevMonth() {
+    prevMonth () {
       const date = new Date(this.data.time.times);
       date.setMonth(date.getMonth() - 1);
       this.setData({
-        time: this.getTime(date.getTime()),
+        time: this.getTime(date.getTime())
       });
       this.triggerEvent('prevMonth', date);
     },
-    nextMonth() {
+    nextMonth () {
       const date = new Date(this.data.time.times);
       date.setMonth(date.getMonth() + 1);
       this.setData({
-        time: this.getTime(date.getTime()),
+        time: this.getTime(date.getTime())
       });
       this.triggerEvent('nextMonth', date);
     },
-    prevYear() {
+    prevYear () {
       const date = new Date(this.data.time.times);
       date.setFullYear(date.getFullYear() - 1);
       this.setData({
-        time: this.getTime(date.getTime()),
+        time: this.getTime(date.getTime())
       });
       this.triggerEvent('prevYear', date);
     },
-    nextYear() {
+    nextYear () {
       const date = new Date(this.data.time.times);
       date.setFullYear(date.getFullYear() + 1);
       this.setData({
-        time: this.getTime(date.getTime()),
+        time: this.getTime(date.getTime())
       });
       this.triggerEvent('nextYear', date);
     },
-    onConfirmClick() {
+    onConfirmClick () {
       this.triggerEvent('confirm', this.data.selectTime.times);
     },
-    onResetClick() {
+    onResetClick () {
       this.setData({ selectTime: '' });
       this.triggerEvent('reset');
     },
-    onClose() {
+    onClose () {
       this.triggerEvent('close');
     },
-    getTime(date) {
+    getTime (date) {
       date = new Date(date);
       return {
         label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
         date,
-        times: date.getTime(),
+        times: date.getTime()
       };
     },
-    getVisibeTimeObj(date) {
+    getVisibeTimeObj (date) {
       return {
         label: date.getDate(),
         date,
-        times: date.getTime(),
+        times: date.getTime()
       };
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     const handleValue = this.handleValue();
     this.setData({
-      time: handleValue,
+      time: handleValue
     });
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

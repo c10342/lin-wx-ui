@@ -4,47 +4,47 @@ Component({
   relations: {
     '../Checkbox/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateChild(child);
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      },
-    },
+      }
+    }
   },
   properties: {
     value: {
       type: Array,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     disabled: {
       type: Boolean,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     max: Number,
-    name: String,
+    name: String
   },
   data: {},
   methods: {
-    updateChildren() {
+    updateChildren () {
       (this.children || []).forEach((child) => this.updateChild(child));
     },
-    updateChild(child) {
+    updateChild (child) {
       const { value, disabled } = this.properties;
       child.setData({
         value: value.indexOf(child.data.name) !== -1,
-        parentDisabled: disabled,
+        parentDisabled: disabled
       });
     },
-    emitChange(value) {
+    emitChange (value) {
       this.triggerEvent('change', value);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

@@ -3,18 +3,18 @@ import { getAllRect, getRect } from '../common/utils';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../Tab/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         child.index = this.children.length - 1;
         this.updateTabs();
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || [])
           .filter((it) => it !== child)
           .map((childData, index) => {
@@ -22,8 +22,8 @@ Component({
             return childData;
           });
         this.updateTabs();
-      },
-    },
+      }
+    }
   },
   externalClasses: [
     'custom-class',
@@ -34,41 +34,41 @@ Component({
     'tab-item-class',
     'title-class',
     'content-class',
-    'track-class',
+    'track-class'
   ],
   properties: {
     type: {
       type: String,
       value: 'line',
-      options: ['line', 'card'],
+      options: ['line', 'card']
     },
     color: String,
     active: {
       type: [String, Number],
       value: 0,
-      observer() {
+      observer () {
         this.setCurrentIndex();
-      },
+      }
     },
     duration: Number,
     lineWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
     lineHeight: {
-      type: [String, Number],
+      type: [String, Number]
     },
     animated: {
       type: Boolean,
-      observer() {
+      observer () {
         (this.children || []).forEach((child, index) => {
           child.updateRender(index === this.data.currentIndex, this);
         });
-      },
+      }
     },
     border: Boolean,
     ellipsis: {
       type: Boolean,
-      value: true,
+      value: true
     },
     sticky: Boolean,
     swipeable: Boolean,
@@ -77,15 +77,15 @@ Component({
     swipeThreshold: {
       type: Number,
       value: 5,
-      observer(val) {
+      observer (val) {
         this.setData({
-          scrollable: this.children.length > val || !this.properties.ellipsis,
+          scrollable: this.children.length > val || !this.properties.ellipsis
         });
-      },
+      }
     },
     titleActiveColor: String,
     titleInactiveColor: String,
-    zIndex: Number,
+    zIndex: Number
   },
   data: {
     tabs: [],
@@ -93,97 +93,97 @@ Component({
     lineOffsetLeft: 0,
     currentIndex: -1,
     scrollLeft: 0,
-    container: null,
+    container: null
   },
   methods: {
-    emitChange(index) {
+    emitChange (index) {
       if (index === this.data.currentIndex) {
         return;
       }
       this.triggerEvent('change', {
-        name: this.children[index].getComponentName(),
+        name: this.children[index].getComponentName()
       });
     },
-    updateTabs() {
+    updateTabs () {
       const { children = [], data } = this;
       this.setData({
         tabs: children.map((child) => child.data),
         scrollable:
-          this.children.length > data.swipeThreshold || !data.ellipsis,
+          this.children.length > data.swipeThreshold || !data.ellipsis
       });
     },
-    onTabClick(event) {
+    onTabClick (event) {
       const { index } = event.currentTarget.dataset;
       const currentTab = this.data.tabs[index];
       if (currentTab.disabled) {
         if (index !== this.data.currentIndex) {
           this.triggerEvent('disabled', {
-            name: this.children[index].getComponentName(),
+            name: this.children[index].getComponentName()
           });
         }
         return;
       }
       this.triggerEvent('click', {
-        name: this.children[index].getComponentName(),
+        name: this.children[index].getComponentName()
       });
       this.emitChange(index);
     },
-    setLineOffsetByIndex(index) {
+    setLineOffsetByIndex (index) {
       const { type } = this.properties;
       if (index <= -1 || type !== 'line') {
         return;
       }
       Promise.all([
         getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-line'),
+        getRect(this, '.lin-tabs-line')
       ]).then(([rects = [], lineRect]) => {
         let lineOffsetLeft = rects
           .slice(0, index)
           .reduce((prev, current) => prev + current.width, 0);
         lineOffsetLeft += (rects[index].width - lineRect.width) / 2;
         this.setData({
-          lineOffsetLeft,
+          lineOffsetLeft
         });
       });
     },
-    scrollIntoView(index) {
+    scrollIntoView (index) {
       const { scrollable } = this.data;
       if (!scrollable) {
         return;
       }
       Promise.all([
         getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-list'),
+        getRect(this, '.lin-tabs-list')
       ]).then(([itemRect, listRect]) => {
         const offsetLeft = itemRect
           .slice(0, index)
           .reduce((prev, current) => prev + current.width, 0);
         this.setData({
-          scrollLeft: offsetLeft - (listRect.width - itemRect[index].width) / 2,
+          scrollLeft: offsetLeft - (listRect.width - itemRect[index].width) / 2
         });
       });
     },
-    findCurrentIndex() {
+    findCurrentIndex () {
       const { active } = this.properties;
       const index = (this.children || []).findIndex(
-        (child) => child.getComponentName() === active,
+        (child) => child.getComponentName() === active
       );
       return index;
     },
-    setCurrentIndex() {
+    setCurrentIndex () {
       const index = this.findCurrentIndex();
       if (index === this.data.currentIndex || index === -1) {
         return;
       }
       this.setData({
-        currentIndex: index,
+        currentIndex: index
       });
       this.setLineOffsetByIndex(index);
       this.scrollIntoView(index);
       this.updateContainer();
       this.updateChildrenRender(index);
     },
-    resize() {
+    resize () {
       const index = this.findCurrentIndex();
       if (index > -1) {
         this.setLineOffsetByIndex(index);
@@ -192,7 +192,7 @@ Component({
         this.updateChildrenRender(index);
       }
     },
-    updateChildrenRender(activeIndex) {
+    updateChildrenRender (activeIndex) {
       (this.children || []).forEach((child, index) => {
         const active = index === activeIndex;
         if (child.data.active !== active || !child.inited) {
@@ -200,12 +200,12 @@ Component({
         }
       });
     },
-    updateContainer() {
+    updateContainer () {
       this.setData({
-        container: () => this.createSelectorQuery().select('.lin-tabs'),
+        container: () => this.createSelectorQuery().select('.lin-tabs')
       });
     },
-    onTouchStart(event) {
+    onTouchStart (event) {
       const { swipeable } = this.properties;
       if (!swipeable) {
         return;
@@ -214,7 +214,7 @@ Component({
       this.startX = 0;
       this.startX = event.touches[0].clientX;
     },
-    onTouchEnd() {
+    onTouchEnd () {
       const { swipeable } = this.properties;
       if (!swipeable) {
         return;
@@ -232,7 +232,7 @@ Component({
         }
       }
     },
-    findNotDisabledTab(index, type) {
+    findNotDisabledTab (index, type) {
       const { tabs } = this.data;
       if (type === 'left') {
         while (index >= 0) {
@@ -251,25 +251,25 @@ Component({
       }
       return -1;
     },
-    onTouchMove(event) {
+    onTouchMove (event) {
       const { swipeable } = this.properties;
       if (!swipeable) {
         return;
       }
       this.endX = event.touches[0].clientX;
     },
-    getTrackWidth() {
+    getTrackWidth () {
       return getRect(this, '.lin-tabs-track');
-    },
+    }
   },
-  created() {
+  created () {
     this.startX = 0;
     this.endX = 0;
   },
-  attached() {},
-  ready() {
+  attached () {},
+  ready () {
     this.setCurrentIndex(this.findCurrentIndex());
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

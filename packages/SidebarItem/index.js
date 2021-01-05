@@ -1,19 +1,19 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../Sidebar/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
         this.updateFromParent();
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'content-class'],
   properties: {
@@ -21,36 +21,36 @@ Component({
     dot: Boolean,
     badge: {
       type: [String, Number],
-      value: '',
+      value: ''
     },
-    disabled: Boolean,
+    disabled: Boolean
   },
   data: {
     activeKey: 0,
-    index: -1,
+    index: -1
   },
   methods: {
-    updateFromParent() {
+    updateFromParent () {
       if (this.parent) {
         const { activeKey } = this.parent.properties;
         this.setData({
-          activeKey,
+          activeKey
         });
       }
     },
-    setIndex(index) {
+    setIndex (index) {
       this.setData({ index });
     },
-    onItemClick() {
+    onItemClick () {
       const { disabled } = this.properties;
       if (this.parent && !disabled) {
         this.parent.emitChange(this.data.index);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
@@ -9,47 +9,47 @@ Component({
     maskStyle: String,
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     title: String,
     cancelText: {
       type: String,
-      value: '取消',
+      value: '取消'
     },
     description: String,
     options: {
       type: Array,
-      value: [],
+      value: []
     },
     mask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     duration: {
       type: Number,
-      value: 300,
-    },
+      value: 300
+    }
   },
   data: {},
   methods: {
-    onClose() {
+    onClose () {
       this.triggerEvent('close');
     },
-    onCancel() {
+    onCancel () {
       this.onClose();
       this.triggerEvent('cancel');
     },
-    onSelect(event) {
+    onSelect (event) {
       this.triggerEvent('select', event.detail);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

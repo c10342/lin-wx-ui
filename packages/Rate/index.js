@@ -4,61 +4,61 @@ Component({
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class', 'icon-class', 'void-icon-class'],
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   properties: {
     gutter: {
       type: String,
-      value: '4px',
+      value: '4px'
     },
     color: {
       type: String,
-      value: RED,
+      value: RED
     },
     voidColor: {
       type: String,
-      value: '#c8c9cc',
+      value: '#c8c9cc'
     },
     allowHalf: Boolean,
     iconSize: {
       type: String,
-      value: '50rpx',
+      value: '50rpx'
     },
     value: {
       type: Number,
-      observer: 'setWidth',
+      observer: 'setWidth'
     },
     count: {
       type: Number,
       value: 5,
-      observer: 'setCount',
+      observer: 'setCount'
     },
     icon: {
       type: String,
-      value: 'star1',
+      value: 'star1'
     },
     voidIcon: {
       type: String,
-      value: 'star1-o',
+      value: 'star1-o'
     },
     readonly: Boolean,
     disabled: Boolean,
     disabledColor: {
       type: String,
-      value: '#bdbdbd',
-    },
+      value: '#bdbdbd'
+    }
   },
   data: {
     innerCountArray: Array.from({ length: 5 }),
-    width: '0',
+    width: '0'
   },
   methods: {
-    setCount() {
+    setCount () {
       this.setData({
-        innerCountArray: Array.from({ length: this.properties.count }),
+        innerCountArray: Array.from({ length: this.properties.count })
       });
     },
-    setWidth() {
+    setWidth () {
       let { value, gutter } = this.properties;
       gutter = parseFloat(gutter);
       const { innerCountArray } = this.data;
@@ -78,15 +78,15 @@ Component({
       width = inNum * this.rateWidth + gutterWidth + (value - inNum) * this.rateWidth;
 
       this.setData({
-        width: `${width}px`,
+        width: `${width}px`
       });
     },
-    onClick(event) {
+    onClick (event) {
       // let {
       //   gutter,
       // } = this.properties;
       const {
-        allowHalf, readonly, disabled,
+        allowHalf, readonly, disabled
       } = this.properties;
 
       if (readonly || disabled) {
@@ -109,11 +109,11 @@ Component({
       }
 
       this.triggerEvent('change', index);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.setCount();
     const query = this.createSelectorQuery();
     query.select('#lin-rate-0').boundingClientRect();
@@ -124,6 +124,6 @@ Component({
       this.setWidth();
     });
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

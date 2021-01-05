@@ -1,36 +1,36 @@
 // Component Object
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   properties: {
     show: {
       type: Boolean,
-      value: false,
+      value: false
     },
     duration: {
       type: null,
-      value: 200,
+      value: 200
     },
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     customStyle: String,
     opacity: {
       type: Number,
-      value: 0.5,
-    },
+      value: 0.5
+    }
   },
   data: {},
   methods: {
-    onClick() {
+    onClick () {
       this.triggerEvent('click');
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

@@ -1,4 +1,4 @@
-function padZero(num, len = 2) {
+function padZero (num, len = 2) {
   let str = `${num}`;
   while (str.length < len) {
     str = `0${str}`;
@@ -7,7 +7,7 @@ function padZero(num, len = 2) {
 }
 
 // 判断是否秒数相同
-export function isSameSecond(time1, time2) {
+export function isSameSecond (time1, time2) {
   return Math.floor(time1 / 1000) === Math.floor(time2 / 1000);
 }
 
@@ -16,7 +16,7 @@ const SECOND = 1000;
 const MINUTE = 60 * SECOND;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
-export function parseTimeDate(time) {
+export function parseTimeDate (time) {
   const days = Math.floor(time / DAY);
   const hours = Math.floor((time % DAY) / HOUR);
   const minutes = Math.floor((time % HOUR) / MINUTE);
@@ -28,14 +28,14 @@ export function parseTimeDate(time) {
     hours,
     minutes,
     seconds,
-    milliseconds,
+    milliseconds
   };
 }
 
-export function parseFormat(format, timeDate) {
+export function parseFormat (format, timeDate) {
   const { days } = timeDate;
   let {
-    hours, minutes, seconds, milliseconds,
+    hours, minutes, seconds, milliseconds
   } = timeDate;
 
   if (format.indexOf('DD') > -1) {

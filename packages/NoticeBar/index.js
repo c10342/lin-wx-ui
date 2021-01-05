@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -9,20 +9,20 @@ Component({
     'wrapper-class',
     'content-class',
     'close-icon-class',
-    'navigator-class',
+    'navigator-class'
   ],
   properties: {
     mode: {
       type: String,
-      options: ['closeable', 'link'],
+      options: ['closeable', 'link']
     },
     text: {
       type: String,
-      observer() {
+      observer () {
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     color: String,
     background: String,
@@ -30,38 +30,38 @@ Component({
     delay: {
       type: Number,
       value: '0s',
-      observer() {
+      observer () {
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     speed: {
       type: Number,
       value: 50,
-      observer() {
+      observer () {
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     scrollable: {
       type: Boolean,
-      value: true,
+      value: true
     },
     wrapable: Boolean,
     openType: {
       type: String,
-      value: 'navigate',
+      value: 'navigate'
     },
-    url: String,
+    url: String
   },
   data: {
     contentStyle: '',
-    show: true,
+    show: true
   },
   methods: {
-    updateStyle() {
+    updateStyle () {
       const { scrollable, speed, delay } = this.properties;
       if (scrollable) {
         const query = this.createSelectorQuery();
@@ -72,7 +72,7 @@ Component({
           const wrapperWidth = rect[1].width || 0;
           const duration = Math.floor(contentWidth / speed);
           const contentStyle = `transform: translateX(${Math.ceil(
-            wrapperWidth,
+            wrapperWidth
           )}px);animation-duration:${duration}s;animation-delay:${delay};`;
           if (contentStyle !== this.data.contentStyle) {
             this.setData({ contentStyle });
@@ -85,19 +85,19 @@ Component({
         }
       }
     },
-    onClick(event) {
+    onClick (event) {
       this.triggerEvent('click', event);
     },
-    onClickIcon(event) {
+    onClickIcon (event) {
       if (this.properties.mode === 'closeable') {
         this.setData({ show: false });
         this.triggerEvent('close', event);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

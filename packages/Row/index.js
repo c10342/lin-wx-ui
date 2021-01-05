@@ -1,30 +1,30 @@
 // Component Object
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class'],
   relations: {
     '../Col/index': {
       type: 'descendant',
-      linked(target) {
+      linked (target) {
         if (this.properties.gutter) {
           target.setGutter(this.properties.gutter);
         }
-      },
-    },
+      }
+    }
   },
   properties: {
     gutter: {
       type: Number,
-      observer: 'setGutter',
-    },
+      observer: 'setGutter'
+    }
   },
   data: {
-    viewStyle: '',
+    viewStyle: ''
   },
   methods: {
-    setGutter() {
+    setGutter () {
       const { gutter } = this.properties;
       const margin = `-${Number(gutter) / 2}px`;
       if (gutter) {
@@ -34,15 +34,15 @@ Component({
       this.getRelationNodes('../Col/index').forEach((col) => {
         col.setGutter(gutter);
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     if (this.properties.gutter) {
       this.setGutter();
     }
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

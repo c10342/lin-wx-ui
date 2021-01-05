@@ -5,7 +5,7 @@ import OpenTypeBehavior from '../behaviors/open-type';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -13,23 +13,23 @@ Component({
     'content-class',
     'footer-class',
     'cancel-class',
-    'confirm-class',
+    'confirm-class'
   ],
   behaviors: [ButtonBehavior, OpenTypeBehavior],
   properties: {
     show: {
       type: Boolean,
-      observer(show) {
+      observer (show) {
         if (!show) {
           this.stopLoading();
         }
-      },
+      }
     },
     title: String,
     message: String,
     theme: {
       type: String,
-      value: 'default',
+      value: 'default'
     },
     useSlot: Boolean,
     className: String,
@@ -37,7 +37,7 @@ Component({
     asyncClose: Boolean,
     messageAlign: {
       type: String,
-      value: 'center',
+      value: 'center'
     },
     maskStyle: String,
     useTitleSlot: Boolean,
@@ -46,63 +46,63 @@ Component({
     confirmButtonOpenType: String,
     width: {
       type: [String, Number],
-      value: '640rpx',
+      value: '640rpx'
     },
     zIndex: {
       type: Number,
-      value: 2000,
+      value: 2000
     },
     confirmButtonText: {
       type: String,
-      value: '确认',
+      value: '确认'
     },
     cancelButtonText: {
       type: String,
-      value: '取消',
+      value: '取消'
     },
     confirmButtonColor: String,
     cancelButtonColor: String,
     showConfirmButton: {
       type: Boolean,
-      value: true,
+      value: true
     },
     mask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     transition: {
       type: String,
-      value: 'scale',
-    },
+      value: 'scale'
+    }
   },
   data: {
     onConfirm: null,
     onCancel: null,
     loading: {
       confirm: false,
-      cancel: false,
-    },
+      cancel: false
+    }
   },
   methods: {
-    onMaskClick() {
+    onMaskClick () {
       this.onClose('mask');
     },
-    onConfirm() {
+    onConfirm () {
       if (this.data.loading.confirm) {
         return;
       }
       this.handleAction('confirm');
     },
-    onCancel() {
+    onCancel () {
       if (this.data.loading.cancel) {
         return;
       }
       this.handleAction('cancel');
     },
-    handleAction(action) {
+    handleAction (action) {
       if (this.data.asyncClose) {
         this.setData({
-          [`loading.${action}`]: true,
+          [`loading.${action}`]: true
         });
       }
       this.onClose(action);
@@ -110,26 +110,26 @@ Component({
     // onCancel(action) {
     //   this.onClose(action);
     // },
-    close() {
+    close () {
       this.setData({
-        show: false,
+        show: false
       });
     },
-    stopLoading() {
+    stopLoading () {
       this.setData({
         loading: {
           confirm: false,
-          cancel: false,
-        },
+          cancel: false
+        }
       });
     },
-    onClose(action) {
+    onClose (action) {
       if (!this.properties.asyncClose) {
         this.close();
       }
       this.triggerEvent('close', action);
       this.triggerEvent(action, {
-        dialog: this,
+        dialog: this
       });
       const callback = this.data[
         action === 'confirm' ? 'onConfirm' : 'onCancel'
@@ -137,11 +137,11 @@ Component({
       if (callback) {
         callback(this);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

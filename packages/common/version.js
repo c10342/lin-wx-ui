@@ -1,6 +1,6 @@
 import { getSystemInfoSync } from './utils';
 
-function compareVersion(v1, v2) {
+function compareVersion (v1, v2) {
   v1 = v1.split('.');
   v2 = v2.split('.');
   const len = Math.max(v1.length, v2.length);
@@ -27,17 +27,17 @@ function compareVersion(v1, v2) {
   return 0;
 }
 
-export function canIUseModel() {
+export function canIUseModel () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.9.3') >= 0;
 }
 
-export function canIUseFormFieldButton() {
+export function canIUseFormFieldButton () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.10.3') >= 0;
 }
 
-export function canIUsePreviewMedia() {
+export function canIUsePreviewMedia () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.12.0') >= 0;
 }

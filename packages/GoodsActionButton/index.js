@@ -5,18 +5,18 @@ import ButtonBehavior from '../behaviors/button';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../GoodsAction/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class'],
   behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
@@ -28,30 +28,30 @@ Component({
     plain: Boolean,
     type: {
       type: String,
-      value: 'danger',
+      value: 'danger'
     },
-    url: String,
+    url: String
   },
   data: {
     index: 0,
-    totalLen: -1,
+    totalLen: -1
   },
   methods: {
-    update(index, len) {
+    update (index, len) {
       this.setData({
         index,
-        totalLen: len,
+        totalLen: len
       });
     },
-    onClick() {
+    onClick () {
       this.triggerEvent('click');
       const { url } = this.properties;
       this.jump(url);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

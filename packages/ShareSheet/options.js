@@ -1,27 +1,27 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
     options: {
       type: Array,
-      value: [],
+      value: []
     },
-    showBorder: Boolean,
+    showBorder: Boolean
   },
   data: {},
   methods: {
-    onSelect(event) {
+    onSelect (event) {
       const { index } = event.currentTarget.dataset;
       const option = this.properties.options[index];
       this.triggerEvent('select', { ...option, index });
-    },
+    }
   },
-  created() { },
-  attached() { },
-  ready() { },
-  moved() { },
-  detached() { },
+  created () { },
+  attached () { },
+  ready () { },
+  moved () { },
+  detached () { }
 });

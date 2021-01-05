@@ -1,25 +1,25 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'portion-class', 'pivot-class'],
   properties: {
     inactive: {
       type: Boolean,
-      value: false,
+      value: false
     },
     percentage: {
       type: Number,
       value: 0,
-      observer: 'setProgressWidth',
+      observer: 'setProgressWidth'
     },
     strokeWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
     showPivot: {
       type: Boolean,
-      value: true,
+      value: true
     },
     color: String,
     textColor: String,
@@ -27,17 +27,17 @@ Component({
     pivotText: {
       type: String,
       value: '',
-      observer: 'setProgressWidth',
+      observer: 'setProgressWidth'
     },
-    pivotColor: String,
+    pivotColor: String
   },
   data: {
     progressWidth: '0px',
     pivotRight: '0px',
-    grayColor: 'rgb(202, 202, 202)',
+    grayColor: 'rgb(202, 202, 202)'
   },
   methods: {
-    setProgressWidth() {
+    setProgressWidth () {
       let { percentage } = this.properties;
       if (percentage <= 0) {
         percentage = 0;
@@ -48,7 +48,7 @@ Component({
       this.setData({ progressWidth: `${offsetWidth}px` });
       wx.nextTick(async () => {
         const { width: pivotWidth } = await this.getWidth(
-          '.lin-progress-pivot',
+          '.lin-progress-pivot'
         );
         let pivotRight = 0;
         if (offsetWidth + pivotWidth / 2 >= this.progressWidth) {
@@ -59,11 +59,11 @@ Component({
           pivotRight = -(pivotWidth / 2);
         }
         this.setData({
-          pivotRight: `${pivotRight}px`,
+          pivotRight: `${pivotRight}px`
         });
       });
     },
-    getWidth(dom) {
+    getWidth (dom) {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query.select(dom).boundingClientRect();
@@ -71,18 +71,18 @@ Component({
           resolve(rect[0]);
         });
       });
-    },
+    }
   },
-  created() {
+  created () {
     this.progressWidth = 0;
   },
-  attached() {},
-  ready() {
+  attached () {},
+  ready () {
     this.getWidth('.lin-progress').then((res) => {
       this.progressWidth = res.width;
       this.setProgressWidth();
     });
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

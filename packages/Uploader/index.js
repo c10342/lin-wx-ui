@@ -1,5 +1,5 @@
 import {
-  isImageFile, chooseFile, isVideo, isPromise,
+  isImageFile, chooseFile, isVideo, isPromise
 } from './utils';
 
 import { chooseImageProps, chooseVideoProps } from './props';
@@ -8,7 +8,7 @@ import { canIUsePreviewMedia } from '../common/version';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -17,7 +17,7 @@ Component({
     'preview-file-class',
     'delete-class',
     'mask-class',
-    'upload-class',
+    'upload-class'
   ],
   properties: {
     name: String,
@@ -29,73 +29,73 @@ Component({
     accept: {
       type: String,
       value: 'image',
-      options: ['all', 'media', 'image', 'file', 'video'],
+      options: ['all', 'media', 'image', 'file', 'video']
     },
     multiple: Boolean,
     maxCount: {
       type: Number,
-      value: 100,
+      value: 100
     },
     fileList: {
       type: Array,
       value: [],
-      observer: 'formatFileList',
+      observer: 'formatFileList'
     },
     maxSize: {
       type: Number,
-      value: Number.MAX_VALUE,
+      value: Number.MAX_VALUE
     },
     previewImage: {
       type: Boolean,
-      value: true,
+      value: true
     },
     imageFit: {
       type: String,
-      value: 'scaleToFill',
+      value: 'scaleToFill'
     },
     previewSize: {
       type: [String, Number],
-      value: '160rpx',
+      value: '160rpx'
     },
     previewFullImage: {
       type: Boolean,
-      value: true,
+      value: true
     },
     deletable: {
       type: Boolean,
-      value: true,
+      value: true
     },
     uploadIcon: {
       type: String,
-      value: 'camera',
+      value: 'camera'
     },
     showUpload: {
       type: Boolean,
-      value: true,
+      value: true
     },
     ...chooseVideoProps,
-    ...chooseImageProps,
+    ...chooseImageProps
   },
   data: {
     lists: [],
-    showUploadBtn: true,
+    showUploadBtn: true
   },
   methods: {
-    startUpload() {
+    startUpload () {
       const {
-        maxCount, multiple, accept, lists, disabled,
+        maxCount, multiple, accept, lists, disabled
       } = this.properties;
       if (disabled) return;
       chooseFile({
         ...this.properties,
-        maxCount: maxCount - lists.length,
+        maxCount: maxCount - lists.length
       })
         .then((res) => {
           let file = null;
           if (isVideo(res, accept)) {
             file = {
               path: res.tempFilePath,
-              ...res,
+              ...res
             };
           } else {
             file = multiple ? res.tempFiles : res.tempFiles[0];
@@ -106,7 +106,7 @@ Component({
           this.triggerEvent('error', error);
         });
     },
-    onBeforeRead(file) {
+    onBeforeRead (file) {
       const { beforeRead, useBeforeRead } = this.properties;
       let res = true;
       if (typeof beforeRead === 'function') {
@@ -121,10 +121,10 @@ Component({
               if (ok) {
                 resolve();
               } else {
-                reject();
+                reject(ok);
               }
               // ok ? resolve() : reject();
-            },
+            }
           });
         });
       }
@@ -140,7 +140,7 @@ Component({
         this.onAfterRead(file);
       }
     },
-    onAfterRead(file) {
+    onAfterRead (file) {
       const { maxSize, afterRead } = this.properties;
       const overszie = Array.isArray(file)
         ? file.some((item) => item.size > maxSize)
@@ -154,7 +154,7 @@ Component({
       }
       this.triggerEvent('after-read', { file, ...this.getDetail() });
     },
-    onPreviewImage(event) {
+    onPreviewImage (event) {
       const { previewFullImage } = this.properties;
       if (!previewFullImage) return;
       const { index } = event.currentTarget.dataset;
@@ -165,18 +165,18 @@ Component({
           .filter((itemData) => itemData.isImage)
           .map((itemData) => itemData.url || itemData.path),
         current: item.url || item.path,
-        fail() {
+        fail () {
           wx.showToast({ title: '预览图片失败', icon: 'none' });
-        },
+        }
       });
     },
-    onPreviewVideo(event) {
+    onPreviewVideo (event) {
       const { previewFullImage } = this.properties;
       if (!previewFullImage) return;
       if (!canIUsePreviewMedia()) {
         wx.showToast({
           title: '微信版本过低，无法全屏预览视频',
-          icon: 'none',
+          icon: 'none'
         });
         return;
       }
@@ -191,35 +191,35 @@ Component({
             return item;
           }),
         current: index,
-        fail() {
+        fail () {
           wx.showToast({ title: '预览视频失败', icon: 'none' });
-        },
+        }
       });
     },
-    deleteItem(event) {
+    deleteItem (event) {
       const { index } = event.currentTarget.dataset;
 
       this.triggerEvent('delete', {
         ...this.getDetail(index),
-        file: this.data.fileList[index],
+        file: this.data.fileList[index]
       });
     },
-    onClickPreview(event) {
+    onClickPreview (event) {
       const { index } = event.currentTarget.dataset;
       const item = this.data.lists[index];
 
       this.triggerEvent('click-preview', {
         ...item,
-        ...this.getDetail(index),
+        ...this.getDetail(index)
       });
     },
-    getDetail(index) {
+    getDetail (index) {
       return {
         name: this.properties.name,
-        index: index == null ? this.data.fileList.length : index,
+        index: index == null ? this.data.fileList.length : index
       };
     },
-    formatFileList() {
+    formatFileList () {
       const { fileList = [], maxCount } = this.properties;
       const lists = fileList.map((item) => {
         const isImage = 'isImage' in item ? item.isImage : isImageFile(item);
@@ -227,15 +227,15 @@ Component({
         return {
           ...item,
           isImage,
-          deletable,
+          deletable
         };
       });
       this.setData({ lists, showUploadBtn: lists.length < maxCount });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

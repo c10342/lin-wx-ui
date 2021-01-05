@@ -1,40 +1,40 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
     dashed: {
       type: Boolean,
-      value: false,
+      value: false
     },
     hairline: {
       type: Boolean,
-      value: false,
+      value: false
     },
     contentPosition: {
       type: String,
-      options: ['left', 'center', 'right'],
+      options: ['left', 'center', 'right']
     },
     fontSize: {
-      type: [String, Number],
+      type: [String, Number]
     },
     borderColor: {
-      type: String,
+      type: String
     },
     textColor: {
-      type: String,
+      type: String
     },
     customStyle: {
-      type: String,
-    },
+      type: String
+    }
   },
   data: {},
   methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

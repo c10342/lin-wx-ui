@@ -4,24 +4,24 @@ Component({
   relations: {
     '../Cell/index': {
       type: 'descendant',
-      linked() {
+      linked () {
         this.setCellBorder();
-      },
-    },
+      }
+    }
   },
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   properties: {
     title: String,
     border: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
-    setCellBorder() {
+    setCellBorder () {
       const nodes = this.getRelationNodes('../Cell/index');
       nodes.forEach((cell, index) => {
         if (index + 1 === nodes.length) {
@@ -30,13 +30,13 @@ Component({
           cell.setBorder(true);
         }
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.setCellBorder();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

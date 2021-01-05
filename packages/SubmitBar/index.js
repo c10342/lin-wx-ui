@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -15,22 +15,22 @@ Component({
     'integer-class',
     'decimal-class',
     'suffixLabel-class',
-    'button-class',
+    'button-class'
   ],
   properties: {
     price: {
       type: [String, Number],
-      observer: 'updatePrice',
+      observer: 'updatePrice'
     },
     label: {
       type: String,
-      value: '合计：',
+      value: '合计：'
     },
     suffixLabel: String,
     buttonText: String,
     buttonType: {
       type: String,
-      value: 'danger',
+      value: 'danger'
     },
     tip: String,
     tipIcon: String,
@@ -38,27 +38,27 @@ Component({
     loading: Boolean,
     currency: {
       type: String,
-      value: '¥',
+      value: '¥'
     },
     decimalLength: {
       type: Number,
-      value: 2,
-    },
+      value: 2
+    }
   },
   data: {
     integer: '0',
-    decimal: '00',
+    decimal: '00'
   },
   methods: {
-    updatePrice() {
+    updatePrice () {
       const { price } = this.properties;
       this.setData(this.handelPrice(price));
     },
-    handelPrice(price) {
+    handelPrice (price) {
       const { decimalLength } = this.properties;
       const priceObj = {
         integer: '0',
-        decimal: '00',
+        decimal: '00'
       };
       price = price.toString();
       const priceArr = price.split('.');
@@ -70,13 +70,13 @@ Component({
       priceObj.decimal = decimal;
       return priceObj;
     },
-    onButtonClick() {
+    onButtonClick () {
       this.triggerEvent('submit');
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

@@ -1,5 +1,5 @@
 let systemInfo;
-export function getSystemInfoSync() {
+export function getSystemInfoSync () {
   if (systemInfo == null) {
     systemInfo = wx.getSystemInfoSync();
   }
@@ -7,19 +7,19 @@ export function getSystemInfoSync() {
   return systemInfo;
 }
 
-export function isObj(obj) {
+export function isObj (obj) {
   const type = typeof obj;
   return obj !== null && (type === 'object' || type === 'function');
 }
 
-export function nextTick(fn) {
+export function nextTick (fn) {
   setTimeout(() => {
     fn();
   }, 1000 / 30);
 }
 
 const REGEXP = /^[0-9]+$/;
-export function addUnit(value) {
+export function addUnit (value) {
   if (value == null) {
     return undefined;
   }
@@ -27,7 +27,7 @@ export function addUnit(value) {
   return REGEXP.test(`${value}`) ? `${value}px` : value;
 }
 
-export function getRect(context, element) {
+export function getRect (context, element) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
@@ -37,7 +37,7 @@ export function getRect(context, element) {
   });
 }
 
-export function getAllRect(context, element) {
+export function getAllRect (context, element) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)

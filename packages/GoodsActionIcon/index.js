@@ -5,7 +5,7 @@ import ButtonBehavior from '../behaviors/button';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'icon-class', 'text-class'],
   behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
@@ -13,24 +13,24 @@ Component({
     text: String,
     icon: String,
     info: {
-      type: [String, Number],
+      type: [String, Number]
     },
     dot: Boolean,
     url: String,
     loading: Boolean,
-    disabled: Boolean,
+    disabled: Boolean
   },
   data: {},
   methods: {
-    onClick() {
+    onClick () {
       this.triggerEvent('click');
       const { url } = this.properties;
       this.jump(url);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });
