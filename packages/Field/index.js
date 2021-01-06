@@ -8,6 +8,7 @@ Component({
     multipleSlots: true
   },
   externalClasses: [
+    'custom-class',
     'label-class',
     'input-class',
     'right-icon-class',

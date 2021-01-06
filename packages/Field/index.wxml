@@ -1,5 +1,5 @@
 <wxs src="../wxs/style.wxs" module="styleUtils" />
-<lin-cell value-class='value-class' header-class='header-class' title-class='lin-cell-title' icon='{{leftIcon}}' titleWidth='{{styleUtils.addUnit(titleWidth)}}' size='{{size}}' border='{{border}}' isLink='{{isLink}}' required='{{required}}' arrowDirection='{{arrowDirection}}' custom-style="{{ customStyle }}">
+<lin-cell custom-class='custom-class' value-class='value-class' header-class='header-class' title-class='lin-cell-title' icon='{{leftIcon}}' titleWidth='{{styleUtils.addUnit(titleWidth)}}' size='{{size}}' border='{{border}}' isLink='{{isLink}}' required='{{required}}' arrowDirection='{{arrowDirection}}' custom-style="{{ customStyle }}">
     <slot name="left-icon" slot='icon' />
     <view wx:if="{{label}}" class="label-class lin-field-label" slot='title'>{{label}}</view>
     <view slot='value'>
