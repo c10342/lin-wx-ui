@@ -59,7 +59,8 @@
     "pages/component/area/index",
     "pages/component/card/index",
     "pages/component/submit-bar/index",
-    "pages/component/goods-action/index"
+    "pages/component/goods-action/index",
+    "pages/component/form/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -132,7 +133,9 @@
     "lin-submit-bar": "/dist/SubmitBar/index",
     "lin-goods-action": "/dist/GoodsAction/index",
     "lin-goods-action-icon": "/dist/GoodsActionIcon/index",
-    "lin-goods-action-button": "/dist/GoodsActionButton/index"
+    "lin-goods-action-button": "/dist/GoodsActionButton/index",
+    "lin-form": "/dist/Form/index",
+    "lin-form-item": "/dist/FormItem/index"
   },
   "sitemapLocation": "sitemap.json"
 }

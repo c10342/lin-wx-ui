@@ -22,14 +22,14 @@ const defaultOptions = {
   showConfirmButton: true,
   showCancelButton: false,
   closeOnClickMask: false,
-  confirmButtonOpenType: '',
+  confirmButtonOpenType: ''
   // confirmButtonColor: RED,
   // cancelButtonColor: GRAY,
 };
 
 let currentOptions = { ...defaultOptions };
 
-function getContext() {
+function getContext () {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
@@ -37,7 +37,7 @@ function getContext() {
 const Dialog = (options) => {
   options = {
     ...currentOptions,
-    ...options,
+    ...options
   };
 
   return new Promise((resolve, reject) => {
@@ -51,7 +51,7 @@ const Dialog = (options) => {
       dialog.setData({
         onCancel: reject,
         onConfirm: resolve,
-        ...options,
+        ...options
       });
 
       wx.nextTick(() => {
@@ -61,7 +61,7 @@ const Dialog = (options) => {
       queue.push(dialog);
     } else {
       console.warn(
-        '未找到 lin-dialog 节点，请确认 selector 及 context 是否正确',
+        '未找到 lin-dialog 节点，请确认 selector 及 context 是否正确'
       );
     }
   });
@@ -71,7 +71,7 @@ Dialog.alert = (options) => Dialog(options);
 
 Dialog.confirm = (options) => Dialog({
   showCancelButton: true,
-  ...options,
+  ...options
 });
 
 Dialog.close = () => {

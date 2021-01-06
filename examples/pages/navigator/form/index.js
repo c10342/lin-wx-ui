@@ -49,6 +49,10 @@ Page({
         name: 'Uploader 文件上传',
         path: '/pages/component/uploader/index'
       },
+      {
+        name: 'Form 表单',
+        path: '/pages/component/form/index'
+      },
     ]
   },
 

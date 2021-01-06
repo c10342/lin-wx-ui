@@ -3,13 +3,13 @@ Component({
   behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'input-class',
     'field-class',
-    'cancel-class',
+    'cancel-class'
   ],
   properties: {
     label: String,
@@ -17,7 +17,7 @@ Component({
     useRightIconSlot: Boolean,
     leftIcon: {
       type: String,
-      value: 'search',
+      value: 'search'
     },
     rightIcon: String,
     focus: Boolean,
@@ -27,7 +27,7 @@ Component({
     clearable: Boolean,
     maxlength: {
       type: Number,
-      value: -1,
+      value: -1
     },
     inputAlign: String,
     placeholder: String,
@@ -36,45 +36,45 @@ Component({
     useActionSlot: Boolean,
     actionText: {
       type: String,
-      value: '取消',
+      value: '取消'
     },
     background: String,
     shape: {
       type: String,
-      value: 'square',
+      value: 'square'
     },
-    name: String,
+    name: String
   },
   data: {},
   methods: {
-    onChange(event) {
+    onChange (event) {
       this.triggerEvent('change', event.detail);
     },
 
-    onCancel() {
+    onCancel () {
       this.triggerEvent('cancel');
       this.triggerEvent('change', '');
     },
 
-    onSearch(event) {
+    onSearch (event) {
       this.triggerEvent('search', event.detail);
     },
 
-    onFocus(event) {
+    onFocus (event) {
       this.triggerEvent('focus', event.detail);
     },
 
-    onBlur(event) {
+    onBlur (event) {
       this.triggerEvent('blur', event.detail);
     },
 
-    onClear(event) {
+    onClear (event) {
       this.triggerEvent('clear', event.detail);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

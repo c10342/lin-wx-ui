@@ -3,43 +3,43 @@ Component({
   relations: {
     '../Radio/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateChild(child);
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      },
-    },
+      }
+    }
   },
   properties: {
     value: {
       type: null,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     disabled: {
       type: Boolean,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
-    name: String,
+    name: String
   },
   data: {},
   methods: {
-    updateChild(child) {
+    updateChild (child) {
       const { value, disabled } = this.properties;
       child.setData({
         value: value === child.data.name,
-        parentDisabled: disabled,
+        parentDisabled: disabled
       });
     },
-    updateChildren() {
+    updateChildren () {
       (this.children || []).forEach((child) => this.updateChild(child));
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

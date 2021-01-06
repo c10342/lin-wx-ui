@@ -1,33 +1,33 @@
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class'],
   properties: {
     icon: {
       type: String,
       require: true,
-      value: '',
+      value: ''
     },
     type: {
       type: String,
-      value: 'default',
+      value: 'default'
     },
     size: {
       type: String,
       value: '',
-      observer: 'setStyle',
+      observer: 'setStyle'
     },
     color: {
       type: String,
-      observer: 'setStyle',
-    },
+      observer: 'setStyle'
+    }
   },
   data: {
-    viewStyle: '',
+    viewStyle: ''
   },
   methods: {
-    setStyle() {
+    setStyle () {
       let style = '';
       const { size, color } = this.properties;
       if (size) {
@@ -40,6 +40,6 @@ Component({
       if (style !== this.data.viewStyle) {
         this.setData({ viewStyle: style });
       }
-    },
-  },
+    }
+  }
 });

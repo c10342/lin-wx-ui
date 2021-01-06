@@ -414,6 +414,12 @@
         {
           "name": "GoodsAction 商品导航",
           "pathName": "pages/component/goods-action/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Form 表单",
+          "pathName": "pages/component/form/index",
           "scene": null
         }
       ]

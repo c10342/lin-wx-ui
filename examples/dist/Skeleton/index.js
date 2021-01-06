@@ -1,69 +1,69 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'avatar-class',
     'title-class',
     'row-class',
-    'slot-class',
+    'slot-class'
   ],
   properties: {
     row: {
       type: String,
       value: 0,
-      observer(newVal) {
+      observer (newVal) {
         this.setData({
-          rowArray: Array.from({ length: newVal }),
+          rowArray: Array.from({ length: newVal })
         });
-      },
+      }
     },
     rowWidth: {
       type: [String, Array],
-      observer(newVal) {
+      observer (newVal) {
         this.setData({
-          isArray: newVal instanceof Array,
+          isArray: newVal instanceof Array
         });
-      },
+      }
     },
     title: {
       type: Boolean,
-      value: false,
+      value: false
     },
     titleWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
     avatar: {
       type: Boolean,
-      value: false,
+      value: false
     },
     avatarSize: {
-      type: [String, Number],
+      type: [String, Number]
     },
     avatarShape: {
       type: String,
       value: 'round',
-      options: ['round', 'square'],
+      options: ['round', 'square']
     },
     loading: {
       type: Boolean,
-      value: true,
+      value: true
     },
     animate: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     rowArray: [],
-    isArray: false,
+    isArray: false
   },
   methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

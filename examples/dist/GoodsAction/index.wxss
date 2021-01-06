@@ -1,1 +1,1 @@
-@import '../common/base.wxss';.lin-goods-action{display:flex;flex-direction:row;background-color:#fff;height:100rpx;align-items:center;position:relative;box-sizing:border-box;padding-right:10rpx}.lin-goods-action lin-goods-action-button{flex:1;box-sizing:border-box}
+@import '../common/base.wxss';.lin-goods-action{position:relative;box-sizing:border-box;display:flex;flex-direction:row;align-items:center;height:100rpx;padding-right:10rpx;background-color:#fff}.lin-goods-action lin-goods-action-button{box-sizing:border-box;flex:1}

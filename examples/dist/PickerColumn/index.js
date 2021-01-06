@@ -3,57 +3,57 @@ import { isObj } from '../common/utils';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'active-class'],
   properties: {
     initialOptions: {
       type: Array,
       value: [],
-      observer: 'updateOptionsList',
+      observer: 'updateOptionsList'
     },
     itemHeight: {
       type: Number,
       value: 44,
-      observer: 'updateTranslateY',
+      observer: 'updateTranslateY'
     },
     valueKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     defaultIndex: {
       type: Number,
       value: 0,
-      observer: 'updateIndex',
+      observer: 'updateIndex'
     },
     visibleItemCount: {
       type: Number,
-      value: 6,
+      value: 6
     },
     topVisible: {
       type: Number,
-      value: 2,
-    },
+      value: 2
+    }
   },
   data: {
     translateY: 110,
     transitionStyle: 'transition: all 300ms',
     currentIndex: 0,
-    optionsList: [],
+    optionsList: []
   },
   methods: {
-    getValue() {
+    getValue () {
       const { currentIndex, optionsList } = this.data;
       return optionsList[currentIndex];
     },
-    updateOptionsList() {
+    updateOptionsList () {
       this.setData({
-        optionsList: this.properties.initialOptions,
+        optionsList: this.properties.initialOptions
       });
       this.updateTranslateY();
       this.updateIndex();
     },
-    updateIndex() {
+    updateIndex () {
       let { defaultIndex } = this.properties;
 
       defaultIndex = this.adjustIndex(defaultIndex);
@@ -62,21 +62,21 @@ Component({
         defaultIndex = index;
       }
       this.setData({
-        currentIndex: defaultIndex,
+        currentIndex: defaultIndex
       });
       this.setTransYByIndex(defaultIndex);
     },
-    updateTranslateY() {
+    updateTranslateY () {
       const { itemHeight, topVisible } = this.properties;
       const { optionsList } = this.data;
       const translateY = itemHeight * topVisible + itemHeight / 2;
       this.startTranslateY = translateY;
       this.endTranslateY = translateY - optionsList.length * itemHeight;
       this.setData({
-        translateY,
+        translateY
       });
     },
-    onTouchMove(event) {
+    onTouchMove (event) {
       let { translateY } = this.data;
       const { itemHeight } = this.properties;
       const endY = event.touches[0].clientY;
@@ -89,18 +89,18 @@ Component({
         translateY = this.endTranslateY;
       }
       this.setData({
-        translateY,
+        translateY
       });
     },
-    onTouchStart(event) {
+    onTouchStart (event) {
       this.setData({
-        transitionStyle: 'transition: none',
+        transitionStyle: 'transition: none'
       });
       this.startY = event.touches[0].clientY;
     },
-    onTouchEnd() {
+    onTouchEnd () {
       this.setData({
-        transitionStyle: 'transition: all 300ms',
+        transitionStyle: 'transition: all 300ms'
       });
       const { translateY } = this.data;
       const len = this.data.optionsList.length;
@@ -113,7 +113,7 @@ Component({
         this.emitChange(index);
       }
     },
-    onClick(event) {
+    onClick (event) {
       const index = event.currentTarget.dataset.index;
       const { optionsList } = this.data;
       if (optionsList[index] && optionsList[index].disabled) {
@@ -122,7 +122,7 @@ Component({
       this.setTransYByIndex(index * 1);
       this.emitChange(index * 1);
     },
-    getIndex(transY) {
+    getIndex (transY) {
       const { itemHeight, topVisible } = this.properties;
       transY -= itemHeight / 2;
       let result = (itemHeight * topVisible - transY) / itemHeight;
@@ -141,29 +141,29 @@ Component({
       }
       return result;
     },
-    setTransYByIndex(index) {
+    setTransYByIndex (index) {
       const { itemHeight } = this.properties;
       this.setData({ translateY: this.startTranslateY - index * itemHeight });
     },
-    emitChange(index) {
+    emitChange (index) {
       const { currentIndex, optionsList } = this.data;
       if (index !== currentIndex) {
         this.triggerEvent('change', {
           index,
-          data: optionsList[index],
+          data: optionsList[index]
         });
         this.setData({
-          currentIndex: index,
+          currentIndex: index
         });
       }
     },
-    adjustIndex(index) {
+    adjustIndex (index) {
       const { optionsList } = this.data;
       index = index < 0 ? 0 : index;
       index = index > optionsList.length - 1 ? optionsList.length - 1 : index;
       return index;
     },
-    findNotDisabled(index) {
+    findNotDisabled (index) {
       const { optionsList } = this.data;
       for (let i = index; i < optionsList.length; i++) {
         if (!this.isDisabled(optionsList[i])) return i;
@@ -173,20 +173,20 @@ Component({
       }
       return null;
     },
-    isDisabled(option) {
+    isDisabled (option) {
       return isObj(option) && option.disabled;
     },
-    setIndex(index) {
+    setIndex (index) {
       this.setData({
-        currentIndex: index,
+        currentIndex: index
       });
       this.setTransYByIndex(index);
     },
-    getOptionText(option) {
+    getOptionText (option) {
       const { value } = this.properties;
       return isObj(option) && value in option ? option[value] : option;
     },
-    setValue(value) {
+    setValue (value) {
       const { optionsList } = this.data;
       for (let i = 0; i < optionsList.length; i++) {
         if (this.getOptionText(optionsList[i]) === value) {
@@ -194,19 +194,19 @@ Component({
         }
       }
       return Promise.resolve();
-    },
+    }
   },
-  created() {
+  created () {
     this.startY = 0;
     this.startTranslateY = 0;
     this.endTranslateY = 0;
   },
-  attached() {},
-  ready() {
+  attached () {},
+  ready () {
     this.updateTranslateY();
     this.updateIndex();
     this.updateOptionsList();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

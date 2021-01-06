@@ -5,5 +5,5 @@ export default {
   duration: 200,
   direction: 'down',
   mask: true,
-  closeOnClickMask: true,
+  closeOnClickMask: true
 };

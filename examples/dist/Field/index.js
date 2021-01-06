@@ -5,14 +5,15 @@ Component({
   behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
+    'custom-class',
     'label-class',
     'input-class',
     'right-icon-class',
     'value-class',
-    'header-class',
+    'header-class'
   ],
   properties: {
     ...commonProps,
@@ -27,27 +28,27 @@ Component({
     clickable: Boolean,
     titleWidth: {
       type: [String, Number],
-      value: '6.2em',
+      value: '6.2em'
     },
     arrowDirection: String,
     readonly: {
       type: Boolean,
-      observer: 'setShowClear',
+      observer: 'setShowClear'
     },
     inputAlign: String,
     rightIcon: String,
     clearable: { type: Boolean, observer: 'setShowClear' },
     errorMessage: String,
     useButtonSlot: Boolean,
-    customStyle: String,
+    customStyle: String
   },
   data: {
     inputValue: '',
     // focused: false,
-    showClear: false,
+    showClear: false
   },
   methods: {
-    emitChange() {
+    emitChange () {
       // 双向数据绑定
       if (canIUseModel()) {
         this.setData({ value: this.value });
@@ -56,23 +57,23 @@ Component({
         this.triggerEvent('change', this.value);
       });
     },
-    onInput(event) {
+    onInput (event) {
       const { value = '' } = event.detail || {};
       this.value = value;
       this.setShowClear();
       this.emitChange();
     },
-    onBlur(event) {
+    onBlur (event) {
       this.focused = false;
       this.setShowClear();
       this.triggerEvent('blur', event.detail);
     },
-    onFocus(event) {
+    onFocus (event) {
       this.focused = true;
       this.setShowClear();
       this.triggerEvent('focus', event.detail);
     },
-    onClear() {
+    onClear () {
       this.setData({ inputValue: '' });
       this.value = '';
       this.setShowClear();
@@ -81,35 +82,35 @@ Component({
         this.triggerEvent('clear', '');
       });
     },
-    onConfirm(event) {
+    onConfirm (event) {
       const { value = '' } = event.detail || {};
       this.value = value;
       this.setShowClear();
       this.triggerEvent('confirm', value);
     },
-    onLineChange(event) {
+    onLineChange (event) {
       this.triggerEvent('linechange', event.detail);
     },
-    onKeyboardHeightChange(event) {
+    onKeyboardHeightChange (event) {
       this.triggerEvent('keyboardheightchange', event.detail);
     },
-    onRightIconClick() {
+    onRightIconClick () {
       this.triggerEvent('click-icon');
     },
-    setShowClear() {
+    setShowClear () {
       const { clearable, readonly } = this.properties;
       const { focused, value } = this;
       this.setData({
-        showClear: !!clearable && !!focused && !!value && !readonly,
+        showClear: !!clearable && !!focused && !!value && !readonly
       });
-    },
+    }
   },
-  created() {
+  created () {
     this.value = this.properties.value;
     this.setData({ inputValue: this.value });
   },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

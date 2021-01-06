@@ -11,12 +11,12 @@ const defaultOptions = {
   color: WHITE,
   onClick: () => {},
   onOpened: () => {},
-  oClose: () => {},
+  oClose: () => {}
 };
 
 let currentOptions = { ...defaultOptions };
 
-function parseOptions(option) {
+function parseOptions (option) {
   if (!option) {
     return {};
   }
@@ -26,12 +26,12 @@ function parseOptions(option) {
   return option;
 }
 
-function getContext() {
+function getContext () {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
 
-function Notify(options) {
+function Notify (options) {
   options = { ...currentOptions, ...parseOptions(options) };
 
   const context = options.context || getContext();

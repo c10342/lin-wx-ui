@@ -4,67 +4,67 @@ Component({
   behaviors: ['wx://form-field'],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'node-class'],
   properties: {
     checked: {
       type: Boolean,
       value: false,
-      observer: 'updateValue',
+      observer: 'updateValue'
     },
     name: String,
     activeColor: {
       type: String,
-      value: BLUE,
+      value: BLUE
     },
     inactiveColor: {
       type: String,
-      value: WHITE,
+      value: WHITE
     },
     activeValue: {
       type: null,
-      value: true,
+      value: true
     },
     inactiveValue: {
       type: null,
-      value: false,
+      value: false
     },
     disabled: Boolean,
     loading: Boolean,
     size: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   data: {
-    value: false,
+    value: false
   },
   methods: {
-    onClick() {
+    onClick () {
       const { disabled, checked } = this.properties;
       if (disabled) {
         return;
       }
       this.triggerEvent('change', !checked);
     },
-    updateValue() {
+    updateValue () {
       const { checked, activeValue, inactiveValue } = this.properties;
       if (checked) {
         this.setData({
-          value: activeValue,
+          value: activeValue
         });
       } else {
         this.setData({
-          value: inactiveValue,
+          value: inactiveValue
         });
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.updateValue();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

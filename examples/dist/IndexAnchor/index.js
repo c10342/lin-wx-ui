@@ -1,26 +1,26 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../IndexBar/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
         this.updateDataFromParent();
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'index-class'],
   properties: {
     index: {
-      type: [String, Number],
+      type: [String, Number]
     },
-    useSlot: Boolean,
+    useSlot: Boolean
   },
   data: {
     zIndex: 1,
@@ -30,26 +30,26 @@ Component({
     fixed: false,
     transform: 0,
     indexwapperHeight: '',
-    isActive: false,
+    isActive: false
   },
   methods: {
-    updateDataFromParent() {
+    updateDataFromParent () {
       if (this.parent) {
         const {
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor,
+          highlightColor
         } = this.parent.properties;
         this.setData({
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor,
+          highlightColor
         });
       }
     },
-    onScroll() {
+    onScroll () {
       this.getRect().then((res) => {
         const { stickyOffsetTop, sticky } = this.data;
         const wrapper = res[0];
@@ -60,23 +60,23 @@ Component({
             obj = {
               fixed: false,
               transform: 0,
-              indexwapperHeight: '',
+              indexwapperHeight: ''
             };
           } else if (
-            wrapper.top <= stickyOffsetTop
-            && wrapper.height - stickyOffsetTop + wrapper.top
-              > indexContainer.height
+            wrapper.top <= stickyOffsetTop &&
+            wrapper.height - stickyOffsetTop + wrapper.top >
+              indexContainer.height
           ) {
             obj = {
               fixed: true,
               transform: 0,
-              indexwapperHeight: indexContainer.height,
+              indexwapperHeight: indexContainer.height
             };
           } else {
             obj = {
               fixed: false,
               transform: wrapper.height - indexContainer.height,
-              indexwapperHeight: indexContainer.height,
+              indexwapperHeight: indexContainer.height
             };
           }
         }
@@ -84,9 +84,9 @@ Component({
         if (wrapper.top > offsetTop) {
           obj.isActive = false;
         } else if (
-          wrapper.height - offsetTop + wrapper.top
-            > indexContainer.height
-          || wrapper.height - offsetTop + wrapper.top > 0
+          wrapper.height - offsetTop + wrapper.top >
+            indexContainer.height ||
+          wrapper.height - offsetTop + wrapper.top > 0
         ) {
           obj.isActive = true;
         } else {
@@ -95,7 +95,7 @@ Component({
         this.setDiffData(obj);
       });
     },
-    setDiffData(obj) {
+    setDiffData (obj) {
       const data = Object.keys(obj).reduce((prev, key) => {
         if (obj[key] !== this.data[key]) {
           prev[key] = obj[key];
@@ -104,11 +104,11 @@ Component({
       }, {});
       this.setData(data);
     },
-    getRect() {
+    getRect () {
       return Promise.all([this.getContainerRect(), this.getIndexRect()]);
     },
 
-    getIndexRect() {
+    getIndexRect () {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query
@@ -118,7 +118,7 @@ Component({
       });
     },
 
-    getContainerRect() {
+    getContainerRect () {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
         query
@@ -126,13 +126,13 @@ Component({
           .boundingClientRect(resolve)
           .exec();
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.onScroll();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

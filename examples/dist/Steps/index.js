@@ -1,42 +1,42 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'step-class',
     'message-text',
     'circle-class',
-    'line-class',
+    'line-class'
   ],
   properties: {
     steps: {
       type: Array,
-      value: [],
+      value: []
     },
     active: {
       type: Number,
-      value: 0,
+      value: 0
     },
     direction: {
       type: String,
       value: 'horizontal',
-      options: ['horizontal', 'vertical'],
+      options: ['horizontal', 'vertical']
     },
     activeColor: String,
     inactiveColor: String,
     activeIcon: {
       type: String,
-      value: 'round-active',
+      value: 'round-active'
     },
-    inactiveIcon: String,
+    inactiveIcon: String
   },
   data: {},
   methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

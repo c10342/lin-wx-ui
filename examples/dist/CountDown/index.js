@@ -3,30 +3,30 @@ import { isSameSecond, parseFormat, parseTimeDate } from './utils';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
     time: {
       type: Number,
-      observer: 'updateTime',
+      observer: 'updateTime'
     },
     format: {
       type: String,
-      value: 'HH:mm:ss',
+      value: 'HH:mm:ss'
     },
     autoStart: {
       type: Boolean,
-      value: true,
+      value: true
     },
     millisecond: Boolean,
-    useSlot: Boolean,
+    useSlot: Boolean
   },
   data: {
-    formattedTime: '0',
+    formattedTime: '0'
   },
   methods: {
-    updateTime() {
+    updateTime () {
       this.pause();
       const { time, autoStart, format } = this.properties;
       this.mainTime = time;
@@ -36,7 +36,7 @@ Component({
       }
     },
     // 暂停
-    pause() {
+    pause () {
       if (this.timer) {
         clearTimeout(this.timer);
         this.timer = null;
@@ -44,7 +44,7 @@ Component({
       this.counting = false;
     },
     // 开始
-    start() {
+    start () {
       if (this.counting) {
         return;
       }
@@ -52,11 +52,11 @@ Component({
       this.endTime = Date.now() + this.mainTime;
       this.renderTime();
     },
-    reset() {
+    reset () {
       this.updateTime();
     },
     // 渲染时间
-    renderTime() {
+    renderTime () {
       if (this.properties.millisecond) {
         this.renderTimeByMill();
       } else {
@@ -64,7 +64,7 @@ Component({
       }
     },
     // 每秒渲染
-    renderTimeBySecond() {
+    renderTimeBySecond () {
       this.timer = setTimeout(() => {
         const currentTime = this.getCurrentTime();
         // 秒数不一样才开始渲染
@@ -77,7 +77,7 @@ Component({
       }, 1000);
     },
     // 毫秒级别渲染
-    renderTimeByMill() {
+    renderTimeByMill () {
       this.timer = setTimeout(() => {
         this.setCurrentTime(this.getCurrentTime());
         if (this.mainTime !== 0) {
@@ -85,10 +85,10 @@ Component({
         }
       }, 30);
     },
-    getCurrentTime() {
+    getCurrentTime () {
       return Math.max(this.endTime - Date.now(), 0);
     },
-    setCurrentTime(currentTime) {
+    setCurrentTime (currentTime) {
       this.mainTime = currentTime;
 
       const timeDate = parseTimeDate(currentTime);
@@ -98,28 +98,28 @@ Component({
       this.triggerEvent('change', timeDate);
 
       this.setData({
-        formattedTime: parseFormat(format, timeDate),
+        formattedTime: parseFormat(format, timeDate)
       });
 
       if (currentTime === 0) {
         this.pause();
         this.triggerEvent('finish');
       }
-    },
+    }
   },
-  created() {
+  created () {
     this.timer = null;
     this.mainTime = 0;
     this.counting = false;
     this.endTime = null;
   },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;
     }
-  },
+  }
 });

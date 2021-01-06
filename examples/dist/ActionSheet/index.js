@@ -3,7 +3,7 @@ import OpenTypeBehavior from '../behaviors/open-type';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [OpenTypeBehavior],
   externalClasses: ['custom-class', 'title-class', 'description-class', 'actions-wrapper-class', 'button-class', 'cancelText-class'],
@@ -11,39 +11,39 @@ Component({
     show: Boolean,
     actions: {
       type: Array,
-      value: [],
+      value: []
     },
     round: {
       type: Boolean,
-      value: true,
+      value: true
     },
     closeOnClickAction: {
       type: Boolean,
-      value: true,
+      value: true
     },
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     cancelText: String,
     description: String,
     title: String,
     showCloseIcon: {
       type: Boolean,
-      value: true,
+      value: true
     },
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     mask: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
-    onSelect(event) {
+    onSelect (event) {
       const { actions, closeOnClickAction } = this.properties;
       const { index } = event.currentTarget.dataset;
       const item = actions[index];
@@ -54,20 +54,20 @@ Component({
         }
       }
     },
-    onCancel() {
+    onCancel () {
       this.triggerEvent('cancel');
     },
-    onClose() {
+    onClose () {
       this.triggerEvent('close');
     },
-    onClickMask() {
+    onClickMask () {
       this.triggerEvent('mask-click');
       this.onClose();
-    },
+    }
   },
-  created() { },
-  attached() { },
-  ready() { },
-  moved() { },
-  detached() { },
+  created () { },
+  attached () { },
+  ready () { },
+  moved () { },
+  detached () { }
 });

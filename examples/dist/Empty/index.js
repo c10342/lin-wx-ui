@@ -5,35 +5,35 @@ const typeOpt = ['error', 'network', 'search', 'default'];
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'image-wrapper-class',
     'image-class',
     'description-class',
-    'bottom-class',
+    'bottom-class'
   ],
   properties: {
     type: {
       type: String,
       value: 'default',
       options: typeOpt,
-      observer: 'updateImage',
+      observer: 'updateImage'
     },
     image: {
       type: String,
-      observer: 'updateImage',
+      observer: 'updateImage'
     },
     description: String,
     useImageSlot: Boolean,
-    useDescSlot: Boolean,
+    useDescSlot: Boolean
   },
   data: {
-    imageUrl: '',
+    imageUrl: ''
   },
   methods: {
-    updateImage() {
+    updateImage () {
       const { image, type } = this.properties;
       let imageUrl;
       if (image) {
@@ -46,16 +46,16 @@ Component({
       }
       if (imageUrl) {
         this.setData({
-          imageUrl,
+          imageUrl
         });
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.updateImage();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

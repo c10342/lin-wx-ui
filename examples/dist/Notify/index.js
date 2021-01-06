@@ -3,43 +3,43 @@ import { WHITE } from '../common/color';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
     type: {
       type: String,
       value: 'danger',
-      options: ['success', 'primary', 'warning', 'danger', 'info'],
+      options: ['success', 'primary', 'warning', 'danger', 'info']
     },
     message: String,
     duration: {
       type: Number,
-      value: 3000,
+      value: 3000
     },
     color: {
       type: String,
-      value: WHITE,
+      value: WHITE
     },
     top: {
       type: [String, Number],
-      value: '0px',
+      value: '0px'
     },
     background: String,
     zIndex: {
       type: Number,
-      value: 100,
-    },
+      value: 100
+    }
   },
 
   data: {
     show: false,
     onClick: null,
     onOpened: null,
-    oClose: null,
+    oClose: null
   },
   methods: {
-    show() {
+    show () {
       const { duration } = this.properties;
       const { onOpened } = this.data;
       if (this.timer) {
@@ -55,7 +55,7 @@ Component({
         }, duration);
       }
     },
-    hide() {
+    hide () {
       const { oClose } = this.data;
       if (this.timer) {
         clearTimeout(this.timer);
@@ -66,22 +66,22 @@ Component({
         wx.nextTick(oClose);
       }
     },
-    onTap(event) {
+    onTap (event) {
       const { onClick } = this.data;
       if (onClick) {
         onClick(event.detail);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.timer = null;
   },
-  moved() {},
-  detached() {
+  moved () {},
+  detached () {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-  },
+  }
 });

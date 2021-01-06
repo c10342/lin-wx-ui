@@ -1,4 +1,4 @@
-function add(num1, num2) {
+function add (num1, num2) {
   const cardinal = 10 ** 10;
   return Math.round((num1 + num2) * cardinal) / cardinal;
 }
@@ -6,7 +6,7 @@ const timeSecond = 500;
 Component({
   behaviors: ['wx://form-field'],
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'input-class', 'plus-class', 'minus-class'],
   properties: {
@@ -14,78 +14,78 @@ Component({
     value: {
       type: Number,
       value: null,
-      observer(value) {
+      observer (value) {
         if (this.properties.asyncChange) {
           wx.hideLoading();
         }
         this.setData({ inputValue: this.formatValue(value) });
-      },
+      }
     },
     min: {
       type: Number,
-      value: 1,
+      value: 1
     },
     max: {
       type: Number,
-      value: null,
+      value: null
     },
     step: {
       type: Number,
-      value: 1,
+      value: 1
     },
     integer: Boolean,
     disabled: Boolean,
     decimalLength: {
       type: Number,
-      value: null,
+      value: null
     },
     inputWidth: {
       type: [String, Number],
-      value: '64rpx',
+      value: '64rpx'
     },
     buttonSize: {
       type: [String, Number],
-      value: '56rpx',
+      value: '56rpx'
     },
     buttonFontSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     inputFontSize: {
       type: [String, Number],
-      value: '30rpx',
+      value: '30rpx'
     },
     disableInput: Boolean,
     showPlus: {
       type: Boolean,
-      value: true,
+      value: true
     },
     showMinus: {
       type: Boolean,
-      value: true,
+      value: true
     },
     disablePlus: Boolean,
     disableMinus: Boolean,
     asyncChange: Boolean,
     longPress: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   observers: {
     'disabled,disableMinus,min,inputValue': function (
       disabled,
       disableMinus,
       min,
-      inputValue,
+      inputValue
     ) {
       if (disabled || disableMinus || (min != null && inputValue <= min)) {
         this.setData({
-          isMinusDisable: true,
+          isMinusDisable: true
         });
       } else {
         this.setData({
-          isMinusDisable: false,
+          isMinusDisable: false
         });
       }
     },
@@ -93,32 +93,32 @@ Component({
       disabled,
       disablePlus,
       max,
-      inputValue,
+      inputValue
     ) {
       if (disabled || disablePlus || (max != null && inputValue >= max)) {
         this.setData({
-          isPlusDisable: true,
+          isPlusDisable: true
         });
       } else {
         this.setData({
-          isPlusDisable: false,
+          isPlusDisable: false
         });
       }
-    },
+    }
   },
   data: {
     inputValue: '',
     isMinusDisable: false,
-    isPlusDisable: false,
+    isPlusDisable: false
   },
   methods: {
-    onTouchend() {
+    onTouchend () {
       if (this.timer) {
         clearInterval(this.timer);
         this.timer = null;
       }
     },
-    onMinusLongpress() {
+    onMinusLongpress () {
       if (this.data.isMinusDisable || !this.properties.longPress) {
         return;
       }
@@ -127,7 +127,7 @@ Component({
         this.onMinus();
       }, timeSecond);
     },
-    onPlusLongpress() {
+    onPlusLongpress () {
       if (this.data.isPlusDisable || !this.properties.longPress) {
         return;
       }
@@ -136,12 +136,12 @@ Component({
         this.onPlus();
       }, timeSecond);
     },
-    onMinus() {
+    onMinus () {
       const { step } = this.properties;
       const { inputValue, isMinusDisable } = this.data;
       if (isMinusDisable) {
         this.triggerEvent('overlimit', {
-          type: 'minus',
+          type: 'minus'
         });
         return;
       }
@@ -150,12 +150,12 @@ Component({
       this.emitChange(value);
       this.triggerEvent('minus');
     },
-    onPlus() {
+    onPlus () {
       const { step } = this.properties;
       const { inputValue, isPlusDisable } = this.data;
       if (isPlusDisable) {
         this.triggerEvent('overlimit', {
-          type: 'plus',
+          type: 'plus'
         });
         return;
       }
@@ -163,18 +163,18 @@ Component({
       this.emitChange(value);
       this.triggerEvent('plus');
     },
-    onBlur(event) {
+    onBlur (event) {
       const value = event.detail.value;
       this.emitChange(value);
       this.triggerEvent('blur');
     },
-    onFocus() {
+    onFocus () {
       this.triggerEvent('focus');
     },
-    formatValue(value) {
+    formatValue (value) {
       value *= 1;
       const {
-        integer, max, min, decimalLength,
+        integer, max, min, decimalLength
       } = this.properties;
       if (integer) {
         value = parseInt(value, 10);
@@ -190,24 +190,24 @@ Component({
       }
       return value;
     },
-    emitChange(value) {
+    emitChange (value) {
       if (value !== this.data.inputValue) {
         const inputValue = this.formatValue(value);
         if (this.properties.asyncChange) {
           wx.showLoading();
         } else {
           this.setData({
-            inputValue,
+            inputValue
           });
         }
 
         this.triggerEvent('change', inputValue);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.timer = null;
     const { value, min } = this.properties;
     let inputValue = 0;
@@ -217,11 +217,11 @@ Component({
       inputValue = min;
     }
     this.setData({
-      inputValue: this.formatValue(inputValue),
+      inputValue: this.formatValue(inputValue)
     });
   },
-  moved() {},
-  detached() {
+  moved () {},
+  detached () {
     this.onTouchend();
-  },
+  }
 });

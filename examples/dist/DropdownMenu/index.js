@@ -6,72 +6,72 @@ let ARRAY = [];
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../DropdownItem/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateItemListData();
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateItemListData();
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'wrapper-class', 'item-class'],
   properties: {
     activeColor: {
       type: String,
       value: defaulrProps.activeColor,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     zIndex: {
       type: Number,
-      value: 10,
+      value: 10
     },
     duration: {
       type: Number,
       value: defaulrProps.duration,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     direction: {
       type: String,
       value: defaulrProps.direction,
       options: ['down', 'up'],
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     mask: {
       type: Boolean,
       value: defaulrProps.mask,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     closeOnClickMask: {
       type: Boolean,
       value: defaulrProps.closeOnClickMask,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     closeOnClickOutside: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
-    itemListData: [],
+    itemListData: []
   },
   methods: {
-    onTitleTap(event) {
+    onTitleTap (event) {
       const index = event.currentTarget.dataset.index;
       const child = this.children[index];
       if (!child.properties.disabled) {
         ARRAY.forEach((menuItem) => {
           if (
-            menuItem
-            && menuItem.properties.closeOnClickOutside
-            && menuItem !== this
+            menuItem &&
+            menuItem.properties.closeOnClickOutside &&
+            menuItem !== this
           ) {
             menuItem.close();
           }
@@ -79,12 +79,12 @@ Component({
         this.toggleItem(index);
       }
     },
-    close() {
+    close () {
       (this.children || []).forEach((child) => {
         child.hide(true);
       });
     },
-    toggleItem(activeIndex) {
+    toggleItem (activeIndex) {
       (this.children || []).forEach((child, index) => {
         const { showPopup } = child.data;
         if (index === activeIndex) {
@@ -94,17 +94,17 @@ Component({
         }
       });
     },
-    updateItemListData() {
+    updateItemListData () {
       this.setData({
-        itemListData: this.children.map((child) => child.data),
+        itemListData: this.children.map((child) => child.data)
       });
     },
-    updateChildrenData() {
+    updateChildrenData () {
       (this.children || []).forEach((child) => {
         child.updateDataFromParent();
       });
     },
-    getChildWrapperStyle() {
+    getChildWrapperStyle () {
       const { zIndex, direction } = this.properties;
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
@@ -121,17 +121,17 @@ Component({
           resolve(wrapperStyle);
         });
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     const { windowHeight } = getSystemInfoSync();
     this.windowHeight = windowHeight;
     ARRAY.push(this);
   },
-  moved() {},
-  detached() {
+  moved () {},
+  detached () {
     ARRAY = ARRAY.filter((item) => item !== this);
-  },
+  }
 });

@@ -1,1 +1,1 @@
-@import '../common/base.wxss';.lin-rate{position:relative;display:inline-block}.lin-rate-o{display:flex;flex-direction:row;position:relative}.lin-rate-fill{display:flex;flex-direction:row;position:absolute;top:0;left:0;overflow:hidden}
+@import '../common/base.wxss';.lin-rate{position:relative;display:inline-block}.lin-rate-o{position:relative;display:flex;flex-direction:row}.lin-rate-fill{position:absolute;top:0;left:0;display:flex;flex-direction:row;overflow:hidden}

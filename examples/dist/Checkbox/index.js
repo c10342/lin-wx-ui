@@ -5,17 +5,17 @@ Component({
   relations: {
     '../CheckboxGroup/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   properties: {
     value: Boolean,
@@ -23,18 +23,18 @@ Component({
     shape: {
       type: String,
       options: ['round', 'square'],
-      value: shapeValue,
+      value: shapeValue
     },
     checkedColor: String,
     iconSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     useIconSlot: Boolean,
     labelDisabled: Boolean,
     name: {
-      type: null,
-    },
+      type: null
+    }
   },
   observers: {
     'value,shape': function (value, shape) {
@@ -43,39 +43,39 @@ Component({
         iconName = `${iconName}-active`;
       }
       this.setData({
-        iconName,
+        iconName
       });
-    },
+    }
   },
   data: {
     iconName: shapeValue,
-    parentDisabled: false,
+    parentDisabled: false
   },
   methods: {
-    toggle() {
+    toggle () {
       if (this.properties.disabled || this.data.parentDisabled) {
         return;
       }
       this.emitChange();
     },
-    onLabelClick() {
+    onLabelClick () {
       if (
-        this.properties.disabled
-        || this.data.parentDisabled
-        || this.properties.labelDisabled
+        this.properties.disabled ||
+        this.data.parentDisabled ||
+        this.properties.labelDisabled
       ) {
         return;
       }
       this.emitChange();
     },
-    emitChange() {
+    emitChange () {
       if (this.parent) {
         this.setParentValue(!this.properties.value);
       } else {
         this.triggerEvent('change', !this.properties.value);
       }
     },
-    setParentValue(value) {
+    setParentValue (value) {
       let { value: parentValue } = this.parent.properties;
       const { max } = this.parent.properties;
       parentValue = parentValue.slice();
@@ -95,11 +95,11 @@ Component({
           this.parent.emitChange(parentValue);
         }
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

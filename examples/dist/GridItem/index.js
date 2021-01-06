@@ -4,25 +4,25 @@ import LinkBehavior from '../behaviors/link';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [LinkBehavior],
   relations: {
     '../Grid/index': {
       type: 'ancestor',
-      linked(parent) {
+      linked (parent) {
         this.parent = parent;
       },
-      unlinked() {
+      unlinked () {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: [
     'custom-class',
     'content-class',
     'icon-class',
-    'text-class',
+    'text-class'
   ],
   properties: {
     text: String,
@@ -32,8 +32,8 @@ Component({
     badge: String,
     url: String,
     useSlot: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
   data: {
     wrapperStyle: '',
@@ -42,10 +42,10 @@ Component({
     direction: 'vertical',
     border: true,
     square: false,
-    contentStyle: '',
+    contentStyle: ''
   },
   methods: {
-    updateStyle() {
+    updateStyle () {
       if (!this.parent) {
         return;
       }
@@ -58,7 +58,7 @@ Component({
         direction,
         border,
         square,
-        gutter,
+        gutter
       } = properties;
       const wrapperStyle = [];
       const width = `${100 / columnNum}%`;
@@ -88,20 +88,20 @@ Component({
         iconSize,
         direction,
         border,
-        square,
+        square
       });
     },
-    onClick() {
+    onClick () {
       this.triggerEvent('click');
       const { url } = this.properties;
       this.jump(url);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.updateStyle();
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

@@ -3,7 +3,7 @@ import LinkBehavior from '../behaviors/link';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -18,48 +18,48 @@ Component({
     'integer-class',
     'decimal-class',
     'origin-price-class',
-    'num-class',
+    'num-class'
   ],
   behaviors: [LinkBehavior],
   properties: {
     thumb: String,
     thumbMode: {
       type: String,
-      value: 'aspectFit',
+      value: 'aspectFit'
     },
     title: String,
     desc: String,
     tag: String,
     num: {
-      type: [String, Number],
+      type: [String, Number]
     },
     price: {
       type: [String, Number],
-      observer: 'updatePrice',
+      observer: 'updatePrice'
     },
     originPrice: {
-      type: [String, Number],
+      type: [String, Number]
     },
     currency: {
       type: String,
-      value: '¥',
+      value: '¥'
     },
     thumbLink: String,
-    lazyLoad: Boolean,
+    lazyLoad: Boolean
   },
   data: {
     integer: '0',
-    decimal: '00',
+    decimal: '00'
   },
   methods: {
-    updatePrice() {
+    updatePrice () {
       const { price } = this.properties;
       this.setData(this.handelPrice(price));
     },
-    handelPrice(price) {
+    handelPrice (price) {
       const priceObj = {
         integer: '0',
-        decimal: '00',
+        decimal: '00'
       };
       price = price.toString();
       const priceArr = price.split('.');
@@ -71,14 +71,14 @@ Component({
       priceObj.decimal = decimal;
       return priceObj;
     },
-    onThumbClick() {
+    onThumbClick () {
       const { thumbLink } = this.properties;
       this.jump(thumbLink);
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

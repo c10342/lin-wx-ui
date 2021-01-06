@@ -3,8 +3,8 @@ import LinkBehavior from '../behaviors/link';
 Component({
   relations: {
     '../CellGroup/index': {
-      type: 'ancestor',
-    },
+      type: 'ancestor'
+    }
   },
   behaviors: [LinkBehavior],
   externalClasses: [
@@ -13,11 +13,11 @@ Component({
     'value-class',
     'label-class',
     'header-class',
-    'right-icon-class',
+    'right-icon-class'
   ],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   properties: {
     title: String,
@@ -25,7 +25,7 @@ Component({
     label: String,
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     size: { type: String, options: ['large'] },
     icon: String,
@@ -33,33 +33,33 @@ Component({
     required: Boolean,
     arrowDirection: {
       type: String,
-      value: 'right',
+      value: 'right'
     },
     url: String,
     titleWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
-    customStyle: String,
+    customStyle: String
   },
   data: {
-    borderBottom: true,
+    borderBottom: true
   },
   methods: {
-    onClick(event) {
+    onClick (event) {
       this.triggerEvent('click', event);
       this.jumpLink();
     },
-    jumpLink() {
+    jumpLink () {
       const { url } = this.properties;
       this.jump(url);
     },
-    setBorder(value) {
+    setBorder (value) {
       this.setData({ borderBottom: value });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

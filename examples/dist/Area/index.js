@@ -1,59 +1,59 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   // externalClasses: ["custom-class"],
   properties: {
     areaList: {
       type: Object,
       value: {},
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     value: {
       type: String,
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     title: String,
     columnsNum: {
       type: Number,
       value: 3,
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     columnsPlaceholder: {
       type: Array,
       value: [],
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     loading: Boolean,
     itemHeight: {
       type: Number,
-      value: 44,
+      value: 44
     },
     visibleItemCount: {
       type: Number,
-      value: 6,
+      value: 6
     },
     confirmButtonText: {
       type: String,
-      value: '确定',
+      value: '确定'
     },
     cancelButtonText: {
       type: String,
-      value: '取消',
-    },
+      value: '取消'
+    }
   },
   data: {
-    columns: [],
+    columns: []
   },
   methods: {
-    onConfirm(event) {
+    onConfirm (event) {
       this.triggerEvent('confirm', event.detail.value);
     },
-    onCancel() {
+    onCancel () {
       this.triggerEvent('cancel');
     },
-    onChange(event) {
+    onChange (event) {
       this.triggerEvent('change', event.detail);
       const { index, picker } = event.detail;
       if (index === 0) {
@@ -62,7 +62,7 @@ Component({
         this.cityChange(picker, index);
       }
     },
-    provinceChange(picker) {
+    provinceChange (picker) {
       const { columnsNum } = this.properties;
       if (columnsNum < 2) {
         return;
@@ -73,7 +73,7 @@ Component({
       this.cityChange(picker);
       picker.setColumnIndex(1, 0);
     },
-    cityChange(picker) {
+    cityChange (picker) {
       const { columnsNum } = this.properties;
       if (columnsNum < 3) {
         return;
@@ -83,7 +83,7 @@ Component({
       picker.setColumnValues(2, countyList);
       picker.setColumnIndex(2, 0);
     },
-    updateColumns() {
+    updateColumns () {
       const { columnsNum, value } = this.properties;
       let provinceCode = '';
       let cityCode = '';
@@ -106,7 +106,7 @@ Component({
         }
         columns.push({
           values: provinceList,
-          defaultIndex: provinceIndex,
+          defaultIndex: provinceIndex
         });
         if (columnsNum >= 2) {
           const cityList = this.getCity(provinceList[provinceIndex]);
@@ -120,7 +120,7 @@ Component({
           }
           columns.push({
             values: cityList,
-            defaultIndex: cityIndex,
+            defaultIndex: cityIndex
           });
           if (columnsNum >= 3) {
             const countyList = this.getCounty(cityList[cityIndex]);
@@ -134,23 +134,23 @@ Component({
             }
             columns.push({
               values: countyList,
-              defaultIndex: countyIndex,
+              defaultIndex: countyIndex
             });
           }
         }
       }
       this.setData({
-        columns,
+        columns
       });
     },
-    getProvince() {
+    getProvince () {
       const { areaList = {}, columnsPlaceholder = [] } = this.properties;
       const { province_list = {} } = areaList;
       const provinceList = [];
       if (columnsPlaceholder[0]) {
         provinceList.push({
           text: columnsPlaceholder[0],
-          code: -1,
+          code: -1
         });
       }
       // for (const key in province_list) {
@@ -162,19 +162,19 @@ Component({
       Object.keys(province_list).forEach((key) => {
         provinceList.push({
           text: province_list[key],
-          code: key,
+          code: key
         });
       });
       return provinceList;
     },
-    getCity(province) {
+    getCity (province) {
       const { areaList = {}, columnsPlaceholder = [] } = this.properties;
       const { city_list = {} } = areaList;
       const cityList = [];
       if (columnsPlaceholder[1]) {
         cityList.push({
           text: columnsPlaceholder[1],
-          code: -1,
+          code: -1
         });
       }
       if (!province || (province && province.code === -1)) {
@@ -193,20 +193,20 @@ Component({
         if (key.substring(0, 2) === code) {
           cityList.push({
             text: city_list[key],
-            code: key,
+            code: key
           });
         }
       });
       return cityList;
     },
-    getCounty(city) {
+    getCounty (city) {
       const { areaList = {}, columnsPlaceholder = [] } = this.properties;
       const { county_list = {} } = areaList;
       const countyList = [];
       if (columnsPlaceholder[2]) {
         countyList.push({
           text: columnsPlaceholder[2],
-          code: -1,
+          code: -1
         });
       }
       if (!city || (city && city.code === -1)) {
@@ -226,18 +226,18 @@ Component({
         if (key.substring(0, 4) === code) {
           countyList.push({
             text: county_list[key],
-            code: key,
+            code: key
           });
         }
       });
       return countyList;
-    },
+    }
   },
-  created() {
+  created () {
     this.provinceList = [];
   },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

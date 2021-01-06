@@ -1,0 +1,19 @@
+<view class='container'>
+    <demo-block title-padding title='基础用法'>
+        <lin-form validator id="form" rules='{{rules}}' model='{{student}}' bind:submit="submit">
+            <lin-form-item required label="姓名:" name="name">
+                <lin-field  bind:change='onInputChange' data-key="student.name"  placeholder='请输入姓名' titleWidth='0' border='{{false}}' value="{{student.name}}" />
+            </lin-form-item>
+            <lin-form-item required label="年龄:" name="age">
+                <lin-field  bind:change='onInputChange' data-key="student.age"  placeholder='请输入年龄'  titleWidth='0' border='{{false}}' value="{{student.age}}" />
+            </lin-form-item>
+            <lin-form-item label="地址:" name="address">
+                <lin-field placeholder='请输入地址'  titleWidth='0' border='{{false}}' value="{{student.address}}" />
+            </lin-form-item>
+            <view slot="footer">
+                <lin-button type='primary' bind:click='submit'>提交</lin-button>
+                <lin-button style="margin-left:20rpx;" bind:click='reset'>重置</lin-button>
+            </view>
+        </lin-form>
+    </demo-block>
+</view>

@@ -2,47 +2,47 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'bar-class', 'button-class'],
   properties: {
     value: {
       type: Number,
       value: 0,
-      observer: 'setBarWidth',
+      observer: 'setBarWidth'
     },
     disabled: Boolean,
     max: {
       type: Number,
-      value: 100,
+      value: 100
     },
     min: {
       type: Number,
-      value: 0,
+      value: 0
     },
     step: {
       type: Number,
-      value: 1,
+      value: 1
     },
     barHeight: {
       type: [String, Number],
-      value: '2px',
+      value: '2px'
     },
     activeColor: String,
     inactiveColor: String,
-    useButtonSlot: Boolean,
+    useButtonSlot: Boolean
   },
   data: {
     width: 0,
     left: 0,
-    transition: 'transition: all 300ms',
+    transition: 'transition: all 300ms'
   },
   methods: {
-    setBarWidth() {
+    setBarWidth () {
       const offsetWidth = this.getOffsetWidthByValue(this.properties.value);
       this.setStyleWidth(offsetWidth);
     },
-    getOffsetWidthByValue(value) {
+    getOffsetWidthByValue (value) {
       const { max, min } = this.properties;
       const offsetNum = max - min;
       let percent = 0;
@@ -56,7 +56,7 @@ Component({
       }
       return this.containerWidth * percent;
     },
-    setStyleWidth(offsetWidth) {
+    setStyleWidth (offsetWidth) {
       offsetWidth = parseInt(offsetWidth, 10);
       let left = offsetWidth - this.barWidth / 2;
       if (left <= 0) {
@@ -67,10 +67,10 @@ Component({
       }
       this.setData({
         left,
-        width: offsetWidth,
+        width: offsetWidth
       });
     },
-    onClick(event) {
+    onClick (event) {
       if (this.properties.disabled) {
         return;
       }
@@ -91,16 +91,16 @@ Component({
 
       this.emitChange();
     },
-    onTouchStart() {
+    onTouchStart () {
       if (this.properties.disabled) {
         return;
       }
       this.setData({
-        transition: 'transition: none',
+        transition: 'transition: none'
       });
       this.triggerEvent('drag-start');
     },
-    onTouchMove(event) {
+    onTouchMove (event) {
       if (this.properties.disabled) {
         return;
       }
@@ -123,33 +123,33 @@ Component({
       this.setStyleWidth(offsetWidth);
       this.emitDrag();
     },
-    onTouchEnd() {
+    onTouchEnd () {
       if (this.properties.disabled) {
         return;
       }
       this.setData({
-        transition: 'transition: all 300ms',
+        transition: 'transition: all 300ms'
       });
       this.emitChange();
       this.triggerEvent('drag-end');
     },
-    getValue(offsetWidth) {
+    getValue (offsetWidth) {
       const percent = offsetWidth / this.containerWidth;
       const { max, min } = this.properties;
       const offsetNum = max - min;
       const leftNum = offsetNum * percent;
       return parseInt(min + leftNum, 10);
     },
-    emitChange() {
+    emitChange () {
       this.triggerEvent('change', this.getValue(this.data.width));
     },
-    emitDrag() {
+    emitDrag () {
       this.triggerEvent('drag', this.getValue(this.data.width));
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {
+  created () {},
+  attached () {},
+  ready () {
     this.containerLeft = 0;
     this.containerWidth = 0;
     this.barWidth = 0;
@@ -163,6 +163,6 @@ Component({
       this.setBarWidth();
     });
   },
-  moved() {},
-  detached() {},
+  moved () {},
+  detached () {}
 });

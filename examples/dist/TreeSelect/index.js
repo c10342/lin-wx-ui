@@ -1,57 +1,57 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'nav-class', 'nav-item-class', 'content-class', 'content-item-class'],
   properties: {
     items: {
       type: Array,
       value: [],
-      observer: 'updateSubItems',
+      observer: 'updateSubItems'
     },
     mainActiveIndex: {
       type: Number,
       value: 0,
-      observer: 'updateSubItems',
+      observer: 'updateSubItems'
     },
     navLabelKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     contentLabelKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     contentValueKey: {
       type: String,
-      value: 'id',
+      value: 'id'
     },
     activeId: {
-      type: null,
+      type: null
     },
     max: {
       type: Number,
-      value: Infinity,
+      value: Infinity
     },
     selectedIcon: String,
     height: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   data: {
-    subItems: [],
+    subItems: []
   },
   methods: {
-    updateSubItems() {
+    updateSubItems () {
       const { items, mainActiveIndex } = this.properties;
 
       const { children = [] } = items[mainActiveIndex] || {};
       this.setData({
-        subItems: children,
+        subItems: children
       });
     },
-    onNavClick(event) {
+    onNavClick (event) {
       const { index } = event.currentTarget.dataset;
       const item = this.properties.items[index];
       if (item.disabled) {
@@ -59,7 +59,7 @@ Component({
       }
       this.triggerEvent('nav-click', { index });
     },
-    onItemClick(event) {
+    onItemClick (event) {
       const { item } = event.currentTarget.dataset;
       if (item.disabled) {
         return;
@@ -68,15 +68,16 @@ Component({
       const isArray = Array.isArray(activeId);
       const isOverMax = isArray && activeId.length >= max;
       const isSelect = isArray
-        ? activeId.indexOf(item[contentValueKey]) > -1 : activeId === item[contentValueKey];
+        ? activeId.indexOf(item[contentValueKey]) > -1
+        : activeId === item[contentValueKey];
       if (!isOverMax || isSelect) {
         this.triggerEvent('item-click', item);
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

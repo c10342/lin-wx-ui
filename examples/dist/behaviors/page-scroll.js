@@ -1,9 +1,9 @@
-function getCurrentPage() {
+function getCurrentPage () {
   const pages = getCurrentPages();
   return pages[pages.length - 1] || {};
 }
 
-function onPageScroll(event) {
+function onPageScroll (event) {
   const { linPageScroll = [] } = getCurrentPage();
 
   linPageScroll.forEach((scroller) => {
@@ -14,7 +14,7 @@ function onPageScroll(event) {
 }
 
 const pageScrollBehavior = (scroller) => Behavior({
-  attached() {
+  attached () {
     const page = getCurrentPage();
     if (Array.isArray(page.linPageScroll)) {
       page.linPageScroll.push(scroller.bind(this));
@@ -26,10 +26,10 @@ const pageScrollBehavior = (scroller) => Behavior({
 
     page.onPageScroll = onPageScroll;
   },
-  detached() {
+  detached () {
     const page = getCurrentPage();
     page.linPageScroll = (page.linPageScroll || []).filter((item) => item !== scroller);
-  },
+  }
 });
 
 export default pageScrollBehavior;

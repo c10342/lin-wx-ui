@@ -1,5 +1,5 @@
 const baseRequest = ({
-  url, data = {}, header = {}, timeout, method = 'GET', dataType = 'json', responseType = 'text', enableHttp2 = false, enableQuic = false, enableCache = false, completeCallback,
+  url, data = {}, header = {}, timeout, method = 'GET', dataType = 'json', responseType = 'text', enableHttp2 = false, enableQuic = false, enableCache = false, completeCallback
 }) => new Promise((resolve, reject) => {
   wx.request({
     url,
@@ -12,7 +12,7 @@ const baseRequest = ({
     enableHttp2,
     enableQuic,
     enableCache,
-    success(res) {
+    success (res) {
       if (res.statusCode === 200 && res.errMsg === 'request:ok') {
         resolve(res.data);
       } else {
@@ -20,27 +20,27 @@ const baseRequest = ({
       }
     },
     reject,
-    complete(resData) {
+    complete (resData) {
       if (typeof completeCallback === 'function') {
         completeCallback(resData);
       }
-    },
+    }
   });
 });
 
 const request = {
-  get(params = {}) {
+  get (params = {}) {
     return baseRequest({
       ...params,
-      method: 'GET',
+      method: 'GET'
     });
   },
-  post(params = {}) {
+  post (params = {}) {
     return baseRequest({
       ...params,
-      method: 'POST',
+      method: 'POST'
     });
-  },
+  }
 };
 
 export default request;

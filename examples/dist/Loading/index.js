@@ -1,7 +1,7 @@
 // Component Object
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'text-class', 'loading-class'],
   properties: {
@@ -9,40 +9,40 @@ Component({
     type: {
       type: String,
       value: 'primary',
-      options: ['primary', 'success', 'info', 'warning', 'danger'],
+      options: ['primary', 'success', 'info', 'warning', 'danger']
     },
     size: {
       type: String,
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     color: {
       type: String,
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     textColor: {
       type: String,
-      observer: 'setTextStyle',
+      observer: 'setTextStyle'
     },
     textSize: {
       type: String,
-      observer: 'setTextStyle',
+      observer: 'setTextStyle'
     },
     time: {
       type: String,
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     vertical: {
       type: String,
       options: ['row', 'col'],
-      value: 'row',
-    },
+      value: 'row'
+    }
   },
   data: {
     loadingStyle: '',
-    textStyle: '',
+    textStyle: ''
   },
   methods: {
-    setLoadingStyle() {
+    setLoadingStyle () {
       let style = '';
       const { size, time, color } = this.properties;
       if (size) {
@@ -60,7 +60,7 @@ Component({
         this.setData({ loadingStyle: style });
       }
     },
-    setTextStyle() {
+    setTextStyle () {
       let style = '';
       const { textColor, textSize } = this.properties;
       if (textColor) {
@@ -72,11 +72,11 @@ Component({
       if (style !== this.data.textStyle) {
         this.setData({ textStyle: style });
       }
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

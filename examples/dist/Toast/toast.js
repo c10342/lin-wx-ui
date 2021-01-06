@@ -8,23 +8,23 @@ const defaultOptions = {
   duration: 2000,
   position: 'middle',
   forbidClick: false,
-  selector: '#lin-toast',
+  selector: '#lin-toast'
 };
 
 let queue = [];
 
 let currentOptions = { ...defaultOptions };
 
-function parseOptions(message) {
+function parseOptions (message) {
   return isObj(message) ? message : { message };
 }
 
-function getContext() {
+function getContext () {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
 
-function Toast(options) {
+function Toast (options) {
   options = { ...currentOptions, ...parseOptions(options) };
 
   const context = options.context || getContext();
@@ -59,7 +59,7 @@ function Toast(options) {
 
 const createMethod = (type) => (options) => Toast({
   type,
-  ...parseOptions(options),
+  ...parseOptions(options)
 });
 
 Toast.loading = createMethod('loading');

@@ -16,13 +16,13 @@ if (canIUseFormFieldButton()) {
 
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: [
     'custom-class',
     'loading-class',
     'icon-class',
-    'hover-class',
+    'hover-class'
   ],
   behaviors,
   /**
@@ -32,43 +32,43 @@ Component({
     formType: String,
     disabled: {
       type: Boolean,
-      value: false,
+      value: false
     },
     block: {
       type: Boolean,
-      value: false,
+      value: false
     },
     type: {
       type: String,
       value: 'default',
-      options: ['primary', 'success', 'info', 'warning', 'danger', 'default'],
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'default']
     },
     plain: {
       type: Boolean,
-      value: false,
+      value: false
     },
     round: {
       type: Boolean,
-      value: false,
+      value: false
     },
     circle: {
       type: Boolean,
-      value: false,
+      value: false
     },
     icon: {
       type: String,
-      value: '',
+      value: ''
     },
     iconSize: {
-      type: String,
+      type: String
     },
     size: {
       type: String,
-      value: 'default',
+      value: 'default'
     },
     loading: {
       type: Boolean,
-      value: false,
+      value: false
     },
     loadingColor: String,
     loadingSize: String,
@@ -76,7 +76,7 @@ Component({
     color: {
       type: String,
       value: '',
-      observer(color) {
+      observer (color) {
         let style = '';
         if (color) {
           style += `color: ${this.data.plain ? color : 'white'};`;
@@ -92,8 +92,8 @@ Component({
         if (style !== this.data.baseStyle) {
           this.setData({ baseStyle: style });
         }
-      },
-    },
+      }
+    }
 
     // id: String,
     // lang: String,
@@ -112,19 +112,19 @@ Component({
    * 组件的初始数据
    */
   data: {
-    baseStyle: '',
+    baseStyle: ''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    onClick() {
+    onClick () {
       const { disabled, loading } = this.properties;
       if (!disabled && !loading) {
         this.triggerEvent('click');
       }
-    },
+    }
     // bindGetUserInfo(event) {
     //   this.triggerEvent("getuserinfo", event.detail);
     // },
@@ -148,5 +148,5 @@ Component({
     // bindOpenSetting(event) {
     //   this.triggerEvent("opensetting", event.detail);
     // },
-  },
+  }
 });

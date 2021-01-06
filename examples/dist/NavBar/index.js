@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'left-class', 'right-class', 'title-class'],
   properties: {
@@ -12,26 +12,26 @@ Component({
     fixed: Boolean,
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     zIndex: {
       type: Number,
-      value: 1,
+      value: 1
     },
-    customStyle: String,
+    customStyle: String
   },
   data: {},
   methods: {
-    onLeftClick() {
+    onLeftClick () {
       this.triggerEvent('click-left');
     },
-    onRightClick() {
+    onRightClick () {
       this.triggerEvent('click-right');
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

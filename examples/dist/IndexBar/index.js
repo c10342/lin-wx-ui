@@ -3,69 +3,69 @@ import pageScrollBehavior from '../behaviors/page-scroll';
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../IndexAnchor/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateDataFromChildren();
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateDataFromChildren();
-      },
-    },
+      }
+    }
   },
   behaviors: [
     pageScrollBehavior(function (event) {
       this.onScroll(event);
-    }),
+    })
   ],
   externalClasses: ['custom-class', 'sidebar-class', 'sidebar-item-class'],
   properties: {
     zIndex: {
       type: Number,
       value: 1,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     sticky: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     stickyOffsetTop: {
       type: Number,
       value: 0,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     highlightColor: {
       type: String,
-      observer: 'updateChildren',
-    },
+      observer: 'updateChildren'
+    }
   },
   data: {
     barList: [],
-    activeIndex: -1,
+    activeIndex: -1
   },
   methods: {
-    updateDataFromChildren() {
+    updateDataFromChildren () {
       const barList = [];
       (this.children || []).forEach((child) => {
         barList.push(child.properties.index);
       });
       this.setData({
-        barList,
+        barList
       });
     },
-    updateChildren() {
+    updateChildren () {
       (this.children || []).forEach((child) => {
         child.updateDataFromParent();
       });
     },
-    onScroll(event) {
+    onScroll (event) {
       (this.children || []).forEach((child) => {
         child.onScroll(event);
       });
@@ -76,15 +76,15 @@ Component({
       }
       if (activeIndex !== this.data.activeIndex) {
         this.setData({
-          activeIndex,
+          activeIndex
         });
       }
     },
-    onSidebarClick(event) {
+    onSidebarClick (event) {
       const { index } = event.currentTarget.dataset;
       this.triggerEvent('select', index);
       const child = (this.children || []).find(
-        (childData) => index === childData.properties.index,
+        (childData) => index === childData.properties.index
       );
       if (child) {
         Promise.all([this.getViewPort(), child.getContainerRect()]).then(
@@ -92,13 +92,13 @@ Component({
             const data = res[0].scrollTop + res[1].top; // 顶部距离该id值得距离
             wx.pageScrollTo({
               scrollTop: data,
-              duration: 300,
+              duration: 300
             });
-          },
+          }
         );
       }
     },
-    getViewPort() {
+    getViewPort () {
       return new Promise((resolve) => {
         const query = wx.createSelectorQuery().in(this);
         query
@@ -106,11 +106,11 @@ Component({
           .scrollOffset(resolve)
           .exec();
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });

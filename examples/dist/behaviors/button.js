@@ -9,8 +9,8 @@ const ButtonBehavior = Behavior({
     sendMessageImg: String,
     showMessageCard: Boolean,
     appParameter: String,
-    ariaLabel: String,
-  },
+    ariaLabel: String
+  }
 });
 
 export default ButtonBehavior;

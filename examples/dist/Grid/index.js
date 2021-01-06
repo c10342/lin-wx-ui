@@ -1,71 +1,71 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../GridItem/index': {
       type: 'descendant',
-      linked(child) {
+      linked (child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateChildren();
       },
-      unlinked(child) {
+      unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateChildren();
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class'],
   properties: {
     columnNum: {
       type: Number,
       value: 4,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     iconSize: {
       type: [String, Number],
       value: '56rpx',
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     gutter: {
       type: [String, Number],
       value: 0,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     border: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     center: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     square: {
       type: Boolean,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     direction: {
       type: String,
       value: 'vertical',
       options: ['vertical', 'horizontal'],
-      observer: 'updateChildren',
-    },
+      observer: 'updateChildren'
+    }
   },
   data: {},
   methods: {
-    updateChildren() {
+    updateChildren () {
       (this.children || []).forEach((child) => {
         child.updateStyle();
       });
-    },
+    }
   },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {},
+  created () {},
+  attached () {},
+  ready () {},
+  moved () {},
+  detached () {}
 });
