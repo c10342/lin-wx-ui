@@ -1,0 +1,14 @@
+
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs module="styleUtils" src="../wxs/style.wxs"></wxs>
+<view class="custom-class lin-form-item lin-border-bottom {{classname.concatMultClass(['lin-form-item-direction',flexDirection || direction])}}" style="{{styleUtils.multStyle(['margin-bottom',validator?'30rpx':'0px'])}}">
+    <view style="{{styleUtils.singleUnit('width',labelWidth|| width)}}" class="lin-form-item-label {{classname.singleClass('lin-form-item-required',required)}}" wx:if="{{label}}">
+    {{label}}
+    </view>
+    <view class="lin-form-item-content">
+    <slot/>
+    </view>
+    <view class="lin-form-item-errormsg" wx:if="{{errorMessage && validator}}">
+    {{errorMessage}}
+    </view>
+</view>
