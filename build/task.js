@@ -16,12 +16,21 @@ const rename = require("gulp-rename");
 
 const insert = require("gulp-insert");
 
+const eslint = require("gulp-eslint7");
+
+const gulpStylelint = require("gulp-stylelint");
+
 const del = require("del");
 
 const path = require("path");
 
 const buildWxss = (srcPath, distPath) => () =>
   src(srcPath)
+    .pipe(
+      gulpStylelint({
+        reporters: [{ formatter: "string", console: true }]
+      })
+    )
     .pipe(sass().on("error", sass.logError))
     .pipe(cssmin())
     .pipe(
@@ -35,14 +44,22 @@ const buildWxss = (srcPath, distPath) => () =>
       })
     )
     .pipe(
-      rename((srcPath) => {
+      rename(srcPath => {
         srcPath.extname = ".wxss";
       })
     )
     .pipe(dest(distPath));
 
-const copy = (srcPath, distPath, ext) => () =>
-  src(`${srcPath}/*.${ext}`).pipe(dest(distPath));
+const copy = (srcPath, distPath, ext) => () => {
+  if (ext === "js") {
+    return src(`${srcPath}/*.${ext}`)
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError())
+      .pipe(dest(distPath));
+  }
+  return src(`${srcPath}/*.${ext}`).pipe(dest(distPath));
+};
 
 const buildWxml = (srcPath, distPath) => () =>
   src(srcPath)
@@ -51,7 +68,7 @@ const buildWxml = (srcPath, distPath) => () =>
         removeComments: true,
         keepClosingSlash: true,
         caseSensitive: true,
-        collapseWhitespace:true
+        collapseWhitespace: true
       })
     )
     .pipe(dest(distPath));
@@ -63,6 +80,9 @@ const buildJson = (srcPath, distPath) => () =>
 
 const buildJs = (srcPath, distPath) => () =>
   src(srcPath)
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
     .pipe(jsmin())
     .pipe(dest(distPath));
 
@@ -83,9 +103,9 @@ const copyStatic = (srcPath, distPath) => {
   );
 };
 
-const clean = (cleanPath) => () =>
+const clean = cleanPath => () =>
   del(cleanPath, {
-    force: true,
+    force: true
   });
 
 module.exports = {
@@ -97,5 +117,5 @@ module.exports = {
   copyStatic,
   clean,
   copy,
-  buildWxs,
+  buildWxs
 };
