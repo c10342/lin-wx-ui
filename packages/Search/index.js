@@ -1,6 +1,7 @@
-// import {WHITE} from '../common/color'
+
+import FormControls from '../behaviors/form-controls';
 Component({
-  behaviors: ['wx://form-field'],
+  behaviors: ['wx://form-field', FormControls],
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -47,13 +48,18 @@ Component({
   },
   data: {},
   methods: {
+    emitChange (data) {
+      this.triggerEvent('change', data);
+    },
     onChange (event) {
-      this.triggerEvent('change', event.detail);
+      // this.triggerEvent('change', event.detail);
+      this.emitChange(event.detail);
     },
 
     onCancel () {
       this.triggerEvent('cancel');
-      this.triggerEvent('change', '');
+      // this.triggerEvent('change', '');
+      this.emitChange('');
     },
 
     onSearch (event) {
@@ -66,6 +72,8 @@ Component({
 
     onBlur (event) {
       this.triggerEvent('blur', event.detail);
+
+      this.triggerParentBlur(event.detail);
     },
 
     onClear (event) {

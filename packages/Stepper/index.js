@@ -1,10 +1,12 @@
+import FormControls from '../behaviors/form-controls';
+
 function add (num1, num2) {
   const cardinal = 10 ** 10;
   return Math.round((num1 + num2) * cardinal) / cardinal;
 }
 const timeSecond = 500;
 Component({
-  behaviors: ['wx://form-field'],
+  behaviors: ['wx://form-field', FormControls],
   options: {
     addGlobalClass: true
   },
@@ -166,7 +168,9 @@ Component({
     onBlur (event) {
       const value = event.detail.value;
       this.emitChange(value);
-      this.triggerEvent('blur');
+      this.triggerEvent('blur', value);
+
+      this.triggerParentBlur(value);
     },
     onFocus () {
       this.triggerEvent('focus');
