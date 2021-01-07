@@ -1,0 +1,12 @@
+.lin-check-group {
+  display: flex;
+}
+
+.lin-check-group-direction-column {
+  flex-direction: column;
+}
+
+.lin-check-group-direction-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}

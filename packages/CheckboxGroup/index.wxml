@@ -1,1 +1,5 @@
+
+<wxs src="../wxs/classname.wxs" module="classname"></wxs>
+<view class="custom-class lin-check-group {{classname.concatClass('lin-check-group-direction',direction)}}">
 <slot />
+</view>

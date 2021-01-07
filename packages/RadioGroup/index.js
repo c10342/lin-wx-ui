@@ -1,5 +1,6 @@
 Component({
   behaviors: ['wx://form-field'],
+  externalClasses: ['custom-class'],
   relations: {
     '../Radio/index': {
       type: 'descendant',
@@ -22,7 +23,12 @@ Component({
       type: Boolean,
       observer: 'updateChildren'
     },
-    name: String
+    name: String,
+    direction: {
+      type: String,
+      value: 'column',
+      options: ['column', 'row']
+    }
   },
   data: {},
   methods: {

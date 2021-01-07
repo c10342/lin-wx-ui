@@ -1,1 +1,6 @@
+
+
+<wxs src="../wxs/classname.wxs" module="classname"></wxs>
+<view class="custom-class lin-radio-group {{classname.concatClass('lin-radio-group-direction',direction)}}">
 <slot />
+</view>

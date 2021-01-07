@@ -1,0 +1,12 @@
+.lin-radio-group {
+  display: flex;
+}
+
+.lin-radio-group-direction-column {
+  flex-direction: column;
+}
+
+.lin-radio-group-direction-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
