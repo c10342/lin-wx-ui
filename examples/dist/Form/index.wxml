@@ -2,10 +2,5 @@
     <slot />
     <view class="lin-form-footer">
         <slot name="footer" />
-        <!-- <slot name="reset" /> -->
     </view>
-    <!-- <view class="lin-form-footer">
-        <slot name="submit" />
-        <slot name="reset" />
-    </view> -->
 </view>

@@ -30,13 +30,10 @@ Component({
       options: ['column', 'row'],
       observer: 'updateChildren'
     },
-    validator: {
-      type: Boolean,
-      observer: 'updateChildren'
-    },
     rules: {
       type: Object,
-      value: {}
+      value: {},
+      observer: 'updateChildren'
     },
     model: {
       type: Object,
@@ -46,7 +43,7 @@ Component({
         Object.keys(diffData).forEach(key => {
           const child = (this.children || []).find(childItem => childItem.properties.name === key);
           if (child) {
-            child.checkValue();
+            child.checkValueByTrigger('change');
           }
         });
       }

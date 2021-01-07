@@ -1,18 +1,58 @@
 <view class='container'>
     <demo-block title-padding title='基础用法'>
-        <lin-form validator id="form" rules='{{rules}}' model='{{student}}' bind:submit="submit">
-            <lin-form-item required label="姓名:" name="name">
-                <lin-field  bind:change='onInputChange' data-key="student.name"  placeholder='请输入姓名' titleWidth='0' border='{{false}}' value="{{student.name}}" />
+        <lin-form model='{{student1}}'>
+            <lin-form-item label="姓名:">
+                <lin-field bind:change='onChange' data-key="student1.name" placeholder='请输入姓名' titleWidth='0'
+                    border='{{false}}' value="{{student1.name}}" />
             </lin-form-item>
-            <lin-form-item required label="年龄:" name="age">
-                <lin-field  bind:change='onInputChange' data-key="student.age"  placeholder='请输入年龄'  titleWidth='0' border='{{false}}' value="{{student.age}}" />
+            <lin-form-item label="爱好:">
+                <lin-checkbox-group  direction='row'  data-key='student1.hobby' value="{{ student1.hobby }}" bind:change="onChange">
+                    <lin-checkbox style="margin-right:10rpx;" name="a">篮球</lin-checkbox>
+                    <lin-checkbox style="margin-right:10rpx;" name="b">足球</lin-checkbox>
+                    <lin-checkbox name="c">排球</lin-checkbox>
+                </lin-checkbox-group>
             </lin-form-item>
-            <lin-form-item label="地址:" name="address">
-                <lin-field placeholder='请输入地址'  titleWidth='0' border='{{false}}' value="{{student.address}}" />
+            <lin-form-item label="性别:">
+                <lin-radio-group   direction='row' data-key='student1.sex' value="{{ student1.sex }}" bind:change="onChange">
+                    <lin-radio style="margin-right:10rpx;" name="man">男</lin-radio>
+                    <lin-radio name="woman">女</lin-radio>
+                </lin-radio-group>
+            </lin-form-item>
+            <lin-form-item label="公开:">
+                <lin-switch data-key="student1.public" checked="{{ student1.public }}" bind:change="onChange" />
             </lin-form-item>
             <view slot="footer">
-                <lin-button type='primary' bind:click='submit'>提交</lin-button>
-                <lin-button style="margin-left:20rpx;" bind:click='reset'>重置</lin-button>
+                <lin-button type='primary' bind:click='submit1'>提交</lin-button>
+                <lin-button style="margin-left:20rpx;" bind:click='reset1'>重置</lin-button>
+            </view>
+        </lin-form>
+    </demo-block>
+
+    <demo-block title-padding title='表单校验'>
+        <lin-form id="form" model='{{student2}}' rules='{{rules}}'>
+            <lin-form-item label="姓名:" name='name'>
+                <lin-field bind:change='onChange' data-key="student2.name" placeholder='请输入姓名' titleWidth='0'
+                    border='{{false}}' value="{{student2.name}}" />
+            </lin-form-item>
+            <lin-form-item label="爱好:" name='hobby'>
+                <lin-checkbox-group direction='row' data-key='student2.hobby' value="{{ student2.hobby }}" bind:change="onChange">
+                    <lin-checkbox style="margin-right:10rpx;" name="a">篮球</lin-checkbox>
+                    <lin-checkbox style="margin-right:10rpx;" name="b">足球</lin-checkbox>
+                    <lin-checkbox name="c">排球</lin-checkbox>
+                </lin-checkbox-group>
+            </lin-form-item>
+            <lin-form-item label="性别:" name='sex'>
+                <lin-radio-group direction='row' data-key='student2.sex' value="{{ student2.sex }}" bind:change="onChange">
+                    <lin-radio style="margin-right:10rpx;" name="man">男</lin-radio>
+                    <lin-radio name="woman">女</lin-radio>
+                </lin-radio-group>
+            </lin-form-item>
+            <lin-form-item label="公开:" name='public'>
+                <lin-switch data-key="student2.public" checked="{{ student2.public }}" bind:change="onChange" />
+            </lin-form-item>
+            <view slot="footer">
+                <lin-button type='primary' bind:click='submit2'>提交</lin-button>
+                <lin-button style="margin-left:20rpx;" bind:click='reset2'>重置</lin-button>
             </view>
         </lin-form>
     </demo-block>

@@ -1,11 +1,23 @@
 import { commonProps, inputProps, textareaProps } from './props';
 import { canIUseModel } from '../common/version';
+import FormControls from '../behaviors/form-controls';
 
 Component({
-  behaviors: ['wx://form-field'],
+  behaviors: ['wx://form-field', FormControls],
   options: {
     addGlobalClass: true,
     multipleSlots: true
+  },
+  relations: {
+    '../FormItem/index': {
+      type: 'ancestor', // 关联的目标节点应为祖先节点
+      linked (parent) {
+        this.parent = parent;
+      },
+      unlinked () {
+        this.parent = null;
+      }
+    }
   },
   externalClasses: [
     'custom-class',
@@ -44,7 +56,6 @@ Component({
   },
   data: {
     inputValue: '',
-    // focused: false,
     showClear: false
   },
   methods: {
@@ -67,6 +78,7 @@ Component({
       this.focused = false;
       this.setShowClear();
       this.triggerEvent('blur', event.detail);
+      this.triggerParentBlur(event.detail);
     },
     onFocus (event) {
       this.focused = true;
