@@ -14,11 +14,10 @@ Component({
       },
       unlinked (child) {
         this.children = (this.children || []).filter((it) => it !== child);
-        // this.updateChildren();
       }
     }
   },
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'footer-class'],
   properties: {
     labelWidth: {
       type: [String, Number],
@@ -86,7 +85,7 @@ Component({
     findDiffData (newVal, oldVal) {
       const diffData = {};
       Object.keys(newVal).forEach(key => {
-        if (newVal[key] !== oldVal[key]) {
+        if (JSON.stringify(newVal[key]) !== JSON.stringify(oldVal[key])) {
           diffData[key] = newVal[key];
         }
       });
