@@ -1,4 +1,4 @@
-import Schema from './async-validator';
+import Schema from '../common/async-validator';
 
 import FormControls from '../behaviors/form-controls';
 
@@ -23,7 +23,7 @@ Component({
       target: FormControls
     }
   },
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'label-class', 'content-class', 'errormsg-class'],
   properties: {
     label: String,
     name: String,

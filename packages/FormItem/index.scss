@@ -1,13 +1,15 @@
 
+@import '../../src/style/var.scss';
+
 .lin-form-item {
   position: relative;
   box-sizing: border-box;
   display: flex;
   width: 100%;
   padding: 10rpx 0;
-  font-size: 28rpx;
-  color: #323233;
-  background-color: #fff;
+  font-size: $font-size-5;
+  color: $gray-8;
+  background-color: $white;
 }
 
 .lin-form-item-direction-row {
@@ -32,8 +34,8 @@
   &::before {
     position: absolute;
     left: 0;
-    font-size: 28rpx;
-    color: #ee0a24;
+    font-size: $font-size-5;
+    color: $red;
     content: '*';
     transform: translateX(-100%);
   }
@@ -48,6 +50,6 @@
   height: 30rpx;
   font-size: 22rpx;
   line-height: 30rpx;
-  color: #ee0a24;
+  color: $red;
   transform: translateY(100%);
 }
