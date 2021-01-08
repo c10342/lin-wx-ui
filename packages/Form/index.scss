@@ -1,12 +1,11 @@
+@import '../../src/style/var.scss';
 
 .lin-form {
   padding: 0 32rpx;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .lin-form-footer {
   box-sizing: border-box;
-  //   display: flex;
-  //   flex-direction: row;
   padding: 20rpx 0;
 }
