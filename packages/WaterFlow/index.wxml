@@ -1,0 +1,4 @@
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class='custom-class lin-water-flow' style="{{styleUtils.singleUnit('height',height)}}">
+    <slot/>
+</view>
