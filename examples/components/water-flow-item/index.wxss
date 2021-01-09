@@ -1,0 +1,23 @@
+.water-flow-item-wrapper{
+  border-radius: 10rpx;
+  overflow: hidden;
+  font-size: 26rpx;
+  background-color: #ffffff;
+}
+
+.image{
+  width: 100%;
+}
+
+.title{
+  font-weight: 500;
+  line-height: 16px;
+  padding: 20rpx;
+}
+
+.describe{
+  color: #646566;
+  line-height: 20px;
+  padding: 20rpx;
+  padding-top: 0;
+}

@@ -1,0 +1,9 @@
+<view class='container'>
+    <demo-block title='基础用法' title-padding>
+        <lin-water-flow watchData='{{dataList}}'>
+            <lin-water-flow-item wx:for="{{dataList}}" wx:key='index'>
+                <water-flow-item data='{{item}}' />
+            </lin-water-flow-item>
+        </lin-water-flow>
+    </demo-block>
+</view>

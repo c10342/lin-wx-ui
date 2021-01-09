@@ -1,0 +1,9 @@
+<view class="water-flow-item-wrapper">
+  <image mode="widthFix" class="image" src="{{data.image}}"></image>
+  <view class="title">
+    {{data.title}}
+  </view>
+  <view class="describe">
+    {{data.describe}}
+  </view>
+</view>

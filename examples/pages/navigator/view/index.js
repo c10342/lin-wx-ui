@@ -54,6 +54,10 @@ Page({
         name: 'TreeSelect 分类选择',
         path: '/pages/component/tree-select/index'
       },
+      {
+        name: 'WaterFlow 瀑布流',
+        path: '/pages/component/water-flow/index'
+      }
     ]
   },
 

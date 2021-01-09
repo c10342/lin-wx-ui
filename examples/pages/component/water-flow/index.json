@@ -1,0 +1,7 @@
+
+{
+  "usingComponents": {
+    "water-flow-item":"/components/water-flow-item/index"
+  },
+  "navigationBarTitleText": "WaterFlow 瀑布流"
+}

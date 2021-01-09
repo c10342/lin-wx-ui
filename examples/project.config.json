@@ -420,6 +420,12 @@
         {
           "name": "Form 表单",
           "pathName": "pages/component/form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "WaterFlow 瀑布流",
+          "pathName": "pages/component/water-flow/index",
           "scene": null
         }
       ]
