@@ -243,13 +243,13 @@
 
 | 事件名              | 说明                                                                                        | 参数 |
 | ------------------- | ------------------------------------------------------------------------------------------- | ---- |
-| bind:click          | 点击按钮，且按钮状态不为加载或禁用时触发                                                    | —    |
-| bind:getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo | —    |
-| bind:contact        | 客服消息回调                                                                                | —    |
-| bind:getphonenumber | 获取用户手机号回调                                                                          | —    |
-| bind:error          | 当使用开放能力时，发生错误的回调                                                            | —    |
-| bind:opensetting    | 在打开授权设置页后回调                                                                      | —    |
-| bind:launchapp      | 打开 APP 成功的回调                                                                         | —    |
+| bind:click          | 点击按钮，且按钮状态不为加载或禁用时触发                                                    | event    |
+| bind:getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo | event    |
+| bind:contact        | 客服消息回调                                                                                | event    |
+| bind:getphonenumber | 获取用户手机号回调                                                                          | event    |
+| bind:error          | 当使用开放能力时，发生错误的回调                                                            | event    |
+| bind:opensetting    | 在打开授权设置页后回调                                                                      | event    |
+| bind:launchapp      | 打开 APP 成功的回调                                                                         | event    |
 
 ## 外部样式类
 
