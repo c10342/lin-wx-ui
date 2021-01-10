@@ -14,7 +14,7 @@ Component({
     type: {
       type: [String, Number],
       value: 'default',
-      options: ['default', 'primary', 'info', 'warning', 'danger']
+      options: ['default', 'primary', 'info', 'warning', 'danger', 'success']
     },
     size: {
       type: String,
