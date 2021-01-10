@@ -45,6 +45,11 @@
           "desc": "Icon 图标",
           "name": "icon",
           "path": "/icon"
+        },
+        {
+          "desc": "Image 图片",
+          "name": "image",
+          "path": "/image"
         }
       ]
     },
