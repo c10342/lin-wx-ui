@@ -60,6 +60,11 @@
           "desc": "Layout 布局",
           "name": "layout",
           "path": "/layout"
+        },
+        {
+          "desc": "Cell 单元格",
+          "name": "cell",
+          "path": "/cell"
         }
       ]
     },
