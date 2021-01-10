@@ -33,7 +33,8 @@ Component({
     required: Boolean,
     arrowDirection: {
       type: String,
-      value: 'right'
+      value: 'right',
+      options: ['up', 'down', 'right', 'left']
     },
     url: String,
     titleWidth: {
