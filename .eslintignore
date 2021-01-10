@@ -1,7 +1,7 @@
 /examples
 /docs
 /docs-dist
-/lib
+/dist
 /build
 /packages/*/*.wxs
 vue.config.js
