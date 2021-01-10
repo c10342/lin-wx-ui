@@ -41,7 +41,7 @@ Component({
     type: {
       type: String,
       value: 'default',
-      options: ['primary', 'success', 'info', 'warning', 'danger', 'default']
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'default', 'success']
     },
     plain: {
       type: Boolean,
