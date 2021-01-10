@@ -1,7 +1,11 @@
-<view style='{{viewStyle}}' class="custom-class">
-    <image class="image-class" style='{{viewStyle}}' wx:if='{{!isError}}' src="{{src}}" mode='{{mode}}' webp='{{webp}}' lazy-load='{{lazyLoad}}' show-menu-by-longpress='{{showMenuByLongpress}}' binderror='onError' bindload='onLoad' />
+<view style='{{viewStyle}}' class="custom-class lin-image">
+    <image class="image-class" style='{{viewStyle}}' wx:if='{{!isError}}' src="{{src}}" mode='{{mode}}' webp='{{webp}}' lazy-load='{{lazyLoad}}' show-menu-by-longpress='{{showMenuByLongpress}}' binderror='onError' bindload='onLoad' bind:tap="onClick" />
     <view style='{{viewStyle}}' class='error-class lin-image-error' wx:if='{{!useErrorSlot&&isError}}'>
         <text>{{errorTip?errorTip:'加载失败'}}</text>
     </view>
     <slot wx:if='{{useErrorSlot&&isError}}' />
+    <view class="loading-class lin-image-loading" wx:if="{{showLoading&&isLoading}}">
+        <lin-loading wx:if="{{!useLoadingSlot}}" size='{{loadingSize}}' color='{{loadingColor}}' />
+        <slot name="loading" wx:else />
+    </view>
 </view>
