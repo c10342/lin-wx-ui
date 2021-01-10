@@ -50,6 +50,11 @@
           "desc": "Image 图片",
           "name": "image",
           "path": "/image"
+        },
+        {
+          "desc": "Loading 加载",
+          "name": "loading",
+          "path": "/loading"
         }
       ]
     },

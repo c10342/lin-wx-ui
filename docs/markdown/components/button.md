@@ -14,7 +14,7 @@
 
 ## 按钮类型
 
-支持`default`、`primary`、`info`、`warning`、`danger`五种类型，默认为`default`
+支持`default`、`primary`、`info`、`warning`、`danger`、`success`六种类型，默认为`default`
 
 <div class='demo-block'>
 <img src='../../componentImage/button/type.png' />
