@@ -3,6 +3,7 @@ node_modules
 /docs-dist
 /dist
 /build/config.js
+debug.log
 
 
 # local env files
