@@ -1,3 +1,5 @@
+
+import { addUnit } from '../common/utils';
 Component({
   options: {
     addGlobalClass: true
@@ -10,8 +12,9 @@ Component({
       value: ''
     },
     type: {
-      type: String,
-      value: 'default'
+      type: [String, Number],
+      value: 'default',
+      options: ['default', 'primary', 'info', 'warning', 'danger']
     },
     size: {
       type: String,
@@ -31,7 +34,7 @@ Component({
       let style = '';
       const { size, color } = this.properties;
       if (size) {
-        style += `font-size:${size};`;
+        style += `font-size:${addUnit(size)};`;
       }
       if (color) {
         style += `color:${color};`;

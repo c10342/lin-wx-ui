@@ -64,7 +64,8 @@ Component({
     },
     size: {
       type: String,
-      value: 'default'
+      value: 'default',
+      options: ['default', 'medium', 'small']
     },
     loading: {
       type: Boolean,
@@ -94,18 +95,6 @@ Component({
         }
       }
     }
-
-    // id: String,
-    // lang: String,
-    // businessId: Number,
-    // sessionFrom: String,
-    // sendMessageTitle: String,
-    // sendMessagePath: String,
-    // sendMessageImg: String,
-    // showMessageCard: Boolean,
-    // appParameter: String,
-    // ariaLabel: String,
-    // openType: String,
   },
 
   /**
@@ -125,28 +114,5 @@ Component({
         this.triggerEvent('click');
       }
     }
-    // bindGetUserInfo(event) {
-    //   this.triggerEvent("getuserinfo", event.detail);
-    // },
-
-    // bindContact(event) {
-    //   this.triggerEvent("contact", event.detail);
-    // },
-
-    // bindGetPhoneNumber(event) {
-    //   this.triggerEvent("getphonenumber", event.detail);
-    // },
-
-    // bindError(event) {
-    //   this.triggerEvent("error", event.detail);
-    // },
-
-    // bindLaunchApp(event) {
-    //   this.triggerEvent("launchapp", event.detail);
-    // },
-
-    // bindOpenSetting(event) {
-    //   this.triggerEvent("opensetting", event.detail);
-    // },
   }
 });
