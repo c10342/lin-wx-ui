@@ -55,6 +55,11 @@
           "desc": "Loading 加载",
           "name": "loading",
           "path": "/loading"
+        },
+        {
+          "desc": "Layout 布局",
+          "name": "layout",
+          "path": "/layout"
         }
       ]
     },
