@@ -40,6 +40,11 @@
           "desc": "Button 按钮",
           "name": "button",
           "path": "/button"
+        },
+        {
+          "desc": "Icon 图标",
+          "name": "icon",
+          "path": "/icon"
         }
       ]
     },
