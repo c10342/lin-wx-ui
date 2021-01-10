@@ -1,6 +1,6 @@
 <div align='center' >
 <img alt="logo" src="https://wxui.linjiafu.top/static/images/logo.png" style="margin-bottom: 10px;"/>
-<h1 style='font-weight: 700'>轻量、灵活的微信小程序组件</h1>
+<h1 style='font-weight: 700;'>轻量、灵活的微信小程序组件</h1>
 </div>
 
 <p align="center">
@@ -74,7 +74,7 @@ git clone https://github.com/c10342/lin-wx-ui.git
 接着就可以在 wxml 中直接使用组件
 
 ```html
-<lin-button type="primary">按钮</van-button>
+<lin-button type="primary">按钮</lin-button>
 ```
 
 ## 在开发者工具中预览
