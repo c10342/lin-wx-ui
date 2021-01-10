@@ -35,7 +35,13 @@
     {
       "desc": "基础组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "Button 按钮",
+          "name": "button",
+          "path": "/button"
+        }
+      ]
     },
     {
       "desc": "表单组件",
@@ -54,6 +60,11 @@
     },
     {
       "desc": "导航组件",
+      "path": "/component",
+      "items": []
+    },
+    {
+      "desc": "业务组件",
       "path": "/component",
       "items": []
     }
