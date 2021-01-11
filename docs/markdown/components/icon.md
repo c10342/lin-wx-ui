@@ -2,6 +2,14 @@
 
 ---
 
+ <div class="demo-outer-container">
+     <div class="demo-inner-container">
+        <div class="demo-content">
+            <img class="demo-image" src='../../componentImage/icon.png' />
+        </div>
+     </div>
+ </div>
+
 ## 引入
 
 在 app.json 或 index.json 中引入组件，详细介绍见[快速上手](/#/start)
@@ -14,65 +22,61 @@
 
 ## 基础图标
 
-<div class='demo-block'>
-<img src='../../componentImage/icon/base.png' />
-</div>
-
-:::demo
-
 ```html
-<lin-icon size="30px" icon="{ {item}}" wx:for="{ {iconList}}" wx:key="item" />
+<lin-icon size="30px" icon="{{item}}" wx:for="{{iconList}}" wx:key="item" />
+```
 
-Page({ 
-      data: {
-        iconList: [
-        'arrow-right',
-        'arrow-left',
-        'arrow-down',
-        'arrow-up',
-        'password',
-        'eye',
-        'like',
-        'search',
-        'loading',
-        'delete',
-        'star',
-        'phone',
-        'user',
-        'setting',
-        'upload',
-        "close",
-        "uparrow",
-        "downarrow",
-        "leftarrow",
-        "rightarrow",
-        "round",
-        "round-active",
-        "square",
-        "square-active",
-        "star1-o",
-        "star1",
-        "like1",
-        "like1-o",
-        "error",
-        "file",
-        "add",
-        "camera",
-        "qrcode",
-        "link",
-        "wechat",
-        "qq",
-        "weibo",
-        "gou",
-        "pic",
-        "success",
-        "fail",
-        "cart-o",
-        "shop-o",
-        "chat-o",
-        ]
+```javascript
+Page({
+  data: {
+    iconList: [
+      "arrow-right",
+      "arrow-left",
+      "arrow-down",
+      "arrow-up",
+      "password",
+      "eye",
+      "like",
+      "search",
+      "loading",
+      "delete",
+      "star",
+      "phone",
+      "user",
+      "setting",
+      "upload",
+      "close",
+      "uparrow",
+      "downarrow",
+      "leftarrow",
+      "rightarrow",
+      "round",
+      "round-active",
+      "square",
+      "square-active",
+      "star1-o",
+      "star1",
+      "like1",
+      "like1-o",
+      "error",
+      "file",
+      "add",
+      "camera",
+      "qrcode",
+      "link",
+      "wechat",
+      "qq",
+      "weibo",
+      "gou",
+      "pic",
+      "success",
+      "fail",
+      "cart-o",
+      "shop-o",
+      "chat-o",
+    ],
   },
- })
+});
 ```
 
 :::
@@ -81,11 +85,6 @@ Page({
 
 支持`default`、`primary`、`info`、`warning`、`danger`、`success`六种类型，默认为`default`
 
-<div class='demo-block'>
-<img src='../../componentImage/icon/type.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-icon size="30px" icon="setting" type="default" />
@@ -95,17 +94,10 @@ Page({
 <lin-icon size="30px" icon="setting" type="danger" />
 ```
 
-:::
-
 ## 不同尺寸
 
 通过`size`属性设置不同尺寸
 
-<div class='demo-block'>
-<img src='../../componentImage/icon/size.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-icon icon="setting" size="20px" />
@@ -121,18 +113,11 @@ Page({
 
 通过`color`属性图标颜色
 
-<div class='demo-block'>
-<img src='../../componentImage/icon/color.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-icon size="30px" color="red" icon="setting" />
 <lin-icon size="30px" color="green" icon="setting" />
 ```
-
-:::
 
 ## 属性
 

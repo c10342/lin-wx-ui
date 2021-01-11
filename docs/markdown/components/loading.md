@@ -2,6 +2,15 @@
 
 ---
 
+
+ <div class="demo-outer-container">
+     <div class="demo-inner-container">
+        <div class="demo-content">
+            <img class="demo-image" src='../../componentImage/loading.png' />
+        </div>
+     </div>
+ </div>
+
 ## 引入
 
 在 app.json 或 index.json 中引入组件，详细介绍见[快速上手](/#/start)
@@ -16,12 +25,6 @@
 
 支持`success`、`primary`、`info`、`warning`、`danger`五种类型，默认为`primary`
 
-<div class='demo-block'>
-<img src='../../componentImage/loading/type.png' />
-</div>
-
-:::demo
-
 ```html
 <lin-loading type="primary" />
 <lin-loading type="success" />
@@ -30,17 +33,10 @@
 <lin-loading type="danger" />
 ```
 
-:::
 
 ## 加载尺寸
 
 通过`size`属性设置加载的尺寸
-
-<div class='demo-block'>
-<img src='../../componentImage/loading/size.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-loading type="primary" size="14px" />
@@ -50,17 +46,10 @@
 <lin-loading type="primary" size="22px" />
 ```
 
-:::
 
 ## 加载文案
 
 通过`text`、`textColor`、`textSize`等属性设置加载文案样式
-
-<div class='demo-block'>
-<img src='../../componentImage/loading/text.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-loading type="primary" text="加载中" />
@@ -68,17 +57,10 @@
 <lin-loading type="primary" text="加载中" textSize="16px" />
 ```
 
-:::
 
 ## 转速时间
 
 通过`time`属性设置转速时间
-
-<div class='demo-block'>
-<img src='../../componentImage/loading/time.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-loading type="primary" time="300ms" />
@@ -88,17 +70,11 @@
 <lin-loading type="primary" time="700ms" />
 ```
 
-:::
 
 ## 自定义颜色
 
 通过`color`属性设置颜色
 
-<div class='demo-block'>
-<img src='../../componentImage/loading/color.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-loading type="primary" color="red" />
@@ -106,24 +82,16 @@
 <lin-loading type="primary" color="blue" />
 ```
 
-:::
 
 ## 文案对齐方向
 
 通过`vertical`属性文案对齐方向,支持`row`,`col`水平和垂直两种方向
-
-<div class='demo-block'>
-<img src='../../componentImage/loading/vertical.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-loading type="primary" text="加载中" vertical="row" />
 <lin-loading type="primary" text="加载中" vertical="col" />
 ```
 
-:::
 
 ## 属性
 

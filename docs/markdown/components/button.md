@@ -2,6 +2,14 @@
 
 ---
 
+ <div class="demo-outer-container">
+     <div class="demo-inner-container">
+        <div class="demo-content">
+            <img class="demo-image" src='../../componentImage/button.png' />
+        </div>
+     </div>
+ </div>
+
 ## 引入
 
 在 app.json 或 index.json 中引入组件，详细介绍见[快速上手](/#/start)
@@ -16,12 +24,6 @@
 
 支持`default`、`primary`、`info`、`warning`、`danger`、`success`六种类型，默认为`default`
 
-<div class='demo-block'>
-<img src='../../componentImage/button/type.png' />
-</div>
-
-:::demo
-
 ```html
 <lin-button type="default">默认按钮</lin-button>
 <lin-button type="primary">主要按钮</lin-button>
@@ -31,17 +33,9 @@
 <lin-button type="success">成功按钮</lin-button>
 ```
 
-:::
-
 ## 朴素按钮
 
 通过`plain`属性将按钮设置为朴素按钮
-
-<div class='demo-block'>
-<img src='../../componentImage/button/plain.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button plain type="default">朴素按钮</lin-button>
@@ -52,17 +46,9 @@
 <lin-button plain type="danger">危险按钮</lin-button>
 ```
 
-:::
-
 ## 圆角按钮
 
 通过`round`属性将按钮设置为圆角按钮
-
-<div class='demo-block'>
-<img src='../../componentImage/button/round.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button round type="default">圆形按钮</lin-button>
@@ -73,17 +59,9 @@
 <lin-button round type="danger">危险按钮</lin-button>
 ```
 
-:::
-
 ## 图标按钮
 
 通过`icon`属性设置按钮图标，支持 Icon 组件里的所有图标
-
-<div class='demo-block'>
-<img src='../../componentImage/button/icon.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button icon="setting" type="default">设置</lin-button>
@@ -94,17 +72,9 @@
 <lin-button icon="setting" type="danger">设置</lin-button>
 ```
 
-:::
-
 ## 圆形按钮
 
 通过`circle`属性将按钮设置为圆角按钮
-
-<div class='demo-block'>
-<img src='../../componentImage/button/circle.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button circle icon="setting" type="default">设置</lin-button>
@@ -115,17 +85,9 @@
 <lin-button circle icon="setting" type="danger">设置</lin-button>
 ```
 
-:::
-
 ## 加载状态
 
 通过`loading`属性将按钮设置为加载状态
-
-<div class='demo-block'>
-<img src='../../componentImage/button/loading.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button type="primary" loading loadingColor="#fff"></lin-button>
@@ -133,17 +95,9 @@
 <lin-button type="danger" loading loadingColor="#fff">加载</lin-button>
 ```
 
-:::
-
 ## 禁用状态
 
 通过`disabled`属性来禁用按钮，此时按钮的`bind:click`事件不会触发
-
-<div class='demo-block'>
-<img src='../../componentImage/button/disabled.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button disabled type="default">按钮</lin-button>
@@ -154,17 +108,9 @@
 <lin-button disabled type="danger">按钮</lin-button>
 ```
 
-:::
-
 ## 自定义颜色
 
 通过`color`属性可以自定义按钮的颜色
-
-<div class='demo-block'>
-<img src='../../componentImage/button/custom.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button color="#7232dd">单色按钮</lin-button>
@@ -174,17 +120,9 @@
 </lin-button>
 ```
 
-:::
-
 ## 尺寸按钮
 
 支持`default`、`medium`、`small`四种尺寸，默认为`default`
-
-<div class='demo-block'>
-<img src='../../componentImage/button/size.png' />
-</div>
-
-:::demo
 
 ```html
 <lin-button size="default">大型按钮</lin-button>
@@ -192,23 +130,13 @@
 <lin-button size="small">小型按钮</lin-button>
 ```
 
-:::
-
 ## 块级元素
 
 通过`block`属性可以将按钮的元素类型设置为块级元素
 
-<div class='demo-block'>
-<img src='../../componentImage/button/block.png' />
-</div>
-
-:::demo
-
 ```html
 <lin-button type="primary" block>块级元素</lin-button>
 ```
-
-:::
 
 ## 属性
 
@@ -241,15 +169,15 @@
 
 ## 事件
 
-| 事件名              | 说明                                                                                        | 参数 |
-| ------------------- | ------------------------------------------------------------------------------------------- | ---- |
-| bind:click          | 点击按钮，且按钮状态不为加载或禁用时触发                                                    | event    |
-| bind:getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo | event    |
-| bind:contact        | 客服消息回调                                                                                | event    |
-| bind:getphonenumber | 获取用户手机号回调                                                                          | event    |
-| bind:error          | 当使用开放能力时，发生错误的回调                                                            | event    |
-| bind:opensetting    | 在打开授权设置页后回调                                                                      | event    |
-| bind:launchapp      | 打开 APP 成功的回调                                                                         | event    |
+| 事件名              | 说明                                                                                        | 参数  |
+| ------------------- | ------------------------------------------------------------------------------------------- | ----- |
+| bind:click          | 点击按钮，且按钮状态不为加载或禁用时触发                                                    | event |
+| bind:getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo | event |
+| bind:contact        | 客服消息回调                                                                                | event |
+| bind:getphonenumber | 获取用户手机号回调                                                                          | event |
+| bind:error          | 当使用开放能力时，发生错误的回调                                                            | event |
+| bind:opensetting    | 在打开授权设置页后回调                                                                      | event |
+| bind:launchapp      | 打开 APP 成功的回调                                                                         | event |
 
 ## 外部样式类
 

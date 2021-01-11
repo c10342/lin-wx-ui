@@ -21,6 +21,7 @@ export default {
 .container {
   padding-left: $padding;
   background-color: #fff;
+  position: relative;
   .nav {
     float: left;
     width: 210px;
@@ -31,7 +32,7 @@ export default {
   .view {
     float: left;
     width: calc(100% - 215px);
-    padding: 32px $padding 48px 48px;
+    padding: 32px 340px 48px 48px;
     box-sizing: border-box;
     height: calc(100vh - #{$header-height});
     overflow-y: auto;

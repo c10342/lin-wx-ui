@@ -122,6 +122,9 @@ html,
 body {
   height: 100%;
 }
+body{
+  min-width: 1100px;
+}
 
 .beautyScroll {
   &::-webkit-scrollbar {

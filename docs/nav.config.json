@@ -65,6 +65,11 @@
           "desc": "Cell 单元格",
           "name": "cell",
           "path": "/cell"
+        },
+        {
+          "desc": "Transition 动画",
+          "name": "transition",
+          "path": "/transition"
         }
       ]
     },
