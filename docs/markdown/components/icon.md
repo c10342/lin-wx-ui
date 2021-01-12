@@ -79,7 +79,6 @@ Page({
 });
 ```
 
-:::
 
 ## 主题风格
 
@@ -106,8 +105,6 @@ Page({
 <lin-icon icon="setting" size="40px" />
 <lin-icon icon="setting" size="45px" />
 ```
-
-:::
 
 ## 不同颜色
 
