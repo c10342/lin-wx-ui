@@ -1,3 +1,5 @@
+@import './var.scss';
+
 section {
   color: #3f536e;
   font-size: 14px;
@@ -5,11 +7,11 @@ section {
     position: fixed;
     top: 100px;
     right: 20px;
-    width: 300px;
+    width: $demo-width;
     height: 80vh;
     overflow: hidden;
     .demo-content {
-      width: 300px;
+      width: $demo-width;
       height: 80vh;
     }
     .demo-image {
