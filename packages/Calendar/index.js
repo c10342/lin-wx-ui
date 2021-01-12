@@ -19,8 +19,7 @@ Component({
       observer: 'handleShow'
     },
     value: {
-      type: String,
-      optionalTypes: [String, Number]
+      type: [String, Number]
     },
     title: {
       type: String,
@@ -58,12 +57,10 @@ Component({
       value: false
     },
     disabledBeforeDate: {
-      type: Number,
-      optionalTypes: [String, Number]
+      type: [String, Number]
     },
     disabledAfterDate: {
-      type: String,
-      optionalTypes: [String, Number]
+      type: [String, Number]
     },
     disabledRangeDate: Array,
     disabledDate: Array,
