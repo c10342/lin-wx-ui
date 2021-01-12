@@ -124,7 +124,7 @@ Page({
 | 参数  | 说明     | 类型          | 可选值 | 默认值  |
 | ----- | -------- | ------------- | ------ | ------- |
 | icon  | 图标名称 | String        | —      | —       |
-| type  | 图标类型 | String        | —      | default |
+| type  | 图标类型 | String        | `default`, `primary`, `info`, `warning`, `danger`, `success`      | default |
 | size  | 图标大小 | String,Number | —      | —       |
 | color | 图标颜色 | String        | —      | —       |
 

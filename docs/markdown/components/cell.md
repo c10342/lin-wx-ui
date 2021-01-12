@@ -146,7 +146,7 @@
 | value          | 右侧内容             | String         | —                                                   | —          |
 | label          | 标题下方的描述信息   | String         | —                                                   | —          |
 | border         | 是否显示下边框       | Boolean        | —                                                   | true       |
-| size           | 单元格大小           | String         | large                                               | —          |
+| size           | 单元格大小           | String         | `large`                                               | —          |
 | icon           | 左侧图标             | String         | —                                                   | —          |
 | isLink         | 是否展示右侧箭头     | Boolean        | —                                                   | false      |
 | required       | 是否显示表单必填星号 | Boolean        | —                                                   | false      |

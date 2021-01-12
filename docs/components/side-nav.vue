@@ -65,7 +65,7 @@ export default {
     text-transform: uppercase;
   }
   .side-nav-items {
-    font-size: 14px;
+    // font-size: 14px;
     font-weight: normal;
     line-height: 1.8;
     a {
@@ -92,7 +92,7 @@ export default {
       padding: 6px 24px 6px 8px;
       // padding-left: 0;
       color: #616367;
-      font-size: 14px;
+      // font-size: 14px;
     }
     .active {
       color: #3faaf5;

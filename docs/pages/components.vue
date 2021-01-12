@@ -24,14 +24,14 @@ export default {
   position: relative;
   .nav {
     float: left;
-    width: 210px;
+    width: $nav-width;
     height: calc(100vh - #{$header-height});
     overflow-y: auto;
     padding: 32px 0;
   }
   .view {
     float: left;
-    width: calc(100% - 215px);
+    width: calc(100% - #{$nav-width + 2px});
     padding: 32px ($demo-width + 20px) 48px 48px;
     box-sizing: border-box;
     height: calc(100vh - #{$header-height});

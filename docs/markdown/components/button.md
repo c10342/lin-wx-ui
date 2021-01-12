@@ -140,32 +140,32 @@
 
 ## 属性
 
-| 参数             | 说明                                                                                                                | 类型    | 可选值                                           | 默认值       |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------ | ------------ |
-| formType         | 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件                              | String  | —                                                | —            |
-| disabled         | 是否禁用按钮                                                                                                        | Boolean | —                                                | false        |
-| block            | 是否为块级元素                                                                                                      | Boolean | —                                                | false        |
-| type             | 按钮类型                                                                                                            | String  | primary, success, info, warning, danger, default | default      |
-| plain            | 是否为朴素按钮                                                                                                      | Boolean | —                                                | false        |
-| round            | 是否为圆角按钮                                                                                                      | Boolean | —                                                | false        |
-| circle           | 是否为圆形按钮                                                                                                      | Boolean | —                                                | false        |
-| icon             | 左侧图标名                                                                                                          | String  | —                                                | —            |
-| size             | 按钮尺寸                                                                                                            | String  | default,medium,small                             | default      |
-| loading          | 是否显示为加载状态                                                                                                  | Boolean | —                                                | false        |
-| loadingColor     | 加载图标颜色                                                                                                        | String  | —                                                | —            |
-| loadingSize      | 加载图标大小                                                                                                        | String  | —                                                | —            |
-| dataset          | 按钮 dataset，open-type 为 `share` 时，可在 onShareAppMessage 事件的 `event.target.dataset.detail` 中看到传入的值   | any     | —                                                | —            |
-| color            | 按钮颜色，支持传入 linear-gradient 渐变色                                                                           | String  | —                                                | —            |
-| id               | 标识符                                                                                                              | String  | —                                                | —            |
-| lang             | 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文                                                     | String  | —                                                | en           |
-| businessId       | 客服消息子商户 id                                                                                                   | Number  | —                                                | —            |
-| sessionFrom      | 会话来源                                                                                                            | String  | —                                                | —            |
-| sendMessageTitle | 会话内消息卡片标题                                                                                                  | String  | —                                                | 当前标题     |
-| sendMessagePath  | 会话内消息卡片点击跳转小程序路径                                                                                    | String  | —                                                | 当前分享路径 |
-| sendMessageImg   | sendMessageImg                                                                                                      | String  | —                                                | 截图         |
-| showMessageCard  | 显示会话内消息卡片                                                                                                  | Boolean | —                                                | false        |
-| appParameter     | 打开 APP 时，向 APP 传递的参数                                                                                      | String  | —                                                | —            |
-| openType         | 微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String  | —                                                | —            |
+| 参数             | 说明                                                                                                                | 类型    | 可选值                                                       | 默认值       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------ | ------------ |
+| formType         | 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件                              | String  | —                                                            | —            |
+| disabled         | 是否禁用按钮                                                                                                        | Boolean | —                                                            | false        |
+| block            | 是否为块级元素                                                                                                      | Boolean | —                                                            | false        |
+| type             | 按钮类型                                                                                                            | String  | `primary`, `success`, `info`, `warning`, `danger`, `default` | default      |
+| plain            | 是否为朴素按钮                                                                                                      | Boolean | —                                                            | false        |
+| round            | 是否为圆角按钮                                                                                                      | Boolean | —                                                            | false        |
+| circle           | 是否为圆形按钮                                                                                                      | Boolean | —                                                            | false        |
+| icon             | 左侧图标名                                                                                                          | String  | —                                                            | —            |
+| size             | 按钮尺寸                                                                                                            | String  | `default`,`medium`,`small`                                   | default      |
+| loading          | 是否显示为加载状态                                                                                                  | Boolean | —                                                            | false        |
+| loadingColor     | 加载图标颜色                                                                                                        | String  | —                                                            | —            |
+| loadingSize      | 加载图标大小                                                                                                        | String  | —                                                            | —            |
+| dataset          | 按钮 dataset，open-type 为 `share` 时，可在 onShareAppMessage 事件的 `event.target.dataset.detail` 中看到传入的值   | any     | —                                                            | —            |
+| color            | 按钮颜色，支持传入 linear-gradient 渐变色                                                                           | String  | —                                                            | —            |
+| id               | 标识符                                                                                                              | String  | —                                                            | —            |
+| lang             | 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文                                                     | String  | —                                                            | en           |
+| businessId       | 客服消息子商户 id                                                                                                   | Number  | —                                                            | —            |
+| sessionFrom      | 会话来源                                                                                                            | String  | —                                                            | —            |
+| sendMessageTitle | 会话内消息卡片标题                                                                                                  | String  | —                                                            | 当前标题     |
+| sendMessagePath  | 会话内消息卡片点击跳转小程序路径                                                                                    | String  | —                                                            | 当前分享路径 |
+| sendMessageImg   | sendMessageImg                                                                                                      | String  | —                                                            | 截图         |
+| showMessageCard  | 显示会话内消息卡片                                                                                                  | Boolean | —                                                            | false        |
+| appParameter     | 打开 APP 时，向 APP 传递的参数                                                                                      | String  | —                                                            | —            |
+| openType         | 微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String  | —                                                            | —            |
 
 ## 事件
 

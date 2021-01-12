@@ -86,6 +86,11 @@
           "desc": "Calendar 日历",
           "name": "calendar",
           "path": "/calendar"
+        },
+        {
+          "desc": "Checkbox 复选框",
+          "name": "checkbox",
+          "path": "/checkbox"
         }
       ]
     },

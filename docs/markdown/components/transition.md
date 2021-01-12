@@ -232,25 +232,6 @@ Page({
 </lin-transition>
 ```
 
-```javascript
-Page({
-  data: {
-    show10: false,
-  },
-  setShowData(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: true });
-  },
-
-  afterEnter(event) {
-    setTimeout(() => {
-      const key = event.currentTarget.dataset.show;
-      this.setData({ [key]: false });
-    }, 1000);
-  },
-});
-```
-
 ```css
 .transition-content {
   width: 200rpx;
@@ -290,7 +271,7 @@ Page({
 | customStyle | 自定义样式           | String  | —                                     | —      |
 | show        | 是否展示组件         | Boolean | —                                     | true   |
 | duration    | 动画时长，单位为毫秒 | Number  , Object:{enter: number, leave: number} | —      | 300 |
-| name        | 动画类型             | string  | —                                     | fade   |
+| name        | 动画类型             | String  | —                                     | fade   |
 
 ## 事件
 

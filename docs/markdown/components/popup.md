@@ -121,26 +121,6 @@ Page({
 />
 ```
 
-```javascript
-Page({
-  data: {
-    show2: false,
-    show3: false,
-    show4: false,
-    show5: false,
-  },
-  setShowData(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: true });
-  },
-
-  onMaskClick(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: false });
-  },
-});
-```
-
 ## 关闭图标
 
 设置`closeable`属性后，会在弹出层的右上角显示关闭图标，并且可以通过`close-icon`属性自定义图标，使用`close-icon-position`属性可以自定义图标位置
@@ -200,25 +180,6 @@ Page({
 />
 ```
 
-```javascript
-Page({
-  data: {
-    show6: false,
-    show7: false,
-    show8: false,
-  },
-  setShowData(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: true });
-  },
-
-  onMaskClick(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: false });
-  },
-});
-```
-
 ## 圆角弹窗
 
 设置`round`属性后，弹窗会根据弹出位置添加不同的圆角样式
@@ -240,23 +201,6 @@ Page({
   position="bottom"
   custom-style="height: 20%;"
 />
-```
-
-```javascript
-Page({
-  data: {
-    show9: false,
-  },
-  setShowData(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: true });
-  },
-
-  onMaskClick(event) {
-    const key = event.currentTarget.dataset.show;
-    this.setData({ [key]: false });
-  },
-});
 ```
 
 ## 属性
