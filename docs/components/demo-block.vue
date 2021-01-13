@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style lang="scss">
+.docs-demo-wrapper{
+  margin-top: 10px;
+}
 .demo-container {
   transition: all 0.5s;
   overflow: hidden;
@@ -42,7 +45,7 @@ export default {
   font-size: 14px;
   background-color: #f7f7f7;
   border: 1px solid #e2ecf4;
-  border-top: none;
+  // border-top: none;
   pre code {
     font-family: Consolas, Menlo, Courier, monospace;
     line-height: 22px;

@@ -25,23 +25,22 @@
 
 `Cell`可以单独使用，也可以与`CellGroup`搭配使用。`CellGroup`可以为`Cell`提供上下外边框。
 
+:::demo
 
 ```html
 <lin-cell-group>
   <lin-cell title="单元格" value="内容" />
-  <lin-cell
-    title="单元格"
-    value="内容"
-    label="描述信息"
-    border="{{ false }}"
-  />
+  <lin-cell title="单元格" value="内容" label="描述信息" border="{ { false }}" />
 </lin-cell-group>
 ```
 
+:::
 
 ## 单元格大小
 
 通过`size`属性可以控制单元格的大小
+
+:::demo
 
 ```html
 <lin-cell title="单元格" value="内容" size="large" />
@@ -50,23 +49,28 @@
   value="内容"
   size="large"
   label="描述信息"
-  border="{{ false }}"
+  border="{ { false }}"
 />
 ```
 
+:::
 
 ## 展示图标
 
 通过`icon`属性在标题左侧展示图标
+:::demo
 
 ```html
-<lin-cell title="单元格" value="内容" icon="upload" border="{{ false }}" />
+<lin-cell title="单元格" value="内容" icon="upload" border="{ { false }}" />
 ```
 
+:::
 
 ## 展示箭头
 
 设置`is-link`属性后会在单元格右侧显示箭头，并且可以通过`arrow-direction`属性控制箭头方向
+
+:::demo
 
 ```html
 <lin-cell title="单元格" is-link />
@@ -76,13 +80,17 @@
   is-link
   value="内容"
   arrow-direction="down"
-  border="{{ false }}"
+  border="{ { false }}"
 />
 ```
+
+:::
 
 ## 页面跳转
 
 设置`link-type`属性指定跳转方式，设置`url`属性指定跳转的页面
+
+:::demo
 
 ```html
 <lin-cell
@@ -90,13 +98,17 @@
   title="单元格"
   link-type="navigateTo"
   url="/pages/component/button/index"
-  border="{{ false }}"
+  border="{ { false }}"
 />
 ```
+
+:::
 
 ## 分组标题
 
 通过`CellGroup`的`title`属性可以指定分组标题
+
+:::demo
 
 ```html
 <lin-cell-group title="分组1">
@@ -107,10 +119,13 @@
 </lin-cell-group>
 ```
 
+:::
+
 ## 使用插槽
 
 如以上用法不能满足你的需求，可以使用插槽来自定义内容
 
+:::demo
 
 ```html
 <lin-cell value="内容" icon="like" is-link>
@@ -118,11 +133,12 @@
     <view class="cell-text">单元格</view>
   </view>
 </lin-cell>
-<lin-cell title="单元格" border="{{ false }}">
+<lin-cell title="单元格" border="{ { false }}">
   <lin-icon slot="right-icon" icon="search" />
 </lin-cell>
 ```
 
+:::
 
 ## CellGroup 属性
 
@@ -146,7 +162,7 @@
 | value          | 右侧内容             | String         | —                                                   | —          |
 | label          | 标题下方的描述信息   | String         | —                                                   | —          |
 | border         | 是否显示下边框       | Boolean        | —                                                   | true       |
-| size           | 单元格大小           | String         | `large`                                               | —          |
+| size           | 单元格大小           | String         | `large`                                             | —          |
 | icon           | 左侧图标             | String         | —                                                   | —          |
 | isLink         | 是否展示右侧箭头     | Boolean        | —                                                   | false      |
 | required       | 是否显示表单必填星号 | Boolean        | —                                                   | false      |

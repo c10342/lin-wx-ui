@@ -24,6 +24,8 @@
 
 支持`default`、`primary`、`info`、`warning`、`danger`、`success`六种类型，默认为`default`
 
+:::demo
+
 ```html
 <lin-button type="default">默认按钮</lin-button>
 <lin-button type="primary">主要按钮</lin-button>
@@ -33,9 +35,13 @@
 <lin-button type="success">成功按钮</lin-button>
 ```
 
+:::
+
 ## 朴素按钮
 
 通过`plain`属性将按钮设置为朴素按钮
+
+:::demo
 
 ```html
 <lin-button plain type="default">朴素按钮</lin-button>
@@ -46,9 +52,13 @@
 <lin-button plain type="danger">危险按钮</lin-button>
 ```
 
+:::
+
 ## 圆角按钮
 
 通过`round`属性将按钮设置为圆角按钮
+
+:::demo
 
 ```html
 <lin-button round type="default">圆形按钮</lin-button>
@@ -59,9 +69,13 @@
 <lin-button round type="danger">危险按钮</lin-button>
 ```
 
+:::
+
 ## 图标按钮
 
 通过`icon`属性设置按钮图标，支持 Icon 组件里的所有图标
+
+:::demo
 
 ```html
 <lin-button icon="setting" type="default">设置</lin-button>
@@ -72,9 +86,13 @@
 <lin-button icon="setting" type="danger">设置</lin-button>
 ```
 
+:::
+
 ## 圆形按钮
 
 通过`circle`属性将按钮设置为圆角按钮
+
+:::demo
 
 ```html
 <lin-button circle icon="setting" type="default">设置</lin-button>
@@ -85,9 +103,13 @@
 <lin-button circle icon="setting" type="danger">设置</lin-button>
 ```
 
+:::
+
 ## 加载状态
 
 通过`loading`属性将按钮设置为加载状态
+
+:::demo
 
 ```html
 <lin-button type="primary" loading loadingColor="#fff"></lin-button>
@@ -95,9 +117,13 @@
 <lin-button type="danger" loading loadingColor="#fff">加载</lin-button>
 ```
 
+:::
+
 ## 禁用状态
 
 通过`disabled`属性来禁用按钮，此时按钮的`bind:click`事件不会触发
+
+:::demo
 
 ```html
 <lin-button disabled type="default">按钮</lin-button>
@@ -108,9 +134,13 @@
 <lin-button disabled type="danger">按钮</lin-button>
 ```
 
+:::
+
 ## 自定义颜色
 
 通过`color`属性可以自定义按钮的颜色
+
+:::demo
 
 ```html
 <lin-button color="#7232dd">单色按钮</lin-button>
@@ -120,9 +150,13 @@
 </lin-button>
 ```
 
+:::
+
 ## 尺寸按钮
 
 支持`default`、`medium`、`small`四种尺寸，默认为`default`
+
+:::demo
 
 ```html
 <lin-button size="default">大型按钮</lin-button>
@@ -130,13 +164,19 @@
 <lin-button size="small">小型按钮</lin-button>
 ```
 
+:::
+
 ## 块级元素
 
 通过`block`属性可以将按钮的元素类型设置为块级元素
 
+:::demo
+
 ```html
 <lin-button type="primary" block>块级元素</lin-button>
 ```
+
+:::
 
 ## 属性
 

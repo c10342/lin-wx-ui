@@ -24,96 +24,110 @@
 
 基础用法与原生 image 标签一致，可以设置`src`、`width`、`height`等原生属性
 
+:::demo
+
 ```html
-<lin-image imageUrl="{{['/images/cat.png']}}" width="300rpx" height="300rpx" />
+<lin-image imageUrl="{ {['/images/cat.png']}}" width="300rpx" height="300rpx" />
 ```
+
+:::
 
 ## 填充模式
 
 通过`mode`属性可以设置图片填充模式
 
+:::demo
+
 ```html
 <lin-image
   mode="scaleToFill"
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="aspectFit"
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="aspectFill"
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="widthFix"
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="heightFix"
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 ```
+
+:::
 
 ## 圆形图片
 
 通过`round`属性可以设置图片变圆
 
+:::demo
+
 ```html
 <lin-image
   mode="scaleToFill"
   round
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="aspectFit"
   round
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="aspectFill"
   round
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="widthFix"
   round
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 <lin-image
   mode="heightFix"
   round
-  imageUrl="{{['/images/cat.png']}}"
+  imageUrl="{ {['/images/cat.png']}}"
   width="300rpx"
   height="300rpx"
 />
 ```
 
+:::
+
 ## 加载失败提示
 
 `Image`组件提供了默认的加载失败提示，支持通过默认插槽自定义内容
 
+:::demo
+
 ```html
-<lin-image imageUrl="{{[]}}" width="300rpx" height="300rpx" />
-<lin-image useErrorSlot imageUrl="{{[]}}" width="300rpx" height="300rpx">
+<lin-image imageUrl="{ {[]}}" width="300rpx" height="300rpx" />
+<lin-image useErrorSlot imageUrl="{ {[]}}" width="300rpx" height="300rpx">
   <solt>
     <view class="error-view">
       <text>我是自定义提示</text>
@@ -121,6 +135,8 @@
   </solt>
 </lin-image>
 ```
+
+:::
 
 ## 属性
 

@@ -22,8 +22,10 @@
 
 ## 基础图标
 
+:::demo
+
 ```html
-<lin-icon size="30px" icon="{{item}}" wx:for="{{iconList}}" wx:key="item" />
+<lin-icon size="30px" icon="{ {item}}" wx:for="{ {iconList}}" wx:key="item" />
 ```
 
 ```javascript
@@ -79,11 +81,13 @@ Page({
 });
 ```
 
+:::
 
 ## 主题风格
 
 支持`default`、`primary`、`info`、`warning`、`danger`、`success`六种类型，默认为`default`
 
+:::demo
 
 ```html
 <lin-icon size="30px" icon="setting" type="default" />
@@ -93,10 +97,13 @@ Page({
 <lin-icon size="30px" icon="setting" type="danger" />
 ```
 
+:::
+
 ## 不同尺寸
 
 通过`size`属性设置不同尺寸
 
+:::demo
 
 ```html
 <lin-icon icon="setting" size="20px" />
@@ -106,24 +113,29 @@ Page({
 <lin-icon icon="setting" size="45px" />
 ```
 
+:::
+
 ## 不同颜色
 
 通过`color`属性图标颜色
 
+:::demo
 
 ```html
 <lin-icon size="30px" color="red" icon="setting" />
 <lin-icon size="30px" color="green" icon="setting" />
 ```
 
+:::
+
 ## 属性
 
-| 参数  | 说明     | 类型          | 可选值 | 默认值  |
-| ----- | -------- | ------------- | ------ | ------- |
-| icon  | 图标名称 | String        | —      | —       |
-| type  | 图标类型 | String        | `default`, `primary`, `info`, `warning`, `danger`, `success`      | default |
-| size  | 图标大小 | String,Number | —      | —       |
-| color | 图标颜色 | String        | —      | —       |
+| 参数  | 说明     | 类型          | 可选值                                                       | 默认值  |
+| ----- | -------- | ------------- | ------------------------------------------------------------ | ------- |
+| icon  | 图标名称 | String        | —                                                            | —       |
+| type  | 图标类型 | String        | `default`, `primary`, `info`, `warning`, `danger`, `success` | default |
+| size  | 图标大小 | String,Number | —                                                            | —       |
+| color | 图标颜色 | String        | —                                                            | —       |
 
 ## 外部样式类
 
