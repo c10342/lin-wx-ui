@@ -1,4 +1,4 @@
-// Component Object
+import { addUnit } from '../common/utils';
 Component({
   options: {
     addGlobalClass: true
@@ -12,7 +12,7 @@ Component({
       options: ['primary', 'success', 'info', 'warning', 'danger']
     },
     size: {
-      type: String,
+      type: [String, Number],
       observer: 'setLoadingStyle'
     },
     color: {
@@ -24,7 +24,7 @@ Component({
       observer: 'setTextStyle'
     },
     textSize: {
-      type: String,
+      type: [String, Number],
       observer: 'setTextStyle'
     },
     time: {
@@ -46,7 +46,7 @@ Component({
       let style = '';
       const { size, time, color } = this.properties;
       if (size) {
-        style += `width:${size};height:${size};`;
+        style += `width:${addUnit(size)};height:${addUnit(size)};`;
       }
       if (time) {
         style += `animation-duration:${time};`;
@@ -67,7 +67,7 @@ Component({
         style += `color:${textColor};`;
       }
       if (textSize) {
-        style += `font-size:${textSize};`;
+        style += `font-size:${addUnit(textSize)};`;
       }
       if (style !== this.data.textStyle) {
         this.setData({ textStyle: style });

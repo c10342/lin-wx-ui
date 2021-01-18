@@ -19,7 +19,8 @@ Component({
     position: {
       type: String,
       value: 'center',
-      observer: 'observeClass'
+      observer: 'observeClass',
+      options: ['top', 'bottom', 'right', 'left', 'center']
     },
     closeable: {
       type: Boolean,
@@ -28,14 +29,15 @@ Component({
     closeIcon: { type: String, value: 'close' },
     closeIconPosition: {
       type: String,
-      value: 'top-right'
+      value: 'top-right',
+      options: ['top-right', 'top-left', 'bottom-right', 'bottom-left']
     },
     closeOnClickMask: {
       type: Boolean,
       value: true
     },
     closeIconSize: {
-      type: String,
+      type: [String, Number],
       value: '40rpx'
     },
     round: {

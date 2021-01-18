@@ -12,12 +12,12 @@ Component({
       value: ''
     },
     type: {
-      type: [String, Number],
+      type: String,
       value: 'default',
-      options: ['default', 'primary', 'info', 'warning', 'danger']
+      options: ['default', 'primary', 'info', 'warning', 'danger', 'success']
     },
     size: {
-      type: String,
+      type: [String, Number],
       value: '',
       observer: 'setStyle'
     },
