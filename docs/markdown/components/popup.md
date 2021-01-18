@@ -24,6 +24,8 @@
 
 通过`show`属性控制弹出层是否展示
 
+:::demo
+
 ```html
 <lin-cell-group>
   <lin-cell
@@ -34,7 +36,7 @@
   />
 </lin-cell-group>
 
-<lin-popup data-show="show1" show="{{show1}}" bind:mask-click="onMaskClick">
+<lin-popup data-show="show1" show="{ {show1}}" bind:mask-click="onMaskClick">
   <view style="padding: 30px 50px;">内容</view>
 </lin-popup>
 ```
@@ -56,9 +58,13 @@ Page({
 });
 ```
 
+:::
+
 ## 弹出位置
 
 通过`position`属性设置弹出位置，默认居中弹出，可以设置为`top`、`bottom`、`left`、`right`
+
+:::demo
 
 ```html
 <lin-cell-group>
@@ -90,7 +96,7 @@ Page({
 
 <lin-popup
   data-show="show2"
-  show="{{ show2 }}"
+  show="{ { show2 }}"
   bind:mask-click="onMaskClick"
   position="top"
   custom-style="height: 20%;"
@@ -98,7 +104,7 @@ Page({
 
 <lin-popup
   data-show="show3"
-  show="{{ show3 }}"
+  show="{ { show3 }}"
   bind:mask-click="onMaskClick"
   position="bottom"
   custom-style="height: 20%;"
@@ -106,7 +112,7 @@ Page({
 
 <lin-popup
   data-show="show4"
-  show="{{ show4 }}"
+  show="{ { show4 }}"
   bind:mask-click="onMaskClick"
   position="left"
   custom-style="width: 50%;height:100%;"
@@ -114,16 +120,40 @@ Page({
 
 <lin-popup
   data-show="show5"
-  show="{{ show5 }}"
+  show="{ { show5 }}"
   bind:mask-click="onMaskClick"
   position="right"
   custom-style="width: 50%;height:100%;"
 />
 ```
 
+```javascript
+Page({
+  data: {
+    show2: false,
+    show3: false,
+    show4: false,
+    show5: false,
+  },
+  setShowData(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: true });
+  },
+
+  onMaskClick(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: false });
+  },
+});
+```
+
+:::
+
 ## 关闭图标
 
 设置`closeable`属性后，会在弹出层的右上角显示关闭图标，并且可以通过`close-icon`属性自定义图标，使用`close-icon-position`属性可以自定义图标位置
+
+:::demo
 
 ```html
 <lin-cell-group>
@@ -149,7 +179,7 @@ Page({
 <lin-popup
   closeIconSize="20px"
   data-show="show6"
-  show="{{ show6 }}"
+  show="{ { show6 }}"
   closeable
   bind:mask-click="onMaskClick"
   bind:close="onMaskClick"
@@ -160,7 +190,7 @@ Page({
 <lin-popup
   closeIcon="delete"
   data-show="show7"
-  show="{{ show7 }}"
+  show="{ { show7 }}"
   closeable
   bind:mask-click="onMaskClick"
   bind:close="onMaskClick"
@@ -171,7 +201,7 @@ Page({
 <lin-popup
   closeIconPosition="top-left"
   data-show="show8"
-  show="{{ show8 }}"
+  show="{ { show8 }}"
   closeable
   bind:mask-click="onMaskClick"
   bind:close="onMaskClick"
@@ -180,9 +210,32 @@ Page({
 />
 ```
 
+```javascript
+Page({
+  data: {
+    show6: false,
+    show7: false,
+    show8: false,
+  },
+  setShowData(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: true });
+  },
+
+  onMaskClick(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: false });
+  },
+});
+```
+
+:::
+
 ## 圆角弹窗
 
 设置`round`属性后，弹窗会根据弹出位置添加不同的圆角样式
+
+:::demo
 
 ```html
 <lin-cell-group>
@@ -196,12 +249,31 @@ Page({
 <lin-popup
   data-show="show9"
   round
-  show="{{ show9 }}"
+  show="{ { show9 }}"
   bind:mask-click="onMaskClick"
   position="bottom"
   custom-style="height: 20%;"
 />
 ```
+
+```javascript
+Page({
+  data: {
+    show9: false,
+  },
+  setShowData(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: true });
+  },
+
+  onMaskClick(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: false });
+  },
+});
+```
+
+:::
 
 ## 属性
 

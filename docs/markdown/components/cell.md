@@ -138,6 +138,17 @@
 </lin-cell>
 ```
 
+```css
+.cell-text{
+  background-color: #ee0a24;
+  padding: 0 4px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 2px;
+}
+```
+
 :::
 
 ## CellGroup 属性

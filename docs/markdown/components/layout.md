@@ -42,6 +42,26 @@ Layout 组件提供了`24列栅格`，通过在`Col`上添加`span`属性设置�
 </lin-row>
 ```
 
+```css
+lin-col .lin-col {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  background-clip: content-box;
+}
+
+lin-row lin-col:nth-child(odd) .lin-col {
+  background-color: #39a9ed;
+}
+
+lin-row lin-col:nth-child(even) .lin-col {
+  background-color: #66c6f2;
+}
+```
+
 :::
 
 ## 设置列元素间距
@@ -56,6 +76,26 @@ Layout 组件提供了`24列栅格`，通过在`Col`上添加`span`属性设置�
   <lin-col span="8">span: 8</lin-col>
   <lin-col span="8">span: 8</lin-col>
 </lin-row>
+```
+
+```css
+lin-col .lin-col {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  background-clip: content-box;
+}
+
+lin-row lin-col:nth-child(odd) .lin-col {
+  background-color: #39a9ed;
+}
+
+lin-row lin-col:nth-child(even) .lin-col {
+  background-color: #66c6f2;
+}
 ```
 
 :::

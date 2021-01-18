@@ -25,10 +25,16 @@
 
 通过`value`绑定复选框的勾选状态
 
+:::demo
+
 ```html
-<lin-checkbox data-key="checked1" value="{{ checked1 }}" bind:change="onChange"
-  >复选框</lin-checkbox
+<lin-checkbox
+  data-key="checked1"
+  value="{ { checked1 }}"
+  bind:change="onChange"
 >
+  复选框
+</lin-checkbox>
 ```
 
 ```javascript
@@ -45,42 +51,84 @@ Page({
 });
 ```
 
+:::
+
 ## 禁用状态
 
 通过设置`disabled`属性可以禁用复选框
+
+:::demo
 
 ```html
 <lin-checkbox
   data-key="checked2"
   disabled
-  value="{{ checked2 }}"
+  value="{ { checked2 }}"
   bind:change="onChange"
-  >复选框</lin-checkbox
 >
+  复选框
+</lin-checkbox>
 ```
+
+```javascript
+Page({
+  data: {
+    checked2: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
 
 ## 自定义形状
 
 将`shape`属性设置为`square`，复选框的形状会变成方形
 
+:::demo
+
 ```html
 <lin-checkbox
   data-key="checked3"
   shape="square"
-  value="{{ checked3 }}"
+  value="{ { checked3 }}"
   bind:change="onChange"
-  >自定义形状</lin-checkbox
 >
+  自定义形状
+</lin-checkbox>
 ```
+
+```javascript
+Page({
+  data: {
+    checked3: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
 
 ## 自定义颜色
 
 通过`checked-color`属性可以自定义选中状态下的图标颜色
 
+:::demo
+
 ```html
 <lin-checkbox
   data-key="checked4"
-  value="{{ checked4 }}"
+  value="{ { checked4 }}"
   checked-color="#07c160"
   bind:change="onChange"
 >
@@ -88,14 +136,32 @@ Page({
 </lin-checkbox>
 ```
 
+```javascript
+Page({
+  data: {
+    checked4: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
+
 ## 自定义大小
 
 通过`icon-size`属性可以自定义图标的大小
 
+:::demo
+
 ```html
 <lin-checkbox
   data-key="checked5"
-  value="{{ checked5 }}"
+  value="{ { checked5 }}"
   icon-size="25px"
   bind:change="onChange"
 >
@@ -103,45 +169,99 @@ Page({
 </lin-checkbox>
 ```
 
+```javascript
+Page({
+  data: {
+    checked5: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
+
 ## 自定义图标
 
 将`shape`属性设置为`square`，复选框的形状会变成方形
+
+:::demo
 
 ```html
 <lin-checkbox
   use-icon-slot
   data-key="checked6"
-  value="{{ checked6 }}"
+  value="{ { checked6 }}"
   bind:change="onChange"
 >
-  <lin-icon icon="search" slot="icon" color="{{checked6?'red':''}}" />
+  <lin-icon icon="search" slot="icon" color="{ {checked6?'red':''}}" />
   自定义图标
 </lin-checkbox>
 ```
+
+```javascript
+Page({
+  data: {
+    checked6: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
 
 ## 禁用文本点击
 
 通过设置`label-disabled`属性可以禁用复选框文本点击
 
+:::demo
+
 ```html
 <lin-checkbox
   label-disabled
   data-key="checked7"
-  value="{{ checked7 }}"
+  value="{ { checked7 }}"
   bind:change="onChange"
 >
   禁用文本点击
 </lin-checkbox>
 ```
 
+```javascript
+Page({
+  data: {
+    checked7: false,
+  },
+  onChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
+
 ## 复选框组
 
 需要与`lin-checkbox-group`一起使用，选中值是一个数组，通过`value`绑定在`lin-checkbox-group`上，数组中的项即为选中的`Checkbox`的`name`属性设置的值
 
+:::demo
+
 ```html
 <lin-checkbox-group
   data-key="result1"
-  value="{{ result1 }}"
+  value="{ { result1 }}"
   bind:change="onGroupChange"
 >
   <lin-checkbox name="a">复选框 a</lin-checkbox>
@@ -164,16 +284,20 @@ Page({
 });
 ```
 
+:::
+
 ## 限制最大可选数
 
 通过设置`max`属性可以限制最大可选数
 
+:::demo
+
 ```html
 <lin-checkbox-group
   data-key="result2"
-  value="{{ result2 }}"
+  value="{ { result2 }}"
   bind:change="onGroupChange"
-  max="{{ 2 }}"
+  max="{ { 2 }}"
 >
   <lin-checkbox name="a">复选框 a</lin-checkbox>
   <lin-checkbox name="b">复选框 b</lin-checkbox>
@@ -181,29 +305,47 @@ Page({
 </lin-checkbox-group>
 ```
 
+```javascript
+Page({
+  data: {
+    result2: [],
+  },
+  onGroupChange(event) {
+    const key = event.currentTarget.dataset.key;
+    this.setData({
+      [key]: event.detail,
+    });
+  },
+});
+```
+
+:::
+
 ## 搭配单元格组件使用
 
 此时你需要再引入 Cell 和 CellGroup 组件，并通过 checkbox 的 toggle 方法手动触发切换
 
+:::demo
+
 ```html
 <lin-checkbox-group
   data-key="result3"
-  value="{{ result3 }}"
+  value="{ { result3 }}"
   bind:change="onGroupChange"
 >
   <lin-cell-group>
     <lin-cell
-      wx:for="{{ list }}"
+      wx:for="{ { list }}"
       wx:key="index"
-      title="复选框 {{ item }}"
-      data-index="{{ index }}"
+      title="复选框 { { item }}"
+      data-index="{ { index }}"
       bind:click="toggle"
     >
       <lin-checkbox
         slot="right-icon"
-        class="checkboxes-{{ index }}"
+        class="checkboxes-{ { index }}"
         catch:tap="noop"
-        name="{{ item }}"
+        name="{ { item }}"
       />
     </lin-cell>
   </lin-cell-group>
@@ -223,6 +365,8 @@ Page({
   },
 });
 ```
+
+:::
 
 ## Checkbox 属性
 
@@ -250,19 +394,18 @@ Page({
 | —        | 自定义文本 |
 | icon     | 自定义图标 |
 
-
 ## Checkbox 外部样式类
 
-| 插槽名称 | 说明       |
-| -------- | ---------- |
-| custom-class        | 	根节点样式类 |
-| icon-class     | 图标样式类 |
-| label-class     | 描述信息样式类 |
+| 插槽名称     | 说明           |
+| ------------ | -------------- |
+| custom-class | 根节点样式类   |
+| icon-class   | 图标样式类     |
+| label-class  | 描述信息样式类 |
 
 ## Checkbox 方法
 
-| 方法名       | 参数 | 返回值 | 介绍         |
-| ------------ | ---- | ------ | ------------ |
+| 方法名 | 参数 | 返回值 | 介绍         |
+| ------ | ---- | ------ | ------------ |
 | toggle | —    | —      | 切换选中状态 |
 
 ## CheckboxGroup 属性

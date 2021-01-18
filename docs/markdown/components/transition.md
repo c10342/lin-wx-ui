@@ -24,6 +24,8 @@
 
 将元素包裹在 `transition` 组件内，在元素展示/隐藏时，会有相应的过渡动画
 
+:::demo
+
 ```html
 <lin-cell-group>
   <lin-cell data-show="show1" bind:click="setShowData" title="Fade" is-link />
@@ -79,7 +81,7 @@
 
 <lin-transition
   data-show="show1"
-  show="{{show1}}"
+  show="{ {show1}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -90,7 +92,7 @@
 <lin-transition
   name="fade-up"
   data-show="show2"
-  show="{{show2}}"
+  show="{ {show2}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -101,7 +103,7 @@
 <lin-transition
   name="fade-down"
   data-show="show3"
-  show="{{show3}}"
+  show="{ {show3}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -112,7 +114,7 @@
 <lin-transition
   name="fade-left"
   data-show="show4"
-  show="{{show4}}"
+  show="{ {show4}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -123,7 +125,7 @@
 <lin-transition
   name="fade-right"
   data-show="show5"
-  show="{{show5}}"
+  show="{ {show5}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -134,7 +136,7 @@
 <lin-transition
   name="slide-up"
   data-show="show6"
-  show="{{show6}}"
+  show="{ {show6}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -145,7 +147,7 @@
 <lin-transition
   name="slide-down"
   data-show="show7"
-  show="{{show7}}"
+  show="{ {show7}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -156,7 +158,7 @@
 <lin-transition
   name="slide-left"
   data-show="show8"
-  show="{{show8}}"
+  show="{ {show8}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -167,7 +169,7 @@
 <lin-transition
   name="slide-right"
   data-show="show9"
-  show="{{show9}}"
+  show="{ {show9}}"
   bind:after-enter="afterEnter"
 >
   <view class="transition-content">
@@ -203,7 +205,11 @@ Page({
 });
 ```
 
+:::
+
 ## 自定义动画
+
+:::demo
 
 ```html
 <lin-cell-group>
@@ -214,13 +220,14 @@ Page({
     is-link
   />
 </lin-cell-group>
+
 <lin-transition
   bind:after-leave="afterLeave"
   bind:after-enter="afterEnter"
   data-show="show10"
-  show="{{ show10 }}"
+  show="{ { show10 }}"
   name=""
-  duration="{{ { enter: 300, leave: 1000 } }}"
+  duration="{ { { enter: 300, leave: 1000 } }}"
   enter-class="tran-enter-class"
   enter-active-class="tran-enter-active-class"
   leave-active-class="tran-leave-active-class"
@@ -230,6 +237,25 @@ Page({
     自定义
   </view>
 </lin-transition>
+```
+
+```javascript
+Page({
+  data: {
+    show10: false,
+  },
+  setShowData(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: true });
+  },
+
+  afterEnter(event) {
+    setTimeout(() => {
+      const key = event.currentTarget.dataset.show;
+      this.setData({ [key]: false });
+    }, 1000);
+  },
+});
 ```
 
 ```css
@@ -263,15 +289,16 @@ Page({
 }
 ```
 
+:::
 
 ## 属性
 
-| 参数        | 说明                 | 类型    | 可选值                                | 默认值 |
-| ----------- | -------------------- | ------- | ------------------------------------- | ------ |
-| customStyle | 自定义样式           | String  | —                                     | —      |
-| show        | 是否展示组件         | Boolean | —                                     | true   |
-| duration    | 动画时长，单位为毫秒 | Number  , Object:{enter: number, leave: number} | —      | 300 |
-| name        | 动画类型             | String  | —                                     | fade   |
+| 参数        | 说明                 | 类型                                           | 可选值 | 默认值 |
+| ----------- | -------------------- | ---------------------------------------------- | ------ | ------ |
+| customStyle | 自定义样式           | String                                         | —      | —      |
+| show        | 是否展示组件         | Boolean                                        | —      | true   |
+| duration    | 动画时长，单位为毫秒 | Number , Object:{enter: number, leave: number} | —      | 300    |
+| name        | 动画类型             | String                                         | —      | fade   |
 
 ## 事件
 

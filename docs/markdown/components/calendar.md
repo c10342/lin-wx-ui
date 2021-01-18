@@ -24,10 +24,12 @@
 
 下面演示了结合单元格来使用日历组件的用法，日期选择完成后会触发`confirm`事件
 
+:::demo
+
 ```html
 <lin-cell-group>
   <lin-cell
-    value="{{utils.formatDate(date1).str}}"
+    value="{ {utils.formatDate(date1).str}}"
     data-show="show1"
     bind:click="setShowData"
     title="基础用法"
@@ -35,11 +37,11 @@
   />
 </lin-cell-group>
 <lin-calendar
-  value="{{date1}}"
+  value="{ {date1}}"
   bind:confirm="onConfirm"
   bind:close="onMaskClick"
   bind:mask-click="onMaskClick"
-  show="{{show1}}"
+  show="{ {show1}}"
   data-show="show1"
   data-key="date1"
 />
@@ -72,14 +74,18 @@ Page({
 });
 ```
 
+:::
+
 ## 禁用日期
 
 可禁用不同时间段日期
 
+:::demo
+
 ```html
 <lin-cell-group>
   <lin-cell
-    value="{{utils.formatDate(date2).str}}"
+    value="{ {utils.formatDate(date2).str}}"
     data-show="show2"
     bind:click="setShowData"
     title="小于等于指定日期"
@@ -87,7 +93,7 @@ Page({
   />
 
   <lin-cell
-    value="{{utils.formatDate(date3).str}}"
+    value="{ {utils.formatDate(date3).str}}"
     data-show="show3"
     bind:click="setShowData"
     title="大于等于指定日期"
@@ -95,7 +101,7 @@ Page({
   />
 
   <lin-cell
-    value="{{utils.formatDate(date4).str}}"
+    value="{ {utils.formatDate(date4).str}}"
     data-show="show4"
     bind:click="setShowData"
     title="指定范围日期"
@@ -103,7 +109,7 @@ Page({
   />
 
   <lin-cell
-    value="{{utils.formatDate(date5).str}}"
+    value="{ {utils.formatDate(date5).str}}"
     data-show="show5"
     bind:click="setShowData"
     title="指定多个日期"
@@ -111,58 +117,98 @@ Page({
   />
 </lin-cell-group>
 <lin-calendar
-  disabledBeforeDate="{{disabledBeforeDate}}"
-  value="{{date2}}"
+  disabledBeforeDate="{ {disabledBeforeDate}}"
+  value="{ {date2}}"
   bind:confirm="onConfirm"
   bind:close="onMaskClick"
   bind:mask-click="onMaskClick"
-  show="{{show2}}"
+  show="{ {show2}}"
   data-show="show2"
   data-key="date2"
 />
 
 <lin-calendar
-  disabledAfterDate="{{disabledAfterDate}}"
-  value="{{date3}}"
+  disabledAfterDate="{ {disabledAfterDate}}"
+  value="{ {date3}}"
   bind:confirm="onConfirm"
   bind:close="onMaskClick"
   bind:mask-click="onMaskClick"
-  show="{{show3}}"
+  show="{ {show3}}"
   data-show="show3"
   data-key="date3"
 />
 
 <lin-calendar
-  disabledRangeDate="{{disabledRangeDate}}"
-  value="{{date4}}"
+  disabledRangeDate="{ {disabledRangeDate}}"
+  value="{ {date4}}"
   bind:confirm="onConfirm"
   bind:close="onMaskClick"
   bind:mask-click="onMaskClick"
-  show="{{show4}}"
+  show="{ {show4}}"
   data-show="show4"
   data-key="date4"
 />
 
 <lin-calendar
-  disabledDate="{{disabledDate}}"
-  value="{{date5}}"
+  disabledDate="{ {disabledDate}}"
+  value="{ {date5}}"
   bind:confirm="onConfirm"
   bind:close="onMaskClick"
   bind:mask-click="onMaskClick"
-  show="{{show5}}"
+  show="{ {show5}}"
   data-show="show5"
   data-key="date5"
 />
 ```
 
+```javascript
+Page({
+  data: {
+    show2: false,
+    date2: "2020-10-25",
+    disabledBeforeDate: "2020-10-22",
+    show3: false,
+    date3: "2020-10-25",
+    disabledAfterDate: "2020-10-27",
+    show4: false,
+    date4: "2020-10-25",
+    disabledRangeDate: ["2020-10-10", "2020-10-15"],
+    show5: false,
+    date5: "2020-10-25",
+    disabledDate: ["2020-10-22", "2020-10-16"],
+  },
+  setShowData(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: true });
+  },
+
+  onMaskClick(event) {
+    const key = event.currentTarget.dataset.show;
+    this.setData({ [key]: false });
+  },
+
+  onConfirm(event) {
+    const key = event.currentTarget.dataset.key;
+    const show = event.currentTarget.dataset.show;
+    this.setData({
+      [key]: event.detail,
+      [show]: false,
+    });
+  },
+});
+```
+
+:::
 
 ## 平铺展示
 
 将`poppable`设置为`false`，日历会直接展示在页面内，而不是以弹层的形式出现
 
+:::demo
 ```html
-<lin-calendar poppable="{{false}}" showConfirm="{{false}}" />
+<lin-calendar poppable="{ {false}}" showConfirm="{ {false}}" />
 ```
+:::
 
 ## 属性
 
