@@ -1,8 +1,11 @@
+
+
+<wxs module="styleUtils" src="../wxs/style.wxs"></wxs>
 <view class="custom-class lin-rate">
     <view class="lin-rate-o" id="lin-rate-o">
-        <lin-icon custom-class="void-icon-class" id="lin-rate-{{index}}" color='{{voidColor}}' data-index='{{index}}' bind:tap="onClick" style="margin-right:{{index===innerCountArray.length-1?'0':gutter}}" size='{{iconSize}}' icon='{{voidIcon}}' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
+        <lin-icon custom-class="void-icon-class" id="lin-rate-{{index}}" color='{{voidColor}}' data-index='{{index}}' bind:tap="onClick" style="margin-right:{{index===innerCountArray.length-1?'0':styleUtils.addUnit(gutter)}}" size='{{iconSize}}' icon='{{voidIcon}}' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
     </view>
     <view class="lin-rate-fill" style="width:{{width}}">
-        <lin-icon custom-class="icon-class" bind:tap='onClick' data-index='{{index}}' color='{{disabled?disabledColor:color}}' style="margin-right:{{index===innerCountArray.length-1?'0':gutter}}" size='{{iconSize}}' icon='{{icon}}' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
+        <lin-icon custom-class="icon-class" bind:tap='onClick' data-index='{{index}}' color='{{disabled?disabledColor:color}}' style="margin-right:{{index===innerCountArray.length-1?'0':styleUtils.addUnit(gutter)}}" size='{{iconSize}}' icon='{{icon}}' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
     </view>
 </view>

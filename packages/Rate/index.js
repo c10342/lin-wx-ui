@@ -1,4 +1,4 @@
-import { RED } from '../common/color';
+import { RED, GRAY5, DISABLEDCOLOR } from '../common/color';
 
 Component({
   behaviors: ['wx://form-field'],
@@ -8,7 +8,7 @@ Component({
   },
   properties: {
     gutter: {
-      type: String,
+      type: [String, Number],
       value: '4px'
     },
     color: {
@@ -17,11 +17,11 @@ Component({
     },
     voidColor: {
       type: String,
-      value: '#c8c9cc'
+      value: GRAY5
     },
     allowHalf: Boolean,
     iconSize: {
-      type: String,
+      type: [String, Number],
       value: '50rpx'
     },
     value: {
@@ -45,7 +45,7 @@ Component({
     disabled: Boolean,
     disabledColor: {
       type: String,
-      value: '#bdbdbd'
+      value: DISABLEDCOLOR
     }
   },
   data: {
