@@ -31,23 +31,32 @@ Component({
     ...commonProps,
     ...inputProps,
     ...textareaProps,
-    size: String,
+    size: {
+      type: String,
+      options: ['large']
+    },
     isLink: Boolean,
     border: { type: Boolean, value: true },
     required: Boolean,
     leftIcon: String,
     label: String,
-    clickable: Boolean,
     titleWidth: {
       type: [String, Number],
       value: '6.2em'
     },
-    arrowDirection: String,
+    arrowDirection: {
+      type: String,
+      value: 'right',
+      options: ['up', 'down', 'right', 'left']
+    },
     readonly: {
       type: Boolean,
       observer: 'setShowClear'
     },
-    inputAlign: String,
+    inputAlign: {
+      type: String,
+      options: ['left', 'center', 'right']
+    },
     rightIcon: String,
     clearable: { type: Boolean, observer: 'setShowClear' },
     errorMessage: String,
