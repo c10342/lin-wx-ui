@@ -53,7 +53,7 @@
 		</lin-cell-group>
 	</demo-block>
 
-	<demo-block title='高度自适应'>
+	<demo-block title='插入按钮'>
 		<lin-cell-group>
 			<lin-field clearable label="短信验证码" placeholder="请输入短信验证码" border="{{ false }}" use-button-slot>
 				<lin-button slot="button" size="small" type="success">发送验证码</lin-button>

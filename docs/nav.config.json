@@ -91,6 +91,46 @@
           "desc": "Checkbox 复选框",
           "name": "checkbox",
           "path": "/checkbox"
+        },
+        {
+          "desc": "Field 输入框",
+          "name": "field",
+          "path": "/field"
+        },
+        {
+          "desc": "Radio 单选框",
+          "name": "radio",
+          "path": "/radio"
+        },
+        {
+          "desc": "Rate 评分",
+          "name": "rate",
+          "path": "/rate"
+        },
+        {
+          "desc": "Search 搜索",
+          "name": "search",
+          "path": "/search"
+        },
+        {
+          "desc": "Slider 滑块",
+          "name": "slider",
+          "path": "/slider"
+        },
+        {
+          "desc": "Stepper 步进器",
+          "name": "stepper",
+          "path": "/stepper"
+        },
+        {
+          "desc": "Switch 开关",
+          "name": "switch",
+          "path": "/switch"
+        },
+        {
+          "desc": "Picker 选择器",
+          "name": "picker",
+          "path": "/picker"
         }
       ]
     },

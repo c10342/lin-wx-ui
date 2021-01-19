@@ -16,7 +16,7 @@
 	</demo-block>
 
 	<demo-block title='自定义背景色'>
-		<lin-search shape="round" background="#4fc08d" value="{{ value4 }}" placeholder="请输入搜索关键词" />
+		<lin-search shape="round" background="#4fc08d" value="{{ value5 }}" placeholder="请输入搜索关键词" />
 	</demo-block>
 
 	<demo-block title='自定义按钮'>
