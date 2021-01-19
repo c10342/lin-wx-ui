@@ -30,7 +30,10 @@ Component({
       type: Number,
       value: -1
     },
-    inputAlign: String,
+    inputAlign: {
+      type: String,
+      options: ['left', 'center', 'right']
+    },
     placeholder: String,
     placeholderStyle: String,
     showAction: Boolean,
@@ -42,7 +45,8 @@ Component({
     background: String,
     shape: {
       type: String,
-      value: 'square'
+      value: 'square',
+      options: ['square', 'round']
     },
     name: String
   },

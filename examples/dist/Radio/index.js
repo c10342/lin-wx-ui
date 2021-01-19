@@ -20,7 +20,7 @@ Component({
   properties: {
     useIconSlot: Boolean,
     iconSize: {
-      type: String,
+      type: [String, Number],
       value: '40rpx'
     },
     shape: {

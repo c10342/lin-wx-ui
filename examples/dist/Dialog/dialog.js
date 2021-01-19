@@ -1,4 +1,3 @@
-// import { GRAY, RED } from "../common/color";
 
 let queue = [];
 
@@ -23,8 +22,6 @@ const defaultOptions = {
   showCancelButton: false,
   closeOnClickMask: false,
   confirmButtonOpenType: ''
-  // confirmButtonColor: RED,
-  // cancelButtonColor: GRAY,
 };
 
 let currentOptions = { ...defaultOptions };
