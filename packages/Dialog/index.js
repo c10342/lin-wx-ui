@@ -1,4 +1,4 @@
-// import { RED, GRAY } from "../common/color";
+
 import ButtonBehavior from '../behaviors/button';
 import OpenTypeBehavior from '../behaviors/open-type';
 
