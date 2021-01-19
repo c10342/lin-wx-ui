@@ -162,8 +162,8 @@
 
 | 事件名       | 说明                   | 参数  |
 | ------------ | ---------------------- | ----- |
-| bind:error   | 所有图片加载失败时触发 | event |
-| bind:success | 图片加载成功时触发     | event |
+| bind:error   | 所有图片加载失败时触发 | [{index:index,src:src,event:event}] |
+| bind:success | 图片加载成功时触发     | {index:index,src:src,event:event} |
 | bind:click   | 点击图片时触发         | event |
 
 ## 插槽

@@ -274,16 +274,16 @@ Page({
 
 ## 事件
 
-| 事件名                    | 说明                                     | 参数  |
-| ------------------------- | ---------------------------------------- | ----- |
-| bind:change               | 输入内容时触发                           | event |
-| bind:blur                 | 输入框失焦时触发                         | event |
-| bind:focus                | 输入框聚焦时触发                         | event |
-| bind:clear                | 点击清空控件时触发                       | event |
-| bind:confirm              | 点击完成按钮时触发                       | event |
-| bind:linechange           | 输入框行数变化时调用，只对 textarea 有效 | event |
-| bind:keyboardheightchange | 键盘高度发生变化的时候触发此事件         | event |
-| bind:click-icon           | 点击尾部图标时触发                       | event |
+| 事件名                    | 说明                                     | 参数                                      |
+| ------------------------- | ---------------------------------------- | ----------------------------------------- |
+| bind:change               | 输入内容时触发                           | 当前输入值                                |
+| bind:blur                 | 输入框失焦时触发                         | 当前输入值                                |
+| bind:focus                | 输入框聚焦时触发                         | 当前输入值                                |
+| bind:clear                | 点击清空控件时触发                       | —                                         |
+| bind:confirm              | 点击完成按钮时触发                       | 当前输入值                                |
+| bind:linechange           | 输入框行数变化时调用，只对 textarea 有效 | { height: 0, heightRpx: 0, lineCount: 0 } |
+| bind:keyboardheightchange | 键盘高度发生变化的时候触发此事件         | { height: height, duration: duration }    |
+| bind:click-icon           | 点击尾部图标时触发                       | —                                         |
 
 ## 插槽
 

@@ -205,9 +205,11 @@ Page({
 将`poppable`设置为`false`，日历会直接展示在页面内，而不是以弹层的形式出现
 
 :::demo
+
 ```html
 <lin-calendar poppable="{ {false}}" showConfirm="{ {false}}" />
 ```
+
 :::
 
 ## 属性
@@ -234,14 +236,14 @@ Page({
 
 ## 事件
 
-| 事件名          | 说明                 | 参数  |
-| --------------- | -------------------- | ----- |
-| bind:mask-click | 点击遮罩层时触发     | —     |
-| bind:change     | 选中值发生变化时触发 | event |
-| bind:prevMonth  | 点击上一个月时触发   | event |
-| bind:nextMonth  | 点击下一个月时触发   | event |
-| bind:prevYear   | 点击上一年时触发     | event |
-| bind:nextYear   | 点击下一年时触发     | event |
-| bind:confirm    | 点击确认按钮时触发   | event |
-| bind:reset      | 点击重置按钮时触发   | —     |
-| bind:close      | 关闭的时候触发       | —     |
+| 事件名          | 说明                 | 参数         |
+| --------------- | -------------------- | ------------ |
+| bind:mask-click | 点击遮罩层时触发     | —            |
+| bind:change     | 选中值发生变化时触发 | 当前时间戳   |
+| bind:prevMonth  | 点击上一个月时触发   | 当前时间对象 |
+| bind:nextMonth  | 点击下一个月时触发   | 当前时间对象 |
+| bind:prevYear   | 点击上一年时触发     | 当前时间对象 |
+| bind:nextYear   | 点击下一年时触发     | 当前时间对象 |
+| bind:confirm    | 点击确认按钮时触发   | 当前时间戳   |
+| bind:reset      | 点击重置按钮时触发   | —            |
+| bind:close      | 关闭的时候触发       | —            |
