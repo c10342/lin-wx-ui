@@ -131,6 +131,11 @@
           "desc": "Picker 选择器",
           "name": "picker",
           "path": "/picker"
+        },
+        {
+          "desc": "Uploader 文件上传",
+          "name": "uploader",
+          "path": "/uploader"
         }
       ]
     },
