@@ -136,6 +136,11 @@
           "desc": "Uploader 文件上传",
           "name": "uploader",
           "path": "/uploader"
+        },
+        {
+          "desc": "Form 表单",
+          "name": "form",
+          "path": "/form"
         }
       ]
     },
