@@ -29,7 +29,8 @@ Component({
     message: String,
     theme: {
       type: String,
-      value: 'default'
+      value: 'default',
+      options: ['default', 'round-button']
     },
     useSlot: Boolean,
     className: String,
@@ -37,7 +38,8 @@ Component({
     asyncClose: Boolean,
     messageAlign: {
       type: String,
-      value: 'center'
+      value: 'center',
+      options: ['center', 'left', 'right']
     },
     maskStyle: String,
     useTitleSlot: Boolean,
