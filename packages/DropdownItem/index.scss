@@ -38,6 +38,10 @@
   }
 }
 
+.lin-dropdown-item-disabled {
+  opacity: 0.5;
+}
+
 .lin-dropdown-item-active {
   color: $red;
 }

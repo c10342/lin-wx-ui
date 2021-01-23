@@ -49,7 +49,10 @@ Component({
   methods: {
     onOptionTap (event) {
       const option = event.currentTarget.dataset.option;
-      const { value } = option;
+      const { value, disabled } = option;
+      if (disabled) {
+        return;
+      }
       const shouldEmitChange = this.properties.value !== value;
       this.triggerEvent('close');
       this.setData({
