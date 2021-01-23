@@ -147,7 +147,23 @@
     {
       "desc": "反馈组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "Mask 遮罩层",
+          "name": "mask",
+          "path": "/mask"
+        },
+        {
+          "desc": "ActionSheet 上拉菜单",
+          "name": "action-sheet",
+          "path": "/action-sheet"
+        },
+        {
+          "desc": "Dialog 弹出框",
+          "name": "dialog",
+          "path": "/dialog"
+        }
+      ]
     },
     {
       "desc": "展示组件",
