@@ -3,6 +3,7 @@ Component({
   options: {
     addGlobalClass: true
   },
+  externalClasses: ['custom-class'],
   properties: {
     show: {
       type: Boolean,
