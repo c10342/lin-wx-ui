@@ -20,7 +20,9 @@ Component({
     'upload-class'
   ],
   properties: {
-    name: String,
+    name: {
+      type: [String, Number]
+    },
     disabled: Boolean,
     uploadText: String,
     useBeforeRead: Boolean,

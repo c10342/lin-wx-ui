@@ -56,7 +56,7 @@ Component({
       });
     },
     checkValue (callback) {
-      const { rules } = this.properties;
+      const { rules, model } = this.properties;
       const tasks = (this.children || [])
         .filter((child) => {
           const name = child.properties.name;
@@ -66,11 +66,11 @@ Component({
 
       Promise.all(tasks).then(res => {
         if (typeof callback === 'function') {
-          callback(res.every(Boolean));
+          callback(res.every(Boolean), model);
         }
       }).catch(() => {
         if (typeof callback === 'function') {
-          callback(false);
+          callback(false, model);
         }
       });
     },

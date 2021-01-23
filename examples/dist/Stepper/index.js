@@ -172,8 +172,9 @@ Component({
 
       this.triggerParentBlur(value);
     },
-    onFocus () {
-      this.triggerEvent('focus');
+    onFocus (event) {
+      const value = event.detail.value;
+      this.triggerEvent('focus', value);
     },
     formatValue (value) {
       value *= 1;
