@@ -5,7 +5,7 @@
  <div class="demo-outer-container">
      <div class="demo-inner-container">
         <div class="demo-content">
-            <img class="demo-image" src='../../componentImage/loading.png' />
+            <img class="demo-image" src='../../componentImage/dialog.gif' />
         </div>
      </div>
  </div>

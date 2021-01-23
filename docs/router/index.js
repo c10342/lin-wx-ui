@@ -1,42 +1,37 @@
 import Vue from "vue";
 import Router from "vue-router";
-import navConf from "../nav.config.json";
+
+import IndexPage from "../pages/index.vue";
+import ComponentPage from "../pages/components.vue";
 
 Vue.use(Router);
 
-let routes = [];
 
-Object.keys(navConf).forEach((header) => {
-  routes = routes.concat(navConf[header]);
-});
+const routes = [];
 
-let addComponent = (router) => {
-  router.forEach((route) => {
-    if (route.items) {
-      addComponent(route.items);
-      routes = routes.concat(route.items);
-    } else {
-      if (route.type === "guide") {
-        route.component = () => import(`../markdown/guide/${route.name}.md`);
-        return;
-      }
-      route.component = () => import(`../markdown/components/${route.name}.md`);
-    }
+const comps = require.context("../markdown", true, /\.(md|vue)$/);
+
+comps.keys().forEach(key => {
+  const component = comps(key).default;
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  routes.push({
+    component,
+    name,
+    path: `/${name}`
   });
-};
-addComponent(routes);
+});
 
 export default new Router({
   routes: [
     {
       path: "/",
       name: "index",
-      component: () => import(`../pages/index.vue`),
+      component: IndexPage,
     },
     {
       path: "/component",
       name: "component",
-      component: () => import(`../pages/components.vue`),
+      component: ComponentPage,
       children: routes,
     },
   ],

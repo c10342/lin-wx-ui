@@ -5,7 +5,7 @@
  <div class="demo-outer-container">
      <div class="demo-inner-container">
         <div class="demo-content">
-            <img class="demo-image" src='../../componentImage/loading.png' />
+            <img class="demo-image" src='../../componentImage/action-sheet.gif' />
         </div>
      </div>
  </div>
@@ -40,22 +40,22 @@
     data-key="show3"
     bind:click="onClick"
     is-link
-    border="{{ false }}"
+    border="{ { false }}"
   />
 </lin-cell-group>
 
 <lin-action-sheet
   data-key="show1"
-  show="{{ show1 }}"
-  actions="{{ actions1 }}"
+  show="{ { show1 }}"
+  actions="{ { actions1 }}"
   bind:close="onClose"
   bind:select="onSelect"
 />
 <lin-action-sheet
   cancel-text="取消"
   data-key="show2"
-  show="{{ show2 }}"
-  actions="{{ actions2 }}"
+  show="{ { show2 }}"
+  actions="{ { actions2 }}"
   bind:close="onClose"
   bind:cancel="onCancel"
   bind:select="onSelect"
@@ -65,8 +65,8 @@
   description="这是一段描述信息"
   cancel-text="取消"
   data-key="show3"
-  show="{{ show3 }}"
-  actions="{{ actions3 }}"
+  show="{ { show3 }}"
+  actions="{ { actions3 }}"
   bind:close="onClose"
   bind:cancel="onCancel"
   bind:select="onSelect"
@@ -160,15 +160,15 @@ Page({
     data-key="show4"
     bind:click="onClick"
     is-link
-    border="{{ false }}"
+    border="{ { false }}"
   />
 </lin-cell-group>
 
 <lin-action-sheet
   cancel-text="取消"
   data-key="show4"
-  show="{{ show4 }}"
-  actions="{{ actions4 }}"
+  show="{ { show4 }}"
+  actions="{ { actions4 }}"
   bind:close="onClose"
   bind:cancel="onCancel"
   bind:select="onSelect"
@@ -229,13 +229,13 @@ Page({
     data-key="show5"
     bind:click="onClick"
     is-link
-    border="{{ false }}"
+    border="{ { false }}"
   />
 </lin-cell-group>
 
 <lin-action-sheet
   data-key="show5"
-  show="{{ show5 }}"
+  show="{ { show5 }}"
   title="标题"
   bind:close="onClose"
 >
@@ -278,7 +278,7 @@ Page({
     data-key="show6"
     bind:click="onClick"
     is-link
-    border="{{ false }}"
+    border="{ { false }}"
   />
 </lin-cell-group>
 
@@ -286,8 +286,8 @@ Page({
   title="分享"
   cancel-text="取消"
   data-key="show6"
-  show="{{ show6 }}"
-  actions="{{ actions6 }}"
+  show="{ { show6 }}"
+  actions="{ { actions6 }}"
   bind:close="onClose"
   bind:cancel="onCancel"
 />

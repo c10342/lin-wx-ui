@@ -20,13 +20,13 @@
     },
     {
       "name": "logs",
-      "path": "logs",
+      "path": "/logs",
       "desc": "更新日志",
       "type": "guide"
     },
     {
       "name": "explain",
-      "path": "explain",
+      "path": "/explain",
       "desc": "演示说明",
       "type": "guide"
     }
@@ -162,6 +162,11 @@
           "desc": "Dialog 弹出框",
           "name": "dialog",
           "path": "/dialog"
+        },
+        {
+          "desc": "DropdownMenu 下拉菜单",
+          "name": "dropdown-menu",
+          "path": "/dropdown-menu"
         }
       ]
     },

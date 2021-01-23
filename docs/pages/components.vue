@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <sideNav class="nav"></sideNav>
-    <router-view class="view beautyScroll"></router-view>
+    <router-view :class="['view', 'beautyScroll', componentClass]"></router-view>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   components: {
     mainHeader,
     sideNav,
+  },
+  computed: {
+    componentClass() {
+      return `component-${this.$route.path.split("/").pop()}`;
+    },
   },
 };
 </script>
@@ -36,6 +41,9 @@ export default {
     box-sizing: border-box;
     height: calc(100vh - #{$header-height});
     overflow-y: auto;
+  }
+  .component-start,.component-giud,.component-install,.component-logs,.component-explain{
+padding-right: 48px;
   }
 }
 
