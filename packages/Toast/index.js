@@ -29,7 +29,8 @@ Component({
     },
     type: {
       type: String,
-      value: 'text'
+      value: 'text',
+      options: ['text', 'loading', 'success', 'fail']
     }
   },
   data: {},
