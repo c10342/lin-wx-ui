@@ -177,6 +177,11 @@
           "desc": "ShareSheet 分享面板",
           "name": "share-sheet",
           "path": "/share-sheet"
+        },
+        {
+          "desc": "Toast 轻提示",
+          "name": "toast",
+          "path": "/toast"
         }
       ]
     },

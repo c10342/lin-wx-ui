@@ -142,13 +142,12 @@ Page({
 
 ## 方法
 
-| 方法名                     | 参数    | 返回值  | 介绍                             |
-| -------------------------- | ------- | ------- | -------------------------------- |
-| Notify                     | options | message | notify 实例                      | 展示提示 |
-| Notify.clear               | options | void    | 关闭提示                         |
-| Notify.confirm             | options | Promise | 展示消息确认弹窗                 |
-| Notify.setDefaultOptions   | options | void    | 修改默认配置，对所有 Notify 生效 |
-| Notify.resetDefaultOptions | —       | void    | 重置默认配置，对所有 Notify 生效 |
+| 方法名                     | 参数                   | 返回值      | 介绍                             |
+| -------------------------- | ---------------------- | ----------- | -------------------------------- |
+| Notify                     | options &#124; message | notify 实例 | 展示提示                         |
+| Notify.clear               | options                | void        | 关闭提示                         |
+| Notify.setDefaultOptions   | options                | void        | 修改默认配置，对所有 Notify 生效 |
+| Notify.resetDefaultOptions | —                      | void        | 重置默认配置，对所有 Notify 生效 |
 
 ## Options
 
@@ -165,6 +164,7 @@ Page({
 | onClick    | 点击时的回调函数                         | Function       | —                                                 | —           |
 | onOpened   | 完全展示后的回调函数                     | Function       | —                                                 | —           |
 | oClose     | 关闭时的回调函数                         | Function       | —                                                 | —           |
+| context     | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | Object   | —                                 | 当前页面   |
 
 ## 外部样式类
 

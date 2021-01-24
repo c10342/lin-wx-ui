@@ -242,6 +242,7 @@ Page({
 | showCancelButton      | 是否展示取消按钮                                                                                                              | Boolean        | —                        | false       |
 | closeOnClickMask      | 确认按钮的文案                                                                                                                | Boolean        | —                        | false       |
 | confirmButtonOpenType | 确认按钮的微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String         | —                        | —           |
+| context     | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | Object   | —                                 | 当前页面   |
 
 ## OpenType Options
 
