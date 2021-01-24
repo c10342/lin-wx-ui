@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'header-class', 'title-class', 'description-class', 'cancel-class', 'item-custom-class', 'item-options-class', 'item-option-class', 'item-button-class', 'item-image-class', 'item-icon-class', 'item-name-class', 'item-description-class'],
   properties: {
     show: Boolean,
     maskStyle: String,

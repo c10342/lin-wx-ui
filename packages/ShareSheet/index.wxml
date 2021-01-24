@@ -13,15 +13,15 @@
  bind:close='onClose'
 >
 
-	<view class='lin-share-sheet-header'>
-		<view class='lin-share-sheet-title'>
+	<view class='header-class lin-share-sheet-header'>
+		<view class='title-class lin-share-sheet-title'>
 			<block wx:if="{{title}}">
 				{{title}}
 			</block>
 			<slot name='title' wx:else />
 		</view>
 
-        <view class='lin-share-sheet-description'>
+        <view class='description-class lin-share-sheet-description'>
 			<block wx:if="{{description}}">
 				{{description}}
 			</block>
@@ -37,12 +37,20 @@
       wx:key="index"
       options="{{ item }}"
       bind:select="onSelect"
+      custom-class='item-custom-class'
+      options-class='item-options-class'
+      option-class='item-option-class'
+      button-class='item-button-class'
+      image-class='item-image-class'
+      icon-class='item-icon-class'
+      name-class='item-name-class'
+      description-class='item-description-class'
     />
     </block>
 
     <options wx:else options="{{options}}" bind:select='onSelect'/>
 
-    <view class='lin-share-sheet-cancel' bindtap="onCancel">
+    <view class='cancel-class lin-share-sheet-cancel' bindtap="onCancel">
         {{cancelText}}
     </view>
 </lin-popup>
