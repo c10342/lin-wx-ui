@@ -167,6 +167,16 @@
           "desc": "DropdownMenu 下拉菜单",
           "name": "dropdown-menu",
           "path": "/dropdown-menu"
+        },
+        {
+          "desc": "Notify 消息提示",
+          "name": "notify",
+          "path": "/notify"
+        },
+        {
+          "desc": "ShareSheet 分享面板",
+          "name": "share-sheet",
+          "path": "/share-sheet"
         }
       ]
     },
