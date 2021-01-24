@@ -182,6 +182,11 @@
           "desc": "Toast 轻提示",
           "name": "toast",
           "path": "/toast"
+        },
+        {
+          "desc": "SwipeCell 滑动单元格",
+          "name": "swipe-cell",
+          "path": "/swipe-cell"
         }
       ]
     },
