@@ -29,7 +29,7 @@ Component({
     leftIcon: String,
     delay: {
       type: Number,
-      value: '0s',
+      value: 0,
       observer () {
         wx.nextTick(() => {
           this.updateStyle();
@@ -73,7 +73,7 @@ Component({
           const duration = Math.floor(contentWidth / speed);
           const contentStyle = `transform: translateX(${Math.ceil(
             wrapperWidth
-          )}px);animation-duration:${duration}s;animation-delay:${delay};`;
+          )}px);animation-duration:${duration}s;animation-delay:${delay}s;`;
           if (contentStyle !== this.data.contentStyle) {
             this.setData({ contentStyle });
           }
