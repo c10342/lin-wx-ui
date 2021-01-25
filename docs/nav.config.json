@@ -193,7 +193,33 @@
     {
       "desc": "展示组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "Collapse 折叠面板",
+          "name": "collapse",
+          "path": "/collapse"
+        },
+        {
+          "desc": "CountDown 倒计时",
+          "name": "count-down",
+          "path": "/count-down"
+        },
+        {
+          "desc": "Divider 分割线",
+          "name": "divider",
+          "path": "/divider"
+        },
+        {
+          "desc": "Empty 空状态",
+          "name": "empty",
+          "path": "/empty"
+        },
+        {
+          "desc": "NoticeBar 通告栏",
+          "name": "notice-bar",
+          "path": "/notice-bar"
+        }
+      ]
     },
     {
       "desc": "导航组件",
