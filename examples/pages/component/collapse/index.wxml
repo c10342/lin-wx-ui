@@ -55,7 +55,7 @@
 		</lin-collapse>
 	</demo-block>
 
-	<demo-block title='禁用状态'>
+	<demo-block title='自定义标题内容'>
 		<lin-collapse data-key='activeNames5' value="{{ activeNames5 }}" bind:change="onChange">
 			<lin-collapse-item name="1">
 				<view slot="title">
