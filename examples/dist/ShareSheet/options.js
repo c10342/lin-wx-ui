@@ -3,7 +3,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'options-class', 'option-class', 'button-class', 'image-class', 'icon-class', 'name-class', 'description-class'],
   properties: {
     options: {
       type: Array,

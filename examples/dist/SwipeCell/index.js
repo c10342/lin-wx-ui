@@ -75,7 +75,8 @@ Component({
     emitClose (position) {
       this.triggerEvent('close', {
         position: position || this.position,
-        name: this.properties.name
+        name: this.properties.name,
+        instance: this
       });
     },
     open (position) {
@@ -95,7 +96,8 @@ Component({
       const { name } = this.properties;
       this.triggerEvent('open', {
         position,
-        name
+        name,
+        instance: this
       });
       this.position = position;
     },

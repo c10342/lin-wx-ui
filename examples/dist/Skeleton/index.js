@@ -12,7 +12,7 @@ Component({
   ],
   properties: {
     row: {
-      type: String,
+      type: Number,
       value: 0,
       observer (newVal) {
         this.setData({

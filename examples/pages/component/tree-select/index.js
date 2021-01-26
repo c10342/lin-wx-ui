@@ -74,7 +74,7 @@ Page({
     ],
 
     mainActiveIndex4: 0,
-    activeId3: null,
+    activeId4: null,
     items4: [{
       text: '浙江',
       badge: 3,
@@ -148,7 +148,7 @@ Page({
     const {
       key
     } = currentTarget.dataset
-    const activeId = this.data.activeId === detail.id ? null : detail.id;
+    const activeId = this.data[key] === detail.id ? null : detail.id;
     this.setData({
       [key]: activeId
     });
