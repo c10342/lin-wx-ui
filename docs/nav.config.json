@@ -218,6 +218,46 @@
           "desc": "NoticeBar 通告栏",
           "name": "notice-bar",
           "path": "/notice-bar"
+        },
+        {
+          "desc": "Panel 面板",
+          "name": "panel",
+          "path": "/panel"
+        },
+        {
+          "desc": "Progress 进度条",
+          "name": "progress",
+          "path": "/progress"
+        },
+        {
+          "desc": "Skeleton 骨架屏",
+          "name": "skeleton",
+          "path": "/skeleton"
+        },
+        {
+          "desc": "Steps 步骤条",
+          "name": "steps",
+          "path": "/steps"
+        },
+        {
+          "desc": "Sticky 粘性布局",
+          "name": "sticky",
+          "path": "/sticky"
+        },
+        {
+          "desc": "Tag 标签",
+          "name": "tag",
+          "path": "/tag"
+        },
+        {
+          "desc": "TreeSelect 分类选择",
+          "name": "tree-select",
+          "path": "/tree-select"
+        },
+        {
+          "desc": "WaterFlow 瀑布流",
+          "name": "water-flow",
+          "path": "/water-flow"
         }
       ]
     },
