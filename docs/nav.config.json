@@ -264,7 +264,38 @@
     {
       "desc": "导航组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "Grid 宫格",
+          "name": "grid",
+          "path": "/grid"
+        },
+        {
+          "desc": "IndexBar 索引栏",
+          "name": "index-bar",
+          "path": "/index-bar"
+        },
+        {
+          "desc": "Sidebar 侧边导航",
+          "name": "sidebar",
+          "path": "/sidebar"
+        },
+        {
+          "desc": "NavBar 导航栏",
+          "name": "nav-bar",
+          "path": "/nav-bar"
+        },
+        {
+          "desc": "Tab 标签页",
+          "name": "tab",
+          "path": "/tab"
+        },
+        {
+          "desc": "Tabbar 标签栏",
+          "name": "tabbar",
+          "path": "/tabbar"
+        }
+      ]
     },
     {
       "desc": "业务组件",
