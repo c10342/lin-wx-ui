@@ -28,7 +28,8 @@ Component({
     plain: Boolean,
     type: {
       type: String,
-      value: 'danger'
+      value: 'danger',
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'default', 'success']
     },
     url: String
   },
