@@ -30,7 +30,8 @@ Component({
     buttonText: String,
     buttonType: {
       type: String,
-      value: 'danger'
+      value: 'danger',
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'default', 'success']
     },
     tip: String,
     tipIcon: String,
