@@ -108,7 +108,7 @@ lin-row lin-col:nth-child(even) .lin-col {
 
 ## Row 外部样式类
 
-| 插槽名称     | 说明         |
+| 类名     | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 
@@ -121,6 +121,6 @@ lin-row lin-col:nth-child(even) .lin-col {
 
 ## Col 外部样式类
 
-| 插槽名称     | 说明         |
+| 类名     | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |

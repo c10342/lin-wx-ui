@@ -300,7 +300,28 @@
     {
       "desc": "业务组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "Area 省市区选择",
+          "name": "area",
+          "path": "/area"
+        },
+        {
+          "desc": "Card 商品卡片",
+          "name": "card",
+          "path": "/card"
+        },
+        {
+          "desc": "SubmitBar 提交订单栏",
+          "name": "submit-bar",
+          "path": "/submit-bar"
+        },
+        {
+          "desc": "GoodsAction 商品导航",
+          "name": "goods-action",
+          "path": "/goods-action"
+        }
+      ]
     }
   ]
 }

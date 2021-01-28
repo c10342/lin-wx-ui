@@ -166,21 +166,22 @@
 
 ## Grid 外部样式类
 
-| 插槽名称     | 说明         |
+| 类名         | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 
 ## GridItem 属性
 
-| 参数      | 说明                     | 类型    | 可选值 | 默认值 |
-| --------- | ------------------------ | ------- | ------ | ------ |
-| text      | 文字                     | String  | —      | —      |
-| icon      | 图标名称                 | String  | —      | —      |
-| iconColor | 图标颜色                 | String  | —      | —      |
-| dot       | 是否显示图标右上角小红点 | Boolean | —      | false  |
-| badge     | 图标右上角徽标的内容     | String  | —      | —      |
-| url       | 点击后跳转的链接地址     | String  | —      | —      |
-| useSlot   | 是否使用默认插槽         | Boolean | —      | false  |
+| 参数      | 说明                     | 类型    | 可选值                                              | 默认值     |
+| --------- | ------------------------ | ------- | --------------------------------------------------- | ---------- |
+| text      | 文字                     | String  | —                                                   | —          |
+| icon      | 图标名称                 | String  | —                                                   | —          |
+| iconColor | 图标颜色                 | String  | —                                                   | —          |
+| dot       | 是否显示图标右上角小红点 | Boolean | —                                                   | false      |
+| badge     | 图标右上角徽标的内容     | String  | —                                                   | —          |
+| url       | 点击后跳转的链接地址     | String  | —                                                   | —          |
+| useSlot   | 是否使用默认插槽         | Boolean | —                                                   | false      |
+| linkType  | 链接跳转类型             | String  | `navigateTo`, `redirectTo`, `switchTab`, `reLaunch` | navigateTo |
 
 ## GridItem 事件
 
@@ -198,7 +199,7 @@
 
 ## GridItem 外部样式类
 
-| 插槽名称      | 说明         |
+| 类名          | 说明         |
 | ------------- | ------------ |
 | custom-class  | 根节点样式类 |
 | content-class | 内容样式类   |
