@@ -1,8 +1,29 @@
 <view class="container">
-  <view wx:for="{{list}}" wx:key='index'>
-    <view class="time">{{item.time}}</view>
-    <view wx:key='idx' wx:for-index='idx' wx:for-item='message' class="message" wx:for="{{item.messageList}}">{{
-      message
-      }}</view>
+  <view class="logs-container" wx:for="{{list}}" wx:key='index' wx:for-item='log'>
+    <view class="logs-header">
+      <view class="logs-version">{{ log.version }}</view>
+      <view class="logs-time">{{ log.time }}</view>
+    </view>
+    <view class="logs-content" wx:if="{{log.content.length}}">
+      <view wx:for="{{log.content}}" wx:key='index'>
+        <block wx:if="{{item.type === addComponent}}">
+          <view class="h4">{{ item.title }}</view>
+          <view class="ul">
+            <view wx:for="{{item.list}}" wx:key='idx' wx:for-index='idx' wx:for-item='msg'>{{ msg }}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="h4">{{ item.title }}</view>
+          <view wx:for="{{item.list}}" wx:key='idx' wx:for-index='idx' wx:for-item='msg'>
+            <view class="h5">{{ msg.subTitle }}</view>
+            <view class="ul">
+              <view wx:for="{{msg.subList}}" wx:key='subIdx' wx:for-index='subIdx' wx:for-item='subMsg'>
+                {{ subMsg }}
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
   </view>
 </view>

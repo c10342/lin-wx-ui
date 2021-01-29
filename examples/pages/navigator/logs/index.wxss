@@ -1,23 +1,73 @@
-.time{
-  font-size: 36rpx;
-  font-weight: 700;
-  color: #1f2f3d;
+.logs-container {
+  position: relative;
+  padding-bottom: 15rpx;
+  line-height: 1.8;
+  border: 1px solid #ddd;
+  border-radius: 4rpx;
+  margin-bottom: 30rpx;
 }
 
-.message{
-  color: #555;
+.logs-header {
+  margin: 0;
+  padding: 15rpx 30rpx;
+  border-bottom: 1px solid #ddd;
+  font-size: 40rpx;
+  color: #333;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logs-content {
+  padding: 0 30rpx;
+}
+
+.h4 {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.h5 {
   font-size: 32rpx;
-  text-indent: 0.5em;
+  color: #333;
+  font-weight: normal;
+}
+
+.logs-version {
+  opacity: 1;
+  font-size: 40rpx;
+  float: none;
+  margin-left: 0;
+  color: #333;
+}
+
+.logs-time {
+  font-size: 28rpx;
+  color: #5e6d82;
+  line-height: 1.5em;
+}
+
+.ul {
+  margin-left: 30rpx;
+}
+
+.ul>view {
+  position: relative;
+  font-size: 28rpx;
   line-height: 50rpx;
 }
 
-.message::before{
+.ul>view::before {
   content: '';
-  display: inline-block;
-  width: 4px;
-  height: 4px;
+  position: absolute;
+  top: 21rpx;
+  /* top: 50%;
+  transform: translateY(-50%); */
+  left: -18rpx;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #000000;
   border-radius: 50%;
-  background-color: #1f2f3d;
-  vertical-align: middle;
-  margin-right: 10rpx;
 }
