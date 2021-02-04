@@ -29,17 +29,17 @@
 	</demo-block>
 </view>
 
-<lin-popup data-show='show1' show='{{show1}}' bind:mask-click='onMaskClick'>
+<lin-popup safeAreaInsetBottom='{{false}}' data-show='show1' show='{{show1}}' bind:mask-click='onMaskClick'>
 	<view style="padding: 30px 50px;">内容</view>
 </lin-popup>
 
-<lin-popup data-show='show2' show="{{ show2 }}" bind:mask-click='onMaskClick' position="top" custom-style="height: 20%;" />
+<lin-popup safeAreaInsetBottom='{{false}}' data-show='show2' show="{{ show2 }}" bind:mask-click='onMaskClick' position="top" custom-style="height: 20%;" />
 
 <lin-popup data-show='show3' show="{{ show3 }}" bind:mask-click='onMaskClick' position="bottom" custom-style="height: 20%;" />
 
-<lin-popup data-show='show4' show="{{ show4 }}" bind:mask-click='onMaskClick' position="left" custom-style="width: 50%;height:100%;" />
+<lin-popup safeAreaInsetBottom='{{false}}' data-show='show4' show="{{ show4 }}" bind:mask-click='onMaskClick' position="left" custom-style="width: 50%;height:100%;" />
 
-<lin-popup data-show='show5' show="{{ show5 }}" bind:mask-click='onMaskClick' position="right" custom-style="width: 50%;height:100%;" />
+<lin-popup safeAreaInsetBottom='{{false}}' data-show='show5' show="{{ show5 }}" bind:mask-click='onMaskClick' position="right" custom-style="width: 50%;height:100%;" />
 
 <lin-popup closeIconSize='20px' data-show='show6' show="{{ show6 }}" closeable bind:mask-click='onMaskClick' bind:close='onMaskClick' position="bottom" custom-style="height: 20%;" />
 

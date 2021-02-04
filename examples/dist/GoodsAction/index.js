@@ -18,7 +18,12 @@ Component({
     }
   },
   externalClasses: ['custom-class'],
-  properties: {},
+  properties: {
+    safeAreaInsetBottom:{
+      type:Boolean,
+      value:true
+    }
+  },
   data: {},
   methods: {
     updateChildren () {

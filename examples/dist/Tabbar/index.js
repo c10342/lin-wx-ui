@@ -55,6 +55,10 @@ Component({
     inactiveColor: {
       type: String,
       observer: 'updateChildren'
+    },
+    safeAreaInsetBottom:{
+      type:Boolean,
+      value:true
     }
   },
   data: {
