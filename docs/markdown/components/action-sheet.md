@@ -346,6 +346,7 @@ Page({
 | showCloseIcon      | 是否显示关闭按钮     | Boolean | —      | true   |
 | zIndex             | z-index 层级         | Number  | —      | 100    |
 | mask               | 是否显示遮罩层       | Boolean | —      | true   |
+| safeAreaInsetBottom               | 是否为 iPhoneX 留出底部安全距离       | Boolean | —      | true   |
 
 ## 事件
 

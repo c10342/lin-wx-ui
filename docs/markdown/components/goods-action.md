@@ -27,7 +27,7 @@
 :::demo
 
 ```html
-<lin-goods-action>
+<lin-goods-action safeAreaInsetBottom='{ {false}}'>
   <lin-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
   <lin-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
   <lin-goods-action-button
@@ -65,7 +65,7 @@ Page({
 :::demo
 
 ```html
-<lin-goods-action>
+<lin-goods-action safeAreaInsetBottom='{ {false}}'>
   <lin-goods-action-icon
     bind:click="onClickIcon"
     icon="chat-o"
@@ -114,7 +114,7 @@ Page({
 :::demo
 
 ```html
-<lin-goods-action>
+<lin-goods-action safeAreaInsetBottom='{ {false}}'>
   <lin-goods-action-icon bind:click="onClickIcon" icon="chat-o" text="客服" />
   <lin-goods-action-icon
     bind:click="onClickIcon"
@@ -163,7 +163,7 @@ Page({
 :::demo
 
 ```html
-<lin-goods-action>
+<lin-goods-action safeAreaInsetBottom='{ {false}}'>
   <lin-goods-action-icon bind:click="onClickIcon" icon="chat-o" text="客服" />
   <lin-goods-action-icon
     bind:click="onClickIcon"
@@ -206,9 +206,15 @@ Page({
 
 :::
 
+## GoodsAction 属性
+
+| 参数                | 说明                            | 类型    | 可选值 | 默认值 |
+| ------------------- | ------------------------------- | ------- | ------ | ------ |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | Boolean | —      | true   |
+
 ## GoodsAction 外部样式类
 
-| 类名     | 说明         |
+| 类名         | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 
@@ -255,7 +261,7 @@ Page({
 
 ## GoodsActionIcon 外部样式类
 
-| 类名     | 说明         |
+| 类名         | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 | icon-class   | 图标样式类   |
@@ -298,6 +304,6 @@ Page({
 
 ## GoodsActionButton 外部样式类
 
-| 类名     | 说明         |
+| 类名         | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |

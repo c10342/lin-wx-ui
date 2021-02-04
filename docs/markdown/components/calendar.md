@@ -233,6 +233,7 @@ Page({
 | disabledDate       | 禁用指定日期             | Array          | —      | —        |
 | disabled           | 禁用所有日期             | Boolean        | —      | false    |
 | poppable           | 是否以弹层的形式展示日历 | Boolean        | —      | true     |
+| safeAreaInsetBottom               | 是否为 iPhoneX 留出底部安全距离       | Boolean | —      | true   |
 
 ## 事件
 

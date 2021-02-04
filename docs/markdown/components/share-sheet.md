@@ -326,6 +326,7 @@ Page({
 | mask             | 是否显示遮罩层         | Boolean | —      | true   |
 | closeOnClickMask | 是否在点击遮罩层后关闭 | Boolean | —      | true   |
 | duration         | 动画时长，单位毫秒     | Number  | —      | 300    |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | Boolean | —      | true   |
 
 ## Option 数据结构
 

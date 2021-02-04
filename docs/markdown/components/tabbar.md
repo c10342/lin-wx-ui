@@ -29,6 +29,7 @@
 
 ```html
 <lin-tabbar
+  safeAreaInsetBottom="{ {false}}"
   fixed="{ {false}}"
   border="{ {false}}"
   data-key="active1"
@@ -64,6 +65,7 @@ Page({
 
 ```html
 <lin-tabbar
+  safeAreaInsetBottom="{ {false}}"
   fixed="{ {false}}"
   border="{ {false}}"
   data-key="active2"
@@ -99,6 +101,7 @@ Page({
 
 ```html
 <lin-tabbar
+  safeAreaInsetBottom="{ {false}}"
   fixed="{ {false}}"
   border="{ {false}}"
   data-key="active3"
@@ -134,6 +137,7 @@ Page({
 
 ```html
 <lin-tabbar
+  safeAreaInsetBottom="{ {false}}"
   fixed="{ {false}}"
   border="{ {false}}"
   data-key="active4"
@@ -173,6 +177,7 @@ Page({
 
 ```html
 <lin-tabbar
+  safeAreaInsetBottom="{ {false}}"
   active-color="#07c160"
   inactive-color="#000"
   fixed="{ {false}}"
@@ -204,15 +209,16 @@ Page({
 
 ## Tabbar 属性
 
-| 参数          | 说明                                               | 类型           | 可选值 | 默认值 |
-| ------------- | -------------------------------------------------- | -------------- | ------ | ------ |
-| active        | 当前选中标签的索引                                 | String, Number | —      | 0      |
-| fixed         | 是否固定在底部                                     | Boolean        | —      | false  |
-| placeholder   | 固定在底部时，是否在标签位置生成一个等高的占位元素 | Boolean        | —      | false  |
-| border        | 是否展示外边框                                     | Boolean        | —      | true   |
-| zIndex        | 元素 z-index                                       | Number         | —      | —      |
-| activeColor   | 选中标签的颜色                                     | String         | —      | —      |
-| inactiveColor | 未选中标签的颜色                                   | String         | —      | —      |
+| 参数                | 说明                                               | 类型           | 可选值 | 默认值 |
+| ------------------- | -------------------------------------------------- | -------------- | ------ | ------ |
+| active              | 当前选中标签的索引                                 | String, Number | —      | 0      |
+| fixed               | 是否固定在底部                                     | Boolean        | —      | false  |
+| placeholder         | 固定在底部时，是否在标签位置生成一个等高的占位元素 | Boolean        | —      | false  |
+| border              | 是否展示外边框                                     | Boolean        | —      | true   |
+| zIndex              | 元素 z-index                                       | Number         | —      | —      |
+| activeColor         | 选中标签的颜色                                     | String         | —      | —      |
+| inactiveColor       | 未选中标签的颜色                                   | String         | —      | —      |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离                    | Boolean        | —      | true   |
 
 ## Tabbar 事件
 
@@ -222,7 +228,7 @@ Page({
 
 ## Tabbar 外部样式类
 
-| 类名          | 说明           |
+| 类名              | 说明           |
 | ----------------- | -------------- |
 | custom-class      | 根节点样式类   |
 | placeholder-class | 占位元素样式类 |
@@ -246,7 +252,7 @@ Page({
 
 ## TabbarItem 外部样式类
 
-| 类名      | 说明           |
+| 类名          | 说明           |
 | ------------- | -------------- |
 | custom-class  | 根节点样式类   |
 | content-class | 选项内容样式类 |

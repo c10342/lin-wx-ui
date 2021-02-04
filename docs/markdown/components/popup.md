@@ -36,7 +36,7 @@
   />
 </lin-cell-group>
 
-<lin-popup data-show="show1" show="{ {show1}}" bind:mask-click="onMaskClick">
+<lin-popup safeAreaInsetBottom='{ {false}}' data-show="show1" show="{ {show1}}" bind:mask-click="onMaskClick">
   <view style="padding: 30px 50px;">内容</view>
 </lin-popup>
 ```
@@ -95,6 +95,7 @@ Page({
 </lin-cell-group>
 
 <lin-popup
+ safeAreaInsetBottom='{ {false}}'
   data-show="show2"
   show="{ { show2 }}"
   bind:mask-click="onMaskClick"
@@ -111,6 +112,7 @@ Page({
 />
 
 <lin-popup
+ safeAreaInsetBottom='{ {false}}'
   data-show="show4"
   show="{ { show4 }}"
   bind:mask-click="onMaskClick"
@@ -119,6 +121,7 @@ Page({
 />
 
 <lin-popup
+ safeAreaInsetBottom='{ {false}}'
   data-show="show5"
   show="{ { show5 }}"
   bind:mask-click="onMaskClick"
@@ -293,6 +296,7 @@ Page({
 | customStyle       | 自定义样式                    | String        | —                                           | —         |
 | show              | 是否展示组件                  | Boolean       | —                                           | true      |
 | duration          | 动画时长，单位为毫秒          | Number        | Object:{enter: number, leave: number}       | —         | 300 |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | Boolean | —      | true   |
 
 ## 事件
 

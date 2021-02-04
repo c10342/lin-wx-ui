@@ -25,7 +25,12 @@
 :::demo
 
 ```html
-<lin-submit-bar price="30.50" button-text="提交订单" bind:submit="onSubmit" />
+<lin-submit-bar
+  safeAreaInsetBottom="{ {false}}"
+  price="30.50"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>
 ```
 
 ```javascript
@@ -49,6 +54,7 @@ Page({
 
 ```html
 <lin-submit-bar
+  safeAreaInsetBottom="{ {false}}"
   disabled
   price="{ { 30.50 }}"
   button-text="提交订单"
@@ -79,6 +85,7 @@ Page({
 
 ```html
 <lin-submit-bar
+  safeAreaInsetBottom="{ {false}}"
   loading
   price="30.50"
   button-text="提交订单"
@@ -106,7 +113,12 @@ Page({
 :::demo
 
 ```html
-<lin-submit-bar price="30.50" button-text="提交订单" bind:submit="onSubmit">
+<lin-submit-bar
+  safeAreaInsetBottom="{ {false}}"
+  price="30.50"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+>
   <lin-checkbox bind:change="onChange" value="{ {checked}}">全选</lin-checkbox>
   <view class="tip-wrapper" slot="tip"
     >您的收货地址不支持同城送, <text class="tip-text">修改地址</text></view
@@ -152,19 +164,20 @@ Page({
 
 ## 属性
 
-| 参数          | 说明                 | 类型           | 可选值                                                                  | 默认值 |
-| ------------- | -------------------- | -------------- | ----------------------------------------------------------------------- | ------ |
-| price         | 价格                 | String, Number | —                                                                       | —      |
-| label         | 价格文案             | String         | —                                                                       | 合计： |
-| suffixLabel   | 价格右侧文案         | String         | —                                                                       | —      |
-| buttonText    | 按钮文字             | String         | —                                                                       | —      |
-| buttonType    | 按钮类型             | String         | `primary`, `success`, `info`, `warning`, `danger`, `default`, `success` | danger |
-| tip           | 提示文案             | String         | —                                                                       | —      |
-| tipIcon       | 图标名称             | String         | —                                                                       | —      |
-| disabled      | 是否禁用按钮         | Boolean        | —                                                                       | false  |
-| loading       | 是否显示加载中的按钮 | Boolean        | —                                                                       | false  |
-| currency      | 货币符号             | String         | —                                                                       | ¥      |
-| decimalLength | 价格小数点后位数     | Number         | —                                                                       | 2      |
+| 参数                | 说明                            | 类型           | 可选值                                                                  | 默认值 |
+| ------------------- | ------------------------------- | -------------- | ----------------------------------------------------------------------- | ------ |
+| price               | 价格                            | String, Number | —                                                                       | —      |
+| label               | 价格文案                        | String         | —                                                                       | 合计： |
+| suffixLabel         | 价格右侧文案                    | String         | —                                                                       | —      |
+| buttonText          | 按钮文字                        | String         | —                                                                       | —      |
+| buttonType          | 按钮类型                        | String         | `primary`, `success`, `info`, `warning`, `danger`, `default`, `success` | danger |
+| tip                 | 提示文案                        | String         | —                                                                       | —      |
+| tipIcon             | 图标名称                        | String         | —                                                                       | —      |
+| disabled            | 是否禁用按钮                    | Boolean        | —                                                                       | false  |
+| loading             | 是否显示加载中的按钮            | Boolean        | —                                                                       | false  |
+| currency            | 货币符号                        | String         | —                                                                       | ¥      |
+| decimalLength       | 价格小数点后位数                | Number         | —                                                                       | 2      |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | Boolean        | —                                                                       | true   |
 
 ## 事件
 
@@ -181,7 +194,7 @@ Page({
 
 ## 外部样式类
 
-| 类名          | 说明               |
+| 类名              | 说明               |
 | ----------------- | ------------------ |
 | custom-class      | 根节点样式类       |
 | tip-class         | 提示文案容器样式类 |
