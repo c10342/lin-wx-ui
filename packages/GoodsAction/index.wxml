@@ -1,3 +1,5 @@
-<view class='custom-class lin-goods-action'>
+<wxs module="classname" src="../wxs/classname.wxs" />
+
+<view class="custom-class lin-goods-action {{classname.singleClass('lin-goods-action-safe',safeAreaInsetBottom)}}">
     <slot />
 </view>
