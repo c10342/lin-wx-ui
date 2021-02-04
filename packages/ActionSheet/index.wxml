@@ -1,4 +1,4 @@
-<lin-popup show='{{show}}' position='bottom' closeOnClickMask="{{ closeOnClickMask }}" bind:close='onClickMask' round='{{round}}' zIndex='{{zIndex}}' mask='{{mask}}'>
+<lin-popup safeAreaInsetBottom='{{safeAreaInsetBottom}}' show='{{show}}' position='bottom' closeOnClickMask="{{ closeOnClickMask }}" bind:close='onClickMask' round='{{round}}' zIndex='{{zIndex}}' mask='{{mask}}'>
 				<view class='custom-class lin-action-sheet'>
 								<view wx:if="{{title}}" class='title-class lin-action-sheet-title'>
 												{{title}}
