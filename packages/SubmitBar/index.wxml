@@ -1,6 +1,6 @@
 <wxs module="classname" src="../wxs/classname.wxs" />
 
-<view class="custom-class lin-submit-bar {{classname.singleClass('lin-submit-bar-safe',safeAreaInsetBottom)}}">
+<view class="custom-class lin-submit-bar {{classname.singleClass('lin-submit-bar-safeBottom',safeAreaInsetBottom)}}">
     <view class="tip-class lin-submit-bar-tip" wx:if="{{tipIcon || tip}}">
         <lin-icon wx:if="{{tipIcon}}" icon='{{tipIcon}}' class="lin-submit-bar-icon" />
         <text wx:if="{{tip}}" class="lin-submit-bar-tip-text tip-text-class">{{tip}}</text>
