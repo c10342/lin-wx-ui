@@ -44,6 +44,10 @@ Component({
     decimalLength: {
       type: Number,
       value: 2
+    },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
   data: {
