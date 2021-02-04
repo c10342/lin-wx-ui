@@ -47,6 +47,10 @@ Component({
     transition: {
       type: String,
       observer: 'observeClass'
+    },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
   data: {},
