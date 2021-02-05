@@ -206,17 +206,17 @@ Page({
       {
         name: "名称",
         isImage: true,
-        icon: "https://img.yzcdn.cn/vant/custom-icon-fire.png",
+        icon: "/images/cat.png",
       },
       {
         name: "名称",
         isImage: true,
-        icon: "https://img.yzcdn.cn/vant/custom-icon-light.png",
+        icon: "/images/cat.png",
       },
       {
         name: "名称",
         isImage: true,
-        icon: "https://img.yzcdn.cn/vant/custom-icon-water.png",
+        icon: "/images/cat.png",
       },
     ],
   },
