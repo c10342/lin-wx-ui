@@ -1,10 +1,10 @@
-export const publicPath = 'https://wxui.linjiafu.top';
+export const publicPath = 'http://wxui.linjiafu.top';
 
-export const staticPath = `${publicPath}/static`;
+export const requestPath = 'https://linjiafu.top';
 
-export const imagePath = `${staticPath}/images`;
+export const imagePath = `${publicPath}/static/images`;
 
-export const jsonPath = `${staticPath}/json`;
+export const jsonPath = `${requestPath}/static/json`;
 
 export const emptyCompImages = {
   default: `${imagePath}/default.png`,
