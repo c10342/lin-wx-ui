@@ -1,4 +1,5 @@
 import { WHITE } from '../common/color';
+import { getSystemInfoSync } from '../common/utils';
 
 Component({
   options: {
@@ -29,6 +30,10 @@ Component({
     zIndex: {
       type: Number,
       value: 100
+    },
+    safeAreaInsetTop: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -36,7 +41,8 @@ Component({
     show: false,
     onClick: null,
     onOpened: null,
-    oClose: null
+    oClose: null,
+    statusBarHeight: '0px'
   },
   methods: {
     show () {
@@ -77,6 +83,10 @@ Component({
   attached () {},
   ready () {
     this.timer = null;
+    const { statusBarHeight } = getSystemInfoSync();
+    this.setData({
+      statusBarHeight: `${statusBarHeight}px`
+    });
   },
   moved () {},
   detached () {

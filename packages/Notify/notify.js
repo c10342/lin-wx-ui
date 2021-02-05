@@ -9,6 +9,7 @@ const defaultOptions = {
   zIndex: 100,
   top: '0px',
   color: WHITE,
+  safeAreaInsetTop: false,
   onClick: () => {},
   onOpened: () => {},
   oClose: () => {}
