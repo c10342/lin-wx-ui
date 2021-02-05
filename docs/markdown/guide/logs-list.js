@@ -3,7 +3,7 @@ import { logsType } from "../../config/index.js";
 export default [
   {
     version: "1.1.2",
-    time: "2021-01-29",
+    time: "2021-02-06",
     content: [
       {
         title: "新特性",
