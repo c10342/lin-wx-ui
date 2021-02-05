@@ -1,6 +1,6 @@
 <wxs module="classname" src="../wxs/classname.wxs" />
 <wxs module="styleUtils" src="../wxs/style.wxs" />
-<view class="custom-class lin-nav-bar {{classname.multCalss(['lin-nav-bar-fixed',fixed],['lin-border-bottom lin-border-bottom-hairline',border])}}" style="{{styleUtils.singleStyle('z-index',zIndex)}} {{customStyle}}">
+<view class="custom-class lin-nav-bar {{classname.multCalss(['lin-nav-bar-fixed',fixed],['lin-border-bottom lin-border-bottom-hairline',border])}}" style="{{styleUtils.multStyle(['z-index',zIndex],['padding-top',safeAreaInsetTop?statusBarHeight:'0px'])}} {{customStyle}}">
     <view class="left-class lin-nav-bar-left">
         <view wx:if="{{leftText || leftArrow}}" class="lin-nav-bar-left-content" bind:tap="onLeftClick">
             <lin-icon wx:if="{{leftArrow}}" icon='arrow-left' class="mr-5" />

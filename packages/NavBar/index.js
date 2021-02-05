@@ -1,3 +1,5 @@
+import { getSystemInfoSync } from '../common/utils';
+
 Component({
   options: {
     addGlobalClass: true,
@@ -18,9 +20,15 @@ Component({
       type: Number,
       value: 1
     },
-    customStyle: String
+    customStyle: String,
+    safeAreaInsetTop: {
+      type: Boolean,
+      value: false
+    }
   },
-  data: {},
+  data: {
+    statusBarHeight: '0px'
+  },
   methods: {
     onLeftClick () {
       this.triggerEvent('click-left');
@@ -31,7 +39,12 @@ Component({
   },
   created () {},
   attached () {},
-  ready () {},
+  ready () {
+    const { statusBarHeight } = getSystemInfoSync();
+    this.setData({
+      statusBarHeight: `${statusBarHeight}px`
+    });
+  },
   moved () {},
   detached () {}
 });
