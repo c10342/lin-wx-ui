@@ -56,9 +56,9 @@ Component({
       type: String,
       observer: 'updateChildren'
     },
-    safeAreaInsetBottom:{
-      type:Boolean,
-      value:true
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

@@ -45,9 +45,9 @@ Component({
       type: Number,
       value: 2
     },
-    safeAreaInsetBottom:{
-      type:Boolean,
-      value:true
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

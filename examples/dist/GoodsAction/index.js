@@ -19,9 +19,9 @@ Component({
   },
   externalClasses: ['custom-class'],
   properties: {
-    safeAreaInsetBottom:{
-      type:Boolean,
-      value:true
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
   data: {},
