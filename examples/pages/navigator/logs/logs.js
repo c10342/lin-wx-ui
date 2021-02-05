@@ -2,7 +2,7 @@ import { logsType } from "../../../config/index";
 
 export default [
   {
-    version: "1.1.2",
+    version: "1.2.0",
     time: "2021-02-06",
     content: [
       {
@@ -30,7 +30,7 @@ export default [
             subTitle: "Popup",
             subList: [
               "添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离",
-              "添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"
+              "添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）"
             ]
           },
           {
@@ -53,11 +53,11 @@ export default [
           },
           {
             subTitle: "NavBar",
-            subList: ["添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"]
+            subList: ["添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）"]
           },
           {
             subTitle: "Notify",
-            subList: ["添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"]
+            subList: ["添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）"]
           }
         ]
       }
