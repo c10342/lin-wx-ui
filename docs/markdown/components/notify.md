@@ -165,6 +165,7 @@ Page({
 | onOpened   | 完全展示后的回调函数                     | Function       | —                                                 | —           |
 | oClose     | 关闭时的回调函数                         | Function       | —                                                 | —           |
 | context     | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | Object   | —                                 | 当前页面   |
+| safeAreaInsetTop | 是否留出顶部安全距离（状态栏高度） | Boolean  | —      | false      |
 
 ## 外部样式类
 

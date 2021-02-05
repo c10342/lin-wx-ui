@@ -75,6 +75,7 @@ Page({
 | border      | 是否显示下边框   | Boolean | —      | true   |
 | zIndex      | z-index 层级     | Number  | —      | 1      |
 | customStyle | 根节点自定义样式 | String  | —      | —      |
+| safeAreaInsetTop | 是否留出顶部安全距离（状态栏高度） | Boolean  | —      | false      |
 
 ## 事件
 

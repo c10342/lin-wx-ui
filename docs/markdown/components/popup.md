@@ -297,6 +297,7 @@ Page({
 | show              | 是否展示组件                  | Boolean       | —                                           | true      |
 | duration          | 动画时长，单位为毫秒          | Number        | Object:{enter: number, leave: number}       | —         | 300 |
 | safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | Boolean | —      | true   |
+| safeAreaInsetTop | 是否留出顶部安全距离（状态栏高度） | Boolean  | —      | false      |
 
 ## 事件
 

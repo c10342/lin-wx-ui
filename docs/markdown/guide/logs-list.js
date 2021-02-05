@@ -29,7 +29,8 @@ export default [
           {
             subTitle: "Popup",
             subList: [
-              "添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离"
+              "添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离",
+              "添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"
             ]
           },
           {
@@ -48,6 +49,18 @@ export default [
             subTitle: "Tabbar",
             subList: [
               "添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离"
+            ]
+          },
+          {
+            subTitle: "NavBar",
+            subList: [
+              "添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"
+            ]
+          },
+          {
+            subTitle: "Notify",
+            subList: [
+              "添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度"
             ]
           }
         ]
