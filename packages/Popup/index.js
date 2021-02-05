@@ -1,4 +1,5 @@
 import TransitionBehavior from '../behaviors/transition';
+import { getSystemInfoSync } from '../common/utils';
 
 Component({
   options: {
@@ -51,9 +52,15 @@ Component({
     safeAreaInsetBottom: {
       type: Boolean,
       value: true
+    },
+    safeAreaInsetTop: {
+      type: Boolean,
+      value: false
     }
   },
-  data: {},
+  data: {
+    statusBarHeight: '0px'
+  },
   methods: {
     onMaskClick () {
       this.triggerEvent('mask-click');
@@ -73,7 +80,12 @@ Component({
     this.observeClass();
   },
   attached () {},
-  ready () {},
+  ready () {
+    const { statusBarHeight } = getSystemInfoSync();
+    this.setData({
+      statusBarHeight: `${statusBarHeight}px`
+    });
+  },
   moved () {},
   detached () {}
 });
