@@ -1,5 +1,5 @@
 import TransitionBehavior from '../behaviors/transition';
-import {getSystemInfoSync} from '../common/utils'
+import { getSystemInfoSync } from '../common/utils';
 
 Component({
   options: {
@@ -59,7 +59,7 @@ Component({
     }
   },
   data: {
-    statusBarHeight:'0px'
+    statusBarHeight: '0px'
   },
   methods: {
     onMaskClick () {
@@ -81,10 +81,10 @@ Component({
   },
   attached () {},
   ready () {
-    const {statusBarHeight} = getSystemInfoSync()
+    const { statusBarHeight } = getSystemInfoSync();
     this.setData({
-      statusBarHeight:`${statusBarHeight}px`
-    })
+      statusBarHeight: `${statusBarHeight}px`
+    });
   },
   moved () {},
   detached () {}
