@@ -1,5 +1,7 @@
 import { getSystemInfoSync } from './utils';
 
+// 对比版本号
+// https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html
 function compareVersion (v1, v2) {
   v1 = v1.split('.');
   v2 = v2.split('.');
@@ -27,16 +29,19 @@ function compareVersion (v1, v2) {
   return 0;
 }
 
+// 能否使用双向数据绑定
 export function canIUseModel () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.9.3') >= 0;
 }
 
+// 能否使用内置的表单行为
 export function canIUseFormFieldButton () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.10.3') >= 0;
 }
 
+// 能否全屏预览视频
 export function canIUsePreviewMedia () {
   const system = getSystemInfoSync();
   return compareVersion(system.SDKVersion, '2.12.0') >= 0;
