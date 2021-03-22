@@ -229,7 +229,7 @@ Page({
 | disabledReset      | 禁用重置按钮             | Boolean        | —      | false    |
 | disabledBeforeDate | 禁用该日期前的日期       | String, Number | —      | —        |
 | disabledAfterDate  | 禁用该日期后的日期       | String, Number | —      | —        |
-| disabledAfterDate  | 禁用范围内的日期         | Array          | —      | —        |
+| disabledRangeDate  | 禁用范围内的日期         | Array          | —      | —        |
 | disabledDate       | 禁用指定日期             | Array          | —      | —        |
 | disabled           | 禁用所有日期             | Boolean        | —      | false    |
 | poppable           | 是否以弹层的形式展示日历 | Boolean        | —      | true     |

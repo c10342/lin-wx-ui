@@ -191,6 +191,7 @@
 | circle           | 是否为圆形按钮                                                                                                      | Boolean | —                                                            | false        |
 | icon             | 左侧图标名                                                                                                          | String  | —                                                            | —            |
 | size             | 按钮尺寸                                                                                                            | String  | `default`,`medium`,`small`                                   | default      |
+| iconSize             | 图标大小                                                                                                            | String  | —                                   | —      |
 | loading          | 是否显示为加载状态                                                                                                  | Boolean | —                                                            | false        |
 | loadingColor     | 加载图标颜色                                                                                                        | String  | —                                                            | —            |
 | loadingSize      | 加载图标大小                                                                                                        | String  | —                                                            | —            |
