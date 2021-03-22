@@ -1,3 +1,5 @@
+
+// 封装请求方法
 const baseRequest = ({
   url, data = {}, header = {}, timeout, method = 'GET', dataType = 'json', responseType = 'text', enableHttp2 = false, enableQuic = false, enableCache = false, completeCallback
 }) => new Promise((resolve, reject) => {
