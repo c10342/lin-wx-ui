@@ -1,5 +1,6 @@
 const LinkBehavior = Behavior({
   properties: {
+    // 链接跳转类型
     linkType: {
       type: String,
       value: 'navigateTo',
@@ -7,6 +8,7 @@ const LinkBehavior = Behavior({
     }
   },
   methods: {
+    // 跳转页面
     jump (url) {
       if (url) {
         const { linkType } = this.properties;
