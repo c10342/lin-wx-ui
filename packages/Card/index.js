@@ -1,7 +1,7 @@
 import LinkBehavior from '../behaviors/link';
 
 Component({
-  name:'Card',
+  name: 'Card',
   options: {
     addGlobalClass: true,
     multipleSlots: true
