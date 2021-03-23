@@ -1,5 +1,5 @@
 Component({
-  name:'Area',
+  name: 'Area',
   options: {
     addGlobalClass: true,
     multipleSlots: true
