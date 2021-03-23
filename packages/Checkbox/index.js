@@ -1,5 +1,10 @@
 const shapeValue = 'round';
 Component({
+  name: 'Checkbox',
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true
+  },
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class', 'icon-class', 'label-class'],
   relations: {
@@ -12,10 +17,6 @@ Component({
         this.parent = null;
       }
     }
-  },
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
   },
   properties: {
     // 是否为选中状态
