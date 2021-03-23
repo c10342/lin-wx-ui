@@ -9,7 +9,7 @@ import {
 
 const nowDate = new Date().getTime();
 Component({
-  name:'Calendar',
+  name: 'Calendar',
   options: {
     addGlobalClass: true
   },
