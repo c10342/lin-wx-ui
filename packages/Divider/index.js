@@ -1,4 +1,5 @@
 Component({
+  name: 'Divider',
   options: {
     addGlobalClass: true,
     multipleSlots: true
