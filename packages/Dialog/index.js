@@ -3,6 +3,7 @@ import ButtonBehavior from '../behaviors/button';
 import OpenTypeBehavior from '../behaviors/open-type';
 
 Component({
+  name: 'Dialog',
   options: {
     addGlobalClass: true,
     multipleSlots: true
