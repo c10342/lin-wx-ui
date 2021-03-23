@@ -1,6 +1,7 @@
 import OpenTypeBehavior from '../behaviors/open-type';
 
 Component({
+  name: 'ActionSheet',
   options: {
     addGlobalClass: true,
     multipleSlots: true
