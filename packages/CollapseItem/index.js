@@ -1,4 +1,5 @@
 Component({
+  name: 'CollapseItem',
   options: {
     addGlobalClass: true,
     multipleSlots: true
