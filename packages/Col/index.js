@@ -1,5 +1,6 @@
 // Component Object
 Component({
+  name: 'Col',
   options: {
     addGlobalClass: true
   },
