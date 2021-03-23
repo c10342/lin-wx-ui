@@ -1,6 +1,7 @@
 import { isSameSecond, parseFormat, parseTimeDate } from './utils';
 
 Component({
+  name: 'CountDown',
   options: {
     addGlobalClass: true,
     multipleSlots: true
