@@ -1,5 +1,9 @@
 // Component Object
 Component({
+  name: 'CellGroup',
+  options: {
+    addGlobalClass: true
+  },
   externalClasses: ['custom-class', 'title-class'],
   relations: {
     '../Cell/index': {
@@ -8,9 +12,6 @@ Component({
         this.setCellBorder();
       }
     }
-  },
-  options: {
-    addGlobalClass: true
   },
   properties: {
     // 分组标题
