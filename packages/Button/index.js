@@ -17,7 +17,7 @@ if (canIUseFormFieldButton()) {
 }
 
 Component({
-  name:'Button',
+  name: 'Button',
   options: {
     addGlobalClass: true
   },
