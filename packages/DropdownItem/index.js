@@ -1,7 +1,7 @@
 import defaultProps from '../DropdownMenu/props';
 
 Component({
-  name:'DropdownItem',
+  name: 'DropdownItem',
   options: {
     addGlobalClass: true
   },
