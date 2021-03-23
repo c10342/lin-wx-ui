@@ -1,10 +1,12 @@
 import LinkBehavior from '../behaviors/link';
 
 Component({
+  name:'Card',
   options: {
     addGlobalClass: true,
     multipleSlots: true
   },
+  behaviors: [LinkBehavior],
   externalClasses: [
     'custom-class',
     'thumb-class',
@@ -20,7 +22,6 @@ Component({
     'origin-price-class',
     'num-class'
   ],
-  behaviors: [LinkBehavior],
   properties: {
     // 左侧图片
     thumb: String,
