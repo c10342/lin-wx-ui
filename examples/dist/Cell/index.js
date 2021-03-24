@@ -1,10 +1,10 @@
 import LinkBehavior from '../behaviors/link';
 
 Component({
-  relations: {
-    '../CellGroup/index': {
-      type: 'ancestor'
-    }
+  name: 'Cell',
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true
   },
   behaviors: [LinkBehavior],
   externalClasses: [
@@ -15,9 +15,10 @@ Component({
     'header-class',
     'right-icon-class'
   ],
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+  relations: {
+    '../CellGroup/index': {
+      type: 'ancestor'
+    }
   },
   properties: {
     // 左侧标题

@@ -1,5 +1,9 @@
 // Component Object
 Component({
+  name: 'CheckboxGroup',
+  options: {
+    addGlobalClass: true
+  },
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class'],
   relations: {

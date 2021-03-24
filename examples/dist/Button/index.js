@@ -17,16 +17,17 @@ if (canIUseFormFieldButton()) {
 }
 
 Component({
+  name: 'Button',
   options: {
     addGlobalClass: true
   },
+  behaviors,
   externalClasses: [
     'custom-class',
     'loading-class',
     'icon-class',
     'hover-class'
   ],
-  behaviors,
   /**
    * 组件的属性列表
    */

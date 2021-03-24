@@ -1,9 +1,9 @@
 Component({
+  name: 'Area',
   options: {
     addGlobalClass: true,
     multipleSlots: true
   },
-  // externalClasses: ["custom-class"],
   properties: {
     // 省市区数据
     areaList: {
@@ -271,9 +271,7 @@ Component({
       return countyList;
     }
   },
-  created () {
-    // this.provinceList = [];
-  },
+  created () {},
   attached () {},
   ready () {},
   moved () {},
