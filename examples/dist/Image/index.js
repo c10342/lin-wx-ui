@@ -128,21 +128,21 @@ Component({
         // 当前是第几张图片
         let index = this.data.index;
         // 标志位，标志是否有找到不为空的图片地址
-        let isNull = true
+        let isNull = true;
         while (index < val.length - 1) {
           index++;
           const src = val[index];
           this.setData({ index });
           if (src) {
-            isNull = false
+            isNull = false;
             // 存在图片地址
             this.setData({ src: val[index], isLoading: true });
             break;
           }
         }
-        if(index===this.properties.imageUrl.length - 1 && isNull){
+        if (index === this.properties.imageUrl.length - 1 && isNull) {
           // 图片索引已经是最后的了并且找不到不为空的图片地址
-          this.setErrorImageData(this.data.errorMessage)
+          this.setErrorImageData(this.data.errorMessage);
         }
       } else {
         this.setData({ isError: true, isLoading: false });
@@ -162,16 +162,16 @@ Component({
       });
       if (this.data.index === this.properties.imageUrl.length - 1) {
         // 最后一张图片加载失败
-        this.setErrorImageData(errorMessage)
+        this.setErrorImageData(errorMessage);
       } else {
         // 不是最后一张
         this.getImageSrc();
       }
     },
     // 设置图片加载失败相关内容
-    setErrorImageData(errorMessage){
+    setErrorImageData (errorMessage) {
       this.setData({ isError: true, isLoading: false });
-        this.triggerEvent('error', errorMessage);
+      this.triggerEvent('error', errorMessage);
     },
     // 加载成功回调
     onLoad (event) {

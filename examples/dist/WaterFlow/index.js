@@ -1,3 +1,6 @@
+
+import { getRect } from '../common/utils';
+
 Component({
   options: {
     addGlobalClass: true,
@@ -40,10 +43,11 @@ Component({
   },
   methods: {
     renderWaterFlow () {
-      this.getContainer().then(container => {
-        this.setChildWidth(container);
-        this.setChildrenPosition();
-      });
+      getRect(this, '.lin-water-flow')
+        .then(rect => {
+          this.setChildWidth(rect);
+          this.setChildrenPosition();
+        });
     },
     setChildWidth (parentContainer) {
       const { horizontalMargin } = this.properties;
@@ -81,15 +85,6 @@ Component({
               Math.ceil(Math.max(leftHeight, rightHeight)) - verticalMargin * 1
           });
         });
-      });
-    },
-    getContainer () {
-      return new Promise(resolve => {
-        const query = this.createSelectorQuery();
-        query
-          .select('.lin-water-flow')
-          .boundingClientRect(resolve)
-          .exec();
       });
     }
   },
