@@ -1,4 +1,4 @@
-import { getSystemInfoSync } from '../common/utils';
+import { getSystemInfoSync, getRect } from '../common/utils';
 import defaulrProps from './props';
 
 // 存储组件实例对象
@@ -130,25 +130,20 @@ Component({
     // 获取子组件固定定位的样式数据
     getChildWrapperStyle () {
       const { zIndex, direction } = this.properties;
-      return new Promise((resolve) => {
-        // 查询容器的信息
-        const query = this.createSelectorQuery();
-        query.select('.lin-dropdown-menu-bar-wrapper').boundingClientRect();
-        query.exec((rect) => {
-          // 组件距离顶部和底部的距离
-          const { top = 0, bottom = 0 } = rect[0];
+      return getRect(this, '.lin-dropdown-menu-bar-wrapper')
+        .then(rect => {
+        // 组件距离顶部和底部的距离
+          const { top = 0, bottom = 0 } = rect;
           let wrapperStyle = `z-index:${zIndex};`;
           if (direction === 'down') {
-            // 向下展开
+          // 向下展开
             wrapperStyle += `top:${bottom}px;`;
           } else {
-            // 向上展开
+          // 向上展开
             wrapperStyle += `bottom:${this.windowHeight - top}px`;
           }
-
-          resolve(wrapperStyle);
+          return wrapperStyle;
         });
-      });
     }
   },
   created () {},
