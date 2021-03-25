@@ -1,4 +1,5 @@
 import pageScrollBehavior from '../behaviors/page-scroll';
+import { getViewPort } from '../common/utils';
 
 Component({
   name: 'IndexBar',
@@ -104,7 +105,7 @@ Component({
         (childData) => index === childData.properties.index
       );
       if (child) {
-        Promise.all([this.getViewPort(), child.getContainerRect()]).then(
+        Promise.all([getViewPort(this), child.getContainerRect()]).then(
           (res) => {
             // 计算子组件需要向上滚动多少距离才能到达顶部
             const data = res[0].scrollTop + res[1].top;
@@ -115,16 +116,6 @@ Component({
           }
         );
       }
-    },
-    // 获取视图窗口信息
-    getViewPort () {
-      return new Promise((resolve) => {
-        const query = wx.createSelectorQuery().in(this);
-        query
-          .selectViewport()
-          .scrollOffset(resolve)
-          .exec();
-      });
     }
   },
   created () {},
