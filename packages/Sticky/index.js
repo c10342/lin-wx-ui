@@ -1,4 +1,5 @@
 import pageScrollBehavior from '../behaviors/page-scroll';
+import { getRect } from '../common/utils';
 
 const ROOT_ELEMENT = '.lin-sticky';
 Component({
@@ -59,7 +60,7 @@ Component({
       this.scrollTop = scrollTop || this.scrollTop;
 
       if (typeof container === 'function') {
-        Promise.all([this.getRect(ROOT_ELEMENT), this.getContainerRect()])
+        Promise.all([getRect(this, ROOT_ELEMENT), this.getContainerRect()])
           .then(([root, wrapperContainer]) => {
             if (offsetTop + root.height > wrapperContainer.height + wrapperContainer.top) {
             // 容器离开视区
@@ -84,7 +85,7 @@ Component({
         return;
       }
 
-      this.getRect(ROOT_ELEMENT).then((root) => {
+      getRect(this, ROOT_ELEMENT).then((root) => {
         if (offsetTop > root.top) {
           this.setDataAfterDiff({
             fixed: true,
@@ -109,15 +110,6 @@ Component({
         this.triggerEvent('scroll', {
           scrollTop: this.scrollTop,
           isFixed: data.fixed || this.data.fixed
-        });
-      });
-    },
-    getRect (element) {
-      return new Promise((resolve) => {
-        const query = this.createSelectorQuery();
-        query.select(element).boundingClientRect();
-        query.exec((rect) => {
-          resolve(rect[0]);
         });
       });
     },
