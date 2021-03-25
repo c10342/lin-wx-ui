@@ -1,3 +1,5 @@
+import { getRect } from '../common/utils';
+
 Component({
   name: 'IndexAnchor',
   externalClasses: ['custom-class', 'index-class'],
@@ -134,27 +136,11 @@ Component({
     },
     // 获取标题容器和整个容器信息
     getRect () {
-      return Promise.all([this.getContainerRect(), this.getIndexRect()]);
-    },
-    // 获取标题容器信息
-    getIndexRect () {
-      return new Promise((resolve) => {
-        const query = this.createSelectorQuery();
-        query
-          .select('.lin-index-anchor-index')
-          .boundingClientRect(resolve)
-          .exec();
-      });
-    },
-    // 获取整个容器的信息
-    getContainerRect () {
-      return new Promise((resolve) => {
-        const query = this.createSelectorQuery();
-        query
-          .select('.lin-index-anchor')
-          .boundingClientRect(resolve)
-          .exec();
-      });
+      // 获取整个容器的信息
+      const getContainerRect = getRect(this, '.lin-index-anchor');
+      // 获取标题容器信息
+      const getIndexRect = getRect(this, '.lin-index-anchor-index');
+      return Promise.all([getContainerRect, getIndexRect]);
     }
   },
   created () {},
