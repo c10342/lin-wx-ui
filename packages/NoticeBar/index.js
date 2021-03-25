@@ -1,3 +1,5 @@
+import { getRect } from '../common/utils';
+
 Component({
   name: 'NoticeBar',
   options: {
@@ -80,24 +82,25 @@ Component({
       const { scrollable, speed, delay } = this.properties;
       if (scrollable) {
         // 滚动播放
-        const query = this.createSelectorQuery();
-        query.select('#bar-content').boundingClientRect();
-        query.select('#bar-wrapper').boundingClientRect();
-        query.exec((rect) => {
-          // 内容区域宽度
-          const contentWidth = rect[0].width || 0;
-          // 整个容器的宽度
-          const wrapperWidth = rect[1].width || 0;
-          // 持续时间
-          const duration = Math.floor(contentWidth / speed);
-          // 设置动画
-          const contentStyle = `transform: translateX(${Math.ceil(
+        const barContentRect = getRect(this, '#bar-content');
+        const barWrapperRect = getRect(this, '#bar-wrapper');
+
+        Promise.all([barContentRect, barWrapperRect])
+          .then(rect => {
+            // 内容区域宽度
+            const contentWidth = rect[0].width || 0;
+            // 整个容器的宽度
+            const wrapperWidth = rect[1].width || 0;
+            // 持续时间
+            const duration = Math.floor(contentWidth / speed);
+            // 设置动画
+            const contentStyle = `transform: translateX(${Math.ceil(
             wrapperWidth
           )}px);animation-duration:${duration}s;animation-delay:${delay}s;`;
-          if (contentStyle !== this.data.contentStyle) {
-            this.setData({ contentStyle });
-          }
-        });
+            if (contentStyle !== this.data.contentStyle) {
+              this.setData({ contentStyle });
+            }
+          });
       } else {
         // 清除动画
         const contentStyle = 'animation: none;';
