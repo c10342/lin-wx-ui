@@ -1,12 +1,12 @@
 import TransitionBehavior from '../behaviors/transition';
-import { getSystemInfoSync } from '../common/utils';
+import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
 
 Component({
   name: 'Popup',
   options: {
     addGlobalClass: true
   },
-  behaviors: [TransitionBehavior(false)],
+  behaviors: [TransitionBehavior(false), SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class'],
   properties: {
     // z-index 层级
@@ -65,17 +65,9 @@ Component({
     safeAreaInsetBottom: {
       type: Boolean,
       value: true
-    },
-    // 是否留出顶部安全距离（状态栏高度）
-    safeAreaInsetTop: {
-      type: Boolean,
-      value: false
     }
   },
-  data: {
-    // 状态栏高度
-    statusBarHeight: '0px'
-  },
+  data: {},
   methods: {
     // 点击遮罩层
     onMaskClick () {
@@ -98,13 +90,7 @@ Component({
     this.observeClass();
   },
   attached () {},
-  ready () {
-    // 获取状态栏高度
-    const { statusBarHeight } = getSystemInfoSync();
-    this.setData({
-      statusBarHeight: `${statusBarHeight}px`
-    });
-  },
+  ready () {},
   moved () {},
   detached () {}
 });
