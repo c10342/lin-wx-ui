@@ -1,5 +1,5 @@
 import { WHITE } from '../common/color';
-import { getSystemInfoSync } from '../common/utils';
+import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
 
 Component({
   name: 'Notify',
@@ -7,6 +7,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
+  behaviors: [SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class'],
   properties: {
     // 类型
@@ -38,11 +39,6 @@ Component({
     zIndex: {
       type: Number,
       value: 100
-    },
-    // 是否留出顶部安全距离（状态栏高度）
-    safeAreaInsetTop: {
-      type: Boolean,
-      value: false
     }
   },
 
@@ -54,9 +50,7 @@ Component({
     // 打开的回调函数
     onOpened: null,
     // 关闭的回调函数
-    oClose: null,
-    // 状态栏高度
-    statusBarHeight: '0px'
+    oClose: null
   },
   methods: {
     // 显示组件
@@ -106,11 +100,6 @@ Component({
   attached () {},
   ready () {
     this.timer = null;
-    // 获取状态栏高度
-    const { statusBarHeight } = getSystemInfoSync();
-    this.setData({
-      statusBarHeight: `${statusBarHeight}px`
-    });
   },
   moved () {},
   detached () {
