@@ -1,4 +1,5 @@
-// import { BLUE } from "../common/color";
+import { getRect } from '../common/utils';
+
 Component({
   options: {
     addGlobalClass: true,
@@ -153,15 +154,15 @@ Component({
     this.containerLeft = 0;
     this.containerWidth = 0;
     this.barWidth = 0;
-    const query = this.createSelectorQuery();
-    query.select('#linsliderContainer').boundingClientRect();
-    query.select('#linSliderBar').boundingClientRect();
-    query.exec((rect) => {
-      this.containerLeft = rect[0].left;
-      this.containerWidth = rect[0].width;
-      this.barWidth = rect[1].width;
-      this.setBarWidth();
-    });
+    const containerRect = getRect(this, '#linsliderContainer');
+    const barRect = getRect(this, '#linSliderBar');
+    Promise.all([containerRect, barRect])
+      .then(rect => {
+        this.containerLeft = rect[0].left;
+        this.containerWidth = rect[0].width;
+        this.barWidth = rect[1].width;
+        this.setBarWidth();
+      });
   },
   moved () {},
   detached () {}
