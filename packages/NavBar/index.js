@@ -1,4 +1,5 @@
-import { getSystemInfoSync } from '../common/utils';
+
+import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
 
 Component({
   name: 'NavBar',
@@ -6,6 +7,7 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
+  behaviors: [SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class', 'left-class', 'right-class', 'title-class'],
   properties: {
     // 标题
@@ -29,16 +31,9 @@ Component({
       value: 1
     },
     // 根节点自定义样式
-    customStyle: String,
-    // 是否留出顶部安全距离（状态栏高度）
-    safeAreaInsetTop: {
-      type: Boolean,
-      value: false
-    }
+    customStyle: String
   },
   data: {
-    // 状态栏高度，safeAreaInsetTop为true需要给一个padding留出安全距离
-    statusBarHeight: '0px'
   },
   methods: {
     // 点击左侧区域
@@ -52,13 +47,7 @@ Component({
   },
   created () {},
   attached () {},
-  ready () {
-    // 获取状态栏高度
-    const { statusBarHeight } = getSystemInfoSync();
-    this.setData({
-      statusBarHeight: `${statusBarHeight}px`
-    });
-  },
+  ready () {},
   moved () {},
   detached () {}
 });
