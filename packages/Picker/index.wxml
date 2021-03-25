@@ -3,7 +3,7 @@
   <template is="toolbar" wx:if="{{toolbarPosition==='top'}}" data="{{title,confirmButtonText,cancelButtonText,showToolbar}}" />
   <view class="lin-picker-column-container">
     <view class="lin-picker-column-wrapper">
-      <lin-picker-column custom-class='column-class' active-class='active-class' data-index='{{index}}' defaultIndex='{{item.defaultIndex || defaultIndex}}' class="lin-picker-column one-line" bind:change='onChange' topVisible='{{topVisible}}' valueKey='{{valueKey}}' visibleItemCount='{{visibleItemCount}}' itemHeight='{{itemHeight}}' wx:key="index" wx:for="{{isSimple(columns)?[columns]:columns}}" initialOptions='{{isSimple(columns) ? item : item.values}}' />
+      <lin-picker-column custom-class='column-class' active-class='active-class' data-index='{{index}}' defaultIndex='{{item.defaultIndex || defaultIndex}}' class="lin-picker-column one-line" bind:change='onChange' topVisible='{{topVisible}}' textKey='{{textKey}}' visibleItemCount='{{visibleItemCount}}' itemHeight='{{itemHeight}}' wx:key="index" wx:for="{{isSimple(columns)?[columns]:columns}}" initialOptions='{{isSimple(columns) ? item : item.values}}' />
     </view>
     <view class="lin-picker-mask" style="background-size: 100% {{itemHeight * topVisible + itemHeight / 2}}px;" />
     <view class="lin-picker-frame" style="height:{{itemHeight}}px" />
