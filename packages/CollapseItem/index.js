@@ -1,3 +1,5 @@
+import { getRect } from '../common/utils';
+
 Component({
   name: 'CollapseItem',
   options: {
@@ -77,34 +79,31 @@ Component({
     // 更新样式
     updateStyle (expanded) {
       const { inited } = this;
-      const query = this.createSelectorQuery();
-      // 查询内容容器的宽高
-      query.select('.lin-collapse-item-content').boundingClientRect();
-      query.exec((rect) => {
-        // this.leftWidth = rect[0].width;
+      getRect(this, '.lin-collapse-item-content')
+        .then(rect => {
         // 获取元素高度
-        const { height } = rect[0];
-        // 动画实例
-        const { myAnimation } = this;
-        if (expanded) {
+          const { height } = rect;
+          // 动画实例
+          const { myAnimation } = this;
+          if (expanded) {
           // 展开状态(关闭->展开)
-          if (height === 0) {
+            if (height === 0) {
             // 高度为0的情况，就让高度为auto吧
-            myAnimation.height('auto').step();
-          } else {
+              myAnimation.height('auto').step();
+            } else {
             // inited==fasle是说明初始化的时候就需要展开，这个时候需要立刻展开，不需要动画
-            myAnimation.height(height).step({
-              duration: inited ? 300 : 1
-            });
+              myAnimation.height(height).step({
+                duration: inited ? 300 : 1
+              });
+            }
+            // 导出动画
+            this.setData({ animation: myAnimation.export() });
+            return;
           }
-          // 导出动画
+          // 关闭状态(展开->关闭)
+          myAnimation.height(0).step({ duration: 300 });
           this.setData({ animation: myAnimation.export() });
-          return;
-        }
-        // 关闭状态(展开->关闭)
-        myAnimation.height(0).step({ duration: 300 });
-        this.setData({ animation: myAnimation.export() });
-      });
+        });
     },
     // 点击标题栏
     onClick () {
