@@ -206,7 +206,7 @@ Page({
 | ----------------- | ---------------------------------------------------------------- | ------- | ------ | ------ |
 | columns           | 对象数组，配置每一列显示的数据                                   | Array   | —      | []     |
 | itemHeight        | 选项高度                                                         | Number  | —      | 44     |
-| valueKey          | 选项对象中，文字对应的 key                                       | String  | —      | text   |
+| textKey          | 选项对象中，文字对应的 key                                       | String  | —      | text   |
 | showToolbar       | 是否显示顶部栏                                                   | Boolean | —      | false  |
 | title             | 顶部栏标题                                                       | String  | —      | —      |
 | confirmButtonText | 确认按钮文字                                                     | String  | —      | 确认   |
