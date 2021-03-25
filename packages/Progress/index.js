@@ -1,3 +1,5 @@
+import { getRect } from '../common/utils';
+
 Component({
   name: 'Progress',
   options: {
@@ -64,7 +66,7 @@ Component({
       this.setData({ progressWidth: `${offsetWidth}px` });
       wx.nextTick(async () => {
         // 获取文字宽度
-        const { width: pivotWidth } = await this.getWidth(
+        const { width: pivotWidth } = await getRect(this,
           '.lin-progress-pivot'
         );
         let pivotRight = 0;
@@ -85,16 +87,6 @@ Component({
           pivotRight: `${pivotRight}px`
         });
       });
-    },
-    // 获取元素信息
-    getWidth (dom) {
-      return new Promise((resolve) => {
-        const query = this.createSelectorQuery();
-        query.select(dom).boundingClientRect();
-        query.exec((rect) => {
-          resolve(rect[0]);
-        });
-      });
     }
   },
   created () {
@@ -102,12 +94,13 @@ Component({
   },
   attached () {},
   ready () {
-    this.getWidth('.lin-progress').then((res) => {
-      // 获取进度条整体宽度
-      this.progressWidth = res.width;
-      // 设置进度条宽度
-      this.setProgressWidth();
-    });
+    getRect(this, '.lin-progress')
+      .then(res => {
+        // 获取进度条整体宽度
+        this.progressWidth = res.width;
+        // 设置进度条宽度
+        this.setProgressWidth();
+      });
   },
   moved () {},
   detached () {}
