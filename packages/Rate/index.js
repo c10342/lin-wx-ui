@@ -1,4 +1,5 @@
 import { RED, GRAY5, DISABLEDCOLOR } from '../common/color';
+import { getRect } from '../common/utils';
 
 Component({
   behaviors: ['wx://form-field'],
@@ -115,14 +116,14 @@ Component({
   attached () {},
   ready () {
     this.setCount();
-    const query = this.createSelectorQuery();
-    query.select('#lin-rate-0').boundingClientRect();
-    query.select('#lin-rate-o').boundingClientRect();
-    query.exec((res) => {
-      this.rateWidth = res[0].width;
-      this.containerLeft = res[1].left;
-      this.setWidth();
-    });
+    const rate0Rect = getRect(this, '#lin-rate-0');
+    const rateoRect = getRect(this, '#lin-rate-o');
+    Promise.all([rate0Rect, rateoRect])
+      .then(res => {
+        this.rateWidth = res[0].width;
+        this.containerLeft = res[1].left;
+        this.setWidth();
+      });
   },
   moved () {},
   detached () {}
