@@ -1,3 +1,6 @@
+
+import { getRect } from '../common/utils';
+
 Component({
   options: {
     addGlobalClass: true,
@@ -22,13 +25,7 @@ Component({
   },
   methods: {
     getRect () {
-      return new Promise(resolve => {
-        const query = this.createSelectorQuery();
-        query
-          .select('.lin-water-flow-item')
-          .boundingClientRect(resolve)
-          .exec();
-      });
+      return getRect(this, '.lin-water-flow-item');
     },
     setPosition (positionStyle) {
       this.setData({
