@@ -1,3 +1,5 @@
+
+import { getRect } from '../common/utils';
 const TRANSITIONAll = 'transition: all 500ms';
 const TRANSITIONNONE = 'transition: none';
 
@@ -182,11 +184,10 @@ Component({
         if (leftWidth) {
           this.leftWidth = leftWidth;
         } else {
-          const query = this.createSelectorQuery();
-          query.select('#left').boundingClientRect();
-          query.exec((rect) => {
-            this.leftWidth = rect[0].width;
-          });
+          getRect(this, '#left')
+            .then(rect => {
+              this.leftWidth = rect.width;
+            });
         }
       } else {
         this.leftWidth = 0;
@@ -198,11 +199,10 @@ Component({
         if (rightWidth) {
           this.rightWidth = rightWidth;
         } else {
-          const query = this.createSelectorQuery();
-          query.select('#right').boundingClientRect();
-          query.exec((rect) => {
-            this.rightWidth = rect[0].width;
-          });
+          getRect(this, '#right')
+            .then(rect => {
+              this.rightWidth = rect.width;
+            });
         }
       } else {
         this.rightWidth = 0;
