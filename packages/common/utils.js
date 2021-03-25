@@ -54,3 +54,14 @@ export function getAllRect (context, element) {
       .exec((rect = []) => resolve(rect[0]));
   });
 }
+
+// 查询视图窗口信息
+export function getViewPort (context) {
+  return new Promise((resolve) => {
+    wx.createSelectorQuery()
+      .in(context)
+      .selectViewport()
+      .scrollOffset(resolve)
+      .exec();
+  });
+}
