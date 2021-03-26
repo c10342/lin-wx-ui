@@ -1,8 +1,10 @@
 Component({
+  name: 'Sidebar',
   options: {
     addGlobalClass: true,
     multipleSlots: true
   },
+  externalClasses: ['custom-class'],
   relations: {
     '../SidebarItem/index': {
       type: 'descendant',
@@ -17,8 +19,8 @@ Component({
       }
     }
   },
-  externalClasses: ['custom-class'],
   properties: {
+    // 选中项的索引
     activeKey: {
       type: [String, Number],
       value: 0,
@@ -29,7 +31,9 @@ Component({
   methods: {
     updateChildren () {
       (this.children || []).forEach((child, index) => {
+        // 更新子组件数据
         child.updateFromParent();
+        // 设置子组件的索引
         child.setIndex(index);
       });
     },
