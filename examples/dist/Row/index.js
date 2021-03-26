@@ -1,5 +1,6 @@
 // Component Object
 Component({
+  name: 'Row',
   options: {
     addGlobalClass: true
   },
