@@ -3,6 +3,7 @@ import { getRect } from '../common/utils';
 
 const ROOT_ELEMENT = '.lin-sticky';
 Component({
+  name: 'Sticky',
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -17,23 +18,28 @@ Component({
   ],
   externalClasses: ['custom-class', 'wrapper-class'],
   properties: {
+    // 吸顶时与顶部的距离，单位 px
     offsetTop: {
       type: Number,
       value: 0,
       observer: 'onScroll'
     },
+    // 吸顶时的 z-index
     zIndex: {
       type: Number,
       value: 99
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       observer: 'onScroll'
     },
+    // 一个函数，返回容器对应的 NodesRef 节点
     container: {
       type: null,
       observer: 'onScroll'
     },
+    // 当前滚动区域的滚动位置，非 null 时会禁用页面滚动事件的监听
     scrollTop: {
       type: null,
       observer (val) {
@@ -42,14 +48,19 @@ Component({
     }
   },
   data: {
+    // 是否固定定位
     fixed: false,
+    // y轴位移距离
     transform: 0,
+    // 容器高度
     height: 0
   },
   methods: {
+    // 滚动事件
     onScroll ({ scrollTop } = {}) {
       const { container, offsetTop, disabled } = this.properties;
       if (disabled) {
+        // 禁用情况
         this.setDataAfterDiff({
           fixed: false,
           transform: 0
@@ -57,6 +68,7 @@ Component({
         return;
       }
 
+      // 滚动的高度
       this.scrollTop = scrollTop || this.scrollTop;
 
       if (typeof container === 'function') {
@@ -76,6 +88,7 @@ Component({
                 transform: 0
               });
             } else {
+              // 还没到到达粘性位置
               this.setDataAfterDiff({
                 fixed: false,
                 transform: 0
@@ -87,6 +100,7 @@ Component({
 
       getRect(this, ROOT_ELEMENT).then((root) => {
         if (offsetTop > root.top) {
+          // 到达粘性的位置
           this.setDataAfterDiff({
             fixed: true,
             height: root.height
@@ -96,6 +110,7 @@ Component({
         }
       });
     },
+    // 找出不同的数据，并设置
     setDataAfterDiff (data) {
       wx.nextTick(() => {
         const diff = Object.keys(data).reduce((prev, key) => {
@@ -114,6 +129,7 @@ Component({
       });
     },
     getContainerRect () {
+      // 返回容器对应的 NodesRef 节点
       const nodeRef = this.properties.container();
       return new Promise((resolve) => {
         nodeRef.boundingClientRect(resolve).exec();
