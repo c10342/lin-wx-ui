@@ -1,3 +1,4 @@
+// 判断是否多列显示
 function isMulti(options){
     if(options==null || options[0]==null){
         return false;
