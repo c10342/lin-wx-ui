@@ -1,6 +1,7 @@
 import OpenTypeBehavior from '../behaviors/open-type';
 
 Component({
+  // 组件名
   name: 'ActionSheet',
   options: {
     addGlobalClass: true,
