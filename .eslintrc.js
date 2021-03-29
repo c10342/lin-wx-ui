@@ -1,14 +1,12 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: [
-    'standard'
-  ],
+  extends: ['standard', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   globals: {
     Component: true,
@@ -17,7 +15,7 @@ module.exports = {
     wx: true,
     // App: true,
     getCurrentPages: true,
-    getDate: true
+    getDate: true,
   },
   rules: {
     'linebreak-style': ['off', 'windows'],
@@ -28,6 +26,6 @@ module.exports = {
     'func-names': 'off',
     'no-console': ['error', { allow: ['warn'] }],
     semi: ['error', 'always'],
-    'node/no-callback-literal': 'off'
-  }
+    'node/no-callback-literal': 'off',
+  },
 };
