@@ -2,26 +2,26 @@
 Component({
   name: 'Col',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
   externalClasses: ['custom-class'],
   relations: {
     '../Row/index': {
-      type: 'ancestor'
-    }
+      type: 'ancestor',
+    },
   },
   properties: {
     // 列元素宽度
     span: Number,
     // 列元素偏移距离
-    offset: Number
+    offset: Number,
   },
   data: {
     // 根节点样式
-    viewStyle: ''
+    viewStyle: '',
   },
   methods: {
-    setGutter (gutter) {
+    setGutter(gutter) {
       // 设置左右padding边距
       const padding = `${gutter / 2}px`;
       const viewStyle = gutter
@@ -30,11 +30,11 @@ Component({
       if (viewStyle !== this.data.viewStyle) {
         this.setData({ viewStyle });
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

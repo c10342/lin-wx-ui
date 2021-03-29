@@ -1,9 +1,8 @@
-
 import { addUnit } from '../common/utils';
 Component({
   name: 'Icon',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
   externalClasses: ['custom-class'],
   properties: {
@@ -11,32 +10,32 @@ Component({
     icon: {
       type: String,
       require: true,
-      value: ''
+      value: '',
     },
     // 图标类型
     type: {
       type: String,
       value: 'default',
-      options: ['default', 'primary', 'info', 'warning', 'danger', 'success']
+      options: ['default', 'primary', 'info', 'warning', 'danger', 'success'],
     },
     // 图标大小
     size: {
       type: [String, Number],
       value: '',
-      observer: 'setStyle'
+      observer: 'setStyle',
     },
     // 图标颜色
     color: {
       type: String,
-      observer: 'setStyle'
-    }
+      observer: 'setStyle',
+    },
   },
   data: {
-    viewStyle: ''
+    viewStyle: '',
   },
   methods: {
     // 设置样式
-    setStyle () {
+    setStyle() {
       let style = '';
       const { size, color } = this.properties;
       if (size) {
@@ -49,6 +48,6 @@ Component({
       if (style !== this.data.viewStyle) {
         this.setData({ viewStyle: style });
       }
-    }
-  }
+    },
+  },
 });

@@ -4,7 +4,7 @@ Component({
   name: 'Slider',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class', 'bar-class', 'button-class'],
   properties: {
@@ -12,36 +12,36 @@ Component({
     value: {
       type: Number,
       value: 0,
-      observer: 'setBarWidth'
+      observer: 'setBarWidth',
     },
     // 是否禁用滑块
     disabled: Boolean,
     // 最大值
     max: {
       type: Number,
-      value: 100
+      value: 100,
     },
     // 最小值
     min: {
       type: Number,
-      value: 0
+      value: 0,
     },
     // 步长
     step: {
       type: Number,
-      value: 1
+      value: 1,
     },
     // 进度条高度，默认单位为 px
     barHeight: {
       type: [String, Number],
-      value: '2px'
+      value: '2px',
     },
     // 进度条激活态颜色
     activeColor: String,
     // 进度条默认颜色
     inactiveColor: String,
     // 是否使用 button 插槽
-    useButtonSlot: Boolean
+    useButtonSlot: Boolean,
   },
   data: {
     // 进度条激活态的长度
@@ -49,18 +49,18 @@ Component({
     // 进度条那个圆球的位置
     left: 0,
     // 过度动画
-    transition: 'transition: all 300ms'
+    transition: 'transition: all 300ms',
   },
   methods: {
     // 设置进度条激活态的长度
-    setBarWidth () {
+    setBarWidth() {
       // 通过value值计算出激活状态进度条的长度
       const offsetWidth = this.getOffsetWidthByValue(this.properties.value);
       // 设置激活状态的长度
       this.setStyleWidth(offsetWidth);
     },
     // 通过value值计算出激活状态进度条的长度
-    getOffsetWidthByValue (value) {
+    getOffsetWidthByValue(value) {
       // 最大最小值
       const { max, min } = this.properties;
       // 差值
@@ -79,7 +79,7 @@ Component({
       return this.containerWidth * percent;
     },
     // 设置激活状态的长度
-    setStyleWidth (offsetWidth) {
+    setStyleWidth(offsetWidth) {
       offsetWidth = parseInt(offsetWidth, 10);
       // 计算小球所在的位置
       let left = offsetWidth - this.barWidth / 2;
@@ -94,11 +94,11 @@ Component({
       // 设置小球位置和激活状态的长度
       this.setData({
         left,
-        width: offsetWidth
+        width: offsetWidth,
       });
     },
     // 点击进度条
-    onClick (event) {
+    onClick(event) {
       if (this.properties.disabled) {
         return;
       }
@@ -116,7 +116,7 @@ Component({
         if (remainder >= step / 2) {
           // 余数大于等于步长一半，向上取整
           // 比如，步长是4，值是7，7%4余数就是3，3>=4/2,则value取8
-          value += (step - remainder);
+          value += step - remainder;
         } else {
           // 向下取整
           value -= remainder;
@@ -130,18 +130,18 @@ Component({
       this.emitChange();
     },
     // 手指触摸事件
-    onTouchStart () {
+    onTouchStart() {
       if (this.properties.disabled) {
         return;
       }
       // 取消过渡动画，不然移动的时候会卡顿
       this.setData({
-        transition: 'transition: none'
+        transition: 'transition: none',
       });
       this.triggerEvent('drag-start');
     },
     // 手指移动事件
-    onTouchMove (event) {
+    onTouchMove(event) {
       if (this.properties.disabled) {
         return;
       }
@@ -170,19 +170,19 @@ Component({
       this.emitDrag();
     },
     // 手指抬起事件
-    onTouchEnd () {
+    onTouchEnd() {
       if (this.properties.disabled) {
         return;
       }
       // 恢复过渡动画
       this.setData({
-        transition: 'transition: all 300ms'
+        transition: 'transition: all 300ms',
       });
       this.emitChange();
       this.triggerEvent('drag-end');
     },
     // 根据长度计算出value值
-    getValue (offsetWidth) {
+    getValue(offsetWidth) {
       // 计算百分比
       const percent = offsetWidth / this.containerWidth;
       const { max, min } = this.properties;
@@ -193,17 +193,17 @@ Component({
       return parseInt(min + leftNum, 10);
     },
     // change事件
-    emitChange () {
+    emitChange() {
       this.triggerEvent('change', this.getValue(this.data.width));
     },
     // 拖拽事件
-    emitDrag () {
+    emitDrag() {
       this.triggerEvent('drag', this.getValue(this.data.width));
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     // 容器距离屏幕左边的距离
     this.containerLeft = 0;
     // 容器的宽度
@@ -212,15 +212,14 @@ Component({
     this.barWidth = 0;
     const containerRect = getRect(this, '#linsliderContainer');
     const barRect = getRect(this, '#linSliderBar');
-    Promise.all([containerRect, barRect])
-      .then(rect => {
-        this.containerLeft = rect[0].left;
-        this.containerWidth = rect[0].width;
-        this.barWidth = rect[1].width;
-        // 设置进度条激活态的长度
-        this.setBarWidth();
-      });
+    Promise.all([containerRect, barRect]).then((rect) => {
+      this.containerLeft = rect[0].left;
+      this.containerWidth = rect[0].width;
+      this.barWidth = rect[1].width;
+      // 设置进度条激活态的长度
+      this.setBarWidth();
+    });
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

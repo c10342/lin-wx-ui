@@ -1,46 +1,45 @@
-
 import { getRect } from '../common/utils';
 
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   relations: {
     '../WaterFlow/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   externalClasses: ['custom-class'],
   properties: {},
   data: {
     positionStyle: '',
-    width: '50%'
+    width: '50%',
   },
   methods: {
-    getRect () {
+    getRect() {
       return getRect(this, '.lin-water-flow-item');
     },
-    setPosition (positionStyle) {
+    setPosition(positionStyle) {
       this.setData({
-        positionStyle
+        positionStyle,
       });
     },
-    setWidth (width) {
+    setWidth(width) {
       this.setData({
-        width: parseInt(width)
+        width: parseInt(width),
       });
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

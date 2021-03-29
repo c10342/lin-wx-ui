@@ -1,11 +1,10 @@
-
 import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
 
 Component({
   name: 'NavBar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: [SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class', 'left-class', 'right-class', 'title-class'],
@@ -23,31 +22,30 @@ Component({
     // 是否显示下边框
     border: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 1
+      value: 1,
     },
     // 根节点自定义样式
-    customStyle: String
+    customStyle: String,
   },
-  data: {
-  },
+  data: {},
   methods: {
     // 点击左侧区域
-    onLeftClick () {
+    onLeftClick() {
       this.triggerEvent('click-left');
     },
     // 点击右侧区域
-    onRightClick () {
+    onRightClick() {
       this.triggerEvent('click-right');
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

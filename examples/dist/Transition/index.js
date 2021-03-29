@@ -1,8 +1,9 @@
 import TransitionBehavior from '../behaviors/transition';
 
 Component({
+  name: 'Transition',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
   behaviors: [TransitionBehavior(true)],
   externalClasses: [
@@ -12,11 +13,11 @@ Component({
     'enter-to-class',
     'leave-class',
     'leave-active-class',
-    'leave-to-class'
+    'leave-to-class',
   ],
   methods: {
-    onClick () {
+    onClick() {
       this.triggerEvent('click');
-    }
-  }
+    },
+  },
 });

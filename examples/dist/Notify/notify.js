@@ -25,14 +25,14 @@ const defaultOptions = {
   // 完全展示后的回调函数
   onOpened: () => {},
   // 关闭时的回调函数
-  oClose: () => {}
+  oClose: () => {},
 };
 
 // 当前配置
 let currentOptions = { ...defaultOptions };
 
 // 转化参数
-function parseOptions (option) {
+function parseOptions(option) {
   if (!option) {
     return {};
   }
@@ -44,12 +44,12 @@ function parseOptions (option) {
 }
 
 // 获取当前页面上下文
-function getContext () {
+function getContext() {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
 
-function Notify (options) {
+function Notify(options) {
   // 合并参数
   options = { ...currentOptions, ...parseOptions(options) };
   // 获取页面上下文

@@ -6,19 +6,19 @@ Component({
   name: 'Field',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: ['wx://form-field', FormControls],
   relations: {
     '../FormItem/index': {
       type: 'ancestor', // 关联的目标节点应为祖先节点
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   externalClasses: [
     'custom-class',
@@ -26,7 +26,7 @@ Component({
     'input-class',
     'right-icon-class',
     'value-class',
-    'header-class'
+    'header-class',
   ],
   properties: {
     ...commonProps,
@@ -35,7 +35,7 @@ Component({
     // 单元格大小
     size: {
       type: String,
-      options: ['large']
+      options: ['large'],
     },
     // 是否展示右侧箭头并开启点击反馈
     isLink: Boolean,
@@ -50,23 +50,23 @@ Component({
     // 标题宽度
     titleWidth: {
       type: [String, Number],
-      value: '6.2em'
+      value: '6.2em',
     },
     // 箭头方向
     arrowDirection: {
       type: String,
       value: 'right',
-      options: ['up', 'down', 'right', 'left']
+      options: ['up', 'down', 'right', 'left'],
     },
     // 是否只读
     readonly: {
       type: Boolean,
-      observer: 'setShowClear'
+      observer: 'setShowClear',
     },
     // 输入框内容对齐方式
     inputAlign: {
       type: String,
-      options: ['left', 'center', 'right']
+      options: ['left', 'center', 'right'],
     },
     // 右侧图标
     rightIcon: String,
@@ -77,17 +77,17 @@ Component({
     // 是否使用按钮插槽
     useButtonSlot: Boolean,
     // 自定义样式
-    customStyle: String
+    customStyle: String,
   },
   data: {
     // 输入框绑定值
     inputValue: '',
     // 是否显示清空按钮
-    showClear: false
+    showClear: false,
   },
   methods: {
     // 发射change事件
-    emitChange () {
+    emitChange() {
       // 双向数据绑定
       if (canIUseModel()) {
         this.setData({ value: this.value });
@@ -97,7 +97,7 @@ Component({
       });
     },
     // input组件输入事件
-    onInput (event) {
+    onInput(event) {
       const { value = '' } = event.detail || {};
       // 记录当前值
       this.value = value;
@@ -107,7 +107,7 @@ Component({
       this.emitChange();
     },
     // 失去焦点事件
-    onBlur (event) {
+    onBlur(event) {
       // 标志位，是否在聚焦
       this.focused = false;
       this.setShowClear();
@@ -116,7 +116,7 @@ Component({
       this.triggerParentBlur(event.detail);
     },
     // 获得焦点事件
-    onFocus (event) {
+    onFocus(event) {
       // 标志位，获得焦点
       this.focused = true;
       // 设置清空按钮是否需要显示
@@ -124,7 +124,7 @@ Component({
       this.triggerEvent('focus', event.detail);
     },
     // 点击清空按钮
-    onClear () {
+    onClear() {
       // 清空值
       this.setData({ inputValue: '' });
       this.value = '';
@@ -136,40 +136,40 @@ Component({
       });
     },
     // 点击键盘的确定
-    onConfirm (event) {
+    onConfirm(event) {
       const { value = '' } = event.detail || {};
       this.value = value;
       this.setShowClear();
       this.triggerEvent('confirm', value);
     },
     // 行高发生改变
-    onLineChange (event) {
+    onLineChange(event) {
       this.triggerEvent('linechange', event.detail);
     },
     // 键盘高度发生变化
-    onKeyboardHeightChange (event) {
+    onKeyboardHeightChange(event) {
       this.triggerEvent('keyboardheightchange', event.detail);
     },
     // 点击右侧图标
-    onRightIconClick () {
+    onRightIconClick() {
       this.triggerEvent('click-icon');
     },
     // 设置清空按钮是否需要显示
-    setShowClear () {
+    setShowClear() {
       const { clearable, readonly } = this.properties;
       const { focused, value } = this;
       this.setData({
-        showClear: !!clearable && !!focused && !!value && !readonly
+        showClear: !!clearable && !!focused && !!value && !readonly,
       });
-    }
+    },
   },
-  created () {
+  created() {
     // 记录输入的值
     this.value = this.properties.value;
     this.setData({ inputValue: this.value });
   },
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

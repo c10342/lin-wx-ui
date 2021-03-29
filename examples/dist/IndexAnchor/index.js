@@ -5,27 +5,27 @@ Component({
   externalClasses: ['custom-class', 'index-class'],
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   relations: {
     '../IndexBar/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
         this.updateDataFromParent();
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   properties: {
     // 索引字符
     index: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 是否使用自定义内容的插槽
-    useSlot: Boolean
+    useSlot: Boolean,
   },
   data: {
     // 层级
@@ -43,28 +43,28 @@ Component({
     // 标题容器高度
     indexwapperHeight: '',
     // 是否为选中状态
-    isActive: false
+    isActive: false,
   },
   methods: {
     // 从父组件IndexBar中获取数据更新
-    updateDataFromParent () {
+    updateDataFromParent() {
       if (this.parent) {
         const {
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor
+          highlightColor,
         } = this.parent.properties;
         this.setData({
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor
+          highlightColor,
         });
       }
     },
     // 滚动事件，提供给父组件调用
-    onScroll () {
+    onScroll() {
       this.getRect().then((res) => {
         const { stickyOffsetTop, sticky } = this.data;
         // 整个容器
@@ -79,7 +79,7 @@ Component({
             obj = {
               fixed: false,
               transform: 0,
-              indexwapperHeight: ''
+              indexwapperHeight: '',
             };
           } else if (
             wrapper.top <= stickyOffsetTop &&
@@ -92,14 +92,14 @@ Component({
             obj = {
               fixed: true,
               transform: 0,
-              indexwapperHeight: indexContainer.height
+              indexwapperHeight: indexContainer.height,
             };
           } else {
             // 消失在可视区域
             obj = {
               fixed: false,
               transform: wrapper.height - indexContainer.height,
-              indexwapperHeight: indexContainer.height
+              indexwapperHeight: indexContainer.height,
             };
           }
         }
@@ -109,8 +109,7 @@ Component({
           // 还没到临界值
           obj.isActive = false;
         } else if (
-          wrapper.height - offsetTop + wrapper.top >
-            indexContainer.height ||
+          wrapper.height - offsetTop + wrapper.top > indexContainer.height ||
           wrapper.height - offsetTop + wrapper.top > 0
         ) {
           // 到达了临界值
@@ -125,7 +124,7 @@ Component({
       });
     },
     // 对比找出改变了的数据
-    setDiffData (obj) {
+    setDiffData(obj) {
       const data = Object.keys(obj).reduce((prev, key) => {
         if (obj[key] !== this.data[key]) {
           prev[key] = obj[key];
@@ -135,19 +134,19 @@ Component({
       this.setData(data);
     },
     // 获取标题容器和整个容器信息
-    getRect () {
+    getRect() {
       // 获取整个容器的信息
       const getContainerRect = getRect(this, '.lin-index-anchor');
       // 获取标题容器信息
       const getIndexRect = getRect(this, '.lin-index-anchor-index');
       return Promise.all([getContainerRect, getIndexRect]);
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     this.onScroll();
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

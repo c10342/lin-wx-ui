@@ -5,25 +5,25 @@ Component({
   name: 'GridItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: [LinkBehavior],
   externalClasses: [
     'custom-class',
     'content-class',
     'icon-class',
-    'text-class'
+    'text-class',
   ],
   relations: {
     '../Grid/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   properties: {
     // 文字
@@ -40,8 +40,8 @@ Component({
     url: String,
     // 是否使用默认插槽
     useSlot: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data: {
     // 根元素样式
@@ -57,11 +57,11 @@ Component({
     // 是否将格子固定为正方形
     square: false,
     // 内容容器样式
-    contentStyle: ''
+    contentStyle: '',
   },
   methods: {
     // 更新样式
-    updateStyle () {
+    updateStyle() {
       if (!this.parent) {
         return;
       }
@@ -74,7 +74,7 @@ Component({
         direction,
         border,
         square,
-        gutter
+        gutter,
       } = properties;
       const wrapperStyle = [];
       // 根据列数算出宽度
@@ -112,23 +112,23 @@ Component({
         iconSize,
         direction,
         border,
-        square
+        square,
       });
     },
     // 点击组件
-    onClick () {
+    onClick() {
       this.triggerEvent('click');
       // 存在url则跳转页面
       const { url } = this.properties;
       this.jump(url);
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     // 更新样式
     this.updateStyle();
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

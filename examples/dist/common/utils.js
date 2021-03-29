@@ -1,7 +1,7 @@
 let systemInfo;
 
 // 系统信息
-export function getSystemInfoSync () {
+export function getSystemInfoSync() {
   if (systemInfo == null) {
     // 缓存系统信息，性能优化
     systemInfo = wx.getSystemInfoSync();
@@ -11,13 +11,13 @@ export function getSystemInfoSync () {
 }
 
 // 判断是否为对象
-export function isObj (obj) {
+export function isObj(obj) {
   const type = typeof obj;
   return obj !== null && (type === 'object' || type === 'function');
 }
 
 // 定时器封装
-export function nextTick (fn) {
+export function nextTick(fn) {
   setTimeout(() => {
     fn();
   }, 1000 / 30);
@@ -25,7 +25,7 @@ export function nextTick (fn) {
 
 const REGEXP = /^[0-9]+$/;
 // 添加样式单位，如果是Number类型，则需要补个px
-export function addUnit (value) {
+export function addUnit(value) {
   if (value == null) {
     return undefined;
   }
@@ -34,7 +34,7 @@ export function addUnit (value) {
 }
 
 // 查询单个元素信息
-export function getRect (context, element) {
+export function getRect(context, element) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
@@ -45,7 +45,7 @@ export function getRect (context, element) {
 }
 
 // 查询所有元素信息
-export function getAllRect (context, element) {
+export function getAllRect(context, element) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
@@ -56,7 +56,7 @@ export function getAllRect (context, element) {
 }
 
 // 查询视图窗口信息
-export function getViewPort (context) {
+export function getViewPort(context) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
