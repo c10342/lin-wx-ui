@@ -10,7 +10,6 @@
     "Component"
   ],
   "license": "MIT",
-  "main": "index.js",
   "homepage": "https://github.com/c10342/lin-wx-ui",
   "repository": {
     "type": "git",
@@ -21,6 +20,7 @@
     "src",
     "dist"
   ],
+  "miniprogram": "dist",
   "scripts": {
     "dev": "gulp -f build/index.js dev",
     "build": "gulp -f build/index.js build",
@@ -34,7 +34,8 @@
     "lint-fix": "eslint --fix --ext .js packages",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
     "commit": "git cz",
-    "pub": "node ./build/publish.js"
+    "pub": "node ./build/publish.js",
+    "prepublishOnly": "npm run build"
   },
   "husky": {
     "hooks": {
