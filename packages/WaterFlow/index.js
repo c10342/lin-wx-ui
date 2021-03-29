@@ -1,71 +1,69 @@
-
 import { getRect } from '../common/utils';
 
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   relations: {
     '../WaterFlowItem/index': {
       type: 'descendant',
-      linked (child) {
+      linked(child) {
         this.children = this.children || [];
         this.children.push(child);
         this.renderWaterFlow();
       },
-      unlinked (child) {
-        this.children = (this.children || []).filter(it => it !== child);
+      unlinked(child) {
+        this.children = (this.children || []).filter((it) => it !== child);
         this.renderWaterFlow();
-      }
-    }
+      },
+    },
   },
   externalClasses: ['custom-class'],
   properties: {
     watchData: {
       type: Array,
       value: [],
-      observer: 'renderWaterFlow'
+      observer: 'renderWaterFlow',
     },
     verticalMargin: {
       type: Number,
       value: 20,
-      observer: 'renderWaterFlow'
+      observer: 'renderWaterFlow',
     },
     horizontalMargin: {
       type: Number,
       value: 10,
-      observer: 'renderWaterFlow'
-    }
+      observer: 'renderWaterFlow',
+    },
   },
   data: {
-    height: 0
+    height: 0,
   },
   methods: {
-    renderWaterFlow () {
-      getRect(this, '.lin-water-flow')
-        .then(rect => {
-          this.setChildWidth(rect);
-          this.setChildrenPosition();
-        });
+    renderWaterFlow() {
+      getRect(this, '.lin-water-flow').then((rect) => {
+        this.setChildWidth(rect);
+        this.setChildrenPosition();
+      });
     },
-    setChildWidth (parentContainer) {
+    setChildWidth(parentContainer) {
       const { horizontalMargin } = this.properties;
       const width = parentContainer.width / 2 - horizontalMargin;
-      (this.children || []).forEach(child => {
+      (this.children || []).forEach((child) => {
         child.setWidth(width);
       });
     },
-    setChildrenPosition () {
+    setChildrenPosition() {
       wx.nextTick(() => {
         const { verticalMargin, horizontalMargin } = this.properties;
         let leftHeight = 0;
         let rightHeight = 0;
         const tasks = [];
-        (this.children || []).forEach(child => {
+        (this.children || []).forEach((child) => {
           tasks.push(child.getRect());
         });
-        Promise.all(tasks).then(result => {
+        Promise.all(tasks).then((result) => {
           result.forEach((res, index) => {
             const child = this.children[index];
             if (leftHeight <= rightHeight) {
@@ -82,15 +80,15 @@ Component({
           });
           this.setData({
             height:
-              Math.ceil(Math.max(leftHeight, rightHeight)) - verticalMargin * 1
+              Math.ceil(Math.max(leftHeight, rightHeight)) - verticalMargin * 1,
           });
         });
       });
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

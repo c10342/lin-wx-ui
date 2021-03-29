@@ -1,91 +1,95 @@
-
 import { addUnit } from '../common/utils';
 Component({
   name: 'Image',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
-  externalClasses: ['custom-class', 'image-class', 'error-class', 'loading-class'],
+  externalClasses: [
+    'custom-class',
+    'image-class',
+    'error-class',
+    'loading-class',
+  ],
   properties: {
     // 图片地址，传入一个数组，第一个图片加载失败就回去加载下一个，如此类推直到全部加载失败
     imageUrl: {
       type: Array,
       value: [],
-      observer () {
+      observer() {
         this.getImageSrc();
-      }
+      },
     },
     // 宽度，默认单位 px
     width: {
       type: [String, Number],
       value: '320px',
-      observer: 'setStyle'
+      observer: 'setStyle',
     },
     // 高度，默认单位 px
     height: {
       type: [String, Number],
       value: '240px',
-      observer: 'setStyle'
+      observer: 'setStyle',
     },
     // 是否使用 error 插槽
     useErrorSlot: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 错误提示
     errorTip: {
       type: String,
-      value: ''
+      value: '',
     },
     // 圆角大小，默认单位为 px
     radius: {
       type: [String, Number],
-      observer: 'setStyle'
+      observer: 'setStyle',
     },
     // 是否显示为圆形
     round: {
       type: Boolean,
       value: false,
-      observer: 'setStyle'
+      observer: 'setStyle',
     },
     // 图片填充模式
     mode: {
       type: String,
-      value: 'scaleToFill'
+      value: 'scaleToFill',
     },
     // 默认不解析 webP 格式，只支持网络资源
     webp: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否懒加载
     lazyLoad: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否开启长按图片显示识别小程序码菜单
     showMenuByLongpress: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否展示图片加载中提示
     showLoading: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 加载组件大小
     loadingSize: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 加载组件颜色
     loadingColor: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // useLoadingSlot
     useLoadingSlot: {
       type: Boolean,
-      value: false
-    }
+      value: false,
+    },
   },
   data: {
     // 图片地址
@@ -99,15 +103,13 @@ Component({
     // 根节点样式
     viewStyle: '',
     // 是否正在加载中
-    isLoading: true
+    isLoading: true,
   },
   methods: {
     // 设置样式
-    setStyle () {
+    setStyle() {
       let style = '';
-      const {
-        width, height, round, radius
-      } = this.properties;
+      const { width, height, round, radius } = this.properties;
       if (width) {
         style += `width:${addUnit(width)};`;
       }
@@ -122,7 +124,7 @@ Component({
       this.setData({ viewStyle: style });
     },
     // 获取图片地址
-    getImageSrc () {
+    getImageSrc() {
       const val = this.properties.imageUrl;
       if (val.length > 0) {
         // 当前是第几张图片
@@ -149,16 +151,16 @@ Component({
       }
     },
     // 加载失败错误回调
-    onError (event) {
+    onError(event) {
       // 错误信息
       const errorMessage = this.data.errorMessage;
       errorMessage.push({
         index: this.data.index,
         src: this.data.src,
-        event
+        event,
       });
       this.setData({
-        errorMessage
+        errorMessage,
       });
       if (this.data.index === this.properties.imageUrl.length - 1) {
         // 最后一张图片加载失败
@@ -169,25 +171,25 @@ Component({
       }
     },
     // 设置图片加载失败相关内容
-    setErrorImageData (errorMessage) {
+    setErrorImageData(errorMessage) {
       this.setData({ isError: true, isLoading: false });
       this.triggerEvent('error', errorMessage);
     },
     // 加载成功回调
-    onLoad (event) {
+    onLoad(event) {
       this.triggerEvent('success', {
         index: this.data.index,
         src: this.data.src,
-        event
+        event,
       });
       // 关闭loading
       this.setData({
-        isLoading: false
+        isLoading: false,
       });
     },
     // 点击图片
-    onClick (event) {
+    onClick(event) {
       this.triggerEvent('click', event);
-    }
-  }
+    },
+  },
 });

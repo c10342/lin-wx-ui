@@ -1,87 +1,87 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   relations: {
     '../Tabs/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
         this.updateWidth();
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   externalClasses: ['custom-class'],
   properties: {
     name: {
-      type: [String, Number]
+      type: [String, Number],
     },
     title: {
       type: String,
-      observer: 'update'
+      observer: 'update',
     },
     disabled: {
       type: Boolean,
-      observer: 'update'
+      observer: 'update',
     },
     dot: {
       type: Boolean,
-      observer: 'update'
+      observer: 'update',
     },
     info: {
       type: [String, Number],
-      observer: 'update'
+      observer: 'update',
     },
     titleStyle: {
       type: String,
-      observer: 'update'
-    }
+      observer: 'update',
+    },
   },
   data: {
     active: false,
     shouldRender: false,
     shouldShow: false,
-    width: 0
+    width: 0,
   },
   methods: {
-    getComponentName () {
+    getComponentName() {
       const { name } = this.properties;
       if (name) {
         return name;
       }
       return this.index;
     },
-    updateRender (active, parent) {
+    updateRender(active, parent) {
       const { data } = parent;
       this.inited = this.inited || active;
       this.setData({
         active,
         shouldRender: this.inited || !data.lazyRender,
-        shouldShow: active || data.animated
+        shouldShow: active || data.animated,
       });
     },
-    update () {
+    update() {
       if (this.parent) {
         this.parent.updateTabs();
       }
     },
-    updateWidth () {
+    updateWidth() {
       if (this.parent) {
         this.parent.getTrackWidth().then((res) => {
           this.setData({
-            width: res.width
+            width: res.width,
           });
         });
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

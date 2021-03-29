@@ -5,26 +5,26 @@ Component({
   relations: {
     '../Radio/index': {
       type: 'descendant',
-      linked (child) {
+      linked(child) {
         this.children = this.children || [];
         this.children.push(child);
         this.updateChild(child);
       },
-      unlinked (child) {
+      unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      }
-    }
+      },
+    },
   },
   properties: {
     // 当前选中项的标识符
     value: {
       type: null,
-      observer: 'updateChildren'
+      observer: 'updateChildren',
     },
     // 是否禁用所有单选框
     disabled: {
       type: Boolean,
-      observer: 'updateChildren'
+      observer: 'updateChildren',
     },
     // 在表单内提交时的标识符
     name: String,
@@ -32,28 +32,28 @@ Component({
     direction: {
       type: String,
       value: 'column',
-      options: ['column', 'row']
-    }
+      options: ['column', 'row'],
+    },
   },
   data: {},
   methods: {
     // 更新单个子组件
-    updateChild (child) {
+    updateChild(child) {
       const { value, disabled } = this.properties;
       child.setData({
         // 判断是否选中
         value: value === child.data.name,
-        parentDisabled: disabled
+        parentDisabled: disabled,
       });
     },
     // 更新子组件
-    updateChildren () {
+    updateChildren() {
       (this.children || []).forEach((child) => this.updateChild(child));
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

@@ -2,19 +2,19 @@ Component({
   name: 'SidebarItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   relations: {
     '../Sidebar/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
         this.updateFromParent();
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   externalClasses: ['custom-class', 'content-class'],
   properties: {
@@ -25,42 +25,42 @@ Component({
     // 图标右上角徽标的内容
     badge: {
       type: [String, Number],
-      value: ''
+      value: '',
     },
     // 是否禁用该项
-    disabled: Boolean
+    disabled: Boolean,
   },
   data: {
     // 当前选中的索引
     activeKey: 0,
     // 该组件的索引号
-    index: -1
+    index: -1,
   },
   methods: {
     // 从父组件哪里获取数据更新
-    updateFromParent () {
+    updateFromParent() {
       if (this.parent) {
         const { activeKey } = this.parent.properties;
         this.setData({
-          activeKey
+          activeKey,
         });
       }
     },
     // 设置组件索引号
-    setIndex (index) {
+    setIndex(index) {
       this.setData({ index });
     },
     // 点击选项
-    onItemClick () {
+    onItemClick() {
       const { disabled } = this.properties;
       if (this.parent && !disabled) {
         this.parent.emitChange(this.data.index);
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

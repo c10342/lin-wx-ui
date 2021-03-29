@@ -6,7 +6,7 @@ Component({
   name: 'GoodsActionIcon',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
   externalClasses: ['custom-class', 'icon-class', 'text-class'],
@@ -17,7 +17,7 @@ Component({
     icon: String,
     // 图标右上角提示信息
     info: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 是否显示右上角小红点
     dot: Boolean,
@@ -26,21 +26,21 @@ Component({
     // 是否显示为加载状态
     loading: Boolean,
     // 是否禁用按钮
-    disabled: Boolean
+    disabled: Boolean,
   },
   data: {},
   methods: {
     // 点击组件
-    onClick () {
+    onClick() {
       this.triggerEvent('click');
       // 跳转页面
       const { url } = this.properties;
       this.jump(url);
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

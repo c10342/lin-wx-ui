@@ -9,11 +9,11 @@
 //   }
 const IMAGE_REGEXP = /\.(jpeg|jpg|gif|png|svg|webp|jfif|bmp|dpg)/i;
 
-function isImageUrl (url) {
+function isImageUrl(url) {
   return IMAGE_REGEXP.test(url);
 }
 
-export function isImageFile (item) {
+export function isImageFile(item) {
   if (item.type) {
     return item.type === 'image';
   }
@@ -26,7 +26,7 @@ export function isImageFile (item) {
   return false;
 }
 
-export function chooseFile ({
+export function chooseFile({
   accept,
   multiple,
   capture,
@@ -34,7 +34,7 @@ export function chooseFile ({
   maxDuration,
   sizeType,
   camera,
-  maxCount
+  maxCount,
 }) {
   switch (accept) {
     case 'image':
@@ -44,7 +44,7 @@ export function chooseFile ({
           sourceType: capture,
           sizeType,
           success: resolve,
-          fail: reject
+          fail: reject,
         });
       });
     case 'media':
@@ -56,7 +56,7 @@ export function chooseFile ({
           sizeType,
           camera,
           success: resolve,
-          fail: reject
+          fail: reject,
         });
       });
     case 'video':
@@ -67,7 +67,7 @@ export function chooseFile ({
           maxDuration,
           camera,
           success: resolve,
-          fail: reject
+          fail: reject,
         });
       });
     default:
@@ -76,24 +76,24 @@ export function chooseFile ({
           count: multiple ? maxCount : 1, // 最多可以选择的数量，如果不支持多选则数量为1
           type: 'file',
           success: resolve,
-          fail: reject
+          fail: reject,
         });
       });
   }
 }
 
-export function isVideo (res, accept) {
+export function isVideo(res, accept) {
   return accept === 'video';
 }
 
-export function isFunction (val) {
+export function isFunction(val) {
   return typeof val === 'function';
 }
 
-export function isObject (val) {
+export function isObject(val) {
   return val != null && typeof val === 'object';
 }
 
-export function isPromise (val) {
+export function isPromise(val) {
   return isObject(val) && isFunction(val.then) && isFunction(val.catch);
 }

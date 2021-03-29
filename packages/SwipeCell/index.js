@@ -1,4 +1,3 @@
-
 import { getRect } from '../common/utils';
 const TRANSITIONAll = 'transition: all 500ms';
 const TRANSITIONNONE = 'transition: none';
@@ -7,25 +6,25 @@ Component({
   name: 'SwipeCell',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class', 'left-class', 'right-class'],
   properties: {
     showLeft: {
       type: Boolean,
-      value: false
+      value: false,
     },
     showRight: {
       type: Boolean,
-      value: false
+      value: false,
     },
     leftWidth: {
       type: Number,
-      observer: 'getLeftWidth'
+      observer: 'getLeftWidth',
     },
     rightWidth: {
       type: Number,
-      observer: 'getRightWidth'
+      observer: 'getRightWidth',
     },
     disabled: Boolean,
     disabledLeft: Boolean,
@@ -33,15 +32,15 @@ Component({
     asyncClose: Boolean,
     name: {
       type: String,
-      value: ''
-    }
+      value: '',
+    },
   },
   data: {
     transitionStyle: TRANSITIONAll,
-    translateX: 0
+    translateX: 0,
   },
   methods: {
-    onClick (event) {
+    onClick(event) {
       const { key: position = 'outside' } = event.currentTarget.dataset;
       this.triggerEvent('click', position);
       const { translateX, name } = this.data;
@@ -53,36 +52,36 @@ Component({
         this.triggerEvent('before-close', {
           position,
           instance: this,
-          name
+          name,
         });
       } else {
         this.close();
       }
     },
-    setTranslateX (translateX) {
+    setTranslateX(translateX) {
       this.setData({
         transitionStyle: TRANSITIONAll,
-        translateX
+        translateX,
       });
     },
-    close () {
+    close() {
       if (this.data.translateX === 0) {
         return;
       }
       this.setData({
         transitionStyle: TRANSITIONAll,
-        translateX: 0
+        translateX: 0,
       });
       this.emitClose();
     },
-    emitClose (position) {
+    emitClose(position) {
       this.triggerEvent('close', {
         position: position || this.position,
         name: this.properties.name,
-        instance: this
+        instance: this,
       });
     },
-    open (position) {
+    open(position) {
       const { disabled, disabledLeft, disabledRight } = this.properties;
       if (!position || disabled) {
         return;
@@ -95,22 +94,22 @@ Component({
         this.emitOpen(position);
       }
     },
-    emitOpen (position) {
+    emitOpen(position) {
       const { name } = this.properties;
       this.triggerEvent('open', {
         position,
         name,
-        instance: this
+        instance: this,
       });
       this.position = position;
     },
-    onTouchmove (event) {
+    onTouchmove(event) {
       const {
         showLeft,
         showRight,
         disabled,
         disabledLeft,
-        disabledRight
+        disabledRight,
       } = this.properties;
       if (disabled) {
         return;
@@ -132,13 +131,13 @@ Component({
       }
       this.startX = clientX;
     },
-    onTouchend () {
+    onTouchend() {
       const {
         showLeft,
         showRight,
         disabled,
         disabledLeft,
-        disabledRight
+        disabledRight,
       } = this.properties;
       if (disabled) {
         return;
@@ -164,7 +163,7 @@ Component({
         this.setTranslateX(translateX);
       }
     },
-    onTouchstart (event) {
+    onTouchstart(event) {
       const { disabled } = this.properties;
       if (disabled) {
         return;
@@ -172,54 +171,52 @@ Component({
       const clientX = event.touches[0].clientX;
       this.startX = clientX;
       this.setData({
-        transitionStyle: TRANSITIONNONE
+        transitionStyle: TRANSITIONNONE,
       });
     },
-    getLeftAndRightWidth () {
+    getLeftAndRightWidth() {
       this.getLeftWidth();
       this.getRightWidth();
     },
-    getLeftWidth () {
+    getLeftWidth() {
       const { showLeft, leftWidth } = this.properties;
       if (showLeft) {
         if (leftWidth) {
           this.leftWidth = leftWidth;
         } else {
-          getRect(this, '#left')
-            .then(rect => {
-              this.leftWidth = rect.width;
-            });
+          getRect(this, '#left').then((rect) => {
+            this.leftWidth = rect.width;
+          });
         }
       } else {
         this.leftWidth = 0;
       }
     },
-    getRightWidth () {
+    getRightWidth() {
       const { showRight, rightWidth } = this.properties;
       if (showRight) {
         if (rightWidth) {
           this.rightWidth = rightWidth;
         } else {
-          getRect(this, '#right')
-            .then(rect => {
-              this.rightWidth = rect.width;
-            });
+          getRect(this, '#right').then((rect) => {
+            this.rightWidth = rect.width;
+          });
         }
       } else {
         this.rightWidth = 0;
       }
-    }
+    },
   },
-  created () {
+  created() {
     this.startX = 0;
     this.leftWidth = 0;
     this.rightWidth = 0;
     this.position = 'cell';
   },
-  attached () {},
-  ready () {
+  attached() {},
+  ready() {
     this.getLeftAndRightWidth();
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

@@ -19,14 +19,14 @@ if (canIUseFormFieldButton()) {
 Component({
   name: 'Button',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
   behaviors,
   externalClasses: [
     'custom-class',
     'loading-class',
     'icon-class',
-    'hover-class'
+    'hover-class',
   ],
   /**
    * 组件的属性列表
@@ -37,53 +37,61 @@ Component({
     // 是否禁用按钮
     disabled: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否为块级元素
     block: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 按钮类型
     type: {
       type: String,
       value: 'default',
-      options: ['primary', 'success', 'info', 'warning', 'danger', 'default', 'success']
+      options: [
+        'primary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'default',
+        'success',
+      ],
     },
     // 是否为朴素按钮
     plain: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否为圆角按钮
     round: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 是否为圆形按钮
     circle: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 左侧图标名
     icon: {
       type: String,
-      value: ''
+      value: '',
     },
     // 图标大小
     iconSize: {
-      type: String
+      type: String,
     },
     // 按钮尺寸
     size: {
       type: String,
       value: 'default',
-      options: ['default', 'medium', 'small']
+      options: ['default', 'medium', 'small'],
     },
     // 是否显示为加载状态
     loading: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 加载图标颜色
     loadingColor: String,
@@ -95,7 +103,7 @@ Component({
     color: {
       type: String,
       value: '',
-      observer (color) {
+      observer(color) {
         let style = '';
         if (color) {
           // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
@@ -115,8 +123,8 @@ Component({
         if (style !== this.data.baseStyle) {
           this.setData({ baseStyle: style });
         }
-      }
-    }
+      },
+    },
   },
 
   /**
@@ -124,7 +132,7 @@ Component({
    */
   data: {
     // 按钮样式
-    baseStyle: ''
+    baseStyle: '',
   },
 
   /**
@@ -132,12 +140,12 @@ Component({
    */
   methods: {
     // 点击按钮
-    onClick () {
+    onClick() {
       const { disabled, loading } = this.properties;
       if (!disabled && !loading) {
         // 没有被禁用并且不是在加载中
         this.triggerEvent('click');
       }
-    }
-  }
+    },
+  },
 });

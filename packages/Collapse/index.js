@@ -2,48 +2,48 @@ Component({
   name: 'Collapse',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class'],
   relations: {
     '../CollapseItem/index': {
       type: 'descendant',
-      linked (child) {
+      linked(child) {
         this.children = this.children || [];
         this.children.push(child);
       },
-      unlinked (child) {
+      unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      }
-    }
+      },
+    },
   },
   properties: {
     // 当前展开面板的 name
     value: {
       type: null,
-      observer: 'updateExpanded'
+      observer: 'updateExpanded',
     },
     // 是否开启手风琴模式
     accordion: {
       type: Boolean,
-      observer: 'updateExpanded'
+      observer: 'updateExpanded',
     },
     // 是否显示外边框
     border: {
       type: Boolean,
-      value: true
-    }
+      value: true,
+    },
   },
   data: {},
   methods: {
     // 更新CollapseItem组件
-    updateExpanded () {
+    updateExpanded() {
       (this.children || []).forEach((child) => {
         child.updateExpanded();
       });
     },
     // 切换展开状态
-    switch (currentName, expanded) {
+    switch(currentName, expanded) {
       const { accordion, value } = this.properties;
       // 保存切换的item的name值
       const changeItem = currentName;
@@ -64,11 +64,11 @@ Component({
         this.triggerEvent('close', changeItem);
       }
       this.triggerEvent('change', currentName);
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });
