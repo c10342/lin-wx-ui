@@ -1,6 +1,7 @@
 import TransitionBehavior from '../behaviors/transition';
 
 Component({
+  name: 'Transition',
   options: {
     addGlobalClass: true,
   },
