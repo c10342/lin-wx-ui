@@ -4,6 +4,7 @@ const TRANSITIONAll = 'transition: all 500ms';
 const TRANSITIONNONE = 'transition: none';
 
 Component({
+  name: 'SwipeCell',
   options: {
     addGlobalClass: true,
     multipleSlots: true
