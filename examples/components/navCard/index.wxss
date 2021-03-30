@@ -1,20 +1,20 @@
-.component-item{
+.component-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 40rpx 20rpx;
-  box-shadow: #ddd 0px 0px 10px;
   margin-top: 60rpx;
-  border-radius: 10rpx;
   color: #1989fa;
+  border-radius: 10rpx;
+  box-shadow: #ddd 0 0 10px;
 }
 
-.my-icon{
+.my-icon {
   font-size: 60rpx;
 }
 
-.name{
-  color: rgba(89, 108, 142, 1);
-  font-size: 40rpx;
+.name {
   margin-left: 60rpx;
+  font-size: 40rpx;
+  color: rgba(89, 108, 142, 1);
 }

@@ -4,6 +4,5 @@ App({
     // 检查更新
     versionUtil.checkUpdate();
   },
-  globalData: {
-  }
-})
+  globalData: {},
+});

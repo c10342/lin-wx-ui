@@ -1,90 +1,74 @@
 // pages/navigation/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list: [{
+    list: [
+      {
         name: 'Grid 宫格',
-        path: '/pages/component/grid/index'
+        path: '/pages/component/grid/index',
       },
       {
         name: 'IndexBar 索引栏',
-        path: '/pages/component/index-bar/index'
+        path: '/pages/component/index-bar/index',
       },
       {
         name: 'Sidebar 侧边导航',
-        path: '/pages/component/sidebar/index'
+        path: '/pages/component/sidebar/index',
       },
       {
         name: 'NavBar 导航栏',
-        path: '/pages/component/nav-bar/index'
+        path: '/pages/component/nav-bar/index',
       },
       {
         name: 'Tab 标签页',
-        path: '/pages/component/tab/index'
+        path: '/pages/component/tab/index',
       },
       {
         name: 'Tabbar 标签栏',
-        path: '/pages/component/tabbar/index'
+        path: '/pages/component/tabbar/index',
       },
-    ]
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
-})
+  onShareAppMessage: function () {},
+});

@@ -1,62 +1,61 @@
-.image-logo{
+.image-logo {
+  display: block;
   width: 500rpx;
   height: 180rpx;
-  display: block;
 }
 
-
-.header{
-  background-color: #fff;
-  width           : 690rpx;
-  margin          : 0 auto 20rpx auto;
-  padding: 40rpx;
+.header {
   box-sizing: border-box;
-  color    : #8c98ae;
+  width: 690rpx;
+  padding: 40rpx;
+  margin: 0 auto 20rpx auto;
   font-size: 26rpx;
+  color: #8c98ae;
+  background-color: #fff;
 }
 
-.info-item + .info-item{
+.info-item + .info-item {
   margin-top: 20rpx;
   text-align: center;
 }
 
-.ui-name{
-  font-weight: bold;
-  color: #000000;
+.ui-name {
   font-size: 40rpx;
+  font-weight: bold;
+  color: #000;
   text-align: center;
 }
 
 .address-container {
-  width           : 690rpx;
-  margin          : 0 auto 2rpx auto;
-  height          : 142rpx;
-  display         : flex;
-  flex-direction  : row;
-  align-items     : center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 690rpx;
+  height: 142rpx;
+  margin: 0 auto 2rpx auto;
   background-color: #fff;
 }
 
 .dot {
-  width           : 24rpx;
-  height          : 24rpx;
-  border-radius   : 50%;
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 40rpx;
   background-color: #3963bc;
-  margin-left     : 40rpx;
+  border-radius: 50%;
 }
 
 .doc-container {
-  display       : flex;
+  display: flex;
   flex-direction: column;
-  margin-left   : 20rpx;
+  margin-left: 20rpx;
 }
 
 .doc-txt {
-  color    : #8c98ae;
   font-size: 24rpx;
+  color: #8c98ae;
 }
 
 .address {
   font-size: 28rpx;
-  color    : #596c8e;
+  color: #596c8e;
 }

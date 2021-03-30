@@ -1,34 +1,34 @@
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     showShare1: false,
-    options1: [{
+    options1: [
+      {
         name: '微信',
         icon: 'wechat',
-        openType: 'share'
+        openType: 'share',
       },
       {
         name: '微博',
-        icon: 'weibo'
+        icon: 'weibo',
       },
       {
         name: '复制链接',
-        icon: 'link'
+        icon: 'link',
       },
       {
         name: '分享海报',
-        icon: 'pic'
+        icon: 'pic',
       },
       {
         name: '二维码',
-        icon: 'qrcode'
+        icon: 'qrcode',
       },
     ],
 
-    showShare2:false,
+    showShare2: false,
     options2: [
       [
         { name: '微信', icon: 'wechat' },
@@ -46,17 +46,17 @@ Page({
     options3: [
       {
         name: '名称',
-        isImage:true,
+        isImage: true,
         icon: '/images/cat.png',
       },
       {
         name: '名称',
-        isImage:true,
+        isImage: true,
         icon: '/images/cat.png',
       },
       {
         name: '名称',
-        isImage:true,
+        isImage: true,
         icon: '/images/cat.png',
       },
     ],
@@ -74,83 +74,66 @@ Page({
     ],
   },
 
-  onClick(event){
-    const key = event.currentTarget.dataset.key
+  onClick(event) {
+    const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: true
+      [key]: true,
     });
   },
 
   onClose(event) {
-    const key = event.currentTarget.dataset.key
+    const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: false
+      [key]: false,
     });
   },
 
   onSelect(event) {
-    
     // Toast(event.detail.name);
     wx.showToast({
       title: event.detail.name,
-      icon:"none"
-    })
+      icon: 'none',
+    });
     this.onClose(event);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
-})
+  onShareAppMessage: function () {},
+});

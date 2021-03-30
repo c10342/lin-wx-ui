@@ -1,17 +1,16 @@
 .index-bar-tabs {
-  line-height: 100rpx;
-  padding: 0 40rpx;
+  position: relative;
   box-sizing: border-box;
-  background-color: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-
-  color: #323233;
-  font-weight: 500;
+  padding: 0 40rpx;
   font-size: 28rpx;
-  position: relative;
+  font-weight: 500;
+  line-height: 100rpx;
+  color: #323233;
+  background-color: #fff;
 }
 
 .tab-item {
@@ -19,14 +18,14 @@
 }
 
 .active-tab::after {
-  content: '';
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
   z-index: 1;
   width: 40px;
   height: 3px;
+  content: '';
   background-color: #ee0a24;
   border-radius: 3px;
+  transform: translateX(-50%);
 }

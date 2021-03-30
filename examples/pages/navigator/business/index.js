@@ -1,82 +1,66 @@
 // pages/navigator/business/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list: [{
+    list: [
+      {
         name: 'Area 省市区选择',
-        path: '/pages/component/area/index'
+        path: '/pages/component/area/index',
       },
       {
         name: 'Card 商品卡片',
-        path: '/pages/component/card/index'
+        path: '/pages/component/card/index',
       },
       {
         name: 'SubmitBar 提交订单栏',
-        path: '/pages/component/submit-bar/index'
+        path: '/pages/component/submit-bar/index',
       },
       {
         name: 'GoodsAction 商品导航',
-        path: '/pages/component/goods-action/index'
+        path: '/pages/component/goods-action/index',
       },
-    ]
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
-})
+  onShareAppMessage: function () {},
+});

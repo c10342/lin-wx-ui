@@ -1,17 +1,18 @@
 
-.button-group{
+.button-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.button-item{
+
+.button-item {
   width: 33.33%;
-  text-align: center;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.button-item-50{
+.button-item-50 {
   width: 50%;
-  text-align: center;
   margin-bottom: 10px;
+  text-align: center;
 }

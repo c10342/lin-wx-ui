@@ -1,7 +1,7 @@
-.panel-footer{
+.panel-footer {
   text-align: right;
 }
 
-.panel-footer > .panel-button{
+.panel-footer > .panel-button {
   margin-left: 20rpx;
 }

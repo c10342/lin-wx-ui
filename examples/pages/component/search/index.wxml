@@ -20,7 +20,7 @@
 	</demo-block>
 
 	<demo-block title='自定义按钮'>
-		<lin-search value="{{ value6 }}" label="地址" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
+		<lin-search value="{{ value6 }}" label="地址" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
 			<view slot="action" bind:tap="onClick">搜索</view>
 		</lin-search>
 	</demo-block>

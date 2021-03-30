@@ -1,9 +1,9 @@
 lin-col .lin-col {
+  height: 30px;
   margin-bottom: 10px;
-  color: #fff;
   font-size: 13px;
   line-height: 30px;
-  height: 30px;
+  color: #fff;
   text-align: center;
   background-clip: content-box;
 }

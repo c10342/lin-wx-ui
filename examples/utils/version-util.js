@@ -3,19 +3,19 @@ class VersionUtil {
   /**
    * 检查更新
    */
-  checkUpdate(){
+  checkUpdate() {
     const updateManager = wx.getUpdateManager();
-    updateManager.onCheckForUpdate((hasUpdate)=>{
-      if(hasUpdate){
-        updateManager.onUpdateReady(()=>{
+    updateManager.onCheckForUpdate((hasUpdate) => {
+      if (hasUpdate) {
+        updateManager.onUpdateReady(() => {
           wx.showModal({
-            title:'更新提示',
-            content:'有新版本啦！要更新看看吗',
-            success(res){
-              if(res.confirm){
+            title: '更新提示',
+            content: '有新版本啦！要更新看看吗',
+            success(res) {
+              if (res.confirm) {
                 updateManager.applyUpdate();
               }
-            }
+            },
           });
         });
 
@@ -23,13 +23,11 @@ class VersionUtil {
           // 新版本下载失败
           wx.showModal({
             title: '更新提示',
-            content: '有新版本啦！删除当前小程序，重新打开就能更新啦！'
+            content: '有新版本啦！删除当前小程序，重新打开就能更新啦！',
           });
         });
       }
     });
-
-
   }
 }
 

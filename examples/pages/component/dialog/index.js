@@ -1,18 +1,17 @@
 import Dialog from '../../../dist/Dialog/dialog.js';
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    show:false
+    show: false,
   },
 
   onClick1() {
     Dialog.alert({
       title: '标题',
-      message: '弹窗内容'
+      message: '弹窗内容',
     }).then(() => {});
   },
   onClick2() {
@@ -24,7 +23,9 @@ Page({
     Dialog.confirm({
       title: '标题',
       message: '弹窗内容',
-    }).then(() => {}).catch(() => {});
+    })
+      .then(() => {})
+      .catch(() => {});
   },
   onClick4() {
     Dialog.alert({
@@ -45,10 +46,10 @@ Page({
   },
   onClick6() {
     Dialog.confirm({
-        title: '标题',
-        message: '弹窗内容',
-        asyncClose: true
-      })
+      title: '标题',
+      message: '弹窗内容',
+      asyncClose: true,
+    })
       .then(() => {
         setTimeout(() => {
           Dialog.close();
@@ -58,10 +59,10 @@ Page({
         Dialog.close();
       });
   },
-  onClick7(){
+  onClick7() {
     this.setData({
-      show:true
-    })
+      show: true,
+    });
   },
   onClose() {
     this.setData({ show: false });
@@ -70,56 +71,40 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
-})
+  onShareAppMessage: function () {},
+});

@@ -1,5 +1,5 @@
-.dialog-image{
+.dialog-image {
+  box-sizing: border-box;
   width: 100%;
   padding: 20rpx;
-  box-sizing: border-box;
 }

@@ -1,12 +1,11 @@
-.icon-group{
+.icon-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 40rpx;
 }
 
-
- .icon-item{
+.icon-item {
   width: 20%;
   padding: 10px 0;
   text-align: center;

@@ -4,13 +4,13 @@ const citys = {
 };
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     columns1: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-    columns2: [{
+    columns2: [
+      {
         values: Object.keys(citys),
         className: 'column1',
       },
@@ -30,87 +30,66 @@ Page({
   onChange(data) {
     wx.showToast({
       title: `${data.detail.index} - ${data.detail.value}`,
-      icon: 'none'
-    })
+      icon: 'none',
+    });
   },
 
   onChange1(event) {
-    const {
-      picker,
-      value,
-      index
-    } = event.detail;
+    // picker, value, index
+    const { picker, value } = event.detail;
     picker.setColumnValues(1, citys[value[0]]);
   },
 
-  onCancel(event){
-    
+  onCancel(event) {
     wx.showToast({
       title: '取消',
-      icon:"none"
-    })
+      icon: 'none',
+    });
   },
-  onConfirm(event){
-    
+  onConfirm(event) {
     wx.showToast({
       title: event.detail.value,
-      icon:"none"
-    })
+      icon: 'none',
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
-})
+  onShareAppMessage: function () {},
+});

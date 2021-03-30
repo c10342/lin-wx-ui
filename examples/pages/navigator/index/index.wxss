@@ -1,25 +1,25 @@
-page{
-  background: #F7F8FA;
+page {
+  background: #f7f8fa;
 }
 
-.container{
+.container {
   padding: 20rpx;
 }
 
-.header{
-  box-shadow: #ddd 0px 0px 10px;
+.header {
   padding: 20rpx;
   border-radius: 10rpx;
+  box-shadow: #ddd 0 0 10px;
 }
 
-.image{
+.image {
+  display: block;
   width: 500rpx;
   height: 180rpx;
-  display: block;
 }
-.info{
+
+.info {
   margin-top: 20px;
   font-size: 40rpx;
   color: rgba(69, 90, 100, 0.6);
 }
-
