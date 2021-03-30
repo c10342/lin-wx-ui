@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
+/* eslint no-console: "off" */
 
-const path = require("path");
+const fs = require('fs');
 
-const utils = require('./baseCreate.js')
+const path = require('path');
 
-const appJson = require("../examples/app.json");
+const utils = require('./baseCreate.js');
+
+const appJson = require('../examples/app.json');
 
 function createPackageComponent() {
   const pathSrc = path.resolve(utils.packagesPath, utils.componentName);
@@ -22,7 +24,7 @@ function createPackageComponent() {
 function createExampleComponent() {
   const pathSrc = path.resolve(
     utils.examplePath,
-    "./pages/component",
+    './pages/component',
     utils.componentNameLine
   );
   const result = utils.createDir(pathSrc);
@@ -34,7 +36,7 @@ function createExampleComponent() {
         `lin-${utils.componentNameLine}`
       ] = `/dist/${utils.componentName}/index`;
       fs.writeFileSync(
-        path.resolve(utils.examplePath, "./app.json"),
+        path.resolve(utils.examplePath, './app.json'),
         JSON.stringify(appJson, null, 2)
       );
       console.log(`${utils.componentName}组件创建成功`);
@@ -43,4 +45,3 @@ function createExampleComponent() {
 }
 
 createPackageComponent();
-
