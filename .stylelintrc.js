@@ -12,7 +12,7 @@ module.exports = {
     'selector-type-no-unknown': [
       true,
       {
-        ignoreTypes: ['lin-goods-action-button', 'page', 'lin-col', 'lin-row'],
+        ignoreTypes: ['lin-goods-action-button', 'page'],
       },
     ],
     'font-family-no-missing-generic-family-keyword': [
