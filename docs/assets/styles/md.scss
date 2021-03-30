@@ -2,6 +2,7 @@
 
 section {
   color: #3f536e;
+
   .demo-outer-container {
     position: fixed;
     top: 100px;
@@ -9,10 +10,12 @@ section {
     width: $demo-width;
     height: 80vh;
     overflow: hidden;
+
     .demo-content {
       width: $demo-width;
       height: 80vh;
     }
+
     .demo-image {
       width: 100%;
     }
@@ -22,26 +25,31 @@ section {
       left: 0;
       overflow-x: hidden;
       overflow-y: scroll;
+
       /* for Chrome */
       &::-webkit-scrollbar {
         display: none;
       }
     }
   }
+
   hr {
     margin: 1.2em 0;
     border: 0;
     border-bottom: 1px solid #c5d9e8;
   }
+
   p {
     padding: 0;
     line-height: 1.7;
     color: #3f536e;
     // font-size: 14px;
   }
+
   h1 {
     // font-size: 24px;
   }
+
   h1,
   h2,
   h3,
@@ -50,72 +58,84 @@ section {
     margin: 16px 0;
     line-height: 1.5;
   }
+
   h2 {
     // font-size: 18px;
   }
+
   ul {
-    margin: 16px 0;
     padding-left: 24px;
+    margin: 16px 0;
     list-style: disc;
+
     li {
       line-height: 1.8;
     }
   }
+
   pre {
-    margin: 16px 0;
     padding: 16px;
-    background-color: #f7f7f7;
+    margin: 16px 0;
     overflow: auto;
+    background-color: #f7f7f7;
+
     code {
       padding: 0;
+      background-color: transparent;
       // font-size: 1em;
       border: none;
       border-radius: 0;
-      background-color: transparent;
     }
   }
+
   code {
     padding: 0.3em 0.5em;
     // font-size: 0.9em;
     vertical-align: middle;
+    background-color: #f7f7f7;
     border: 1px solid #ececec;
     border-radius: 2px;
-    background-color: #f7f7f7;
   }
+
   code.code_inline {
     padding: 0 0.5em;
   }
+
   img {
     vertical-align: middle;
   }
+
   p + p {
     margin-top: 8px;
   }
+
   a {
     color: #6190e8;
   }
+
   table.table {
     // display: block;
     width: 100%;
-    background-color: #fff;
+    margin-bottom: 50px;
+    overflow: auto;
     color: #5e6d82;
     // font-size: 14px;
     border-collapse: collapse;
-    overflow: auto;
-    margin-bottom: 50px;
+    background-color: #fff;
     // line-height: 2em;
     th {
-      border-top: 1px solid #f3f7fa;
-      background-color: #fafbfc;
-      border-bottom: 1px solid #f3f7fa;
       padding: 10px 8px;
       text-align: left;
-    }
-    td {
+      background-color: #fafbfc;
       border-top: 1px solid #f3f7fa;
       border-bottom: 1px solid #f3f7fa;
-      padding: 10px 8px;
+    }
+
+    td {
       max-width: 300px;
+      padding: 10px 8px;
+      border-top: 1px solid #f3f7fa;
+      border-bottom: 1px solid #f3f7fa;
     }
   }
 }
