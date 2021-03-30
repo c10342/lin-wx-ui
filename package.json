@@ -30,9 +30,10 @@
     "upload:docs": "npm run build:docs && node ./build/qiniu.js",
     "create": "node ./build/create.js",
     "createComponent": "node ./build/createComponent.js",
-    "lint": "eslint --ext .js packages",
-    "lint-fix": "eslint --fix --ext .js packages",
-    "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
+    "lint": "eslint --ext .js,.vue,.json ./",
+    "lint-fix": "eslint --fix --ext .js,.vue,.json ./",
+    "lint:style": "stylelint **/*.{html,vue,css,sass,scss,wxss}",
+    "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss,wxss} --fix",
     "commit": "git cz",
     "pub": "node ./build/publish.js",
     "prepublishOnly": "npm run build"
@@ -44,10 +45,10 @@
     }
   },
   "lint-staged": {
-    "*.{html,vue,css,sass,scss}": [
-      "npm run lint:style"
+    "*.{html,vue,css,sass,scss,wxss}": [
+      "lint:style-fix"
     ],
-    "*.{js,ts,vue}": [
+    "*.{js,vue,.json}": [
       "prettier --write",
       "git add",
       "npm run lint"
@@ -110,6 +111,7 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^6.0.0",
     "cheerio": "^1.0.0-rc.3",
     "commitizen": "^4.2.2",
     "copy-webpack-plugin": "^6.0.3",
@@ -120,9 +122,11 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-vue": "^7.8.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-eslint7": "^0.3.0",
