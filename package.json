@@ -46,7 +46,7 @@
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss,wxss}": [
-      "lint:style-fix"
+      "npm run lint:style-fix"
     ],
     "*.{js,vue,.json}": [
       "prettier --write",
