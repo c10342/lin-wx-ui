@@ -1,4 +1,4 @@
-[*.{js,wxml,wxss,json}]
+[*.{js,wxml,wxss,json,vue}]
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true

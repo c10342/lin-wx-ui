@@ -1,9 +1,6 @@
-/examples
-/docs
+/examples/dist
 /docs-dist
 /dist
-/build
 /packages/*/*.wxs
-vue.config.js
 node_modules
 .vscode
