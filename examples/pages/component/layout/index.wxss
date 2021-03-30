@@ -1,4 +1,4 @@
-lin-col .lin-col {
+.col-item .lin-col {
   height: 30px;
   margin-bottom: 10px;
   font-size: 13px;
@@ -8,11 +8,11 @@ lin-col .lin-col {
   background-clip: content-box;
 }
 
-lin-row lin-col:nth-child(odd) .lin-col {
+.row-item .col-item:nth-child(odd) .lin-col {
   background-color: #39a9ed;
 }
 
-lin-row lin-col:nth-child(even) .lin-col {
+.row-item .col-item:nth-child(even) .lin-col {
   background-color: #66c6f2;
 }
 
