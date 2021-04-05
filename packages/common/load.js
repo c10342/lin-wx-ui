@@ -30,7 +30,7 @@ const components = {};
 const scaleComponent = [];
 
 // 处理全局注册的组件
-function handleGlobalComponent () {
+function handleGlobalComponent() {
   Object.keys(globalComponents).forEach((key) => {
     // // 获取全局组件的完整路径
     const compSrc = path.join(root, globalComponents[key]);
@@ -57,7 +57,7 @@ function handleGlobalComponent () {
  * @param {*} currentDirname 当前路径
  * @param {*} page 相对路径
  */
-function handlePageComponent (currentDirname, page) {
+function handlePageComponent(currentDirname, page) {
   page = path.normalize(page);
   // 获取页面/组件的完整路径
   const pageSrc = path.join(currentDirname, page);
@@ -90,10 +90,7 @@ function handlePageComponent (currentDirname, page) {
           const objKey = compSrc.replace(lib, '');
           if (!(objKey in components)) {
             // 组件还没收集
-            components[objKey] = path.relative(
-              root,
-              path.dirname(compSrc)
-            );
+            components[objKey] = path.relative(root, path.dirname(compSrc));
             handlePageComponent(path.dirname(compSrc), `..${objKey}`);
           }
         } else {
@@ -121,8 +118,8 @@ const componentsKeys = Object.keys(components);
 const ignoreComponent = [];
 
 const reg = /^[A-Z]/;
-dirs.forEach(dir => {
-  const index = componentsKeys.findIndex(key => key.includes(dir));
+dirs.forEach((dir) => {
+  const index = componentsKeys.findIndex((key) => key.includes(dir));
   if (index === -1 && reg.test(dir)) {
     // 没有使用到的组件
     const ps = path.relative(root, path.join(lib, dir));
@@ -133,7 +130,7 @@ dirs.forEach(dir => {
 ignoreComponent.forEach((key) => {
   ignoreArr.push({
     type: 'folder',
-    value: key.replace(/\\/g, '/')
+    value: key.replace(/\\/g, '/'),
   });
 });
 
@@ -158,7 +155,7 @@ ignore.push(...ignoreArr);
 if (ignore.findIndex((item) => item.value === 'lin-wx-ui.config.json') === -1) {
   ignore.push({
     type: 'file',
-    value: 'lin-wx-ui.config.json'
+    value: 'lin-wx-ui.config.json',
   });
 }
 
