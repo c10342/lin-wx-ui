@@ -1,16 +1,16 @@
-.component-cell{
-  height: 30rpx;
-  background-color: #F7F8FA;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 20px;
-  font-weight: 500;
-  color: 323233;
-  font-size: 14px;
-  border-radius:20px ;
+.component-cell {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 30rpx;
+  height: 40px;
+  padding: 0 20px;
   margin-bottom: 30rpx;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  color: 323233;
+  background-color: #f7f8fa;
+  border-radius: 20px;
 }

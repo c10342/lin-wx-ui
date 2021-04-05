@@ -1,13 +1,15 @@
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+/* eslint  camelcase: "off",node/no-path-concat: "off" */
 
-const path = require("path");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const utils = require("./build/utils");
+const path = require('path');
 
-const MarkdownItContainer = require("markdown-it-container");
+const utils = require('./build/utils');
+
+const MarkdownItContainer = require('markdown-it-container');
 const vueMarkdown = {
   preprocess: (MarkdownIt, source) => {
-    MarkdownIt.renderer.rules.table_open = function() {
+    MarkdownIt.renderer.rules.table_open = function () {
       return '<table class="table">';
     };
     MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(
@@ -27,8 +29,8 @@ const vueMarkdown = {
 
     // ```code`` 给这种样式加个class code_inline
     const code_inline = MarkdownIt.renderer.rules.code_inline;
-    MarkdownIt.renderer.rules.code_inline = function(...args) {
-      args[0][args[1]].attrJoin("class", "code_inline");
+    MarkdownIt.renderer.rules.code_inline = function (...args) {
+      args[0][args[1]].attrJoin('class', 'code_inline');
       return code_inline(...args);
     };
     return source;
@@ -36,16 +38,16 @@ const vueMarkdown = {
   use: [
     [
       MarkdownItContainer,
-      "demo",
+      'demo',
       {
         validate: (params) => params.trim().match(/^demo\s*(.*)$/),
-        render: function(tokens, idx) {
-          var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+        render: function (tokens, idx) {
+          // const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
 
           if (tokens[idx].nesting === 1) {
-            var desc = tokens[idx + 2].content;
+            // const desc = tokens[idx + 2].content;
             const html = utils.convertHtml(
-              utils.striptags(tokens[idx + 1].content, "script")
+              utils.striptags(tokens[idx + 1].content, 'script')
             );
             // 移除描述，防止被添加到代码块
             tokens[idx + 2].children = [];
@@ -54,7 +56,7 @@ const vueMarkdown = {
                           <div slot="desc">${html}</div>
                           <div slot="highlight">`;
           }
-          return "</div></demo-block>\n";
+          return '</div></demo-block>\n';
         },
       },
     ],
@@ -65,66 +67,66 @@ module.exports = {
   pages: {
     index: {
       // page 的入口
-      entry: "docs/main.js",
+      entry: 'docs/main.js',
       // 模板来源
-      template: "./docs/public/index.html",
+      template: './docs/public/index.html',
       // 在 dist/index.html 的输出
-      filename: "index.html",
+      filename: 'index.html',
       // 当使用 title 选项时，
       // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-      title: "组件文档",
+      title: '组件文档',
       // 在这个页面中包含的块，默认情况下会包含
       // 提取出来的通用 chunk 和 vendor chunk。
-      chunks: ["chunk-vendors", "chunk-common", "index"],
+      chunks: ['chunk-vendors', 'chunk-common', 'index'],
     },
   },
   productionSourceMap: false,
-  outputDir: utils.resolve("docs-dist"),
+  outputDir: utils.resolve('docs-dist'),
   devServer: {
     open: true,
   },
   configureWebpack: {
-    resolve: { extensions: [".js", ".vue", ".json", "md"] },
+    resolve: { extensions: ['.js', '.vue', '.json', 'md'] },
   },
   css: {
     sourceMap: false,
     extract: {
-      filename: "css/style.css",
+      filename: 'css/style.css',
     },
   },
   chainWebpack: (config) => {
     config.module
-      .rule("js")
-      .include.add(utils.resolve("docs"))
+      .rule('js')
+      .include.add(utils.resolve('docs'))
       .end()
-      .use("babel")
-      .loader("babel-loader")
+      .use('babel')
+      .loader('babel-loader')
       .tap((options) => {
         // 修改它的选项...
         return options;
       });
 
     config.module
-      .rule("md")
+      .rule('md')
       .test(/\.md/)
-      .use("vue-loader")
-      .loader("vue-loader")
+      .use('vue-loader')
+      .loader('vue-loader')
       .end()
-      .use("vue-markdown-loader")
-      .loader("vue-markdown-loader/lib/markdown-compiler")
+      .use('vue-markdown-loader')
+      .loader('vue-markdown-loader/lib/markdown-compiler')
       .options({
         raw: true,
         ...vueMarkdown,
       });
 
-    config.plugin("CopyWebpackPlugin").use(CopyWebpackPlugin, [
+    config.plugin('CopyWebpackPlugin').use(CopyWebpackPlugin, [
       {
         patterns: [
           {
-            from: "./docs/public/static/**/*",
+            from: './docs/public/static/**/*',
             to: `${__dirname}/docs-dist`,
             transformPath(targetPath, absolutePath) {
-              return targetPath.replace(`docs${path.sep}public`, "");
+              return targetPath.replace(`docs${path.sep}public`, '');
             },
           },
         ],

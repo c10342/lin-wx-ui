@@ -1,18 +1,18 @@
-lin-col .lin-col {
+.col-item .lin-col {
+  height: 30px;
   margin-bottom: 10px;
-  color: #fff;
   font-size: 13px;
   line-height: 30px;
-  height: 30px;
+  color: #fff;
   text-align: center;
   background-clip: content-box;
 }
 
-lin-row lin-col:nth-child(odd) .lin-col {
+.row-item .col-item:nth-child(odd) .lin-col {
   background-color: #39a9ed;
 }
 
-lin-row lin-col:nth-child(even) .lin-col {
+.row-item .col-item:nth-child(even) .lin-col {
   background-color: #66c6f2;
 }
 

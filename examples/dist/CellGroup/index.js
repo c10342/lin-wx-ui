@@ -2,16 +2,16 @@
 Component({
   name: 'CellGroup',
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
   },
   externalClasses: ['custom-class', 'title-class'],
   relations: {
     '../Cell/index': {
       type: 'descendant',
-      linked () {
+      linked() {
         this.setCellBorder();
-      }
-    }
+      },
+    },
   },
   properties: {
     // 分组标题
@@ -19,13 +19,13 @@ Component({
     // 是否显示外边框
     border: {
       type: Boolean,
-      value: true
-    }
+      value: true,
+    },
   },
   data: {},
   methods: {
     // 设置LinCell组件底部边框
-    setCellBorder () {
+    setCellBorder() {
       const nodes = this.getRelationNodes('../Cell/index');
       // 不是最后一个LinCell组件才需要设置底部边框
       nodes.forEach((cell, index) => {
@@ -35,13 +35,13 @@ Component({
           cell.setBorder(true);
         }
       });
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     this.setCellBorder();
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

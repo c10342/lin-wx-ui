@@ -32,18 +32,14 @@ const compareDate = (time1, time2, type) => {
   const date2 = new Date(time2);
   // 传入的时间虽然可能是同一天的，但是可能会有时间差，所以需要统一一下
   // toLocaleDateString() 方法返回该日期对象日期部分的字符串，该字符串格式因不同语言而不同
-  const newDate1 = new Date(
-    date1.toLocaleDateString('zh')
-  );
-  const newDate2 = new Date(
-    date2.toLocaleDateString('zh')
-  );
+  const newDate1 = new Date(date1.toLocaleDateString('zh'));
+  const newDate2 = new Date(date2.toLocaleDateString('zh'));
   const obj = {
     Equal: newDate1.getTime() === newDate2.getTime(),
     EqAndLt: newDate1 <= newDate2,
     EqAndGt: newDate1 >= newDate2,
     Lt: newDate1 < newDate2,
-    Gt: newDate1 > newDate2
+    Gt: newDate1 > newDate2,
   };
   return obj[type];
 };

@@ -4,29 +4,29 @@ Component({
   name: 'Progress',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class', 'portion-class', 'pivot-class'],
   properties: {
     // 是否置灰
     inactive: {
       type: Boolean,
-      value: false
+      value: false,
     },
     // 进度百分比
     percentage: {
       type: Number,
       value: 0,
-      observer: 'setProgressWidth'
+      observer: 'setProgressWidth',
     },
     // 进度条粗细，默认单位为 px
     strokeWidth: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 是否显示进度文字
     showPivot: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 进度条颜色
     color: String,
@@ -38,10 +38,10 @@ Component({
     pivotText: {
       type: String,
       value: '',
-      observer: 'setProgressWidth'
+      observer: 'setProgressWidth',
     },
     // 文字背景色
-    pivotColor: String
+    pivotColor: String,
   },
   data: {
     // 进度条长度
@@ -49,11 +49,11 @@ Component({
     // 进度条文字位置
     pivotRight: '0px',
     // 置灰后的颜色
-    grayColor: 'rgb(202, 202, 202)'
+    grayColor: 'rgb(202, 202, 202)',
   },
   methods: {
     // 设置进度条长度
-    setProgressWidth () {
+    setProgressWidth() {
       let { percentage } = this.properties;
       // 处理临界值
       if (percentage <= 0) {
@@ -66,7 +66,8 @@ Component({
       this.setData({ progressWidth: `${offsetWidth}px` });
       wx.nextTick(async () => {
         // 获取文字宽度
-        const { width: pivotWidth } = await getRect(this,
+        const { width: pivotWidth } = await getRect(
+          this,
           '.lin-progress-pivot'
         );
         let pivotRight = 0;
@@ -84,24 +85,23 @@ Component({
           pivotRight = -(pivotWidth / 2);
         }
         this.setData({
-          pivotRight: `${pivotRight}px`
+          pivotRight: `${pivotRight}px`,
         });
       });
-    }
+    },
   },
-  created () {
+  created() {
     this.progressWidth = 0;
   },
-  attached () {},
-  ready () {
-    getRect(this, '.lin-progress')
-      .then(res => {
-        // 获取进度条整体宽度
-        this.progressWidth = res.width;
-        // 设置进度条宽度
-        this.setProgressWidth();
-      });
+  attached() {},
+  ready() {
+    getRect(this, '.lin-progress').then((res) => {
+      // 获取进度条整体宽度
+      this.progressWidth = res.width;
+      // 设置进度条宽度
+      this.setProgressWidth();
+    });
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

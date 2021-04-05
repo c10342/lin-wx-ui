@@ -1,4 +1,3 @@
-
 // 保存所有dialog实例
 let queue = [];
 
@@ -43,14 +42,14 @@ const defaultOptions = {
   // 是否展示取消按钮
   closeOnClickMask: false,
   // 确认按钮的微信开放能力
-  confirmButtonOpenType: ''
+  confirmButtonOpenType: '',
 };
 
 // 当前配置
 let currentOptions = { ...defaultOptions };
 
 // 获取页面上下文
-function getContext () {
+function getContext() {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
@@ -59,7 +58,7 @@ const Dialog = (options) => {
   // 合并配置
   options = {
     ...currentOptions,
-    ...options
+    ...options,
   };
 
   return new Promise((resolve, reject) => {
@@ -76,7 +75,7 @@ const Dialog = (options) => {
       dialog.setData({
         onCancel: reject,
         onConfirm: resolve,
-        ...options
+        ...options,
       });
 
       wx.nextTick(() => {
@@ -97,10 +96,11 @@ const Dialog = (options) => {
 Dialog.alert = (options) => Dialog(options);
 
 // 展示消息确认弹窗
-Dialog.confirm = (options) => Dialog({
-  showCancelButton: true,
-  ...options
-});
+Dialog.confirm = (options) =>
+  Dialog({
+    showCancelButton: true,
+    ...options,
+  });
 
 // 关闭所有弹窗
 Dialog.close = () => {

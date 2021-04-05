@@ -6,14 +6,14 @@ Component({
   name: 'Empty',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: [
     'custom-class',
     'image-wrapper-class',
     'image-class',
     'description-class',
-    'bottom-class'
+    'bottom-class',
   ],
   properties: {
     // 状态类型
@@ -21,27 +21,27 @@ Component({
       type: String,
       value: 'default',
       options: typeOpt,
-      observer: 'updateImage'
+      observer: 'updateImage',
     },
     // 自定义图片地址，优先级比type高
     image: {
       type: String,
-      observer: 'updateImage'
+      observer: 'updateImage',
     },
     // 图片下方的描述文字
     description: String,
     // 是否使用图片插槽
     useImageSlot: Boolean,
     // 是否使用描述文字插槽
-    useDescSlot: Boolean
+    useDescSlot: Boolean,
   },
   data: {
     // 图片地址
-    imageUrl: ''
+    imageUrl: '',
   },
   methods: {
     // 更新图片地址
-    updateImage () {
+    updateImage() {
       const { image, type } = this.properties;
       let imageUrl;
       if (image) {
@@ -55,16 +55,16 @@ Component({
       }
       if (imageUrl) {
         this.setData({
-          imageUrl
+          imageUrl,
         });
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     this.updateImage();
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

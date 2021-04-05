@@ -1,4 +1,3 @@
-
 <template>
   <header class="page-header">
     <div class="header-container">
@@ -27,62 +26,70 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles/var.scss";
+@import '../assets/styles/var.scss';
+
 .page-header {
-  background-color: #fff;
-  opacity: 0.98;
   position: relative !important;
   top: 0;
   left: 0;
-  width: 100%;
-  height: $header-height;
-  transition: all 0.3s;
   z-index: 100;
   box-sizing: border-box;
+  width: 100%;
+  height: $header-height;
+  background-color: #fff;
   border-bottom: 1px solid #dcdfe6;
+  opacity: 0.98;
+  transition: all 0.3s;
+
   .header-container {
-    padding: 0 $padding;
     box-sizing: border-box;
-    width: 100%;
     display: flex;
     align-items: center;
-    height: 100%;
     justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 $padding;
   }
+
   .qrcode-wrapper {
-    margin-left: 30px;
     position: relative;
+    margin-left: 30px;
+
     &:hover {
       .image-qrcode {
         display: block;
       }
     }
+
     .image-qrcode {
-      display: none;
       position: absolute;
       right: 0;
       z-index: 100;
-      margin-top: 10px;
-      border: 1px solid #cccccc;
+      display: none;
       padding: 10px;
+      margin-top: 10px;
       background-color: #fff;
+      border: 1px solid #ccc;
+
       &::before {
-        content: "";
         position: absolute;
         top: -5px;
         right: 28px;
         width: 8px;
         height: 8px;
-        border: 1px solid #cccccc;
+        content: '';
+        background-color: #fff;
+        border: 1px solid #ccc;
         border-right-color: transparent;
         border-bottom-color: transparent;
         transform: rotate(45deg);
-        background-color: #fff;
       }
     }
+
     .preview-qrcode {
       color: #888;
       cursor: pointer;
+
       &:hover {
         color: #409eff;
       }

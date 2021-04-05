@@ -1,16 +1,17 @@
 @import './iconfont.wxss';
-page{
-  background-color: #F7F8FA;
+
+page {
+  background-color: #f7f8fa;
 }
-.container{
+
+.container {
   padding: 20rpx;
 }
 
-.component-group{
+.component-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
   /* margin-bottom: 40rpx; */
 }
-
-

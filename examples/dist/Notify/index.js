@@ -5,7 +5,7 @@ Component({
   name: 'Notify',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: [SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class'],
@@ -14,32 +14,32 @@ Component({
     type: {
       type: String,
       value: 'danger',
-      options: ['success', 'primary', 'warning', 'danger', 'info']
+      options: ['success', 'primary', 'warning', 'danger', 'info'],
     },
     // 展示文案
     message: String,
     // 展示时长(ms)，值为 0 时，notify 不会消失
     duration: {
       type: Number,
-      value: 3000
+      value: 3000,
     },
     // 字体颜色
     color: {
       type: String,
-      value: WHITE
+      value: WHITE,
     },
     // 顶部距离
     top: {
       type: [String, Number],
-      value: '0px'
+      value: '0px',
     },
     // 背景颜色
     background: String,
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 100
-    }
+      value: 100,
+    },
   },
 
   data: {
@@ -50,11 +50,11 @@ Component({
     // 打开的回调函数
     onOpened: null,
     // 关闭的回调函数
-    oClose: null
+    oClose: null,
   },
   methods: {
     // 显示组件
-    show () {
+    show() {
       const { duration } = this.properties;
       const { onOpened } = this.data;
       this.clearTimer();
@@ -72,7 +72,7 @@ Component({
       }
     },
     // 隐藏组件
-    hide () {
+    hide() {
       const { oClose } = this.data;
       this.clearTimer();
       this.setData({ show: false });
@@ -82,27 +82,27 @@ Component({
       }
     },
     // 清空定时器
-    clearTimer () {
+    clearTimer() {
       if (this.timer) {
         clearTimeout(this.timer);
       }
     },
     // 点击组件
-    onTap (event) {
+    onTap(event) {
       const { onClick } = this.data;
       if (onClick) {
         // 执行点击回调函数
         onClick(event.detail);
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {
+  created() {},
+  attached() {},
+  ready() {
     this.timer = null;
   },
-  moved () {},
-  detached () {
+  moved() {},
+  detached() {
     this.clearTimer();
-  }
+  },
 });

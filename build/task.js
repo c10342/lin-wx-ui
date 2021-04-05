@@ -1,57 +1,57 @@
-const { src, dest, parallel } = require("gulp");
+const { src, dest, parallel } = require('gulp');
 
-const sass = require("gulp-sass");
+const sass = require('gulp-sass');
 
-const imagemin = require("gulp-imagemin");
+const imagemin = require('gulp-imagemin');
 
-const cssmin = require("gulp-clean-css");
+const cssmin = require('gulp-clean-css');
 
-const jsonmin = require("gulp-jsonminify");
+const jsonmin = require('gulp-jsonminify');
 
-const jsmin = require("gulp-uglify-es").default;
+const jsmin = require('gulp-uglify-es').default;
 
-const wxmlmin = require("gulp-htmlmin");
+const wxmlmin = require('gulp-htmlmin');
 
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
 
-const insert = require("gulp-insert");
+const insert = require('gulp-insert');
 
-const eslint = require("gulp-eslint7");
+const eslint = require('gulp-eslint7');
 
-const gulpStylelint = require("gulp-stylelint");
+const gulpStylelint = require('gulp-stylelint');
 
-const del = require("del");
+const del = require('del');
 
-const path = require("path");
+const path = require('path');
 
 const buildWxss = (srcPath, distPath) => () =>
   src(srcPath)
     .pipe(
       gulpStylelint({
-        reporters: [{ formatter: "string", console: true }]
+        reporters: [{ formatter: 'string', console: true }],
       })
     )
-    .pipe(sass().on("error", sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(cssmin())
     .pipe(
       insert.transform((contents, file) => {
         const commonScssPath = `packages${path.sep}common`;
         if (!file.path.includes(commonScssPath)) {
-          const relativePath = "../common/base.wxss";
+          const relativePath = '../common/base.wxss';
           contents = `@import '${relativePath}';${contents}`;
         }
         return contents;
       })
     )
     .pipe(
-      rename(srcPath => {
-        srcPath.extname = ".wxss";
+      rename((srcPath) => {
+        srcPath.extname = '.wxss';
       })
     )
     .pipe(dest(distPath));
 
 const copy = (srcPath, distPath, ext) => () => {
-  if (ext === "js") {
+  if (ext === 'js') {
     return src(`${srcPath}/*.${ext}`)
       .pipe(eslint())
       .pipe(eslint.format())
@@ -68,15 +68,13 @@ const buildWxml = (srcPath, distPath) => () =>
         removeComments: true,
         keepClosingSlash: true,
         caseSensitive: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       })
     )
     .pipe(dest(distPath));
 
 const buildJson = (srcPath, distPath) => () =>
-  src(srcPath)
-    .pipe(jsonmin())
-    .pipe(dest(distPath));
+  src(srcPath).pipe(jsonmin()).pipe(dest(distPath));
 
 const buildJs = (srcPath, distPath) => () =>
   src(srcPath)
@@ -89,23 +87,21 @@ const buildJs = (srcPath, distPath) => () =>
 const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
 
 const buildImage = (srcPath, distPath) => () =>
-  src(srcPath)
-    .pipe(imagemin())
-    .pipe(dest(distPath));
+  src(srcPath).pipe(imagemin()).pipe(dest(distPath));
 
 const copyStatic = (srcPath, distPath) => {
   return parallel(
-    copy(srcPath, distPath, "wxml"),
-    copy(srcPath, distPath, "wxs"),
-    copy(srcPath, distPath, "json"),
-    copy(srcPath, distPath, "js"),
-    copy(srcPath, distPath, "png")
+    copy(srcPath, distPath, 'wxml'),
+    copy(srcPath, distPath, 'wxs'),
+    copy(srcPath, distPath, 'json'),
+    copy(srcPath, distPath, 'js'),
+    copy(srcPath, distPath, 'png')
   );
 };
 
-const clean = cleanPath => () =>
+const clean = (cleanPath) => () =>
   del(cleanPath, {
-    force: true
+    force: true,
   });
 
 module.exports = {
@@ -117,5 +113,5 @@ module.exports = {
   copyStatic,
   clean,
   copy,
-  buildWxs
+  buildWxs,
 };

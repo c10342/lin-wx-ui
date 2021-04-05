@@ -4,7 +4,7 @@ Component({
   name: 'Cell',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   behaviors: [LinkBehavior],
   externalClasses: [
@@ -13,12 +13,12 @@ Component({
     'value-class',
     'label-class',
     'header-class',
-    'right-icon-class'
+    'right-icon-class',
   ],
   relations: {
     '../CellGroup/index': {
-      type: 'ancestor'
-    }
+      type: 'ancestor',
+    },
   },
   properties: {
     // 左侧标题
@@ -30,7 +30,7 @@ Component({
     // 是否显示下边框
     border: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 单元格大小
     size: { type: String, options: ['large'] },
@@ -44,40 +44,40 @@ Component({
     arrowDirection: {
       type: String,
       value: 'right',
-      options: ['up', 'down', 'right', 'left']
+      options: ['up', 'down', 'right', 'left'],
     },
     // 点击后跳转的链接地址
     url: String,
     // 标题宽度
     titleWidth: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 根节点样式
-    customStyle: String
+    customStyle: String,
   },
   data: {
     // 是否显示底边框
-    borderBottom: true
+    borderBottom: true,
   },
   methods: {
     // 点击单元格
-    onClick (event) {
+    onClick(event) {
       this.triggerEvent('click', event);
       this.jumpLink();
     },
     // 有传入url就跳转页面
-    jumpLink () {
+    jumpLink() {
       const { url } = this.properties;
       this.jump(url);
     },
     // 设置底边框
-    setBorder (value) {
+    setBorder(value) {
       this.setData({ borderBottom: value });
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

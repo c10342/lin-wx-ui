@@ -1,23 +1,20 @@
-const fs = require("fs");
-const path = require("path");
-const cheerio = require("cheerio");
-const join = path.join;
+const path = require('path');
+const cheerio = require('cheerio');
 
 function resolve(dir) {
-  return path.join(__dirname, "../", dir);
+  return path.join(__dirname, '../', dir);
 }
 
 exports.resolve = resolve;
-
 
 /**
  * 增加 hljs 的 classname
  */
 exports.wrapCustomClass = (render) => {
-  return function(...args) {
+  return function (...args) {
     return render(...args)
       .replace('<code class="', '<code class="hljs ')
-      .replace("<code>", '<code class="hljs">');
+      .replace('<code>', '<code class="hljs">');
   };
 };
 
@@ -28,7 +25,7 @@ exports.convertHtml = (str) => {
   return str.replace(/(&#x)(\w{4});/gi, ($0) =>
     String.fromCharCode(
       parseInt(
-        encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, "$2"),
+        encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'),
         16
       )
     )

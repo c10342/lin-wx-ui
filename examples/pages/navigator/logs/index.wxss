@@ -1,23 +1,23 @@
 .logs-container {
   position: relative;
   padding-bottom: 15rpx;
+  margin-bottom: 30rpx;
   line-height: 1.8;
   border: 1px solid #ddd;
   border-radius: 4rpx;
-  margin-bottom: 30rpx;
 }
 
 .logs-header {
-  margin: 0;
-  padding: 15rpx 30rpx;
-  border-bottom: 1px solid #ddd;
-  font-size: 40rpx;
-  color: #333;
-  font-weight: 700;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 15rpx 30rpx;
+  margin: 0;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #ddd;
 }
 
 .logs-content {
@@ -31,43 +31,44 @@
 
 .h5 {
   font-size: 32rpx;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .logs-version {
-  opacity: 1;
-  font-size: 40rpx;
   float: none;
   margin-left: 0;
+  font-size: 40rpx;
   color: #333;
+  opacity: 1;
 }
 
 .logs-time {
   font-size: 28rpx;
-  color: #5e6d82;
   line-height: 1.5em;
+  color: #5e6d82;
 }
 
 .ul {
   margin-left: 30rpx;
 }
 
-.ul>view {
+.ul > view {
   position: relative;
   font-size: 28rpx;
   line-height: 50rpx;
 }
 
-.ul>view::before {
-  content: '';
+.ul > view::before {
   position: absolute;
   top: 21rpx;
+
   /* top: 50%;
   transform: translateY(-50%); */
   left: -18rpx;
   width: 8rpx;
   height: 8rpx;
-  background-color: #000000;
+  content: '';
+  background-color: #000;
   border-radius: 50%;
 }

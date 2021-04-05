@@ -1,15 +1,14 @@
-page{
-  background-color: #ffffff;
+page {
+  background-color: #fff;
 }
 
-
-.sidebar-container{
+.sidebar-container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  box-sizing: border-box;
 }
 
-.demo-block{
+.demo-block {
   width: 50%;
 }

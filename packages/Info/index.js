@@ -2,7 +2,7 @@ Component({
   name: 'Info',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class'],
   properties: {
@@ -10,16 +10,16 @@ Component({
     dot: Boolean,
     // 是否在右上角显示徽标
     info: {
-      type: [String, Number]
+      type: [String, Number],
     },
     // 根节点样式
-    customStyle: String
+    customStyle: String,
   },
   data: {},
   methods: {},
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

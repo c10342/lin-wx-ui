@@ -4,37 +4,37 @@ Component({
   name: 'CountDown',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class'],
   properties: {
     // 倒计时时长，单位毫秒
     time: {
       type: Number,
-      observer: 'updateTime'
+      observer: 'updateTime',
     },
     // 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒
     format: {
       type: String,
-      value: 'HH:mm:ss'
+      value: 'HH:mm:ss',
     },
     // 是否自动开始倒计时
     autoStart: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 是否开启毫秒级渲染
     millisecond: Boolean,
     // 是否使用自定义样式插槽
-    useSlot: Boolean
+    useSlot: Boolean,
   },
   data: {
     // 格式化之后的时间文本
-    formattedTime: '0'
+    formattedTime: '0',
   },
   methods: {
     // 更新时间
-    updateTime () {
+    updateTime() {
       // 首先暂停掉，就是清空定时器
       this.pause();
       const { time, autoStart, format } = this.properties;
@@ -47,7 +47,7 @@ Component({
       }
     },
     // 暂停
-    pause () {
+    pause() {
       if (this.timer) {
         // 清空定时器
         clearTimeout(this.timer);
@@ -57,7 +57,7 @@ Component({
       this.counting = false;
     },
     // 开始
-    start () {
+    start() {
       if (this.counting) {
         // 已经是在倒计时了
         return;
@@ -70,11 +70,11 @@ Component({
       this.renderTime();
     },
     // 重置时间
-    reset () {
+    reset() {
       this.updateTime();
     },
     // 渲染时间
-    renderTime () {
+    renderTime() {
       if (this.properties.millisecond) {
         // 开启毫秒级渲染
         this.renderTimeByMill();
@@ -83,7 +83,7 @@ Component({
       }
     },
     // 每秒渲染
-    renderTimeBySecond () {
+    renderTimeBySecond() {
       this.timer = setTimeout(() => {
         // 获取当前需要倒计时的时长
         const currentTime = this.getCurrentTime();
@@ -99,7 +99,7 @@ Component({
       }, 1000);
     },
     // 毫秒级别渲染
-    renderTimeByMill () {
+    renderTimeByMill() {
       this.timer = setTimeout(() => {
         this.setCurrentTime(this.getCurrentTime());
         if (this.mainTime !== 0) {
@@ -109,10 +109,10 @@ Component({
       }, 30);
     },
     // 获取当前还剩下的倒计时时长
-    getCurrentTime () {
+    getCurrentTime() {
       return Math.max(this.endTime - Date.now(), 0);
     },
-    setCurrentTime (currentTime) {
+    setCurrentTime(currentTime) {
       // 还剩下的倒计时时长
       this.mainTime = currentTime;
       // 转化时间，会得到一个对象
@@ -123,7 +123,7 @@ Component({
       this.triggerEvent('change', timeDate);
       // 设置时间文本
       this.setData({
-        formattedTime: parseFormat(format, timeDate)
+        formattedTime: parseFormat(format, timeDate),
       });
 
       if (currentTime === 0) {
@@ -131,9 +131,9 @@ Component({
         this.pause();
         this.triggerEvent('finish');
       }
-    }
+    },
   },
-  created () {
+  created() {
     // 定时器
     this.timer = null;
     // 记录还剩下的倒计时时长
@@ -143,13 +143,13 @@ Component({
     // 倒计时结束时间
     this.endTime = null;
   },
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;
     }
-  }
+  },
 });

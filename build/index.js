@@ -8,17 +8,17 @@ const {
   copyStatic,
   clean,
   buildWxs,
-} = require("./task");
+} = require('./task');
 
-const { series, parallel, watch } = require("gulp");
+const { series, parallel, watch } = require('gulp');
 
-const path = require("path");
+const path = require('path');
 
-const distPath = path.resolve(__dirname, "../dist");
+const distPath = path.resolve(__dirname, '../dist');
 
-const examplePath = path.resolve(__dirname, "../examples/dist");
+const examplePath = path.resolve(__dirname, '../examples/dist');
 
-let packagesPath = path.resolve(__dirname, "../packages");
+let packagesPath = path.resolve(__dirname, '../packages');
 
 packagesPath = `${packagesPath}/**`;
 
@@ -43,13 +43,13 @@ module.exports = {
   ),
   watch: parallel(() => {
     watch(
-      "../packages/**/*.scss",
+      '../packages/**/*.scss',
       buildWxss(`${packagesPath}/*.scss`, examplePath)
     );
-    watch("../packages/**/*.wxml", copy(packagesPath, examplePath, "wxml"));
-    watch("../packages/**/*.wxs", copy(packagesPath, examplePath, "wxs"));
-    watch("../packages/**/*.json", copy(packagesPath, examplePath, "json"));
-    watch("../packages/**/*.js", copy(packagesPath, examplePath, "js"));
-    watch("../packages/**/*.png", copy(packagesPath, examplePath, "png"));
+    watch('../packages/**/*.wxml', copy(packagesPath, examplePath, 'wxml'));
+    watch('../packages/**/*.wxs', copy(packagesPath, examplePath, 'wxs'));
+    watch('../packages/**/*.json', copy(packagesPath, examplePath, 'json'));
+    watch('../packages/**/*.js', copy(packagesPath, examplePath, 'js'));
+    watch('../packages/**/*.png', copy(packagesPath, examplePath, 'png'));
   }),
 };

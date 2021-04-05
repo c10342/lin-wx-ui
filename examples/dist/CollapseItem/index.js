@@ -4,19 +4,19 @@ Component({
   name: 'CollapseItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: ['custom-class', 'content-class'],
   relations: {
     '../Collapse/index': {
       type: 'ancestor',
-      linked (parent) {
+      linked(parent) {
         this.parent = parent;
       },
-      unlinked () {
+      unlinked() {
         this.parent = null;
-      }
-    }
+      },
+    },
   },
   properties: {
     // 唯一标识符，默认为索引值
@@ -34,13 +34,13 @@ Component({
     // 是否显示内边框
     border: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 是否展示标题栏右侧箭头并开启点击反馈
     isLink: {
       type: Boolean,
-      value: true
-    }
+      value: true,
+    },
   },
   data: {
     // 是否展开
@@ -48,11 +48,11 @@ Component({
     // 索引值，就是是第几个CollapseItem孩子
     index: -1,
     // 动画
-    animation: null
+    animation: null,
   },
   methods: {
     // 从父亲（Collapse）组件哪里更新数据
-    updateExpanded () {
+    updateExpanded() {
       if (!this.parent) {
         return Promise.resolve();
       }
@@ -69,7 +69,9 @@ Component({
         expanded = value === currentName;
       } else {
         // 非手风琴模式
-        expanded = (value || []).some((expandedName) => expandedName === currentName);
+        expanded = (value || []).some(
+          (expandedName) => expandedName === currentName
+        );
       }
       if (expanded !== this.data.expanded) {
         this.updateStyle(expanded);
@@ -77,36 +79,35 @@ Component({
       this.setData({ index, expanded });
     },
     // 更新样式
-    updateStyle (expanded) {
+    updateStyle(expanded) {
       const { inited } = this;
-      getRect(this, '.lin-collapse-item-content')
-        .then(rect => {
+      getRect(this, '.lin-collapse-item-content').then((rect) => {
         // 获取元素高度
-          const { height } = rect;
-          // 动画实例
-          const { myAnimation } = this;
-          if (expanded) {
+        const { height } = rect;
+        // 动画实例
+        const { myAnimation } = this;
+        if (expanded) {
           // 展开状态(关闭->展开)
-            if (height === 0) {
+          if (height === 0) {
             // 高度为0的情况，就让高度为auto吧
-              myAnimation.height('auto').step();
-            } else {
+            myAnimation.height('auto').step();
+          } else {
             // inited==fasle是说明初始化的时候就需要展开，这个时候需要立刻展开，不需要动画
-              myAnimation.height(height).step({
-                duration: inited ? 300 : 1
-              });
-            }
-            // 导出动画
-            this.setData({ animation: myAnimation.export() });
-            return;
+            myAnimation.height(height).step({
+              duration: inited ? 300 : 1,
+            });
           }
-          // 关闭状态(展开->关闭)
-          myAnimation.height(0).step({ duration: 300 });
+          // 导出动画
           this.setData({ animation: myAnimation.export() });
-        });
+          return;
+        }
+        // 关闭状态(展开->关闭)
+        myAnimation.height(0).step({ duration: 300 });
+        this.setData({ animation: myAnimation.export() });
+      });
     },
     // 点击标题栏
-    onClick () {
+    onClick() {
       const { expanded } = this.data;
       const { name, disabled } = this.properties;
       if (disabled) {
@@ -117,22 +118,22 @@ Component({
       const currentName = name == null ? index : name;
       // 切换展开/关闭状态
       this.parent.switch(currentName, !expanded);
-    }
+    },
   },
-  created () {},
-  attached () {
+  created() {},
+  attached() {
     // 创建一个动画实例
     this.myAnimation = wx.createAnimation({
       duration: 0,
-      timingFunction: 'ease-in-out'
+      timingFunction: 'ease-in-out',
     });
   },
-  ready () {
+  ready() {
     // 更新面板
     this.updateExpanded();
     // 标志位，初始化完成
     this.inited = true;
   },
-  moved () {},
-  detached () {}
+  moved() {},
+  detached() {},
 });

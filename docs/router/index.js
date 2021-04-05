@@ -1,36 +1,35 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import IndexPage from "../pages/index.vue";
-import ComponentPage from "../pages/components.vue";
+import IndexPage from '../pages/index.vue';
+import ComponentPage from '../pages/components.vue';
 
 Vue.use(Router);
 
-
 const routes = [];
 
-const comps = require.context("../markdown", true, /\.(md|vue)$/);
+const comps = require.context('../markdown', true, /\.(md|vue)$/);
 
-comps.keys().forEach(key => {
+comps.keys().forEach((key) => {
   const component = comps(key).default;
-  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, '$2');
   routes.push({
     component,
     name,
-    path: `/${name}`
+    path: `/${name}`,
   });
 });
 
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "index",
+      path: '/',
+      name: 'index',
       component: IndexPage,
     },
     {
-      path: "/component",
-      name: "component",
+      path: '/component',
+      name: 'component',
       component: ComponentPage,
       children: routes,
     },

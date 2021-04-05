@@ -1,21 +1,23 @@
 module.exports = {
   extends: [
-    "stylelint-config-standard",
-    "stylelint-config-recommended-scss",
-    "stylelint-config-recess-order"
+    'stylelint-config-standard',
+    'stylelint-config-recommended-scss',
+    'stylelint-config-recess-order',
   ],
-  plugins: ["stylelint-scss"],
+  plugins: ['stylelint-scss'],
   rules: {
-    "no-descending-specificity": null,
-    "no-empty-source": null,
-    "unit-no-unknown": [true, { ignoreUnits: ["rpx"] }],
+    'no-descending-specificity': null,
+    'no-empty-source': null,
+    'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
     'selector-type-no-unknown': [
       true,
-      {ignoreTypes:["lin-goods-action-button"]}
+      {
+        ignoreTypes: ['lin-goods-action-button', 'page'],
+      },
     ],
     'font-family-no-missing-generic-family-keyword': [
       true,
-      {ignoreFontFamilies:['iconfont']}
-    ]
-  }
+      { ignoreFontFamilies: ['iconfont'] },
+    ],
+  },
 };

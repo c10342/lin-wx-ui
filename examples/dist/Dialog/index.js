@@ -1,4 +1,3 @@
-
 import ButtonBehavior from '../behaviors/button';
 import OpenTypeBehavior from '../behaviors/open-type';
 
@@ -6,7 +5,7 @@ Component({
   name: 'Dialog',
   options: {
     addGlobalClass: true,
-    multipleSlots: true
+    multipleSlots: true,
   },
   externalClasses: [
     'custom-class',
@@ -14,18 +13,18 @@ Component({
     'content-class',
     'footer-class',
     'cancel-class',
-    'confirm-class'
+    'confirm-class',
   ],
   behaviors: [ButtonBehavior, OpenTypeBehavior],
   properties: {
     // 是否显示
     show: {
       type: Boolean,
-      observer (show) {
+      observer(show) {
         if (!show) {
           this.stopLoading();
         }
-      }
+      },
     },
     // 标题
     title: String,
@@ -35,7 +34,7 @@ Component({
     theme: {
       type: String,
       value: 'default',
-      options: ['default', 'round-button']
+      options: ['default', 'round-button'],
     },
     // 是否使用自定义内容的插槽
     useSlot: Boolean,
@@ -49,7 +48,7 @@ Component({
     messageAlign: {
       type: String,
       value: 'center',
-      options: ['center', 'left', 'right']
+      options: ['center', 'left', 'right'],
     },
     // 自定义遮罩层样式
     maskStyle: String,
@@ -64,22 +63,22 @@ Component({
     // 弹窗宽度，默认单位为 px
     width: {
       type: [String, Number],
-      value: '640rpx'
+      value: '640rpx',
     },
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 2000
+      value: 2000,
     },
     // 确认按钮的文案
     confirmButtonText: {
       type: String,
-      value: '确认'
+      value: '确认',
     },
     // 取消按钮的文案
     cancelButtonText: {
       type: String,
-      value: '取消'
+      value: '取消',
     },
     // 确认按钮的字体颜色
     confirmButtonColor: String,
@@ -88,18 +87,18 @@ Component({
     // 是否展示确认按钮
     showConfirmButton: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 是否展示遮罩层
     mask: {
       type: Boolean,
-      value: true
+      value: true,
     },
     // 动画名称
     transition: {
       type: String,
-      value: 'scale'
-    }
+      value: 'scale',
+    },
   },
   data: {
     // 点击确定后的回调函数
@@ -109,17 +108,17 @@ Component({
     // 是否加载中
     loading: {
       confirm: false,
-      cancel: false
-    }
+      cancel: false,
+    },
   },
   methods: {
     // 点击遮罩层
-    onMaskClick () {
+    onMaskClick() {
       // 处理关闭行为
       this.onClose('mask');
     },
     // 点击确定按钮
-    onConfirm () {
+    onConfirm() {
       if (this.data.loading.confirm) {
         return;
       }
@@ -127,7 +126,7 @@ Component({
       this.handleAction('confirm');
     },
     // 点击取消按钮
-    onCancel () {
+    onCancel() {
       if (this.data.loading.cancel) {
         return;
       }
@@ -135,34 +134,34 @@ Component({
       this.handleAction('cancel');
     },
     // 处理行为确定/取消
-    handleAction (action) {
+    handleAction(action) {
       if (this.data.asyncClose) {
         // 异步关闭的情况下
         // 按钮显示loading
         this.setData({
-          [`loading.${action}`]: true
+          [`loading.${action}`]: true,
         });
       }
       // 处理关闭行为
       this.onClose(action);
     },
     // 关闭弹框
-    close () {
+    close() {
       this.setData({
-        show: false
+        show: false,
       });
     },
     // 停止按钮的loading
-    stopLoading () {
+    stopLoading() {
       this.setData({
         loading: {
           confirm: false,
-          cancel: false
-        }
+          cancel: false,
+        },
       });
     },
     // 关闭行为
-    onClose (action) {
+    onClose(action) {
       if (!this.properties.asyncClose) {
         // 不是异步关闭的情况下，可以直接关闭掉
         this.close();
@@ -171,7 +170,7 @@ Component({
       this.triggerEvent('close', action);
       // mask/cancel/confirm
       this.triggerEvent(action, {
-        dialog: this
+        dialog: this,
       });
       // 获取回调函数
       const callback = this.data[
@@ -181,11 +180,11 @@ Component({
         // 执行对应的回调函数
         callback(this);
       }
-    }
+    },
   },
-  created () {},
-  attached () {},
-  ready () {},
-  moved () {},
-  detached () {}
+  created() {},
+  attached() {},
+  ready() {},
+  moved() {},
+  detached() {},
 });

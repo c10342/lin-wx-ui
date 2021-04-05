@@ -1,23 +1,23 @@
-.water-flow-item-wrapper{
-  border-radius: 10rpx;
+.water-flow-item-wrapper {
   overflow: hidden;
   font-size: 26rpx;
-  background-color: #ffffff;
+  background-color: #fff;
+  border-radius: 10rpx;
 }
 
-.image{
+.image {
   width: 100%;
 }
 
-.title{
+.title {
+  padding: 20rpx;
   font-weight: 500;
   line-height: 16px;
-  padding: 20rpx;
 }
 
-.describe{
-  color: #646566;
-  line-height: 20px;
+.describe {
   padding: 20rpx;
   padding-top: 0;
+  line-height: 20px;
+  color: #646566;
 }

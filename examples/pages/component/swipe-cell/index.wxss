@@ -1,20 +1,19 @@
-.common-button{
+.common-button {
+  height: 76rpx;
   padding: 0 15px;
   font-size: 14px;
-  height: 76rpx;
   line-height: 76rpx;
   text-align: center;
 }
 
 .select-button {
   color: #fff;
-    background-color: #07c160;
-    border: 1px solid #07c160;
+  background-color: #07c160;
+  border: 1px solid #07c160;
 }
 
 .del-button {
   color: #fff;
   background-color: #ee0a24;
   border: 1px solid #ee0a24;
-  
 }
