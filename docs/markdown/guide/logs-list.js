@@ -2,7 +2,18 @@ import { logsType } from '../../config/index.js';
 
 export default [
   {
-    version: '1.2.0',
+    version: '1.1.1',
+    time: '2021-03-17',
+    content: [
+      {
+        title: '优化代码',
+        list: ['各组件添加注释说明，增强代码的可阅读性'],
+        type: logsType.ADDCOMPONENT,
+      },
+    ],
+  },
+  {
+    version: '1.1.0',
     time: '2021-02-06',
     content: [
       {
@@ -68,7 +79,7 @@ export default [
     ],
   },
   {
-    version: '1.1.1',
+    version: '1.0.1',
     time: '2021-01-29',
     content: [
       {
@@ -86,7 +97,7 @@ export default [
     ],
   },
   {
-    version: '1.1.0',
+    version: '1.0.0',
     time: '2020-12-28',
     content: [
       {

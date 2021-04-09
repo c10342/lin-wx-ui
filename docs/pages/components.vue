@@ -50,6 +50,7 @@ export default {
   .component-giud,
   .component-install,
   .component-logs,
+  .component-load,
   .component-explain {
     padding-right: 48px;
   }
