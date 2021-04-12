@@ -1,6 +1,6 @@
 {
   "component": true,
-  "usingComponent": {
+  "usingComponents": {
     "lin-picker": "../Picker/index"
   }
 }
