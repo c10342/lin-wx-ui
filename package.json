@@ -50,7 +50,6 @@
     ],
     "*.{js,vue,.json}": [
       "prettier --write",
-      "git add",
       "npm run lint"
     ]
   },
