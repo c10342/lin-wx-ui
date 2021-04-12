@@ -113,8 +113,8 @@ Page({
   display: inline-block;
   width: 22px;
   margin-right: 5px;
-  color: #fff;
   font-size: 12px;
+  color: #fff;
   text-align: center;
   background-color: #1989fa;
   border-radius: 2px;

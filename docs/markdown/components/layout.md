@@ -44,11 +44,11 @@ Layout 组件提供了`24列栅格`，通过在`Col`上添加`span`属性设置�
 
 ```css
 lin-col .lin-col {
+  height: 30px;
   margin-bottom: 10px;
-  color: #fff;
   font-size: 13px;
   line-height: 30px;
-  height: 30px;
+  color: #fff;
   text-align: center;
   background-clip: content-box;
 }
@@ -80,11 +80,11 @@ lin-row lin-col:nth-child(even) .lin-col {
 
 ```css
 lin-col .lin-col {
+  height: 30px;
   margin-bottom: 10px;
-  color: #fff;
   font-size: 13px;
   line-height: 30px;
-  height: 30px;
+  color: #fff;
   text-align: center;
   background-clip: content-box;
 }

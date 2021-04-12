@@ -12,6 +12,9 @@
             <img class="wx-qrcode" src="../assets/img/qrcode.jpg" />
           </div>
         </span>
+        <a class="vue-ui" href="http://ui.linjiafu.top/" target="_blank"
+          >vue组件库</a
+        >
       </div>
     </div>
   </header>
@@ -40,6 +43,10 @@ export default {
   border-bottom: 1px solid #dcdfe6;
   opacity: 0.98;
   transition: all 0.3s;
+
+  .vue-ui {
+    margin-left: 30px;
+  }
 
   .header-container {
     box-sizing: border-box;
