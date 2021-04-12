@@ -1,6 +1,6 @@
 {
   "component": true,
-  "usingComponent": {
+  "usingComponents": {
     "lin-sticky": "../Sticky/index",
     "lin-info": "../Info/index"
   }
