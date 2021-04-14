@@ -33,7 +33,10 @@ Component({
    */
   properties: {
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
-    formType: String,
+    formType: {
+      type: String,
+      options: ['submit', 'reset'],
+    },
     // 是否禁用按钮
     disabled: {
       type: Boolean,
@@ -62,6 +65,7 @@ Component({
     plain: {
       type: Boolean,
       value: false,
+      observer: 'setColor',
     },
     // 是否为圆角按钮
     round: {
@@ -80,7 +84,7 @@ Component({
     },
     // 图标大小
     iconSize: {
-      type: String,
+      type: [String, Number],
     },
     // 按钮尺寸
     size: {
@@ -103,27 +107,7 @@ Component({
     color: {
       type: String,
       value: '',
-      observer(color) {
-        let style = '';
-        if (color) {
-          // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
-          style += `color: ${this.data.plain ? color : 'white'};`;
-          if (!this.data.plain) {
-            // 非朴素按钮
-            style += `background: ${color};`;
-          }
-          if (color.indexOf('gradient') !== -1) {
-            // 渐变色
-            // 边框置为none
-            style += 'border: none;';
-          } else {
-            style += `border-color:${color};`;
-          }
-        }
-        if (style !== this.data.baseStyle) {
-          this.setData({ baseStyle: style });
-        }
-      },
+      observer: 'setColor',
     },
   },
 
@@ -139,6 +123,29 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 设置按钮颜色
+    setColor() {
+      const { color, plain, baseStyle } = this.data;
+      let style = '';
+      if (color) {
+        // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
+        style += `color: ${plain ? color : 'white'};`;
+        if (!plain) {
+          // 非朴素按钮
+          style += `background: ${color};`;
+        }
+        if (color.indexOf('gradient') !== -1) {
+          // 渐变色
+          // 边框置为none
+          style += 'border: none;';
+        } else {
+          style += `border-color:${color};`;
+        }
+      }
+      if (style !== baseStyle) {
+        this.setData({ baseStyle: style });
+      }
+    },
     // 点击按钮
     onClick() {
       const { disabled, loading } = this.properties;
