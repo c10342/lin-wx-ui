@@ -1,13 +1,23 @@
-import { getCompId, getElement, render } from '../utils.js';
+import {
+  getCompId,
+  getElement,
+  render,
+  querySelector,
+  loadTemplate,
+} from '../utils.js';
+
+let id;
+
+beforeAll(() => {
+  // id要唯一，不能每个测试用例都生成一次，不然会报错
+  // 或者可以调用  jest.resetModules()，就可以重复生成
+  id = getCompId('Button');
+});
 
 describe('属性', () => {
-  let id;
   let comp;
   let button;
-  beforeAll(() => {
-    // id要唯一，不能每个测试用例都生成一次，不然会报错
-    id = getCompId('Button');
-  });
+
   beforeEach(() => {
     comp = render(id);
     button = getElement(comp, '.lin-button');
@@ -173,5 +183,71 @@ describe('属性', () => {
         ''
       )
     );
+  });
+});
+
+describe('事件', () => {
+  let comp;
+  let button;
+  beforeEach(() => {
+    comp = render(id);
+    button = getElement(comp, '.lin-button');
+  });
+  // 点击按钮
+  test('click', async () => {
+    let fn;
+    // 默认情况
+    fn = await button.dispatchEvent('tap');
+    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalledTimes(1);
+    expect(fn).toBeCalledWith('click');
+
+    // 禁用情况
+    comp.setData({
+      disabled: true,
+    });
+    fn = await button.dispatchEvent('tap');
+    expect(fn).not.toBeCalled();
+  });
+});
+
+describe('插槽', () => {
+  test('default', () => {
+    const comp = loadTemplate({
+      usingComponents: {
+        'lin-button': id,
+      },
+      template: `<lin-button class='lin-button'>默认按钮</lin-button>`,
+    });
+    const element = querySelector(comp, '.lin-button');
+    expect(element.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('外部样式类', () => {
+  test('externalClasses', () => {
+    const comp = loadTemplate({
+      usingComponents: {
+        'lin-button': id,
+      },
+      template: `
+        <lin-button 
+        custom-class='class-custom'
+        loading-class='class-loading'
+        icon-class='class-icon'
+        hover-class='class-hover'
+        class='lin-button'
+        ></lin-button>
+        `,
+    });
+    const element = getElement(comp, '.lin-button');
+    expect(
+      element.hasExternalClass('custom-class', 'class-custom')
+    ).toBeTruthy();
+    expect(
+      element.hasExternalClass('loading-class', 'class-loading')
+    ).toBeTruthy();
+    expect(element.hasExternalClass('icon-class', 'class-icon')).toBeTruthy();
+    expect(element.hasExternalClass('hover-class', 'class-hover')).toBeTruthy();
   });
 });

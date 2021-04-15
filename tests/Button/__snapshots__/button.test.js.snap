@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`插槽 default 1`] = `
+<main
+  class="lin-button"
+>
+  <wx-button
+    appParameter=""
+    ariaLabel=""
+    businessId="{{0}}"
+    class="custom-class lin-button lin-button-default      lin-button-size-default"
+    data-detail="{{null}}"
+    formType=""
+    hoverClass="hover-class lin-button-hover"
+    id=""
+    lang=""
+    openType=""
+    sendMessageImg=""
+    sendMessagePath=""
+    sendMessageTitle=""
+    sessionFrom=""
+    showMessageCard="{{false}}"
+    style=""
+    bind:contact="bindContact"
+    bind:error="bindError"
+    bind:getphonenumber="bindGetPhoneNumber"
+    bind:getuserinfo="bindGetUserInfo"
+    bind:launchapp="bindLaunchApp"
+    bind:opensetting="bindOpenSetting"
+    bind:tap="onClick"
+  >
+    默认按钮
+  </wx-button>
+</main>
+`;
