@@ -37,9 +37,10 @@
     "commit": "git cz",
     "pub": "node ./build/publish.js",
     "prepublishOnly": "npm run build",
-    "test":"jest",
+    "test": "jest",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --verbose",
-    "test-watch":"jest --watch"
+    "test-watch": "jest --watch",
+    "codecov": "jest --coverage && codecov"
   },
   "husky": {
     "hooks": {
@@ -93,7 +94,7 @@
           "title": "style"
         },
         "test": {
-          "description": "文档更新",
+          "description": "单元测试",
           "title": "test"
         },
         "revert": {
@@ -115,6 +116,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^6.0.0",
     "cheerio": "^1.0.0-rc.3",
+    "codecov": "^3.8.1",
     "commitizen": "^4.2.2",
     "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
