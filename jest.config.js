@@ -1,6 +1,8 @@
 const path = require('path');
 
 module.exports = {
+  // 生成测试报告
+  // collectCoverage:true,
   bail: 1,
   verbose: true,
   rootDir: path.join(__dirname),
@@ -11,4 +13,10 @@ module.exports = {
   testEnvironment: 'jsdom',
   // 配置 jest-snapshot-plugin 从而在使用 jest 的 snapshot 功能时获得更加适合肉眼阅读的结构
   snapshotSerializers: ['miniprogram-simulate/jest-snapshot-plugin'],
+  collectCoverageFrom: [
+    '<rootDir>/packages/**/*.js',
+    '!<rootDir>/packages/common/**',
+    '!<rootDir>/packages/behaviors/**',
+    '!<rootDir>/packages/wxs/**',
+  ],
 };
