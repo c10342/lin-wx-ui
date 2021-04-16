@@ -137,5 +137,5 @@ module.exports = {
   compWxmlTemplate,
   pageJsTemplate,
   pageJsonTemplate,
-  pageWxmlTemplate,
+  pageWxmlTemplate
 };

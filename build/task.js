@@ -28,7 +28,7 @@ const buildWxss = (srcPath, distPath) => () =>
   src(srcPath)
     .pipe(
       gulpStylelint({
-        reporters: [{ formatter: 'string', console: true }],
+        reporters: [{ formatter: 'string', console: true }]
       })
     )
     .pipe(sass().on('error', sass.logError))
@@ -68,7 +68,7 @@ const buildWxml = (srcPath, distPath) => () =>
         removeComments: true,
         keepClosingSlash: true,
         caseSensitive: true,
-        collapseWhitespace: true,
+        collapseWhitespace: true
       })
     )
     .pipe(dest(distPath));
@@ -101,7 +101,7 @@ const copyStatic = (srcPath, distPath) => {
 
 const clean = (cleanPath) => () =>
   del(cleanPath, {
-    force: true,
+    force: true
   });
 
 module.exports = {
@@ -113,5 +113,5 @@ module.exports = {
   copyStatic,
   clean,
   copy,
-  buildWxs,
+  buildWxs
 };

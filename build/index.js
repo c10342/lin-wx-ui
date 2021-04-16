@@ -7,7 +7,7 @@ const {
   copy,
   copyStatic,
   clean,
-  buildWxs,
+  buildWxs
 } = require('./task');
 
 const { series, parallel, watch } = require('gulp');
@@ -51,5 +51,5 @@ module.exports = {
     watch('../packages/**/*.json', copy(packagesPath, examplePath, 'json'));
     watch('../packages/**/*.js', copy(packagesPath, examplePath, 'js'));
     watch('../packages/**/*.png', copy(packagesPath, examplePath, 'png'));
-  }),
+  })
 };

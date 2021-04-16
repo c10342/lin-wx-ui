@@ -84,5 +84,5 @@ module.exports = {
   createPackagesFile,
   createExampleFile,
   componentName,
-  componentNameLine,
+  componentNameLine
 };
