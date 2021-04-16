@@ -11,20 +11,20 @@ Page({
     radio5: '2',
     radio6: '2',
     radio7: '2',
-    radio8: '2',
+    radio8: '2'
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onClick(event) {
     const name = event.currentTarget.dataset.name;
     this.setData({
-      radio8: name,
+      radio8: name
     });
   },
 
@@ -66,5 +66,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

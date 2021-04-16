@@ -48,8 +48,8 @@ Page({
       'fail',
       'cart-o',
       'shop-o',
-      'chat-o',
-    ],
+      'chat-o'
+    ]
   },
 
   /**
@@ -90,5 +90,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

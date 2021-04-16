@@ -7,27 +7,27 @@ Page({
     activeNames2: '1',
     activeNames3: ['1'],
     activeNames4: [],
-    activeNames5: ['1'],
+    activeNames5: ['1']
   },
 
   onChange(event) {
     const { key } = event.currentTarget.dataset;
 
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onOpen(event) {
     wx.showToast({
       title: `展开: ${event.detail}`,
-      icon: 'none',
+      icon: 'none'
     });
   },
   onClose(event) {
     wx.showToast({
       title: `关闭: ${event.detail}`,
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -69,5 +69,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

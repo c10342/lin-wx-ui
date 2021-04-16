@@ -6,24 +6,24 @@ Page({
     activeKey1: 0,
     activeKey2: 1,
     activeKey3: 0,
-    activeKey4: 0,
+    activeKey4: 0
   },
 
   onChange(event) {
     const { key } = event.currentTarget.dataset;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onChange1(event) {
     const { key } = event.currentTarget.dataset;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
     wx.showToast({
       title: `标签${event.detail * 1 + 1}`,
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -65,5 +65,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

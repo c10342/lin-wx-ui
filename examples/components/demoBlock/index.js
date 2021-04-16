@@ -2,16 +2,16 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   /**
    * 组件的属性列表
    */
   properties: {
     title: {
-      type: String,
+      type: String
     },
-    titlePadding: Boolean,
+    titlePadding: Boolean
   },
 
   /**
@@ -22,5 +22,5 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {}
 });

@@ -5,12 +5,12 @@ Page({
   data: {
     time1: 30 * 60 * 60 * 1000,
     time2: 30 * 60 * 60 * 1000,
-    timeData: {},
+    timeData: {}
   },
 
   onChange(e) {
     this.setData({
-      timeData: e.detail,
+      timeData: e.detail
     });
   },
 
@@ -32,7 +32,7 @@ Page({
   finished() {
     wx.showToast({
       title: '倒计时结束',
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -74,5 +74,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

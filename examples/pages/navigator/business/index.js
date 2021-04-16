@@ -7,21 +7,21 @@ Page({
     list: [
       {
         name: 'Area 省市区选择',
-        path: '/pages/component/area/index',
+        path: '/pages/component/area/index'
       },
       {
         name: 'Card 商品卡片',
-        path: '/pages/component/card/index',
+        path: '/pages/component/card/index'
       },
       {
         name: 'SubmitBar 提交订单栏',
-        path: '/pages/component/submit-bar/index',
+        path: '/pages/component/submit-bar/index'
       },
       {
         name: 'GoodsAction 商品导航',
-        path: '/pages/component/goods-action/index',
-      },
-    ],
+        path: '/pages/component/goods-action/index'
+      }
+    ]
   },
 
   /**
@@ -62,5 +62,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

@@ -1,13 +1,13 @@
 // components/navCard/index.js
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   /**
    * 组件的属性列表
    */
   properties: {
-    dataInfo: Object,
+    dataInfo: Object
   },
 
   /**
@@ -23,6 +23,6 @@ Component({
       // console.log(this.data.dataInfo);
 
       this.triggerEvent('cardTap', this.data.dataInfo);
-    },
-  },
+    }
+  }
 });

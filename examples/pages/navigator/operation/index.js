@@ -7,37 +7,37 @@ Page({
     list: [
       {
         name: 'Mask 遮罩层',
-        path: '/pages/component/mask/index',
+        path: '/pages/component/mask/index'
       },
       {
         name: 'ActionSheet 上拉菜单',
-        path: '/pages/component/action-sheet/index',
+        path: '/pages/component/action-sheet/index'
       },
       {
         name: 'Dialog 弹出框',
-        path: '/pages/component/dialog/index',
+        path: '/pages/component/dialog/index'
       },
       {
         name: 'DropdownMenu 下拉菜单',
-        path: '/pages/component/dropdown-menu/index',
+        path: '/pages/component/dropdown-menu/index'
       },
       {
         name: 'Notify 消息提示',
-        path: '/pages/component/notify/index',
+        path: '/pages/component/notify/index'
       },
       {
         name: 'ShareSheet 分享面板',
-        path: '/pages/component/share-sheet/index',
+        path: '/pages/component/share-sheet/index'
       },
       {
         name: 'Toast 轻提示',
-        path: '/pages/component/toast/index',
+        path: '/pages/component/toast/index'
       },
       {
         name: 'SwipeCell 滑动单元格',
-        path: '/pages/component/swipe-cell/index',
-      },
-    ],
+        path: '/pages/component/swipe-cell/index'
+      }
+    ]
   },
 
   /**
@@ -78,5 +78,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

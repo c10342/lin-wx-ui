@@ -7,57 +7,57 @@ Page({
     list: [
       {
         name: 'Collapse 折叠面板',
-        path: '/pages/component/collapse/index',
+        path: '/pages/component/collapse/index'
       },
       {
         name: 'CountDown 倒计时',
-        path: '/pages/component/count-down/index',
+        path: '/pages/component/count-down/index'
       },
       {
         name: 'Divider 分割线',
-        path: '/pages/component/divider/index',
+        path: '/pages/component/divider/index'
       },
       {
         name: 'Empty 空状态',
-        path: '/pages/component/empty/index',
+        path: '/pages/component/empty/index'
       },
       {
         name: 'NoticeBar 通告栏',
-        path: '/pages/component/notice-bar/index',
+        path: '/pages/component/notice-bar/index'
       },
       {
         name: 'Panel 面板',
-        path: '/pages/component/panel/index',
+        path: '/pages/component/panel/index'
       },
       {
         name: 'Progress 进度条',
-        path: '/pages/component/progress/index',
+        path: '/pages/component/progress/index'
       },
       {
         name: 'Skeleton 骨架屏',
-        path: '/pages/component/skeleton/index',
+        path: '/pages/component/skeleton/index'
       },
       {
         name: 'Steps 步骤条',
-        path: '/pages/component/steps/index',
+        path: '/pages/component/steps/index'
       },
       {
         name: 'Sticky 粘性布局',
-        path: '/pages/component/sticky/index',
+        path: '/pages/component/sticky/index'
       },
       {
         name: 'Tag 标签',
-        path: '/pages/component/tag/index',
+        path: '/pages/component/tag/index'
       },
       {
         name: 'TreeSelect 分类选择',
-        path: '/pages/component/tree-select/index',
+        path: '/pages/component/tree-select/index'
       },
       {
         name: 'WaterFlow 瀑布流',
-        path: '/pages/component/water-flow/index',
-      },
-    ],
+        path: '/pages/component/water-flow/index'
+      }
+    ]
   },
 
   /**
@@ -98,5 +98,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

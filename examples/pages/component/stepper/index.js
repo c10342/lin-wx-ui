@@ -4,20 +4,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: 1,
+    value: 1
   },
 
   onChange(event) {
     wx.showToast({
       icon: 'none',
-      title: `当前值：${event.detail}`,
+      title: `当前值：${event.detail}`
     });
   },
 
   onChange1(event) {
     setTimeout(() => {
       this.setData({
-        value: event.detail,
+        value: event.detail
       });
     }, 3000);
   },
@@ -60,5 +60,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

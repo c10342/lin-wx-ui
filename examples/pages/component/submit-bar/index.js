@@ -3,19 +3,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    checked: true,
+    checked: true
   },
 
   onChange(event) {
     this.setData({
-      checked: event.detail,
+      checked: event.detail
     });
   },
 
   onSubmit() {
     wx.showToast({
       title: 'submit',
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -57,5 +57,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

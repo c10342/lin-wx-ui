@@ -15,7 +15,7 @@ Page({
         break;
       case 'right':
         Dialog.confirm({
-          message: '确定删除吗？',
+          message: '确定删除吗？'
         })
           .then(() => {
             instance.close();
@@ -31,13 +31,13 @@ Page({
       case 'left':
         Notify({
           type: 'primary',
-          message: `${name}${position}部分展示open事件被触发`,
+          message: `${name}${position}部分展示open事件被触发`
         });
         break;
       case 'right':
         Notify({
           type: 'primary',
-          message: `${name}${position}部分展示open事件被触发`,
+          message: `${name}${position}部分展示open事件被触发`
         });
         break;
     }
@@ -48,7 +48,7 @@ Page({
 
     Notify({
       type: 'danger',
-      message: `${name}${position}部分关闭close事件被触发`,
+      message: `${name}${position}部分关闭close事件被触发`
     });
   },
 
@@ -103,5 +103,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

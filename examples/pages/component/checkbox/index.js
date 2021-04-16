@@ -14,20 +14,20 @@ Page({
     result1: [],
     result2: [],
     result3: [],
-    list: ['a', 'b', 'c'],
+    list: ['a', 'b', 'c']
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onGroupChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
@@ -77,5 +77,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

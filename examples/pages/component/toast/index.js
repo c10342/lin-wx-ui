@@ -13,7 +13,7 @@ Page({
   onClick2() {
     Toast.loading({
       message: '加载中...',
-      forbidClick: true,
+      forbidClick: true
     });
   },
 
@@ -29,7 +29,7 @@ Page({
     const toast = Toast.loading({
       duration: 0, // 持续展示 toast
       forbidClick: true,
-      message: '倒计时 3 秒',
+      message: '倒计时 3 秒'
     });
 
     let second = 3;
@@ -37,7 +37,7 @@ Page({
       second--;
       if (second) {
         toast.setData({
-          message: `倒计时 ${second} 秒`,
+          message: `倒计时 ${second} 秒`
         });
       } else {
         clearInterval(timer);
@@ -84,5 +84,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

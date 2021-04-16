@@ -7,7 +7,7 @@ Page({
     active2: 'like',
     active3: 0,
     active4: 0,
-    active5: 0,
+    active5: 0
   },
 
   onChange(event) {
@@ -53,5 +53,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

@@ -9,13 +9,13 @@ Page({
   data: {
     areaList: {},
     value: '',
-    loading: false,
+    loading: false
   },
 
   onConfirm(event) {
     const data = event.detail;
     this.setData({
-      value: data[data.length - 1].code,
+      value: data[data.length - 1].code
     });
   },
 
@@ -25,13 +25,13 @@ Page({
       .then((res) => {
         this.setData({
           areaList: res,
-          loading: false,
+          loading: false
         });
       })
       .catch(() => {
         wx.showToast({
           title: '请求失败',
-          icon: 'none',
+          icon: 'none'
         });
         this.setData({ loading: false });
       });
@@ -77,5 +77,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

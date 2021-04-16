@@ -9,26 +9,26 @@ Page({
     value3: '',
     value4: '',
     value5: '',
-    value6: '',
+    value6: ''
   },
 
   onSearch(event) {
     wx.showToast({
       icon: 'none',
-      title: event.detail,
+      title: event.detail
     });
   },
 
   onCancel(event) {
     wx.showToast({
       icon: 'none',
-      title: '取消',
+      title: '取消'
     });
   },
 
   onClick() {
     wx.showToast({
-      title: 'click',
+      title: 'click'
     });
   },
 
@@ -70,5 +70,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

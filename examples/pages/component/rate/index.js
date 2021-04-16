@@ -10,13 +10,13 @@ Page({
     value4: 2.5,
     value5: 2,
     value6: 2,
-    value7: 2,
+    value7: 2
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
@@ -58,5 +58,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

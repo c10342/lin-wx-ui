@@ -5,7 +5,7 @@ Page({
    */
   data: {
     show1: false,
-    show2: false,
+    show2: false
   },
 
   onClick(event) {
@@ -56,5 +56,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

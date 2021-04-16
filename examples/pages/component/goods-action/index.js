@@ -8,7 +8,7 @@ Page({
     // Toast('点击图标');
     wx.showToast({
       title: '点击图标',
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -16,7 +16,7 @@ Page({
     // Toast('点击按钮');
     wx.showToast({
       title: '点击按钮',
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -58,5 +58,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

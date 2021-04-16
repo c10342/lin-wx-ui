@@ -5,13 +5,13 @@ Page({
   data: {
     show: {
       primary: true,
-      success: true,
-    },
+      success: true
+    }
   },
 
   onClose(event) {
     this.setData({
-      [`show.${event.target.id}`]: false,
+      [`show.${event.target.id}`]: false
     });
   },
 
@@ -53,5 +53,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

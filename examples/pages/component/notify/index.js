@@ -18,13 +18,13 @@ Page({
     Notify({
       message: '自定义颜色',
       color: '#ad0000',
-      background: '#ffe1e1',
+      background: '#ffe1e1'
     });
   },
   onClick4() {
     Notify({
       message: '自定义时长',
-      duration: 1000,
+      duration: 1000
     });
   },
 
@@ -66,5 +66,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

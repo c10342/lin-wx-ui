@@ -9,24 +9,24 @@ Page({
     value3: 50,
     value4: 50,
     value5: 50,
-    value6: 50,
+    value6: 50
   },
 
   onDrag(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
     wx.showToast({
       icon: 'none',
-      title: `当前值是${event.detail}`,
+      title: `当前值是${event.detail}`
     });
   },
 
@@ -68,5 +68,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

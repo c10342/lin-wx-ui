@@ -15,7 +15,7 @@ class VersionUtil {
               if (res.confirm) {
                 updateManager.applyUpdate();
               }
-            },
+            }
           });
         });
 
@@ -23,7 +23,7 @@ class VersionUtil {
           // 新版本下载失败
           wx.showModal({
             title: '更新提示',
-            content: '有新版本啦！删除当前小程序，重新打开就能更新啦！',
+            content: '有新版本啦！删除当前小程序，重新打开就能更新啦！'
           });
         });
       }

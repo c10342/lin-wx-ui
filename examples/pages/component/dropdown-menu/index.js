@@ -6,30 +6,30 @@ Page({
     option1: [
       {
         text: '全部商品',
-        value: 0,
+        value: 0
       },
       {
         text: '新款商品',
-        value: 1,
+        value: 1
       },
       {
         text: '活动商品',
-        value: 2,
-      },
+        value: 2
+      }
     ],
     option2: [
       {
         text: '默认排序',
-        value: 'a',
+        value: 'a'
       },
       {
         text: '好评排序',
-        value: 'b',
+        value: 'b'
       },
       {
         text: '销量排序',
-        value: 'c',
-      },
+        value: 'c'
+      }
     ],
     value1: 0,
     value2: 'a',
@@ -51,31 +51,31 @@ Page({
     option3: [
       {
         text: '全部商品',
-        value: 0,
+        value: 0
       },
       {
         text: '新款商品',
-        value: 1,
+        value: 1
       },
       {
         text: '活动商品',
-        value: 2,
-      },
+        value: 2
+      }
     ],
-    value3: 0,
+    value3: 0
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
   onSwitchChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
@@ -121,5 +121,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

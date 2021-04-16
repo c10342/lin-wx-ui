@@ -12,7 +12,7 @@ Page({
     show6: false,
     show7: false,
     show8: false,
-    show9: false,
+    show9: false
   },
 
   setShowData(event) {
@@ -63,5 +63,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

@@ -1,6 +1,6 @@
 const citys = {
   浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-  福建: ['福州', '厦门', '莆田', '三明', '泉州'],
+  福建: ['福州', '厦门', '莆田', '三明', '泉州']
 };
 
 Page({
@@ -12,25 +12,25 @@ Page({
     columns2: [
       {
         values: Object.keys(citys),
-        className: 'column1',
+        className: 'column1'
       },
       {
         values: citys['浙江'],
         className: 'column2',
-        defaultIndex: 2,
-      },
+        defaultIndex: 2
+      }
     ],
     columns3: [
       { text: '杭州', disabled: true },
       { text: '宁波' },
-      { text: '温州' },
-    ],
+      { text: '温州' }
+    ]
   },
 
   onChange(data) {
     wx.showToast({
       title: `${data.detail.index} - ${data.detail.value}`,
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -43,13 +43,13 @@ Page({
   onCancel(event) {
     wx.showToast({
       title: '取消',
-      icon: 'none',
+      icon: 'none'
     });
   },
   onConfirm(event) {
     wx.showToast({
       title: event.detail.value,
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -91,5 +91,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

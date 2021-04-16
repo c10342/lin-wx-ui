@@ -5,7 +5,7 @@ Page({
    */
   data: {
     imageUrl: ['xx.png', 'aa.png'],
-    imgSrc: ['/images/cat.png'],
+    imgSrc: ['/images/cat.png']
   },
 
   /**
@@ -46,5 +46,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

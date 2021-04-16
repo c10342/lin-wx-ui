@@ -29,16 +29,16 @@ Page({
       'W',
       'X',
       'Y',
-      'Z',
+      'Z'
     ],
     indexList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    activeTab: '1',
+    activeTab: '1'
   },
 
   onTabClick(event) {
     const { index } = event.currentTarget.dataset;
     this.setData({
-      activeTab: index,
+      activeTab: index
     });
   },
 
@@ -80,5 +80,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

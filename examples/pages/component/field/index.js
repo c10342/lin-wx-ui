@@ -12,14 +12,14 @@ Page({
     value6: '',
     value7: '',
     value8: '',
-    errorMessage: '用户名不能为空',
+    errorMessage: '用户名不能为空'
   },
 
   onChange(event) {
     const { key } = event.currentTarget.dataset;
 
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
@@ -61,5 +61,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

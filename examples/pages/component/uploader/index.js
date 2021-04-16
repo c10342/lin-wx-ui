@@ -7,7 +7,7 @@ Page({
     fileList2: [
       {
         url: '/images/cat.png',
-        name: '图片1',
+        name: '图片1'
       },
       // Uploader 根据文件后缀来判断是否为图片文件
       // 如果图片 URL 中不包含类型信息，可以添加 isImage 标记来声明
@@ -15,26 +15,26 @@ Page({
         url: '/images/cat.png',
         name: '图片2',
         isImage: true,
-        deletable: true,
-      },
+        deletable: true
+      }
     ],
     fileList3: [],
     fileList4: [
       {
         url: '/images/cat.png',
         status: 'uploading',
-        message: '上传中',
+        message: '上传中'
       },
       {
         url: '/images/cat.png',
         status: 'failed',
-        message: '上传失败',
-      },
+        message: '上传失败'
+      }
     ],
     fileList5: [],
     fileList6: [],
     fileList7: [],
-    fileList8: [],
+    fileList8: []
   },
 
   afterRead(event) {
@@ -46,10 +46,10 @@ Page({
       file.path = file.tempFilePath;
     }
     fileList.push({
-      ...file,
+      ...file
     });
     this.setData({
-      [key]: fileList,
+      [key]: fileList
     });
   },
 
@@ -59,7 +59,7 @@ Page({
     const fileList = this.data[key];
     fileList.splice(index, 1);
     this.setData({
-      [key]: fileList,
+      [key]: fileList
     });
   },
 
@@ -69,10 +69,10 @@ Page({
     const fileList = this.data[key];
     fileList.push({
       ...file,
-      isVideo: true,
+      isVideo: true
     });
     this.setData({
-      [key]: fileList,
+      [key]: fileList
     });
   },
 
@@ -85,7 +85,7 @@ Page({
       callback(false);
       wx.showToast({
         title: '只能上传jpg图片',
-        icon: 'none',
+        icon: 'none'
       });
     }
   },
@@ -128,5 +128,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

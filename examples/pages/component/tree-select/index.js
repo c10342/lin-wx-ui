@@ -9,43 +9,43 @@ Page({
         children: [
           {
             text: '杭州',
-            id: 1,
+            id: 1
           },
           {
             text: '温州',
-            id: 2,
+            id: 2
           },
           {
             text: '宁波',
             id: 3,
-            disabled: true,
+            disabled: true
           },
           {
             text: '义乌',
-            id: 4,
-          },
-        ],
+            id: 4
+          }
+        ]
       },
       {
         text: '江苏',
         children: [
           {
             text: '南京',
-            id: 5,
+            id: 5
           },
           {
             text: '无锡',
-            id: 6,
+            id: 6
           },
           {
             text: '徐州',
-            id: 7,
+            id: 7
           },
           {
             text: '苏州',
-            id: 8,
-          },
-        ],
+            id: 8
+          }
+        ]
       },
       {
         text: '福建',
@@ -53,14 +53,14 @@ Page({
         children: [
           {
             text: '泉州',
-            id: 9,
+            id: 9
           },
           {
             text: '厦门',
-            id: 10,
-          },
-        ],
-      },
+            id: 10
+          }
+        ]
+      }
     ],
     mainActiveIndex1: 0,
     activeId1: null,
@@ -73,11 +73,11 @@ Page({
     activeId3: null,
     items3: [
       {
-        text: '分组1',
+        text: '分组1'
       },
       {
-        text: '分组2',
-      },
+        text: '分组2'
+      }
     ],
 
     mainActiveIndex4: 0,
@@ -89,21 +89,21 @@ Page({
         children: [
           {
             text: '杭州',
-            id: 1,
+            id: 1
           },
           {
             text: '温州',
-            id: 2,
+            id: 2
           },
           {
             text: '宁波',
-            id: 3,
+            id: 3
           },
           {
             text: '义乌',
-            id: 4,
-          },
-        ],
+            id: 4
+          }
+        ]
       },
       {
         text: '江苏',
@@ -111,42 +111,42 @@ Page({
         children: [
           {
             text: '南京',
-            id: 5,
+            id: 5
           },
           {
             text: '无锡',
-            id: 6,
+            id: 6
           },
           {
             text: '徐州',
-            id: 7,
+            id: 7
           },
           {
             text: '苏州',
-            id: 8,
-          },
-        ],
+            id: 8
+          }
+        ]
       },
       {
         text: '福建',
         children: [
           {
             text: '泉州',
-            id: 9,
+            id: 9
           },
           {
             text: '厦门',
-            id: 10,
-          },
-        ],
-      },
-    ],
+            id: 10
+          }
+        ]
+      }
+    ]
   },
 
   onClickNav1({ detail = {}, currentTarget }) {
     const { index } = currentTarget.dataset;
     this.setData({
-      [index]: detail.index || 0,
+      [index]: detail.index || 0
     });
   },
 
@@ -154,12 +154,12 @@ Page({
     const { key } = currentTarget.dataset;
     const activeId = this.data[key] === detail.id ? null : detail.id;
     this.setData({
-      [key]: activeId,
+      [key]: activeId
     });
   },
   onClickNav2({ detail = {} }) {
     this.setData({
-      mainActiveIndex2: detail.index || 0,
+      mainActiveIndex2: detail.index || 0
     });
   },
 
@@ -174,7 +174,7 @@ Page({
     }
 
     this.setData({
-      activeId2,
+      activeId2
     });
   },
 
@@ -216,5 +216,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

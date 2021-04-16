@@ -12,20 +12,20 @@ Page({
     active7: 0,
     active8: 0,
     active9: 0,
-    show: false,
+    show: false
   },
 
   onChange(event) {
     const { key } = event.currentTarget.dataset;
     this.setData({
-      [key]: event.detail.name,
+      [key]: event.detail.name
     });
   },
 
   onClickDisabled(event) {
     wx.showToast({
       title: `标签 ${event.detail.name + 1} 已被禁用`,
-      icon: 'none',
+      icon: 'none'
     });
   },
 
@@ -75,5 +75,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

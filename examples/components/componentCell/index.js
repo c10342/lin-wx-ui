@@ -1,13 +1,13 @@
 // components/componentCell/index.js
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   /**
    * 组件的属性列表
    */
   properties: {
-    dataInfo: Object,
+    dataInfo: Object
   },
 
   /**
@@ -21,8 +21,8 @@ Component({
   methods: {
     onCellClick() {
       wx.navigateTo({
-        url: this.data.dataInfo.path,
+        url: this.data.dataInfo.path
       });
-    },
-  },
+    }
+  }
 });

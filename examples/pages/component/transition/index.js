@@ -15,7 +15,7 @@ Page({
     show9: false,
     show10: false,
     time: 1000,
-    isShow: false,
+    isShow: false
   },
 
   setShowData(event) {
@@ -75,5 +75,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

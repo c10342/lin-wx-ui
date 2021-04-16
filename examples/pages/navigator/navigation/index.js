@@ -7,29 +7,29 @@ Page({
     list: [
       {
         name: 'Grid 宫格',
-        path: '/pages/component/grid/index',
+        path: '/pages/component/grid/index'
       },
       {
         name: 'IndexBar 索引栏',
-        path: '/pages/component/index-bar/index',
+        path: '/pages/component/index-bar/index'
       },
       {
         name: 'Sidebar 侧边导航',
-        path: '/pages/component/sidebar/index',
+        path: '/pages/component/sidebar/index'
       },
       {
         name: 'NavBar 导航栏',
-        path: '/pages/component/nav-bar/index',
+        path: '/pages/component/nav-bar/index'
       },
       {
         name: 'Tab 标签页',
-        path: '/pages/component/tab/index',
+        path: '/pages/component/tab/index'
       },
       {
         name: 'Tabbar 标签栏',
-        path: '/pages/component/tabbar/index',
-      },
-    ],
+        path: '/pages/component/tabbar/index'
+      }
+    ]
   },
 
   /**
@@ -70,5 +70,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

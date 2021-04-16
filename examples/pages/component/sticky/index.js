@@ -5,7 +5,7 @@ Page({
   data: {
     container: null,
     scrollTop: 0,
-    offsetTop: 0,
+    offsetTop: 0
   },
 
   onScroll(event) {
@@ -14,7 +14,7 @@ Page({
       .boundingClientRect((res) => {
         this.setData({
           scrollTop: event.detail.scrollTop,
-          offsetTop: res.top,
+          offsetTop: res.top
         });
       })
       .exec();
@@ -30,7 +30,7 @@ Page({
    */
   onReady: function () {
     this.setData({
-      container: () => wx.createSelectorQuery().select('#container'),
+      container: () => wx.createSelectorQuery().select('#container')
     });
   },
 
@@ -62,5 +62,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

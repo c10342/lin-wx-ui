@@ -5,24 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    show: false,
+    show: false
   },
 
   onClick1() {
     Dialog.alert({
       title: '标题',
-      message: '弹窗内容',
+      message: '弹窗内容'
     }).then(() => {});
   },
   onClick2() {
     Dialog.alert({
-      message: '弹窗内容',
+      message: '弹窗内容'
     }).then(() => {});
   },
   onClick3() {
     Dialog.confirm({
       title: '标题',
-      message: '弹窗内容',
+      message: '弹窗内容'
     })
       .then(() => {})
       .catch(() => {});
@@ -31,7 +31,7 @@ Page({
     Dialog.alert({
       title: '标题',
       message: '弹窗内容',
-      theme: 'round-button',
+      theme: 'round-button'
     }).then(() => {
       // on close
     });
@@ -39,7 +39,7 @@ Page({
   onClick5() {
     Dialog.alert({
       message: '弹窗内容',
-      theme: 'round-button',
+      theme: 'round-button'
     }).then(() => {
       // on close
     });
@@ -48,7 +48,7 @@ Page({
     Dialog.confirm({
       title: '标题',
       message: '弹窗内容',
-      asyncClose: true,
+      asyncClose: true
     })
       .then(() => {
         setTimeout(() => {
@@ -61,7 +61,7 @@ Page({
   },
   onClick7() {
     this.setData({
-      show: true,
+      show: true
     });
   },
   onClose() {
@@ -106,5 +106,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

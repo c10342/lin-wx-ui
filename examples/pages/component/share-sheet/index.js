@@ -8,24 +8,24 @@ Page({
       {
         name: '微信',
         icon: 'wechat',
-        openType: 'share',
+        openType: 'share'
       },
       {
         name: '微博',
-        icon: 'weibo',
+        icon: 'weibo'
       },
       {
         name: '复制链接',
-        icon: 'link',
+        icon: 'link'
       },
       {
         name: '分享海报',
-        icon: 'pic',
+        icon: 'pic'
       },
       {
         name: '二维码',
-        icon: 'qrcode',
-      },
+        icon: 'qrcode'
+      }
     ],
 
     showShare2: false,
@@ -33,13 +33,13 @@ Page({
       [
         { name: '微信', icon: 'wechat' },
         { name: '微博', icon: 'weibo' },
-        { name: 'QQ', icon: 'qq' },
+        { name: 'QQ', icon: 'qq' }
       ],
       [
         { name: '复制链接', icon: 'link' },
         { name: '分享海报', icon: 'pic' },
-        { name: '二维码', icon: 'qrcode' },
-      ],
+        { name: '二维码', icon: 'qrcode' }
+      ]
     ],
 
     showShare3: false,
@@ -47,18 +47,18 @@ Page({
       {
         name: '名称',
         isImage: true,
-        icon: '/images/cat.png',
+        icon: '/images/cat.png'
       },
       {
         name: '名称',
         isImage: true,
-        icon: '/images/cat.png',
+        icon: '/images/cat.png'
       },
       {
         name: '名称',
         isImage: true,
-        icon: '/images/cat.png',
-      },
+        icon: '/images/cat.png'
+      }
     ],
     showShare4: false,
     options4: [
@@ -67,24 +67,24 @@ Page({
       {
         name: '复制链接',
         icon: 'link',
-        description: '描述信息',
+        description: '描述信息'
       },
       { name: '分享海报', icon: 'pic' },
-      { name: '二维码', icon: 'qrcode' },
-    ],
+      { name: '二维码', icon: 'qrcode' }
+    ]
   },
 
   onClick(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: true,
+      [key]: true
     });
   },
 
   onClose(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: false,
+      [key]: false
     });
   },
 
@@ -92,7 +92,7 @@ Page({
     // Toast(event.detail.name);
     wx.showToast({
       title: event.detail.name,
-      icon: 'none',
+      icon: 'none'
     });
     this.onClose(event);
   },
@@ -135,5 +135,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

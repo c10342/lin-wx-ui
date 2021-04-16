@@ -9,13 +9,13 @@ Page({
     value4: true,
     value5: true,
     value6: true,
-    value7: true,
+    value7: true
   },
 
   onChange(event) {
     const key = event.currentTarget.dataset.key;
     this.setData({
-      [key]: event.detail,
+      [key]: event.detail
     });
   },
 
@@ -27,10 +27,10 @@ Page({
         if (res.confirm) {
           const key = event.currentTarget.dataset.key;
           this.setData({
-            [key]: event.detail,
+            [key]: event.detail
           });
         }
-      },
+      }
     });
   },
 
@@ -72,5 +72,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

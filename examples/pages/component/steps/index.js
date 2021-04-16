@@ -6,38 +6,38 @@ Page({
     steps1: [
       {
         text: '步骤一',
-        desc: '描述信息',
+        desc: '描述信息'
       },
       {
         text: '步骤二',
-        desc: '描述信息',
+        desc: '描述信息'
       },
       {
         text: '步骤三',
-        desc: '描述信息',
+        desc: '描述信息'
       },
       {
         text: '步骤四',
-        desc: '描述信息',
-      },
+        desc: '描述信息'
+      }
     ],
     active1: 0,
     steps2: [
       {
-        text: '步骤一',
+        text: '步骤一'
       },
       {
-        text: '步骤二',
+        text: '步骤二'
       },
       {
-        text: '步骤三',
+        text: '步骤三'
       },
       {
-        text: '步骤四',
-      },
+        text: '步骤四'
+      }
     ],
     active2: 0,
-    active3: 0,
+    active3: 0
   },
 
   onClick(event) {
@@ -48,7 +48,7 @@ Page({
       index = 0;
     }
     this.setData({
-      [key]: index,
+      [key]: index
     });
   },
 
@@ -90,5 +90,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

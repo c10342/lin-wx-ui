@@ -12,8 +12,8 @@ Page({
       { name: 'Layout 布局', path: '/pages/component/layout/index' },
       { name: 'Cell 单元格', path: '/pages/component/cell/index' },
       { name: 'Transition 动画', path: '/pages/component/transition/index' },
-      { name: 'Popup 弹出层', path: '/pages/component/popup/index' },
-    ],
+      { name: 'Popup 弹出层', path: '/pages/component/popup/index' }
+    ]
   },
 
   /**
@@ -54,5 +54,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });

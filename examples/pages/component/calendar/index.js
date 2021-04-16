@@ -16,7 +16,7 @@ Page({
     disabledRangeDate: ['2020-10-10', '2020-10-15'],
     show5: false,
     date5: '2020-10-25',
-    disabledDate: ['2020-10-22', '2020-10-16'],
+    disabledDate: ['2020-10-22', '2020-10-16']
   },
 
   setShowData(event) {
@@ -34,7 +34,7 @@ Page({
     const show = event.currentTarget.dataset.show;
     this.setData({
       [key]: event.detail,
-      [show]: false,
+      [show]: false
     });
   },
 
@@ -81,5 +81,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () {}
 });
