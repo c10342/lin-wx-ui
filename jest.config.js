@@ -17,6 +17,6 @@ module.exports = {
     '<rootDir>/packages/**/*.js',
     '!<rootDir>/packages/common/**',
     '!<rootDir>/packages/behaviors/**',
-    '!<rootDir>/packages/wxs/**',
-  ],
+    '!<rootDir>/packages/wxs/**'
+  ]
 };

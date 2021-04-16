@@ -57,10 +57,10 @@ const vueMarkdown = {
                           <div slot="highlight">`;
           }
           return '</div></demo-block>\n';
-        },
-      },
-    ],
-  ],
+        }
+      }
+    ]
+  ]
 };
 
 module.exports = {
@@ -77,22 +77,22 @@ module.exports = {
       title: '组件文档',
       // 在这个页面中包含的块，默认情况下会包含
       // 提取出来的通用 chunk 和 vendor chunk。
-      chunks: ['chunk-vendors', 'chunk-common', 'index'],
-    },
+      chunks: ['chunk-vendors', 'chunk-common', 'index']
+    }
   },
   productionSourceMap: false,
   outputDir: utils.resolve('docs-dist'),
   devServer: {
-    open: true,
+    open: true
   },
   configureWebpack: {
-    resolve: { extensions: ['.js', '.vue', '.json', 'md'] },
+    resolve: { extensions: ['.js', '.vue', '.json', 'md'] }
   },
   css: {
     sourceMap: false,
     extract: {
-      filename: 'css/style.css',
-    },
+      filename: 'css/style.css'
+    }
   },
   chainWebpack: (config) => {
     config.module
@@ -116,7 +116,7 @@ module.exports = {
       .loader('vue-markdown-loader/lib/markdown-compiler')
       .options({
         raw: true,
-        ...vueMarkdown,
+        ...vueMarkdown
       });
 
     config.plugin('CopyWebpackPlugin').use(CopyWebpackPlugin, [
@@ -127,10 +127,10 @@ module.exports = {
             to: `${__dirname}/docs-dist`,
             transformPath(targetPath, absolutePath) {
               return targetPath.replace(`docs${path.sep}public`, '');
-            },
-          },
-        ],
-      },
+            }
+          }
+        ]
+      }
     ]);
-  },
+  }
 };
