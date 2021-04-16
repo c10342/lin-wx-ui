@@ -14,7 +14,10 @@ export function mounted(compName, props = {}) {
 
 export function getCompId(compName) {
   return simulate.load(
-    path.resolve(__dirname, `./../packages/${compName}/index`)
+    path.resolve(__dirname, `./../packages/${compName}/index`),
+    {
+      rootPath: path.resolve('packages/'),
+    }
   );
 }
 
@@ -82,6 +85,11 @@ class CompUtils {
     }
     return false;
   }
+
+  getHtml() {
+    this.initDom();
+    return this.component.dom.innerHTML;
+  }
 }
 
 // 判断是否存在类名
@@ -95,7 +103,7 @@ function hasClassName(component, classname) {
 }
 
 //  获取元素上面的属性
-function getAttribute(component, attr) {
+export function getAttribute(component, attr) {
   const attrsArr = component.dom.__wxElement._vt.attrs;
   const attrs = {};
   for (let i = 0; i < attrsArr.length; i++) {
@@ -113,4 +121,8 @@ function getExternalClasses(component, externalClass) {
 
 export function querySelector(context, selector) {
   return context.querySelector(selector);
+}
+
+export function querySelectorAll(context, selector) {
+  return context.querySelectorAll(selector);
 }
