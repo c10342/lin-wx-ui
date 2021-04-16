@@ -2,7 +2,7 @@ Component({
   name: 'Form',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'footer-class'],
   relations: {
@@ -15,27 +15,27 @@ Component({
       },
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      },
-    },
+      }
+    }
   },
   properties: {
     // 表单域标签的宽度
     labelWidth: {
       type: [String, Number],
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 表单域对齐方式
     flexDirection: {
       type: String,
       value: 'row',
       options: ['column', 'row'],
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 表单验证规则
     rules: {
       type: Object,
       value: {},
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 表单数据对象
     model: {
@@ -54,8 +54,8 @@ Component({
             child.checkValueByTrigger('change');
           }
         });
-      },
-    },
+      }
+    }
   },
   data: {},
   methods: {
@@ -108,7 +108,7 @@ Component({
         }
       });
       return diffData;
-    },
+    }
   },
   created: function () {
     // 更新FormItem组件
@@ -117,5 +117,5 @@ Component({
   attached: function () {},
   ready: function () {},
   moved: function () {},
-  detached: function () {},
+  detached: function () {}
 });

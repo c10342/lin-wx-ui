@@ -42,7 +42,7 @@ const defaultOptions = {
   // 是否展示取消按钮
   closeOnClickMask: false,
   // 确认按钮的微信开放能力
-  confirmButtonOpenType: '',
+  confirmButtonOpenType: ''
 };
 
 // 当前配置
@@ -58,7 +58,7 @@ const Dialog = (options) => {
   // 合并配置
   options = {
     ...currentOptions,
-    ...options,
+    ...options
   };
 
   return new Promise((resolve, reject) => {
@@ -75,7 +75,7 @@ const Dialog = (options) => {
       dialog.setData({
         onCancel: reject,
         onConfirm: resolve,
-        ...options,
+        ...options
       });
 
       wx.nextTick(() => {
@@ -99,7 +99,7 @@ Dialog.alert = (options) => Dialog(options);
 Dialog.confirm = (options) =>
   Dialog({
     showCancelButton: true,
-    ...options,
+    ...options
   });
 
 // 关闭所有弹窗

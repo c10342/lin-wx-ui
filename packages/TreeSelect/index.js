@@ -2,62 +2,62 @@ Component({
   name: 'TreeSelect',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'nav-class',
     'nav-item-class',
     'content-class',
-    'content-item-class',
+    'content-item-class'
   ],
   properties: {
     // 分类显示所需的数据
     items: {
       type: Array,
       value: [],
-      observer: 'updateSubItems',
+      observer: 'updateSubItems'
     },
     // 左侧选中项的索引
     mainActiveIndex: {
       type: Number,
       value: 0,
-      observer: 'updateSubItems',
+      observer: 'updateSubItems'
     },
     // 左侧显示文字的字段
     navLabelKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     // 右侧显示文字的字段
     contentLabelKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     // 右侧值的字段
     contentValueKey: {
       type: String,
-      value: 'id',
+      value: 'id'
     },
     // 右侧选中项的值
     activeId: {
-      type: null,
+      type: null
     },
     // 右侧项最大选中个数
     max: {
       type: Number,
-      value: Infinity,
+      value: Infinity
     },
     // 自定义右侧栏选中状态的图标
     selectedIcon: String,
     // 高度，默认单位为 px
     height: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   data: {
     // 右侧选项数据
-    subItems: [],
+    subItems: []
   },
   methods: {
     // 左侧选中项的索引发生变化时触发
@@ -66,7 +66,7 @@ Component({
       // 找出对象选项数据
       const { children = [] } = items[mainActiveIndex] || {};
       this.setData({
-        subItems: children,
+        subItems: children
       });
     },
     // 点击左侧选项
@@ -99,11 +99,11 @@ Component({
       if (!isOverMax || isSelect) {
         this.triggerEvent('item-click', item);
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

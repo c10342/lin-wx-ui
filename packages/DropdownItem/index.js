@@ -3,7 +3,7 @@ import defaultProps from '../DropdownMenu/props';
 Component({
   name: 'DropdownItem',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'item-class'],
   relations: {
@@ -16,35 +16,35 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 当前选中项对应的 value
     value: {
       type: null,
-      observer: 'rerender',
+      observer: 'rerender'
     },
     // 菜单项标题
     title: {
       type: String,
-      observer: 'rerender',
+      observer: 'rerender'
     },
     // 选项数组
     options: {
       type: Array,
       value: [],
-      observer: 'rerender',
+      observer: 'rerender'
     },
     // 是否禁用菜单
     disabled: Boolean,
     // 标题额外类名
     titleClass: {
       type: String,
-      observer: 'rerender',
+      observer: 'rerender'
     },
     // 自定义弹出层样式
-    popupStyle: String,
+    popupStyle: String
   },
   data: {
     // 根节点样式
@@ -64,7 +64,7 @@ Component({
     // 是否显示遮罩层
     mask: defaultProps.mask,
     // 是否可以点击遮罩层
-    closeOnClickMask: defaultProps.closeOnClickMask,
+    closeOnClickMask: defaultProps.closeOnClickMask
   },
   methods: {
     // 点击选项
@@ -82,7 +82,7 @@ Component({
       // 关闭该组件
       this.setData({
         transition: true,
-        showPopup: false,
+        showPopup: false
       });
       // 更新DropdownMenu父组件
       this.rerender();
@@ -139,7 +139,7 @@ Component({
       }
       this.setData({
         transition: !immediate,
-        showPopup: false,
+        showPopup: false
       });
       this.rerender();
     },
@@ -150,14 +150,14 @@ Component({
       }
       this.setData({
         showPopup: true,
-        transition: !immediate,
+        transition: !immediate
       });
       if (this.parent) {
         // 获取组件固定定位的样式数据
         this.parent.getChildWrapperStyle().then((wrapperStyle) => {
           this.setData({
             wrapperStyle,
-            showWrapper: true,
+            showWrapper: true
           });
           this.rerender();
         });
@@ -176,21 +176,21 @@ Component({
           // 是否显示遮罩层
           mask,
           // 是否在点击遮罩层后关闭菜单
-          closeOnClickMask,
+          closeOnClickMask
         } = this.parent.properties;
         this.setData({
           activeColor,
           duration,
           direction,
           mask,
-          closeOnClickMask,
+          closeOnClickMask
         });
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

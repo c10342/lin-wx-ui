@@ -4,33 +4,33 @@ Component({
   name: 'CountDown',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
     // 倒计时时长，单位毫秒
     time: {
       type: Number,
-      observer: 'updateTime',
+      observer: 'updateTime'
     },
     // 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒
     format: {
       type: String,
-      value: 'HH:mm:ss',
+      value: 'HH:mm:ss'
     },
     // 是否自动开始倒计时
     autoStart: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否开启毫秒级渲染
     millisecond: Boolean,
     // 是否使用自定义样式插槽
-    useSlot: Boolean,
+    useSlot: Boolean
   },
   data: {
     // 格式化之后的时间文本
-    formattedTime: '0',
+    formattedTime: '0'
   },
   methods: {
     // 更新时间
@@ -123,7 +123,7 @@ Component({
       this.triggerEvent('change', timeDate);
       // 设置时间文本
       this.setData({
-        formattedTime: parseFormat(format, timeDate),
+        formattedTime: parseFormat(format, timeDate)
       });
 
       if (currentTime === 0) {
@@ -131,7 +131,7 @@ Component({
         this.pause();
         this.triggerEvent('finish');
       }
-    },
+    }
   },
   created() {
     // 定时器
@@ -151,5 +151,5 @@ Component({
       clearTimeout(this.timer);
       this.timer = null;
     }
-  },
+  }
 });

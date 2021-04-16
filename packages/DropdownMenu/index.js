@@ -8,7 +8,7 @@ Component({
   name: 'DropdownMenu',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'wrapper-class', 'item-class'],
   relations: {
@@ -23,55 +23,55 @@ Component({
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateItemListData();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 菜单标题和选项的选中态颜色
     activeColor: {
       type: String,
       value: defaulrProps.activeColor,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     // 菜单栏 z-index 层级
     zIndex: {
       type: Number,
-      value: 10,
+      value: 10
     },
     // 动画时长，单位毫秒
     duration: {
       type: Number,
       value: defaulrProps.duration,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     // 菜单展开方向
     direction: {
       type: String,
       value: defaulrProps.direction,
       options: ['down', 'up'],
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     // 是否显示遮罩层
     mask: {
       type: Boolean,
       value: defaulrProps.mask,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     // 是否在点击遮罩层后关闭菜单
     closeOnClickMask: {
       type: Boolean,
       value: defaulrProps.closeOnClickMask,
-      observer: 'updateChildrenData',
+      observer: 'updateChildrenData'
     },
     // 是否在点击外部 menu 后关闭菜单
     closeOnClickOutside: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     // 存储子组件的数据信息
-    itemListData: [],
+    itemListData: []
   },
   methods: {
     // 点击标题
@@ -118,7 +118,7 @@ Component({
     // 子组件DropdownItem数据发生变化，就需要更新数据
     updateItemListData() {
       this.setData({
-        itemListData: this.children.map((child) => child.data),
+        itemListData: this.children.map((child) => child.data)
       });
     },
     // 父组件（就是该组件）数据发生变化，就需要更新子组件DropdownItem
@@ -143,7 +143,7 @@ Component({
         }
         return wrapperStyle;
       });
-    },
+    }
   },
   created() {},
   attached() {},
@@ -158,5 +158,5 @@ Component({
   detached() {
     // 移除组件实例对象
     ARRAY = ARRAY.filter((item) => item !== this);
-  },
+  }
 });

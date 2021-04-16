@@ -11,6 +11,6 @@ export default Behavior({
       if (this.parent) {
         this.parent.onBlur(data);
       }
-    },
-  },
+    }
+  }
 });

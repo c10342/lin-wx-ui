@@ -39,7 +39,7 @@ const compareDate = (time1, time2, type) => {
     EqAndLt: newDate1 <= newDate2,
     EqAndGt: newDate1 >= newDate2,
     Lt: newDate1 < newDate2,
-    Gt: newDate1 > newDate2,
+    Gt: newDate1 > newDate2
   };
   return obj[type];
 };

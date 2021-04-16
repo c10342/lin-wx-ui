@@ -130,7 +130,7 @@ dirs.forEach((dir) => {
 ignoreComponent.forEach((key) => {
   ignoreArr.push({
     type: 'folder',
-    value: key.replace(/\\/g, '/'),
+    value: key.replace(/\\/g, '/')
   });
 });
 
@@ -155,7 +155,7 @@ ignore.push(...ignoreArr);
 if (ignore.findIndex((item) => item.value === 'lin-wx-ui.config.json') === -1) {
   ignore.push({
     type: 'file',
-    value: 'lin-wx-ui.config.json',
+    value: 'lin-wx-ui.config.json'
   });
 }
 

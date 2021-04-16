@@ -41,7 +41,7 @@ const pageScrollBehavior = (scroller) =>
       page.linPageScroll = (page.linPageScroll || []).filter(
         (item) => item !== scroller
       );
-    },
+    }
   });
 
 export default pageScrollBehavior;

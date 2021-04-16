@@ -4,7 +4,7 @@ Component({
   name: 'WaterFlowItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -15,15 +15,15 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {},
   data: {
     // 位置样式
     positionStyle: '',
     // 组件宽度
-    width: '50%',
+    width: '50%'
   },
   methods: {
     // 获取组件元素信息
@@ -33,19 +33,19 @@ Component({
     // 设置组件位置
     setPosition(positionStyle) {
       this.setData({
-        positionStyle,
+        positionStyle
       });
     },
     // 设置组件宽度
     setWidth(width) {
       this.setData({
-        width: parseInt(width),
+        width: parseInt(width)
       });
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -4,7 +4,7 @@ Component({
   name: 'NavBar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class', 'left-class', 'right-class', 'title-class'],
@@ -22,15 +22,15 @@ Component({
     // 是否显示下边框
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 1,
+      value: 1
     },
     // 根节点自定义样式
-    customStyle: String,
+    customStyle: String
   },
   data: {},
   methods: {
@@ -41,11 +41,11 @@ Component({
     // 点击右侧区域
     onRightClick() {
       this.triggerEvent('click-right');
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

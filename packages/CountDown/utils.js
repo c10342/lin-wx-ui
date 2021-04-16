@@ -29,7 +29,7 @@ export function parseTimeDate(time) {
     hours,
     minutes,
     seconds,
-    milliseconds,
+    milliseconds
   };
 }
 

@@ -2,7 +2,7 @@ Component({
   name: 'GoodsAction',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -17,15 +17,15 @@ Component({
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateChildren();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
@@ -36,11 +36,11 @@ Component({
       children.forEach((child, index) => {
         child.update(index, len);
       });
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

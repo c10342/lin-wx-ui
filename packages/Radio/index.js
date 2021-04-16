@@ -11,12 +11,12 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   properties: {
     // 是否使用 icon 插槽
@@ -24,28 +24,28 @@ Component({
     // 图标大小，默认单位为`px`
     iconSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     // 形状
     shape: {
       type: String,
       options: ['round', 'square'],
-      value: shapeValue,
+      value: shapeValue
     },
     // 选中状态颜色
     checkedColor: String,
     // 当前选中项的标识符
     value: {
-      type: null,
+      type: null
     },
     // 是否为禁用状态
     disabled: Boolean,
     // 标识符,存在RadioGroup父组件的时候有用
     name: {
-      type: null,
+      type: null
     },
     // 是否禁用文本内容点击
-    labelDisabled: Boolean,
+    labelDisabled: Boolean
   },
   observers: {
     // 设置选中跟没选中时的图标
@@ -55,15 +55,15 @@ Component({
         iconName = `${iconName}-active`;
       }
       this.setData({
-        iconName,
+        iconName
       });
-    },
+    }
   },
   data: {
     // 图标名
     iconName: shapeValue,
     // 父组件是否禁用
-    parentDisabled: false,
+    parentDisabled: false
   },
   methods: {
     // 发射change事件
@@ -89,11 +89,11 @@ Component({
       if (!disabled && !labelDisabled && !parentDisabled) {
         this.emitChange(this.properties.name);
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -4,7 +4,7 @@ Component({
   name: 'Tabs',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -15,7 +15,7 @@ Component({
     'tab-item-class',
     'title-class',
     'content-class',
-    'track-class',
+    'track-class'
   ],
   relations: {
     '../Tab/index': {
@@ -34,15 +34,15 @@ Component({
             return childData;
           });
         this.updateTabs();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 样式风格
     type: {
       type: String,
       value: 'line',
-      options: ['line', 'card'],
+      options: ['line', 'card']
     },
     // 标签主题色
     color: String,
@@ -52,17 +52,17 @@ Component({
       value: 0,
       observer() {
         this.setCurrentIndex();
-      },
+      }
     },
     // 动画时间，单位秒
     duration: Number,
     // 底部条宽度，默认单位 px
     lineWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 底部条高度，默认单位 px
     lineHeight: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 是否开启切换标签内容时的转场动画
     animated: {
@@ -71,14 +71,14 @@ Component({
         (this.children || []).forEach((child, index) => {
           child.updateRender(index === this.data.currentIndex, this);
         });
-      },
+      }
     },
     // 是否展示外边框，仅在 `line` 风格下生效
     border: Boolean,
     // 是否省略过长的标题文字
     ellipsis: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否使用粘性定位布局
     sticky: Boolean,
@@ -94,16 +94,16 @@ Component({
       value: 5,
       observer(val) {
         this.setData({
-          scrollable: this.children.length > val || !this.properties.ellipsis,
+          scrollable: this.children.length > val || !this.properties.ellipsis
         });
-      },
+      }
     },
     // 标题选中态颜色
     titleActiveColor: String,
     // 标题默认态颜色
     titleInactiveColor: String,
     // z-index 层级
-    zIndex: Number,
+    zIndex: Number
   },
   data: {
     // 存储子组件tab数据
@@ -117,7 +117,7 @@ Component({
     // scroll-view组件x轴滚动距离
     scrollLeft: 0,
     // 粘性布局容器
-    container: null,
+    container: null
   },
   methods: {
     emitChange(index) {
@@ -126,7 +126,7 @@ Component({
       }
       this.triggerEvent('change', {
         // 组件唯一标识
-        name: this.children[index].getComponentName(),
+        name: this.children[index].getComponentName()
       });
     },
     // 更新tabs数据
@@ -134,8 +134,7 @@ Component({
       const { children = [], data } = this;
       this.setData({
         tabs: children.map((child) => child.data),
-        scrollable:
-          this.children.length > data.swipeThreshold || !data.ellipsis,
+        scrollable: this.children.length > data.swipeThreshold || !data.ellipsis
       });
     },
     // 点击tab
@@ -147,14 +146,14 @@ Component({
         if (index !== this.data.currentIndex) {
           // 发射禁用事件
           this.triggerEvent('disabled', {
-            name: this.children[index].getComponentName(),
+            name: this.children[index].getComponentName()
           });
         }
         return;
       }
       // 点击事件
       this.triggerEvent('click', {
-        name: this.children[index].getComponentName(),
+        name: this.children[index].getComponentName()
       });
       this.emitChange(index);
     },
@@ -166,7 +165,7 @@ Component({
       }
       Promise.all([
         getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-line'),
+        getRect(this, '.lin-tabs-line')
       ]).then(([rects = [], lineRect]) => {
         // x轴位移距离是前面每个tab的宽度之和
         let lineOffsetLeft = rects
@@ -175,7 +174,7 @@ Component({
         // 下划线要居中
         lineOffsetLeft += (rects[index].width - lineRect.width) / 2;
         this.setData({
-          lineOffsetLeft,
+          lineOffsetLeft
         });
       });
     },
@@ -187,14 +186,14 @@ Component({
       }
       Promise.all([
         getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-list'),
+        getRect(this, '.lin-tabs-list')
       ]).then(([itemRect, listRect]) => {
         const offsetLeft = itemRect
           .slice(0, index)
           .reduce((prev, current) => prev + current.width, 0);
         this.setData({
           // 滚动到中间的位置
-          scrollLeft: offsetLeft - (listRect.width - itemRect[index].width) / 2,
+          scrollLeft: offsetLeft - (listRect.width - itemRect[index].width) / 2
         });
       });
     },
@@ -213,7 +212,7 @@ Component({
         return;
       }
       this.setData({
-        currentIndex: index,
+        currentIndex: index
       });
       // 设置下滑线位置
       this.setLineOffsetByIndex(index);
@@ -247,7 +246,7 @@ Component({
     // 更新粘性布局容器
     updateContainer() {
       this.setData({
-        container: () => this.createSelectorQuery().select('.lin-tabs'),
+        container: () => this.createSelectorQuery().select('.lin-tabs')
       });
     },
     // 手指触摸事件开始
@@ -318,7 +317,7 @@ Component({
     // 获取内容容器宽度
     getTrackWidth() {
       return getRect(this, '.lin-tabs-track');
-    },
+    }
   },
   created() {
     this.startX = 0;
@@ -329,5 +328,5 @@ Component({
     this.setCurrentIndex(this.findCurrentIndex());
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

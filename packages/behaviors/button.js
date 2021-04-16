@@ -19,8 +19,8 @@ const ButtonBehavior = Behavior({
     // 打开 APP 时，向 APP 传递的参数
     appParameter: String,
     // 无障碍访问
-    ariaLabel: String,
-  },
+    ariaLabel: String
+  }
 });
 
 export default ButtonBehavior;

@@ -5,7 +5,7 @@ Component({
   externalClasses: ['custom-class', 'index-class'],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../IndexBar/index': {
@@ -16,16 +16,16 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 索引字符
     index: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 是否使用自定义内容的插槽
-    useSlot: Boolean,
+    useSlot: Boolean
   },
   data: {
     // 层级
@@ -43,7 +43,7 @@ Component({
     // 标题容器高度
     indexwapperHeight: '',
     // 是否为选中状态
-    isActive: false,
+    isActive: false
   },
   methods: {
     // 从父组件IndexBar中获取数据更新
@@ -53,13 +53,13 @@ Component({
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor,
+          highlightColor
         } = this.parent.properties;
         this.setData({
           zIndex,
           sticky,
           stickyOffsetTop,
-          highlightColor,
+          highlightColor
         });
       }
     },
@@ -79,7 +79,7 @@ Component({
             obj = {
               fixed: false,
               transform: 0,
-              indexwapperHeight: '',
+              indexwapperHeight: ''
             };
           } else if (
             wrapper.top <= stickyOffsetTop &&
@@ -92,14 +92,14 @@ Component({
             obj = {
               fixed: true,
               transform: 0,
-              indexwapperHeight: indexContainer.height,
+              indexwapperHeight: indexContainer.height
             };
           } else {
             // 消失在可视区域
             obj = {
               fixed: false,
               transform: wrapper.height - indexContainer.height,
-              indexwapperHeight: indexContainer.height,
+              indexwapperHeight: indexContainer.height
             };
           }
         }
@@ -140,7 +140,7 @@ Component({
       // 获取标题容器信息
       const getIndexRect = getRect(this, '.lin-index-anchor-index');
       return Promise.all([getContainerRect, getIndexRect]);
-    },
+    }
   },
   created() {},
   attached() {},
@@ -148,5 +148,5 @@ Component({
     this.onScroll();
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

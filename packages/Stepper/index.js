@@ -9,7 +9,7 @@ const timeSecond = 500;
 Component({
   name: 'Stepper',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   behaviors: ['wx://form-field', FormControls],
   externalClasses: ['custom-class', 'input-class', 'plus-class', 'minus-class'],
@@ -26,22 +26,22 @@ Component({
           wx.hideLoading();
         }
         this.setData({ inputValue: this.formatValue(value) });
-      },
+      }
     },
     // 最小值
     min: {
       type: Number,
-      value: 1,
+      value: 1
     },
     // 最大值
     max: {
       type: Number,
-      value: null,
+      value: null
     },
     // 步长
     step: {
       type: Number,
-      value: 1,
+      value: 1
     },
     // 是否只允许输入整数
     integer: Boolean,
@@ -50,39 +50,39 @@ Component({
     // 固定显示的小数位数
     decimalLength: {
       type: Number,
-      value: null,
+      value: null
     },
     // 输入框宽度，默认单位为 px
     inputWidth: {
       type: [String, Number],
-      value: '64rpx',
+      value: '64rpx'
     },
     // 按钮大小，默认单位为 px，输入框高度会和按钮大小保持一致
     buttonSize: {
       type: [String, Number],
-      value: '56rpx',
+      value: '56rpx'
     },
     // 按钮字体大小
     buttonFontSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     // 输入框字体大小
     inputFontSize: {
       type: [String, Number],
-      value: '30rpx',
+      value: '30rpx'
     },
     // 是否禁用输入框
     disableInput: Boolean,
     // 是否显示增加按钮
     showPlus: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否显示减少按钮
     showMinus: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否禁用增加按钮
     disablePlus: Boolean,
@@ -93,8 +93,8 @@ Component({
     // 是否开启长按手势
     longPress: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   observers: {
     'disabled,disableMinus,min,inputValue': function (
@@ -106,11 +106,11 @@ Component({
       if (disabled || disableMinus || (min != null && inputValue <= min)) {
         // 值小于等于最小值，要禁用
         this.setData({
-          isMinusDisable: true,
+          isMinusDisable: true
         });
       } else {
         this.setData({
-          isMinusDisable: false,
+          isMinusDisable: false
         });
       }
     },
@@ -123,14 +123,14 @@ Component({
       if (disabled || disablePlus || (max != null && inputValue >= max)) {
         // 值大于等于最大值，要禁用
         this.setData({
-          isPlusDisable: true,
+          isPlusDisable: true
         });
       } else {
         this.setData({
-          isPlusDisable: false,
+          isPlusDisable: false
         });
       }
-    },
+    }
   },
   data: {
     // 输入框的值
@@ -138,7 +138,7 @@ Component({
     // 是否禁用减少按钮
     isMinusDisable: false,
     // 是否禁用增加按钮
-    isPlusDisable: false,
+    isPlusDisable: false
   },
   methods: {
     // 触摸事件结束
@@ -176,7 +176,7 @@ Component({
       if (isMinusDisable) {
         // 禁用了再点击就会发射越界事件
         this.triggerEvent('overlimit', {
-          type: 'minus',
+          type: 'minus'
         });
         return;
       }
@@ -191,7 +191,7 @@ Component({
       if (isPlusDisable) {
         // 禁用了再点击就会发射越界事件
         this.triggerEvent('overlimit', {
-          type: 'plus',
+          type: 'plus'
         });
         return;
       }
@@ -245,12 +245,12 @@ Component({
           wx.showLoading();
         } else {
           this.setData({
-            inputValue,
+            inputValue
           });
         }
         this.triggerEvent('change', inputValue);
       }
-    },
+    }
   },
   created() {},
   attached() {},
@@ -265,11 +265,11 @@ Component({
       inputValue = min;
     }
     this.setData({
-      inputValue: this.formatValue(inputValue),
+      inputValue: this.formatValue(inputValue)
     });
   },
   moved() {},
   detached() {
     this.onTouchend();
-  },
+  }
 });

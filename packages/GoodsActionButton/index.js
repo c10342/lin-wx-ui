@@ -6,7 +6,7 @@ Component({
   name: 'GoodsActionButton',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
   externalClasses: ['custom-class'],
@@ -18,8 +18,8 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 按钮文字
@@ -43,24 +43,24 @@ Component({
         'warning',
         'danger',
         'default',
-        'success',
-      ],
+        'success'
+      ]
     },
     // 点击后跳转的链接地址
-    url: String,
+    url: String
   },
   data: {
     // 第几个按钮
     index: 0,
     // 总的按钮个数
-    totalLen: -1,
+    totalLen: -1
   },
   methods: {
     // 提供给父组件调用，更新该组件数据
     update(index, len) {
       this.setData({
         index,
-        totalLen: len,
+        totalLen: len
       });
     },
     // 点击按钮
@@ -69,11 +69,11 @@ Component({
       // 跳转页面
       const { url } = this.properties;
       this.jump(url);
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

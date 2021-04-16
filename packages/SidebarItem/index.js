@@ -2,7 +2,7 @@ Component({
   name: 'SidebarItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   relations: {
     '../Sidebar/index': {
@@ -13,8 +13,8 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'content-class'],
   properties: {
@@ -25,16 +25,16 @@ Component({
     // 图标右上角徽标的内容
     badge: {
       type: [String, Number],
-      value: '',
+      value: ''
     },
     // 是否禁用该项
-    disabled: Boolean,
+    disabled: Boolean
   },
   data: {
     // 当前选中的索引
     activeKey: 0,
     // 该组件的索引号
-    index: -1,
+    index: -1
   },
   methods: {
     // 从父组件哪里获取数据更新
@@ -42,7 +42,7 @@ Component({
       if (this.parent) {
         const { activeKey } = this.parent.properties;
         this.setData({
-          activeKey,
+          activeKey
         });
       }
     },
@@ -56,11 +56,11 @@ Component({
       if (this.parent && !disabled) {
         this.parent.emitChange(this.data.index);
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -5,12 +5,12 @@ Component({
   name: 'IndexBar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [
     pageScrollBehavior(function (event) {
       this.onScroll(event);
-    }),
+    })
   ],
   relations: {
     '../IndexAnchor/index': {
@@ -23,8 +23,8 @@ Component({
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateDataFromChildren();
-      },
-    },
+      }
+    }
   },
   externalClasses: ['custom-class', 'sidebar-class', 'sidebar-item-class'],
   properties: {
@@ -32,31 +32,31 @@ Component({
     zIndex: {
       type: Number,
       value: 1,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 是否开启锚点自动吸顶
     sticky: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 锚点自动吸顶时与顶部的距离
     stickyOffsetTop: {
       type: Number,
       value: 0,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 索引字符高亮颜色
     highlightColor: {
       type: String,
-      observer: 'updateChildren',
-    },
+      observer: 'updateChildren'
+    }
   },
   data: {
     // 右侧索引列表
     barList: [],
     // 当前索引字符
-    activeIndex: -1,
+    activeIndex: -1
   },
   methods: {
     // 从子组件IndexAnchor获取数据更新
@@ -66,7 +66,7 @@ Component({
         barList.push(child.properties.index);
       });
       this.setData({
-        barList,
+        barList
       });
     },
     // 更新子组件IndexAnchor的数据
@@ -93,7 +93,7 @@ Component({
       // 设置索引字符
       if (activeIndex !== this.data.activeIndex) {
         this.setData({
-          activeIndex,
+          activeIndex
         });
       }
     },
@@ -113,16 +113,16 @@ Component({
             const data = res[0].scrollTop + res[1].top;
             wx.pageScrollTo({
               scrollTop: data,
-              duration: 300,
+              duration: 300
             });
           }
         );
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

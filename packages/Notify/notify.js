@@ -25,7 +25,7 @@ const defaultOptions = {
   // 完全展示后的回调函数
   onOpened: () => {},
   // 关闭时的回调函数
-  oClose: () => {},
+  oClose: () => {}
 };
 
 // 当前配置

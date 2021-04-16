@@ -2,29 +2,29 @@ Component({
   name: 'Picker',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'active-class',
     'toolbar-class',
-    'column-class',
+    'column-class'
   ],
   properties: {
     // 对象数组，配置每一列显示的数据
     columns: {
       type: Array,
-      value: [],
+      value: []
     },
     // 选项高度
     itemHeight: {
       type: Number,
-      value: 44,
+      value: 44
     },
     // 选项对象中，文字对应的 key
     textKey: {
       type: String,
-      value: 'text',
+      value: 'text'
     },
     // 是否显示顶部栏
     showToolbar: Boolean,
@@ -33,36 +33,36 @@ Component({
     // 确认按钮文字
     confirmButtonText: {
       type: String,
-      value: '确认',
+      value: '确认'
     },
     // 取消按钮文字
     cancelButtonText: {
       type: String,
-      value: '取消',
+      value: '取消'
     },
     // 顶部栏位置
     toolbarPosition: {
       type: String,
       value: 'top',
-      options: ['top', 'bottom'],
+      options: ['top', 'bottom']
     },
     // 可见的选项个数
     visibleItemCount: {
       type: Number,
       value: 6,
-      observer: 'updateTopVisible',
+      observer: 'updateTopVisible'
     },
     // 单列选择器的默认选中项索引
     defaultIndex: {
       type: Number,
-      value: 0,
+      value: 0
     },
     // 是否显示加载状态
-    loading: Boolean,
+    loading: Boolean
   },
   data: {
     // 顶部可见个数
-    topVisible: 2,
+    topVisible: 2
   },
   methods: {
     // 判断是否为简单列，非对象数组，简单列只有一列
@@ -76,7 +76,7 @@ Component({
       // 顶部可见个数为可见选项个数的一半
       const topVisible = parseInt(visibleItemCount / 2, 10) - 1;
       this.setData({
-        topVisible,
+        topVisible
       });
     },
     // 列值发生变化
@@ -87,7 +87,7 @@ Component({
           this.triggerEvent('change', {
             picker: this,
             value: this.getColumnValue(0),
-            index: this.getColumnIndex(0),
+            index: this.getColumnIndex(0)
           });
         } else {
           // 多列
@@ -96,7 +96,7 @@ Component({
             // 所有列选中的值
             value: this.getValues(),
             // 第几列发生变化
-            index: event.currentTarget.dataset.index,
+            index: event.currentTarget.dataset.index
           });
         }
       });
@@ -116,7 +116,7 @@ Component({
           // 选中的值
           value: this.getColumnValue(0),
           // 选中的索引值
-          index: this.getColumnIndex(0),
+          index: this.getColumnIndex(0)
         });
       } else {
         // 多列
@@ -124,7 +124,7 @@ Component({
           // 所有列选中的值
           value: this.getValues(),
           // 所有列选中的索引
-          index: this.getIndexes(),
+          index: this.getIndexes()
         });
       }
     },
@@ -174,7 +174,7 @@ Component({
         // 设置列数据
         column.setData(
           {
-            optionsList: options,
+            optionsList: options
           },
           () => {
             // 设置完成之后，设置选中值
@@ -221,7 +221,7 @@ Component({
     getColumnValues(index) {
       const column = this.getColumn(index) || {};
       return column.data.optionsList;
-    },
+    }
   },
   created() {},
   attached() {},
@@ -230,5 +230,5 @@ Component({
     this.updateTopVisible();
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

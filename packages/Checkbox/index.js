@@ -3,7 +3,7 @@ Component({
   name: 'Checkbox',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class', 'icon-class', 'label-class'],
@@ -15,8 +15,8 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 是否为选中状态
@@ -27,14 +27,14 @@ Component({
     shape: {
       type: String,
       options: ['round', 'square'],
-      value: shapeValue,
+      value: shapeValue
     },
     // 选中状态颜色
     checkedColor: String,
     // icon 图标大小
     iconSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     // 是否使用 icon slot
     useIconSlot: Boolean,
@@ -42,8 +42,8 @@ Component({
     labelDisabled: Boolean,
     // 标识 Checkbox 名称
     name: {
-      type: null,
-    },
+      type: null
+    }
   },
   observers: {
     // 监听数据变化
@@ -54,15 +54,15 @@ Component({
         iconName = `${iconName}-active`;
       }
       this.setData({
-        iconName,
+        iconName
       });
-    },
+    }
   },
   data: {
     // 图标名称
     iconName: shapeValue,
     // 记录CheckboxGroup的disabled属性
-    parentDisabled: false,
+    parentDisabled: false
   },
   methods: {
     // 切换状态
@@ -122,11 +122,11 @@ Component({
           this.parent.emitChange(parentValue);
         }
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -4,7 +4,7 @@ Component({
   name: 'WaterFlow',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -18,32 +18,32 @@ Component({
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.renderWaterFlow();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 需要监听的数据变化，数据变化的时候会自动进行排版
     watchData: {
       type: Array,
       value: [],
-      observer: 'renderWaterFlow',
+      observer: 'renderWaterFlow'
     },
     // 垂直边距
     verticalMargin: {
       type: Number,
       value: 20,
-      observer: 'renderWaterFlow',
+      observer: 'renderWaterFlow'
     },
     // 水平边距
     horizontalMargin: {
       type: Number,
       value: 10,
-      observer: 'renderWaterFlow',
-    },
+      observer: 'renderWaterFlow'
+    }
   },
   data: {
     // 组件总宽度
-    height: 0,
+    height: 0
   },
   methods: {
     // 计算子组件WaterFlowItem位置
@@ -101,15 +101,15 @@ Component({
           // 左右2边高度最大的为组件的高度
           this.setData({
             height:
-              Math.ceil(Math.max(leftHeight, rightHeight)) - verticalMargin * 1,
+              Math.ceil(Math.max(leftHeight, rightHeight)) - verticalMargin * 1
           });
         });
       });
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

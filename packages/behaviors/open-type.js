@@ -1,7 +1,7 @@
 const OpenTypeBehavior = Behavior({
   properties: {
     // 微信开放能力
-    openType: String,
+    openType: String
   },
 
   methods: {
@@ -28,8 +28,8 @@ const OpenTypeBehavior = Behavior({
     // 在打开授权设置页后回调
     bindOpenSetting(event) {
       this.triggerEvent('opensetting', event.detail);
-    },
-  },
+    }
+  }
 });
 
 export default OpenTypeBehavior;

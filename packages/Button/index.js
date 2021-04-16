@@ -19,14 +19,14 @@ if (canIUseFormFieldButton()) {
 Component({
   name: 'Button',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   behaviors,
   externalClasses: [
     'custom-class',
     'loading-class',
     'icon-class',
-    'hover-class',
+    'hover-class'
   ],
   /**
    * 组件的属性列表
@@ -35,17 +35,17 @@ Component({
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
     formType: {
       type: String,
-      options: ['submit', 'reset'],
+      options: ['submit', 'reset']
     },
     // 是否禁用按钮
     disabled: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否为块级元素
     block: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 按钮类型
     type: {
@@ -58,44 +58,44 @@ Component({
         'warning',
         'danger',
         'default',
-        'success',
-      ],
+        'success'
+      ]
     },
     // 是否为朴素按钮
     plain: {
       type: Boolean,
       value: false,
-      observer: 'setColor',
+      observer: 'setColor'
     },
     // 是否为圆角按钮
     round: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否为圆形按钮
     circle: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 左侧图标名
     icon: {
       type: String,
-      value: '',
+      value: ''
     },
     // 图标大小
     iconSize: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 按钮尺寸
     size: {
       type: String,
       value: 'default',
-      options: ['default', 'medium', 'small'],
+      options: ['default', 'medium', 'small']
     },
     // 是否显示为加载状态
     loading: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 加载图标颜色
     loadingColor: String,
@@ -107,8 +107,8 @@ Component({
     color: {
       type: String,
       value: '',
-      observer: 'setColor',
-    },
+      observer: 'setColor'
+    }
   },
 
   /**
@@ -116,7 +116,7 @@ Component({
    */
   data: {
     // 按钮样式
-    baseStyle: '',
+    baseStyle: ''
   },
 
   /**
@@ -153,6 +153,6 @@ Component({
         // 没有被禁用并且不是在加载中
         this.triggerEvent('click');
       }
-    },
-  },
+    }
+  }
 });
