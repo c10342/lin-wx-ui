@@ -4,7 +4,12 @@ import {
   render,
   querySelector,
   loadTemplate,
-} from '../utils.js';
+} from '../utils';
+import { canIUseFormFieldButton } from '../../packages/common/version';
+
+jest.mock('../../packages/common/version');
+
+canIUseFormFieldButton.mockReturnValue(true);
 
 let id;
 
