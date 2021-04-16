@@ -38,6 +38,7 @@
     "pub": "node ./build/publish.js",
     "prepublishOnly": "npm run build",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --verbose",
     "test-watch": "jest --watch",
     "codecov": "jest --coverage && codecov"
