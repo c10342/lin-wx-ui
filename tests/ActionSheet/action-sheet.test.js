@@ -11,7 +11,7 @@ describe('属性', () => {
 
   beforeEach(() => {
     comp = render(id, {
-      show: true,
+      show: true
     });
   });
 
@@ -21,7 +21,7 @@ describe('属性', () => {
     // 默认情况
     expect(popup.getAttribute('show')).toBeFalsy();
     comp.setData({
-      show: true,
+      show: true
     });
     expect(popup.getAttribute('show')).toBeTruthy();
   });
@@ -30,10 +30,10 @@ describe('属性', () => {
     const actions = [
       { name: '选项一' },
       { name: '选项二' },
-      { name: '选项三' },
+      { name: '选项三' }
     ];
     comp.setData({
-      actions,
+      actions
     });
     const actionsList = querySelectorAll(comp, '.lin-action-sheet-button');
     expect(actionsList.length).toBe(actions.length);
@@ -44,7 +44,7 @@ describe('属性', () => {
     // 默认情况
     expect(popup.getAttribute('round')).toBeTruthy();
     comp.setData({
-      round: false,
+      round: false
     });
     expect(popup.getAttribute('round')).toBeFalsy();
   });
@@ -54,7 +54,7 @@ describe('属性', () => {
     // 默认情况
     expect(popup.getAttribute('closeOnClickMask')).toBeTruthy();
     comp.setData({
-      closeOnClickMask: false,
+      closeOnClickMask: false
     });
     expect(popup.getAttribute('closeOnClickMask')).toBeFalsy();
   });
@@ -65,7 +65,7 @@ describe('属性', () => {
     // 默认是隐藏
     expect(cancelView.exists()).toBeFalsy();
     comp.setData({
-      cancelText,
+      cancelText
     });
     expect(cancelView.exists()).toBeTruthy();
     expect(cancelView.getHtml()).toMatch(cancelText);
@@ -76,7 +76,7 @@ describe('属性', () => {
     const descriptionView = getElement(comp, '.lin-action-sheet-description');
     expect(descriptionView.exists()).toBeFalsy();
     comp.setData({
-      description,
+      description
     });
     expect(descriptionView.exists()).toBeTruthy();
     expect(descriptionView.getHtml()).toMatch(description);
@@ -87,7 +87,7 @@ describe('属性', () => {
     const titleView = getElement(comp, '.lin-action-sheet-title');
     expect(titleView.exists()).toBeFalsy();
     comp.setData({
-      title,
+      title
     });
     expect(titleView.exists()).toBeTruthy();
     expect(titleView.getHtml()).toMatch(title);
@@ -96,12 +96,12 @@ describe('属性', () => {
   test('showCloseIcon', () => {
     comp = render(id, {
       show: true,
-      title: 'title',
+      title: 'title'
     });
     const icon = getElement(comp, '.lin-action-sheet-close');
     expect(icon.exists()).toBeTruthy();
     comp.setData({
-      showCloseIcon: false,
+      showCloseIcon: false
     });
     expect(icon.exists()).toBeFalsy();
   });
@@ -110,7 +110,7 @@ describe('属性', () => {
     const popup = getElement(comp, '.jest-test-action-sheet');
     expect(popup.getAttribute('zIndex')).toBe(100);
     comp.setData({
-      zIndex: 1,
+      zIndex: 1
     });
     expect(popup.getAttribute('zIndex')).toBe(1);
   });
@@ -119,7 +119,7 @@ describe('属性', () => {
     const popup = getElement(comp, '.jest-test-action-sheet');
     expect(popup.getAttribute('mask')).toBeTruthy();
     comp.setData({
-      mask: false,
+      mask: false
     });
     expect(popup.getAttribute('mask')).toBeFalsy();
   });
@@ -128,7 +128,7 @@ describe('属性', () => {
     const popup = getElement(comp, '.jest-test-action-sheet');
     expect(popup.getAttribute('safeAreaInsetBottom')).toBeTruthy();
     comp.setData({
-      safeAreaInsetBottom: false,
+      safeAreaInsetBottom: false
     });
     expect(popup.getAttribute('safeAreaInsetBottom')).toBeFalsy();
   });

@@ -16,7 +16,7 @@ export function getCompId(compName) {
   return simulate.load(
     path.resolve(__dirname, `./../packages/${compName}/index`),
     {
-      rootPath: path.resolve('packages/'),
+      rootPath: path.resolve('packages/')
     }
   );
 }

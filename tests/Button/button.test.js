@@ -3,7 +3,7 @@ import {
   getElement,
   render,
   querySelector,
-  loadTemplate,
+  loadTemplate
 } from '../utils';
 import { canIUseFormFieldButton } from '../../packages/common/version';
 
@@ -72,7 +72,7 @@ describe('属性', () => {
       'warning',
       'danger',
       'default',
-      'success',
+      'success'
     ];
     for (let i = 0; i < typeList.length; i++) {
       const type = typeList[i];
@@ -115,7 +115,7 @@ describe('属性', () => {
     expect(icon.exists()).toBeFalsy();
     comp.setData({
       icon: 'loading',
-      iconSize: '14px',
+      iconSize: '14px'
     });
     expect(icon.exists()).toBeTruthy();
     expect(icon.getAttribute('size')).toBe('14px');
@@ -143,7 +143,7 @@ describe('属性', () => {
     comp.setData({
       loading: true,
       loadingSize,
-      loadingColor,
+      loadingColor
     });
     expect(loading.exists()).toBeTruthy();
     expect(loading.getAttribute('color')).toBe(loadingColor);
@@ -156,7 +156,7 @@ describe('属性', () => {
     // 默认情况
     expect(button.getAttribute('data-detail')).toBeNull();
     comp.setData({
-      dataset,
+      dataset
     });
     expect(button.getAttribute('data-detail')).toEqual(dataset);
   });
@@ -167,20 +167,20 @@ describe('属性', () => {
     expect(comp.data.baseStyle).toBe('');
     // 非朴素按钮情况
     comp.setData({
-      color: 'red',
+      color: 'red'
     });
     expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
       'color:white;background:red;border-color:red;'
     );
     comp.setData({
       color: 'green',
-      plain: true,
+      plain: true
     });
     expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
       'color:green;border-color:green;'
     );
     comp.setData({
-      color: 'linear-gradient(to right, #4bb0ff, #6149f6)',
+      color: 'linear-gradient(to right, #4bb0ff, #6149f6)'
     });
     expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
       'color:linear-gradient(to right, #4bb0ff, #6149f6);border:none;'.replace(
@@ -209,7 +209,7 @@ describe('事件', () => {
 
     // 禁用情况
     comp.setData({
-      disabled: true,
+      disabled: true
     });
     fn = await button.dispatchEvent('tap');
     expect(fn).not.toBeCalled();
@@ -220,9 +220,9 @@ describe('插槽', () => {
   test('default', () => {
     const comp = loadTemplate({
       usingComponents: {
-        'lin-button': id,
+        'lin-button': id
       },
-      template: `<lin-button class='lin-button'>默认按钮</lin-button>`,
+      template: `<lin-button class='lin-button'>默认按钮</lin-button>`
     });
     const element = querySelector(comp, '.lin-button');
     expect(element.toJSON()).toMatchSnapshot();
@@ -233,7 +233,7 @@ describe('外部样式类', () => {
   test('externalClasses', () => {
     const comp = loadTemplate({
       usingComponents: {
-        'lin-button': id,
+        'lin-button': id
       },
       template: `
         <lin-button 
@@ -243,7 +243,7 @@ describe('外部样式类', () => {
         hover-class='class-hover'
         class='lin-button'
         ></lin-button>
-        `,
+        `
     });
     const element = getElement(comp, '.lin-button');
     expect(
