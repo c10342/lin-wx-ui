@@ -16,7 +16,7 @@ comps.keys().forEach((key) => {
   routes.push({
     component,
     name,
-    path: `/${name}`,
+    path: `/${name}`
   });
 });
 
@@ -25,14 +25,14 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: IndexPage,
+      component: IndexPage
     },
     {
       path: '/component',
       name: 'component',
       component: ComponentPage,
-      children: routes,
-    },
+      children: routes
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -40,5 +40,5 @@ export default new Router({
     } else {
       return { x: 0, y: 0 };
     }
-  },
+  }
 });

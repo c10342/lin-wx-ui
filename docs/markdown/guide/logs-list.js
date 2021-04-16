@@ -8,9 +8,9 @@ export default [
       {
         title: '优化代码',
         list: ['各组件添加注释说明，增强代码的可阅读性'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.1.0',
@@ -22,61 +22,61 @@ export default [
           {
             subTitle: 'ActionSheet',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'Calendar',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'GoodsAction',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'Popup',
             subList: [
               '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）',
-            ],
+              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）'
+            ]
           },
           {
             subTitle: 'ShareSheet',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'SubmitBar',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'Tabbar',
             subList: [
-              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离',
-            ],
+              '添加 safeAreaInsetBottom 属性为 iPhoneX 留出底部安全距离'
+            ]
           },
           {
             subTitle: 'NavBar',
             subList: [
-              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）',
-            ],
+              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）'
+            ]
           },
           {
             subTitle: 'Notify',
             subList: [
-              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）',
-            ],
-          },
-        ],
-      },
-    ],
+              '添加 safeAreaInsetTop 属性留出顶部安全距离（状态栏高度）'
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     version: '1.0.1',
@@ -90,11 +90,11 @@ export default [
           '新增 Area 省市区选择组件',
           '新增 Card 商品卡片组件',
           '新增 SubmitBar 提交订单栏组件',
-          '新增 GoodsAction 商品导航组件',
+          '新增 GoodsAction 商品导航组件'
         ],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.0',
@@ -151,10 +151,10 @@ export default [
           '新增 Sidebar 侧边导航组件',
           '新增 NavBar 导航栏组件',
           '新增 Tab 标签页组件',
-          '新增 Tabbar 标签栏组件',
+          '新增 Tabbar 标签栏组件'
         ],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
-  },
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  }
 ];

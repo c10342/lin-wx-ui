@@ -58,9 +58,9 @@ import navConf from '../nav.config.json';
 export default {
   data() {
     return {
-      data: navConf,
+      data: navConf
     };
-  },
+  }
 };
 </script>
 

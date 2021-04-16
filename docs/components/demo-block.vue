@@ -19,14 +19,14 @@
 export default {
   data() {
     return {
-      isExpand: false,
+      isExpand: false
     };
   },
   methods: {
     toggle() {
       this.isExpand = !this.isExpand;
-    },
-  },
+    }
+  }
 };
 </script>
 

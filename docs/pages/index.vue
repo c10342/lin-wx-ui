@@ -22,9 +22,9 @@
 export default {
   data() {
     return {
-      height: document.documentElement.clientHeight,
+      height: document.documentElement.clientHeight
     };
-  },
+  }
 };
 </script>
 <style lang="scss">
