@@ -3,3 +3,4 @@ docs-dist
 node_modules
 /examples/dist
 src/fonts/iconfont.css
+coverage
