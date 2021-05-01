@@ -2,6 +2,17 @@ import { logsType } from '../../../config/index';
 
 export default [
   {
+    version: '1.2.1',
+    time: '2021-05-02',
+    content: [
+      {
+        title: '新增组件',
+        list: ['新增 Backtop 回到顶部组件', '新增 Keyboard 数字键盘组件'],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
     version: '1.2.0',
     time: '2021-02-06',
     content: [

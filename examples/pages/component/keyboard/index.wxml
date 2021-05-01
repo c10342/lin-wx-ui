@@ -1,0 +1,12 @@
+
+<view class='container'>
+   <demo-block title='基础用法'>
+            <lin-cell-group>
+			<lin-cell title="4位数密码" data-show="show1" bind:click='onBtnClick' is-link />
+			<lin-cell title="6位数密码" data-show="show2" bind:click='onBtnClick' is-link border="{{ false }}" />
+		</lin-cell-group>
+    </demo-block>
+</view>
+
+<lin-keyboard closeOnClickMask length='4' data-length="4" data-valueKey="inputValue1" data-show="show1" bind:close='onClose' bind:input='onInput' bind:del='onDelete' inputValue='{{inputValue1}}' show='{{show1}}' />
+<lin-keyboard closeOnClickMask length='6' data-length="6" data-valueKey="inputValue2" data-show="show2" bind:close='onClose' bind:input='onInput' bind:del='onDelete' inputValue='{{inputValue2}}' show='{{show2}}' />

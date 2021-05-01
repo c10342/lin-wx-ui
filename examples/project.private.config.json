@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -383,6 +384,12 @@
         {
           "name": "Backtop 回到顶部",
           "pathName": "pages/component/backtop/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Keyboard 数字键盘",
+          "pathName": "pages/component/keyboard/index",
           "scene": null
         }
       ]

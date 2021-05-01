@@ -56,6 +56,10 @@ Page({
       {
         name: 'WaterFlow 瀑布流',
         path: '/pages/component/water-flow/index'
+      },
+      {
+        name: 'Keyboard 数字键盘',
+        path: '/pages/component/keyboard/index'
       }
     ]
   },

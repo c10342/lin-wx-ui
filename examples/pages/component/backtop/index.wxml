@@ -1,13 +1,19 @@
 <view class='container backtop-container'>
     <demo-block title='基础用法'>
-        <lin-button bind:click='onClick' data-key="one">点击这里</lin-button>
+        <lin-cell-group>
+			<lin-cell border="{{ false }}" title="点击这里" data-key="one" bind:click='onClick' is-link />
+		</lin-cell-group>
     </demo-block>
 
     <demo-block title='滚动到锚点'>
-        <lin-button bind:click='onClick' data-key="two">点击这里</lin-button>
+        <lin-cell-group>
+			<lin-cell border="{{ false }}" title="点击这里" data-key="two" bind:click='onClick' is-link />
+		</lin-cell-group>
     </demo-block>
     <demo-block title='使用插槽'>
-        <lin-button bind:click='onClick' data-key="three">点击这里</lin-button>
+        <lin-cell-group>
+			<lin-cell border="{{ false }}" title="点击这里" data-key="three" bind:click='onClick' is-link />
+		</lin-cell-group>
     </demo-block>
 
     <view class="view-anchor" id="viewAnchor" wx:if="{{currentKey==='two'}}">
