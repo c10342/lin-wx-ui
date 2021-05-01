@@ -4,7 +4,7 @@ Component({
   name: 'NoticeBar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -12,13 +12,13 @@ Component({
     'wrapper-class',
     'content-class',
     'close-icon-class',
-    'navigator-class',
+    'navigator-class'
   ],
   properties: {
     // 通告栏模式
     mode: {
       type: String,
-      options: ['closeable', 'link'],
+      options: ['closeable', 'link']
     },
     // 通知文本内容
     text: {
@@ -27,7 +27,7 @@ Component({
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     // 通知文本颜色
     color: String,
@@ -43,7 +43,7 @@ Component({
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     // 滚动速率 (px/s)
     speed: {
@@ -53,28 +53,28 @@ Component({
         wx.nextTick(() => {
           this.updateStyle();
         });
-      },
+      }
     },
     // 是否开启滚动播放，内容长度溢出时默认开启
     scrollable: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否开启文本换行，只在禁用滚动时生效
     wrapable: Boolean,
     // 跳转方式
     openType: {
       type: String,
-      value: 'navigate',
+      value: 'navigate'
     },
     // 跳转地址,`mode=link`时有效
-    url: String,
+    url: String
   },
   data: {
     // 内容区域样式
     contentStyle: '',
     // 控制是否显示
-    show: true,
+    show: true
   },
   methods: {
     // 更新样式
@@ -118,11 +118,11 @@ Component({
         this.setData({ show: false });
         this.triggerEvent('close', event);
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

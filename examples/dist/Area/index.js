@@ -2,19 +2,19 @@ Component({
   name: 'Area',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   properties: {
     // 省市区数据
     areaList: {
       type: Object,
       value: {},
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     // 当前选中的省市区 code
     value: {
       type: String,
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     // 顶部栏标题
     title: String,
@@ -22,40 +22,40 @@ Component({
     columnsNum: {
       type: Number,
       value: 3,
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     // 列占位提示文字
     columnsPlaceholder: {
       type: Array,
       value: [],
-      observer: 'updateColumns',
+      observer: 'updateColumns'
     },
     // 是否显示加载状态
     loading: Boolean,
     // 选项高度
     itemHeight: {
       type: Number,
-      value: 44,
+      value: 44
     },
     // 可见的选项个数
     visibleItemCount: {
       type: Number,
-      value: 6,
+      value: 6
     },
     // 确认按钮文字
     confirmButtonText: {
       type: String,
-      value: '确定',
+      value: '确定'
     },
     // 取消按钮文字
     cancelButtonText: {
       type: String,
-      value: '取消',
-    },
+      value: '取消'
+    }
   },
   data: {
     // 每一列
-    columns: [],
+    columns: []
   },
   methods: {
     // 点击确定按钮
@@ -145,7 +145,7 @@ Component({
         // 设置省数据
         columns.push({
           values: provinceList,
-          defaultIndex: provinceIndex,
+          defaultIndex: provinceIndex
         });
         if (columnsNum >= 2) {
           // 列数大于等于2，说明有市这一列
@@ -164,7 +164,7 @@ Component({
           // 设置市数据
           columns.push({
             values: cityList,
-            defaultIndex: cityIndex,
+            defaultIndex: cityIndex
           });
           if (columnsNum >= 3) {
             // 列数大于等于3，说明有区这一列
@@ -183,13 +183,13 @@ Component({
             // 设置区数据
             columns.push({
               values: countyList,
-              defaultIndex: countyIndex,
+              defaultIndex: countyIndex
             });
           }
         }
       }
       this.setData({
-        columns,
+        columns
       });
     },
     // 获取省数据
@@ -201,13 +201,13 @@ Component({
         // 如果有省列占位符，就将它放在第一位
         provinceList.push({
           text: columnsPlaceholder[0],
-          code: -1,
+          code: -1
         });
       }
       Object.keys(province_list).forEach((key) => {
         provinceList.push({
           text: province_list[key],
-          code: key,
+          code: key
         });
       });
       return provinceList;
@@ -221,7 +221,7 @@ Component({
         // 如果有市列占位符，就需要显示列占位符
         cityList.push({
           text: columnsPlaceholder[1],
-          code: -1,
+          code: -1
         });
       }
       if (!province || (province && province.code === -1)) {
@@ -234,7 +234,7 @@ Component({
         if (key.substring(0, 2) === code) {
           cityList.push({
             text: city_list[key],
-            code: key,
+            code: key
           });
         }
       });
@@ -249,7 +249,7 @@ Component({
         // 有区列占位符
         countyList.push({
           text: columnsPlaceholder[2],
-          code: -1,
+          code: -1
         });
       }
       if (!city || (city && city.code === -1)) {
@@ -264,16 +264,16 @@ Component({
         if (key.substring(0, 4) === code) {
           countyList.push({
             text: county_list[key],
-            code: key,
+            code: key
           });
         }
       });
       return countyList;
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

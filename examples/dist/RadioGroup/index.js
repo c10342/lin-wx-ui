@@ -12,19 +12,19 @@ Component({
       },
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      },
-    },
+      }
+    }
   },
   properties: {
     // 当前选中项的标识符
     value: {
       type: null,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 是否禁用所有单选框
     disabled: {
       type: Boolean,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 在表单内提交时的标识符
     name: String,
@@ -32,8 +32,8 @@ Component({
     direction: {
       type: String,
       value: 'column',
-      options: ['column', 'row'],
-    },
+      options: ['column', 'row']
+    }
   },
   data: {},
   methods: {
@@ -43,17 +43,17 @@ Component({
       child.setData({
         // 判断是否选中
         value: value === child.data.name,
-        parentDisabled: disabled,
+        parentDisabled: disabled
       });
     },
     // 更新子组件
     updateChildren() {
       (this.children || []).forEach((child) => this.updateChild(child));
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

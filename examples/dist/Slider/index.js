@@ -4,7 +4,7 @@ Component({
   name: 'Slider',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'bar-class', 'button-class'],
   properties: {
@@ -12,36 +12,36 @@ Component({
     value: {
       type: Number,
       value: 0,
-      observer: 'setBarWidth',
+      observer: 'setBarWidth'
     },
     // 是否禁用滑块
     disabled: Boolean,
     // 最大值
     max: {
       type: Number,
-      value: 100,
+      value: 100
     },
     // 最小值
     min: {
       type: Number,
-      value: 0,
+      value: 0
     },
     // 步长
     step: {
       type: Number,
-      value: 1,
+      value: 1
     },
     // 进度条高度，默认单位为 px
     barHeight: {
       type: [String, Number],
-      value: '2px',
+      value: '2px'
     },
     // 进度条激活态颜色
     activeColor: String,
     // 进度条默认颜色
     inactiveColor: String,
     // 是否使用 button 插槽
-    useButtonSlot: Boolean,
+    useButtonSlot: Boolean
   },
   data: {
     // 进度条激活态的长度
@@ -49,7 +49,7 @@ Component({
     // 进度条那个圆球的位置
     left: 0,
     // 过度动画
-    transition: 'transition: all 300ms',
+    transition: 'transition: all 300ms'
   },
   methods: {
     // 设置进度条激活态的长度
@@ -94,7 +94,7 @@ Component({
       // 设置小球位置和激活状态的长度
       this.setData({
         left,
-        width: offsetWidth,
+        width: offsetWidth
       });
     },
     // 点击进度条
@@ -136,7 +136,7 @@ Component({
       }
       // 取消过渡动画，不然移动的时候会卡顿
       this.setData({
-        transition: 'transition: none',
+        transition: 'transition: none'
       });
       this.triggerEvent('drag-start');
     },
@@ -176,7 +176,7 @@ Component({
       }
       // 恢复过渡动画
       this.setData({
-        transition: 'transition: all 300ms',
+        transition: 'transition: all 300ms'
       });
       this.emitChange();
       this.triggerEvent('drag-end');
@@ -199,7 +199,7 @@ Component({
     // 拖拽事件
     emitDrag() {
       this.triggerEvent('drag', this.getValue(this.data.width));
-    },
+    }
   },
   created() {},
   attached() {},
@@ -221,5 +221,5 @@ Component({
     });
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

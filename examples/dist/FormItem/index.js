@@ -6,13 +6,13 @@ Component({
   name: 'FormItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'label-class',
     'content-class',
-    'errormsg-class',
+    'errormsg-class'
   ],
   relations: {
     '../Form/index': {
@@ -24,13 +24,13 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
+      }
     },
     // 关联有FormControls这个behaviors的组件
     FormControls: {
       type: 'descendant', // 关联的目标节点应为子孙节点
-      target: FormControls,
-    },
+      target: FormControls
+    }
   },
   properties: {
     // 标签文本
@@ -39,31 +39,31 @@ Component({
     name: String,
     // 表单域标签的宽度
     labelWidth: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 表单域对齐方式
     flexDirection: {
       type: String,
-      options: ['column', 'row'],
+      options: ['column', 'row']
     },
     // 表单验证规则
     rules: {
       type: Array,
       value: [],
-      observer: 'updateRules',
+      observer: 'updateRules'
     },
     // 是否隐藏 `*` 号
     hideRequiredAsterisk: {
       type: Boolean,
       value: false,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 是否显示校验错误信息
     showMessage: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren',
-    },
+      observer: 'updateChildren'
+    }
   },
   data: {
     // 错误信息
@@ -75,7 +75,7 @@ Component({
     // 是否需要显示 `*` 号
     required: false,
     // 校验规则
-    rulesList: [],
+    rulesList: []
   },
   methods: {
     // 更新校验规则
@@ -91,7 +91,7 @@ Component({
       const { rules: childRules = [] } = this.properties;
       // 合并父组件和子组件的校验规则
       this.setData({
-        rulesList: [...parentRules, ...childRules],
+        rulesList: [...parentRules, ...childRules]
       });
     },
     // 判断是否需要*号
@@ -100,7 +100,7 @@ Component({
         const rulesArr = this.data.rulesList;
         // 判断校验规则中是否存在required字段
         this.setData({
-          required: rulesArr.some((rule) => rule.required),
+          required: rulesArr.some((rule) => rule.required)
         });
       }
     },
@@ -110,7 +110,7 @@ Component({
         const { labelWidth, flexDirection } = this.parent.properties;
         this.setData({
           width: labelWidth,
-          direction: flexDirection,
+          direction: flexDirection
         });
         // 合并规则
         this.updateRules();
@@ -156,7 +156,7 @@ Component({
             // 校验成功
             this.parent.emitValidate({
               result: true,
-              [name]: value,
+              [name]: value
             });
             this.setData({ errorMessage: '' });
             return true;
@@ -166,7 +166,7 @@ Component({
             this.parent.emitValidate({
               result: false,
               [name]: value,
-              ...fields,
+              ...fields
             });
             this.setData({ errorMessage: fields[name][0].message });
             return false;
@@ -184,7 +184,7 @@ Component({
     // 触发blur校验
     onBlur() {
       return this.checkValueByTrigger('blur');
-    },
+    }
   },
   created: function () {},
   attached: function () {},
@@ -192,5 +192,5 @@ Component({
     this.isRequired();
   },
   moved: function () {},
-  detached: function () {},
+  detached: function () {}
 });

@@ -4,7 +4,7 @@ Component({
   name: 'Tabbar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'placeholder-class'],
   relations: {
@@ -24,8 +24,8 @@ Component({
             return childData;
           });
         this.updateChildren();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 当前选中标签的索引
@@ -34,47 +34,47 @@ Component({
       value: 0,
       observer() {
         this.updateCurrentIndex();
-      },
+      }
     },
     // 是否固定在底部
     fixed: {
       type: Boolean,
       value: true,
-      observer: 'initPlaceholderView',
+      observer: 'initPlaceholderView'
     },
     // 固定在底部时，是否在标签位置生成一个等高的占位元素
     placeholder: {
       type: Boolean,
-      observer: 'initPlaceholderView',
+      observer: 'initPlaceholderView'
     },
     // 是否展示外边框
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 元素 z-index
     zIndex: Number,
     // 选中标签的颜色
     activeColor: {
       type: String,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 未选中标签的颜色
     inactiveColor: {
       type: String,
-      observer: 'updateChildren',
+      observer: 'updateChildren'
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     // 当前激活的索引
     currentIndex: 0,
     // 组件高度，用于生成等高的占位元素
-    height: 0,
+    height: 0
   },
   methods: {
     // 更新TabbarItem子组件
@@ -89,7 +89,7 @@ Component({
       (this.children || []).forEach((child, index) => {
         if (active === child.getComponentName()) {
           this.setData({
-            currentIndex: index,
+            currentIndex: index
           });
         }
         // 设置组件状态（是否选中状态）
@@ -107,11 +107,11 @@ Component({
           this.setData({ height: res.height });
         });
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

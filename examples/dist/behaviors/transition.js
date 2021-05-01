@@ -7,7 +7,7 @@ const getClassName = (name) => ({
   enter: `lin-${name}-enter lin-${name}-enter-active enter-class enter-active-class`,
   'enter-to': `lin-${name}-enter-to lin-${name}-enter-active enter-to-class enter-active-class`,
   leave: `lin-${name}-leave lin-${name}-leave-active leave-class leave-active-class`,
-  'leave-to': `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`,
+  'leave-to': `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`
 });
 const TransitionBehavior = (showDefaultValue) =>
   Behavior({
@@ -18,19 +18,19 @@ const TransitionBehavior = (showDefaultValue) =>
       show: {
         type: Boolean,
         value: showDefaultValue,
-        observer: 'observeShow',
+        observer: 'observeShow'
       },
       // 动画时长，单位为毫秒
       duration: {
         type: null,
         value: 300,
-        observer: 'observeDuration',
+        observer: 'observeDuration'
       },
       // 动画名称
       name: {
         type: String,
-        value: 'fade',
-      },
+        value: 'fade'
+      }
     },
     data: {
       type: '',
@@ -41,7 +41,7 @@ const TransitionBehavior = (showDefaultValue) =>
       // 类型，动画类名
       classes: '',
       // 动画时长
-      currentDuration: 0,
+      currentDuration: 0
     },
     // 在组件实例进入页面节点树时执行
     attached() {
@@ -91,7 +91,7 @@ const TransitionBehavior = (showDefaultValue) =>
               // 插入进入的过度类名
               classes: classNames.enter,
               // 过渡时间
-              currentDuration,
+              currentDuration
             });
           })
           // 等在一段时间再开始下一帧的动画
@@ -105,7 +105,7 @@ const TransitionBehavior = (showDefaultValue) =>
             setTimeout(() => this.onTransitionEnd(), currentDuration);
             // 此时开始下一个过渡动画
             this.setData({
-              classes: classNames['enter-to'],
+              classes: classNames['enter-to']
             });
           })
           .catch(() => {});
@@ -131,7 +131,7 @@ const TransitionBehavior = (showDefaultValue) =>
             // 与enter不同的是inited和display2个属性不需要处理，因为一旦置为false，就不能显示元素了，也就没过度效果了
             this.setData({
               classes: classNames.leave,
-              currentDuration,
+              currentDuration
             });
           })
           .then(nextTick)
@@ -140,7 +140,7 @@ const TransitionBehavior = (showDefaultValue) =>
             this.transitionEnded = false;
             setTimeout(() => this.onTransitionEnd(), currentDuration);
             this.setData({
-              classes: classNames['leave-to'],
+              classes: classNames['leave-to']
             });
           })
           .catch(() => {});
@@ -164,8 +164,8 @@ const TransitionBehavior = (showDefaultValue) =>
           // 如果是离开动画，则需要隐藏元素
           this.setData({ display: false });
         }
-      },
-    },
+      }
+    }
   });
 
 export default TransitionBehavior;

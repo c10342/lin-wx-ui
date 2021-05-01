@@ -2,7 +2,7 @@ Component({
   name: 'SubmitBar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -16,18 +16,18 @@ Component({
     'integer-class',
     'decimal-class',
     'suffixLabel-class',
-    'button-class',
+    'button-class'
   ],
   properties: {
     // 价格
     price: {
       type: [String, Number],
-      observer: 'updatePrice',
+      observer: 'updatePrice'
     },
     // 价格文案
     label: {
       type: String,
-      value: '合计：',
+      value: '合计：'
     },
     // 价格右侧文案
     suffixLabel: String,
@@ -44,8 +44,8 @@ Component({
         'warning',
         'danger',
         'default',
-        'success',
-      ],
+        'success'
+      ]
     },
     // 提示文案
     tip: String,
@@ -58,24 +58,24 @@ Component({
     // 货币符号
     currency: {
       type: String,
-      value: '¥',
+      value: '¥'
     },
     // 价格小数点后位数
     decimalLength: {
       type: Number,
-      value: 2,
+      value: 2
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     // 整数部分
     integer: '0',
     // 小数部分
-    decimal: '00',
+    decimal: '00'
   },
   methods: {
     // 更新价格文本
@@ -89,7 +89,7 @@ Component({
       const { decimalLength } = this.properties;
       const priceObj = {
         integer: '0',
-        decimal: '00',
+        decimal: '00'
       };
       price = price.toString();
       const priceArr = price.split('.');
@@ -104,11 +104,11 @@ Component({
     },
     onButtonClick() {
       this.triggerEvent('submit');
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

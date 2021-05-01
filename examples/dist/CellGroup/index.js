@@ -2,7 +2,7 @@
 Component({
   name: 'CellGroup',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'title-class'],
   relations: {
@@ -10,8 +10,8 @@ Component({
       type: 'descendant',
       linked() {
         this.setCellBorder();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 分组标题
@@ -19,8 +19,8 @@ Component({
     // 是否显示外边框
     border: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
@@ -35,7 +35,7 @@ Component({
           cell.setBorder(true);
         }
       });
-    },
+    }
   },
   created() {},
   attached() {},
@@ -43,5 +43,5 @@ Component({
     this.setCellBorder();
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

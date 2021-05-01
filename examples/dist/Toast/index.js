@@ -2,20 +2,20 @@ Component({
   name: 'Toast',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'icon-class',
     'loading-class',
     'message-class',
-    'text-class',
+    'text-class'
   ],
   properties: {
     // 是否显示
     show: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否显示遮罩层
     mask: Boolean,
@@ -26,20 +26,20 @@ Component({
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     // 位置
     position: {
       type: String,
       value: 'middle',
-      options: ['top', 'bottom', 'middle'],
+      options: ['top', 'bottom', 'middle']
     },
     // 提示类型
     type: {
       type: String,
       value: 'text',
-      options: ['text', 'loading', 'success', 'fail'],
-    },
+      options: ['text', 'loading', 'success', 'fail']
+    }
   },
   data: {},
   methods: {},
@@ -47,5 +47,5 @@ Component({
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

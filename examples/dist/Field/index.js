@@ -6,7 +6,7 @@ Component({
   name: 'Field',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: ['wx://form-field', FormControls],
   relations: {
@@ -17,8 +17,8 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   externalClasses: [
     'custom-class',
@@ -26,7 +26,7 @@ Component({
     'input-class',
     'right-icon-class',
     'value-class',
-    'header-class',
+    'header-class'
   ],
   properties: {
     ...commonProps,
@@ -35,7 +35,7 @@ Component({
     // 单元格大小
     size: {
       type: String,
-      options: ['large'],
+      options: ['large']
     },
     // 是否展示右侧箭头并开启点击反馈
     isLink: Boolean,
@@ -50,23 +50,23 @@ Component({
     // 标题宽度
     titleWidth: {
       type: [String, Number],
-      value: '6.2em',
+      value: '6.2em'
     },
     // 箭头方向
     arrowDirection: {
       type: String,
       value: 'right',
-      options: ['up', 'down', 'right', 'left'],
+      options: ['up', 'down', 'right', 'left']
     },
     // 是否只读
     readonly: {
       type: Boolean,
-      observer: 'setShowClear',
+      observer: 'setShowClear'
     },
     // 输入框内容对齐方式
     inputAlign: {
       type: String,
-      options: ['left', 'center', 'right'],
+      options: ['left', 'center', 'right']
     },
     // 右侧图标
     rightIcon: String,
@@ -77,13 +77,13 @@ Component({
     // 是否使用按钮插槽
     useButtonSlot: Boolean,
     // 自定义样式
-    customStyle: String,
+    customStyle: String
   },
   data: {
     // 输入框绑定值
     inputValue: '',
     // 是否显示清空按钮
-    showClear: false,
+    showClear: false
   },
   methods: {
     // 发射change事件
@@ -159,9 +159,9 @@ Component({
       const { clearable, readonly } = this.properties;
       const { focused, value } = this;
       this.setData({
-        showClear: !!clearable && !!focused && !!value && !readonly,
+        showClear: !!clearable && !!focused && !!value && !readonly
       });
-    },
+    }
   },
   created() {
     // 记录输入的值
@@ -171,5 +171,5 @@ Component({
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

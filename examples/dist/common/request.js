@@ -10,7 +10,7 @@ const baseRequest = ({
   enableHttp2 = false,
   enableQuic = false,
   enableCache = false,
-  completeCallback,
+  completeCallback
 }) =>
   new Promise((resolve, reject) => {
     wx.request({
@@ -36,7 +36,7 @@ const baseRequest = ({
         if (typeof completeCallback === 'function') {
           completeCallback(resData);
         }
-      },
+      }
     });
   });
 
@@ -44,15 +44,15 @@ const request = {
   get(params = {}) {
     return baseRequest({
       ...params,
-      method: 'GET',
+      method: 'GET'
     });
   },
   post(params = {}) {
     return baseRequest({
       ...params,
-      method: 'POST',
+      method: 'POST'
     });
-  },
+  }
 };
 
 export default request;

@@ -28,6 +28,10 @@ Page({
       {
         name: 'Tabbar 标签栏',
         path: '/pages/component/tabbar/index'
+      },
+      {
+        name: 'Backtop 回到顶部',
+        path: '/pages/component/backtop/index'
       }
     ]
   },

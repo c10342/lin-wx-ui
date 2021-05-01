@@ -2,7 +2,7 @@ import { addUnit } from '../common/utils';
 Component({
   name: 'Loading',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class', 'text-class', 'loading-class'],
   properties: {
@@ -12,45 +12,45 @@ Component({
     type: {
       type: String,
       value: 'primary',
-      options: ['primary', 'success', 'info', 'warning', 'danger'],
+      options: ['primary', 'success', 'info', 'warning', 'danger']
     },
     // 尺寸大小
     size: {
       type: [String, Number],
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     // 加载颜色
     color: {
       type: String,
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     // 加载文案颜色
     textColor: {
       type: String,
-      observer: 'setTextStyle',
+      observer: 'setTextStyle'
     },
     // 加载文案大小
     textSize: {
       type: [String, Number],
-      observer: 'setTextStyle',
+      observer: 'setTextStyle'
     },
     // 转速时间
     time: {
       type: String,
-      observer: 'setLoadingStyle',
+      observer: 'setLoadingStyle'
     },
     // 加载文案对齐方式
     vertical: {
       type: String,
       options: ['row', 'col'],
-      value: 'row',
-    },
+      value: 'row'
+    }
   },
   data: {
     // loading样式
     loadingStyle: '',
     // 文本样式
-    textStyle: '',
+    textStyle: ''
   },
   methods: {
     // 设置loading样式
@@ -85,11 +85,11 @@ Component({
       if (style !== this.data.textStyle) {
         this.setData({ textStyle: style });
       }
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -2,7 +2,7 @@ Component({
   name: 'Collapse',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -14,25 +14,25 @@ Component({
       },
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
-      },
-    },
+      }
+    }
   },
   properties: {
     // 当前展开面板的 name
     value: {
       type: null,
-      observer: 'updateExpanded',
+      observer: 'updateExpanded'
     },
     // 是否开启手风琴模式
     accordion: {
       type: Boolean,
-      observer: 'updateExpanded',
+      observer: 'updateExpanded'
     },
     // 是否显示外边框
     border: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
@@ -64,11 +64,11 @@ Component({
         this.triggerEvent('close', changeItem);
       }
       this.triggerEvent('change', currentName);
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

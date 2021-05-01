@@ -10,7 +10,7 @@ export const emptyCompImages = {
   default: `${imagePath}/default.png`,
   error: `${imagePath}/error.png`,
   network: `${imagePath}/network.png`,
-  search: `${imagePath}/search.png`,
+  search: `${imagePath}/search.png`
 };
 
 export const areaJsonPath = `${jsonPath}/area.json`;

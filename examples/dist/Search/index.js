@@ -4,13 +4,13 @@ Component({
   behaviors: ['wx://form-field', FormControls],
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
     'input-class',
     'field-class',
-    'cancel-class',
+    'cancel-class'
   ],
   properties: {
     // 搜索框左侧文本
@@ -22,7 +22,7 @@ Component({
     // 输入框左侧图标名称（如果设置了 use-left-icon-slot，则该属性无效）
     leftIcon: {
       type: String,
-      value: 'search',
+      value: 'search'
     },
     // 输入框右侧图标名称（如果设置了 use-right-icon-slot，则该属性无效）
     rightIcon: String,
@@ -39,12 +39,12 @@ Component({
     // 最大输入长度，设置为 -1 的时候不限制最大长度
     maxlength: {
       type: Number,
-      value: -1,
+      value: -1
     },
     // 输入框内容对齐方式
     inputAlign: {
       type: String,
-      options: ['left', 'center', 'right'],
+      options: ['left', 'center', 'right']
     },
     // 输入框为空时占位符
     placeholder: String,
@@ -57,7 +57,7 @@ Component({
     // 取消按钮文字
     actionText: {
       type: String,
-      value: '取消',
+      value: '取消'
     },
     // 搜索框背景色
     background: String,
@@ -65,10 +65,10 @@ Component({
     shape: {
       type: String,
       value: 'square',
-      options: ['square', 'round'],
+      options: ['square', 'round']
     },
     // 在表单内提交时的标识符
-    name: String,
+    name: String
   },
   data: {},
   methods: {
@@ -101,11 +101,11 @@ Component({
     // 点击清空按钮
     onClear(event) {
       this.triggerEvent('clear', event.detail);
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

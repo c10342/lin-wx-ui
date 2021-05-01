@@ -4,7 +4,7 @@ Component({
   name: 'CollapseItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'content-class'],
   relations: {
@@ -15,8 +15,8 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 唯一标识符，默认为索引值
@@ -34,13 +34,13 @@ Component({
     // 是否显示内边框
     border: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否展示标题栏右侧箭头并开启点击反馈
     isLink: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {
     // 是否展开
@@ -48,7 +48,7 @@ Component({
     // 索引值，就是是第几个CollapseItem孩子
     index: -1,
     // 动画
-    animation: null,
+    animation: null
   },
   methods: {
     // 从父亲（Collapse）组件哪里更新数据
@@ -94,7 +94,7 @@ Component({
           } else {
             // inited==fasle是说明初始化的时候就需要展开，这个时候需要立刻展开，不需要动画
             myAnimation.height(height).step({
-              duration: inited ? 300 : 1,
+              duration: inited ? 300 : 1
             });
           }
           // 导出动画
@@ -118,14 +118,14 @@ Component({
       const currentName = name == null ? index : name;
       // 切换展开/关闭状态
       this.parent.switch(currentName, !expanded);
-    },
+    }
   },
   created() {},
   attached() {
     // 创建一个动画实例
     this.myAnimation = wx.createAnimation({
       duration: 0,
-      timingFunction: 'ease-in-out',
+      timingFunction: 'ease-in-out'
     });
   },
   ready() {
@@ -135,5 +135,5 @@ Component({
     this.inited = true;
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

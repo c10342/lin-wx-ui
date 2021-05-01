@@ -7,7 +7,7 @@ Component({
   name: 'Uploader',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -16,12 +16,12 @@ Component({
     'preview-file-class',
     'delete-class',
     'mask-class',
-    'upload-class',
+    'upload-class'
   ],
   properties: {
     // 标识符
     name: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 是否禁用文件上传
     disabled: Boolean,
@@ -37,69 +37,69 @@ Component({
     accept: {
       type: String,
       value: 'image',
-      options: ['all', 'media', 'image', 'file', 'video'],
+      options: ['all', 'media', 'image', 'file', 'video']
     },
     // 是否开启图片多选，部分安卓机型不支持
     multiple: Boolean,
     // 文件上传数量限制
     maxCount: {
       type: Number,
-      value: 100,
+      value: 100
     },
     // 文件列表
     fileList: {
       type: Array,
       value: [],
-      observer: 'formatFileList',
+      observer: 'formatFileList'
     },
     // 文件大小限制，单位为 byte
     maxSize: {
       type: Number,
-      value: Number.MAX_VALUE,
+      value: Number.MAX_VALUE
     },
     // 是否在上传完成后展示预览图
     previewImage: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 预览图裁剪模式，可选值参考小程序 image 组件的 mode 属性
     imageFit: {
       type: String,
-      value: 'scaleToFill',
+      value: 'scaleToFill'
     },
     // 预览图和上传区域的尺寸，默认单位为 px
     previewSize: {
       type: [String, Number],
-      value: '160rpx',
+      value: '160rpx'
     },
     // 是否在点击预览图后展示全屏图片预览
     previewFullImage: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否展示删除按钮
     deletable: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 上传区域图标
     uploadIcon: {
       type: String,
-      value: 'camera',
+      value: 'camera'
     },
     // 是否展示文件上传按钮
     showUpload: {
       type: Boolean,
-      value: true,
+      value: true
     },
     ...chooseVideoProps,
-    ...chooseImageProps,
+    ...chooseImageProps
   },
   data: {
     // 预览列表
     lists: [],
     // 是否显示上传按钮
-    showUploadBtn: true,
+    showUploadBtn: true
   },
   methods: {
     // 点击上传按钮
@@ -109,7 +109,7 @@ Component({
       // 根据类型选择文件
       chooseFile({
         ...this.properties,
-        maxCount: maxCount - lists.length,
+        maxCount: maxCount - lists.length
       })
         .then((res) => {
           let file = null;
@@ -117,7 +117,7 @@ Component({
             // 视频文件
             file = {
               path: res.tempFilePath,
-              ...res,
+              ...res
             };
           } else {
             file = multiple ? res.tempFiles : res.tempFiles[0];
@@ -149,7 +149,7 @@ Component({
               } else {
                 reject(ok);
               }
-            },
+            }
           });
         });
       }
@@ -200,7 +200,7 @@ Component({
         fail() {
           // 失败
           wx.showToast({ title: '预览图片失败', icon: 'none' });
-        },
+        }
       });
     },
     // 预览视频
@@ -211,7 +211,7 @@ Component({
       if (!canIUsePreviewMedia()) {
         wx.showToast({
           title: '微信版本过低，无法全屏预览视频',
-          icon: 'none',
+          icon: 'none'
         });
         return;
       }
@@ -230,7 +230,7 @@ Component({
         current: index,
         fail() {
           wx.showToast({ title: '预览视频失败', icon: 'none' });
-        },
+        }
       });
     },
     // 删除列表选项
@@ -239,7 +239,7 @@ Component({
 
       this.triggerEvent('delete', {
         ...this.getDetail(index),
-        file: this.data.fileList[index],
+        file: this.data.fileList[index]
       });
     },
     // 点击预览
@@ -249,14 +249,14 @@ Component({
 
       this.triggerEvent('click-preview', {
         ...item,
-        ...this.getDetail(index),
+        ...this.getDetail(index)
       });
     },
     // 获取组件唯一标识和文件索引
     getDetail(index) {
       return {
         name: this.properties.name,
-        index: index == null ? this.data.fileList.length : index,
+        index: index == null ? this.data.fileList.length : index
       };
     },
     // 格式化列表数据
@@ -270,15 +270,15 @@ Component({
         return {
           ...item,
           isImage,
-          deletable,
+          deletable
         };
       });
       this.setData({ lists, showUploadBtn: lists.length < maxCount });
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -61,7 +61,8 @@
     "pages/component/submit-bar/index",
     "pages/component/goods-action/index",
     "pages/component/form/index",
-    "pages/component/water-flow/index"
+    "pages/component/water-flow/index",
+    "pages/component/backtop/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -138,7 +139,8 @@
     "lin-form": "/dist/Form/index",
     "lin-form-item": "/dist/FormItem/index",
     "lin-water-flow": "/dist/WaterFlow/index",
-    "lin-water-flow-item": "/dist/WaterFlowItem/index"
+    "lin-water-flow-item": "/dist/WaterFlowItem/index",
+    "lin-backtop": "/dist/Backtop/index"
   },
   "sitemapLocation": "sitemap.json"
 }

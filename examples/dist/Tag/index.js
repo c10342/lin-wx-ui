@@ -2,7 +2,7 @@ Component({
   name: 'Tag',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   properties: {
@@ -10,12 +10,12 @@ Component({
     type: {
       type: String,
       value: 'primary',
-      options: ['primary', 'success', 'danger', 'warning', 'info'],
+      options: ['primary', 'success', 'danger', 'warning', 'info']
     },
     // 大小
     size: {
       type: String,
-      options: ['large', 'medium'],
+      options: ['large', 'medium']
     },
     // 标签颜色
     color: String,
@@ -28,17 +28,17 @@ Component({
     // 文本颜色
     textColor: String,
     // 是否为可关闭标签
-    closeable: Boolean,
+    closeable: Boolean
   },
   data: {},
   methods: {
     onClick() {
       this.triggerEvent('close', false);
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -6,29 +6,29 @@ Component({
   name: 'SwipeCell',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'left-class', 'right-class'],
   properties: {
     // 是否显示左侧
     showLeft: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否显示右侧
     showRight: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 左侧滑动区域宽度
     leftWidth: {
       type: Number,
-      observer: 'getLeftWidth',
+      observer: 'getLeftWidth'
     },
     // 右侧滑动区域宽度
     rightWidth: {
       type: Number,
-      observer: 'getRightWidth',
+      observer: 'getRightWidth'
     },
     // 是否禁用滑动
     disabled: Boolean,
@@ -41,14 +41,14 @@ Component({
     // 标识符
     name: {
       type: String,
-      value: '',
-    },
+      value: ''
+    }
   },
   data: {
     // 过渡动画
     transitionStyle: TRANSITIONAll,
     // x轴位移
-    translateX: 0,
+    translateX: 0
   },
   methods: {
     // 点击左右2侧，或者中间，点击左右2侧要自动关闭
@@ -67,7 +67,7 @@ Component({
         this.triggerEvent('before-close', {
           position,
           instance: this,
-          name,
+          name
         });
       } else {
         this.close();
@@ -78,7 +78,7 @@ Component({
       this.setData({
         // 设置过度动画
         transitionStyle: TRANSITIONAll,
-        translateX,
+        translateX
       });
     },
     // 关闭左右2侧
@@ -89,7 +89,7 @@ Component({
       }
       this.setData({
         transitionStyle: TRANSITIONAll,
-        translateX: 0,
+        translateX: 0
       });
       this.emitClose();
     },
@@ -98,7 +98,7 @@ Component({
       this.triggerEvent('close', {
         position: position || this.position,
         name: this.properties.name,
-        instance: this,
+        instance: this
       });
     },
     // 打开左侧或者右侧
@@ -123,7 +123,7 @@ Component({
       this.triggerEvent('open', {
         position,
         name,
-        instance: this,
+        instance: this
       });
       this.position = position;
     },
@@ -134,7 +134,7 @@ Component({
         showRight,
         disabled,
         disabledLeft,
-        disabledRight,
+        disabledRight
       } = this.properties;
       if (disabled) {
         return;
@@ -169,7 +169,7 @@ Component({
         showRight,
         disabled,
         disabledLeft,
-        disabledRight,
+        disabledRight
       } = this.properties;
       if (disabled) {
         return;
@@ -212,7 +212,7 @@ Component({
       this.startX = clientX;
       this.setData({
         // 取消过度动画，否则在手指移动过程中会出现卡顿
-        transitionStyle: TRANSITIONNONE,
+        transitionStyle: TRANSITIONNONE
       });
     },
     // 获取左右2侧的宽度
@@ -255,7 +255,7 @@ Component({
       } else {
         this.rightWidth = 0;
       }
-    },
+    }
   },
   created() {
     // 手指点击的起始位置
@@ -273,5 +273,5 @@ Component({
     this.getLeftAndRightWidth();
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

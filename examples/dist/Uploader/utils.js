@@ -37,7 +37,7 @@ export function chooseFile({
   maxDuration,
   sizeType,
   camera,
-  maxCount,
+  maxCount
 }) {
   switch (accept) {
     case 'image':
@@ -51,7 +51,7 @@ export function chooseFile({
           // 所选的图片的尺寸
           sizeType,
           success: resolve,
-          fail: reject,
+          fail: reject
         });
       });
     case 'media':
@@ -67,7 +67,7 @@ export function chooseFile({
           // 仅在 sourceType 为 camera 时生效，使用前置或后置摄像头
           camera,
           success: resolve,
-          fail: reject,
+          fail: reject
         });
       });
     case 'video':
@@ -83,7 +83,7 @@ export function chooseFile({
           // 默认拉起的是前置或者后置摄像头。部分 Android 手机下由于系统 ROM 不支持无法生效
           camera,
           success: resolve,
-          fail: reject,
+          fail: reject
         });
       });
     default:
@@ -94,7 +94,7 @@ export function chooseFile({
           // 所选的文件的类型
           type: 'file',
           success: resolve,
-          fail: reject,
+          fail: reject
         });
       });
   }

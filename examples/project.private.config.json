@@ -1,0 +1,391 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "基础组件",
+          "pathName": "pages/navigator/basics/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "button组件",
+          "pathName": "pages/component/button/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "icon组件",
+          "pathName": "pages/component/icon/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Image组件",
+          "pathName": "pages/component/image/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Loading 加载",
+          "pathName": "pages/component/loading/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Layout 布局",
+          "pathName": "pages/component/layout/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Cell 单元格",
+          "pathName": "pages/component/cell/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Mask 遮罩层",
+          "pathName": "pages/component/mask/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Transition 动画",
+          "pathName": "pages/component/transition/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Popup 弹出层",
+          "pathName": "pages/component/popup/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Calendar 日历",
+          "pathName": "pages/component/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "logs 更新日志",
+          "pathName": "pages/navigator/logs/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "CheckBox 复选框",
+          "pathName": "pages/component/checkbox/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Field 输入框",
+          "pathName": "pages/component/field/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "表单组件",
+          "pathName": "pages/navigator/form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Radio 单选框",
+          "pathName": "pages/component/radio/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Rate 评分",
+          "pathName": "pages/component/rate/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "关于",
+          "pathName": "pages/navigator/about/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "模拟更新",
+          "pathName": "pages/navigator/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Search 搜索",
+          "pathName": "pages/component/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Slider 滑块",
+          "pathName": "pages/component/slider/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Stepper 步进器",
+          "pathName": "pages/component/stepper/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Switch 开关",
+          "pathName": "pages/component/switch/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Picker 选择器",
+          "pathName": "pages/component/picker/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Uploader 文件上传",
+          "pathName": "pages/component/uploader/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "ActionSheet 上拉菜单",
+          "pathName": "pages/component/action-sheet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Dialog 弹出框",
+          "pathName": "pages/component/dialog/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "DropdownMenu 下拉菜单",
+          "pathName": "pages/component/dropdown-menu/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Notify 消息提示",
+          "pathName": "pages/component/notify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "ShareSheet 分享面板",
+          "pathName": "pages/component/share-sheet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Toast 轻提示",
+          "pathName": "pages/component/toast/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "SwipeCell 滑动单元格",
+          "pathName": "pages/component/swipe-cell/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Collapse 折叠面板",
+          "pathName": "pages/component/collapse/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "CountDown 倒计时",
+          "pathName": "pages/component/count-down/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Divider 分割线",
+          "pathName": "pages/component/divider/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Empty 空状态",
+          "pathName": "pages/component/empty/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "NoticeBar 通告栏",
+          "pathName": "pages/component/notice-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Panel 面板",
+          "pathName": "pages/component/panel/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Progress 进度条",
+          "pathName": "pages/component/progress/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Sticky 粘性布局",
+          "pathName": "pages/component/sticky/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Tag 标签",
+          "pathName": "pages/component/tag/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "TreeSelect 分类选择",
+          "pathName": "pages/component/tree-select/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Grid 宫格",
+          "pathName": "pages/component/grid/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "IndexBar 索引栏",
+          "pathName": "pages/component/index-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Sidebar 侧边导航",
+          "pathName": "pages/component/sidebar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "NavBar 导航栏",
+          "pathName": "pages/component/nav-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "Tab 标签页",
+          "pathName": "pages/component/tab/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Tabbar 标签栏",
+          "pathName": "pages/component/tabbar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Area 省市区选择",
+          "pathName": "pages/component/area/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Card 商品卡片",
+          "pathName": "pages/component/card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "SubmitBar 提交订单栏",
+          "pathName": "pages/component/submit-bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "GoodsAction 商品导航",
+          "pathName": "pages/component/goods-action/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Form 表单",
+          "pathName": "pages/component/form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "WaterFlow 瀑布流",
+          "pathName": "pages/component/water-flow/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Backtop 回到顶部",
+          "pathName": "pages/component/backtop/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

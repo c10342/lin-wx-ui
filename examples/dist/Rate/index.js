@@ -4,7 +4,7 @@ import { getRect } from '../common/utils';
 Component({
   name: 'Rate',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class', 'icon-class', 'void-icon-class'],
@@ -12,45 +12,45 @@ Component({
     // 图标间距，默认单位为 px
     gutter: {
       type: [String, Number],
-      value: '4px',
+      value: '4px'
     },
     // 选中时的颜色
     color: {
       type: String,
-      value: RED,
+      value: RED
     },
     // 未选中时的颜色
     voidColor: {
       type: String,
-      value: GRAY5,
+      value: GRAY5
     },
     // 是否允许半选
     allowHalf: Boolean,
     // 图标大小，默认单位为 px
     iconSize: {
       type: [String, Number],
-      value: '50rpx',
+      value: '50rpx'
     },
     // 当前分值
     value: {
       type: Number,
-      observer: 'setWidth',
+      observer: 'setWidth'
     },
     // 图标总数
     count: {
       type: Number,
       value: 5,
-      observer: 'setCount',
+      observer: 'setCount'
     },
     // 选中时的图标名称
     icon: {
       type: String,
-      value: 'star1',
+      value: 'star1'
     },
     // 未选中时的图标名称
     voidIcon: {
       type: String,
-      value: 'star1-o',
+      value: 'star1-o'
     },
     // 是否为只读状态
     readonly: Boolean,
@@ -59,20 +59,20 @@ Component({
     // 禁用时的颜色
     disabledColor: {
       type: String,
-      value: DISABLEDCOLOR,
-    },
+      value: DISABLEDCOLOR
+    }
   },
   data: {
     // 图标总数
     innerCountArray: Array.from({ length: 5 }),
     // 激活的宽度
-    width: '0',
+    width: '0'
   },
   methods: {
     // 设置图标总数
     setCount() {
       this.setData({
-        innerCountArray: Array.from({ length: this.properties.count }),
+        innerCountArray: Array.from({ length: this.properties.count })
       });
     },
     // 设置激活的宽度
@@ -104,7 +104,7 @@ Component({
         inNum * this.rateWidth + gutterWidth + (value - inNum) * this.rateWidth;
 
       this.setData({
-        width: `${width}px`,
+        width: `${width}px`
       });
     },
     // 点击图标
@@ -139,7 +139,7 @@ Component({
       }
 
       this.triggerEvent('change', index);
-    },
+    }
   },
   created() {},
   attached() {},
@@ -170,5 +170,5 @@ Component({
     });
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

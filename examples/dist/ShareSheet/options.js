@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: [
     'custom-class',
@@ -11,16 +11,16 @@ Component({
     'image-class',
     'icon-class',
     'name-class',
-    'description-class',
+    'description-class'
   ],
   properties: {
     // 分享选项
     options: {
       type: Array,
-      value: [],
+      value: []
     },
     // 是否显示边框
-    showBorder: Boolean,
+    showBorder: Boolean
   },
   data: {},
   methods: {
@@ -29,11 +29,11 @@ Component({
       const { index } = event.currentTarget.dataset;
       const option = this.properties.options[index];
       this.triggerEvent('select', { ...option, index });
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -5,7 +5,7 @@ Component({
   name: 'ActionSheet',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   behaviors: [OpenTypeBehavior],
   externalClasses: [
@@ -14,7 +14,7 @@ Component({
     'description-class',
     'actions-wrapper-class',
     'button-class',
-    'cancelText-class',
+    'cancelText-class'
   ],
   properties: {
     // 是否显示
@@ -22,22 +22,22 @@ Component({
     // 菜单选项
     actions: {
       type: Array,
-      value: [],
+      value: []
     },
     // 是否显示圆角
     round: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否在点击选项后关闭
     closeOnClickAction: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 点击遮罩是否关闭菜单
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 取消按钮文字
     cancelText: String,
@@ -48,23 +48,23 @@ Component({
     // 是否显示关闭按钮
     showCloseIcon: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     // 是否显示遮罩层
     mask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
@@ -95,11 +95,11 @@ Component({
     onClickMask() {
       this.triggerEvent('mask-click');
       this.onClose();
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

@@ -2,7 +2,7 @@ Component({
   name: 'Sidebar',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -16,16 +16,16 @@ Component({
       unlinked(child) {
         this.children = (this.children || []).filter((it) => it !== child);
         this.updateChildren();
-      },
-    },
+      }
+    }
   },
   properties: {
     // 选中项的索引
     activeKey: {
       type: [String, Number],
       value: 0,
-      observer: 'updateChildren',
-    },
+      observer: 'updateChildren'
+    }
   },
   data: {},
   methods: {
@@ -39,11 +39,11 @@ Component({
     },
     emitChange(index) {
       this.triggerEvent('change', index);
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

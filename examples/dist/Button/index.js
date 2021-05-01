@@ -19,30 +19,33 @@ if (canIUseFormFieldButton()) {
 Component({
   name: 'Button',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   behaviors,
   externalClasses: [
     'custom-class',
     'loading-class',
     'icon-class',
-    'hover-class',
+    'hover-class'
   ],
   /**
    * 组件的属性列表
    */
   properties: {
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
-    formType: String,
+    formType: {
+      type: String,
+      options: ['submit', 'reset']
+    },
     // 是否禁用按钮
     disabled: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否为块级元素
     block: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 按钮类型
     type: {
@@ -55,43 +58,44 @@ Component({
         'warning',
         'danger',
         'default',
-        'success',
-      ],
+        'success'
+      ]
     },
     // 是否为朴素按钮
     plain: {
       type: Boolean,
       value: false,
+      observer: 'setColor'
     },
     // 是否为圆角按钮
     round: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 是否为圆形按钮
     circle: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 左侧图标名
     icon: {
       type: String,
-      value: '',
+      value: ''
     },
     // 图标大小
     iconSize: {
-      type: String,
+      type: [String, Number]
     },
     // 按钮尺寸
     size: {
       type: String,
       value: 'default',
-      options: ['default', 'medium', 'small'],
+      options: ['default', 'medium', 'small']
     },
     // 是否显示为加载状态
     loading: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 加载图标颜色
     loadingColor: String,
@@ -103,28 +107,8 @@ Component({
     color: {
       type: String,
       value: '',
-      observer(color) {
-        let style = '';
-        if (color) {
-          // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
-          style += `color: ${this.data.plain ? color : 'white'};`;
-          if (!this.data.plain) {
-            // 非朴素按钮
-            style += `background: ${color};`;
-          }
-          if (color.indexOf('gradient') !== -1) {
-            // 渐变色
-            // 边框置为none
-            style += 'border: none;';
-          } else {
-            style += `border-color:${color};`;
-          }
-        }
-        if (style !== this.data.baseStyle) {
-          this.setData({ baseStyle: style });
-        }
-      },
-    },
+      observer: 'setColor'
+    }
   },
 
   /**
@@ -132,13 +116,36 @@ Component({
    */
   data: {
     // 按钮样式
-    baseStyle: '',
+    baseStyle: ''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    // 设置按钮颜色
+    setColor() {
+      const { color, plain, baseStyle } = this.data;
+      let style = '';
+      if (color) {
+        // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
+        style += `color: ${plain ? color : 'white'};`;
+        if (!plain) {
+          // 非朴素按钮
+          style += `background: ${color};`;
+        }
+        if (color.indexOf('gradient') !== -1) {
+          // 渐变色
+          // 边框置为none
+          style += 'border: none;';
+        } else {
+          style += `border-color:${color};`;
+        }
+      }
+      if (style !== baseStyle) {
+        this.setData({ baseStyle: style });
+      }
+    },
     // 点击按钮
     onClick() {
       const { disabled, loading } = this.properties;
@@ -146,6 +153,6 @@ Component({
         // 没有被禁用并且不是在加载中
         this.triggerEvent('click');
       }
-    },
-  },
+    }
+  }
 });

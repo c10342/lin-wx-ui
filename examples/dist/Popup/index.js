@@ -4,7 +4,7 @@ import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
 Component({
   name: 'Popup',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   behaviors: [TransitionBehavior(false), SafeAreaInsetTopBehavior],
   externalClasses: ['custom-class'],
@@ -12,12 +12,12 @@ Component({
     // z-index 层级
     zIndex: {
       type: Number,
-      value: 100,
+      value: 100
     },
     // 是否显示遮罩层
     mask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 自定义遮罩层样式
     maskStyle: String,
@@ -26,12 +26,12 @@ Component({
       type: String,
       value: 'center',
       observer: 'observeClass',
-      options: ['top', 'bottom', 'right', 'left', 'center'],
+      options: ['top', 'bottom', 'right', 'left', 'center']
     },
     // 是否显示关闭图标
     closeable: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 关闭图标名称
     closeIcon: { type: String, value: 'close' },
@@ -39,33 +39,33 @@ Component({
     closeIconPosition: {
       type: String,
       value: 'top-right',
-      options: ['top-right', 'top-left', 'bottom-right', 'bottom-left'],
+      options: ['top-right', 'top-left', 'bottom-right', 'bottom-left']
     },
     // 是否在点击遮罩层后关闭
     closeOnClickMask: {
       type: Boolean,
-      value: true,
+      value: true
     },
     // 关闭图标大小
     closeIconSize: {
       type: [String, Number],
-      value: '40rpx',
+      value: '40rpx'
     },
     // 是否显示圆角
     round: {
       type: Boolean,
-      value: false,
+      value: false
     },
     // 动画类型，优先级高于 position
     transition: {
       type: String,
-      observer: 'observeClass',
+      observer: 'observeClass'
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
-      value: true,
-    },
+      value: true
+    }
   },
   data: {},
   methods: {
@@ -84,7 +84,7 @@ Component({
     // 点击关闭按钮
     onCloseClick() {
       this.triggerEvent('close');
-    },
+    }
   },
   created() {
     this.observeClass();
@@ -92,5 +92,5 @@ Component({
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

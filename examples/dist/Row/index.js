@@ -2,7 +2,7 @@
 Component({
   name: 'Row',
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
   externalClasses: ['custom-class'],
   relations: {
@@ -12,19 +12,19 @@ Component({
         if (this.properties.gutter) {
           target.setGutter(this.properties.gutter);
         }
-      },
-    },
+      }
+    }
   },
   properties: {
     // 列元素之间的间距（单位为 px）
     gutter: {
       type: Number,
-      observer: 'setGutter',
-    },
+      observer: 'setGutter'
+    }
   },
   data: {
     // 根节点样式
-    viewStyle: '',
+    viewStyle: ''
   },
   methods: {
     setGutter() {
@@ -39,7 +39,7 @@ Component({
       this.getRelationNodes('../Col/index').forEach((col) => {
         col.setGutter(gutter);
       });
-    },
+    }
   },
   created() {},
   attached() {},
@@ -49,5 +49,5 @@ Component({
     }
   },
   moved() {},
-  detached() {},
+  detached() {}
 });

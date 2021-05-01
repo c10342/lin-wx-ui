@@ -2,7 +2,7 @@ Component({
   name: 'TabbarItem',
   options: {
     addGlobalClass: true,
-    multipleSlots: true,
+    multipleSlots: true
   },
   externalClasses: ['custom-class', 'content-class'],
   relations: {
@@ -14,13 +14,13 @@ Component({
       },
       unlinked() {
         this.parent = null;
-      },
-    },
+      }
+    }
   },
   properties: {
     // 标签名称，作为匹配的标识符
     name: {
-      type: [String, Number],
+      type: [String, Number]
     },
     // 图标名称
     icon: String,
@@ -28,8 +28,8 @@ Component({
     dot: Boolean,
     // 图标右上角提示信息
     info: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   data: {
     // 组件宽度
@@ -39,7 +39,7 @@ Component({
     // 选中标签的颜色
     activeColor: '',
     // 未选中标签的颜色
-    inactiveColor: '',
+    inactiveColor: ''
   },
   methods: {
     // 获取组件唯一标识
@@ -84,11 +84,11 @@ Component({
         return;
       }
       this.parent.emitChange(this.getComponentName());
-    },
+    }
   },
   created() {},
   attached() {},
   ready() {},
   moved() {},
-  detached() {},
+  detached() {}
 });

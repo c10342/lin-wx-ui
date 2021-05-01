@@ -17,7 +17,7 @@ const defaultOptions = {
   // 是否禁止背景点击
   forbidClick: false,
   // 自定义选择器
-  selector: '#lin-toast',
+  selector: '#lin-toast'
 };
 
 // 存储所有实例
@@ -83,7 +83,7 @@ function Toast(options) {
 const createMethod = (type) => (options) =>
   Toast({
     type,
-    ...parseOptions(options),
+    ...parseOptions(options)
   });
 
 Toast.loading = createMethod('loading');
