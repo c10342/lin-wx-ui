@@ -12,7 +12,7 @@ Component({
       this.handeScroll(scrollTop);
     })
   ],
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'container-class', 'triangle-calss'],
   properties: {
     // 是否使用自定义插槽
     useSlot: {
