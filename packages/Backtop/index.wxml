@@ -1,0 +1,8 @@
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view bindtap="onClick" wx:if="{{show}}" class='custom-class lin-backtop' style="{{styleUtils.multUnit(['bottom',bottom],['right',right])}}">
+    <view wx:if="{{!useSlot}}" class='lin-backtop-container'>
+        <view class='lin-backtop-triangle'>      
+        </view>
+    </view>
+    <slot wx:if="{{useSlot}}" />
+</view>
