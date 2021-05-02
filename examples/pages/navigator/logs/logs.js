@@ -7,7 +7,11 @@ export default [
     content: [
       {
         title: '新增组件',
-        list: ['新增 Backtop 回到顶部组件', '新增 Keyboard 数字键盘组件'],
+        list: [
+          '新增 Backtop 回到顶部组件',
+          '新增 Keyboard 数字键盘组件',
+          '新增 FloatButton 悬浮按钮组件'
+        ],
         type: logsType.ADDCOMPONENT
       }
     ]

@@ -390,6 +390,12 @@
         {
           "name": "Keyboard 数字键盘",
           "pathName": "pages/component/keyboard/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "FloatButton 悬浮按钮",
+          "pathName": "pages/component/float-button/index",
           "scene": null
         }
       ]

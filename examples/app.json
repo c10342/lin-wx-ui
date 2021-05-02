@@ -63,7 +63,8 @@
     "pages/component/form/index",
     "pages/component/water-flow/index",
     "pages/component/backtop/index",
-    "pages/component/keyboard/index"
+    "pages/component/keyboard/index",
+    "pages/component/float-button/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -142,7 +143,8 @@
     "lin-water-flow": "/dist/WaterFlow/index",
     "lin-water-flow-item": "/dist/WaterFlowItem/index",
     "lin-backtop": "/dist/Backtop/index",
-    "lin-keyboard": "/dist/Keyboard/index"
+    "lin-keyboard": "/dist/Keyboard/index",
+    "lin-float-button": "/dist/FloatButton/index"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -60,6 +60,10 @@ Page({
       {
         name: 'Keyboard 数字键盘',
         path: '/pages/component/keyboard/index'
+      },
+      {
+        name: 'FloatButton 悬浮按钮',
+        path: '/pages/component/float-button/index'
       }
     ]
   },

@@ -1,0 +1,11 @@
+
+<view class='container'>
+   <demo-block title='基础用法'>
+    <lin-cell-group>
+			<lin-cell bind:click='onCellClick1' title="有图标展示"  is-link />
+			<lin-cell bind:click='onCellClick2' title="无图标展示" is-link border="{{ false }}" />
+		</lin-cell-group>   
+    </demo-block>
+</view>
+
+<lin-float-button closeOnClickMask bind:click='onClick' btnList='{{btnList}}'/>
