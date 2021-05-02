@@ -1,0 +1,64 @@
+
+@import "../../src/style/var.scss";
+
+.lin-keyboard-num-row {
+  display: flex;
+  flex-direction: row;
+  border-top: 0.5px solid $gray-3;
+}
+
+.lin-keyboard-num-item {
+  box-sizing: border-box;
+  flex: 1;
+  height: 108rpx;
+  font-size: $font-size-11;
+  line-height: 108rpx;
+  color: $black;
+  text-align: center;
+  background-color: $white;
+
+  & + .lin-keyboard-num-item {
+    border-left: 0.5px solid $gray-3;
+  }
+}
+
+.lin-keyboard-num-item-gray {
+  font-size: $font-size-7;
+  color: $gray-8;
+  background-color: $gray-3;
+}
+
+.lin-keyboard-input-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.lin-keyboard-input-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  font-size: $font-size-7;
+  color: $gray-8;
+  border-bottom: 2px solid $gray-7;
+}
+
+.lin-keyboard-title {
+  height: 80rpx;
+  font-size: $font-size-6;
+  line-height: 80rpx;
+  color: $gray-8;
+  text-align: center;
+}
+
+.lin-keyboard-dot {
+  width: 12rpx;
+  height: 12rpx;
+  background-color: $black;
+  border-radius: 50%;
+}
