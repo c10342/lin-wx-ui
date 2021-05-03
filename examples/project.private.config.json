@@ -396,6 +396,12 @@
         {
           "name": "FloatButton 悬浮按钮",
           "pathName": "pages/component/float-button/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于",
+          "pathName": "pages/navigator/introduce/index",
           "scene": null
         }
       ]

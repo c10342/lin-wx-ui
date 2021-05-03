@@ -1,15 +1,12 @@
-page {
-  background: #f7f8fa;
-}
-
-.container {
-  padding: 20rpx;
-}
 
 .header {
-  padding: 20rpx;
+  /* padding: 20rpx;
   border-radius: 10rpx;
-  box-shadow: #ddd 0 0 10px;
+  box-shadow: #ddd 0 0 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .image {
@@ -19,7 +16,7 @@ page {
 }
 
 .info {
-  margin-top: 20px;
-  font-size: 40rpx;
-  color: rgba(69, 90, 100, 0.6);
+  margin-top: 40rpx;
+  font-size: 36rpx;
+  color: #666;
 }

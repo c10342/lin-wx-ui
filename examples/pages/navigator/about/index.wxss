@@ -1,20 +1,50 @@
-.image-logo {
-  display: block;
-  width: 500rpx;
-  height: 180rpx;
-}
 
 .header {
-  box-sizing: border-box;
-  width: 690rpx;
-  padding: 40rpx;
-  margin: 0 auto 20rpx auto;
-  font-size: 26rpx;
-  color: #8c98ae;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
 }
 
-.info-item + .info-item {
+.author {
+  margin-top: 20rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  line-height: 60rpx;
+  color: #333;
+}
+
+.image-logo {
+  display: block;
+  width: 572rpx;
+  height: 180rpx;
+}
+
+.image-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30rpx;
+}
+
+.image-version {
+  width: 80px;
+  height: 20px;
+}
+
+.image-license {
+  width: 82px;
+  height: 20px;
+  margin-left: 30rpx;
+}
+
+.list {
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+/* .info-item + .info-item {
   margin-top: 20rpx;
   text-align: center;
 }
@@ -58,4 +88,4 @@
 .address {
   font-size: 28rpx;
   color: #596c8e;
-}
+} */

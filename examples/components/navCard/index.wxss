@@ -1,20 +1,18 @@
+
 .component-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 40rpx 20rpx;
-  margin-top: 60rpx;
-  color: #1989fa;
-  border-radius: 10rpx;
-  box-shadow: #ddd 0 0 10px;
-}
-
-.my-icon {
-  font-size: 60rpx;
+  justify-content: space-between;
+  padding: 40rpx;
+  margin: 10px 0;
+  background-color: #fff;
 }
 
 .name {
-  margin-left: 60rpx;
-  font-size: 40rpx;
-  color: rgba(89, 108, 142, 1);
+  font-size: 32rpx;
+}
+
+.my-icon {
+  font-size: 50rpx;
 }

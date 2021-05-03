@@ -1,0 +1,13 @@
+.extend-item {
+  box-sizing: border-box;
+  height: 160rpx;
+  padding: 0 40rpx;
+  margin-bottom: 20rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height: 160rpx;
+  color: #fff;
+  text-shadow: 0 0 0.1em rgb(0 0 0), 0 0 0.2em rgb(0 0 0);
+  background: linear-gradient(180deg, rgba(57, 173, 219, 0.25) 0, rgba(42, 60, 87, 0.4)), linear-gradient(135deg, #670d10, #092756);
+  border-radius: 20rpx;
+}

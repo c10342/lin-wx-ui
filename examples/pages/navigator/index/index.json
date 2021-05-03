@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "nav-card":"/components/navCard/index"
-  }
+  },
+  "navigationBarTitleText": "组件"
 }

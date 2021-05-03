@@ -30,17 +30,17 @@ Page({
         name: '业务组件',
         iconName: 'icon-yewu1',
         path: '/pages/navigator/business/index'
-      },
-      {
-        name: '更新日志',
-        iconName: 'icon-rizhi',
-        path: '/pages/navigator/logs/index'
-      },
-      {
-        name: '关于',
-        iconName: 'icon-guanyu',
-        path: '/pages/navigator/about/index'
       }
+      // {
+      //   name: '更新日志',
+      //   iconName: 'icon-rizhi',
+      //   path: '/pages/navigator/logs/index'
+      // },
+      // {
+      //   name: '关于',
+      //   iconName: 'icon-guanyu',
+      //   path: '/pages/navigator/about/index'
+      // }
     ]
   },
   onLoad: function () {},

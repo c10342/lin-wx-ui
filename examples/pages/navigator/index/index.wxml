@@ -1,16 +1,15 @@
-<view class="container">
+<!-- <view class="container">
 	<view class="header">
 		<image mode="aspectFit" src="/images/logo.png" class="image"></image>
 		<text class="info">轻量、灵活的微信小程序组件</text>
 	</view>
-<!-- <nav-card iconName='icon-jichu' text='基础组件'/>
-<nav-card iconName='icon-donghua' text='动画组件'/>
-<nav-card iconName='icon-layout' text='布局组件'/>
-<nav-card iconName='icon-daohang' text='导航组件'/>
-<nav-card iconName='icon-shitu' text='视图组件'/>
-<nav-card iconName='icon-caozuo' text='操作反馈'/>
-<nav-card iconName='icon-biaodan' text='表单组件'/>
-<nav-card iconName='icon-yewu' text='关于'/> -->
 
 <nav-card wx:for='{{navList}}' wx:key='path' dataInfo='{{item}}' bind:cardTap='onCardClick'/>
-</view>
+</view> -->
+
+<view class="header">
+		<image mode="aspectFit" src="/images/logo.png" class="image"></image>
+		<text class="info">轻量、灵活的微信小程序组件</text>
+	</view>
+
+<nav-card wx:for='{{navList}}' wx:key='path' dataInfo='{{item}}' bind:cardTap='onCardClick'/>

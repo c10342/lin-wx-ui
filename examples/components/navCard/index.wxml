@@ -1,4 +1,4 @@
   <view class="component-item" bindtap="onItemTap">
-  	<text class="{{dataInfo.iconName}} iconfont my-icon"></text>
   	<text class="name">{{dataInfo.name}}</text>
+  	<text class="{{dataInfo.iconName}} iconfont my-icon"></text>
   </view>

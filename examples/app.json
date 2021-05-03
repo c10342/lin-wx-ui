@@ -9,6 +9,7 @@
     "pages/navigator/navigation/index",
     "pages/navigator/operation/index",
     "pages/navigator/view/index",
+    "pages/navigator/extend/index",
     "pages/component/icon/index",
     "pages/component/button/index",
     "pages/navigator/logs/index",
@@ -64,7 +65,8 @@
     "pages/component/water-flow/index",
     "pages/component/backtop/index",
     "pages/component/keyboard/index",
-    "pages/component/float-button/index"
+    "pages/component/float-button/index",
+    "pages/navigator/introduce/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -75,6 +77,7 @@
   "usingComponents": {
     "component-cell": "/components/componentCell/index",
     "demo-block": "/components/demoBlock/index",
+    "extend-item": "/components/extend-item/index",
     "lin-button": "/dist/Button/index",
     "lin-icon": "/dist/Icon/index",
     "lin-image": "/dist/Image/index",
@@ -145,6 +148,31 @@
     "lin-backtop": "/dist/Backtop/index",
     "lin-keyboard": "/dist/Keyboard/index",
     "lin-float-button": "/dist/FloatButton/index"
+  },
+  "tabBar": {
+    "selectedColor": "#409eff",
+    "borderStyle": "white",
+    "color": "#323233",
+    "list": [
+      {
+        "pagePath": "pages/navigator/index/index",
+        "text": "组件",
+        "iconPath": "/images/component.png",
+        "selectedIconPath": "/images/component_active.png"
+      },
+      {
+        "pagePath": "pages/navigator/extend/index",
+        "text": "扩展",
+        "iconPath": "/images/extend.png",
+        "selectedIconPath": "/images/extend_active.png"
+      },
+      {
+        "pagePath": "pages/navigator/about/index",
+        "text": "关于",
+        "iconPath": "/images/me.png",
+        "selectedIconPath": "/images/me_active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

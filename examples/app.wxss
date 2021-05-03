@@ -1,7 +1,7 @@
 @import './iconfont.wxss';
 
 page {
-  background-color: #f7f8fa;
+  background-color: #fafafa;
 }
 
 .container {
@@ -12,6 +12,4 @@ page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  /* margin-bottom: 40rpx; */
 }

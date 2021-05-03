@@ -1,0 +1,22 @@
+page {
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.content {
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+.info {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-indent: 2em;
+}

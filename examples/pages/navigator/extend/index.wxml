@@ -1,0 +1,4 @@
+<view class="extend-container">
+
+  <extend-item wx:for="{{list}}" wx:key='index' dataInfo='{{item}}' />
+</view>
