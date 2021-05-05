@@ -2,6 +2,10 @@ import Request from './core/Request';
 
 import defaultConfig from './default';
 
+import CancelToken from './cancel/CancelToken';
+
+import Cancel, { isCancel } from './cancel/Cancel';
+
 import { extend } from './helpers/utils';
 
 import mergeConfig from './core/mergeConfig';
@@ -24,11 +28,11 @@ request.create = function (config) {
   return createInstance(mergeConfig(defaultConfig, config));
 };
 
-// request.CancelToken = CancelToken
+request.CancelToken = CancelToken;
 
-// request.Cancel = Cancel
+request.Cancel = Cancel;
 
-// request.isCancel = isCancel
+request.isCancel = isCancel;
 
 request.all = function (promises) {
   return Promise.all(promises);

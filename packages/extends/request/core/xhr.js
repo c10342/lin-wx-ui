@@ -41,7 +41,7 @@ export default function xhr(config) {
 
     // 取消请求
     function processCancel() {
-      if (cancelToken && request) {
+      if (cancelToken) {
         cancelToken.promise.then((reason) => {
           request.abort(); // 取消请求
           reject(reason);

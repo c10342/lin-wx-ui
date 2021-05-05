@@ -6,7 +6,7 @@ export default function Request(config) {
   // 配置
   this.defaults = config;
   // 拦截器
-  this.interceptor = {
+  this.interceptors = {
     request: new InterceptorManager(),
     respond: new InterceptorManager()
   };
@@ -29,16 +29,27 @@ Request.prototype.request = function (url, config = {}) {
   config.method = config.method.toLocaleLowerCase();
 
   // 定义一个数组，实现链式调用
-  //   const chain = [
-  //     {
-  //       resolve: dispatchRequest,
-  //       reject: undefined
-  //     }
-  //   ];
+  const chain = [
+    {
+      resolve: dispatchRequest,
+      reject: undefined
+    }
+  ];
+
+  this.interceptors.request.forEach((interceptor) => {
+    chain.unshift(interceptor);
+  });
+
+  this.interceptors.respond.forEach((interceptor) => {
+    chain.push(interceptor);
+  });
 
   let promise = Promise.resolve(config);
 
-  promise = promise.then(dispatchRequest, undefined);
+  while (chain.length) {
+    const { resolve, reject } = chain.shift();
+    promise = promise.then(resolve, reject);
+  }
 
   return promise;
 };
