@@ -66,7 +66,8 @@
     "pages/component/backtop/index",
     "pages/component/keyboard/index",
     "pages/component/float-button/index",
-    "pages/navigator/introduce/index"
+    "pages/navigator/introduce/index",
+    "pages/extends/request/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

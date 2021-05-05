@@ -402,6 +402,12 @@
         {
           "name": "关于",
           "pathName": "pages/navigator/introduce/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "request 网络请求",
+          "pathName": "pages/extends/request/index",
           "scene": null
         }
       ]
