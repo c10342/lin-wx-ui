@@ -6,7 +6,7 @@ export default function Request(config) {
   // 配置
   this.defaults = config;
   // 拦截器
-  this.interceptor = {
+  this.interceptors = {
     request: new InterceptorManager(),
     respond: new InterceptorManager()
   };
@@ -36,9 +36,20 @@ Request.prototype.request = function (url, config = {}) {
     }
   ];
 
+  this.interceptors.request.forEach((interceptor) => {
+    chain.unshift(interceptor);
+  });
+
+  this.interceptors.respond.forEach((interceptor) => {
+    chain.push(interceptor);
+  });
+
   let promise = Promise.resolve(config);
 
-  promise = promise.then(dispatchRequest, undefined);
+  while (chain.length) {
+    const { resolve, reject } = chain.shift();
+    promise = promise.then(resolve, reject);
+  }
 
   return promise;
 };

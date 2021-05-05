@@ -18,17 +18,19 @@ Page({
     // }).catch(error=>{
     //   console.log(error);
     // })
-    Request.get('https://cnodejs.org/api/v1/topics', {
-      data: {
-        page: 1,
-        limit: 2
-      }
+    Request.get('https://cnodejs.org/api/v1/topic_collect/alsotang111', {
+      // data: {
+      //   page: 1,
+      //   limit: 2
+      // },
     })
-      .then(() => {
-        // console.log(res);
+      .then((res) => {
+        // eslint-disable-next-line
+        console.log(res);
       })
-      .catch(() => {
-        // console.log(error);
+      .catch((error) => {
+        // eslint-disable-next-line
+        console.dir(error);
       });
   },
 
