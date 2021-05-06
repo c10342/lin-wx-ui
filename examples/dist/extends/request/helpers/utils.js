@@ -42,8 +42,7 @@ export function deepMerge(...objs) {
 export function isAbsoluteURL(url) {
   // 以http,https等开头的都是绝对地址
   // eslint-disable-next-line
-  // return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
-  return false;
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 }
 
 //   合并地址
