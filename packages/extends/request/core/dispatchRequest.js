@@ -6,9 +6,11 @@ import xhr from './xhr';
 export default function dispatchRequest(config) {
   // 发送请求前先检查是否取消过请求
   throwIfCancellationRequested(config);
+  // 先处理一下config配置
   processConfig(config);
+  // 进行请求
   return xhr(config).then(
-    (res) => transformResponseData(res),
+    (res) => transformResponseData(res), // 转换响应数据
     (error) => Promise.reject(error)
   );
 }
@@ -43,7 +45,7 @@ function processConfig(config) {
   // 请求处理url
   config.url = transformURL(config);
 
-  // 处理请求头和请求数据
+  // 转换请求数据，默认不做处理，给什么数据就返回什么数据，用户可自定义转换数据方法
   config.data = transform(config.data, config.headers, config.transformRequest);
 
   // 合并默认配置headers和用户输入的配置headers
@@ -54,12 +56,14 @@ function processConfig(config) {
 }
 
 /**
- * 处理响应数据
+ * 转化响应数据
  *
  * @param {AxiosResponse} res
  * @returns {AxiosResponse}
  */
 function transformResponseData(res) {
+  // 默认不做处理，给什么数据就返回什么数据，用户可自定义
+  // 这里注意一下，微信小程序返回来的是header，不是headers，少了个s
   res.data = transform(res.data, res.header, res.config.transformRespond);
   return res;
 }

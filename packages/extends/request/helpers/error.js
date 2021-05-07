@@ -1,3 +1,4 @@
+// 错误类
 class RequestError extends Error {
   constructor(message, config, code, request, response) {
     super(message);
@@ -6,7 +7,7 @@ class RequestError extends Error {
     this.request = request;
     this.response = response;
     this.config = config;
-    // this.isAxiosError = true
+    this.isRequestError = true;
   }
 }
 

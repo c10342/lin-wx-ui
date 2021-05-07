@@ -25,7 +25,7 @@ import { deepMerge } from './utils';
  *
  * @export
  * @param {*} headers
- * @param {Method} method
+ * @param {*} method
  * @returns {*}
  */
 export function flattenHeaders(headers, method) {

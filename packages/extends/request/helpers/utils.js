@@ -56,8 +56,6 @@ export function combineURL(baseURL, url) {
  * 把from上的属性拷贝一份到to中
  *
  * @export
- * @template T
- * @template U
  * @param {} to
  * @param {} from
  * @returns {}
