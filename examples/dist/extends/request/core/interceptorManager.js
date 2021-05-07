@@ -1,5 +1,6 @@
 export default class InterceptorManager {
   constructor() {
+    // 存储拦截器
     this.interceptor = [];
   }
 

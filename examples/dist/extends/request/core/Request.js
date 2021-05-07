@@ -3,7 +3,7 @@ import dispatchRequest from './dispatchRequest';
 import InterceptorManager from './interceptorManager';
 
 export default function Request(config) {
-  // 配置
+  // 默认配置
   this.defaults = config;
   // 拦截器
   this.interceptors = {
@@ -26,6 +26,7 @@ Request.prototype.request = function (url, config = {}) {
   }
   // 合并配置
   config = mergeConfig(this.defaults, config);
+  // 将请求方法统一转成小写
   config.method = config.method.toLocaleLowerCase();
 
   // 定义一个数组，实现链式调用
@@ -36,16 +37,17 @@ Request.prototype.request = function (url, config = {}) {
     }
   ];
 
+  // 请求拦截器往前面放，这也是为什么请求拦截器后声明的先执行
   this.interceptors.request.forEach((interceptor) => {
     chain.unshift(interceptor);
   });
-
+  // 响应拦截器往后面放。这也是为什么响应拦截器后声明的后执行
   this.interceptors.respond.forEach((interceptor) => {
     chain.push(interceptor);
   });
-
+  // 创建一个prmoise出来
   let promise = Promise.resolve(config);
-
+  // 开始链式调用，这也是为什么请求/响应拦截必须返回config或者data
   while (chain.length) {
     const { resolve, reject } = chain.shift();
     promise = promise.then(resolve, reject);
@@ -54,13 +56,23 @@ Request.prototype.request = function (url, config = {}) {
   return promise;
 };
 
-Request.prototype.get = function (url, config = {}) {
-  return this._request('get', url, config);
-};
+// 微信小程序method 的合法值
+const methodList = [
+  'options',
+  'get',
+  'head',
+  'post',
+  'put',
+  'delete',
+  'trace',
+  'connect'
+];
 
-Request.prototype.post = function (url, config = {}) {
-  return this._request('post', url, config);
-};
+methodList.forEach((method) => {
+  Request.prototype[method] = function (url, config = {}) {
+    return this._request(method, url, config);
+  };
+});
 
 Request.prototype._request = function (method, url, config) {
   return this.request(

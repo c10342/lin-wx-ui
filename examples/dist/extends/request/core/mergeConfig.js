@@ -1,5 +1,5 @@
 /**
- *
+ * 合并配置
  * @param {*} config1 默认配置
  * @param {*} config2 用户传递进来的配置
  */

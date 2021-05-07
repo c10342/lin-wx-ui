@@ -6,16 +6,16 @@ const defaults = {
     return respond.statusCode === 200 && respond.errMsg === 'request:ok';
   },
   // headers: {
-  //     // 每个请求都带上common里面的key-val
-  //     common: {'a':'1'}
+  //   // 每个请求都带上common里面的key-val
+  //   common: { a: '1' }
   // },
-  // 请求前修改数据
+  // 转换请求数据
   transformRequest: [
     function (data, headers) {
       return data;
     }
   ],
-  // 请求后修改数据
+  // 转换响应数据
   transformRespond: [
     function (data) {
       return data;

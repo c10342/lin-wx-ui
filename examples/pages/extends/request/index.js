@@ -19,10 +19,13 @@ Page({
     //   console.log(error);
     // })
     Request.get('https://cnodejs.org/api/v1/topic_collect/alsotang111', {
-      // data: {
-      //   page: 1,
-      //   limit: 2
-      // },
+      data: {
+        page: 1,
+        limit: 2
+      }
+      // headers: {
+      //   b: 'ccc'
+      // }
     })
       .then((res) => {
         // eslint-disable-next-line
@@ -30,7 +33,7 @@ Page({
       })
       .catch((error) => {
         // eslint-disable-next-line
-        console.dir(error);
+        console.log(error);
       });
   },
 

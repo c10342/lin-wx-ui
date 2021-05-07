@@ -10,6 +10,7 @@ import { extend } from './helpers/utils';
 
 import mergeConfig from './core/mergeConfig';
 
+// 创建实例
 function createInstance(config) {
   const context = new Request(config);
 
@@ -28,6 +29,7 @@ request.create = function (config) {
   return createInstance(mergeConfig(defaultConfig, config));
 };
 
+// 取消请求使用到的类
 request.CancelToken = CancelToken;
 
 request.Cancel = Cancel;
