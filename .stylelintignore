@@ -2,5 +2,6 @@ dist
 docs-dist
 node_modules
 /examples/dist
+/examples/components/wemark
 src/fonts/iconfont.css
 coverage
