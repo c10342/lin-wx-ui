@@ -1,4 +1,5 @@
 /examples/dist
+/examples/components/wemark
 /docs-dist
 /dist
 /packages/*/*.wxs
