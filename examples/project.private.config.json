@@ -408,6 +408,12 @@
         {
           "name": "request 网络请求",
           "pathName": "pages/extends/request/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Storage 本地缓存",
+          "pathName": "pages/extends/storage/index",
           "scene": null
         }
       ]

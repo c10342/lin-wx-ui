@@ -67,7 +67,8 @@
     "pages/component/keyboard/index",
     "pages/component/float-button/index",
     "pages/navigator/introduce/index",
-    "pages/extends/request/index"
+    "pages/extends/request/index",
+    "pages/extends/storage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
