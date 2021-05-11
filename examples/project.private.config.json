@@ -388,12 +388,6 @@
           "scene": null
         },
         {
-          "name": "Keyboard 数字键盘",
-          "pathName": "pages/component/keyboard/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "FloatButton 悬浮按钮",
           "pathName": "pages/component/float-button/index",
           "query": "",
@@ -414,6 +408,13 @@
         {
           "name": "Storage 本地缓存",
           "pathName": "pages/extends/storage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "PasswordKeyboard 密码键盘",
+          "pathName": "pages/component/password-keyboard/index",
+          "query": "",
           "scene": null
         }
       ]

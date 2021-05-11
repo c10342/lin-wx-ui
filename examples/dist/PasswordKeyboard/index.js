@@ -47,6 +47,21 @@ Component({
     inputValue: {
       type: Array,
       value: []
+    },
+    // 标题
+    title: {
+      type: String,
+      value: '请输入密码'
+    },
+    // 是否使用标题插槽
+    useTitleSlot: {
+      type: Boolean,
+      value: false
+    },
+    // 是否使用输入框插槽
+    useInputSlot: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
