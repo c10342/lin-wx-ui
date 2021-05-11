@@ -22,6 +22,7 @@ class Storage {
   setDefaultConfig(config = {}) {
     defaultConfig = Object.assign({}, defaultConfig, config);
   }
+
   // 设置值
   set(key, val, options) {
     const config = Object.assign({}, defaultConfig, options || {});
@@ -29,6 +30,7 @@ class Storage {
     wx.setStorageSync(getKey(defaultConfig.uniqueKey, key), data);
     return val;
   }
+
   // 获取值
   get(key, def) {
     const val = wx.getStorageSync(getKey(defaultConfig.uniqueKey, key));
@@ -44,15 +46,18 @@ class Storage {
     this.remove(key);
     return def;
   }
+
   // 是否存在key
   has(key) {
     const val = this.get(key);
     return !isNotDefine(val);
   }
+
   // 根据key移除缓存
   remove(key) {
     return wx.removeStorageSync(getKey(defaultConfig.uniqueKey, key));
   }
+
   // 清空所有
   clear() {
     return wx.clearStorageSync();

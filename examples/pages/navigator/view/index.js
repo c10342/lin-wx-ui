@@ -58,8 +58,8 @@ Page({
         path: '/pages/component/water-flow/index'
       },
       {
-        name: 'Keyboard 数字键盘',
-        path: '/pages/component/keyboard/index'
+        name: 'PasswordKeyboard 密码键盘',
+        path: '/pages/component/password-keyboard/index'
       },
       {
         name: 'FloatButton 悬浮按钮',

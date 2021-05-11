@@ -64,7 +64,7 @@
     "pages/component/form/index",
     "pages/component/water-flow/index",
     "pages/component/backtop/index",
-    "pages/component/keyboard/index",
+    "pages/component/password-keyboard/index",
     "pages/component/float-button/index",
     "pages/navigator/introduce/index",
     "pages/extends/request/index",
@@ -148,7 +148,7 @@
     "lin-water-flow": "/dist/WaterFlow/index",
     "lin-water-flow-item": "/dist/WaterFlowItem/index",
     "lin-backtop": "/dist/Backtop/index",
-    "lin-keyboard": "/dist/Keyboard/index",
+    "lin-password-keyboard": "/dist/PasswordKeyboard/index",
     "lin-float-button": "/dist/FloatButton/index"
   },
   "tabBar": {
