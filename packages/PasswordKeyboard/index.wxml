@@ -1,28 +1,25 @@
-
-<wxs src="../wxs/classname.wxs" module="classname"></wxs>
+<wxs src="../wxs/classname.wxs" module="classname" />
 <lin-popup custom-class='custom-class' safeAreaInsetBottom='{{safeAreaInsetBottom}}' show='{{show}}' position='bottom' closeOnClickMask="{{ closeOnClickMask }}" bind:close='onClickMask' zIndex='{{zIndex}}' mask='{{mask}}'>
-<view>
-<view>
-    <view class='title-class lin-keyboard-title'>
-        请输入密码
-    </view>
-    <view class='input-container-class lin-keyboard-input-container'>
-        <view class='input-item-class lin-keyboard-input-item' wx:for="{{length}}" wx:key="index">
-        <view class='lin-keyboard-dot' wx:if="{{inputValue[index]!==undefined}}">
-            
+    <view>
+        <view>
+            <view wx:if="{{!useTitleSlot}}" class='title-class lin-keyboard-title'>{{title}}</view>
+            <slot wx:else name="title" />
+            <view wx:if="{{!useInputSlot}}" class='input-container-class lin-keyboard-input-container'>
+                <view class='input-item-class lin-keyboard-input-item' wx:for="{{length}}" wx:key="index">
+                    <view class='lin-keyboard-dot' wx:if="{{inputValue[index]!==undefined}}"></view>
+                </view>
+            </view>
+            <slot wx:else name="input" />
+        </view>
+        <view class='num-container-class lin-keyboard-num-container'>
+            <view class='num-row-class lin-keyboard-num-row' wx:for="{{inputLabel}}" wx:key="idx" wx:for-item='row' wx:for-index='idx'>
+                <view class='num-item-class lin-keyboard-num-item {{classname.singleClass("lin-keyboard-num-item-gray",item.type==="cancel"||item.type==="del")}}' wx:for="{{row}}" wx:key="index" wx:for-item='item' wx:for-index='index' data-item='{{item}}' bindtap="onClick">
+                    <block wx:if="{{item.type==='del'}}">
+                        <lin-icon size="40rpx" icon='close' />
+                    </block>
+                    <block wx:else>{{item.label}}</block>
+                </view>
+            </view>
         </view>
     </view>
-    </view>
-    
-</view>
-    <view class='num-container-class lin-keyboard-num-container'>
-    <view class='num-row-class lin-keyboard-num-row' wx:for="{{inputLabel}}" wx:key="idx" wx:for-item='row' wx:for-index='idx'>
-        <view class='num-item-class lin-keyboard-num-item {{classname.singleClass("lin-keyboard-num-item-gray",item.type==="cancel"||item.type==="del")}}' wx:for="{{row}}" wx:key="index" wx:for-item='item' wx:for-index='index' data-item='{{item}}' bindtap="onClick">
-        <block wx:if="{{item.type==='del'}}"><lin-icon size="40rpx" icon='close' /></block>
-        <block wx:else>{{item.label}}</block>
-        </view>
-    </view>
-    </view>
-</view>
-				
 </lin-popup>
