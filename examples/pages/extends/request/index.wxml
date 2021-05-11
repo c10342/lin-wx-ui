@@ -1,1 +1,1 @@
-<lin-button bind:click='onGetClick'>get请求</lin-button>
+<wemark md="{{markdown}}" highlight />

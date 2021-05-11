@@ -1,40 +1,11 @@
-import Request from '../../../dist/extends/request/index';
+import markdown from './md';
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-
-  onGetClick() {
-    // Request({
-    //   url:'https://cnodejs.org/api/v1/topics',
-    //   data:{
-    //     page:1,
-    //     limit:2
-    //   }
-    // }).then(res=>{
-    //   console.log(res);
-    // }).catch(error=>{
-    //   console.log(error);
-    // })
-    Request.get('https://cnodejs.org/api/v1/topic_collect/alsotang111', {
-      data: {
-        page: 1,
-        limit: 2
-      }
-      // headers: {
-      //   b: 'ccc'
-      // }
-    })
-      .then((res) => {
-        // eslint-disable-next-line
-        console.log(res);
-      })
-      .catch((error) => {
-        // eslint-disable-next-line
-        console.log(error);
-      });
+  data: {
+    markdown
   },
 
   /**
