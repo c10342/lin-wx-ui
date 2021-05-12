@@ -6,9 +6,7 @@ import CancelToken from './cancel/CancelToken';
 
 import Cancel, { isCancel } from './cancel/Cancel';
 
-import { extend } from './helpers/utils';
-
-import mergeConfig from './core/mergeConfig';
+import { extend, deepMerge } from './helpers/utils';
 
 // 创建实例
 function createInstance(config) {
@@ -26,7 +24,7 @@ const request = createInstance(defaultConfig);
 
 // 创建一个新的实例
 request.create = function (config) {
-  return createInstance(mergeConfig(defaultConfig, config));
+  return createInstance(deepMerge(defaultConfig, config));
 };
 
 // 取消请求使用到的类

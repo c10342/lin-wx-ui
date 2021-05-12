@@ -1,4 +1,4 @@
-import markdown from './md';
+import markdown from './markdown';
 
 Page({
   /**

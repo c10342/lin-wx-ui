@@ -1,1 +1,3 @@
-<wemark md="{{markdown}}" highlight />
+<view class="container">
+  <wemark md="{{markdown}}" highlight />
+</view>
