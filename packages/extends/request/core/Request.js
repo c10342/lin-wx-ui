@@ -1,6 +1,6 @@
-import mergeConfig from '../core/mergeConfig';
 import dispatchRequest from './dispatchRequest';
 import InterceptorManager from './interceptorManager';
+import { deepMerge } from '../helpers/utils';
 
 export default function Request(config) {
   // 默认配置
@@ -25,7 +25,7 @@ Request.prototype.request = function (url, config = {}) {
     config = url;
   }
   // 合并配置
-  config = mergeConfig(this.defaults, config);
+  config = deepMerge(this.defaults, config);
   // 将请求方法统一转成小写
   config.method = config.method.toLocaleLowerCase();
 

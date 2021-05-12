@@ -5,13 +5,47 @@ export function isPlainObject(value) {
   return toString.call(value) === '[object Object]';
 }
 
-// 深拷贝对象
+// 判断是否为对象
+export function isArr(val) {
+  return Object.prototype.toString.call(val) === '[object Array]';
+}
+
+// 深拷贝
+export function deepClone(obj) {
+  if (isPlainObject(obj)) {
+    const ret = {};
+    for (const key in obj) {
+      const val = obj[key];
+      if (typeof val === 'object') {
+        ret[key] = deepClone(val);
+      } else {
+        ret[key] = val;
+      }
+    }
+    return ret;
+  } else if (isArr(obj)) {
+    const ret = [];
+    for (let i = 0; i < obj.length; i++) {
+      const val = obj[i];
+      if (typeof val === 'object') {
+        ret.push(deepClone(val));
+      } else {
+        ret.push(val);
+      }
+    }
+    return ret;
+  }
+  return obj;
+}
+
+// 深合并对象
 export function deepMerge(...objs) {
   // 创建一个空对象
   const result = Object.create(null);
 
   objs.forEach((obj) => {
     if (obj) {
+      obj = deepClone(obj);
       Object.keys(obj).forEach((key) => {
         const val = obj[key];
         if (isPlainObject(val)) {
