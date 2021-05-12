@@ -7,7 +7,7 @@ export function isPlainObject(value) {
 
 // 判断是否为对象
 export function isArr(val) {
-  return Object.prototype.toString.call(val) === '[object Array]';
+  return toString.call(val) === '[object Array]';
 }
 
 // 深拷贝
@@ -99,4 +99,22 @@ export function extend(to, from) {
     to[key] = from[key];
   }
   return to;
+}
+
+// 分发函数，根据配置选择不同文件
+export function getDefaultAdapter(config) {
+  const { dispatchRequestType } = config;
+  let adapter;
+  if (dispatchRequestType === 'upload') {
+    // 上传
+    adapter = require('../adapters/upload').default;
+  } else if (dispatchRequestType === 'download') {
+    // 下载
+    adapter = require('../adapters/download').default;
+  } else if (dispatchRequestType === 'request') {
+    // 普通网络请求
+    adapter = require('../adapters/xhr').default;
+  }
+
+  return adapter;
 }

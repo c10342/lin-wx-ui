@@ -1,15 +1,20 @@
 import { isAbsoluteURL, combineURL } from '../helpers/utils';
 import { flattenHeaders } from '../helpers/headers';
 import transform from './transform';
-import xhr from './xhr';
 
 export default function dispatchRequest(config) {
   // 发送请求前先检查是否取消过请求
   throwIfCancellationRequested(config);
   // 先处理一下config配置
   processConfig(config);
+  const requestFn = config.adapter(config);
+  if (!requestFn) {
+    // 请求方法不存在，也就是适配器不存在
+    return Promise.reject(new ReferenceError('adapter is undefined'));
+  }
+
   // 进行请求
-  return xhr(config).then(
+  return requestFn(config).then(
     (res) => transformResponseData(res), // 转换响应数据
     (error) => Promise.reject(error)
   );
