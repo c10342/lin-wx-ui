@@ -3,7 +3,9 @@ import { createError } from './error';
 // 处理响应
 export function handelResponse({ res, resolve, reject, config, request }) {
   const response = {
-    ...res,
+    data: res,
+    status: res.statusCode,
+    statusText: res.errMsg,
     config,
     request
   };
@@ -14,11 +16,11 @@ export function handelResponse({ res, resolve, reject, config, request }) {
   } else {
     reject(
       createError(
-        `Request failed with status code ${res.statusCode}`,
+        `Request failed with status code ${response.statusCode}`,
         config,
-        'error',
+        response.statusText || 'error',
         request,
-        response
+        res
       )
     );
   }

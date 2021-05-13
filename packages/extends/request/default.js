@@ -14,7 +14,7 @@ const defaults = {
   // 如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，promise 将被 resolve;
   // 否则，promise 将被 rejecte
   validateStatus: function (respond) {
-    return respond.statusCode === 200 && okErrMsg.includes(respond.errMsg);
+    return respond.status === 200 && okErrMsg.includes(respond.statusText);
   },
 
   // 允许在向服务器发送前，修改请求数据
