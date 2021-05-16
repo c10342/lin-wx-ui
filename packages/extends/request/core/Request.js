@@ -65,7 +65,9 @@ const methodList = [
   'put',
   'delete',
   'trace',
-  'connect'
+  'connect',
+  'download',
+  'upload'
 ];
 
 methodList.forEach((method) => {
