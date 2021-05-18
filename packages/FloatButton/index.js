@@ -8,6 +8,7 @@ const defaultStyle = {
 };
 
 Component({
+  name: 'FloatButton',
   options: {
     addGlobalClass: true,
     multipleSlots: true
