@@ -264,6 +264,16 @@
           "desc": "WaterFlow 瀑布流",
           "name": "water-flow",
           "path": "/water-flow"
+        },
+        {
+          "desc": "PasswordKeyboard 密码键盘",
+          "name": "password-keyboard",
+          "path": "/password-keyboard"
+        },
+        {
+          "desc": "FloatButton 悬浮按钮",
+          "name": "float-button",
+          "path": "/float-button"
         }
       ]
     },
@@ -300,6 +310,11 @@
           "desc": "Tabbar 标签栏",
           "name": "tabbar",
           "path": "/tabbar"
+        },
+        {
+          "desc": "Backtop 回到顶部",
+          "name": "backtop",
+          "path": "/backtop"
         }
       ]
     },
@@ -328,6 +343,18 @@
           "path": "/goods-action"
         }
       ]
+    }
+  ],
+  "扩展":[
+    {
+      "desc": "Request 网络请求",
+      "name": "request",
+      "path": "/request"
+    },
+    {
+      "desc": "Storage 本地缓存",
+      "name": "storage",
+      "path": "/storage"
     }
   ]
 }
