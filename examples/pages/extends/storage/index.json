@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "Storage 本地缓存"
 }
