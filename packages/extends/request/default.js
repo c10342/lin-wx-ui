@@ -83,9 +83,6 @@ const defaults = {
 
   // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件的二进制内容。 method='upload' 时有效
   // name:'xx',
-
-  // 其他额外的 form data。method='upload' 时有效
-  // formData:{}
 };
 
 export default defaults;
