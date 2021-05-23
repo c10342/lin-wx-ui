@@ -1,24 +1,14 @@
-import {
-  getKey,
-  getOriginKey,
-  checkExpire,
-  promisify,
-  initData,
-  isNotDefine,
-  isStorageKey
-} from './utils';
+import { initData, isNotDefine, checkExpire, isFlag } from './utils';
 
-const setStorage = promisify('setStorage');
-const removeStorage = promisify('removeStorage');
-const getStorage = promisify('getStorage');
-const getStorageInfo = promisify('getStorageInfo');
-const clearStorage = promisify('clearStorage');
+import { isOverLimitSize, deleteCacheKey, addCacheKey } from './cache';
 
-let defaultConfig = {
-  uniqueKey: '__storage__'
-};
+let defaultConfig = {};
 
 class Storage {
+  setMaxSize(maxSize) {
+    this.maxSize = maxSize;
+  }
+
   setDefaultConfig(config = {}) {
     defaultConfig = Object.assign({}, defaultConfig, config);
   }
@@ -26,25 +16,33 @@ class Storage {
   // 设置值
   set(key, val, options) {
     const config = Object.assign({}, defaultConfig, options || {});
+    isOverLimitSize(this.maxSize);
     const data = initData(val, config);
-    wx.setStorageSync(getKey(defaultConfig.uniqueKey, key), data);
+    wx.setStorageSync(key, data);
+    addCacheKey(key);
     return val;
   }
 
   // 获取值
   get(key, def) {
-    const val = wx.getStorageSync(getKey(defaultConfig.uniqueKey, key));
+    const val = wx.getStorageSync(key);
     if (isNotDefine(val)) {
       return def;
     }
-    const isExpire = checkExpire(val);
-    if (!isExpire) {
-      // 没过期
-      return val.data;
+    if (isFlag(val)) {
+      const isExpire = checkExpire(val);
+      if (!isExpire) {
+        // 没过期
+        addCacheKey(key);
+        return val.data;
+      }
+      // 过期
+      this.remove(key);
+
+      return def;
     }
-    // 过期
-    this.remove(key);
-    return def;
+    addCacheKey(key);
+    return val;
   }
 
   // 是否存在key
@@ -55,7 +53,8 @@ class Storage {
 
   // 根据key移除缓存
   remove(key) {
-    return wx.removeStorageSync(getKey(defaultConfig.uniqueKey, key));
+    deleteCacheKey(key);
+    return wx.removeStorageSync(key);
   }
 
   // 清空所有
@@ -63,100 +62,35 @@ class Storage {
     return wx.clearStorageSync();
   }
 
-  getAll() {
-    const ret = {};
-    const result = wx.getStorageInfoSync();
-    let keys = result.keys || [];
-    keys = keys.filter((key) => isStorageKey(defaultConfig.uniqueKey, key));
-    keys.forEach((key) => {
-      const originKey = getOriginKey(defaultConfig.uniqueKey, key);
-      const val = this.get(originKey);
-      if (!isNotDefine(val)) {
-        ret[originKey] = val;
+  // 所有key
+  keys() {
+    const objs = wx.getStorageInfoSync();
+    return objs.keys || [];
+  }
+
+  values() {
+    const values = this.keys().map((key) => {
+      const val = this.get(key);
+      if (isFlag(val)) {
+        return val.data;
       }
+      return val;
     });
-    return ret;
+    return values;
   }
 
   forEach(callback) {
-    const ret = this.getAll();
-    Object.keys(ret).forEach((key) => {
-      callback(key, ret[key]);
+    this.keys().forEach((key, index) => {
+      const val = this.get(key);
+      callback(key, val, index);
     });
   }
 
-  setSync(key, val, options) {
-    const config = Object.assign({}, defaultConfig, options || {});
-    const data = initData(val, config);
-    return setStorage({
-      key: getKey(defaultConfig.uniqueKey, key),
-      data: data
-    }).then(() => {
-      return val;
-    });
-  }
-
-  getSync(key, def) {
-    return getStorage({
-      key: getKey(defaultConfig.uniqueKey, key)
-    })
-      .then((val) => {
-        val = val.data;
-        if (isNotDefine(val)) {
-          return def;
-        }
-        const isExpire = checkExpire(val);
-        if (!isExpire) {
-          // 没过期
-          return val.data;
-        }
-        // 过期
-        this.removeSync(key);
-        return def;
-      })
-      .catch(() => def);
-  }
-
-  hasSync(key) {
-    return this.getSync(key)
-      .then((val) => !isNotDefine(val))
-      .catch(() => false);
-  }
-
-  removeSync(key) {
-    return removeStorage({
-      key: getKey(defaultConfig.uniqueKey, key)
-    });
-  }
-
-  clearSync() {
-    return clearStorage();
-  }
-
-  getAllSync() {
-    return getStorageInfo().then((result) => {
-      const ret = {};
-      let keys = result.keys || [];
-      keys = keys.filter((key) => isStorageKey(defaultConfig.uniqueKey, key));
-      keys.forEach((key) => {
-        const originKey = getOriginKey(defaultConfig.uniqueKey, key);
-        const val = this.get(originKey);
-        if (!isNotDefine(val)) {
-          ret[originKey] = val;
-        }
-      });
-      return ret;
-    });
-  }
-
-  forEachSync(callback) {
-    return this.getAllSync().then((ret) => {
-      Object.keys(ret).forEach((key) => {
-        callback(key, ret[key]);
-      });
-      return true;
-    });
+  get length() {
+    return this.keys().length;
   }
 }
 
-export default new Storage();
+const storage = new Storage();
+
+export default storage;

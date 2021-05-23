@@ -1,28 +1,11 @@
-export function getKey(idkey, key) {
-  return `${idkey}${key}`;
-}
-
-// 获取原本的key值，因为存取进去的key值是带上标识的，如 storage-test
-export function getOriginKey(idkey, key) {
-  if (key) {
-    return key.replace(idkey, '');
-  }
-  return '';
-}
-
 // 检查数据是否过期，true过期，false没过期
 export function checkExpire(val) {
-  if (val.options && val.options.expire) {
-    const now = Date.now();
+  if (val && val.expire) {
     // true过期，false没过期
+    const now = Date.now();
     return val.options.expire < now;
   }
   return false;
-}
-
-// 检查key值是否为这个工具类存储的
-export function isStorageKey(idkey, key) {
-  return key.startsWith(idkey);
 }
 
 // promise化函数
@@ -45,12 +28,11 @@ export function promisify(fnName) {
 // 将开发者需要存储的数据转化为工具类要求的格式
 export function initData(val, options) {
   const valueObj = {
-    data: val
+    data: val,
+    _flag_: true
   };
   if (options && options.expire) {
-    valueObj.options = {
-      expire: Date.now() + options.expire
-    };
+    valueObj.expire = Date.now() + options.expire;
   }
   return valueObj;
 }
@@ -59,3 +41,12 @@ export function initData(val, options) {
 export function isNotDefine(val) {
   return val === null || val === undefined || val === '';
 }
+
+// 判断是不是该工具类存储的数据
+export const isFlag = (val) => {
+  if (!val) {
+    return false;
+  }
+
+  return !!val._flag_;
+};
