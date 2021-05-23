@@ -13,7 +13,7 @@
         </view>
         <view class='num-container-class lin-keyboard-num-container'>
             <view class='num-row-class lin-keyboard-num-row' wx:for="{{inputLabel}}" wx:key="idx" wx:for-item='row' wx:for-index='idx'>
-                <view class='num-item-class lin-keyboard-num-item {{classname.singleClass("lin-keyboard-num-item-gray",item.type==="cancel"||item.type==="del")}}' wx:for="{{row}}" wx:key="index" wx:for-item='item' wx:for-index='index' data-item='{{item}}' bindtap="onClick">
+                <view hover-class="lin-keyboard-num-item-active" hover-stay-time="100" class='num-item-class lin-keyboard-num-item {{classname.singleClass("lin-keyboard-num-item-gray",item.type==="cancel"||item.type==="del")}}' wx:for="{{row}}" wx:key="index" wx:for-item='item' wx:for-index='index' data-item='{{item}}' bindtap="onClick">
                     <block wx:if="{{item.type==='del'}}">
                         <lin-icon size="40rpx" icon='close' />
                     </block>

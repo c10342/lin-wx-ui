@@ -1,6 +1,6 @@
 <wxs src='../wxs/classname.wxs' module='classname' />
 <wxs src="../wxs/style.wxs" module="styleUtils" />
-<lin-mask wx:if="{{mask}}" bind:click='onMaskClick' show='{{show}}' />
+<lin-mask wx:if="{{mask && show}}" bind:click='onMaskClick' show='{{true}}' />
 <view style='{{styleUtils.singleStyle("z-index",zIndex)}} {{styleUtils.multUnit(["bottom",bottom],["right",right])}}' class='custom-class lin-float-button'>
     <view wx:if="{{show}}" class='group-class lin-float-button-group'>
         <view bindtap='onItemClick' data-item='{{item}}' wx:for="{{list}}" wx:key="index" class='item-class lin-float-button-item lin-flex-row lin-flex-center' style='{{styleUtils.singleStyle("background-color",item.bgColor)}}'>
