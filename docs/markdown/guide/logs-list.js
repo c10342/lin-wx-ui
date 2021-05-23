@@ -2,7 +2,27 @@ import { logsType } from '../../config/index.js';
 
 export default [
   {
-    version: '1.1.1',
+    version: '1.2.0',
+    time: '2021-05-23',
+    content: [
+      {
+        title: '新增组件',
+        list: [
+          '新增 Backtop 回到顶部组件',
+          '新增 Keyboard 数字键盘组件',
+          '新增 FloatButton 悬浮按钮组件'
+        ],
+        type: logsType.ADDCOMPONENT
+      },
+      {
+        title: '新增扩展功能',
+        list: ['新增 Request 网络请求', '新增 Storage 本地缓存'],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
+    version: '1.1.2',
     time: '2021-03-17',
     content: [
       {
@@ -13,7 +33,7 @@ export default [
     ]
   },
   {
-    version: '1.1.0',
+    version: '1.1.1',
     time: '2021-02-06',
     content: [
       {
@@ -79,7 +99,7 @@ export default [
     ]
   },
   {
-    version: '1.0.1',
+    version: '1.1.0',
     time: '2021-01-29',
     content: [
       {
