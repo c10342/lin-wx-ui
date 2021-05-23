@@ -52,6 +52,7 @@ export default {
   .component-logs,
   .component-load,
   .component-request,
+  .component-storage,
   .component-explain {
     padding-right: 48px;
   }
