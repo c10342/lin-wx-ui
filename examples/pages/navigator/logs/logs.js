@@ -2,7 +2,7 @@ import { logsType } from '../../../config/index';
 
 export default [
   {
-    version: '1.2.1',
+    version: '1.2.0',
     time: '2021-05-23',
     content: [
       {
@@ -22,7 +22,7 @@ export default [
     ]
   },
   {
-    version: '1.2.0',
+    version: '1.1.1',
     time: '2021-02-06',
     content: [
       {
@@ -88,7 +88,7 @@ export default [
     ]
   },
   {
-    version: '1.1.1',
+    version: '1.1.0',
     time: '2021-01-29',
     content: [
       {
@@ -106,7 +106,7 @@ export default [
     ]
   },
   {
-    version: '1.1.0',
+    version: '1.0.0',
     time: '2020-12-28',
     content: [
       {
