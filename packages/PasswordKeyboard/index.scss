@@ -20,6 +20,10 @@
   & + .lin-keyboard-num-item {
     border-left: 0.5px solid $gray-3;
   }
+
+  &.lin-keyboard-num-item-active {
+    background-color: $gray-3;
+  }
 }
 
 .lin-keyboard-num-item-gray {
