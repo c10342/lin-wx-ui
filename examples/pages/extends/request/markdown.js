@@ -1,11 +1,12 @@
 const markdown = `
 # 介绍
-Request 是一个基于 promise 的 HTTP 库，参考\`request\`源码的设计思想,特点如下：
-- 底层使用 \`wx.request\`
-- 支持 \`Promise\` API
+Request 网络请求是一个基于 promise 的 HTTP 库，参考\`request\`源码的设计思想,特点如下：
+- 基于\`wx.request\`,\`wx.downloadFile\`和\`wx.uploadFile\`封装的 Http 库
+- 支持\`Promise\`API
 - 拦截请求和响应
 - 转换请求数据和响应数据
 - 取消请求
+- 自动转换 JSON 数据
 
 # 引用
 \`\`\`javascript
@@ -24,6 +25,8 @@ import request from 'path/to/dist/extends/request/index';
 - \`request.delete(url[, config])\`：delete请求
 - \`request.trace(url[, config])\`：trace请求
 - \`request.connect(url[, config])\`：connect请求
+- \`request.download(url[, config])\`：下载文件
+- \`request.upload(url[, config])\`：上传文件
 
 # 自定义实例默认值
 \`\`\`javascript
