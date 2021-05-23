@@ -14,9 +14,10 @@ module.exports = {
   // 配置 jest-snapshot-plugin 从而在使用 jest 的 snapshot 功能时获得更加适合肉眼阅读的结构
   snapshotSerializers: ['miniprogram-simulate/jest-snapshot-plugin'],
   collectCoverageFrom: [
-    '<rootDir>/packages/**/*.js',
-    '!<rootDir>/packages/common/**',
-    '!<rootDir>/packages/behaviors/**',
-    '!<rootDir>/packages/wxs/**'
+    // '<rootDir>/packages/**/*.js',
+    // '!<rootDir>/packages/common/**',
+    // '!<rootDir>/packages/behaviors/**',
+    // '!<rootDir>/packages/wxs/**'
+    '<rootDir>/packages/Button/**/*.js'
   ]
 };
