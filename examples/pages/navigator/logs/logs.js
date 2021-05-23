@@ -3,7 +3,7 @@ import { logsType } from '../../../config/index';
 export default [
   {
     version: '1.2.1',
-    time: '2021-05-02',
+    time: '2021-05-23',
     content: [
       {
         title: '新增组件',
@@ -12,6 +12,11 @@ export default [
           '新增 Keyboard 数字键盘组件',
           '新增 FloatButton 悬浮按钮组件'
         ],
+        type: logsType.ADDCOMPONENT
+      },
+      {
+        title: '新增扩展功能',
+        list: ['新增 Request 网络请求', '新增 Storage 本地缓存'],
         type: logsType.ADDCOMPONENT
       }
     ]
