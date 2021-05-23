@@ -5,9 +5,7 @@
 在 index.js 中引入
 
 ```javascript
-import request from 'xx/dist/extends/request/index';
-
-Page({});
+import request from '/dist/extends/request/index';
 ```
 
 ## 特性
@@ -368,8 +366,6 @@ cancel();
 ```
 
 ## 请求配置
-
-'options','get','head','post', 'put','delete','trace','connect','download','upload'
 
 **通用配置**
 
