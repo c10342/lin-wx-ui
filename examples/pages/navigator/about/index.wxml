@@ -1,27 +1,4 @@
-<!-- <view class='container'>
-  <view class="header">
-    <image src="/images/logo.png" class="image-logo" />
-  </view>
-  <view class="header">
-    <view class="info-item ui-name">lin-wx-ui</view>
-    <view class="info-item">欢迎大家一起学习交流</view>
-    <view class="info-item">本人QQ号：1376023740</view>
-  </view>
-  <view class='address-container'>
-    <view class='dot' />
-    <view class='doc-container' bindtap='copyLink' data-link="http://wxui.linjiafu.top">
-      <text class='doc-txt'>Web端文档</text>
-      <text class='address'>http://wxui.linjiafu.top</text>
-    </view>
-  </view>
-  <view class='address-container'>
-    <view class='dot' />
-    <view class='doc-container' bindtap='copyLink' data-link="https://github.com/c10342/lin-wx-ui">
-      <text class='doc-txt'>Github</text>
-      <text class='address'>https://github.com/c10342/lin-wx-ui</text>
-    </view>
-  </view>
-</view> -->
+
 <view class="header">
   <image mode="aspectFit" src="/images/logo.png" class="image-logo" />
   <view class='author'>
