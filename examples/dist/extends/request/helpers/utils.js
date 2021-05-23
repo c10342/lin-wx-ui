@@ -103,15 +103,15 @@ export function extend(to, from) {
 
 // 分发函数，根据配置选择不同文件
 export function getDefaultAdapter(config) {
-  const { dispatchRequestType } = config;
+  const { method } = config;
   let adapter;
-  if (dispatchRequestType === 'upload') {
+  if (method === 'upload') {
     // 上传
     adapter = require('../adapters/upload').default;
-  } else if (dispatchRequestType === 'download') {
+  } else if (method === 'download') {
     // 下载
     adapter = require('../adapters/download').default;
-  } else if (dispatchRequestType === 'request') {
+  } else {
     // 普通网络请求
     adapter = require('../adapters/xhr').default;
   }

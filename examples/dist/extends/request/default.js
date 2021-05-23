@@ -4,7 +4,7 @@ const okErrMsg = ['request:ok', 'downloadFile:ok', 'uploadFile:ok'];
 
 // 默认配置
 const defaults = {
-  // 创建请求时使用的方法。dispatchRequestType='request' 时有效
+  // 创建请求时使用的方法。
   method: 'get',
 
   // `timeout` 指定请求超时的毫秒数(0 表示无超时时间)
@@ -32,10 +32,7 @@ const defaults = {
   ],
 
   // 适配器，根据适配器派发请求
-  adapter: getDefaultAdapter,
-
-  // 派发的请求类型。request->普通网络请求,upload->上传文件,download->下载文件
-  dispatchRequestType: 'request'
+  adapter: getDefaultAdapter
 
   // 即将被发送的自定义请求头
   // headers: {
@@ -50,7 +47,7 @@ const defaults = {
   // 它可以通过设置一个 `baseURL` 便于为 request 实例的方法传递相对 URL
   // baseURL: 'https://some-domain.com/api/',
 
-  // `data` 是即将与请求一起发送请求参数。dispatchRequestType='upload' 时无效
+  // `data` 是即将与请求一起发送请求参数。method='download' 时无效
   // data: {
   //   ID: 12345
   // },
@@ -60,35 +57,32 @@ const defaults = {
   // cancelToken: new CancelToken(function (cancel) {
   // }),
 
-  // 返回的数据格式,合法值为json和其他(不对返回的内容进行 JSON.parse)。dispatchRequestType='request' 时有效
+  // 返回的数据格式,合法值为json和其他(不对返回的内容进行 JSON.parse)。method!='download'||'upload' 时有效
   // dataType:"json",
 
-  // 响应的数据类型,合法值为text和arraybuffer。dispatchRequestType='request' 时有效
+  // 响应的数据类型,合法值为text和arraybuffer。method!='download'||'upload' 时有效
   // responseType:"text",
 
-  // 是否开启 http2。dispatchRequestType='request' 时有效
+  // 是否开启 http2。method!='download'||'upload' 时有效
   // enableHttp2:false,
 
-  // 是否开启 quic。dispatchRequestType='request' 时有效
+  // 是否开启 quic。method!='download'||'upload' 时有效
   // enableQuic:false,
 
-  // 是否开启 cache。dispatchRequestType='request' 时有效
+  // 是否开启 cache。method!='download'||'upload' 时有效
   // enableCache:false,
 
-  // 上传处理进度事件。dispatchRequestType='upload' 时有效
+  // 上传处理进度事件。method='upload' 时有效
   // onUploadProgress:(res)=>{},
 
-  // 下载处理进度事件。dispatchRequestType='download' 时有效
+  // 下载处理进度事件。method='download' 时有效
   // onDownloadProgress:(res)=>{},
 
-  // 下载时为文件下载后存储的路径 (本地路径)，上传时为上传文件资源的路径 (本地路径)。dispatchRequestType='upload' | 'download' 时有效
+  // 下载时为文件下载后存储的路径 (本地路径)，上传时为上传文件资源的路径 (本地路径)。method='upload' | 'download' 时有效
   // filePath:'xxx',
 
-  // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件的二进制内容。 dispatchRequestType='upload' 时有效
+  // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件的二进制内容。 method='upload' 时有效
   // name:'xx',
-
-  // 其他额外的 form data。dispatchRequestType='upload' 时有效
-  // formData:{}
 };
 
 export default defaults;
