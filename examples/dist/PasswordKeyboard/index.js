@@ -1,4 +1,5 @@
 Component({
+  name: 'PasswordKeyboard',
   options: {
     addGlobalClass: true,
     multipleSlots: true
