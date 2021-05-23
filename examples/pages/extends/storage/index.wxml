@@ -1,9 +1,16 @@
 
 
-<lin-button bind:click='onSet'>set</lin-button>
+<!-- <lin-button bind:click='onSet'>set</lin-button>
 <lin-button bind:click='onGet'>get</lin-button>
 <lin-button bind:click='onHas'>has</lin-button>
+<lin-button bind:click='onKeys'>keys</lin-button>
+<lin-button bind:click='onValues'>values</lin-button>
+<lin-button bind:click='onForEach'>forEach</lin-button>
+<lin-button bind:click='onLength'>length</lin-button>
 <lin-button bind:click='onRemove'>remove</lin-button>
 <lin-button bind:click='onClear'>clear</lin-button>
-<lin-button bind:click='onGetAll'>getAll</lin-button>
-<lin-button bind:click='onForEach'>forEach</lin-button>
+<lin-button bind:click='onInfo'>info</lin-button> -->
+
+<view class="container">
+  <wemark md="{{markdown}}" highlight />
+</view>

@@ -1,22 +1,58 @@
+// import storage from '../../../dist/extends/storage/index.js';
+
+import markdown from './markdown';
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    markdown
+  },
 
-  onSet() {},
+  // onSet() {
+  //   for (let i = 0; i < 100; i++) {
+  //     storage.set(`test-${i}`, i);
+  //   }
+  // },
 
-  onGet() {},
+  // onGet() {
+  //   console.log(storage.get('test'));
+  // },
 
-  onHas() {},
+  // onHas() {
+  //   console.log(storage.has('demo'));
+  // },
 
-  onRemove() {},
+  // onKeys() {
+  //   console.log(storage.keys());
+  // },
 
-  onClear() {},
+  // onValues() {
+  //   console.log(storage.values());
+  // },
 
-  onGetAll() {},
+  // onForEach() {
+  //   storage.forEach((key, value, index) => {
+  //     console.log(key, value, index);
+  //   });
+  // },
 
-  onForEach() {},
+  // onLength() {
+  //   console.log(storage.length);
+  // },
+
+  // onRemove() {
+  //   storage.remove('test');
+  // },
+
+  // onClear() {
+  //   storage.clear();
+  // },
+
+  // onInfo() {
+  //   console.log(wx.getStorageInfoSync());
+  // },
 
   /**
    * 生命周期函数--监听页面加载
