@@ -2,6 +2,7 @@ import pageScrollBehavior from '../behaviors/page-scroll';
 import { getViewPort } from '../common/utils';
 
 Component({
+  name: 'Backtop',
   options: {
     addGlobalClass: true,
     multipleSlots: true
