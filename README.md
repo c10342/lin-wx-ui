@@ -4,15 +4,21 @@
 </div>
 
 <p align="center">
+    <a href="https://travis-ci.org/c10342/lin-wx-ui">
+      <img src="https://travis-ci.org/c10342/lin-wx-ui.svg?branch=master" alt='CICD'>
+    </a>
+    <a href='https://coveralls.io/github/c10342/lin-wx-ui?branch=master'>
+      <img src='https://coveralls.io/repos/github/c10342/lin-wx-ui/badge.svg?branch=master' alt='Coverage Status' />
+    </a>
     <a href="https://www.npmjs.org/package/lin-wx-ui">
-    <img src="https://img.shields.io/npm/v/lin-wx-ui.svg"/>
-  </a>
+      <img src="https://img.shields.io/npm/v/lin-wx-ui.svg" alt='npm version' />
+    </a>
     <a href="https://npmcharts.com/compare/lin-wx-ui?minimal=true">
-    <img src="http://img.shields.io/npm/dm/lin-wx-ui.svg"/>
-  </a>
+      <img src="http://img.shields.io/npm/dm/lin-wx-ui.svg" alt='download' />
+    </a>
     <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
-  </a>
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt='License-MIT' />
+    </a>
 </p>
 
 ## 在线文档
@@ -55,6 +61,7 @@ yarn add lin-wx-ui --production
 ### 方式二. 下载代码
 
 直接通过 git 下载 lin-wx-ui 源代码，并将`dist`目录拷贝到自己的项目中
+
 ```bash
 git clone https://github.com/c10342/lin-wx-ui.git
 ```
@@ -88,7 +95,6 @@ npm run dev
 ```
 
 打开[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，把`lin-wx-ui/example`目录添加进去就可以预览示例了。
-
 
 ## 贡献
 
