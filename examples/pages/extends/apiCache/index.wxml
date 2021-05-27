@@ -1,0 +1,1 @@
+<lin-button bind:click='onClick'>点击</lin-button>

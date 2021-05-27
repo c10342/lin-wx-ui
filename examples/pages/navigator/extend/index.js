@@ -18,6 +18,14 @@ Page({
         linear-gradient(90deg, #f4e29c 0, #826057)
         `,
         path: '/pages/extends/storage/index'
+      },
+      {
+        label: 'api缓存',
+        bgColor: `
+        linear-gradient(135deg, rgba(244, 226, 156, 0), #3b293a),
+        linear-gradient(90deg, #f4e29c 0, #826057)
+        `,
+        path: '/pages/extends/apiCache/index'
       }
     ]
   },
