@@ -1,6 +1,6 @@
 const markdown = `
 # 介绍
-Request 网络请求是一个基于 promise 的 HTTP 库，参考\`request\`源码的设计思想,特点如下：
+Request 网络请求是一个基于 promise 的 HTTP 库，参考\`axios\`源码的设计思想,特点如下：
 - 基于\`wx.request\`,\`wx.downloadFile\`和\`wx.uploadFile\`封装的 Http 库
 - 支持\`Promise\`API
 - 拦截请求和响应

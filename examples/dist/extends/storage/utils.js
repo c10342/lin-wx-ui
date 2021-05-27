@@ -3,7 +3,7 @@ export function checkExpire(val) {
   if (val && val.expire) {
     // true过期，false没过期
     const now = Date.now();
-    return val.options.expire < now;
+    return val.expire < now;
   }
   return false;
 }

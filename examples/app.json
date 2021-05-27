@@ -68,7 +68,8 @@
     "pages/component/float-button/index",
     "pages/navigator/introduce/index",
     "pages/extends/request/index",
-    "pages/extends/storage/index"
+    "pages/extends/storage/index",
+    "pages/extends/apiCache/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -80,7 +81,7 @@
     "component-cell": "/components/componentCell/index",
     "demo-block": "/components/demoBlock/index",
     "extend-item": "/components/extend-item/index",
-    "wemark":"/components/wemark/wemark",
+    "wemark": "/components/wemark/wemark",
     "lin-button": "/dist/Button/index",
     "lin-icon": "/dist/Icon/index",
     "lin-image": "/dist/Image/index",

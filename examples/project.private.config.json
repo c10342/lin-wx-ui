@@ -416,6 +416,11 @@
           "pathName": "pages/component/password-keyboard/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "api缓存",
+          "pathName": "pages/extends/apiCache/index",
+          "scene": null
         }
       ]
     }
