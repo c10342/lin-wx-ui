@@ -1,1 +1,5 @@
-<lin-button bind:click='onClick'>点击</lin-button>
+<!-- <lin-button bind:click='onClick'>点击</lin-button> -->
+
+<view class="container">
+  <wemark md="{{markdown}}" highlight />
+</view>

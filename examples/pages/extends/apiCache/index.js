@@ -1,25 +1,28 @@
 import apiCache from '../../../dist/extends/apiCache/index';
 
-apiCache.setConfig({ cache: 1, expire: 5000 });
+import markdown from './markdown';
+
+apiCache.setCacheConfig({ cache: 1, expire: 5000 });
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-
-  onClick() {
-    apiCache
-      .get('https://cnodejs.org/api/v1/topics', {
-        method: 'get',
-        data: {
-          page: 1,
-          limit: 4
-        }
-      })
-      .then((res) => {
-        // console.log(res);
-      });
+  data: {
+    markdown
   },
+
+  // onClick() {
+  //   apiCache
+  //     .get('https://cnodejs.org/api/v1/topics', {
+  //       data: {
+  //         page: 1,
+  //         limit: 4
+  //       }
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //     });
+  // },
 
   /**
    * 生命周期函数--监听页面加载
