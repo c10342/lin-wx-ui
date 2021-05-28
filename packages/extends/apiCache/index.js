@@ -75,7 +75,7 @@ const methodList = [
 ];
 
 methodList.forEach((method) => {
-  ApiCache.prototype[method] = (url, config, cacheOptions) => {
+  ApiCache.prototype[method] = function (url, config, cacheOptions) {
     return this.request(method, url, config, cacheOptions);
   };
 });
