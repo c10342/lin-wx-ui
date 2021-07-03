@@ -2,6 +2,17 @@ import { logsType } from '../../../config/index';
 
 export default [
   {
+    version: '1.3.0',
+    time: '2021-07-03',
+    content: [
+      {
+        title: '新增扩展功能',
+        list: ['新增 ApiCache 请求缓存'],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
     version: '1.2.0',
     time: '2021-05-23',
     content: [
