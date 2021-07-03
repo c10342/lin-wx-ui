@@ -51,11 +51,12 @@
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss,wxss}": [
-      "npm run lint:style-fix"
+      "stylelint **/*.{html,vue,css,sass,scss,wxss} --fix"
     ],
     "*.{js,vue,.json}": [
       "prettier --write",
-      "npm run lint"
+      "eslint --fix --ext .js,.vue,.json ./",
+      "eslint --ext .js,.vue,.json ./"
     ]
   },
   "config": {
