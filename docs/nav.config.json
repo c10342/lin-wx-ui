@@ -355,6 +355,11 @@
       "desc": "Storage 本地缓存",
       "name": "storage",
       "path": "/storage"
+    },
+    {
+      "desc": "apiCache api缓存",
+      "name": "apiCache",
+      "path": "/apiCache"
     }
   ]
 }

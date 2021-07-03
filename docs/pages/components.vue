@@ -53,7 +53,8 @@ export default {
   .component-load,
   .component-request,
   .component-storage,
-  .component-explain {
+  .component-explain,
+  .component-apiCache {
     padding-right: 48px;
   }
 }
