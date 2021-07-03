@@ -1,7 +1,7 @@
 <view class="content">
-  <view class="title">关于lin-view-ui组件库</view>
+  <view class="title">关于lin-wx-ui组件库</view>
   <view class="info">
-    Hello，各位开发者，首先欢迎大家使用lin-view-ui组件库
+    Hello，各位开发者，首先欢迎大家使用lin-wx-ui组件库
   </view>
   <view class="info">
     该项目是由我个人开发的一款轻量、灵活的微信小程序UI组件库，是基于微信原生小程序开发的。其中这个项目包含了2个部分，一个是组件部分，一个是扩展部分。

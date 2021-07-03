@@ -14,7 +14,7 @@
   <lin-cell-group>
 			<lin-cell bind:click='copyLink' data-link="https://github.com/c10342/lin-wx-ui" title="github" label='https://github.com/c10342/lin-wx-ui' is-link />
 			<lin-cell bind:click='copyLink' data-link="http://wxui.linjiafu.top" title="Web端文档" label='http://wxui.linjiafu.top' is-link />
-			<lin-cell title="关于lin-view-ui组件库" is-link url="/pages/navigator/introduce/index" />
+			<lin-cell title="关于lin-wx-ui组件库" is-link url="/pages/navigator/introduce/index" />
 			<lin-cell title="日志" is-link border="{{ false }}" url="/pages/navigator/logs/index" />
 		</lin-cell-group>
 </view>
