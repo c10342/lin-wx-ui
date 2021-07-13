@@ -2,6 +2,7 @@ import { isImageFile, chooseFile, isVideo, isPromise } from './utils';
 
 import { chooseImageProps, chooseVideoProps } from './props';
 import { canIUsePreviewMedia } from '../common/version';
+import { isFunction } from '../common/is.js';
 
 Component({
   name: 'Uploader',
@@ -133,7 +134,7 @@ Component({
     onBeforeRead(file) {
       const { beforeRead, useBeforeRead } = this.properties;
       let res = true;
-      if (typeof beforeRead === 'function') {
+      if (isFunction(beforeRead)) {
         // 获取beforeRead返回结果
         res = beforeRead(file, this.getDetail());
       }
@@ -175,7 +176,7 @@ Component({
         this.triggerEvent('oversize', { file, ...this.getDetail() });
         return;
       }
-      if (typeof afterRead === 'function') {
+      if (isFunction(afterRead)) {
         // 调用文件读取后回调函数
         afterRead(file, this.getDetail());
       }

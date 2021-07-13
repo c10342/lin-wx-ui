@@ -1,3 +1,5 @@
+import { isFunction } from '../common/is.js';
+
 Component({
   name: 'Form',
   options: {
@@ -79,12 +81,12 @@ Component({
       Promise.all(tasks)
         .then((res) => {
           // 执行回调函数
-          if (typeof callback === 'function') {
+          if (isFunction(callback)) {
             callback(res.every(Boolean), model);
           }
         })
         .catch(() => {
-          if (typeof callback === 'function') {
+          if (isFunction(callback)) {
             callback(false, model);
           }
         });

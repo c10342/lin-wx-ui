@@ -1,3 +1,5 @@
+import { isFunction } from './is.js';
+
 // 封装请求方法
 const baseRequest = ({
   url,
@@ -33,7 +35,7 @@ const baseRequest = ({
       },
       reject,
       complete(resData) {
-        if (typeof completeCallback === 'function') {
+        if (isFunction(completeCallback)) {
           completeCallback(resData);
         }
       }

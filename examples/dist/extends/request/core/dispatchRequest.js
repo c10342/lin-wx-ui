@@ -63,8 +63,8 @@ function processConfig(config) {
 /**
  * 转化响应数据
  *
- * @param {AxiosResponse} res
- * @returns {AxiosResponse}
+ * @param {} res
+ * @returns {}
  */
 function transformResponseData(res) {
   // 默认不做处理，给什么数据就返回什么数据，用户可自定义

@@ -1,5 +1,6 @@
 import pageScrollBehavior from '../behaviors/page-scroll';
 import { getRect } from '../common/utils';
+import { isFunction } from '../common/is.js';
 
 const ROOT_ELEMENT = '.lin-sticky';
 Component({
@@ -71,7 +72,7 @@ Component({
       // 滚动的高度
       this.scrollTop = scrollTop || this.scrollTop;
 
-      if (typeof container === 'function') {
+      if (isFunction(container)) {
         Promise.all([
           getRect(this, ROOT_ELEMENT),
           this.getContainerRect()
