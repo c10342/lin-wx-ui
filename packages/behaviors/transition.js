@@ -1,4 +1,4 @@
-import { isObj } from '../common/utils';
+import { isObject } from '../common/is.js';
 
 const nextTick = () => new Promise((resolve) => setTimeout(resolve, 1000 / 30));
 
@@ -71,7 +71,7 @@ const TransitionBehavior = (showDefaultValue) =>
         // 初始化过度类名
         const classNames = getClassName(name);
         // 判断是不是对象，是对象就获取enter字段
-        const currentDuration = isObj(duration) ? duration.enter : duration;
+        const currentDuration = isObject(duration) ? duration.enter : duration;
         // 更新状态
         this.status = 'enter';
         // 发射before-enter事件
@@ -120,7 +120,7 @@ const TransitionBehavior = (showDefaultValue) =>
         // 初始化过度类名
         const classNames = getClassName(name);
         // 过渡时间
-        const currentDuration = isObj(duration) ? duration.leave : duration;
+        const currentDuration = isObject(duration) ? duration.leave : duration;
         // 更新状态
         this.status = 'leave';
         this.triggerEvent('before-leave');

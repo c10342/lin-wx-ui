@@ -1,4 +1,4 @@
-import { isObj } from '../common/utils';
+import { isObject } from '../common/is.js';
 
 Component({
   name: 'PickerColumn',
@@ -231,7 +231,7 @@ Component({
     },
     // 判断是否被禁用
     isDisabled(option) {
-      return isObj(option) && option.disabled;
+      return isObject(option) && option.disabled;
     },
     // 设置当前索引
     setIndex(index) {
@@ -243,7 +243,7 @@ Component({
     // 获取文本值
     getOptionText(option) {
       const { textKey } = this.properties;
-      return isObj(option) && textKey in option ? option[textKey] : option;
+      return isObject(option) && textKey in option ? option[textKey] : option;
     },
     // 设置选中的值
     setValue(value) {

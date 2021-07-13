@@ -10,12 +10,6 @@ export function getSystemInfoSync() {
   return systemInfo;
 }
 
-// 判断是否为对象
-export function isObj(obj) {
-  const type = typeof obj;
-  return obj !== null && (type === 'object' || type === 'function');
-}
-
 // 定时器封装
 export function nextTick(fn) {
   setTimeout(() => {

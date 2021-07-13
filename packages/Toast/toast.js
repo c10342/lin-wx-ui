@@ -1,4 +1,4 @@
-import { isObj } from '../common/utils';
+import { isObject } from '../common/is.js';
 
 // 默认配置
 const defaultOptions = {
@@ -28,7 +28,7 @@ let currentOptions = { ...defaultOptions };
 
 // 转化message配置
 function parseOptions(message) {
-  return isObj(message) ? message : { message };
+  return isObject(message) ? message : { message };
 }
 
 // 获取上下文
