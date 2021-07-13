@@ -19,3 +19,8 @@ export function isUndefined(data) {
 export function isUndef(data) {
   return isUndefined(data) || isNull(data);
 }
+
+export function isObject(obj) {
+  const type = typeof obj;
+  return obj !== null && (type === 'object' || type === 'function');
+}
