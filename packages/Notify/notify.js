@@ -1,4 +1,5 @@
 import { WHITE } from '../common/color';
+import { isString } from '../common/is.js';
 
 // 默认配置
 const defaultOptions = {
@@ -36,7 +37,7 @@ function parseOptions(option) {
   if (!option) {
     return {};
   }
-  if (typeof option === 'string') {
+  if (isString(option)) {
     // 如果是字符串类型，则需要转化为object类型
     return { message: option };
   }

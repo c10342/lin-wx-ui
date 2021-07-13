@@ -1,3 +1,5 @@
+import { isFunction } from '../common/is.js';
+
 // 获取当前所在的页面实例
 function getCurrentPage() {
   const pages = getCurrentPages();
@@ -10,7 +12,7 @@ function onPageScroll(event) {
   const { linPageScroll = [] } = getCurrentPage();
 
   linPageScroll.forEach((scroller) => {
-    if (typeof scroller === 'function') {
+    if (isFunction(scroller)) {
       scroller(event);
     }
   });
@@ -26,10 +28,9 @@ const pageScrollBehavior = (scroller) =>
         page.linPageScroll.push(scroller.bind(this));
       } else {
         // 页面已经定义了onPageScroll方法，此时需要改写onPageScroll方法
-        page.linPageScroll =
-          typeof page.onPageScroll === 'function'
-            ? [page.onPageScroll.bind(page), scroller.bind(this)]
-            : [scroller.bind(this)];
+        page.linPageScroll = isFunction(page.onPageScroll)
+          ? [page.onPageScroll.bind(page), scroller.bind(this)]
+          : [scroller.bind(this)];
       }
 
       page.onPageScroll = onPageScroll;

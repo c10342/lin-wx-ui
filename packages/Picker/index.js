@@ -1,3 +1,5 @@
+import { isUndef } from '../common/is.js';
+
 Component({
   name: 'Picker',
   options: {
@@ -141,7 +143,7 @@ Component({
     // 获取对应的子组件，存在index则返回对应的下标值组件，否则就是全部
     getColumn(index) {
       const children = this.selectAllComponents('.lin-picker-column');
-      if (index == null || index === undefined) {
+      if (isUndef(index)) {
         return children;
       }
       return children[index];
