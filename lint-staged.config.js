@@ -1,4 +1,4 @@
 module.exports = {
-  '*.{css,scss,wxss}': ['stylelint **/*.{css,scss} --fix'],
-  '*.{ts,js,json}': ['prettier --write', 'eslint --fix', 'git add', 'eslint']
+  '*.{css,scss,wxss}': ['stylelint **/*.{css,scss,wxss} --fix'],
+  '*.{ts,js,json}': ['prettier --write', 'eslint --fix', 'eslint']
 };
