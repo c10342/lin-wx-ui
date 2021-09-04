@@ -30,10 +30,10 @@
     "upload:docs": "npm run build:docs && node ./build/qiniu.js",
     "create": "node ./build/create.js",
     "createComponent": "node ./build/createComponent.js",
-    "lint": "eslint --ext .js,.vue,.json ./",
-    "lint-fix": "eslint --fix --ext .js,.vue,.json ./",
-    "lint:style": "stylelint **/*.{html,vue,css,sass,scss,wxss}",
-    "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss,wxss} --fix",
+    "lint": "eslint --ext .js,.ts,.json ./",
+    "lint-fix": "eslint --fix --ext .js,.ts,.json ./",
+    "lint:style": "stylelint **/*.{css,sass,scss,wxss}",
+    "lint:style-fix": "stylelint **/*.{css,sass,scss,wxss} --fix",
     "commit": "git cz",
     "pub": "node ./build/publish.js",
     "prepublishOnly": "npm run build",
@@ -41,7 +41,10 @@
     "test-coverage": "jest --coverage",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --verbose",
     "test-watch": "jest --watch",
-    "codecov": "jest --coverage && codecov"
+    "codecov": "jest --coverage && codecov",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "lint-staged": "lint-staged --config lint-staged.config.js",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -49,74 +52,14 @@
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
-  "lint-staged": {
-    "*.{html,vue,css,sass,scss,wxss}": [
-      "stylelint **/*.{html,vue,css,sass,scss,wxss} --fix"
-    ],
-    "*.{js,vue,.json}": [
-      "prettier --write",
-      "eslint --fix --ext .js,.vue,.json ./",
-      "eslint --ext .js,.vue,.json ./"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog",
-      "types": {
-        "build": {
-          "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
-          "title": "build"
-        },
-        "ci": {
-          "description": "主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交",
-          "title": "ci"
-        },
-        "docs": {
-          "description": "文档更新",
-          "title": "docs"
-        },
-        "feat": {
-          "description": "新增功能",
-          "title": "feat"
-        },
-        "fix": {
-          "description": "bug 修复",
-          "title": "fix"
-        },
-        "perf": {
-          "description": "性能优化",
-          "title": "perf"
-        },
-        "refactor": {
-          "description": "重构代码(既没有新增功能，也没有修复 bug)",
-          "title": "refactor"
-        },
-        "style": {
-          "description": "不影响程序逻辑的代码修改(修改空白字符，补全缺失的分号等)",
-          "title": "style"
-        },
-        "test": {
-          "description": "单元测试",
-          "title": "test"
-        },
-        "revert": {
-          "description": "回滚某个更早之前的提交",
-          "title": "revert"
-        },
-        "chore": {
-          "description": "不属于以上类型的其他类型(日常事务)",
-          "title": "chore"
-        }
-      }
-    }
-  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-standard": "^6.0.0",
     "cheerio": "^1.0.0-rc.3",
     "codecov": "^3.8.1",
     "commitizen": "^4.2.2",
@@ -126,14 +69,9 @@
     "cz-conventional-changelog": "^3.3.0",
     "del": "^5.1.0",
     "eslint": "^7.17.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-json": "^2.1.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-vue": "^7.8.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-eslint7": "^0.3.0",
@@ -147,7 +85,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify-es": "^2.0.0",
     "highlight.js": "^10.2.1",
-    "husky": "^4.3.6",
+    "husky": "^7.0.2",
     "inquirer": "^7.3.3",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
