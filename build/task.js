@@ -24,7 +24,23 @@ const del = require('del');
 
 const path = require('path');
 
+const ts = require('gulp-typescript');
+
+const tsProject = ts.createProject('../tsconfig.json');
+
 const isDev = process.env.NODE_ENV === 'development';
+
+const buildTs = (srcPath, distPath) => () => {
+  let tsResult = src(srcPath).pipe(tsProject());
+  if (!isDev) {
+    tsResult = tsResult
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+  }
+
+  return tsResult.js.pipe(dest(distPath));
+};
 
 const buildWxss = (srcPath, distPath) => () => {
   let p = src(srcPath);
@@ -35,7 +51,7 @@ const buildWxss = (srcPath, distPath) => () => {
       })
     );
   }
-  p = p
+  return p
     .pipe(sass().on('error', sass.logError))
     .pipe(cssmin())
     .pipe(
@@ -54,8 +70,6 @@ const buildWxss = (srcPath, distPath) => () => {
       })
     )
     .pipe(dest(distPath));
-
-  return p;
 };
 
 const copy = (srcPath, distPath, ext) => () => {
@@ -63,8 +77,7 @@ const copy = (srcPath, distPath, ext) => () => {
   if (ext === 'js' && !isDev) {
     p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
   }
-  p = p.pipe(dest(distPath));
-  return p;
+  return p.pipe(dest(distPath));
 };
 
 const buildWxml = (srcPath, distPath) => () =>
@@ -87,9 +100,8 @@ const buildJs = (srcPath, distPath) => () => {
   if (!isDev) {
     p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
   }
-  p = p.pipe(jsmin()).pipe(dest(distPath));
 
-  return p;
+  return p.pipe(jsmin()).pipe(dest(distPath));
 };
 
 const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
@@ -121,5 +133,6 @@ module.exports = {
   copyStatic,
   clean,
   copy,
-  buildWxs
+  buildWxs,
+  buildTs
 };

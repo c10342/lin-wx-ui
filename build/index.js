@@ -7,7 +7,8 @@ const {
   copy,
   copyStatic,
   clean,
-  buildWxs
+  buildWxs,
+  buildTs
 } = require('./task');
 
 const { series, parallel, watch } = require('gulp');
@@ -31,14 +32,16 @@ module.exports = {
       buildImage(`${packagesPath}/*.png`, distPath),
       buildJson(`${packagesPath}/*.json`, distPath),
       buildJs(`${packagesPath}/*.js`, distPath),
-      buildWxs(`${packagesPath}/*.wxs`, distPath)
+      buildWxs(`${packagesPath}/*.wxs`, distPath),
+      buildTs(`${packagesPath}/*.ts`, distPath)
     )
   ),
   dev: series(
     clean(examplePath),
     parallel(
       buildWxss(`${packagesPath}/*.scss`, examplePath),
-      copyStatic(packagesPath, examplePath)
+      copyStatic(packagesPath, examplePath),
+      buildTs(`${packagesPath}/*.ts`, examplePath)
     )
   ),
   watch: parallel(() => {
@@ -46,6 +49,7 @@ module.exports = {
       '../packages/**/*.scss',
       buildWxss(`${packagesPath}/*.scss`, examplePath)
     );
+    watch('../packages/**/*.ts', buildTs(`${packagesPath}/*.ts`, examplePath));
     watch('../packages/**/*.wxml', copy(packagesPath, examplePath, 'wxml'));
     watch('../packages/**/*.wxs', copy(packagesPath, examplePath, 'wxs'));
     watch('../packages/**/*.json', copy(packagesPath, examplePath, 'json'));
