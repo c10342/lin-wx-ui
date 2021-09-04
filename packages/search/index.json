@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-field": "../Field/index"
+    "lin-field": "../field/index"
   }
 }

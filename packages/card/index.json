@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-tag": "../Tag/index"
+    "lin-tag": "../tag/index"
   }
 }

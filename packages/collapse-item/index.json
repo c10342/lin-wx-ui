@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-cell": "../Cell/index"
+    "lin-cell": "../cell/index"
   }
 }

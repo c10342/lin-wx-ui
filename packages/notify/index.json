@@ -2,6 +2,6 @@
 {
     "component": true,
     "usingComponents":{
-        "lin-transition":"../Transition/index"
+        "lin-transition":"../transition/index"
     }
 }

@@ -2,8 +2,8 @@
 {
     "component": true,
     "usingComponents":{
-        "lin-icon":"../Icon/index",
-        "lin-popup":"../Popup/index",
-        "lin-loading":"../Loading/index"
+        "lin-icon":"../icon/index",
+        "lin-popup":"../popup/index",
+        "lin-loading":"../loading/index"
     }
 }

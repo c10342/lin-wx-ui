@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-icon": "../Icon/index",
-    "lin-button": "../Button/index",
-    "lin-info": "../Info/index"
+    "lin-icon": "../icon/index",
+    "lin-button": "../button/index",
+    "lin-info": "../info/index"
   }
 }

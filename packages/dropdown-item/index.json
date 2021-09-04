@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "lin-popup": "../Popup/index",
-    "lin-icon": "../Icon/index"
+    "lin-popup": "../popup/index",
+    "lin-icon": "../icon/index"
   }
 }
