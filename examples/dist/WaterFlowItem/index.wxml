@@ -1,6 +1,0 @@
-
-<wxs src="../wxs/style.wxs" module="styleUtils" />
-
-<view class='custom-class lin-water-flow-item' style="{{styleUtils.singleUnit('width',width)}} {{positionStyle}}">
-    <slot />
-</view>

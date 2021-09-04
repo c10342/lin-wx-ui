@@ -1,8 +1,0 @@
-<lin-button hover-class="lin-goods-action-icon-hover" custom-class="custom-class lin-goods-action-icon" id="{{ id }}" lang="{{ lang }}" loading="{{ loading }}" disabled="{{ disabled }}" open-type="{{ openType }}" business-id="{{ businessId }}" session-from="{{ sessionFrom }}" app-parameter="{{ appParameter }}" send-message-img="{{ sendMessageImg }}" send-message-path="{{ sendMessagePath }}" show-message-card="{{ showMessageCard }}" send-message-title="{{ sendMessageTitle }}" bind:click="onClick" binderror="bindError" bindcontact="bindContact" bindopensetting="bindOpenSetting" bindgetuserinfo="bindGetUserInfo" bindgetphonenumber="bindGetPhoneNumber" bindlaunchapp="bindLaunchApp">
-    <view class="lin-goods-action-icon-container">
-        <lin-icon wx:if="{{icon}}" class="icon-class lin-goods-action-icon-icon" icon='{{icon}}' />
-        <slot wx:else name="icon" />
-        <text class="text-class lin-goods-action-icon-text">{{text}}</text>
-        <lin-info info='{{info}}' dot='{{dot}}' />
-    </view>
-</lin-button>

@@ -1,8 +1,0 @@
-
-{
-    "component": true,
-    "usingComponents":{
-        "lin-popup":"../Popup/index",
-        "options":"./options"
-    }
-}

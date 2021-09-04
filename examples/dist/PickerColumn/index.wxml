@@ -1,8 +1,0 @@
-<wxs src="./index.wxs" module="getOptionText" />
-<view style="height:{{itemHeight*visibleItemCount}}px" class='custom-class lin-picker-column' catch:touchmove="onTouchMove" bind:touchstart="onTouchStart" bind:touchend="onTouchEnd">
-    <view style="transform: translateY({{translateY}}px);{{transitionStyle}}" class="lin-picker-column-container">
-        <view style="height:{{itemHeight}}px;line-height:{{itemHeight}}px" data-index='{{index}}' class="lin-picker-column-item one-line {{item && item.disabled?'lin-picker-column-item-disabled':''}} {{index==currentIndex?'active-class':''}}" wx:key="index" wx:for="{{optionsList}}" bind:tap="onClick">
-            {{getOptionText(item,textKey)}}
-        </view>
-    </view>
-</view>

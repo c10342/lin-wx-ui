@@ -1,7 +1,0 @@
-<wxs src="../wxs/classname.wxs" module="classname" />
-<view bind:tap="onItemClick" class="custom-class lin-sidebar-item {{classname.multCalss(['lin-sidebar-item-active',index==activeKey],['lin-sidebar-item-disabled',disabled])}}">
-    <view wx:if="{{title}}" class="content-class lin-sidebar-item-content">
-        {{title}}
-        <lin-info dot='{{dot}}' info='{{badge}}' />
-    </view>
-</view>

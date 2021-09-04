@@ -1,6 +1,0 @@
-<wxs src="../wxs/classname.wxs" module="classname" />
-<wxs src="../wxs/style.wxs" module="styleUtils" />
-<view class="placeholder-class lin-tabbar-placeholder" style="{{styleUtils.singleUnit('height',height)}}" wx:if="{{placeholder && fixed}}"></view>
-<view class="custom-class lin-tabbar lin-clearfix {{classname.multCalss(['lin-tabbar-fix',fixed],['lin-border-bottom-top',border],['lin-tabbar-safeBottom',safeAreaInsetBottom])}}" style="{{styleUtils.multStyle(['z-index',zIndex])}}">
-    <slot />
-</view>

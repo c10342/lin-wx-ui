@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "lin-info": "../Info/index"
-  }
-}

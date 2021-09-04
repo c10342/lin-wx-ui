@@ -1,8 +1,0 @@
-function isObj(x) {
-  var type = typeof x;
-  return x !== null && (type === 'object' || type === 'function');
-}
-
-module.exports = function (option, textKey) {
-  return isObj(option) && option[textKey] != null ? option[textKey] : option;
-}

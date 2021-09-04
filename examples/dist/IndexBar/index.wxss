@@ -1,1 +1,0 @@
-@import '../common/base.wxss';.lin-index-bar{position:relative}.lin-index-bar-sidebar{position:fixed;top:50%;right:0;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%)}.lin-index-bar-index{padding:0 16rpx 0 32rpx;font-size:20rpx;font-weight:500;line-height:28rpx}.lin-index-bar-index-active{color:#ee0a24}

@@ -1,4 +1,0 @@
-<view class='title-class lin-cell-group-title' wx:if="{{title}}">{{title}}</view>
-<view class='custom-class {{border?"lin-cell-group-border":""}}'>
-    <slot />
-</view>

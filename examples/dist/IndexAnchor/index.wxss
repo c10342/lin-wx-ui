@@ -1,1 +1,0 @@
-@import '../common/base.wxss';.lin-index-anchor-index{position:relative;z-index:1;box-sizing:border-box;width:100%;padding:0 32rpx;font-size:28rpx;font-weight:500;line-height:64rpx;color:#323233;background-color:transparent}.lin-index-anchor-index-fixed{position:fixed}.lin-index-anchor-index-active{color:#ee0a24;background-color:#fff}

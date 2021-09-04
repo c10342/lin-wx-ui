@@ -1,3 +1,0 @@
-<view class='custom-class lin-row lin-clearfix' style='{{viewStyle}}'>
-    <slot />
-</view>

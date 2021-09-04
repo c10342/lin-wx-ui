@@ -1,1 +1,0 @@
-@import '../common/base.wxss';.lin-cell-group-title{padding:32rpx 32rpx 16rpx;font-size:28rpx;line-height:32rpx;color:#646566}.lin-cell-group-border{border:1px solid #ebedf0}

@@ -1,3 +1,0 @@
-<view class='custom-class lin-col lin-col-span-{{span}} lin-col-offset-{{offset}}' style='{{viewStyle}}'>
-    <slot />
-</view>

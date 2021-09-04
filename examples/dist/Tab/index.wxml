@@ -1,4 +1,0 @@
-<wxs src="../wxs/style.wxs" module="styleUtils" />
-<view class='custom-class lin-tab' style="{{shouldShow?'':'display:none;'}} {{styleUtils.singleUnit('width',width)}}">
-    <slot wx:if="{{shouldRender}}" />
-</view>
