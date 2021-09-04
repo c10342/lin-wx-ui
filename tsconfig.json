@@ -1,18 +1,23 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": ".",
+    "moduleResolution": "node",
+    "module": "es2015",
     "esModuleInterop": true,
     "target": "es6",
     "declaration": false,
     "noImplicitAny": false,
-    "baseUrl": ".",
     "strict": true,
+    "strictPropertyInitialization": false,
+    "preserveSymlinks": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
     "lib": ["es2015", "es2016", "es2017", "dom"],
-    "types": ["miniprogram-api-typings"],
-    "paths": {
-      "packages/*": ["./packages/*"]
-    },
-    "skipLibCheck": true
+    "types": ["miniprogram-api-typings"]
   },
+  "exclude": ["node_modules"],
   "include": ["packages/**/*.ts"]
 }
