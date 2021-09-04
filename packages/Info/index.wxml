@@ -1,4 +1,0 @@
-<wxs src="../wxs/classname.wxs" module="classname" />
-<view wx:if="{{dot || info || info==0}}" class="custom-class lin-info {{classname.singleClass('lin-info-dot',dot)}}" style="{{customStyle}}">
-    {{dot?'':info}}
-</view>

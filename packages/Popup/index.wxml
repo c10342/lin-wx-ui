@@ -1,8 +1,0 @@
-<wxs module="classname" src="../wxs/classname.wxs" />
-<wxs src="../wxs/style.wxs" module="styleUtils" />
-
-<lin-mask show='{{show}}' wx:if="{{mask}}" zIndex='{{zIndex}}' customStyle='{{maskStyle}}' duration='{{duration}}' bind:click='onMaskClick'></lin-mask>
-<view wx:if="{{inited}}" class="custom-class lin-popup {{classname.concatClass('lin-popup',position)}} {{classname.multCalss(['lin-popup-round',round],['lin-popup-safeBottom',safeAreaInsetBottom])}} {{classes}}" style="z-index:{{zIndex}};-webkit-transition-duration:{{ currentDuration }}ms; transition-duration:{{ currentDuration }}ms;{{styleUtils.singleStyle('padding-top',safeAreaInsetTop?statusBarHeight:'0px')}} {{ display ? '' : 'display: none;' }} {{ customStyle?customStyle:'' }}">
-    <slot />
-    <lin-icon bind:tap="onCloseClick" wx:if='{{closeable}}' icon='{{closeIcon}}' size='{{closeIconSize}}' class='lin-popup-close-icon lin-popup-close-{{closeIconPosition}}' />
-</view>

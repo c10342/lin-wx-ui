@@ -1,6 +1,0 @@
-<wxs src="../wxs/classname.wxs" module="classname" />
-<wxs src="../wxs/style.wxs" module="styleUtils" />
-<view class="custom-class lin-tag {{classname.concatMultClass(['lin-tag-size',size],['lin-tag-type',type])}} {{classname.multCalss(['lin-tag-plain',plain],['lin-tag-round',round],['lin-tag-mark',mark])}}" style="{{styleUtils.multUnit(['background-color',plain?'#fff':color],['color',plain?color:textColor])}}">
-    <slot />
-    <lin-icon bindtap="onClick" class='lin-tag-icon' wx:if="{{closeable}}" icon='close' />
-</view>
