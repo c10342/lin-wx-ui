@@ -24,13 +24,18 @@ const del = require('del');
 
 const path = require('path');
 
-const buildWxss = (srcPath, distPath) => () =>
-  src(srcPath)
-    .pipe(
+const isDev = process.env.NODE_ENV === 'development';
+
+const buildWxss = (srcPath, distPath) => () => {
+  let p = src(srcPath);
+  if (!isDev) {
+    p = p.pipe(
       gulpStylelint({
         reporters: [{ formatter: 'string', console: true }]
       })
-    )
+    );
+  }
+  p = p
     .pipe(sass().on('error', sass.logError))
     .pipe(cssmin())
     .pipe(
@@ -50,15 +55,16 @@ const buildWxss = (srcPath, distPath) => () =>
     )
     .pipe(dest(distPath));
 
+  return p;
+};
+
 const copy = (srcPath, distPath, ext) => () => {
-  if (ext === 'js') {
-    return src(`${srcPath}/*.${ext}`)
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError())
-      .pipe(dest(distPath));
+  let p = src(`${srcPath}/*.${ext}`);
+  if (ext === 'js' && !isDev) {
+    p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
   }
-  return src(`${srcPath}/*.${ext}`).pipe(dest(distPath));
+  p = p.pipe(dest(distPath));
+  return p;
 };
 
 const buildWxml = (srcPath, distPath) => () =>
@@ -76,13 +82,15 @@ const buildWxml = (srcPath, distPath) => () =>
 const buildJson = (srcPath, distPath) => () =>
   src(srcPath).pipe(jsonmin()).pipe(dest(distPath));
 
-const buildJs = (srcPath, distPath) => () =>
-  src(srcPath)
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-    .pipe(jsmin())
-    .pipe(dest(distPath));
+const buildJs = (srcPath, distPath) => () => {
+  let p = src(srcPath);
+  if (!isDev) {
+    p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
+  }
+  p = p.pipe(jsmin()).pipe(dest(distPath));
+
+  return p;
+};
 
 const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
 
