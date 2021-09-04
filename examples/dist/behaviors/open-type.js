@@ -3,7 +3,6 @@ const OpenTypeBehavior = Behavior({
     // 微信开放能力
     openType: String
   },
-
   methods: {
     // 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo
     bindGetUserInfo(event) {
@@ -31,5 +30,4 @@ const OpenTypeBehavior = Behavior({
     }
   }
 });
-
 export default OpenTypeBehavior;

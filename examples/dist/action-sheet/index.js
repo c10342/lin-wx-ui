@@ -1,8 +1,7 @@
 import OpenTypeBehavior from '../behaviors/open-type';
-
 Component({
   // 组件名
-  name: 'ActionSheet',
+  // name: 'ActionSheet',
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -66,7 +65,6 @@ Component({
       value: true
     }
   },
-  data: {},
   methods: {
     // 点击选项
     onSelect(event) {
@@ -96,10 +94,5 @@ Component({
       this.triggerEvent('mask-click');
       this.onClose();
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
