@@ -1,5 +1,5 @@
-import Dialog from '../../../dist/Dialog/dialog.js';
-import Notify from '../../../dist/Notify/notify';
+import Dialog from '../../../dist/dialog/dialog.js';
+import Notify from '../../../dist/notify/notify';
 Page({
   /**
    * 页面的初始数据

@@ -1,0 +1,9 @@
+<view class="custom-class lin-radio {{value?'lin-radio-checked':''}} {{(disabled || parentDisabled)?'lin-radio-disabled':''}}">
+    <view class="lin-radio-icon-wrapper" bind:tap="onIconClick">
+        <lin-icon custom-class='icon-class' wx:if="{{!useIconSlot}}" color='{{checkedColor&&value?checkedColor:""}}' class="lin-radio-icon" size='{{iconSize}}' icon='{{iconName}}' />
+        <slot name="icon" wx:else />
+    </view>
+    <view class="label-class lin-radio-label" bind:tap='onLabelClick'>
+        <slot />
+    </view>
+</view>

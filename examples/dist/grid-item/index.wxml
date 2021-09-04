@@ -1,0 +1,21 @@
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class='custom-class lin-grid-item' style="{{wrapperStyle}}" bind:tap="onClick">
+    <view class="content-class lin-grid-item-content {{classname.multCalss(['lin-grid-item-center',center],['lin-border-surround',border],['lin-grid-item-square',square])}}  {{classname.concatClass('lin-grid-item',direction)}}" style="{{contentStyle}}">
+        <block wx:if="{{useSlot}}">
+            <slot />
+        </block>
+        <block wx:else>
+            <view class="icon-class lin-grid-item-icon">
+                <lin-icon wx:if="{{icon}}" size='{{styleUtils.addUnit(iconSize)}}' icon='{{icon}}' color='{{iconColor}}' />
+                <slot wx:else name="icon" />
+                <view class="lin-info-dot lin-info" wx:if="{{dot}}" />
+                <view class="lin-info-badge lin-info" wx:if="{{badge}}">{{badge}}</view>
+            </view>
+            <view class="text-class lin-grid-item-text">
+                <text wx:if="{{text}}">{{text}}</text>
+                <slot wx:else name="text" />
+            </view>
+        </block>
+    </view>
+</view>

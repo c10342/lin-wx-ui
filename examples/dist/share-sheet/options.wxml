@@ -1,0 +1,25 @@
+<scroll-view class='custom-class lin-share-sheet-scroll' scroll-x='{{true}}'>
+	<view class='options-class lin-share-sheet-options {{showBorder?"lin-share-sheet-border":""}}'>
+		<view
+		 wx:for="{{options}}"
+		 wx:key="index"
+		 class='option-class lin-share-sheet-option'
+		 data-index='{{index}}'
+		 bindtap="onSelect"
+		>
+			<button class='button-class lin-share-sheet-button' open-type='{{item.openType}}'>
+				<image src="{{item.icon}}" wx:if="{{item.isImage}}" class='image-class lin-share-sheet-icon' />
+				<lin-icon custom-class='icon-class' color='{{item.iconColor?item.iconColor:""}}' icon='{{item.icon}}' size='{{item.iconSize?item.iconSize:"60rpx"}}' />
+			</button>
+			<view wx:if="{{item.name}}" class='name-class lin-share-sheet-name'>
+				{{item.name}}
+			</view>
+
+			<view wx:if="{{item.description}}" class='description-class lin-share-sheet-option-description'>
+				{{item.description}}
+			</view>
+		</view>
+	</view>
+
+</scroll-view>
+

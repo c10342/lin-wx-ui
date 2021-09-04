@@ -1,0 +1,10 @@
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class="custom-class lin-stepper">
+    <view wx:if='{{showMinus}}' style='{{styleUtils.multUnit(["width",buttonSize],["height",buttonSize],["line-height",buttonSize],["font-size",buttonFontSize])}}' bind:tap="onMinus" bind:longpress='onMinusLongpress' bind:touchend='onTouchend' class="minus-class lin-stepper-minus lin-stepper-button {{isMinusDisable?'lin-stepper-disabled':''}}">
+        -
+    </view>
+    <input style='{{styleUtils.multUnit(["width",inputWidth],["height",buttonSize],["font-size",inputFontSize])}}' bind:blur='onBlur' bind:focus="onFocus" type="{{integer?'number':'digit'}}" class="input-class lin-stepper-input {{disabled?'lin-stepper-disabled':''}}" value="{{inputValue}}" disabled="{{disabled || disableInput}}" />
+    <view wx:if='{{showPlus}}' style='{{styleUtils.multUnit(["width",buttonSize],["height",buttonSize],["line-height",buttonSize],["font-size",buttonFontSize])}}' bind:tap='onPlus' bind:longpress='onPlusLongpress' bind:touchend='onTouchend' class="plus-class lin-stepper-plus lin-stepper-button {{isPlusDisable?'lin-stepper-disabled':''}}">
+        +
+    </view>
+</view>

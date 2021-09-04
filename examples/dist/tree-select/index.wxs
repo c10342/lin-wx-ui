@@ -1,0 +1,13 @@
+var Array = require('../wxs/array.wxs')
+
+// 判断是否为选中状态
+function isActive(activeId,currentId){
+    if(Array.isArray(activeId)){
+        return activeId.indexOf(currentId)>-1
+    }
+    return activeId === currentId
+}
+
+module.exports={
+    isActive:isActive
+}

@@ -1,4 +1,4 @@
-import Notify from '../../../dist/Notify/notify';
+import Notify from '../../../dist/notify/notify';
 Page({
   /**
    * 页面的初始数据

@@ -1,0 +1,13 @@
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class="custom-class lin-tabbar-item {{classname.singleClass('lin-tabbar-item-active',active)}}" style="width:{{width}};{{styleUtils.multStyle(['color',active?activeColor:inactiveColor])}}" bind:tap='onClick'>
+    <view class="content-class lin-tabbar-item-content">
+        <lin-info dot='{{dot}}' info='{{info}}' />
+        <lin-icon size='50rpx' wx:if="{{icon}}" icon='{{icon}}' class="lin-tabbar-item-icon" />
+        <block wx:else>
+            <slot wx:if="{{!active}}" name="icon" />
+            <slot wx:else name="icon-active" />
+        </block>
+        <slot />
+    </view>
+</view>

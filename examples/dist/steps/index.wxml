@@ -1,0 +1,16 @@
+<wxs src="../wxs/classname.wxs" module="classname" />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class="custom-class lin-steps {{classname.concatClass('lin-steps',direction)}}">
+    <view wx:for="{{steps}}" wx:key="index" class="step-class lin-steps-step {{classname.multCalss(['lin-steps-step-first',index===0],['lin-steps-step-finish',active>index],['lin-steps-step-last',index===steps.length-1],['lin-steps-step-active',index==active])}}" style="{{styleUtils.singleStyle('color',index==active?activeColor:index>active?inactiveColor:'')}}">
+        <view class="message-text lin-steps-message">
+            <view wx:if="{{item.text}}" class="lin-steps-text">{{item.text}}</view>
+            <view wx:if="{{item.desc}}" class="lin-steps-text">{{item.desc}}</view>
+        </view>
+        <view class="circle-class lin-steps-circle-container">
+            <lin-icon wx:if="{{index==active}}" icon='{{activeIcon}}' />
+            <lin-icon wx:elif="{{index!=active && inactiveIcon}}" icon='{{inactiveIcon}}' />
+            <view style="{{styleUtils.singleStyle('background-color',active>index?activeColor:inactiveColor)}}" wx:else class="lin-steps-circle" />
+        </view>
+        <view style="{{styleUtils.singleStyle('background-color',active>index?activeColor:inactiveColor)}}" wx:if="{{index!=steps.length-1}}" class="line-class lin-steps-line" />
+    </view>
+</view>

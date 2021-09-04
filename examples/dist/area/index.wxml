@@ -1,0 +1,1 @@
+<lin-picker bind:cancel='onCancel' bind:confirm='onConfirm' show-toolbar title="{{title}}" columns="{{ columns }}" bind:change="onChange" confirmButtonText='{{confirmButtonText}}' cancelButtonText='{{cancelButtonText}}' visibleItemCount='{{visibleItemCount}}' itemHeight='{{itemHeight}}' loading='{{loading}}' />

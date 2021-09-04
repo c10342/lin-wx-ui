@@ -1,0 +1,11 @@
+<view data-key="cell" class='custom-class lin-swipe-cell' catch:touchmove="onTouchmove" bind:touchend="onTouchend" bind:touchcancel="onTouchend" bind:touchstart="onTouchstart" catch:tap='onClick'>
+    <view style="transform: translateX({{translateX}}px);{{transitionStyle}};" class="left-class lin-swipe-cell-container">
+        <view id="left" class="lin-swipe-cell-left" wx:if="{{showLeft}}" catch:tap='onClick' data-key='left'>
+            <slot name="left" />
+        </view>
+        <slot />
+        <view id="right" class="right-class lin-swipe-cell-right" wx:if="{{showRight}}" catch:tap='onClick' data-key='right'>
+            <slot name="right" />
+        </view>
+    </view>
+</view>

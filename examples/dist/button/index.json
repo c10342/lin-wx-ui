@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "lin-icon": "../icon/index",
+    "lin-loading": "../loading/index"
+  }
+}

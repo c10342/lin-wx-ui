@@ -1,4 +1,4 @@
-import Dialog from '../../../dist/Dialog/dialog.js';
+import Dialog from '../../../dist/dialog/dialog.js';
 
 Page({
   /**

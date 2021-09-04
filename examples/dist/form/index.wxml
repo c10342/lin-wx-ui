@@ -1,0 +1,6 @@
+<view class='custom-class lin-form'>
+    <slot />
+    <view class="footer-class lin-form-footer">
+        <slot name="footer" />
+    </view>
+</view>

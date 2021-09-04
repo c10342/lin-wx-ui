@@ -1,0 +1,3 @@
+<view class='custom-class lin-sidebar'>
+    <slot />
+</view>

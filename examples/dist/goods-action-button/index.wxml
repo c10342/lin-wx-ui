@@ -1,0 +1,5 @@
+<wxs src="../wxs/classname.wxs" module="classname" />
+<lin-button custom-class="custom-class lin-goods-action-button {{classname.multCalss(['lin-goods-action-button-first',index===0],['lin-goods-action-button-last',index===totalLen-1])}}" color='{{color}}' loading='{{loading}}' disabled='{{disabled}}' plain='{{plain}}' type="{{type}}" id="{{ id }}" lang="{{ lang }}" open-type="{{ openType }}" business-id="{{ businessId }}" session-from="{{ sessionFrom }}" app-parameter="{{ appParameter }}" send-message-img="{{ sendMessageImg }}" send-message-path="{{ sendMessagePath }}" show-message-card="{{ showMessageCard }}" send-message-title="{{ sendMessageTitle }}" bind:click="onClick" binderror="bindError" bindcontact="bindContact" bindopensetting="bindOpenSetting" bindgetuserinfo="bindGetUserInfo" bindgetphonenumber="bindGetPhoneNumber" bindlaunchapp="bindLaunchApp">
+    {{text}}
+    <slot />
+</lin-button>

@@ -1,4 +1,4 @@
-import Toast from '../../../dist/Toast/toast';
+import Toast from '../../../dist/toast/toast';
 
 Page({
   /**

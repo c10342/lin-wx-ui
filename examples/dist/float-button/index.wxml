@@ -1,0 +1,18 @@
+<wxs src='../wxs/classname.wxs' module='classname' />
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<lin-mask wx:if="{{mask && show}}" bind:click='onMaskClick' show='{{true}}' />
+<view style='{{styleUtils.singleStyle("z-index",zIndex)}} {{styleUtils.multUnit(["bottom",bottom],["right",right])}}' class='custom-class lin-float-button'>
+    <view wx:if="{{show}}" class='group-class lin-float-button-group'>
+        <view bindtap='onItemClick' data-item='{{item}}' wx:for="{{list}}" wx:key="index" class='item-class lin-float-button-item lin-flex-row lin-flex-center' style='{{styleUtils.singleStyle("background-color",item.bgColor)}}'>
+            <lin-icon wx:if="{{item.icon}}" icon='{{item.icon}}' size='{{item.iconSize}}' />
+            <view wx:if="{{item.text}}" class='text-class lin-float-button-text {{classname.singleClass("lin-float-button-text-absoult",item.icon)}}' style='{{styleUtils.multStyle(["color",item.color],["font-size",item.fontSize])}}'>
+                {{item.text}}
+            </view>
+        </view>
+    </view>
+    <view style='{{styleUtils.singleStyle("background-color",bgColor)}}' bindtap="switchStatus" class='button-class lin-float-button-item lin-flex-row lin-flex-center'>
+        <lin-icon wx:if="{{!useSlot}}" icon='add' size='60rpx' class='lin-float-button-icon {{classname.singleClass("lin-float-button-rotate",show)}}' />
+        <slot wx:if="{{useSlot}}" />
+    </view>
+</view>
+

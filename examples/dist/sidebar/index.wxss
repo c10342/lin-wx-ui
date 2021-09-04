@@ -1,0 +1,1 @@
+@import '../common/base.wxss';.lin-sidebar{width:160rpx;overflow-y:auto}

@@ -1,0 +1,10 @@
+<wxs src="../wxs/style.wxs" module="styleUtils" />
+<view class="custom-class lin-checkbox {{value?'lin-checkbox-checked':''}} {{(disabled || parentDisabled)?'lin-checkbox-disabled':''}}">
+    <view class="lin-checkbox-icon-wrapper" bind:tap="toggle">
+        <lin-icon custom-class='icon-class' wx:if="{{!useIconSlot}}" color='{{checkedColor&&value?checkedColor:""}}' class="lin-checkbox-icon" size='{{styleUtils.addUnit(iconSize)}}' icon='{{iconName}}' />
+        <slot wx:else name="icon" />
+    </view>
+    <view class="label-class lin-checkbox-text" bind:tap='onLabelClick'>
+        <slot />
+    </view>
+</view>
