@@ -1,0 +1,22 @@
+@import '../../src/style/var.scss';
+
+.lin-notify-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.lin-notify {
+  box-sizing: border-box;
+  padding: 12rpx 30rpx;
+  font-size: $font-size-5;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+@each $key,$val in $theme-color {
+  .lin-notify-#{$key} {
+    background-color: $val;
+  }
+}

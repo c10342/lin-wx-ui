@@ -1,0 +1,13 @@
+<view class='custom-class lin-empty'>
+    <view class="image-wrapper-class lin-empty-image-wrapper">
+        <slot name="image" wx:if="{{useImageSlot}}" />
+        <image class="image-class lin-empty-image" wx:if="{{!useImageSlot && imageUrl}}" src="{{imageUrl}}" />
+    </view>
+    <view class="description-class lin-empty-description">
+        <slot name="description" wx:if="{{useDescSlot}}" />
+        <block wx:else>{{description}}</block>
+    </view>
+    <view class="bottom-class lin-empty-bottom">
+        <slot />
+    </view>
+</view>

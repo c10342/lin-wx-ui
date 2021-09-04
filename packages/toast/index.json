@@ -1,0 +1,9 @@
+
+{
+    "component": true,
+    "usingComponents":{
+        "lin-mask":"../Mask/index",
+        "lin-transition":"../Transition/index",
+        "lin-icon":"../Icon/index"
+    }
+}

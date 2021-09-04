@@ -1,0 +1,5 @@
+<import src="./calendar.wxml" />
+<lin-popup safeAreaInsetBottom='{{safeAreaInsetBottom}}' closeable round show="{{ show }}" bind:mask-click='onMaskClick' bind:close='onClose' position="bottom" wx:if="{{poppable}}">
+    <template is="calendar" data='{{daysList,time,visibeDaysList,selectTime,title,showTitle,showConfirm,confirmText,disabledConfirm,rowHeight,restText,showReset,disabledReset}}' />
+</lin-popup>
+<template wx:else is="calendar" data='{{daysList,time,visibeDaysList,selectTime,title,showTitle,showConfirm,confirmText,disabledConfirm,rowHeight,restText,showReset,disabledReset}}' />

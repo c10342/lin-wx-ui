@@ -1,0 +1,55 @@
+@import "../../src/style/var.scss";
+
+.lin-search {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: $white;
+
+  .lin-search-value-class {
+    margin-left: 0;
+  }
+}
+
+.lin-search-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 12px;
+  background-color: $gray-2;
+  border-radius: 2px;
+}
+
+.lin-search-field {
+  flex: 1;
+}
+
+.lin-search-label {
+  margin-right: 20rpx;
+  font-size: $font-size-5;
+  color: $gray-8;
+}
+
+.lin-search-action {
+  padding: 16rpx 16rpx;
+  font-size: $font-size-5;
+  color: $gray-8;
+  // cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.lin-search-round {
+  border-radius: 9999rpx;
+}
+
+.lin-search-header-class {
+  align-items: center;
+}
+
+.lin-search-action-hover {
+  background-color: $gray-2;
+}

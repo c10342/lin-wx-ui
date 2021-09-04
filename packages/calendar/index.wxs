@@ -1,0 +1,91 @@
+/**
+ * 格式化时间
+ * @param time Number
+ * @returns 
+ */
+function formatDate(time) {
+  if (!time) {
+    return "";
+  }
+  var d = getDate(time);
+  var year = d.getFullYear();
+  var month = d.getMonth() + 1;
+  var date = d.getDate();
+  return {
+    year: year,
+    month: month,
+    date: date,
+    str: year + "-" + month + "-" + date,
+  };
+}
+
+/**
+ * 判断是否为当前月
+ * @param currentTime Number
+ * @param time Number
+ * @returns 
+ */
+function isCurrentMonth(currentTime, time) {
+  var date1 = getDate(currentTime);
+  var date2 = getDate(time);
+  var year = date1.getFullYear();
+  var y = date2.getFullYear();
+  var month = date1.getMonth();
+  var m = date2.getMonth();
+  // 只判断年月就行了
+  return year === y && month === m;
+}
+
+// 对比时间
+function compareDate(time1, time2, type) {
+  var date1 = getDate(time1);
+  var date2 = getDate(time2);
+  // 传入的时间虽然可能是同一天的，但是可能会有时间差，所以需要统一一下
+  // toLocaleDateString() 方法返回该日期对象日期部分的字符串，该字符串格式因不同语言而不同
+  // toLocaleDateString('zh')
+  var newDate1 = getDate(date1.toLocaleDateString("zh"));
+  var newDate2 = getDate(date2.toLocaleDateString("zh"));
+  var obj = {
+    Equal: newDate1.getTime() == newDate2.getTime(),
+    EqAndLt: newDate1 <= newDate2,
+    EqAndGt: newDate1 >= newDate2,
+    Lt: newDate1 < newDate2,
+    Gt: newDate1 > newDate2,
+  };
+  return obj[type];
+}
+
+// 是否相等
+function isEqual(time1, time2) {
+  return compareDate(time1, time2, "Equal");
+}
+
+// time1是否小于等于time2
+function isEqAndLt(time1, time2) {
+  return this.compareDate(time1, time2, "EqAndLt");
+}
+
+// time1是否打于等于time2
+function isEqAndGt(time1, time2) {
+  return this.compareDate(time1, time2, "EqAndGt");
+}
+
+// time1是否小于time2
+function isLt(time1, time2) {
+  return this.compareDate(time1, time2, "Lt");
+}
+
+// time1是否大于time2
+function isGt(time1, time2) {
+  return this.compareDate(time1, time2, "Gt");
+}
+
+function isSelectedval(currentTime, selectTime) {
+  return isEqual(selectTime, currentTime);
+}
+
+module.exports = {
+  formatDate: formatDate,
+  isCurrentMonth: isCurrentMonth,
+  isEqual: isEqual,
+};

@@ -1,0 +1,27 @@
+@import "../../src/style/var.scss";
+
+.lin-backtop {
+  position: fixed;
+}
+
+.lin-backtop-container {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rpx;
+  height: 80rpx;
+  cursor: pointer;
+  background-color: $white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+}
+
+.lin-backtop-triangle {
+  width: 0;
+  height: 0;
+  border: 6px solid $primary;
+  border-right-color: rgba(0, 0, 0, 0);
+  border-bottom-color: rgba(0, 0, 0, 0);
+  transform: rotate(45deg) translate(2px, 1px);
+}
