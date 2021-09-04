@@ -12,7 +12,7 @@ Component({
   },
   externalClasses: ['custom-class', 'wrapper-class', 'item-class'],
   relations: {
-    '../DropdownItem/index': {
+    '../dropdown-item/index': {
       type: 'descendant',
       linked(child) {
         // 当有子组件插入进来，就更新数据

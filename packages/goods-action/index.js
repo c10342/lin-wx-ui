@@ -6,11 +6,12 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../GoodsActionButton/index': {
+    '../goods-action-button/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];
         this.children.push(child);
+        // console.log(child.name);
         // 更新GoodsActionButton组件数据
         this.updateChildren();
       },

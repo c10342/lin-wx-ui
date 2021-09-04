@@ -1,4 +1,4 @@
-import defaultProps from '../DropdownMenu/props';
+import defaultProps from '../dropdown-menu/props';
 
 Component({
   name: 'DropdownItem',
@@ -7,7 +7,7 @@ Component({
   },
   externalClasses: ['custom-class', 'item-class'],
   relations: {
-    '../DropdownMenu/index': {
+    '../dropdown-menu/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

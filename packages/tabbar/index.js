@@ -8,7 +8,7 @@ Component({
   },
   externalClasses: ['custom-class', 'placeholder-class'],
   relations: {
-    '../TabbarItem/index': {
+    '../tabbar-item/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

@@ -18,7 +18,7 @@ Component({
     'track-class'
   ],
   relations: {
-    '../Tab/index': {
+    '../tab/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

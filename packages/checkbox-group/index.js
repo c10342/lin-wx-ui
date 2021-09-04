@@ -7,7 +7,7 @@ Component({
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class'],
   relations: {
-    '../Checkbox/index': {
+    '../checkbox/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

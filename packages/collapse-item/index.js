@@ -8,7 +8,7 @@ Component({
   },
   externalClasses: ['custom-class', 'content-class'],
   relations: {
-    '../Collapse/index': {
+    '../collapse/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

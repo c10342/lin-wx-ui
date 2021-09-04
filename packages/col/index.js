@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../Row/index': {
+    '../row/index': {
       type: 'ancestor'
     }
   },

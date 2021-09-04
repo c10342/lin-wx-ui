@@ -10,7 +10,7 @@ Component({
   },
   behaviors: ['wx://form-field', FormControls],
   relations: {
-    '../FormItem/index': {
+    '../form-item/index': {
       type: 'ancestor', // 关联的目标节点应为祖先节点
       linked(parent) {
         this.parent = parent;

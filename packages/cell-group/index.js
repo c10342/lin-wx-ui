@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class', 'title-class'],
   relations: {
-    '../Cell/index': {
+    '../cell/index': {
       type: 'descendant',
       linked() {
         this.setCellBorder();

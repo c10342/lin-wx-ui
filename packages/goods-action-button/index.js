@@ -11,7 +11,7 @@ Component({
   behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
   externalClasses: ['custom-class'],
   relations: {
-    '../GoodsAction/index': {
+    '../goods-action/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

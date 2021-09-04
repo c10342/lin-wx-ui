@@ -8,7 +8,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../WaterFlowItem/index': {
+    '../water-flow-item/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

@@ -15,7 +15,7 @@ Component({
     'text-class'
   ],
   relations: {
-    '../Grid/index': {
+    '../grid/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

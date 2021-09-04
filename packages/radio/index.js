@@ -4,7 +4,7 @@ Component({
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class', 'icon-class', 'label-class'],
   relations: {
-    '../RadioGroup/index': {
+    '../radio-group/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

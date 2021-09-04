@@ -16,7 +16,7 @@ Component({
     'right-icon-class'
   ],
   relations: {
-    '../CellGroup/index': {
+    '../cell-group/index': {
       type: 'ancestor'
     }
   },

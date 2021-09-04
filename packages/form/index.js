@@ -8,7 +8,7 @@ Component({
   },
   externalClasses: ['custom-class', 'footer-class'],
   relations: {
-    '../FormItem/index': {
+    '../form-item/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../CollapseItem/index': {
+    '../collapse-item/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

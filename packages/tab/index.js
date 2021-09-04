@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../Tabs/index': {
+    '../tabs/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

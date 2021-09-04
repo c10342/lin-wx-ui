@@ -13,7 +13,7 @@ Component({
     })
   ],
   relations: {
-    '../IndexAnchor/index': {
+    '../index-anchor/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

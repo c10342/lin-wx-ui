@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../Col/index': {
+    '../col/index': {
       type: 'descendant',
       linked(target) {
         if (this.properties.gutter) {

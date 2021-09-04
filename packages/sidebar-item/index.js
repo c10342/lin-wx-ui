@@ -5,7 +5,7 @@ Component({
     multipleSlots: true
   },
   relations: {
-    '../Sidebar/index': {
+    '../sidebar/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

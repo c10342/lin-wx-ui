@@ -15,7 +15,7 @@ Component({
     'errormsg-class'
   ],
   relations: {
-    '../Form/index': {
+    '../form/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

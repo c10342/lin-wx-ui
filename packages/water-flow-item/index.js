@@ -8,7 +8,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../WaterFlow/index': {
+    '../water-flow/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;

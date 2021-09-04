@@ -6,7 +6,7 @@ Component({
   },
   externalClasses: ['custom-class'],
   relations: {
-    '../GridItem/index': {
+    '../grid-item/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

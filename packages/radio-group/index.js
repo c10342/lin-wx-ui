@@ -3,7 +3,7 @@ Component({
   behaviors: ['wx://form-field'],
   externalClasses: ['custom-class'],
   relations: {
-    '../Radio/index': {
+    '../radio/index': {
       type: 'descendant',
       linked(child) {
         this.children = this.children || [];

@@ -8,7 +8,7 @@ Component({
     multipleSlots: true
   },
   relations: {
-    '../IndexBar/index': {
+    '../index-bar/index': {
       type: 'ancestor',
       linked(parent) {
         this.parent = parent;
