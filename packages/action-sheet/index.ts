@@ -1,8 +1,6 @@
 import OpenTypeBehavior from '../behaviors/open-type';
 
 Component({
-  // 组件名
-  name: 'ActionSheet',
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -66,10 +64,9 @@ Component({
       value: true
     }
   },
-  data: {},
   methods: {
     // 点击选项
-    onSelect(event) {
+    onSelect(event: WechatMiniprogram.TouchEvent) {
       const { actions, closeOnClickAction } = this.properties;
       // 找出点击的是第几个选项
       const { index } = event.currentTarget.dataset;
@@ -96,10 +93,5 @@ Component({
       this.triggerEvent('mask-click');
       this.onClose();
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
