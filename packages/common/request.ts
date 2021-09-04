@@ -1,4 +1,8 @@
-import { isFunction } from './is.js';
+import { isFunction } from "./is";
+
+type RequestOptions = WechatMiniprogram.RequestOption & {
+  completeCallback?: Function;
+};
 
 // 封装请求方法
 const baseRequest = ({
@@ -6,15 +10,15 @@ const baseRequest = ({
   data = {},
   header = {},
   timeout,
-  method = 'GET',
-  dataType = 'json',
-  responseType = 'text',
+  method = "GET",
+  dataType = "json",
+  responseType = "text",
   enableHttp2 = false,
   enableQuic = false,
   enableCache = false,
   completeCallback
-}) =>
-  new Promise((resolve, reject) => {
+}: RequestOptions) => {
+  return new Promise((resolve, reject) => {
     wx.request({
       url,
       data,
@@ -27,13 +31,13 @@ const baseRequest = ({
       enableQuic,
       enableCache,
       success(res) {
-        if (res.statusCode === 200 && res.errMsg === 'request:ok') {
+        if (res.statusCode === 200 && res.errMsg === "request:ok") {
           resolve(res.data);
         } else {
           reject(res);
         }
       },
-      reject,
+      // reject,
       complete(resData) {
         if (isFunction(completeCallback)) {
           completeCallback(resData);
@@ -41,18 +45,19 @@ const baseRequest = ({
       }
     });
   });
+};
 
 const request = {
-  get(params = {}) {
+  get(params: RequestOptions) {
     return baseRequest({
       ...params,
-      method: 'GET'
+      method: "GET"
     });
   },
-  post(params = {}) {
+  post(params: RequestOptions) {
     return baseRequest({
       ...params,
-      method: 'POST'
+      method: "POST"
     });
   }
 };

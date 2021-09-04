@@ -1,4 +1,4 @@
-import { isFunction } from '../common/is.js';
+import { isFunction } from "../common/is";
 
 // 获取当前所在的页面实例
 function getCurrentPage() {
@@ -7,7 +7,7 @@ function getCurrentPage() {
 }
 
 // 页面滚动行为
-function onPageScroll(event) {
+function onPageScroll(event?: WechatMiniprogram.Page.IPageScrollOption) {
   // 获取绑定在该页面上的滚动行为事件
   const { linPageScroll = [] } = getCurrentPage();
 
@@ -18,7 +18,7 @@ function onPageScroll(event) {
   });
 }
 
-const pageScrollBehavior = (scroller) =>
+const pageScrollBehavior = (scroller: Function) =>
   Behavior({
     // 组件插入到页面是触发
     attached() {

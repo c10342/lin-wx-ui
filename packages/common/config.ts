@@ -1,6 +1,6 @@
-export const publicPath = 'http://wxui.linjiafu.top';
+export const publicPath = "http://wxui.linjiafu.top";
 
-export const requestPath = 'https://linjiafu.top';
+export const requestPath = "https://linjiafu.top";
 
 export const imagePath = `${publicPath}/static/images`;
 

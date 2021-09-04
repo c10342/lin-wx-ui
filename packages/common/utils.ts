@@ -1,8 +1,10 @@
-let systemInfo;
+import { isUndef } from "./is";
+
+let systemInfo: WechatMiniprogram.SystemInfo | null = null;
 
 // 系统信息
 export function getSystemInfoSync() {
-  if (systemInfo == null) {
+  if (isUndef(systemInfo)) {
     // 缓存系统信息，性能优化
     systemInfo = wx.getSystemInfoSync();
   }
@@ -11,7 +13,7 @@ export function getSystemInfoSync() {
 }
 
 // 定时器封装
-export function nextTick(fn) {
+export function nextTick(fn: Function) {
   setTimeout(() => {
     fn();
   }, 1000 / 30);
@@ -19,8 +21,8 @@ export function nextTick(fn) {
 
 const REGEXP = /^[0-9]+$/;
 // 添加样式单位，如果是Number类型，则需要补个px
-export function addUnit(value) {
-  if (value == null) {
+export function addUnit(value: string | number | null | undefined) {
+  if (isUndef(value)) {
     return undefined;
   }
 
@@ -28,7 +30,12 @@ export function addUnit(value) {
 }
 
 // 查询单个元素信息
-export function getRect(context, element) {
+export function getRect(
+  context:
+    | WechatMiniprogram.Component.TrivialInstance
+    | WechatMiniprogram.Page.TrivialInstance,
+  element: string
+) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
@@ -39,7 +46,12 @@ export function getRect(context, element) {
 }
 
 // 查询所有元素信息
-export function getAllRect(context, element) {
+export function getAllRect(
+  context:
+    | WechatMiniprogram.Component.TrivialInstance
+    | WechatMiniprogram.Page.TrivialInstance,
+  element: string
+) {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
@@ -50,7 +62,11 @@ export function getAllRect(context, element) {
 }
 
 // 查询视图窗口信息
-export function getViewPort(context) {
+export function getViewPort(
+  context:
+    | WechatMiniprogram.Component.TrivialInstance
+    | WechatMiniprogram.Page.TrivialInstance
+): Promise<WechatMiniprogram.ScrollOffsetCallbackResult> {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)
