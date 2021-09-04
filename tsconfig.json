@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "esModuleInterop": true,
+    "target": "es6",
+    "declaration": false,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "strict": true,
+    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "types": ["miniprogram-api-typings"],
+    "paths": {
+      "packages/*": ["./packages/*"]
+    },
+    "skipLibCheck": true
+  },
+  "include": ["packages/**/*.ts"]
+}
