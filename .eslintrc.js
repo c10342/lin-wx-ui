@@ -5,13 +5,13 @@ module.exports = {
     node: true,
     jest: true
   },
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'plugin:json/recommended'
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:json/recommended"
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ["@typescript-eslint"],
   // globals: {
   //   Component: true,
   //   Behavior: true,
@@ -22,6 +22,10 @@ module.exports = {
   //   getDate: true
   // },
   rules: {
-    '@typescript-eslint/no-var-requires': 'off'
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 };
