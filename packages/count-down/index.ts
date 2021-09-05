@@ -33,7 +33,7 @@ LinComponent({
     updateTime() {
       // 首先暂停掉，就是清空定时器
       this.pause();
-      const { time, autoStart, format } = this.properties;
+      const { time, autoStart, format } = this.data;
       // 记录还剩下的倒计时时长
       this.mainTime = time;
       this.setData({ formattedTime: parseFormat(format, parseTimeDate(time)) });
@@ -71,7 +71,7 @@ LinComponent({
     },
     // 渲染时间
     renderTime() {
-      if (this.properties.millisecond) {
+      if (this.data.millisecond) {
         // 开启毫秒级渲染
         this.renderTimeByMill();
       } else {
@@ -114,7 +114,7 @@ LinComponent({
       // 转化时间，会得到一个对象
       const timeDate = parseTimeDate(currentTime);
 
-      const { format } = this.properties;
+      const { format } = this.data;
 
       this.triggerEvent("change", timeDate);
       // 设置时间文本

@@ -157,7 +157,7 @@ LinComponent({
     },
     // 关闭行为
     onClose(action) {
-      if (!this.properties.asyncClose) {
+      if (!this.data.asyncClose) {
         // 不是异步关闭的情况下，可以直接关闭掉
         this.close();
       }

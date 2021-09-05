@@ -46,9 +46,9 @@ LinComponent({
       if (!this.parent) {
         return Promise.resolve();
       }
-      const { value, accordion } = this.parent.properties;
+      const { value, accordion } = this.parent.data;
       const { children = [] } = this.parent;
-      const { name } = this.properties;
+      const { name } = this.data;
       // 找出是第几个孩子，确定索引号
       const index = children.indexOf(this);
       const currentName = name == null ? index : name;
@@ -99,7 +99,7 @@ LinComponent({
     // 点击标题栏
     onClick() {
       const { expanded } = this.data;
-      const { name, disabled } = this.properties;
+      const { name, disabled } = this.data;
       if (disabled) {
         return;
       }
