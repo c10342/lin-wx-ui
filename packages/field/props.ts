@@ -3,11 +3,11 @@ export const commonProps = {
   // 当前输入的值
   value: {
     type: String,
-    observer(value) {
-      if (value !== this.value) {
+    observer(value: string) {
+      if (value !== (this as any).value) {
         // 设置内部维护的输入值
-        this.setData({ inputValue: value });
-        this.value = value;
+        (this as any).setData({ inputValue: value });
+        (this as any).value = value;
       }
     }
   },
@@ -62,7 +62,7 @@ export const inputProps = {
   // 可设置为任意原生类型
   type: {
     type: String,
-    value: 'text'
+    value: "text"
   },
   // 是否是密码类型
   password: Boolean,
