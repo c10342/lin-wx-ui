@@ -1,7 +1,6 @@
-import { canIUseFormFieldButton } from '../common/version';
-import ButtonBehavior from '../behaviors/button';
-import OpenTypeBehavior from '../behaviors/open-type';
-
+import { canIUseFormFieldButton } from "../common/version";
+import ButtonBehavior from "../behaviors/button";
+import OpenTypeBehavior from "../behaviors/open-type";
 const behaviors = [];
 behaviors.push(ButtonBehavior);
 behaviors.push(OpenTypeBehavior);
@@ -10,23 +9,21 @@ behaviors.push(OpenTypeBehavior);
 // wx://form-field
 // wx://form-field-group
 // wx://form-field-button
-
 // 判断能否使用表单行为
 if (canIUseFormFieldButton()) {
-  behaviors.push('wx://form-field-button');
+  behaviors.push("wx://form-field-button");
 }
-
 Component({
-  name: 'Button',
+  name: "Button",
   options: {
     addGlobalClass: true
   },
   behaviors,
   externalClasses: [
-    'custom-class',
-    'loading-class',
-    'icon-class',
-    'hover-class'
+    "custom-class",
+    "loading-class",
+    "icon-class",
+    "hover-class"
   ],
   /**
    * 组件的属性列表
@@ -34,8 +31,9 @@ Component({
   properties: {
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
     formType: {
+      // @ts-ignore
       type: String,
-      options: ['submit', 'reset']
+      options: ["submit", "reset"]
     },
     // 是否禁用按钮
     disabled: {
@@ -49,23 +47,24 @@ Component({
     },
     // 按钮类型
     type: {
+      // @ts-ignore
       type: String,
-      value: 'default',
+      value: "default",
       options: [
-        'primary',
-        'success',
-        'info',
-        'warning',
-        'danger',
-        'default',
-        'success'
+        "primary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "default",
+        "success"
       ]
     },
     // 是否为朴素按钮
     plain: {
       type: Boolean,
       value: false,
-      observer: 'setColor'
+      observer: "setColor"
     },
     // 是否为圆角按钮
     round: {
@@ -80,17 +79,19 @@ Component({
     // 左侧图标名
     icon: {
       type: String,
-      value: ''
+      value: ""
     },
     // 图标大小
     iconSize: {
+      // @ts-ignore
       type: [String, Number]
     },
     // 按钮尺寸
     size: {
+      // @ts-ignore
       type: String,
-      value: 'default',
-      options: ['default', 'medium', 'small']
+      value: "default",
+      options: ["default", "medium", "small"]
     },
     // 是否显示为加载状态
     loading: {
@@ -106,19 +107,17 @@ Component({
     // 按钮颜色，支持传入 linear-gradient 渐变色
     color: {
       type: String,
-      value: '',
-      observer: 'setColor'
+      value: "",
+      observer: "setColor"
     }
   },
-
   /**
    * 组件的初始数据
    */
   data: {
     // 按钮样式
-    baseStyle: ''
+    baseStyle: ""
   },
-
   /**
    * 组件的方法列表
    */
@@ -126,18 +125,18 @@ Component({
     // 设置按钮颜色
     setColor() {
       const { color, plain, baseStyle } = this.data;
-      let style = '';
+      let style = "";
       if (color) {
         // 朴素按钮字体颜色是当前传入的颜色，否则就是白色
-        style += `color: ${plain ? color : 'white'};`;
+        style += `color: ${plain ? color : "white"};`;
         if (!plain) {
           // 非朴素按钮
           style += `background: ${color};`;
         }
-        if (color.indexOf('gradient') !== -1) {
+        if (color.indexOf("gradient") !== -1) {
           // 渐变色
           // 边框置为none
-          style += 'border: none;';
+          style += "border: none;";
         } else {
           style += `border-color:${color};`;
         }
@@ -151,7 +150,7 @@ Component({
       const { disabled, loading } = this.properties;
       if (!disabled && !loading) {
         // 没有被禁用并且不是在加载中
-        this.triggerEvent('click');
+        this.triggerEvent("click");
       }
     }
   }

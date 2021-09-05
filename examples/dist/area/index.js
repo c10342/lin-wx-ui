@@ -1,5 +1,5 @@
+"use strict";
 Component({
-  name: 'Area',
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -9,12 +9,12 @@ Component({
     areaList: {
       type: Object,
       value: {},
-      observer: 'updateColumns'
+      observer: "updateColumns"
     },
     // 当前选中的省市区 code
     value: {
       type: String,
-      observer: 'updateColumns'
+      observer: "updateColumns"
     },
     // 顶部栏标题
     title: String,
@@ -22,13 +22,13 @@ Component({
     columnsNum: {
       type: Number,
       value: 3,
-      observer: 'updateColumns'
+      observer: "updateColumns"
     },
     // 列占位提示文字
     columnsPlaceholder: {
       type: Array,
       value: [],
-      observer: 'updateColumns'
+      observer: "updateColumns"
     },
     // 是否显示加载状态
     loading: Boolean,
@@ -45,12 +45,12 @@ Component({
     // 确认按钮文字
     confirmButtonText: {
       type: String,
-      value: '确定'
+      value: "确定"
     },
     // 取消按钮文字
     cancelButtonText: {
       type: String,
-      value: '取消'
+      value: "取消"
     }
   },
   data: {
@@ -60,15 +60,15 @@ Component({
   methods: {
     // 点击确定按钮
     onConfirm(event) {
-      this.triggerEvent('confirm', event.detail.value);
+      this.triggerEvent("confirm", event.detail.value);
     },
     // 点击取消按钮
     onCancel() {
-      this.triggerEvent('cancel');
+      this.triggerEvent("cancel");
     },
     // 选中的值发生变化
     onChange(event) {
-      this.triggerEvent('change', event.detail);
+      this.triggerEvent("change", event.detail);
       const { index, picker } = event.detail;
       // index是变化的列索引
       if (index === 0) {
@@ -76,7 +76,7 @@ Component({
         this.provinceChange(picker);
       } else if (index === 1) {
         // 市
-        this.cityChange(picker, index);
+        this.cityChange(picker);
       }
     },
     // 处理省值发生变化
@@ -117,11 +117,11 @@ Component({
     updateColumns() {
       const { columnsNum, value } = this.properties;
       // 省编号
-      let provinceCode = '';
+      let provinceCode = "";
       // 市编号
-      let cityCode = '';
+      let cityCode = "";
       // 区编号
-      let countyCode = '';
+      let countyCode = "";
       if (value) {
         // 前2位是省，中间2位是市，后面2位是区
         provinceCode = value.substring(0, 2);
@@ -136,7 +136,7 @@ Component({
         if (provinceCode) {
           // 找出选中的省的索引
           provinceIndex = provinceList.findIndex((item) => {
-            const code = (item.code || '').toString().substring(0, 2);
+            const code = (item.code || "").toString().substring(0, 2);
             return provinceCode === code;
           });
           // 没有就默认选中第一个
@@ -155,7 +155,7 @@ Component({
           if (cityCode) {
             // 找出选中的市索引
             cityIndex = cityList.findIndex((item) => {
-              const code = (item.code || '').toString().substring(0, 4);
+              const code = (item.code || "").toString().substring(0, 4);
               return cityCode === code;
             });
             // 没有找到就默认第一个
@@ -174,7 +174,7 @@ Component({
             if (countyCode) {
               // 找出选中的区数据
               countyIndex = countyList.findIndex((item) => {
-                const code = (item.code || '').toString().substring(0, 6);
+                const code = (item.code || "").toString().substring(0, 6);
                 return countyCode === code;
               });
               // 没有就默认为第一个
@@ -256,10 +256,8 @@ Component({
         // 没有选中市，或者在选中市的情况下，选中的是列占位符，就不用找出区数据了
         return countyList;
       }
-
       // 获取该市的编码
       const code = city.code.substring(0, 4);
-
       Object.keys(county_list).forEach((key) => {
         if (key.substring(0, 4) === code) {
           countyList.push({
@@ -270,10 +268,5 @@ Component({
       });
       return countyList;
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,19 +1,17 @@
-import OpenTypeBehavior from '../behaviors/open-type';
+import OpenTypeBehavior from "../behaviors/open-type";
 Component({
-  // 组件名
-  // name: 'ActionSheet',
   options: {
     addGlobalClass: true,
     multipleSlots: true
   },
   behaviors: [OpenTypeBehavior],
   externalClasses: [
-    'custom-class',
-    'title-class',
-    'description-class',
-    'actions-wrapper-class',
-    'button-class',
-    'cancelText-class'
+    "custom-class",
+    "title-class",
+    "description-class",
+    "actions-wrapper-class",
+    "button-class",
+    "cancelText-class"
   ],
   properties: {
     // 是否显示
@@ -74,7 +72,7 @@ Component({
       const item = actions[index];
       if (item && !item.disabled && !item.loading) {
         // 触发事件
-        this.triggerEvent('select', item);
+        this.triggerEvent("select", item);
         if (closeOnClickAction) {
           // 关闭弹框
           this.onClose();
@@ -83,15 +81,15 @@ Component({
     },
     // 点击取消
     onCancel() {
-      this.triggerEvent('cancel');
+      this.triggerEvent("cancel");
     },
     // 点击关闭按钮
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     },
     // 点击遮罩层
     onClickMask() {
-      this.triggerEvent('mask-click');
+      this.triggerEvent("mask-click");
       this.onClose();
     }
   }

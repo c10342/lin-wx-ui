@@ -22,5 +22,4 @@ const ButtonBehavior = Behavior({
     ariaLabel: String
   }
 });
-
 export default ButtonBehavior;

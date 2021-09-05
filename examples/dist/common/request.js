@@ -1,20 +1,19 @@
-import { isFunction } from './is.js';
-
+import { isFunction } from "./is";
 // 封装请求方法
 const baseRequest = ({
   url,
   data = {},
   header = {},
   timeout,
-  method = 'GET',
-  dataType = 'json',
-  responseType = 'text',
+  method = "GET",
+  dataType = "json",
+  responseType = "text",
   enableHttp2 = false,
   enableQuic = false,
   enableCache = false,
   completeCallback
-}) =>
-  new Promise((resolve, reject) => {
+}) => {
+  return new Promise((resolve, reject) => {
     wx.request({
       url,
       data,
@@ -27,13 +26,13 @@ const baseRequest = ({
       enableQuic,
       enableCache,
       success(res) {
-        if (res.statusCode === 200 && res.errMsg === 'request:ok') {
+        if (res.statusCode === 200 && res.errMsg === "request:ok") {
           resolve(res.data);
         } else {
           reject(res);
         }
       },
-      reject,
+      // reject,
       complete(resData) {
         if (isFunction(completeCallback)) {
           completeCallback(resData);
@@ -41,20 +40,17 @@ const baseRequest = ({
       }
     });
   });
-
+};
 const request = {
-  get(params = {}) {
-    return baseRequest({
-      ...params,
-      method: 'GET'
-    });
+  get(params) {
+    return baseRequest(
+      Object.assign(Object.assign({}, params), { method: "GET" })
+    );
   },
-  post(params = {}) {
-    return baseRequest({
-      ...params,
-      method: 'POST'
-    });
+  post(params) {
+    return baseRequest(
+      Object.assign(Object.assign({}, params), { method: "POST" })
+    );
   }
 };
-
 export default request;

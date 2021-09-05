@@ -5,11 +5,9 @@ import {
   isEqual,
   isEqAndLt,
   isEqAndGt
-} from './utils';
-
+} from "./utils";
 const nowDate = new Date().getTime();
 Component({
-  name: 'Calendar',
   options: {
     addGlobalClass: true
   },
@@ -18,16 +16,17 @@ Component({
     show: {
       type: Boolean,
       value: false,
-      observer: 'handleShow'
+      observer: "handleShow"
     },
     // 绑定值
     value: {
+      // @ts-ignore
       type: [String, Number]
     },
     // 日历标题
     title: {
       type: String,
-      value: '日期选择'
+      value: "日期选择"
     },
     // 是否展示日历标题
     showTitle: {
@@ -42,7 +41,7 @@ Component({
     // 确认按钮的文字
     confirmText: {
       type: String,
-      value: '确定'
+      value: "确定"
     },
     // 禁用确定按钮
     disabledConfirm: {
@@ -51,12 +50,13 @@ Component({
     },
     // 日期行高
     rowHeight: {
+      // @ts-ignore
       type: [String, Number]
     },
     // 重置按钮文案
     restText: {
       type: String,
-      value: '重置'
+      value: "重置"
     },
     // 是否展示重置按钮
     showReset: {
@@ -70,10 +70,12 @@ Component({
     },
     // 禁用该日期前的日期
     disabledBeforeDate: {
+      // @ts-ignore
       type: [String, Number]
     },
     // 禁用该日期后的日期
     disabledAfterDate: {
+      // @ts-ignore
       type: [String, Number]
     },
     // 禁用范围内的日期
@@ -95,17 +97,17 @@ Component({
   },
   data: {
     // 顶部日期显示
-    daysList: ['日', '一', '二', '三', '四', '五', '六'],
+    daysList: ["日", "一", "二", "三", "四", "五", "六"],
     // 当前日期,跟选中日期区别是，当前日期记录的是当前日历显示的年月，即选中日期为1月1号，但是当前日历上显示的是2月份，所以当前日期就是2月份
     time: nowDate,
     // 需要显示的日期
     visibeDaysList: [],
     // 选中的日期
-    selectTime: ''
+    selectTime: ""
   },
   observers: {
     // 监听指定数据变化
-    'time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled': function (
+    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function (
       time,
       selectTime,
       disabledBeforeDate,
@@ -126,21 +128,22 @@ Component({
       //   42:日历上6行7列
       for (let i = 0; i < 42; i++) {
         const da = new Date(startDay + i * 60 * 60 * 1000 * 24);
-        arr.push({
-          ...this.getVisibeTimeObj(da),
-          // 是否为当前月，不是当前月的日期需要在样式上区分开来
-          isCurrentMonth: isCurrentMonth(da, time.date),
-          // 日期是否被选中
-          isSelected: selectTime && isEqual(da, selectTime.date),
-          // 是否被禁用
-          isDisabled:
-            disabled ||
-            (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate)) ||
-            (disabledAfterDate && isEqAndGt(da, disabledAfterDate)) ||
-            (disabledRangeDate &&
-              this.handleRangeDate(da, disabledRangeDate)) ||
-            (disabledDate && disabledDate.some((item) => isEqual(item, da)))
-        });
+        arr.push(
+          Object.assign(Object.assign({}, this.getVisibeTimeObj(da)), {
+            // 是否为当前月，不是当前月的日期需要在样式上区分开来
+            isCurrentMonth: isCurrentMonth(da, time.date),
+            // 日期是否被选中
+            isSelected: selectTime && isEqual(da, selectTime.date),
+            // 是否被禁用
+            isDisabled:
+              disabled ||
+              (disabledBeforeDate && isEqAndLt(da, disabledBeforeDate)) ||
+              (disabledAfterDate && isEqAndGt(da, disabledAfterDate)) ||
+              (disabledRangeDate &&
+                this.handleRangeDate(da, disabledRangeDate)) ||
+              (disabledDate && disabledDate.some((item) => isEqual(item, da)))
+          })
+        );
       }
       // 设置显示的日期
       this.setData({
@@ -187,7 +190,7 @@ Component({
     },
     // 点击遮罩层
     onMaskClick() {
-      this.triggerEvent('mask-click');
+      this.triggerEvent("mask-click");
     },
     // 处理绑定值
     handleValue() {
@@ -223,7 +226,7 @@ Component({
         selectTime,
         time: this.getTime(selectTime.times)
       });
-      this.triggerEvent('change', selectTime.times);
+      this.triggerEvent("change", selectTime.times);
     },
     // 点击上一个月
     prevMonth() {
@@ -235,7 +238,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('prevMonth', date);
+      this.triggerEvent("prevMonth", date);
     },
     // 点击下一个月
     nextMonth() {
@@ -244,7 +247,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('nextMonth', date);
+      this.triggerEvent("nextMonth", date);
     },
     // 点击上一年
     prevYear() {
@@ -253,7 +256,7 @@ Component({
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('prevYear', date);
+      this.triggerEvent("prevYear", date);
     },
     // 点击下一年
     nextYear() {
@@ -262,20 +265,20 @@ Component({
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('nextYear', date);
+      this.triggerEvent("nextYear", date);
     },
     // 点击确定按钮
     onConfirmClick() {
-      this.triggerEvent('confirm', this.data.selectTime.times);
+      this.triggerEvent("confirm", this.data.selectTime.times);
     },
     // 点击重置按钮
     onResetClick() {
-      this.setData({ selectTime: '' });
-      this.triggerEvent('reset');
+      this.setData({ selectTime: "" });
+      this.triggerEvent("reset");
     },
     // 点击关闭按钮
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     },
     // 根据时间转化为对象数据
     getTime(date) {
@@ -295,15 +298,11 @@ Component({
       };
     }
   },
-  created() {},
-  attached() {},
   ready() {
     // 一开始先初始化当前时间
     const handleValue = this.handleValue();
     this.setData({
       time: handleValue
     });
-  },
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,8 +1,7 @@
-import pageScrollBehavior from '../behaviors/page-scroll';
-import { getViewPort } from '../common/utils';
-
+import pageScrollBehavior from "../behaviors/page-scroll";
+import { getViewPort } from "../common/utils";
 Component({
-  name: 'Backtop',
+  name: "Backtop",
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -10,10 +9,11 @@ Component({
   behaviors: [
     pageScrollBehavior(function (event) {
       const scrollTop = event.scrollTop || 0;
+      // @ts-ignore
       this.handeScroll(scrollTop);
     })
   ],
-  externalClasses: ['custom-class', 'container-class', 'triangle-calss'],
+  externalClasses: ["custom-class", "container-class", "triangle-calss"],
   properties: {
     // 是否使用自定义插槽
     useSlot: {
@@ -41,13 +41,15 @@ Component({
     },
     // 距离右边距离
     right: {
+      // @ts-ignore
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     },
     // 距离底部距离
     bottom: {
+      // @ts-ignore
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     }
   },
   data: {
@@ -79,28 +81,25 @@ Component({
         params.scrollTop = scrollTop;
       }
       // 滚动到指定位置
-      wx.pageScrollTo({
-        ...params,
-        success: () => {
-          this.triggerEvent('success');
-        },
-        fail: () => {
-          this.triggerEvent('fail');
-        },
-        complete: () => {
-          this.triggerEvent('complete');
-        }
-      });
+      wx.pageScrollTo(
+        Object.assign(Object.assign({}, params), {
+          success: () => {
+            this.triggerEvent("success");
+          },
+          fail: () => {
+            this.triggerEvent("fail");
+          },
+          complete: () => {
+            this.triggerEvent("complete");
+          }
+        })
+      );
     }
   },
-  created: function () {},
-  attached: function () {},
   ready: function () {
     // 初始化的时候执行一下滚动，判断是否需要显示组件
     getViewPort(this).then((res) => {
       this.handeScroll(res.scrollTop);
     });
-  },
-  moved: function () {},
-  detached: function () {}
+  }
 });

@@ -1,13 +1,11 @@
-import { isObject } from '../common/is.js';
-
+import { isObject } from "../common/is";
 const nextTick = () => new Promise((resolve) => setTimeout(resolve, 1000 / 30));
-
 // 有点类似于vue的过渡动画，即在某一时间段插入类名，然后在移除，在插入下一个过渡类名
 const getClassName = (name) => ({
   enter: `lin-${name}-enter lin-${name}-enter-active enter-class enter-active-class`,
-  'enter-to': `lin-${name}-enter-to lin-${name}-enter-active enter-to-class enter-active-class`,
+  "enter-to": `lin-${name}-enter-to lin-${name}-enter-active enter-to-class enter-active-class`,
   leave: `lin-${name}-leave lin-${name}-leave-active leave-class leave-active-class`,
-  'leave-to': `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`
+  "leave-to": `lin-${name}-leave-to lin-${name}-leave-active leave-to-class leave-active-class`
 });
 const TransitionBehavior = (showDefaultValue) =>
   Behavior({
@@ -18,28 +16,28 @@ const TransitionBehavior = (showDefaultValue) =>
       show: {
         type: Boolean,
         value: showDefaultValue,
-        observer: 'observeShow'
+        observer: "observeShow"
       },
       // 动画时长，单位为毫秒
       duration: {
         type: null,
         value: 300,
-        observer: 'observeDuration'
+        observer: "observeDuration"
       },
       // 动画名称
       name: {
         type: String,
-        value: 'fade'
+        value: "fade"
       }
     },
     data: {
-      type: '',
+      type: "",
       // 是否已经插入，标志位，标识是否已经初始化完成，即第一次插入
       inited: false,
       // 控制是否显示，通过样式，display: none;
       display: false,
       // 类型，动画类名
-      classes: '',
+      classes: "",
       // 动画时长
       currentDuration: 0
     },
@@ -73,16 +71,16 @@ const TransitionBehavior = (showDefaultValue) =>
         // 判断是不是对象，是对象就获取enter字段
         const currentDuration = isObject(duration) ? duration.enter : duration;
         // 更新状态
-        this.status = 'enter';
+        this.status = "enter";
         // 发射before-enter事件
-        this.triggerEvent('before-enter');
+        this.triggerEvent("before-enter");
         // 利用Promise的异步特性
         Promise.resolve()
           .then(() => {
             // 检查状态
-            this.checkStatus('enter');
+            this.checkStatus("enter");
             // 发射enter事件
-            this.triggerEvent('enter');
+            this.triggerEvent("enter");
             this.setData({
               // 初始化完成
               inited: true,
@@ -98,17 +96,19 @@ const TransitionBehavior = (showDefaultValue) =>
           .then(nextTick)
           .then(() => {
             // 检查状态
-            this.checkStatus('enter');
+            this.checkStatus("enter");
             // 标志位，标志过渡动画是否结束了
             this.transitionEnded = false;
             // 利用setTimeout模拟transitionEnd过渡动画结束事件
             setTimeout(() => this.onTransitionEnd(), currentDuration);
             // 此时开始下一个过渡动画
             this.setData({
-              classes: classNames['enter-to']
+              classes: classNames["enter-to"]
             });
           })
-          .catch(() => {});
+          .catch(() => {
+            // todo
+          });
       },
       leave() {
         if (!this.data.display) {
@@ -122,12 +122,12 @@ const TransitionBehavior = (showDefaultValue) =>
         // 过渡时间
         const currentDuration = isObject(duration) ? duration.leave : duration;
         // 更新状态
-        this.status = 'leave';
-        this.triggerEvent('before-leave');
+        this.status = "leave";
+        this.triggerEvent("before-leave");
         Promise.resolve()
           .then(() => {
-            this.checkStatus('leave');
-            this.triggerEvent('leave');
+            this.checkStatus("leave");
+            this.triggerEvent("leave");
             // 与enter不同的是inited和display2个属性不需要处理，因为一旦置为false，就不能显示元素了，也就没过度效果了
             this.setData({
               classes: classNames.leave,
@@ -136,14 +136,16 @@ const TransitionBehavior = (showDefaultValue) =>
           })
           .then(nextTick)
           .then(() => {
-            this.checkStatus('leave');
+            this.checkStatus("leave");
             this.transitionEnded = false;
             setTimeout(() => this.onTransitionEnd(), currentDuration);
             this.setData({
-              classes: classNames['leave-to']
+              classes: classNames["leave-to"]
             });
           })
-          .catch(() => {});
+          .catch(() => {
+            // todo
+          });
       },
       // 检查状态，判断传入的状态是否是当前所在的状态
       checkStatus(status) {
@@ -167,5 +169,4 @@ const TransitionBehavior = (showDefaultValue) =>
       }
     }
   });
-
 export default TransitionBehavior;

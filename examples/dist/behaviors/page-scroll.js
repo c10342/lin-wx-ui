@@ -1,23 +1,19 @@
-import { isFunction } from '../common/is.js';
-
+import { isFunction } from "../common/is";
 // 获取当前所在的页面实例
 function getCurrentPage() {
   const pages = getCurrentPages();
   return pages[pages.length - 1] || {};
 }
-
 // 页面滚动行为
 function onPageScroll(event) {
   // 获取绑定在该页面上的滚动行为事件
   const { linPageScroll = [] } = getCurrentPage();
-
   linPageScroll.forEach((scroller) => {
     if (isFunction(scroller)) {
       scroller(event);
     }
   });
 }
-
 const pageScrollBehavior = (scroller) =>
   Behavior({
     // 组件插入到页面是触发
@@ -32,7 +28,6 @@ const pageScrollBehavior = (scroller) =>
           ? [page.onPageScroll.bind(page), scroller.bind(this)]
           : [scroller.bind(this)];
       }
-
       page.onPageScroll = onPageScroll;
     },
     // 组件在页面中移除的时候触发
@@ -44,5 +39,4 @@ const pageScrollBehavior = (scroller) =>
       );
     }
   });
-
 export default pageScrollBehavior;
