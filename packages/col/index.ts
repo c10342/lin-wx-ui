@@ -1,16 +1,11 @@
-// Component Object
-Component({
-  name: 'Col',
-  options: {
-    addGlobalClass: true
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  relation: {
+    type: "ancestor",
+    name: "row"
   },
-  externalClasses: ['custom-class'],
-  relations: {
-    '../row/index': {
-      type: 'ancestor'
-    }
-  },
-  properties: {
+  props: {
     // 列元素宽度
     span: Number,
     // 列元素偏移距离
@@ -18,7 +13,7 @@ Component({
   },
   data: {
     // 根节点样式
-    viewStyle: ''
+    viewStyle: ""
   },
   methods: {
     setGutter(gutter) {
@@ -26,15 +21,10 @@ Component({
       const padding = `${gutter / 2}px`;
       const viewStyle = gutter
         ? `padding-left: ${padding}; padding-right: ${padding};`
-        : '';
+        : "";
       if (viewStyle !== this.data.viewStyle) {
         this.setData({ viewStyle });
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

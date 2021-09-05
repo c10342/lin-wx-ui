@@ -1,40 +1,40 @@
 // 保存所有dialog实例
-let queue = [];
+let queue: WechatMiniprogram.Component.TrivialInstance[] = [];
 
 // 默认配置
 const defaultOptions = {
   // 是否显示
   show: false,
   // 标题
-  title: '',
+  title: "",
   // 弹窗宽度，默认单位为 px
-  width: '640rpx',
+  width: "640rpx",
   // 样式风格
-  theme: 'default',
+  theme: "default",
   // 文本内容
-  message: '',
+  message: "",
   // z-index 层级
   zIndex: 100,
   // 是否展示遮罩层
   mask: true,
   // dialog组件的id
-  selector: '#lin-dialog',
+  selector: "#lin-dialog",
   // 自定义类名
-  className: '',
+  className: "",
   // 是否异步关闭
   asyncClose: false,
   // 动画名称
-  transition: 'scale',
+  transition: "scale",
   // 自定义样式
-  customStyle: '',
+  customStyle: "",
   // 内容对齐方式
-  messageAlign: 'center',
+  messageAlign: "center",
   // 遮罩层样式
-  maskStyle: '',
+  maskStyle: "",
   // 确认按钮的文案
-  confirmButtonText: '确认',
+  confirmButtonText: "确认",
   // 取消按钮的文案
-  cancelButtonText: '取消',
+  cancelButtonText: "取消",
   // 是否展示确认按钮
   showConfirmButton: true,
   // 是否展示取消按钮
@@ -42,7 +42,7 @@ const defaultOptions = {
   // 是否展示取消按钮
   closeOnClickMask: false,
   // 确认按钮的微信开放能力
-  confirmButtonOpenType: ''
+  confirmButtonOpenType: ""
 };
 
 // 当前配置
@@ -65,7 +65,9 @@ const Dialog = (options) => {
     // 获取上下文
     const context = options.context || getContext();
     // 找到dialog组件
-    const dialog = context.selectComponent(options.selector);
+    const dialog = context.selectComponent(
+      options.selector
+    ) as WechatMiniprogram.Component.TrivialInstance;
     // 删除上下文和selector选择器
     delete options.context;
     delete options.selector;
@@ -86,7 +88,7 @@ const Dialog = (options) => {
       queue.push(dialog);
     } else {
       console.warn(
-        '未找到 lin-dialog 节点，请确认 selector 及 context 是否正确'
+        "未找到 lin-dialog 节点，请确认 selector 及 context 是否正确"
       );
     }
   });

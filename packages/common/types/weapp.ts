@@ -77,6 +77,7 @@ export namespace Weapp {
             | Observer<WechatMiniprogram.Component.TrivialInstance, any>;
           /** 属性的类型（可以指定多个） */
           optionalTypes?: PropertyType[];
+          options?: any;
         };
   }
 }

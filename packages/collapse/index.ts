@@ -1,32 +1,20 @@
-Component({
-  name: 'Collapse',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  relation: {
+    type: "descendant",
+    name: "collapse-item"
   },
-  externalClasses: ['custom-class'],
-  relations: {
-    '../collapse-item/index': {
-      type: 'descendant',
-      linked(child) {
-        this.children = this.children || [];
-        this.children.push(child);
-      },
-      unlinked(child) {
-        this.children = (this.children || []).filter((it) => it !== child);
-      }
-    }
-  },
-  properties: {
+  props: {
     // 当前展开面板的 name
     value: {
       type: null,
-      observer: 'updateExpanded'
+      observer: "updateExpanded"
     },
     // 是否开启手风琴模式
     accordion: {
       type: Boolean,
-      observer: 'updateExpanded'
+      observer: "updateExpanded"
     },
     // 是否显示外边框
     border: {
@@ -34,7 +22,6 @@ Component({
       value: true
     }
   },
-  data: {},
   methods: {
     // 更新CollapseItem组件
     updateExpanded() {
@@ -44,7 +31,7 @@ Component({
     },
     // 切换展开状态
     switch(currentName, expanded) {
-      const { accordion, value } = this.properties;
+      const { accordion, value } = this.data;
       // 保存切换的item的name值
       const changeItem = currentName;
       if (!accordion) {
@@ -54,21 +41,16 @@ Component({
           : (value || []).filter((activeName) => activeName !== currentName);
       } else {
         // 手风琴模式
-        currentName = expanded ? currentName : '';
+        currentName = expanded ? currentName : "";
       }
       if (expanded) {
         // 展开
-        this.triggerEvent('open', changeItem);
+        this.triggerEvent("open", changeItem);
       } else {
         // 关闭
-        this.triggerEvent('close', changeItem);
+        this.triggerEvent("close", changeItem);
       }
-      this.triggerEvent('change', currentName);
+      this.triggerEvent("change", currentName);
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

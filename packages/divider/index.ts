@@ -1,11 +1,7 @@
-Component({
-  name: 'Divider',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  props: {
     // 虚线
     dashed: {
       type: Boolean,
@@ -19,7 +15,7 @@ Component({
     // 文本位置
     contentPosition: {
       type: String,
-      options: ['left', 'center', 'right']
+      options: ["left", "center", "right"]
     },
     // 字体大小
     fontSize: {
@@ -37,12 +33,5 @@ Component({
     customStyle: {
       type: String
     }
-  },
-  data: {},
-  methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

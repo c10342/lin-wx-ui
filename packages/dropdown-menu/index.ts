@@ -1,37 +1,29 @@
-import { getSystemInfoSync, getRect } from '../common/utils';
-import defaulrProps from './props';
+import { LinComponent } from "../common/component";
+
+import { getSystemInfoSync, getRect } from "../common/utils";
+import defaulrProps from "./props";
 
 // 存储组件实例对象
-let ARRAY = [];
+let ARRAY: WechatMiniprogram.Component.TrivialInstance[] = [];
 
-Component({
-  name: 'DropdownMenu',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'wrapper-class', 'item-class'],
-  relations: {
-    '../dropdown-item/index': {
-      type: 'descendant',
-      linked(child) {
-        // 当有子组件插入进来，就更新数据
-        this.children = this.children || [];
-        this.children.push(child);
-        this.updateItemListData();
-      },
-      unlinked(child) {
-        this.children = (this.children || []).filter((it) => it !== child);
-        this.updateItemListData();
-      }
+LinComponent({
+  classes: ["wrapper-class", "item-class"],
+  relation: {
+    type: "descendant",
+    name: "dropdown-item",
+    linked() {
+      this.updateItemListData();
+    },
+    unlinked() {
+      this.updateItemListData();
     }
   },
-  properties: {
+  props: {
     // 菜单标题和选项的选中态颜色
     activeColor: {
       type: String,
       value: defaulrProps.activeColor,
-      observer: 'updateChildrenData'
+      observer: "updateChildrenData"
     },
     // 菜单栏 z-index 层级
     zIndex: {
@@ -42,26 +34,26 @@ Component({
     duration: {
       type: Number,
       value: defaulrProps.duration,
-      observer: 'updateChildrenData'
+      observer: "updateChildrenData"
     },
     // 菜单展开方向
     direction: {
       type: String,
       value: defaulrProps.direction,
-      options: ['down', 'up'],
-      observer: 'updateChildrenData'
+      options: ["down", "up"],
+      observer: "updateChildrenData"
     },
     // 是否显示遮罩层
     mask: {
       type: Boolean,
       value: defaulrProps.mask,
-      observer: 'updateChildrenData'
+      observer: "updateChildrenData"
     },
     // 是否在点击遮罩层后关闭菜单
     closeOnClickMask: {
       type: Boolean,
       value: defaulrProps.closeOnClickMask,
-      observer: 'updateChildrenData'
+      observer: "updateChildrenData"
     },
     // 是否在点击外部 menu 后关闭菜单
     closeOnClickOutside: {
@@ -75,18 +67,18 @@ Component({
   },
   methods: {
     // 点击标题
-    onTitleTap(event) {
+    onTitleTap(event: WechatMiniprogram.TouchEvent) {
       // 获取点击的是第几个
       const index = event.currentTarget.dataset.index;
       const child = this.children[index];
-      if (!child.properties.disabled) {
+      if (!child.data.disabled) {
         // 没有被禁用
         // 遍历页面上的所有该组件
         ARRAY.forEach((menuItem) => {
           // 关闭其他组件弹出层
           if (
             menuItem &&
-            menuItem.properties.closeOnClickOutside &&
+            menuItem.data.closeOnClickOutside &&
             menuItem !== this
           ) {
             menuItem.close();
@@ -103,7 +95,7 @@ Component({
       });
     },
     // 切换弹出层显示/隐藏
-    toggleItem(activeIndex) {
+    toggleItem(activeIndex: number) {
       (this.children || []).forEach((child, index) => {
         const { showPopup } = child.data;
         if (index === activeIndex) {
@@ -129,12 +121,12 @@ Component({
     },
     // 获取子组件固定定位的样式数据
     getChildWrapperStyle() {
-      const { zIndex, direction } = this.properties;
-      return getRect(this, '.lin-dropdown-menu-bar-wrapper').then((rect) => {
+      const { zIndex, direction } = this.data;
+      return getRect(this, ".lin-dropdown-menu-bar-wrapper").then((rect) => {
         // 组件距离顶部和底部的距离
         const { top = 0, bottom = 0 } = rect;
         let wrapperStyle = `z-index:${zIndex};`;
-        if (direction === 'down') {
+        if (direction === "down") {
           // 向下展开
           wrapperStyle += `top:${bottom}px;`;
         } else {
@@ -145,17 +137,14 @@ Component({
       });
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     // 获取窗口高度
     const { windowHeight } = getSystemInfoSync();
     this.windowHeight = windowHeight;
     // 存储组件实例对象
     ARRAY.push(this);
   },
-  moved() {},
-  detached() {
+  destroyed() {
     // 移除组件实例对象
     ARRAY = ARRAY.filter((item) => item !== this);
   }

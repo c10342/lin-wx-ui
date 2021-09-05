@@ -1,54 +1,47 @@
-import defaultProps from '../dropdown-menu/props';
+import { LinComponent } from "../common/component";
 
-Component({
-  name: 'DropdownItem',
-  options: {
-    addGlobalClass: true
-  },
-  externalClasses: ['custom-class', 'item-class'],
-  relations: {
-    '../dropdown-menu/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-        // 插入到父组件时，更新数据
-        this.updateDataFromParent();
-      },
-      unlinked() {
-        this.parent = null;
-      }
+import defaultProps from "../dropdown-menu/props";
+
+LinComponent({
+  classes: ["item-class"],
+  relation: {
+    type: "ancestor",
+    name: "dropdown-menu",
+    linked() {
+      // 插入到父组件时，更新数据
+      this.updateDataFromParent();
     }
   },
-  properties: {
+  props: {
     // 当前选中项对应的 value
     value: {
       type: null,
-      observer: 'rerender'
+      observer: "rerender"
     },
     // 菜单项标题
     title: {
       type: String,
-      observer: 'rerender'
+      observer: "rerender"
     },
     // 选项数组
     options: {
       type: Array,
       value: [],
-      observer: 'rerender'
+      observer: "rerender"
     },
     // 是否禁用菜单
     disabled: Boolean,
     // 标题额外类名
     titleClass: {
       type: String,
-      observer: 'rerender'
+      observer: "rerender"
     },
     // 自定义弹出层样式
     popupStyle: String
   },
   data: {
     // 根节点样式
-    wrapperStyle: '',
+    wrapperStyle: "",
     // 是否显示弹出层
     showPopup: false,
     // 是否显示该组件
@@ -68,7 +61,7 @@ Component({
   },
   methods: {
     // 点击选项
-    onOptionTap(event) {
+    onOptionTap(event: WechatMiniprogram.TouchEvent) {
       // 获取选项数据
       const option = event.currentTarget.dataset.option;
       const { value, disabled } = option;
@@ -76,9 +69,9 @@ Component({
         return;
       }
       // 判断是否点击的是否为选中状态的选项
-      const shouldEmitChange = this.properties.value !== value;
+      const shouldEmitChange = this.data.value !== value;
       // 关闭
-      this.triggerEvent('close');
+      this.triggerEvent("close");
       // 关闭该组件
       this.setData({
         transition: true,
@@ -88,24 +81,24 @@ Component({
       this.rerender();
       if (shouldEmitChange) {
         // 选中的选项发生变化才触发change事件
-        this.triggerEvent('change', value);
+        this.triggerEvent("change", value);
       }
     },
     // 打开弹出层
     onOpen() {
-      this.triggerEvent('open');
+      this.triggerEvent("open");
     },
     // 关闭弹出层
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     },
     // 完全打开弹出层,过渡动画结束后
     onOpened() {
-      this.triggerEvent('opended');
+      this.triggerEvent("opended");
     },
     // 完全关闭弹出层,过渡动画结束后
     onClosed() {
-      this.triggerEvent('closed');
+      this.triggerEvent("closed");
       this.setData({ showWrapper: false, showPopup: false });
     },
     // 更新DropdownMenu父组件
@@ -177,7 +170,7 @@ Component({
           mask,
           // 是否在点击遮罩层后关闭菜单
           closeOnClickMask
-        } = this.parent.properties;
+        } = this.parent.data;
         this.setData({
           activeColor,
           duration,
@@ -187,10 +180,5 @@ Component({
         });
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
