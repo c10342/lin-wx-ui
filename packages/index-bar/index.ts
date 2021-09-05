@@ -1,69 +1,62 @@
-import pageScrollBehavior from '../behaviors/page-scroll';
-import { getViewPort } from '../common/utils';
+import { LinComponent } from "../common/component";
+import pageScrollBehavior from "../behaviors/page-scroll";
+import { getViewPort } from "../common/utils";
 
-Component({
-  name: 'IndexBar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [
+LinComponent({
+  mixins: [
     pageScrollBehavior(function (event) {
+      // @ts-ignore
       this.onScroll(event);
     })
   ],
-  relations: {
-    '../index-anchor/index': {
-      type: 'descendant',
-      linked(child) {
-        this.children = this.children || [];
-        this.children.push(child);
-        this.updateDataFromChildren();
-      },
-      unlinked(child) {
-        this.children = (this.children || []).filter((it) => it !== child);
-        this.updateDataFromChildren();
-      }
+  relation: {
+    type: "descendant",
+    name: "index-anchor",
+    linked() {
+      this.updateDataFromChildren();
+    },
+    unlinked() {
+      this.updateDataFromChildren();
     }
   },
-  externalClasses: ['custom-class', 'sidebar-class', 'sidebar-item-class'],
-  properties: {
+  classes: ["sidebar-class", "sidebar-item-class"],
+  props: {
     // z-index 层级
     zIndex: {
       type: Number,
       value: 1,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 是否开启锚点自动吸顶
     sticky: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 锚点自动吸顶时与顶部的距离
     stickyOffsetTop: {
       type: Number,
       value: 0,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 索引字符高亮颜色
     highlightColor: {
       type: String,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     }
   },
   data: {
     // 右侧索引列表
-    barList: [],
+    barList: [] as Array<string | number>,
     // 当前索引字符
     activeIndex: -1
   },
   methods: {
     // 从子组件IndexAnchor获取数据更新
     updateDataFromChildren() {
-      const barList = [];
+      const barList: Array<string | number> = [];
       (this.children || []).forEach((child) => {
-        barList.push(child.properties.index);
+        barList.push(child.data.index);
       });
       this.setData({
         barList
@@ -76,7 +69,7 @@ Component({
       });
     },
     // 滚动事件
-    onScroll(event) {
+    onScroll(event: WechatMiniprogram.Page.IPageScrollOption) {
       // 触发子组件的事件
       (this.children || []).forEach((child) => {
         child.onScroll(event);
@@ -88,7 +81,7 @@ Component({
       let activeIndex = -1;
       if (child) {
         // 存在就说明有选中的锚点
-        activeIndex = child.properties.index;
+        activeIndex = child.data.index;
       }
       // 设置索引字符
       if (activeIndex !== this.data.activeIndex) {
@@ -98,13 +91,13 @@ Component({
       }
     },
     // 点击右侧索引
-    onSidebarClick(event) {
+    onSidebarClick(event: WechatMiniprogram.TouchEvent) {
       // 找出点击的是第几个
       const { index } = event.currentTarget.dataset;
-      this.triggerEvent('select', index);
+      this.triggerEvent("select", index);
       // 找出对应的子组件
       const child = (this.children || []).find(
-        (childData) => index === childData.properties.index
+        (childData) => index === childData.data.index
       );
       if (child) {
         Promise.all([getViewPort(this), child.getContainerRect()]).then(
@@ -119,10 +112,5 @@ Component({
         );
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

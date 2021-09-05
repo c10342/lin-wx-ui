@@ -17,13 +17,7 @@ const defaultStyle = {
 };
 
 LinComponent({
-  classes: [
-    "custom-class",
-    "group-class",
-    "item-class",
-    "button-class",
-    "text-class"
-  ],
+  classes: ["group-class", "item-class", "button-class", "text-class"],
   props: {
     // 悬浮按钮列表
     btnList: {

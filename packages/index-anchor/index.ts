@@ -1,25 +1,24 @@
-import { getRect } from '../common/utils';
+import { LinComponent } from "../common/component";
 
-Component({
-  name: 'IndexAnchor',
-  externalClasses: ['custom-class', 'index-class'],
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  relations: {
-    '../index-bar/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-        this.updateDataFromParent();
-      },
-      unlinked() {
-        this.parent = null;
-      }
+import { getRect } from "../common/utils";
+
+interface ObjectItem {
+  fixed?: boolean;
+  transform?: number;
+  indexwapperHeight?: string;
+  isActive?: boolean;
+}
+
+LinComponent({
+  classes: ["index-class"],
+  relation: {
+    type: "ancestor",
+    name: "index-bar",
+    linked() {
+      this.updateDataFromParent();
     }
   },
-  properties: {
+  props: {
     // 索引字符
     index: {
       type: [String, Number]
@@ -35,13 +34,13 @@ Component({
     // 粘性布局时距离顶部的距离
     stickyOffsetTop: 0,
     // 高亮颜色
-    highlightColor: '',
+    highlightColor: "",
     // 是否固定定位
     fixed: false,
     // y轴上位移的距离
     transform: 0,
     // 标题容器高度
-    indexwapperHeight: '',
+    indexwapperHeight: "",
     // 是否为选中状态
     isActive: false
   },
@@ -54,7 +53,7 @@ Component({
           sticky,
           stickyOffsetTop,
           highlightColor
-        } = this.parent.properties;
+        } = this.parent.data;
         this.setData({
           zIndex,
           sticky,
@@ -71,7 +70,7 @@ Component({
         const wrapper = res[0];
         // 标题容器
         const indexContainer = res[1];
-        let obj = {};
+        let obj: ObjectItem = {};
         if (sticky) {
           // 粘性布局
           if (wrapper.top > stickyOffsetTop) {
@@ -79,7 +78,7 @@ Component({
             obj = {
               fixed: false,
               transform: 0,
-              indexwapperHeight: ''
+              indexwapperHeight: ""
             };
           } else if (
             wrapper.top <= stickyOffsetTop &&
@@ -136,17 +135,13 @@ Component({
     // 获取标题容器和整个容器信息
     getRect() {
       // 获取整个容器的信息
-      const getContainerRect = getRect(this, '.lin-index-anchor');
+      const getContainerRect = getRect(this, ".lin-index-anchor");
       // 获取标题容器信息
-      const getIndexRect = getRect(this, '.lin-index-anchor-index');
+      const getIndexRect = getRect(this, ".lin-index-anchor-index");
       return Promise.all([getContainerRect, getIndexRect]);
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     this.onScroll();
-  },
-  moved() {},
-  detached() {}
+  }
 });
