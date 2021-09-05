@@ -1,3 +1,5 @@
+import { LinComponent } from "../common/component";
+
 interface DataListItem {
   text: string;
   code: number | string;
@@ -8,12 +10,8 @@ interface ColumnsItem {
   defaultIndex: number;
 }
 
-Component({
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  properties: {
+LinComponent({
+  props: {
     // 省市区数据
     areaList: {
       type: Object,
@@ -90,7 +88,7 @@ Component({
     },
     // 处理省值发生变化
     provinceChange(picker) {
-      const { columnsNum } = this.properties;
+      const { columnsNum } = this.data;
       if (columnsNum < 2) {
         // 列数小于2说明只有省这一列
         return;
@@ -108,7 +106,7 @@ Component({
     },
     // 市发生变化
     cityChange(picker) {
-      const { columnsNum } = this.properties;
+      const { columnsNum } = this.data;
       if (columnsNum < 3) {
         // 列数小于3，说明只有省市2列
         return;
@@ -124,7 +122,7 @@ Component({
     },
     // 更新列数据
     updateColumns() {
-      const { columnsNum, value } = this.properties;
+      const { columnsNum, value } = this.data;
       // 省编号
       let provinceCode = "";
       // 市编号
@@ -203,7 +201,7 @@ Component({
     },
     // 获取省数据
     getProvince() {
-      const { areaList = {}, columnsPlaceholder = [] } = this.properties;
+      const { areaList = {}, columnsPlaceholder = [] } = this.data;
       const { province_list = {} } = areaList;
       const provinceList: Array<DataListItem> = [];
       if (columnsPlaceholder[0]) {
@@ -223,7 +221,7 @@ Component({
     },
     // 根据省获取，该省下面的市数据
     getCity(province) {
-      const { areaList = {}, columnsPlaceholder = [] } = this.properties;
+      const { areaList = {}, columnsPlaceholder = [] } = this.data;
       const { city_list = {} } = areaList;
       const cityList: DataListItem[] = [];
       if (columnsPlaceholder[1]) {
@@ -251,7 +249,7 @@ Component({
     },
     // 根据选中的市，获取该市下面的区数据
     getCounty(city) {
-      const { areaList = {}, columnsPlaceholder = [] } = this.properties;
+      const { areaList = {}, columnsPlaceholder = [] } = this.data;
       const { county_list = {} } = areaList;
       const countyList: DataListItem[] = [];
       if (columnsPlaceholder[2]) {

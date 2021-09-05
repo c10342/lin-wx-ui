@@ -7,6 +7,8 @@ import {
   isEqAndGt
 } from "./utils";
 
+import { LinComponent } from "../common/component";
+
 interface VisibeDaysListItem {
   label: number | string;
   date: Date;
@@ -23,11 +25,9 @@ interface VisibeTimeItem {
 }
 
 const nowDate = new Date().getTime();
-Component({
-  options: {
-    addGlobalClass: true
-  },
-  properties: {
+
+LinComponent({
+  props: {
     // 是否显示
     show: {
       type: Boolean,
@@ -36,7 +36,7 @@ Component({
     },
     // 绑定值
     value: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 日历标题
     title: {
@@ -65,7 +65,7 @@ Component({
     },
     // 日期行高
     rowHeight: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 重置按钮文案
     restText: {
@@ -84,11 +84,11 @@ Component({
     },
     // 禁用该日期前的日期
     disabledBeforeDate: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 禁用该日期后的日期
     disabledAfterDate: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 禁用范围内的日期
     disabledRangeDate: Array,
@@ -117,7 +117,7 @@ Component({
     // 选中的日期
     selectTime: "" as VisibeTimeItem | string
   },
-  observers: {
+  watch: {
     // 监听指定数据变化
     "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function (
       time,
@@ -187,7 +187,7 @@ Component({
     // 处理显示的时候
     handleShow(val: boolean) {
       // 获取绑定值
-      const { value } = this.properties;
+      const { value } = this.data;
       if (value && val) {
         // 绑定值存在并且show为true
         const da = new Date(value);
@@ -206,9 +206,9 @@ Component({
     // 处理绑定值
     handleValue() {
       let date: Date | null = null;
-      if (this.properties.value) {
+      if (this.data.value) {
         // 有绑定值则使用绑定值
-        date = new Date(this.properties.value);
+        date = new Date(this.data.value);
       } else {
         // 没有则使用当前时间，为默认时间
         date = new Date(nowDate);
@@ -315,7 +315,7 @@ Component({
       };
     }
   },
-  ready() {
+  mounted() {
     // 一开始先初始化当前时间
     const handleValue = this.handleValue();
     this.setData({

@@ -1,20 +1,17 @@
 import OpenTypeBehavior from "../behaviors/open-type";
 
-Component({
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [OpenTypeBehavior],
-  externalClasses: [
-    "custom-class",
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  mixins: [OpenTypeBehavior],
+  classes: [
     "title-class",
     "description-class",
     "actions-wrapper-class",
     "button-class",
     "cancelText-class"
   ],
-  properties: {
+  props: {
     // 是否显示
     show: Boolean,
     // 菜单选项
@@ -67,7 +64,7 @@ Component({
   methods: {
     // 点击选项
     onSelect(event: WechatMiniprogram.TouchEvent) {
-      const { actions, closeOnClickAction } = this.properties;
+      const { actions, closeOnClickAction } = this.data;
       // 找出点击的是第几个选项
       const { index } = event.currentTarget.dataset;
       const item = actions[index];

@@ -1,13 +1,10 @@
 import LinkBehavior from "../behaviors/link";
 
-Component({
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [LinkBehavior],
-  externalClasses: [
-    "custom-class",
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  mixins: [LinkBehavior],
+  classes: [
     "thumb-class",
     "tag-class",
     "image-class",
@@ -21,7 +18,7 @@ Component({
     "origin-price-class",
     "num-class"
   ],
-  properties: {
+  props: {
     // 左侧图片
     thumb: String,
     // 左侧图片裁剪、缩放的模式，可选值参考小程序 image 组件 mode 属性值
@@ -37,16 +34,16 @@ Component({
     tag: String,
     // 商品数量
     num: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 商品价格
     price: {
-      type: [String, Number] as any,
+      type: [String, Number],
       observer: "updatePrice"
     },
     // 商品划线原价
     originPrice: {
-      type: [String, Number] as any
+      type: [String, Number]
     },
     // 货币符号
     currency: {
@@ -67,7 +64,7 @@ Component({
   methods: {
     // 价格发生变化
     updatePrice() {
-      const { price } = this.properties;
+      const { price } = this.data;
       this.setData(this.handelPrice(price));
     },
     // 转化价格
@@ -92,8 +89,8 @@ Component({
     },
     // 点击左侧图片
     onThumbClick() {
-      const { thumbLink } = this.properties;
-      (this as any).jump(thumbLink);
+      const { thumbLink } = this.data;
+      this.jump(thumbLink);
     }
   }
 });

@@ -1,3 +1,5 @@
+import { LinComponent } from "../common/component";
+
 import { canIUseFormFieldButton } from "../common/version";
 import ButtonBehavior from "../behaviors/button";
 import OpenTypeBehavior from "../behaviors/open-type";
@@ -16,21 +18,13 @@ if (canIUseFormFieldButton()) {
   behaviors.push("wx://form-field-button");
 }
 
-Component({
-  options: {
-    addGlobalClass: true
-  },
-  behaviors,
-  externalClasses: [
-    "custom-class",
-    "loading-class",
-    "icon-class",
-    "hover-class"
-  ],
+LinComponent({
+  mixins: behaviors,
+  classes: ["loading-class", "icon-class", "hover-class"],
   /**
    * 组件的属性列表
    */
-  properties: {
+  props: {
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
     formType: {
       type: String,
@@ -147,7 +141,7 @@ Component({
     },
     // 点击按钮
     onClick() {
-      const { disabled, loading } = this.properties;
+      const { disabled, loading } = this.data;
       if (!disabled && !loading) {
         // 没有被禁用并且不是在加载中
         this.triggerEvent("click");
