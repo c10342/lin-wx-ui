@@ -5,11 +5,25 @@ import {
   isEqual,
   isEqAndLt,
   isEqAndGt
-} from './utils';
+} from "./utils";
+
+interface VisibeDaysListItem {
+  label: number | string;
+  date: Date;
+  times: number;
+  isCurrentMonth: boolean;
+  isDisabled: boolean;
+  isSelected: boolean;
+}
+
+interface VisibeTimeItem {
+  label: number | string;
+  date: Date;
+  times: number;
+}
 
 const nowDate = new Date().getTime();
 Component({
-  name: 'Calendar',
   options: {
     addGlobalClass: true
   },
@@ -18,16 +32,16 @@ Component({
     show: {
       type: Boolean,
       value: false,
-      observer: 'handleShow'
+      observer: "handleShow"
     },
     // 绑定值
     value: {
-      type: [String, Number]
+      type: [String, Number] as any
     },
     // 日历标题
     title: {
       type: String,
-      value: '日期选择'
+      value: "日期选择"
     },
     // 是否展示日历标题
     showTitle: {
@@ -42,7 +56,7 @@ Component({
     // 确认按钮的文字
     confirmText: {
       type: String,
-      value: '确定'
+      value: "确定"
     },
     // 禁用确定按钮
     disabledConfirm: {
@@ -51,12 +65,12 @@ Component({
     },
     // 日期行高
     rowHeight: {
-      type: [String, Number]
+      type: [String, Number] as any
     },
     // 重置按钮文案
     restText: {
       type: String,
-      value: '重置'
+      value: "重置"
     },
     // 是否展示重置按钮
     showReset: {
@@ -70,11 +84,11 @@ Component({
     },
     // 禁用该日期前的日期
     disabledBeforeDate: {
-      type: [String, Number]
+      type: [String, Number] as any
     },
     // 禁用该日期后的日期
     disabledAfterDate: {
-      type: [String, Number]
+      type: [String, Number] as any
     },
     // 禁用范围内的日期
     disabledRangeDate: Array,
@@ -95,17 +109,17 @@ Component({
   },
   data: {
     // 顶部日期显示
-    daysList: ['日', '一', '二', '三', '四', '五', '六'],
+    daysList: ["日", "一", "二", "三", "四", "五", "六"],
     // 当前日期,跟选中日期区别是，当前日期记录的是当前日历显示的年月，即选中日期为1月1号，但是当前日历上显示的是2月份，所以当前日期就是2月份
-    time: nowDate,
+    time: nowDate as VisibeTimeItem | number,
     // 需要显示的日期
-    visibeDaysList: [],
+    visibeDaysList: [] as VisibeDaysListItem[],
     // 选中的日期
-    selectTime: ''
+    selectTime: "" as VisibeTimeItem | string
   },
   observers: {
     // 监听指定数据变化
-    'time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled': function (
+    "time,selectTime,disabledBeforeDate,disabledAfterDate,disabledRangeDate,disabledDate,disabled": function (
       time,
       selectTime,
       disabledBeforeDate,
@@ -121,8 +135,8 @@ Component({
       //   本月1号星期几
       const week = currentFirstDay.getDay();
       //   日历上第一行第一列的开始时间
-      const startDay = currentFirstDay - week * 60 * 60 * 1000 * 24;
-      const arr = [];
+      const startDay = (currentFirstDay as any) - week * 60 * 60 * 1000 * 24;
+      const arr: VisibeDaysListItem[] = [];
       //   42:日历上6行7列
       for (let i = 0; i < 42; i++) {
         const da = new Date(startDay + i * 60 * 60 * 1000 * 24);
@@ -150,7 +164,7 @@ Component({
   },
   methods: {
     // 判断日期是否在禁用范围内的日期
-    handleRangeDate(date, disabledRangeDate) {
+    handleRangeDate(date: Date, disabledRangeDate: Array<string | number>) {
       if (Array.isArray(disabledRangeDate) && disabledRangeDate.length !== 0) {
         if (disabledRangeDate.length === 1) {
           // 如果日期数组长度为1
@@ -171,7 +185,7 @@ Component({
       return false;
     },
     // 处理显示的时候
-    handleShow(val) {
+    handleShow(val: boolean) {
       // 获取绑定值
       const { value } = this.properties;
       if (value && val) {
@@ -187,11 +201,11 @@ Component({
     },
     // 点击遮罩层
     onMaskClick() {
-      this.triggerEvent('mask-click');
+      this.triggerEvent("mask-click");
     },
     // 处理绑定值
     handleValue() {
-      let date = null;
+      let date: Date | null = null;
       if (this.properties.value) {
         // 有绑定值则使用绑定值
         date = new Date(this.properties.value);
@@ -207,13 +221,16 @@ Component({
       };
     },
     // 点击日期项
-    onLabelClick(event) {
+    onLabelClick(event: WechatMiniprogram.TouchEvent) {
       // 获取点击的是第几个
       const { index } = event.target.dataset;
       // 获取点击的时间对象
       const selectTime = this.data.visibeDaysList[index];
       if (
-        isEqual(selectTime.times, this.data.selectTime.times) ||
+        isEqual(
+          selectTime.times,
+          (this.data.selectTime as VisibeTimeItem).times
+        ) ||
         selectTime.isDisabled
       ) {
         // 被禁用的或者点击的日期就是当前选中的日期
@@ -223,62 +240,65 @@ Component({
         selectTime,
         time: this.getTime(selectTime.times)
       });
-      this.triggerEvent('change', selectTime.times);
+      this.triggerEvent("change", selectTime.times);
     },
     // 点击上一个月
     prevMonth() {
       // 获取当前时间
-      const date = new Date(this.data.time.times);
+      const date = new Date((this.data.time as VisibeTimeItem).times);
       // 设置上一个月
       date.setMonth(date.getMonth() - 1);
       // 设置当前时间，会触发observers中的东西
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('prevMonth', date);
+      this.triggerEvent("prevMonth", date);
     },
     // 点击下一个月
     nextMonth() {
-      const date = new Date(this.data.time.times);
+      const date = new Date((this.data.time as VisibeTimeItem).times);
       date.setMonth(date.getMonth() + 1);
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('nextMonth', date);
+      this.triggerEvent("nextMonth", date);
     },
     // 点击上一年
     prevYear() {
-      const date = new Date(this.data.time.times);
+      const date = new Date((this.data.time as VisibeTimeItem).times);
       date.setFullYear(date.getFullYear() - 1);
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('prevYear', date);
+      this.triggerEvent("prevYear", date);
     },
     // 点击下一年
     nextYear() {
-      const date = new Date(this.data.time.times);
+      const date = new Date((this.data.time as VisibeTimeItem).times);
       date.setFullYear(date.getFullYear() + 1);
       this.setData({
         time: this.getTime(date.getTime())
       });
-      this.triggerEvent('nextYear', date);
+      this.triggerEvent("nextYear", date);
     },
     // 点击确定按钮
     onConfirmClick() {
-      this.triggerEvent('confirm', this.data.selectTime.times);
+      this.triggerEvent(
+        "confirm",
+        (this.data.selectTime as VisibeTimeItem).times
+      );
     },
     // 点击重置按钮
     onResetClick() {
-      this.setData({ selectTime: '' });
-      this.triggerEvent('reset');
+      this.setData({ selectTime: "" });
+      this.triggerEvent("reset");
     },
     // 点击关闭按钮
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     },
     // 根据时间转化为对象数据
-    getTime(date) {
+    getTime(date: number | Date) {
       date = new Date(date);
       return {
         label: `${date.getFullYear()}年${date.getMonth() + 1}月`,
@@ -287,7 +307,7 @@ Component({
       };
     },
     // 根据时间对象转化成需要显示的对象数据
-    getVisibeTimeObj(date) {
+    getVisibeTimeObj(date: Date) {
       return {
         label: date.getDate(),
         date,
@@ -295,15 +315,11 @@ Component({
       };
     }
   },
-  created() {},
-  attached() {},
   ready() {
     // 一开始先初始化当前时间
     const handleValue = this.handleValue();
     this.setData({
       time: handleValue
     });
-  },
-  moved() {},
-  detached() {}
+  }
 });

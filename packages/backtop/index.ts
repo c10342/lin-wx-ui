@@ -2,7 +2,6 @@ import pageScrollBehavior from "../behaviors/page-scroll";
 import { getViewPort } from "../common/utils";
 
 Component({
-  name: "Backtop",
   options: {
     addGlobalClass: true,
     multipleSlots: true
@@ -44,14 +43,12 @@ Component({
     },
     // 距离右边距离
     right: {
-      // @ts-ignore
-      type: [String, Number],
+      type: [String, Number] as any,
       value: "40rpx"
     },
     // 距离底部距离
     bottom: {
-      // @ts-ignore
-      type: [String, Number],
+      type: [String, Number] as any,
       value: "40rpx"
     }
   },

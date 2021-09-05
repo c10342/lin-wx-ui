@@ -1,10 +1,12 @@
+type TimeItem = Date | number | string;
+
 /**
  * 根据日期对象返回年月日
  * @param {Date} date
  */
-export const getYearMonthDay = (time) => {
+export const getYearMonthDay = (time: Date) => {
   if (!time) {
-    return '';
+    return { year: -1, month: -1, day: -1 };
   }
   const date = new Date(time);
   const year = date.getFullYear();
@@ -19,7 +21,7 @@ export const getYearMonthDay = (time) => {
  * @param {number} month
  * @param {number} day
  */
-export const getDate = (year, month, day) => {
+export const getDate = (year: number, month: number, day: number) => {
   if (!year || !month || !day) {
     return new Date();
   }
@@ -27,13 +29,13 @@ export const getDate = (year, month, day) => {
 };
 
 // 对比2个时间
-const compareDate = (time1, time2, type) => {
+const compareDate = (time1: TimeItem, time2: TimeItem, type: string) => {
   const date1 = new Date(time1);
   const date2 = new Date(time2);
   // 传入的时间虽然可能是同一天的，但是可能会有时间差，所以需要统一一下
   // toLocaleDateString() 方法返回该日期对象日期部分的字符串，该字符串格式因不同语言而不同
-  const newDate1 = new Date(date1.toLocaleDateString('zh'));
-  const newDate2 = new Date(date2.toLocaleDateString('zh'));
+  const newDate1 = new Date(date1.toLocaleDateString("zh"));
+  const newDate2 = new Date(date2.toLocaleDateString("zh"));
   const obj = {
     Equal: newDate1.getTime() === newDate2.getTime(),
     EqAndLt: newDate1 <= newDate2,
@@ -45,22 +47,27 @@ const compareDate = (time1, time2, type) => {
 };
 
 // time1是否等于time2
-export const isEqual = (time1, time2) => compareDate(time1, time2, 'Equal');
+export const isEqual = (time1: TimeItem, time2: TimeItem) =>
+  compareDate(time1, time2, "Equal");
 
 // time1是否小于等于time2
-export const isEqAndLt = (time1, time2) => compareDate(time1, time2, 'EqAndLt');
+export const isEqAndLt = (time1: TimeItem, time2: TimeItem) =>
+  compareDate(time1, time2, "EqAndLt");
 
 // time1是否大于等于time2
-export const isEqAndGt = (time1, time2) => compareDate(time1, time2, 'EqAndGt');
+export const isEqAndGt = (time1: TimeItem, time2: TimeItem) =>
+  compareDate(time1, time2, "EqAndGt");
 
 // time1是否小于time2
-export const isLt = (time1, time2) => compareDate(time1, time2, 'Lt');
+export const isLt = (time1: TimeItem, time2: TimeItem) =>
+  compareDate(time1, time2, "Lt");
 
 // time1是否大于time2
-export const isGt = (time1, time2) => compareDate(time1, time2, 'Gt');
+export const isGt = (time1: TimeItem, time2: TimeItem) =>
+  compareDate(time1, time2, "Gt");
 
 // 判断是否为当前月
-export const isCurrentMonth = (time, currentTime) => {
+export const isCurrentMonth = (time: TimeItem, currentTime: TimeItem) => {
   const date1 = new Date(time);
   const date2 = new Date(currentTime);
 

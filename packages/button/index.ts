@@ -17,7 +17,6 @@ if (canIUseFormFieldButton()) {
 }
 
 Component({
-  name: "Button",
   options: {
     addGlobalClass: true
   },
@@ -34,7 +33,6 @@ Component({
   properties: {
     // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
     formType: {
-      // @ts-ignore
       type: String,
       options: ["submit", "reset"]
     },
@@ -50,7 +48,6 @@ Component({
     },
     // 按钮类型
     type: {
-      // @ts-ignore
       type: String,
       value: "default",
       options: [
@@ -86,12 +83,10 @@ Component({
     },
     // 图标大小
     iconSize: {
-      // @ts-ignore
-      type: [String, Number]
+      type: [String, Number] as any
     },
     // 按钮尺寸
     size: {
-      // @ts-ignore
       type: String,
       value: "default",
       options: ["default", "medium", "small"]
