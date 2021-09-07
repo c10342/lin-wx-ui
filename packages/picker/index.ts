@@ -1,18 +1,9 @@
-import { isUndef } from '../common/is.js';
+import { LinComponent } from "../common/component";
+import { isUndef } from "../common/is.js";
 
-Component({
-  name: 'Picker',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'active-class',
-    'toolbar-class',
-    'column-class'
-  ],
-  properties: {
+LinComponent({
+  classes: ["active-class", "toolbar-class", "column-class"],
+  props: {
     // 对象数组，配置每一列显示的数据
     columns: {
       type: Array,
@@ -26,7 +17,7 @@ Component({
     // 选项对象中，文字对应的 key
     textKey: {
       type: String,
-      value: 'text'
+      value: "text"
     },
     // 是否显示顶部栏
     showToolbar: Boolean,
@@ -35,24 +26,24 @@ Component({
     // 确认按钮文字
     confirmButtonText: {
       type: String,
-      value: '确认'
+      value: "确认"
     },
     // 取消按钮文字
     cancelButtonText: {
       type: String,
-      value: '取消'
+      value: "取消"
     },
     // 顶部栏位置
     toolbarPosition: {
       type: String,
-      value: 'top',
-      options: ['top', 'bottom']
+      value: "top",
+      options: ["top", "bottom"]
     },
     // 可见的选项个数
     visibleItemCount: {
       type: Number,
       value: 6,
-      observer: 'updateTopVisible'
+      observer: "updateTopVisible"
     },
     // 单列选择器的默认选中项索引
     defaultIndex: {
@@ -76,24 +67,24 @@ Component({
     updateTopVisible() {
       const { visibleItemCount } = this.properties;
       // 顶部可见个数为可见选项个数的一半
-      const topVisible = parseInt(visibleItemCount / 2, 10) - 1;
+      const topVisible = parseInt(visibleItemCount / 2 + "", 10) - 1;
       this.setData({
         topVisible
       });
     },
     // 列值发生变化
-    onChange(event) {
+    onChange(event: WechatMiniprogram.TouchEvent) {
       wx.nextTick(() => {
         if (this.isSimple()) {
           // 简单列，即只有单列
-          this.triggerEvent('change', {
+          this.triggerEvent("change", {
             picker: this,
             value: this.getColumnValue(0),
             index: this.getColumnIndex(0)
           });
         } else {
           // 多列
-          this.triggerEvent('change', {
+          this.triggerEvent("change", {
             picker: this,
             // 所有列选中的值
             value: this.getValues(),
@@ -105,11 +96,11 @@ Component({
     },
     // 点击取消按钮
     onCancel() {
-      this.emitByType('cancel');
+      this.emitByType("cancel");
     },
     // 点击确定按钮
     onConfirm() {
-      this.emitByType('confirm');
+      this.emitByType("confirm");
     },
     emitByType(type) {
       if (this.isSimple()) {
@@ -138,11 +129,11 @@ Component({
     // 获取对应列选中项的索引
     getColumnIndex(index) {
       const column = this.getColumn(index);
-      return column ? column.data.currentIndex : '';
+      return column ? column.data.currentIndex : "";
     },
     // 获取对应的子组件，存在index则返回对应的下标值组件，否则就是全部
     getColumn(index) {
-      const children = this.selectAllComponents('.lin-picker-column');
+      const children = this.selectAllComponents(".lin-picker-column");
       if (isUndef(index)) {
         return children;
       }
@@ -163,7 +154,7 @@ Component({
       // 获取对应的列
       const column = this.getColumn(index);
       if (column == null) {
-        return Promise.reject(new Error('setColumnValues: 对应列不存在'));
+        return Promise.reject(new Error("setColumnValues: 对应列不存在"));
       }
       // 对比传出的数据列表跟已经存在的数据列表是否相等
       const isSame =
@@ -172,7 +163,7 @@ Component({
         // 相同则什么都不做
         return Promise.resolve();
       }
-      return new Promise((resolve) => {
+      return new Promise<void>((resolve) => {
         // 设置列数据
         column.setData(
           {
@@ -198,7 +189,7 @@ Component({
     setColumnIndex(columnIndex, optionIndex) {
       const column = this.getColumn(columnIndex);
       if (column == null) {
-        return Promise.reject(new Error('setColumnIndex: 对应列不存在'));
+        return Promise.reject(new Error("setColumnIndex: 对应列不存在"));
       }
       column.setIndex(optionIndex);
       return Promise.resolve();
@@ -214,7 +205,7 @@ Component({
     setColumnValue(index, value) {
       const column = this.getColumn(index);
       if (column == null) {
-        return Promise.reject(new Error('setColumnValue: 对应列不存在'));
+        return Promise.reject(new Error("setColumnValue: 对应列不存在"));
       }
       column.setValue(value);
       return Promise.resolve();
@@ -225,12 +216,8 @@ Component({
       return column.data.optionsList;
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     // 更新顶部可见个数
     this.updateTopVisible();
-  },
-  moved() {},
-  detached() {}
+  }
 });

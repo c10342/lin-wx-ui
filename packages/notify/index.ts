@@ -1,20 +1,16 @@
-import { WHITE } from '../common/color';
-import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
+import { LinComponent } from "../common/component";
+import { WHITE } from "../common/color";
+import SafeAreaInsetTopBehavior from "../behaviors/safeAreaInsetTop";
+import { isFunction } from "../common/is";
 
-Component({
-  name: 'Notify',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [SafeAreaInsetTopBehavior],
-  externalClasses: ['custom-class'],
-  properties: {
+LinComponent({
+  mixins: [SafeAreaInsetTopBehavior],
+  props: {
     // 类型
     type: {
       type: String,
-      value: 'danger',
-      options: ['success', 'primary', 'warning', 'danger', 'info']
+      value: "danger",
+      options: ["success", "primary", "warning", "danger", "info"]
     },
     // 展示文案
     message: String,
@@ -31,7 +27,7 @@ Component({
     // 顶部距离
     top: {
       type: [String, Number],
-      value: '0px'
+      value: "0px"
     },
     // 背景颜色
     background: String,
@@ -46,7 +42,7 @@ Component({
     // 是否显示
     show: false,
     // 点击的回调函数
-    onClick: null,
+    onClick: null as Function | null,
     // 打开的回调函数
     onOpened: null,
     // 关闭的回调函数
@@ -59,7 +55,7 @@ Component({
       const { onOpened } = this.data;
       this.clearTimer();
       this.setData({ show: true });
-      if (onOpened) {
+      if (isFunction(onOpened)) {
         // 执行打开回调函数
         wx.nextTick(onOpened);
       }
@@ -76,7 +72,7 @@ Component({
       const { oClose } = this.data;
       this.clearTimer();
       this.setData({ show: false });
-      if (oClose) {
+      if (isFunction(oClose)) {
         // 执行关闭回调函数
         wx.nextTick(oClose);
       }
@@ -88,21 +84,18 @@ Component({
       }
     },
     // 点击组件
-    onTap(event) {
+    onTap(event: WechatMiniprogram.TouchEvent) {
       const { onClick } = this.data;
-      if (onClick) {
+      if (isFunction(onClick)) {
         // 执行点击回调函数
         onClick(event.detail);
       }
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     this.timer = null;
   },
-  moved() {},
-  detached() {
+  destroyed() {
     this.clearTimer();
   }
 });

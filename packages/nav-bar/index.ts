@@ -1,14 +1,10 @@
-import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
+import { LinComponent } from "../common/component";
+import SafeAreaInsetTopBehavior from "../behaviors/safeAreaInsetTop";
 
-Component({
-  name: 'NavBar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [SafeAreaInsetTopBehavior],
-  externalClasses: ['custom-class', 'left-class', 'right-class', 'title-class'],
-  properties: {
+LinComponent({
+  mixins: [SafeAreaInsetTopBehavior],
+  classes: ["left-class", "right-class", "title-class"],
+  props: {
     // 标题
     title: String,
     // 左侧文案
@@ -32,20 +28,14 @@ Component({
     // 根节点自定义样式
     customStyle: String
   },
-  data: {},
   methods: {
     // 点击左侧区域
     onLeftClick() {
-      this.triggerEvent('click-left');
+      this.triggerEvent("click-left");
     },
     // 点击右侧区域
     onRightClick() {
-      this.triggerEvent('click-right');
+      this.triggerEvent("click-right");
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

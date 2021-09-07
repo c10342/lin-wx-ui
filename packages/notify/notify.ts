@@ -1,32 +1,32 @@
-import { WHITE } from '../common/color';
-import { isString } from '../common/is.js';
+import { WHITE } from "../common/color";
+import { isString } from "../common/is";
 
 // 默认配置
 const defaultOptions = {
   // 自定义节点选择器
-  selector: '#lin-notify',
+  selector: "#lin-notify",
   // 类型
-  type: 'danger',
+  type: "danger",
   // 展示文案
-  message: '',
+  message: "",
   // 背景颜色
-  background: '',
+  background: "",
   // 展示时长(ms)，值为 0 时，notify 不会消失
   duration: 3000,
   // z-index 层级
   zIndex: 100,
   // 顶部距离
-  top: '0px',
+  top: "0px",
   // 字体颜色
   color: WHITE,
   // 是否留出顶部安全距离（状态栏高度）
-  safeAreaInsetTop: false,
+  safeAreaInsetTop: false
   // 点击时的回调函数
-  onClick: () => {},
+  // onClick: () => {},
   // 完全展示后的回调函数
-  onOpened: () => {},
+  // onOpened: () => {},
   // 关闭时的回调函数
-  oClose: () => {}
+  // oClose: () => {}
 };
 
 // 当前配置
@@ -66,7 +66,7 @@ function Notify(options) {
     notify.show();
     return notify;
   }
-  console.warn('未找到 lin-notify 节点，请确认 selector 及 context 是否正确');
+  console.warn("未找到 lin-notify 节点，请确认 selector 及 context 是否正确");
 }
 
 // 关闭组件

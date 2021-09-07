@@ -1,24 +1,19 @@
-import { getRect } from '../common/utils';
+import { LinComponent } from "../common/component";
+import { getRect } from "../common/utils";
 
-Component({
-  name: 'NoticeBar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'left-icon-class',
-    'wrapper-class',
-    'content-class',
-    'close-icon-class',
-    'navigator-class'
+LinComponent({
+  classes: [
+    "left-icon-class",
+    "wrapper-class",
+    "content-class",
+    "close-icon-class",
+    "navigator-class"
   ],
-  properties: {
+  props: {
     // 通告栏模式
     mode: {
       type: String,
-      options: ['closeable', 'link']
+      options: ["closeable", "link"]
     },
     // 通知文本内容
     text: {
@@ -65,14 +60,14 @@ Component({
     // 跳转方式
     openType: {
       type: String,
-      value: 'navigate'
+      value: "navigate"
     },
     // 跳转地址,`mode=link`时有效
     url: String
   },
   data: {
     // 内容区域样式
-    contentStyle: '',
+    contentStyle: "",
     // 控制是否显示
     show: true
   },
@@ -82,8 +77,8 @@ Component({
       const { scrollable, speed, delay } = this.properties;
       if (scrollable) {
         // 滚动播放
-        const barContentRect = getRect(this, '#bar-content');
-        const barWrapperRect = getRect(this, '#bar-wrapper');
+        const barContentRect = getRect(this, "#bar-content");
+        const barWrapperRect = getRect(this, "#bar-wrapper");
 
         Promise.all([barContentRect, barWrapperRect]).then((rect) => {
           // 内容区域宽度
@@ -102,27 +97,22 @@ Component({
         });
       } else {
         // 清除动画
-        const contentStyle = 'animation: none;';
+        const contentStyle = "animation: none;";
         if (contentStyle !== this.data.contentStyle) {
           this.setData({ contentStyle });
         }
       }
     },
     // 点击根节点
-    onClick(event) {
-      this.triggerEvent('click', event);
+    onClick(event: WechatMiniprogram.TouchEvent) {
+      this.triggerEvent("click", event);
     },
     // 点击关闭按钮
-    onClickIcon(event) {
-      if (this.properties.mode === 'closeable') {
+    onClickIcon(event: WechatMiniprogram.TouchEvent) {
+      if (this.properties.mode === "closeable") {
         this.setData({ show: false });
-        this.triggerEvent('close', event);
+        this.triggerEvent("close", event);
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

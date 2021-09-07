@@ -1,11 +1,7 @@
-// Component Object
-Component({
-  name: 'Mask',
-  options: {
-    addGlobalClass: true
-  },
-  externalClasses: ['custom-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  props: {
     // 是否展示遮罩层
     show: {
       type: Boolean,
@@ -29,16 +25,10 @@ Component({
       value: 0.5
     }
   },
-  data: {},
   methods: {
     // 点击遮罩层
     onClick() {
-      this.triggerEvent('click');
+      this.triggerEvent("click");
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,19 +1,15 @@
-Component({
-  name: 'PasswordKeyboard',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'title-class',
-    'input-container-class',
-    'input-item-class',
-    'num-container-class',
-    'num-row-class',
-    'num-item-class'
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  classes: [
+    "title-class",
+    "input-container-class",
+    "input-item-class",
+    "num-container-class",
+    "num-row-class",
+    "num-item-class"
   ],
-  properties: {
+  props: {
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
       type: Boolean,
@@ -52,7 +48,7 @@ Component({
     // 标题
     title: {
       type: String,
-      value: '请输入密码'
+      value: "请输入密码"
     },
     // 是否使用标题插槽
     useTitleSlot: {
@@ -71,90 +67,90 @@ Component({
       [
         {
           value: 1,
-          label: '1',
-          type: 'number'
+          label: "1",
+          type: "number"
         },
         {
           value: 2,
-          label: '2',
-          type: 'number'
+          label: "2",
+          type: "number"
         },
         {
           value: 3,
-          label: '3',
-          type: 'number'
+          label: "3",
+          type: "number"
         }
       ],
       [
         {
           value: 4,
-          label: '4',
-          type: 'number'
+          label: "4",
+          type: "number"
         },
         {
           value: 5,
-          label: '5',
-          type: 'number'
+          label: "5",
+          type: "number"
         },
         {
           value: 6,
-          label: '6',
-          type: 'number'
+          label: "6",
+          type: "number"
         }
       ],
       [
         {
           value: 7,
-          label: '7',
-          type: 'number'
+          label: "7",
+          type: "number"
         },
         {
           value: 8,
-          label: '8',
-          type: 'number'
+          label: "8",
+          type: "number"
         },
         {
           value: 9,
-          label: '9',
-          type: 'number'
+          label: "9",
+          type: "number"
         }
       ],
       [
         {
-          value: 'cancel',
-          label: '取消',
-          type: 'cancel'
+          value: "cancel",
+          label: "取消",
+          type: "cancel"
         },
         {
           value: 0,
-          label: '0',
-          type: 'number'
+          label: "0",
+          type: "number"
         },
         {
-          value: 'del',
-          label: 'x',
-          type: 'del'
+          value: "del",
+          label: "x",
+          type: "del"
         }
       ]
     ]
   },
   methods: {
     // 点击键盘
-    onClick(event) {
+    onClick(event: WechatMiniprogram.TouchEvent) {
       const { length, inputValue } = this.properties;
       const { item } = event.currentTarget.dataset;
-      this.triggerEvent('click', item);
-      if (item.type === 'number') {
+      this.triggerEvent("click", item);
+      if (item.type === "number") {
         // 点击的是数字
         if (inputValue.length < length) {
-          this.triggerEvent('input', item.value);
+          this.triggerEvent("input", item.value);
         }
-      } else if (item.type === 'del') {
+      } else if (item.type === "del") {
         // 点击的是删除按钮
         if (inputValue.length > 0) {
-          this.triggerEvent('del', item.value);
+          this.triggerEvent("del", item.value);
         }
-      } else if (item.type === 'cancel') {
+      } else if (item.type === "cancel") {
         // 点击的是取消按钮
         this.emitClose();
       }
@@ -165,12 +161,7 @@ Component({
     },
     // 发射关闭事件
     emitClose() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     }
-  },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {}
+  }
 });

@@ -1,35 +1,35 @@
-import { isObject } from '../common/is.js';
+import { LinComponent } from "../common/component";
+import { isObject } from "../common/is.js";
 
-Component({
-  name: 'PickerColumn',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'active-class'],
-  properties: {
+interface OptionsListItem {
+  disabled?: boolean;
+}
+
+LinComponent({
+  classes: ["active-class"],
+  props: {
     // 一开始的数据数组，初始化用的
     initialOptions: {
       type: Array,
       value: [],
-      observer: 'updateOptionsList'
+      observer: "updateOptionsList"
     },
     // 选项高度
     itemHeight: {
       type: Number,
       value: 44,
-      observer: 'updateTranslateY'
+      observer: "updateTranslateY"
     },
     // 选项对象中，显示文字对应的 key
     textKey: {
       type: String,
-      value: 'text'
+      value: "text"
     },
     // 单列选择器的默认选中项索引
     defaultIndex: {
       type: Number,
       value: 0,
-      observer: 'updateIndex'
+      observer: "updateIndex"
     },
     // 可见的选项个数
     visibleItemCount: {
@@ -46,11 +46,11 @@ Component({
     // y轴位移距离
     translateY: 110,
     // 过渡动画样式
-    transitionStyle: 'transition: all 300ms',
+    transitionStyle: "transition: all 300ms",
     // 当前选中的索引
     currentIndex: 0,
     // 数据项
-    optionsList: []
+    optionsList: [] as OptionsListItem[]
   },
   methods: {
     // 获取当前选中的值
@@ -99,7 +99,7 @@ Component({
       });
     },
     // 手指在屏幕上的移动事件
-    onTouchMove(event) {
+    onTouchMove(event: WechatMiniprogram.TouchEvent) {
       let { translateY } = this.data;
       const { itemHeight } = this.properties;
       // 终点位置
@@ -123,7 +123,7 @@ Component({
     onTouchStart(event) {
       // 取消过渡动画
       this.setData({
-        transitionStyle: 'transition: none'
+        transitionStyle: "transition: none"
       });
       // 记录起始位置
       this.startY = event.touches[0].clientY;
@@ -132,7 +132,7 @@ Component({
     onTouchEnd() {
       // 恢复过渡动画
       this.setData({
-        transitionStyle: 'transition: all 300ms'
+        transitionStyle: "transition: all 300ms"
       });
       const { translateY } = this.data;
       const len = this.data.optionsList.length;
@@ -151,7 +151,7 @@ Component({
       }
     },
     // 点击某一个选项
-    onClick(event) {
+    onClick(event: WechatMiniprogram.TouchEvent) {
       // 点击的选项索引
       const index = event.currentTarget.dataset.index;
       const { optionsList } = this.data;
@@ -200,7 +200,7 @@ Component({
     emitChange(index) {
       const { currentIndex, optionsList } = this.data;
       if (index !== currentIndex) {
-        this.triggerEvent('change', {
+        this.triggerEvent("change", {
           index,
           data: optionsList[index]
         });
@@ -265,12 +265,9 @@ Component({
     // 向上，最大的y轴的位移距离
     this.endTranslateY = 0;
   },
-  attached() {},
-  ready() {
+  mounted() {
     this.updateTranslateY();
     this.updateIndex();
     this.updateOptionsList();
-  },
-  moved() {},
-  detached() {}
+  }
 });
