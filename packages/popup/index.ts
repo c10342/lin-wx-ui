@@ -1,14 +1,10 @@
-import TransitionBehavior from '../behaviors/transition';
-import SafeAreaInsetTopBehavior from '../behaviors/safeAreaInsetTop';
+import { LinComponent } from "../common/component";
+import TransitionBehavior from "../behaviors/transition";
+import SafeAreaInsetTopBehavior from "../behaviors/safeAreaInsetTop";
 
-Component({
-  name: 'Popup',
-  options: {
-    addGlobalClass: true
-  },
-  behaviors: [TransitionBehavior(false), SafeAreaInsetTopBehavior],
-  externalClasses: ['custom-class'],
-  properties: {
+LinComponent({
+  mixins: [TransitionBehavior(false), SafeAreaInsetTopBehavior],
+  props: {
     // z-index 层级
     zIndex: {
       type: Number,
@@ -24,9 +20,9 @@ Component({
     // 弹出位置
     position: {
       type: String,
-      value: 'center',
-      observer: 'observeClass',
-      options: ['top', 'bottom', 'right', 'left', 'center']
+      value: "center",
+      observer: "observeClass",
+      options: ["top", "bottom", "right", "left", "center"]
     },
     // 是否显示关闭图标
     closeable: {
@@ -34,12 +30,12 @@ Component({
       value: false
     },
     // 关闭图标名称
-    closeIcon: { type: String, value: 'close' },
+    closeIcon: { type: String, value: "close" },
     // 关闭图标的位置
     closeIconPosition: {
       type: String,
-      value: 'top-right',
-      options: ['top-right', 'top-left', 'bottom-right', 'bottom-left']
+      value: "top-right",
+      options: ["top-right", "top-left", "bottom-right", "bottom-left"]
     },
     // 是否在点击遮罩层后关闭
     closeOnClickMask: {
@@ -49,7 +45,7 @@ Component({
     // 关闭图标大小
     closeIconSize: {
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     },
     // 是否显示圆角
     round: {
@@ -59,7 +55,7 @@ Component({
     // 动画类型，优先级高于 position
     transition: {
       type: String,
-      observer: 'observeClass'
+      observer: "observeClass"
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
@@ -67,30 +63,25 @@ Component({
       value: true
     }
   },
-  data: {},
   methods: {
     // 点击遮罩层
     onMaskClick() {
-      this.triggerEvent('mask-click');
-      if (this.properties.closeOnClickMask) {
-        this.triggerEvent('close');
+      this.triggerEvent("mask-click");
+      if (this.data.closeOnClickMask) {
+        this.triggerEvent("close");
       }
     },
     // 更新动画名称
     observeClass() {
-      const { position, transition } = this.properties;
+      const { position, transition } = this.data;
       this.setData({ name: transition || position });
     },
     // 点击关闭按钮
     onCloseClick() {
-      this.triggerEvent('close');
+      this.triggerEvent("close");
     }
   },
-  created() {
+  beforeCreate() {
     this.observeClass();
-  },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

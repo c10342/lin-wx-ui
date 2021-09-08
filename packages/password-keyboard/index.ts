@@ -137,7 +137,7 @@ LinComponent({
   methods: {
     // 点击键盘
     onClick(event: WechatMiniprogram.TouchEvent) {
-      const { length, inputValue } = this.properties;
+      const { length, inputValue } = this.data;
       const { item } = event.currentTarget.dataset;
       this.triggerEvent("click", item);
       if (item.type === "number") {

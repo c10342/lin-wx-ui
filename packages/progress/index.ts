@@ -1,13 +1,9 @@
-import { getRect } from '../common/utils';
+import { LinComponent } from "../common/component";
+import { getRect } from "../common/utils";
 
-Component({
-  name: 'Progress',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'portion-class', 'pivot-class'],
-  properties: {
+LinComponent({
+  classes: ["portion-class", "pivot-class"],
+  props: {
     // 是否置灰
     inactive: {
       type: Boolean,
@@ -17,7 +13,7 @@ Component({
     percentage: {
       type: Number,
       value: 0,
-      observer: 'setProgressWidth'
+      observer: "setProgressWidth"
     },
     // 进度条粗细，默认单位为 px
     strokeWidth: {
@@ -37,24 +33,24 @@ Component({
     // 文字显示
     pivotText: {
       type: String,
-      value: '',
-      observer: 'setProgressWidth'
+      value: "",
+      observer: "setProgressWidth"
     },
     // 文字背景色
     pivotColor: String
   },
   data: {
     // 进度条长度
-    progressWidth: '0px',
+    progressWidth: "0px",
     // 进度条文字位置
-    pivotRight: '0px',
+    pivotRight: "0px",
     // 置灰后的颜色
-    grayColor: 'rgb(202, 202, 202)'
+    grayColor: "rgb(202, 202, 202)"
   },
   methods: {
     // 设置进度条长度
     setProgressWidth() {
-      let { percentage } = this.properties;
+      let { percentage } = this.data;
       // 处理临界值
       if (percentage <= 0) {
         percentage = 0;
@@ -68,7 +64,7 @@ Component({
         // 获取文字宽度
         const { width: pivotWidth } = await getRect(
           this,
-          '.lin-progress-pivot'
+          ".lin-progress-pivot"
         );
         let pivotRight = 0;
         // 调整文字的位置
@@ -90,18 +86,15 @@ Component({
       });
     }
   },
-  created() {
+  beforeCreate() {
     this.progressWidth = 0;
   },
-  attached() {},
-  ready() {
-    getRect(this, '.lin-progress').then((res) => {
+  mounted() {
+    getRect(this, ".lin-progress").then((res) => {
       // 获取进度条整体宽度
       this.progressWidth = res.width;
       // 设置进度条宽度
       this.setProgressWidth();
     });
-  },
-  moved() {},
-  detached() {}
+  }
 });

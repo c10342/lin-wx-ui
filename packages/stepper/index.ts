@@ -1,4 +1,5 @@
-import FormControls from '../behaviors/form-controls';
+import { LinComponent } from "../common/component";
+import FormControls from "../behaviors/form-controls";
 
 function add(num1, num2) {
   // 处理小数点计算精度丢失的问题
@@ -6,14 +7,11 @@ function add(num1, num2) {
   return Math.round((num1 + num2) * cardinal) / cardinal;
 }
 const timeSecond = 500;
-Component({
-  name: 'Stepper',
-  options: {
-    addGlobalClass: true
-  },
-  behaviors: ['wx://form-field', FormControls],
-  externalClasses: ['custom-class', 'input-class', 'plus-class', 'minus-class'],
-  properties: {
+LinComponent({
+  field: true,
+  mixins: [FormControls],
+  classes: ["input-class", "plus-class", "minus-class"],
+  props: {
     // 在表单内提交时的标识符
     name: String,
     // 输入值
@@ -21,7 +19,7 @@ Component({
       type: Number,
       value: null,
       observer(value) {
-        if (this.properties.asyncChange) {
+        if (this.data.asyncChange) {
           // 异步改变值得情况下，值改变就隐藏loading
           wx.hideLoading();
         }
@@ -55,22 +53,22 @@ Component({
     // 输入框宽度，默认单位为 px
     inputWidth: {
       type: [String, Number],
-      value: '64rpx'
+      value: "64rpx"
     },
     // 按钮大小，默认单位为 px，输入框高度会和按钮大小保持一致
     buttonSize: {
       type: [String, Number],
-      value: '56rpx'
+      value: "56rpx"
     },
     // 按钮字体大小
     buttonFontSize: {
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     },
     // 输入框字体大小
     inputFontSize: {
       type: [String, Number],
-      value: '30rpx'
+      value: "30rpx"
     },
     // 是否禁用输入框
     disableInput: Boolean,
@@ -96,8 +94,8 @@ Component({
       value: true
     }
   },
-  observers: {
-    'disabled,disableMinus,min,inputValue': function (
+  watch: {
+    "disabled,disableMinus,min,inputValue": function (
       disabled,
       disableMinus,
       min,
@@ -114,7 +112,7 @@ Component({
         });
       }
     },
-    'disabled,disablePlus,max,inputValue': function (
+    "disabled,disablePlus,max,inputValue": function (
       disabled,
       disablePlus,
       max,
@@ -134,7 +132,7 @@ Component({
   },
   data: {
     // 输入框的值
-    inputValue: '',
+    inputValue: "",
     // 是否禁用减少按钮
     isMinusDisable: false,
     // 是否禁用增加按钮
@@ -151,7 +149,7 @@ Component({
     },
     // 长按事件
     onMinusLongpress() {
-      if (this.data.isMinusDisable || !this.properties.longPress) {
+      if (this.data.isMinusDisable || !this.data.longPress) {
         return;
       }
       this.onTouchend();
@@ -161,7 +159,7 @@ Component({
       }, timeSecond);
     },
     onPlusLongpress() {
-      if (this.data.isPlusDisable || !this.properties.longPress) {
+      if (this.data.isPlusDisable || !this.data.longPress) {
         return;
       }
       this.onTouchend();
@@ -171,53 +169,53 @@ Component({
     },
     // 点击减号
     onMinus() {
-      const { step } = this.properties;
+      const { step } = this.data;
       const { inputValue, isMinusDisable } = this.data;
       if (isMinusDisable) {
         // 禁用了再点击就会发射越界事件
-        this.triggerEvent('overlimit', {
-          type: 'minus'
+        this.triggerEvent("overlimit", {
+          type: "minus"
         });
         return;
       }
       // 自减
-      const value = add(inputValue * 1, -(step * 1));
+      const value = add(Number(inputValue), -(step * 1));
       this.emitChange(value);
-      this.triggerEvent('minus');
+      this.triggerEvent("minus");
     },
     onPlus() {
-      const { step } = this.properties;
+      const { step } = this.data;
       const { inputValue, isPlusDisable } = this.data;
       if (isPlusDisable) {
         // 禁用了再点击就会发射越界事件
-        this.triggerEvent('overlimit', {
-          type: 'plus'
+        this.triggerEvent("overlimit", {
+          type: "plus"
         });
         return;
       }
       // 自加
-      const value = add(inputValue * 1, step * 1);
+      const value = add(Number(inputValue), step * 1);
       this.emitChange(value);
-      this.triggerEvent('plus');
+      this.triggerEvent("plus");
     },
     // 输入框失去焦点事件
     onBlur(event) {
       const value = event.detail.value;
       this.emitChange(value);
-      this.triggerEvent('blur', value);
+      this.triggerEvent("blur", value);
 
       this.triggerParentBlur(value);
     },
     // 输入框获得焦点事件
     onFocus(event) {
       const value = event.detail.value;
-      this.triggerEvent('focus', value);
+      this.triggerEvent("focus", value);
     },
     // 格式化值
     formatValue(value) {
       // 转化为数字
       value *= 1;
-      const { integer, max, min, decimalLength } = this.properties;
+      const { integer, max, min, decimalLength } = this.data;
       if (integer) {
         // 只允许输入整数
         value = parseInt(value, 10);
@@ -240,23 +238,21 @@ Component({
       if (value !== this.data.inputValue) {
         // 格式化值
         const inputValue = this.formatValue(value);
-        if (this.properties.asyncChange) {
+        if (this.data.asyncChange) {
           // 异步改变的时候,显示loading
-          wx.showLoading();
+          wx.showLoading({ title: "" });
         } else {
           this.setData({
             inputValue
           });
         }
-        this.triggerEvent('change', inputValue);
+        this.triggerEvent("change", inputValue);
       }
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     this.timer = null;
-    const { value, min } = this.properties;
+    const { value, min } = this.data;
     // 初始化输入框的值
     let inputValue = 0;
     if (value) {
@@ -268,8 +264,7 @@ Component({
       inputValue: this.formatValue(inputValue)
     });
   },
-  moved() {},
-  detached() {
+  destroyed() {
     this.onTouchend();
   }
 });

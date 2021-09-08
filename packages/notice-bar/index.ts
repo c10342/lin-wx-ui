@@ -74,7 +74,7 @@ LinComponent({
   methods: {
     // 更新样式
     updateStyle() {
-      const { scrollable, speed, delay } = this.properties;
+      const { scrollable, speed, delay } = this.data;
       if (scrollable) {
         // 滚动播放
         const barContentRect = getRect(this, "#bar-content");
@@ -109,7 +109,7 @@ LinComponent({
     },
     // 点击关闭按钮
     onClickIcon(event: WechatMiniprogram.TouchEvent) {
-      if (this.properties.mode === "closeable") {
+      if (this.data.mode === "closeable") {
         this.setData({ show: false });
         this.triggerEvent("close", event);
       }

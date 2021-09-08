@@ -51,8 +51,7 @@ LinComponent({
   methods: {
     // 显示组件
     show() {
-      const { duration } = this.properties;
-      const { onOpened } = this.data;
+      const { onOpened, duration } = this.data;
       this.clearTimer();
       this.setData({ show: true });
       if (isFunction(onOpened)) {

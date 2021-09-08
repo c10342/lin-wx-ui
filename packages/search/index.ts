@@ -1,18 +1,10 @@
-import FormControls from '../behaviors/form-controls';
-Component({
-  name: 'Search',
-  behaviors: ['wx://form-field', FormControls],
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'input-class',
-    'field-class',
-    'cancel-class'
-  ],
-  properties: {
+import { LinComponent } from "../common/component";
+import FormControls from "../behaviors/form-controls";
+LinComponent({
+  field: true,
+  mixins: [FormControls],
+  classes: ["input-class", "field-class", "cancel-class"],
+  props: {
     // 搜索框左侧文本
     label: String,
     // 是否使用输入框左侧图标 slot
@@ -22,7 +14,7 @@ Component({
     // 输入框左侧图标名称（如果设置了 use-left-icon-slot，则该属性无效）
     leftIcon: {
       type: String,
-      value: 'search'
+      value: "search"
     },
     // 输入框右侧图标名称（如果设置了 use-right-icon-slot，则该属性无效）
     rightIcon: String,
@@ -44,7 +36,7 @@ Component({
     // 输入框内容对齐方式
     inputAlign: {
       type: String,
-      options: ['left', 'center', 'right']
+      options: ["left", "center", "right"]
     },
     // 输入框为空时占位符
     placeholder: String,
@@ -57,23 +49,22 @@ Component({
     // 取消按钮文字
     actionText: {
       type: String,
-      value: '取消'
+      value: "取消"
     },
     // 搜索框背景色
     background: String,
     // 形状
     shape: {
       type: String,
-      value: 'square',
-      options: ['square', 'round']
+      value: "square",
+      options: ["square", "round"]
     },
     // 在表单内提交时的标识符
     name: String
   },
-  data: {},
   methods: {
     emitChange(data) {
-      this.triggerEvent('change', data);
+      this.triggerEvent("change", data);
     },
     // 输入框change事件
     onChange(event) {
@@ -81,31 +72,26 @@ Component({
     },
     // 点击取消按钮
     onCancel() {
-      this.triggerEvent('cancel');
-      this.emitChange('');
+      this.triggerEvent("cancel");
+      this.emitChange("");
     },
     // 点击搜索按钮
     onSearch(event) {
-      this.triggerEvent('search', event.detail);
+      this.triggerEvent("search", event.detail);
     },
     // 输入框聚焦
     onFocus(event) {
-      this.triggerEvent('focus', event.detail);
+      this.triggerEvent("focus", event.detail);
     },
     // 输入框失去焦点
     onBlur(event) {
-      this.triggerEvent('blur', event.detail);
+      this.triggerEvent("blur", event.detail);
       // 触发FormItem组件的方法
       this.triggerParentBlur(event.detail);
     },
     // 点击清空按钮
     onClear(event) {
-      this.triggerEvent('clear', event.detail);
+      this.triggerEvent("clear", event.detail);
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

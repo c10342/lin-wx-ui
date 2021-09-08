@@ -60,12 +60,12 @@ LinComponent({
   methods: {
     // 判断是否为简单列，非对象数组，简单列只有一列
     isSimple() {
-      const { columns } = this.properties;
+      const { columns } = this.data;
       return columns.length && !columns[0].values;
     },
     // 更新顶部可见个数
     updateTopVisible() {
-      const { visibleItemCount } = this.properties;
+      const { visibleItemCount } = this.data;
       // 顶部可见个数为可见选项个数的一半
       const topVisible = parseInt(visibleItemCount / 2 + "", 10) - 1;
       this.setData({

@@ -1,35 +1,25 @@
-const shapeValue = 'round';
-Component({
-  name: 'Radio',
-  behaviors: ['wx://form-field'],
-  externalClasses: ['custom-class', 'icon-class', 'label-class'],
-  relations: {
-    '../radio-group/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-      },
-      unlinked() {
-        this.parent = null;
-      }
-    }
+import { LinComponent } from "../common/component";
+
+const shapeValue = "round";
+LinComponent({
+  field: true,
+  classes: ["icon-class", "label-class"],
+  relation: {
+    type: "ancestor",
+    name: "radio-group"
   },
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  properties: {
+  props: {
     // 是否使用 icon 插槽
     useIconSlot: Boolean,
     // 图标大小，默认单位为`px`
     iconSize: {
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     },
     // 形状
     shape: {
       type: String,
-      options: ['round', 'square'],
+      options: ["round", "square"],
       value: shapeValue
     },
     // 选中状态颜色
@@ -47,9 +37,9 @@ Component({
     // 是否禁用文本内容点击
     labelDisabled: Boolean
   },
-  observers: {
+  watch: {
     // 设置选中跟没选中时的图标
-    'value,shape': function (value, shape) {
+    "value,shape": function (value, shape) {
       let iconName = shape;
       if (value) {
         iconName = `${iconName}-active`;
@@ -69,31 +59,26 @@ Component({
     // 发射change事件
     emitChange(value) {
       const instance = this.parent || this;
-      instance.triggerEvent('input', value);
-      instance.triggerEvent('change', value);
+      instance.triggerEvent("input", value);
+      instance.triggerEvent("change", value);
     },
     // 点击图标
     onIconClick() {
-      const { disabled } = this.properties;
+      const { disabled } = this.data;
       const { parentDisabled } = this.data;
       // 是否禁用
       if (!disabled && !parentDisabled) {
-        this.emitChange(this.properties.name);
+        this.emitChange(this.data.name);
       }
     },
     // 点击文本
     onLabelClick() {
-      const { disabled, labelDisabled } = this.properties;
+      const { disabled, labelDisabled } = this.data;
       const { parentDisabled } = this.data;
       // 判断是否禁用
       if (!disabled && !labelDisabled && !parentDisabled) {
-        this.emitChange(this.properties.name);
+        this.emitChange(this.data.name);
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

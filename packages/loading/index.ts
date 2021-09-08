@@ -54,7 +54,7 @@ LinComponent({
     // 设置loading样式
     setLoadingStyle() {
       let style = "";
-      const { size, time, color } = this.properties;
+      const { size, time, color } = this.data;
       if (size) {
         style += `width:${addUnit(size)};height:${addUnit(size)};`;
       }
@@ -73,7 +73,7 @@ LinComponent({
     // 设置文本样式
     setTextStyle() {
       let style = "";
-      const { textColor, textSize } = this.properties;
+      const { textColor, textSize } = this.data;
       if (textColor) {
         style += `color:${textColor};`;
       }
