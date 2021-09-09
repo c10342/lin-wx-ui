@@ -1,33 +1,28 @@
-Component({
-  name: 'SubmitBar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'tip-class',
-    'tip-text-class',
-    'content-class',
-    'text-class',
-    'label-class',
-    'price-class',
-    'currency-class',
-    'integer-class',
-    'decimal-class',
-    'suffixLabel-class',
-    'button-class'
+import { LinComponent } from "../common/component";
+LinComponent({
+  classes: [
+    "tip-class",
+    "tip-text-class",
+    "content-class",
+    "text-class",
+    "label-class",
+    "price-class",
+    "currency-class",
+    "integer-class",
+    "decimal-class",
+    "suffixLabel-class",
+    "button-class"
   ],
-  properties: {
+  props: {
     // 价格
     price: {
       type: [String, Number],
-      observer: 'updatePrice'
+      observer: "updatePrice"
     },
     // 价格文案
     label: {
       type: String,
-      value: '合计：'
+      value: "合计："
     },
     // 价格右侧文案
     suffixLabel: String,
@@ -36,15 +31,15 @@ Component({
     // 按钮类型
     buttonType: {
       type: String,
-      value: 'danger',
+      value: "danger",
       options: [
-        'primary',
-        'success',
-        'info',
-        'warning',
-        'danger',
-        'default',
-        'success'
+        "primary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "default",
+        "success"
       ]
     },
     // 提示文案
@@ -58,7 +53,7 @@ Component({
     // 货币符号
     currency: {
       type: String,
-      value: '¥'
+      value: "¥"
     },
     // 价格小数点后位数
     decimalLength: {
@@ -73,9 +68,9 @@ Component({
   },
   data: {
     // 整数部分
-    integer: '0',
+    integer: "0",
     // 小数部分
-    decimal: '00'
+    decimal: "00"
   },
   methods: {
     // 更新价格文本
@@ -88,13 +83,13 @@ Component({
       // 小数点长度部分
       const { decimalLength } = this.properties;
       const priceObj = {
-        integer: '0',
-        decimal: '00'
+        integer: "0",
+        decimal: "00"
       };
       price = price.toString();
-      const priceArr = price.split('.');
+      const priceArr = price.split(".");
       priceObj.integer = priceArr[0];
-      let decimal = priceArr[1] || '00';
+      let decimal = priceArr[1] || "00";
       // 小数点后面位数不足要补0
       while (decimal.length < decimalLength) {
         decimal = `${decimal}0`;
@@ -103,12 +98,7 @@ Component({
       return priceObj;
     },
     onButtonClick() {
-      this.triggerEvent('submit');
+      this.triggerEvent("submit");
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

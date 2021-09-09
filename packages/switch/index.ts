@@ -1,19 +1,16 @@
-import { BLUE, WHITE } from '../common/color';
+import { LinComponent } from "../common/component";
 
-Component({
-  name: 'Switch',
-  behaviors: ['wx://form-field'],
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'node-class'],
-  properties: {
+import { BLUE, WHITE } from "../common/color";
+
+LinComponent({
+  field: true,
+  classes: ["node-class"],
+  props: {
     // 开关选中状态
     checked: {
       type: Boolean,
       value: false,
-      observer: 'updateValue'
+      observer: "updateValue"
     },
     // 在表单内提交时的标识符
     name: String,
@@ -57,7 +54,7 @@ Component({
       if (disabled) {
         return;
       }
-      this.triggerEvent('change', !checked);
+      this.triggerEvent("change", !checked);
     },
     // 更新value值
     updateValue() {
@@ -73,11 +70,7 @@ Component({
       }
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     this.updateValue();
-  },
-  moved() {},
-  detached() {}
+  }
 });

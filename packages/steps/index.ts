@@ -1,17 +1,8 @@
-Component({
-  name: 'Steps',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'step-class',
-    'message-text',
-    'circle-class',
-    'line-class'
-  ],
-  properties: {
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  classes: ["step-class", "message-text", "circle-class", "line-class"],
+  props: {
     // 步骤
     steps: {
       type: Array,
@@ -25,8 +16,8 @@ Component({
     // 显示方向
     direction: {
       type: String,
-      value: 'horizontal',
-      options: ['horizontal', 'vertical']
+      value: "horizontal",
+      options: ["horizontal", "vertical"]
     },
     // 激活状态颜色
     activeColor: String,
@@ -35,16 +26,9 @@ Component({
     // 激活状态底部图标
     activeIcon: {
       type: String,
-      value: 'round-active'
+      value: "round-active"
     },
     // 未激活状态底部图标
     inactiveIcon: String
-  },
-  data: {},
-  methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
