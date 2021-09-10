@@ -1,5 +1,3 @@
-import { isUndef } from "../common/is";
-
 const LinkBehavior = Behavior({
   properties: {
     // 链接跳转类型
@@ -12,7 +10,7 @@ const LinkBehavior = Behavior({
   methods: {
     // 跳转页面
     jump(url: string | null | undefined) {
-      if (!isUndef(url)) {
+      if (url) {
         const { linkType } = this.properties;
         wx[linkType]({ url });
       }
