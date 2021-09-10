@@ -31,7 +31,7 @@ LinComponent({
         this.setData({ viewStyle });
       }
       // 设置Col组件的padding内边距
-      this.getRelationNodes("../Col/index").forEach((col) => {
+      this.getRelationNodes("../col/index").forEach((col) => {
         col.setGutter(gutter);
       });
     }
