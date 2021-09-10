@@ -130,6 +130,10 @@ LinComponent({
       // 获取标题容器信息
       const getIndexRect = getRect(this, ".lin-index-anchor-index");
       return Promise.all([getContainerRect, getIndexRect]);
+    },
+    // 获取整个容器的信息
+    getContainerRect() {
+      return getRect(this, ".lin-index-anchor");
     }
   },
   mounted() {

@@ -38,12 +38,19 @@ LinComponent({
   methods: {
     // 计算子组件WaterFlowItem位置
     renderWaterFlow() {
-      getRect(this, ".lin-water-flow").then((rect) => {
-        // 设置子组件的宽度
-        this.setChildWidth(rect);
-        // 设置子组件的位置
-        this.setChildrenPosition();
-      });
+      // 防抖，防止触发多次
+      this.destroyRenderTimer();
+      this.renderTimer = setTimeout(() => {
+        getRect(this, ".lin-water-flow").then((rect) => {
+          // 设置子组件的宽度
+          this.setChildWidth(rect);
+          this.destroyTimer();
+          // 设置子组件的位置，要等组件渲染完成才能获取组件高度
+          this.timer = setTimeout(() => {
+            this.setChildrenPosition();
+          }, 100);
+        });
+      }, 500);
     },
     // 设置子组件的宽度
     setChildWidth(parentContainer) {
@@ -95,6 +102,26 @@ LinComponent({
           });
         });
       });
+    },
+    destroyRenderTimer() {
+      if (this.renderTimer) {
+        clearTimeout(this.renderTimer);
+        this.renderTimer = null;
+      }
+    },
+    destroyTimer() {
+      if (this.timer) {
+        clearTimeout(this.timer);
+        this.timer = null;
+      }
     }
+  },
+  beforeCreate() {
+    this.renderTimer = null;
+    this.timer = null;
+  },
+  destroyed() {
+    this.destroyRenderTimer();
+    this.destroyTimer();
   }
 });

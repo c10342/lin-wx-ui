@@ -83,6 +83,7 @@ function LinComponent(LinOptions = {}) {
   options.externalClasses.push("custom-class");
   // map field to form-field behavior
   if (LinOptions.field) {
+    options.behaviors = options.behaviors || [];
     options.behaviors.push("wx://form-field");
   }
   if (options.properties) {

@@ -1,7 +1,7 @@
 import { LinComponent } from "../common/component";
 import { isFunction } from "../common/is";
 LinComponent({
-  mixins: ["footer-class"],
+  classes: ["footer-class"],
   relation: {
     type: "descendant",
     name: "form-item",
