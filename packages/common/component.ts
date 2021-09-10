@@ -99,6 +99,7 @@ function LinComponent<Data, Props, Methods>(
 
   // map field to form-field behavior
   if (LinOptions.field) {
+    options.behaviors = options.behaviors || [];
     options.behaviors.push("wx://form-field");
   }
 
