@@ -18,7 +18,7 @@ LinComponent({
   methods: {
     // 设置LinCell组件底部边框
     setCellBorder() {
-      const nodes = this.getRelationNodes("../Cell/index");
+      const nodes = this.getRelationNodes("../cell/index");
       // 不是最后一个LinCell组件才需要设置底部边框
       nodes.forEach((cell, index) => {
         if (index + 1 === nodes.length) {
