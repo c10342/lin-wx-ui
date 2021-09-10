@@ -1,50 +1,45 @@
-import { addUnit } from '../common/utils';
-Component({
-  name: 'Icon',
-  options: {
-    addGlobalClass: true
-  },
-  externalClasses: ['custom-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+import { addUnit } from "../common/utils";
+LinComponent({
+  props: {
     // 图标名称
     icon: {
       type: String,
       require: true,
-      value: ''
+      value: ""
     },
     // 图标类型
     type: {
       type: String,
-      value: 'default',
-      options: ['default', 'primary', 'info', 'warning', 'danger', 'success']
+      value: "default",
+      options: ["default", "primary", "info", "warning", "danger", "success"]
     },
     // 图标大小
     size: {
       type: [String, Number],
-      value: '',
-      observer: 'setStyle'
+      value: "",
+      observer: "setStyle"
     },
     // 图标颜色
     color: {
       type: String,
-      observer: 'setStyle'
+      observer: "setStyle"
     }
   },
   data: {
-    viewStyle: ''
+    viewStyle: ""
   },
   methods: {
     // 设置样式
     setStyle() {
-      let style = '';
-      const { size, color } = this.properties;
+      let style = "";
+      const { size, color } = this.data;
       if (size) {
         style += `font-size:${addUnit(size)};`;
       }
       if (color) {
         style += `color:${color};`;
       }
-
       if (style !== this.data.viewStyle) {
         this.setData({ viewStyle: style });
       }

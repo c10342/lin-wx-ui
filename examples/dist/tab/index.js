@@ -1,23 +1,13 @@
-Component({
-  name: 'Tab',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class'],
-  relations: {
-    '../tabs/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-        this.updateWidth();
-      },
-      unlinked() {
-        this.parent = null;
-      }
+import { LinComponent } from "../common/component";
+LinComponent({
+  relation: {
+    type: "ancestor",
+    name: "tabs",
+    linked() {
+      this.updateWidth();
     }
   },
-  properties: {
+  props: {
     // 标签名称，作为匹配的标识符
     name: {
       type: [String, Number]
@@ -25,27 +15,27 @@ Component({
     // 标题
     title: {
       type: String,
-      observer: 'update'
+      observer: "update"
     },
     // 是否禁用标签
     disabled: {
       type: Boolean,
-      observer: 'update'
+      observer: "update"
     },
     // 是否显示小红点
     dot: {
       type: Boolean,
-      observer: 'update'
+      observer: "update"
     },
     // 图标右上角提示信息
     info: {
       type: [String, Number],
-      observer: 'update'
+      observer: "update"
     },
     // 自定义标题样式
     titleStyle: {
       type: String,
-      observer: 'update'
+      observer: "update"
     }
   },
   data: {
@@ -61,7 +51,7 @@ Component({
   methods: {
     // 获取组件标识符，默认使用name，没有就使用index
     getComponentName() {
-      const { name } = this.properties;
+      const { name } = this.data;
       if (name) {
         return name;
       }
@@ -96,10 +86,5 @@ Component({
         });
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,48 +1,37 @@
-import { getAllRect, getRect } from '../common/utils';
-
-Component({
-  name: 'Tabs',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'wrapper-class',
-    'scroll-class',
-    'list-class',
-    'line-class',
-    'tab-item-class',
-    'title-class',
-    'content-class',
-    'track-class'
+import { LinComponent } from "../common/component";
+import { getAllRect, getRect } from "../common/utils";
+LinComponent({
+  classes: [
+    "wrapper-class",
+    "scroll-class",
+    "list-class",
+    "line-class",
+    "tab-item-class",
+    "title-class",
+    "content-class",
+    "track-class"
   ],
-  relations: {
-    '../tab/index': {
-      type: 'descendant',
-      linked(child) {
-        this.children = this.children || [];
-        this.children.push(child);
-        child.index = this.children.length - 1;
-        this.updateTabs();
-      },
-      unlinked(child) {
-        this.children = (this.children || [])
-          .filter((it) => it !== child)
-          .map((childData, index) => {
-            childData.index = index;
-            return childData;
-          });
-        this.updateTabs();
-      }
+  relation: {
+    type: "descendant",
+    name: "tab",
+    linked(child) {
+      child.index = this.children.length - 1;
+      this.updateTabs();
+    },
+    unlinked() {
+      this.children = (this.children || []).map((childData, index) => {
+        childData.index = index;
+        return childData;
+      });
+      this.updateTabs();
     }
   },
-  properties: {
+  props: {
     // 样式风格
     type: {
       type: String,
-      value: 'line',
-      options: ['line', 'card']
+      value: "line",
+      options: ["line", "card"]
     },
     // 标签主题色
     color: String,
@@ -94,7 +83,7 @@ Component({
       value: 5,
       observer(val) {
         this.setData({
-          scrollable: this.children.length > val || !this.properties.ellipsis
+          scrollable: this.children.length > val || !this.data.ellipsis
         });
       }
     },
@@ -124,7 +113,7 @@ Component({
       if (index === this.data.currentIndex) {
         return;
       }
-      this.triggerEvent('change', {
+      this.triggerEvent("change", {
         // 组件唯一标识
         name: this.children[index].getComponentName()
       });
@@ -145,27 +134,27 @@ Component({
       if (currentTab.disabled) {
         if (index !== this.data.currentIndex) {
           // 发射禁用事件
-          this.triggerEvent('disabled', {
+          this.triggerEvent("disabled", {
             name: this.children[index].getComponentName()
           });
         }
         return;
       }
       // 点击事件
-      this.triggerEvent('click', {
+      this.triggerEvent("click", {
         name: this.children[index].getComponentName()
       });
       this.emitChange(index);
     },
     // 根据index索引设置下划线x轴位移距离
     setLineOffsetByIndex(index) {
-      const { type } = this.properties;
-      if (index <= -1 || type !== 'line') {
+      const { type } = this.data;
+      if (index <= -1 || type !== "line") {
         return;
       }
       Promise.all([
-        getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-line')
+        getAllRect(this, ".lin-tabs-item"),
+        getRect(this, ".lin-tabs-line")
       ]).then(([rects = [], lineRect]) => {
         // x轴位移距离是前面每个tab的宽度之和
         let lineOffsetLeft = rects
@@ -185,8 +174,8 @@ Component({
         return;
       }
       Promise.all([
-        getAllRect(this, '.lin-tabs-item'),
-        getRect(this, '.lin-tabs-list')
+        getAllRect(this, ".lin-tabs-item"),
+        getRect(this, ".lin-tabs-list")
       ]).then(([itemRect, listRect]) => {
         const offsetLeft = itemRect
           .slice(0, index)
@@ -199,7 +188,7 @@ Component({
     },
     // 找出当前选中的tab的索引
     findCurrentIndex() {
-      const { active } = this.properties;
+      const { active } = this.data;
       const index = (this.children || []).findIndex(
         (child) => child.getComponentName() === active
       );
@@ -246,12 +235,12 @@ Component({
     // 更新粘性布局容器
     updateContainer() {
       this.setData({
-        container: () => this.createSelectorQuery().select('.lin-tabs')
+        container: () => this.createSelectorQuery().select(".lin-tabs")
       });
     },
     // 手指触摸事件开始
     onTouchStart(event) {
-      const { swipeable } = this.properties;
+      const { swipeable } = this.data;
       if (!swipeable) {
         return;
       }
@@ -262,7 +251,7 @@ Component({
     },
     // 手指触摸结束
     onTouchEnd() {
-      const { swipeable } = this.properties;
+      const { swipeable } = this.data;
       if (!swipeable) {
         return;
       }
@@ -273,10 +262,10 @@ Component({
         // 差值大于50才能滚动到下一个或者上一个
         if (offsetX < 0) {
           // 上一个，找到没有禁用的
-          currentIndex = this.findNotDisabledTab(currentIndex - 1, 'left');
+          currentIndex = this.findNotDisabledTab(currentIndex - 1, "left");
         } else {
           // 下一个，找到没有禁用的
-          currentIndex = this.findNotDisabledTab(currentIndex + 1, 'right');
+          currentIndex = this.findNotDisabledTab(currentIndex + 1, "right");
         }
         if (currentIndex > -1) {
           this.emitChange(currentIndex);
@@ -286,7 +275,7 @@ Component({
     // 根据当前索引找出没有禁用的tab
     findNotDisabledTab(index, type) {
       const { tabs } = this.data;
-      if (type === 'left') {
+      if (type === "left") {
         // 上一个
         while (index >= 0) {
           if (!tabs[index].disabled) {
@@ -294,7 +283,7 @@ Component({
           }
           index--;
         }
-      } else if (type === 'right') {
+      } else if (type === "right") {
         // 下一个
         while (index < tabs.length) {
           if (!tabs[index].disabled) {
@@ -307,7 +296,7 @@ Component({
     },
     // 手指移动事件
     onTouchMove(event) {
-      const { swipeable } = this.properties;
+      const { swipeable } = this.data;
       if (!swipeable) {
         return;
       }
@@ -316,17 +305,14 @@ Component({
     },
     // 获取内容容器宽度
     getTrackWidth() {
-      return getRect(this, '.lin-tabs-track');
+      return getRect(this, ".lin-tabs-track");
     }
   },
-  created() {
+  beforeCreate() {
     this.startX = 0;
     this.endX = 0;
   },
-  attached() {},
-  ready() {
+  mounted() {
     this.setCurrentIndex(this.findCurrentIndex());
-  },
-  moved() {},
-  detached() {}
+  }
 });

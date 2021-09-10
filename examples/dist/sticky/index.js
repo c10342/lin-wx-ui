@@ -1,29 +1,26 @@
-import pageScrollBehavior from '../behaviors/page-scroll';
-import { getRect } from '../common/utils';
-import { isFunction } from '../common/is.js';
-
-const ROOT_ELEMENT = '.lin-sticky';
-Component({
-  name: 'Sticky',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [
+import { LinComponent } from "../common/component";
+import pageScrollBehavior from "../behaviors/page-scroll";
+import { getRect } from "../common/utils";
+import { isFunction } from "../common/is";
+const ROOT_ELEMENT = ".lin-sticky";
+LinComponent({
+  mixins: [
     pageScrollBehavior(function (event) {
-      if (this.properties.scrollTop != null) {
+      // @ts-ignore
+      if (this.data.scrollTop != null) {
         return;
       }
+      // @ts-ignore
       this.onScroll(event);
     })
   ],
-  externalClasses: ['custom-class', 'wrapper-class'],
-  properties: {
+  classes: ["wrapper-class"],
+  props: {
     // 吸顶时与顶部的距离，单位 px
     offsetTop: {
       type: Number,
       value: 0,
-      observer: 'onScroll'
+      observer: "onScroll"
     },
     // 吸顶时的 z-index
     zIndex: {
@@ -33,12 +30,12 @@ Component({
     // 是否禁用
     disabled: {
       type: Boolean,
-      observer: 'onScroll'
+      observer: "onScroll"
     },
     // 一个函数，返回容器对应的 NodesRef 节点
     container: {
       type: null,
-      observer: 'onScroll'
+      observer: "onScroll"
     },
     // 当前滚动区域的滚动位置，非 null 时会禁用页面滚动事件的监听
     scrollTop: {
@@ -59,7 +56,7 @@ Component({
   methods: {
     // 滚动事件
     onScroll({ scrollTop } = {}) {
-      const { container, offsetTop, disabled } = this.properties;
+      const { container, offsetTop, disabled } = this.data;
       if (disabled) {
         // 禁用情况
         this.setDataAfterDiff({
@@ -68,10 +65,8 @@ Component({
         });
         return;
       }
-
       // 滚动的高度
       this.scrollTop = scrollTop || this.scrollTop;
-
       if (isFunction(container)) {
         Promise.all([
           getRect(this, ROOT_ELEMENT),
@@ -103,7 +98,6 @@ Component({
         });
         return;
       }
-
       getRect(this, ROOT_ELEMENT).then((root) => {
         if (offsetTop > root.top) {
           // 到达粘性的位置
@@ -120,15 +114,13 @@ Component({
     setDataAfterDiff(data) {
       wx.nextTick(() => {
         const diff = Object.keys(data).reduce((prev, key) => {
-          if (data[key] !== this.properties[key]) {
+          if (data[key] !== this.data[key]) {
             prev[key] = data[key];
           }
           return prev;
         }, {});
-
         this.setData(diff);
-
-        this.triggerEvent('scroll', {
+        this.triggerEvent("scroll", {
           scrollTop: this.scrollTop,
           isFixed: data.fixed || this.data.fixed
         });
@@ -136,15 +128,10 @@ Component({
     },
     getContainerRect() {
       // 返回容器对应的 NodesRef 节点
-      const nodeRef = this.properties.container();
+      const nodeRef = this.data.container();
       return new Promise((resolve) => {
         nodeRef.boundingClientRect(resolve).exec();
       });
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,26 +1,19 @@
-import LinkBehavior from '../behaviors/link';
-
-Component({
-  name: 'Cell',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [LinkBehavior],
-  externalClasses: [
-    'custom-class',
-    'title-class',
-    'value-class',
-    'label-class',
-    'header-class',
-    'right-icon-class'
+import LinkBehavior from "../behaviors/link";
+import { LinComponent } from "../common/component";
+LinComponent({
+  mixins: [LinkBehavior],
+  classes: [
+    "title-class",
+    "value-class",
+    "label-class",
+    "header-class",
+    "right-icon-class"
   ],
-  relations: {
-    '../cell-group/index': {
-      type: 'ancestor'
-    }
+  relation: {
+    type: "ancestor",
+    name: "cell-group"
   },
-  properties: {
+  props: {
     // 左侧标题
     title: String,
     // 右侧内容
@@ -33,7 +26,7 @@ Component({
       value: true
     },
     // 单元格大小
-    size: { type: String, options: ['large'] },
+    size: { type: String, options: ["large"] },
     // 左侧图标
     icon: String,
     // 是否展示右侧箭头
@@ -43,8 +36,8 @@ Component({
     // 箭头方向
     arrowDirection: {
       type: String,
-      value: 'right',
-      options: ['up', 'down', 'right', 'left']
+      value: "right",
+      options: ["up", "down", "right", "left"]
     },
     // 点击后跳转的链接地址
     url: String,
@@ -62,22 +55,17 @@ Component({
   methods: {
     // 点击单元格
     onClick(event) {
-      this.triggerEvent('click', event);
+      this.triggerEvent("click", event);
       this.jumpLink();
     },
     // 有传入url就跳转页面
     jumpLink() {
-      const { url } = this.properties;
+      const { url } = this.data;
       this.jump(url);
     },
     // 设置底边框
     setBorder(value) {
       this.setData({ borderBottom: value });
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

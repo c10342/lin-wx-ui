@@ -1,24 +1,18 @@
-import { getRect } from '../common/utils';
-
-Component({
-  name: 'NoticeBar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'left-icon-class',
-    'wrapper-class',
-    'content-class',
-    'close-icon-class',
-    'navigator-class'
+import { LinComponent } from "../common/component";
+import { getRect } from "../common/utils";
+LinComponent({
+  classes: [
+    "left-icon-class",
+    "wrapper-class",
+    "content-class",
+    "close-icon-class",
+    "navigator-class"
   ],
-  properties: {
+  props: {
     // 通告栏模式
     mode: {
       type: String,
-      options: ['closeable', 'link']
+      options: ["closeable", "link"]
     },
     // 通知文本内容
     text: {
@@ -65,26 +59,25 @@ Component({
     // 跳转方式
     openType: {
       type: String,
-      value: 'navigate'
+      value: "navigate"
     },
     // 跳转地址,`mode=link`时有效
     url: String
   },
   data: {
     // 内容区域样式
-    contentStyle: '',
+    contentStyle: "",
     // 控制是否显示
     show: true
   },
   methods: {
     // 更新样式
     updateStyle() {
-      const { scrollable, speed, delay } = this.properties;
+      const { scrollable, speed, delay } = this.data;
       if (scrollable) {
         // 滚动播放
-        const barContentRect = getRect(this, '#bar-content');
-        const barWrapperRect = getRect(this, '#bar-wrapper');
-
+        const barContentRect = getRect(this, "#bar-content");
+        const barWrapperRect = getRect(this, "#bar-wrapper");
         Promise.all([barContentRect, barWrapperRect]).then((rect) => {
           // 内容区域宽度
           const contentWidth = rect[0].width || 0;
@@ -102,7 +95,7 @@ Component({
         });
       } else {
         // 清除动画
-        const contentStyle = 'animation: none;';
+        const contentStyle = "animation: none;";
         if (contentStyle !== this.data.contentStyle) {
           this.setData({ contentStyle });
         }
@@ -110,19 +103,14 @@ Component({
     },
     // 点击根节点
     onClick(event) {
-      this.triggerEvent('click', event);
+      this.triggerEvent("click", event);
     },
     // 点击关闭按钮
     onClickIcon(event) {
-      if (this.properties.mode === 'closeable') {
+      if (this.data.mode === "closeable") {
         this.setData({ show: false });
-        this.triggerEvent('close', event);
+        this.triggerEvent("close", event);
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

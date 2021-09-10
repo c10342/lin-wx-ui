@@ -1,23 +1,14 @@
-Component({
-  name: 'SidebarItem',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  relations: {
-    '../sidebar/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-        this.updateFromParent();
-      },
-      unlinked() {
-        this.parent = null;
-      }
+import { LinComponent } from "../common/component";
+LinComponent({
+  relation: {
+    type: "ancestor",
+    name: "sidebar",
+    linked() {
+      this.updateFromParent();
     }
   },
-  externalClasses: ['custom-class', 'content-class'],
-  properties: {
+  classes: ["content-class"],
+  props: {
     // 内容
     title: String,
     // 是否显示右上角小红点
@@ -25,7 +16,7 @@ Component({
     // 图标右上角徽标的内容
     badge: {
       type: [String, Number],
-      value: ''
+      value: ""
     },
     // 是否禁用该项
     disabled: Boolean
@@ -40,7 +31,7 @@ Component({
     // 从父组件哪里获取数据更新
     updateFromParent() {
       if (this.parent) {
-        const { activeKey } = this.parent.properties;
+        const { activeKey } = this.parent.data;
         this.setData({
           activeKey
         });
@@ -52,15 +43,10 @@ Component({
     },
     // 点击选项
     onItemClick() {
-      const { disabled } = this.properties;
+      const { disabled } = this.data;
       if (this.parent && !disabled) {
         this.parent.emitChange(this.data.index);
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

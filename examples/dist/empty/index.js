@@ -1,32 +1,25 @@
-import { emptyCompImages } from '../common/config';
-
-const typeOpt = ['error', 'network', 'search', 'default'];
-
-Component({
-  name: 'Empty',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'image-wrapper-class',
-    'image-class',
-    'description-class',
-    'bottom-class'
+import { LinComponent } from "../common/component";
+import { emptyCompImages } from "../common/config";
+const typeOpt = ["error", "network", "search", "default"];
+LinComponent({
+  classes: [
+    "image-wrapper-class",
+    "image-class",
+    "description-class",
+    "bottom-class"
   ],
-  properties: {
+  props: {
     // 状态类型
     type: {
       type: String,
-      value: 'default',
+      value: "default",
       options: typeOpt,
-      observer: 'updateImage'
+      observer: "updateImage"
     },
     // 自定义图片地址，优先级比type高
     image: {
       type: String,
-      observer: 'updateImage'
+      observer: "updateImage"
     },
     // 图片下方的描述文字
     description: String,
@@ -37,12 +30,12 @@ Component({
   },
   data: {
     // 图片地址
-    imageUrl: ''
+    imageUrl: ""
   },
   methods: {
     // 更新图片地址
     updateImage() {
-      const { image, type } = this.properties;
+      const { image, type } = this.data;
       let imageUrl;
       if (image) {
         imageUrl = image;
@@ -60,11 +53,7 @@ Component({
       }
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     this.updateImage();
-  },
-  moved() {},
-  detached() {}
+  }
 });

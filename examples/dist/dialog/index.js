@@ -1,22 +1,16 @@
-import ButtonBehavior from '../behaviors/button';
-import OpenTypeBehavior from '../behaviors/open-type';
-
-Component({
-  name: 'Dialog',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'header-class',
-    'content-class',
-    'footer-class',
-    'cancel-class',
-    'confirm-class'
+import { LinComponent } from "../common/component";
+import ButtonBehavior from "../behaviors/button";
+import OpenTypeBehavior from "../behaviors/open-type";
+LinComponent({
+  classes: [
+    "header-class",
+    "content-class",
+    "footer-class",
+    "cancel-class",
+    "confirm-class"
   ],
-  behaviors: [ButtonBehavior, OpenTypeBehavior],
-  properties: {
+  mixins: [ButtonBehavior, OpenTypeBehavior],
+  props: {
     // 是否显示
     show: {
       type: Boolean,
@@ -33,8 +27,8 @@ Component({
     // 样式风格
     theme: {
       type: String,
-      value: 'default',
-      options: ['default', 'round-button']
+      value: "default",
+      options: ["default", "round-button"]
     },
     // 是否使用自定义内容的插槽
     useSlot: Boolean,
@@ -47,8 +41,8 @@ Component({
     // 内容对齐方式
     messageAlign: {
       type: String,
-      value: 'center',
-      options: ['center', 'left', 'right']
+      value: "center",
+      options: ["center", "left", "right"]
     },
     // 自定义遮罩层样式
     maskStyle: String,
@@ -63,7 +57,7 @@ Component({
     // 弹窗宽度，默认单位为 px
     width: {
       type: [String, Number],
-      value: '640rpx'
+      value: "640rpx"
     },
     // z-index 层级
     zIndex: {
@@ -73,12 +67,12 @@ Component({
     // 确认按钮的文案
     confirmButtonText: {
       type: String,
-      value: '确认'
+      value: "确认"
     },
     // 取消按钮的文案
     cancelButtonText: {
       type: String,
-      value: '取消'
+      value: "取消"
     },
     // 确认按钮的字体颜色
     confirmButtonColor: String,
@@ -97,7 +91,7 @@ Component({
     // 动画名称
     transition: {
       type: String,
-      value: 'scale'
+      value: "scale"
     }
   },
   data: {
@@ -115,7 +109,7 @@ Component({
     // 点击遮罩层
     onMaskClick() {
       // 处理关闭行为
-      this.onClose('mask');
+      this.onClose("mask");
     },
     // 点击确定按钮
     onConfirm() {
@@ -123,7 +117,7 @@ Component({
         return;
       }
       // 处理确定行为
-      this.handleAction('confirm');
+      this.handleAction("confirm");
     },
     // 点击取消按钮
     onCancel() {
@@ -131,7 +125,7 @@ Component({
         return;
       }
       // 处理取消行为
-      this.handleAction('cancel');
+      this.handleAction("cancel");
     },
     // 处理行为确定/取消
     handleAction(action) {
@@ -162,29 +156,24 @@ Component({
     },
     // 关闭行为
     onClose(action) {
-      if (!this.properties.asyncClose) {
+      if (!this.data.asyncClose) {
         // 不是异步关闭的情况下，可以直接关闭掉
         this.close();
       }
       // 触发关闭事件
-      this.triggerEvent('close', action);
+      this.triggerEvent("close", action);
       // mask/cancel/confirm
       this.triggerEvent(action, {
         dialog: this
       });
       // 获取回调函数
       const callback = this.data[
-        action === 'confirm' ? 'onConfirm' : 'onCancel'
+        action === "confirm" ? "onConfirm" : "onCancel"
       ];
       if (callback) {
         // 执行对应的回调函数
         callback(this);
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

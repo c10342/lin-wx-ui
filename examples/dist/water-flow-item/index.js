@@ -1,34 +1,20 @@
-import { getRect } from '../common/utils';
-
-Component({
-  name: 'WaterFlowItem',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+import { LinComponent } from "../common/component";
+import { getRect } from "../common/utils";
+LinComponent({
+  relation: {
+    type: "ancestor",
+    name: "water-flow"
   },
-  externalClasses: ['custom-class'],
-  relations: {
-    '../water-flow/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-      },
-      unlinked() {
-        this.parent = null;
-      }
-    }
-  },
-  properties: {},
   data: {
     // 位置样式
-    positionStyle: '',
+    positionStyle: "",
     // 组件宽度
-    width: '50%'
+    width: "50%"
   },
   methods: {
     // 获取组件元素信息
     getRect() {
-      return getRect(this, '.lin-water-flow-item');
+      return getRect(this, ".lin-water-flow-item");
     },
     // 设置组件位置
     setPosition(positionStyle) {
@@ -42,10 +28,5 @@ Component({
         width: parseInt(width)
       });
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

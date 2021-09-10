@@ -1,19 +1,15 @@
-Component({
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'options-class',
-    'option-class',
-    'button-class',
-    'image-class',
-    'icon-class',
-    'name-class',
-    'description-class'
+import { LinComponent } from "../common/component";
+LinComponent({
+  classes: [
+    "options-class",
+    "option-class",
+    "button-class",
+    "image-class",
+    "icon-class",
+    "name-class",
+    "description-class"
   ],
-  properties: {
+  props: {
     // 分享选项
     options: {
       type: Array,
@@ -22,18 +18,15 @@ Component({
     // 是否显示边框
     showBorder: Boolean
   },
-  data: {},
   methods: {
     // 点击选项
     onSelect(event) {
       const { index } = event.currentTarget.dataset;
-      const option = this.properties.options[index];
-      this.triggerEvent('select', { ...option, index });
+      const option = this.data.options[index];
+      this.triggerEvent(
+        "select",
+        Object.assign(Object.assign({}, option), { index })
+      );
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

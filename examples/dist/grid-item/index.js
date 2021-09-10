@@ -1,31 +1,14 @@
-import { addUnit } from '../common/utils';
-import LinkBehavior from '../behaviors/link';
-
-Component({
-  name: 'GridItem',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+import { LinComponent } from "../common/component";
+import { addUnit } from "../common/utils";
+import LinkBehavior from "../behaviors/link";
+LinComponent({
+  mixins: [LinkBehavior],
+  classes: ["content-class", "icon-class", "text-class"],
+  relation: {
+    type: "ancestor",
+    name: "grid"
   },
-  behaviors: [LinkBehavior],
-  externalClasses: [
-    'custom-class',
-    'content-class',
-    'icon-class',
-    'text-class'
-  ],
-  relations: {
-    '../grid/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-      },
-      unlinked() {
-        this.parent = null;
-      }
-    }
-  },
-  properties: {
+  props: {
     // 文字
     text: String,
     // 图标名称
@@ -45,19 +28,19 @@ Component({
   },
   data: {
     // 根元素样式
-    wrapperStyle: '',
+    wrapperStyle: "",
     // 是否居中显示
     center: true,
     // 图标大小，默认单位为 px
-    iconSize: '56rpx',
+    iconSize: "56rpx",
     // 格子内容排列的方向
-    direction: 'vertical',
+    direction: "vertical",
     // 是否显示边框
     border: true,
     // 是否将格子固定为正方形
     square: false,
     // 内容容器样式
-    contentStyle: ''
+    contentStyle: ""
   },
   methods: {
     // 更新样式
@@ -65,8 +48,7 @@ Component({
       if (!this.parent) {
         return;
       }
-
-      const { properties, children } = this.parent;
+      const { data, children } = this.parent;
       const {
         columnNum,
         center,
@@ -75,7 +57,7 @@ Component({
         border,
         square,
         gutter
-      } = properties;
+      } = data;
       const wrapperStyle = [];
       // 根据列数算出宽度
       const width = `${100 / columnNum}%`;
@@ -97,17 +79,16 @@ Component({
       const contentStyle = [];
       if (gutter && square) {
         // 如果是正方形，并且需要设置格子之间的边距
-
         // 转化单位
         const gutterValue = addUnit(gutter);
         // 设置右边和下边的位置
         contentStyle.push(`right:${gutterValue}`);
         contentStyle.push(`bottom:${gutterValue}`);
-        contentStyle.push('height:auto');
+        contentStyle.push("height:auto");
       }
       this.setData({
-        wrapperStyle: wrapperStyle.join(';'),
-        contentStyle: contentStyle.join(';'),
+        wrapperStyle: wrapperStyle.join(";"),
+        contentStyle: contentStyle.join(";"),
         center,
         iconSize,
         direction,
@@ -117,18 +98,14 @@ Component({
     },
     // 点击组件
     onClick() {
-      this.triggerEvent('click');
+      this.triggerEvent("click");
       // 存在url则跳转页面
-      const { url } = this.properties;
+      const { url } = this.data;
       this.jump(url);
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     // 更新样式
     this.updateStyle();
-  },
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,27 +1,14 @@
-import LinkBehavior from '../behaviors/link';
-import OpenTypeBehavior from '../behaviors/open-type';
-import ButtonBehavior from '../behaviors/button';
-
-Component({
-  name: 'GoodsActionButton',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+import { LinComponent } from "../common/component";
+import LinkBehavior from "../behaviors/link";
+import OpenTypeBehavior from "../behaviors/open-type";
+import ButtonBehavior from "../behaviors/button";
+LinComponent({
+  mixins: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
+  relation: {
+    type: "ancestor",
+    name: "goods-action"
   },
-  behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
-  externalClasses: ['custom-class'],
-  relations: {
-    '../goods-action/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-      },
-      unlinked() {
-        this.parent = null;
-      }
-    }
-  },
-  properties: {
+  props: {
     // 按钮文字
     text: String,
     // 按钮颜色
@@ -35,15 +22,15 @@ Component({
     // 按钮类型
     type: {
       type: String,
-      value: 'danger',
+      value: "danger",
       options: [
-        'primary',
-        'success',
-        'info',
-        'warning',
-        'danger',
-        'default',
-        'success'
+        "primary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "default",
+        "success"
       ]
     },
     // 点击后跳转的链接地址
@@ -65,15 +52,10 @@ Component({
     },
     // 点击按钮
     onClick() {
-      this.triggerEvent('click');
+      this.triggerEvent("click");
       // 跳转页面
-      const { url } = this.properties;
+      const { url } = this.data;
       this.jump(url);
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

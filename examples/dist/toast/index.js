@@ -1,17 +1,7 @@
-Component({
-  name: 'Toast',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'icon-class',
-    'loading-class',
-    'message-class',
-    'text-class'
-  ],
-  properties: {
+import { LinComponent } from "../common/component";
+LinComponent({
+  classes: ["icon-class", "loading-class", "message-class", "text-class"],
+  props: {
     // 是否显示
     show: {
       type: Boolean,
@@ -31,21 +21,14 @@ Component({
     // 位置
     position: {
       type: String,
-      value: 'middle',
-      options: ['top', 'bottom', 'middle']
+      value: "middle",
+      options: ["top", "bottom", "middle"]
     },
     // 提示类型
     type: {
       type: String,
-      value: 'text',
-      options: ['text', 'loading', 'success', 'fail']
+      value: "text",
+      options: ["text", "loading", "success", "fail"]
     }
-  },
-  data: {},
-  methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

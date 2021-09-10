@@ -1,22 +1,16 @@
-import { isSameSecond, parseFormat, parseTimeDate } from './utils';
-
-Component({
-  name: 'CountDown',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+import { isSameSecond, parseFormat, parseTimeDate } from "./utils";
+LinComponent({
+  props: {
     // 倒计时时长，单位毫秒
     time: {
       type: Number,
-      observer: 'updateTime'
+      observer: "updateTime"
     },
     // 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒
     format: {
       type: String,
-      value: 'HH:mm:ss'
+      value: "HH:mm:ss"
     },
     // 是否自动开始倒计时
     autoStart: {
@@ -30,14 +24,14 @@ Component({
   },
   data: {
     // 格式化之后的时间文本
-    formattedTime: '0'
+    formattedTime: "0"
   },
   methods: {
     // 更新时间
     updateTime() {
       // 首先暂停掉，就是清空定时器
       this.pause();
-      const { time, autoStart, format } = this.properties;
+      const { time, autoStart, format } = this.data;
       // 记录还剩下的倒计时时长
       this.mainTime = time;
       this.setData({ formattedTime: parseFormat(format, parseTimeDate(time)) });
@@ -75,7 +69,7 @@ Component({
     },
     // 渲染时间
     renderTime() {
-      if (this.properties.millisecond) {
+      if (this.data.millisecond) {
         // 开启毫秒级渲染
         this.renderTimeByMill();
       } else {
@@ -117,23 +111,20 @@ Component({
       this.mainTime = currentTime;
       // 转化时间，会得到一个对象
       const timeDate = parseTimeDate(currentTime);
-
-      const { format } = this.properties;
-
-      this.triggerEvent('change', timeDate);
+      const { format } = this.data;
+      this.triggerEvent("change", timeDate);
       // 设置时间文本
       this.setData({
         formattedTime: parseFormat(format, timeDate)
       });
-
       if (currentTime === 0) {
         // 倒计时结束
         this.pause();
-        this.triggerEvent('finish');
+        this.triggerEvent("finish");
       }
     }
   },
-  created() {
+  beforeCreate() {
     // 定时器
     this.timer = null;
     // 记录还剩下的倒计时时长
@@ -143,10 +134,7 @@ Component({
     // 倒计时结束时间
     this.endTime = null;
   },
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {
+  destroyed() {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;

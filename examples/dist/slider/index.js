@@ -1,18 +1,13 @@
-import { getRect } from '../common/utils';
-
-Component({
-  name: 'Slider',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'bar-class', 'button-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+import { getRect } from "../common/utils";
+LinComponent({
+  classes: ["bar-class", "button-class"],
+  props: {
     // 当前进度百分比，取值范围为 0-100
     value: {
       type: Number,
       value: 0,
-      observer: 'setBarWidth'
+      observer: "setBarWidth"
     },
     // 是否禁用滑块
     disabled: Boolean,
@@ -34,7 +29,7 @@ Component({
     // 进度条高度，默认单位为 px
     barHeight: {
       type: [String, Number],
-      value: '2px'
+      value: "2px"
     },
     // 进度条激活态颜色
     activeColor: String,
@@ -49,20 +44,20 @@ Component({
     // 进度条那个圆球的位置
     left: 0,
     // 过度动画
-    transition: 'transition: all 300ms'
+    transition: "transition: all 300ms"
   },
   methods: {
     // 设置进度条激活态的长度
     setBarWidth() {
       // 通过value值计算出激活状态进度条的长度
-      const offsetWidth = this.getOffsetWidthByValue(this.properties.value);
+      const offsetWidth = this.getOffsetWidthByValue(this.data.value);
       // 设置激活状态的长度
       this.setStyleWidth(offsetWidth);
     },
     // 通过value值计算出激活状态进度条的长度
     getOffsetWidthByValue(value) {
       // 最大最小值
-      const { max, min } = this.properties;
+      const { max, min } = this.data;
       // 差值
       const offsetNum = max - min;
       let percent = 0;
@@ -99,11 +94,11 @@ Component({
     },
     // 点击进度条
     onClick(event) {
-      if (this.properties.disabled) {
+      if (this.data.disabled) {
         return;
       }
       // 获取步长
-      const { step } = this.properties;
+      const { step } = this.data;
       // 获取手指点击的位置
       const x = event.detail.x;
       // 计算点击的位置距离
@@ -126,23 +121,22 @@ Component({
       }
       // 设置长度
       this.setStyleWidth(offsetWidth);
-
       this.emitChange();
     },
     // 手指触摸事件
     onTouchStart() {
-      if (this.properties.disabled) {
+      if (this.data.disabled) {
         return;
       }
       // 取消过渡动画，不然移动的时候会卡顿
       this.setData({
-        transition: 'transition: none'
+        transition: "transition: none"
       });
-      this.triggerEvent('drag-start');
+      this.triggerEvent("drag-start");
     },
     // 手指移动事件
     onTouchMove(event) {
-      if (this.properties.disabled) {
+      if (this.data.disabled) {
         return;
       }
       // 获取移动的位置
@@ -156,8 +150,7 @@ Component({
       if (offsetWidth >= this.containerWidth) {
         offsetWidth = this.containerWidth;
       }
-
-      const { step } = this.properties;
+      const { step } = this.data;
       // 根据长度计算出value值
       const value = this.getValue(offsetWidth);
       const remainder = value % step;
@@ -165,27 +158,26 @@ Component({
         // 没有达到步长，不移动
         return;
       }
-
       this.setStyleWidth(offsetWidth);
       this.emitDrag();
     },
     // 手指抬起事件
     onTouchEnd() {
-      if (this.properties.disabled) {
+      if (this.data.disabled) {
         return;
       }
       // 恢复过渡动画
       this.setData({
-        transition: 'transition: all 300ms'
+        transition: "transition: all 300ms"
       });
       this.emitChange();
-      this.triggerEvent('drag-end');
+      this.triggerEvent("drag-end");
     },
     // 根据长度计算出value值
     getValue(offsetWidth) {
       // 计算百分比
       const percent = offsetWidth / this.containerWidth;
-      const { max, min } = this.properties;
+      const { max, min } = this.data;
       const offsetNum = max - min;
       // 计算差值
       const leftNum = offsetNum * percent;
@@ -194,24 +186,22 @@ Component({
     },
     // change事件
     emitChange() {
-      this.triggerEvent('change', this.getValue(this.data.width));
+      this.triggerEvent("change", this.getValue(this.data.width));
     },
     // 拖拽事件
     emitDrag() {
-      this.triggerEvent('drag', this.getValue(this.data.width));
+      this.triggerEvent("drag", this.getValue(this.data.width));
     }
   },
-  created() {},
-  attached() {},
-  ready() {
+  mounted() {
     // 容器距离屏幕左边的距离
     this.containerLeft = 0;
     // 容器的宽度
     this.containerWidth = 0;
     // 圆球的宽度
     this.barWidth = 0;
-    const containerRect = getRect(this, '#linsliderContainer');
-    const barRect = getRect(this, '#linSliderBar');
+    const containerRect = getRect(this, "#linsliderContainer");
+    const barRect = getRect(this, "#linSliderBar");
     Promise.all([containerRect, barRect]).then((rect) => {
       this.containerLeft = rect[0].left;
       this.containerWidth = rect[0].width;
@@ -219,7 +209,5 @@ Component({
       // 设置进度条激活态的长度
       this.setBarWidth();
     });
-  },
-  moved() {},
-  detached() {}
+  }
 });

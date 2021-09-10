@@ -1,20 +1,16 @@
+import { LinComponent } from "../common/component";
 import pageScrollBehavior from "../behaviors/page-scroll";
 import { getViewPort } from "../common/utils";
-Component({
-  name: "Backtop",
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [
+LinComponent({
+  mixins: [
     pageScrollBehavior(function (event) {
       const scrollTop = event.scrollTop || 0;
       // @ts-ignore
       this.handeScroll(scrollTop);
     })
   ],
-  externalClasses: ["custom-class", "container-class", "triangle-calss"],
-  properties: {
+  classes: ["container-class", "triangle-calss"],
+  props: {
     // 是否使用自定义插槽
     useSlot: {
       type: Boolean,
@@ -41,13 +37,11 @@ Component({
     },
     // 距离右边距离
     right: {
-      // @ts-ignore
       type: [String, Number],
       value: "40rpx"
     },
     // 距离底部距离
     bottom: {
-      // @ts-ignore
       type: [String, Number],
       value: "40rpx"
     }
@@ -58,7 +52,7 @@ Component({
   },
   methods: {
     handeScroll(scrollTop) {
-      const visibilityHeight = this.properties.visibilityHeight;
+      const visibilityHeight = this.data.visibilityHeight;
       let show = false;
       // 向上滚动的距离大于阈值，则显示，否则隐藏
       if (scrollTop > visibilityHeight) {
@@ -72,7 +66,7 @@ Component({
     },
     // 点击返回顶部
     onClick() {
-      const { duration, selector, scrollTop } = this.properties;
+      const { duration, selector, scrollTop } = this.data;
       const params = { duration };
       // 判断是否有锚点，有锚点不能设置scrollTop，否随着锚点会失效
       if (selector) {
@@ -96,7 +90,7 @@ Component({
       );
     }
   },
-  ready: function () {
+  mounted: function () {
     // 初始化的时候执行一下滚动，判断是否需要显示组件
     getViewPort(this).then((res) => {
       this.handeScroll(res.scrollTop);

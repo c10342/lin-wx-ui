@@ -8,16 +8,14 @@
 //     image: boolean; // 是否为图片
 //   }
 const IMAGE_REGEXP = /\.(jpeg|jpg|gif|png|svg|webp|jfif|bmp|dpg)/i;
-
 // 判断是否为图片地址
 function isImageUrl(url) {
   return IMAGE_REGEXP.test(url);
 }
-
 // 判断是否为图片类型文件
 export function isImageFile(item) {
   if (item.type) {
-    return item.type === 'image';
+    return item.type === "image";
   }
   if (item.path) {
     return isImageUrl(item.path);
@@ -27,7 +25,6 @@ export function isImageFile(item) {
   }
   return false;
 }
-
 // 选择文件
 export function chooseFile({
   accept,
@@ -40,7 +37,7 @@ export function chooseFile({
   maxCount
 }) {
   switch (accept) {
-    case 'image':
+    case "image":
       return new Promise((resolve, reject) => {
         // 从本地相册选择图片或使用相机拍照。
         wx.chooseImage({
@@ -54,12 +51,12 @@ export function chooseFile({
           fail: reject
         });
       });
-    case 'media':
+    case "media":
       return new Promise((resolve, reject) => {
         // 拍摄或从手机相册中选择图片或视频。
         wx.chooseMedia({
           count: multiple ? Math.min(maxCount, 9) : 1,
-          sourceType: capture, // 选择图片的来源，相册还是相机
+          sourceType: capture,
           // 拍摄视频最长拍摄时间，单位秒。时间范围为 3s 至 30s 之间
           maxDuration,
           // 仅对 mediaType 为 image 时有效，是否压缩所选文件
@@ -70,7 +67,7 @@ export function chooseFile({
           fail: reject
         });
       });
-    case 'video':
+    case "video":
       return new Promise((resolve, reject) => {
         // 拍摄视频或从手机相册中选视频。
         wx.chooseVideo({
@@ -90,31 +87,27 @@ export function chooseFile({
       return new Promise((resolve, reject) => {
         // 从客户端会话选择文件。
         wx.chooseMessageFile({
-          count: multiple ? maxCount : 1, // 最多可以选择的数量，如果不支持多选则数量为1
+          count: multiple ? maxCount : 1,
           // 所选的文件的类型
-          type: 'file',
+          type: "file",
           success: resolve,
           fail: reject
         });
       });
   }
 }
-
 // 是否为视频类型
 export function isVideo(res, accept) {
-  return accept === 'video';
+  return accept === "video";
 }
-
 // 是否为函数
 export function isFunction(val) {
-  return typeof val === 'function';
+  return typeof val === "function";
 }
-
 // 是否为对象
 export function isObject(val) {
-  return val != null && typeof val === 'object';
+  return val != null && typeof val === "object";
 }
-
 // 是否为Promise实例
 export function isPromise(val) {
   return isObject(val) && isFunction(val.then) && isFunction(val.catch);

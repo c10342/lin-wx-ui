@@ -1,16 +1,11 @@
-import LinkBehavior from '../behaviors/link';
-import OpenTypeBehavior from '../behaviors/open-type';
-import ButtonBehavior from '../behaviors/button';
-
-Component({
-  name: 'GoodsActionIcon',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  behaviors: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
-  externalClasses: ['custom-class', 'icon-class', 'text-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+import LinkBehavior from "../behaviors/link";
+import OpenTypeBehavior from "../behaviors/open-type";
+import ButtonBehavior from "../behaviors/button";
+LinComponent({
+  mixins: [LinkBehavior, OpenTypeBehavior, ButtonBehavior],
+  classes: ["icon-class", "text-class"],
+  props: {
     // 按钮文字
     text: String,
     // 图标名称
@@ -28,19 +23,13 @@ Component({
     // 是否禁用按钮
     disabled: Boolean
   },
-  data: {},
   methods: {
     // 点击组件
     onClick() {
-      this.triggerEvent('click');
+      this.triggerEvent("click");
       // 跳转页面
-      const { url } = this.properties;
+      const { url } = this.data;
       this.jump(url);
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

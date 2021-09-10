@@ -1,31 +1,20 @@
-import { BLUE, WHITE } from '../common/color';
-import { addUnit } from '../common/utils';
+import { LinComponent } from "../common/component";
+import { BLUE, WHITE } from "../common/color";
+import { addUnit } from "../common/utils";
 const defaultStyle = {
   bgColor: BLUE,
-  iconSize: '60rpx',
-  fontSize: '34rpx',
+  iconSize: "60rpx",
+  fontSize: "34rpx",
   color: WHITE
 };
-
-Component({
-  name: 'FloatButton',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'group-class',
-    'item-class',
-    'button-class',
-    'text-class'
-  ],
-  properties: {
+LinComponent({
+  classes: ["group-class", "item-class", "button-class", "text-class"],
+  props: {
     // 悬浮按钮列表
     btnList: {
       type: Array,
       default: [],
-      observer: 'onListChange'
+      observer: "onListChange"
     },
     // 是否在点击选项后关闭
     closeOnClickMask: {
@@ -40,12 +29,12 @@ Component({
     // 悬浮按钮距离底部距离
     bottom: {
       type: [String, Number],
-      value: '80rpx'
+      value: "80rpx"
     },
     // 悬浮按钮距离右边距离
     right: {
       type: [String, Number],
-      value: '80rpx'
+      value: "80rpx"
     },
     // 层级
     zIndex: {
@@ -70,13 +59,10 @@ Component({
   methods: {
     onListChange() {
       // 构建按钮列表数据，跟默认配置进行合并
-      const { btnList = [] } = this.properties;
+      const { btnList = [] } = this.data;
       const list = [];
       btnList.forEach((item) => {
-        const obj = {
-          ...defaultStyle,
-          ...item
-        };
+        const obj = Object.assign(Object.assign({}, defaultStyle), item);
         obj.iconSize = addUnit(obj.iconSize);
         obj.fontSize = addUnit(obj.fontSize);
         list.push(obj);
@@ -88,28 +74,23 @@ Component({
       const { show } = this.data;
       this.setData({ show: !show });
       if (show) {
-        this.triggerEvent('hide');
+        this.triggerEvent("hide");
       } else {
-        this.triggerEvent('show');
+        this.triggerEvent("show");
       }
     },
     // 点击按钮列表中的按钮
     onItemClick(event) {
       const { item } = event.currentTarget.dataset;
-      this.triggerEvent('click', item);
+      this.triggerEvent("click", item);
       this.switchStatus();
     },
     // 点击遮罩层
     onMaskClick() {
-      const { closeOnClickMask } = this.properties;
+      const { closeOnClickMask } = this.data;
       if (closeOnClickMask) {
         this.switchStatus();
       }
     }
-  },
-  created: function () {},
-  attached: function () {},
-  ready: function () {},
-  moved: function () {},
-  detached: function () {}
+  }
 });

@@ -56,13 +56,12 @@ export const commonProps = {
   // focus 时，点击页面的时候不收起键盘
   holdKeyboard: Boolean
 };
-
 // input属性
 export const inputProps = {
   // 可设置为任意原生类型
   type: {
     type: String,
-    value: 'text'
+    value: "text"
   },
   // 是否是密码类型
   password: Boolean,
@@ -71,7 +70,6 @@ export const inputProps = {
   // 点击键盘右下角按钮时是否保持键盘不收起，在 type='textarea' 时无效
   confirmHold: Boolean
 };
-
 // textarea属性
 export const textareaProps = {
   // 是否自动增高，设置 auto-height 时，style.height 不生效

@@ -1,17 +1,7 @@
-Component({
-  name: 'Skeleton',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'avatar-class',
-    'title-class',
-    'row-class',
-    'slot-class'
-  ],
-  properties: {
+import { LinComponent } from "../common/component";
+LinComponent({
+  classes: ["avatar-class", "title-class", "row-class", "slot-class"],
+  props: {
     // 段落占位图行数
     row: {
       type: Number,
@@ -52,8 +42,8 @@ Component({
     // 头像占位图形状
     avatarShape: {
       type: String,
-      value: 'round',
-      options: ['round', 'square']
+      value: "round",
+      options: ["round", "square"]
     },
     // 是否显示占位图，传false时会展示子组件内容
     loading: {
@@ -71,11 +61,5 @@ Component({
     rowArray: [],
     // rowWidth是否是数组
     isArray: false
-  },
-  methods: {},
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,22 +1,11 @@
-import Schema from '../common/async-validator';
-
-import FormControls from '../behaviors/form-controls';
-
-Component({
-  name: 'FormItem',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: [
-    'custom-class',
-    'label-class',
-    'content-class',
-    'errormsg-class'
-  ],
+import { LinComponent } from "../common/component";
+import Schema from "../common/async-validator";
+import FormControls from "../behaviors/form-controls";
+LinComponent({
+  classes: ["label-class", "content-class", "errormsg-class"],
   relations: {
-    '../form/index': {
-      type: 'ancestor',
+    "../form/index": {
+      type: "ancestor",
       linked(parent) {
         this.parent = parent;
         // 从父组件Form获取数据并更新数据
@@ -28,11 +17,11 @@ Component({
     },
     // 关联有FormControls这个behaviors的组件
     FormControls: {
-      type: 'descendant', // 关联的目标节点应为子孙节点
+      type: "descendant",
       target: FormControls
     }
   },
-  properties: {
+  props: {
     // 标签文本
     label: String,
     // 表单域 model 字段
@@ -44,34 +33,34 @@ Component({
     // 表单域对齐方式
     flexDirection: {
       type: String,
-      options: ['column', 'row']
+      options: ["column", "row"]
     },
     // 表单验证规则
     rules: {
       type: Array,
       value: [],
-      observer: 'updateRules'
+      observer: "updateRules"
     },
     // 是否隐藏 `*` 号
     hideRequiredAsterisk: {
       type: Boolean,
       value: false,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 是否显示校验错误信息
     showMessage: {
       type: Boolean,
       value: true,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     }
   },
   data: {
     // 错误信息
-    errorMessage: '',
+    errorMessage: "",
     // 标签文本宽度
-    width: '',
+    width: "",
     // 表单域对齐方式
-    direction: '',
+    direction: "",
     // 是否需要显示 `*` 号
     required: false,
     // 校验规则
@@ -83,12 +72,11 @@ Component({
       let parentRules = [];
       if (this.parent) {
         // 获取父组件Form对应的校验规则
-        const { rules = {} } = this.parent.properties;
-        const { name } = this.properties;
+        const { rules = {} } = this.parent.data;
+        const { name } = this.data;
         parentRules = rules[name] || [];
       }
-
-      const { rules: childRules = [] } = this.properties;
+      const { rules: childRules = [] } = this.data;
       // 合并父组件和子组件的校验规则
       this.setData({
         rulesList: [...parentRules, ...childRules]
@@ -107,7 +95,7 @@ Component({
     // 从Form父组件中获取数据更新自己组件内部的数据
     update() {
       if (this.parent) {
-        const { labelWidth, flexDirection } = this.parent.properties;
+        const { labelWidth, flexDirection } = this.parent.data;
         this.setData({
           width: labelWidth,
           direction: flexDirection
@@ -119,7 +107,7 @@ Component({
       }
     },
     // 根据触发类型过滤校验规则
-    filterRules(triggerType = 'change') {
+    filterRules(triggerType = "change") {
       let rulesArr = this.data.rulesList;
       if (triggerType) {
         rulesArr = rulesArr.filter((rule) => {
@@ -127,7 +115,7 @@ Component({
             return rule.trigger === triggerType;
           }
           // 规则中没有trigger字段的则默认是通过change触发的
-          return triggerType === 'change';
+          return triggerType === "change";
         });
       }
       return rulesArr;
@@ -145,8 +133,8 @@ Component({
     baseCheckValue(rulesList) {
       if (this.parent) {
         // 获取表单数据对象
-        const { model = {} } = this.parent.properties;
-        const { name } = this.properties;
+        const { model = {} } = this.parent.data;
+        const { name } = this.data;
         // 获取值
         const value = model[name];
         const schema = new Schema({ [name]: rulesList });
@@ -158,16 +146,14 @@ Component({
               result: true,
               [name]: value
             });
-            this.setData({ errorMessage: '' });
+            this.setData({ errorMessage: "" });
             return true;
           })
           .catch(({ fields }) => {
             // 校验失败
-            this.parent.emitValidate({
-              result: false,
-              [name]: value,
-              ...fields
-            });
+            this.parent.emitValidate(
+              Object.assign({ result: false, [name]: value }, fields)
+            );
             this.setData({ errorMessage: fields[name][0].message });
             return false;
           });
@@ -175,22 +161,18 @@ Component({
     },
     // 清空校验信息
     clearValidate() {
-      this.setData({ errorMessage: '' });
+      this.setData({ errorMessage: "" });
     },
     // 触发change校验
     onChange() {
-      return this.checkValueByTrigger('change');
+      return this.checkValueByTrigger("change");
     },
     // 触发blur校验
     onBlur() {
-      return this.checkValueByTrigger('blur');
+      return this.checkValueByTrigger("blur");
     }
   },
-  created: function () {},
-  attached: function () {},
-  ready: function () {
+  mounted() {
     this.isRequired();
-  },
-  moved: function () {},
-  detached: function () {}
+  }
 });

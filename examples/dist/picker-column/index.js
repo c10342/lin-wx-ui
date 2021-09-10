@@ -1,35 +1,30 @@
-import { isObject } from '../common/is.js';
-
-Component({
-  name: 'PickerColumn',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'active-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+import { isObject } from "../common/is";
+LinComponent({
+  classes: ["active-class"],
+  props: {
     // 一开始的数据数组，初始化用的
     initialOptions: {
       type: Array,
       value: [],
-      observer: 'updateOptionsList'
+      observer: "updateOptionsList"
     },
     // 选项高度
     itemHeight: {
       type: Number,
       value: 44,
-      observer: 'updateTranslateY'
+      observer: "updateTranslateY"
     },
     // 选项对象中，显示文字对应的 key
     textKey: {
       type: String,
-      value: 'text'
+      value: "text"
     },
     // 单列选择器的默认选中项索引
     defaultIndex: {
       type: Number,
       value: 0,
-      observer: 'updateIndex'
+      observer: "updateIndex"
     },
     // 可见的选项个数
     visibleItemCount: {
@@ -46,7 +41,7 @@ Component({
     // y轴位移距离
     translateY: 110,
     // 过渡动画样式
-    transitionStyle: 'transition: all 300ms',
+    transitionStyle: "transition: all 300ms",
     // 当前选中的索引
     currentIndex: 0,
     // 数据项
@@ -61,7 +56,7 @@ Component({
     // 更新列表项
     updateOptionsList() {
       this.setData({
-        optionsList: this.properties.initialOptions
+        optionsList: this.data.initialOptions
       });
       // 更新y轴位移距离
       this.updateTranslateY();
@@ -70,7 +65,7 @@ Component({
     },
     // 更新当前选中的索引
     updateIndex() {
-      let { defaultIndex } = this.properties;
+      let { defaultIndex } = this.data;
       // 判断是否越界
       defaultIndex = this.adjustIndex(defaultIndex);
       // 判断选中的选项是否被禁用了，禁用了就往后找，后面找不到了在返回来往前找
@@ -86,7 +81,7 @@ Component({
     },
     // 相关数据发生变化之后，需要更新y轴位移距离
     updateTranslateY() {
-      const { itemHeight, topVisible } = this.properties;
+      const { itemHeight, topVisible } = this.data;
       const { optionsList } = this.data;
       // 默认第一个选项，itemHeight / 2 是因为垂直方向要居中
       const translateY = itemHeight * topVisible + itemHeight / 2;
@@ -101,7 +96,7 @@ Component({
     // 手指在屏幕上的移动事件
     onTouchMove(event) {
       let { translateY } = this.data;
-      const { itemHeight } = this.properties;
+      const { itemHeight } = this.data;
       // 终点位置
       const endY = event.touches[0].clientY;
       // 计算出位移差
@@ -123,7 +118,7 @@ Component({
     onTouchStart(event) {
       // 取消过渡动画
       this.setData({
-        transitionStyle: 'transition: none'
+        transitionStyle: "transition: none"
       });
       // 记录起始位置
       this.startY = event.touches[0].clientY;
@@ -132,7 +127,7 @@ Component({
     onTouchEnd() {
       // 恢复过渡动画
       this.setData({
-        transitionStyle: 'transition: all 300ms'
+        transitionStyle: "transition: all 300ms"
       });
       const { translateY } = this.data;
       const len = this.data.optionsList.length;
@@ -166,7 +161,7 @@ Component({
     },
     // 根据y轴的位移距离计算出index索引
     getIndex(transY) {
-      const { itemHeight, topVisible } = this.properties;
+      const { itemHeight, topVisible } = this.data;
       // 因为垂直方向已经是居中了，所以要恢复没有居中的时候
       transY -= itemHeight / 2;
       // 比如，itemHeight为50，topVisible为2，中间距离顶部距离（itemHeight * topVisible）是100，若当前选中的是索引的1，即transY为50,(100-50)/50=1,即得出索引为1
@@ -193,14 +188,14 @@ Component({
     },
     // 根据索引设置y轴的位移距离
     setTransYByIndex(index) {
-      const { itemHeight } = this.properties;
+      const { itemHeight } = this.data;
       this.setData({ translateY: this.startTranslateY - index * itemHeight });
     },
     // 发射change事件
     emitChange(index) {
       const { currentIndex, optionsList } = this.data;
       if (index !== currentIndex) {
-        this.triggerEvent('change', {
+        this.triggerEvent("change", {
           index,
           data: optionsList[index]
         });
@@ -242,7 +237,7 @@ Component({
     },
     // 获取文本值
     getOptionText(option) {
-      const { textKey } = this.properties;
+      const { textKey } = this.data;
       return isObject(option) && textKey in option ? option[textKey] : option;
     },
     // 设置选中的值
@@ -265,12 +260,9 @@ Component({
     // 向上，最大的y轴的位移距离
     this.endTranslateY = 0;
   },
-  attached() {},
-  ready() {
+  mounted() {
     this.updateTranslateY();
     this.updateIndex();
     this.updateOptionsList();
-  },
-  moved() {},
-  detached() {}
+  }
 });

@@ -1,16 +1,8 @@
-import { addUnit } from '../common/utils';
-Component({
-  name: 'Image',
-  options: {
-    addGlobalClass: true
-  },
-  externalClasses: [
-    'custom-class',
-    'image-class',
-    'error-class',
-    'loading-class'
-  ],
-  properties: {
+import { LinComponent } from "../common/component";
+import { addUnit } from "../common/utils";
+LinComponent({
+  classes: ["image-class", "error-class", "loading-class"],
+  props: {
     // 图片地址，传入一个数组，第一个图片加载失败就回去加载下一个，如此类推直到全部加载失败
     imageUrl: {
       type: Array,
@@ -22,14 +14,14 @@ Component({
     // 宽度，默认单位 px
     width: {
       type: [String, Number],
-      value: '320px',
-      observer: 'setStyle'
+      value: "320px",
+      observer: "setStyle"
     },
     // 高度，默认单位 px
     height: {
       type: [String, Number],
-      value: '240px',
-      observer: 'setStyle'
+      value: "240px",
+      observer: "setStyle"
     },
     // 是否使用 error 插槽
     useErrorSlot: {
@@ -39,23 +31,23 @@ Component({
     // 错误提示
     errorTip: {
       type: String,
-      value: ''
+      value: ""
     },
     // 圆角大小，默认单位为 px
     radius: {
       type: [String, Number],
-      observer: 'setStyle'
+      observer: "setStyle"
     },
     // 是否显示为圆形
     round: {
       type: Boolean,
       value: false,
-      observer: 'setStyle'
+      observer: "setStyle"
     },
     // 图片填充模式
     mode: {
       type: String,
-      value: 'scaleToFill'
+      value: "scaleToFill"
     },
     // 默认不解析 webP 格式，只支持网络资源
     webp: {
@@ -93,7 +85,7 @@ Component({
   },
   data: {
     // 图片地址
-    src: '',
+    src: "",
     // 正在加载第几张图片
     index: -1,
     // 存储加载失败的错误信息
@@ -101,15 +93,15 @@ Component({
     // 是否显示错误占位符
     isError: false,
     // 根节点样式
-    viewStyle: '',
+    viewStyle: "",
     // 是否正在加载中
     isLoading: true
   },
   methods: {
     // 设置样式
     setStyle() {
-      let style = '';
-      const { width, height, round, radius } = this.properties;
+      let style = "";
+      const { width, height, round, radius } = this.data;
       if (width) {
         style += `width:${addUnit(width)};`;
       }
@@ -117,7 +109,7 @@ Component({
         style += `height:${addUnit(height)};`;
       }
       if (round) {
-        style += 'border-radius:50%;';
+        style += "border-radius:50%;";
       } else if (radius) {
         style += `border-radius:${addUnit(radius)};`;
       }
@@ -125,7 +117,7 @@ Component({
     },
     // 获取图片地址
     getImageSrc() {
-      const val = this.properties.imageUrl;
+      const val = this.data.imageUrl;
       if (val.length > 0) {
         // 当前是第几张图片
         let index = this.data.index;
@@ -142,7 +134,7 @@ Component({
             break;
           }
         }
-        if (index === this.properties.imageUrl.length - 1 && isNull) {
+        if (index === this.data.imageUrl.length - 1 && isNull) {
           // 图片索引已经是最后的了并且找不到不为空的图片地址
           this.setErrorImageData(this.data.errorMessage);
         }
@@ -162,7 +154,7 @@ Component({
       this.setData({
         errorMessage
       });
-      if (this.data.index === this.properties.imageUrl.length - 1) {
+      if (this.data.index === this.data.imageUrl.length - 1) {
         // 最后一张图片加载失败
         this.setErrorImageData(errorMessage);
       } else {
@@ -173,11 +165,11 @@ Component({
     // 设置图片加载失败相关内容
     setErrorImageData(errorMessage) {
       this.setData({ isError: true, isLoading: false });
-      this.triggerEvent('error', errorMessage);
+      this.triggerEvent("error", errorMessage);
     },
     // 加载成功回调
     onLoad(event) {
-      this.triggerEvent('success', {
+      this.triggerEvent("success", {
         index: this.data.index,
         src: this.data.src,
         event
@@ -189,7 +181,7 @@ Component({
     },
     // 点击图片
     onClick(event) {
-      this.triggerEvent('click', event);
+      this.triggerEvent("click", event);
     }
   }
 });

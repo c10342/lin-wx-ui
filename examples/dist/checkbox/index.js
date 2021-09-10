@@ -1,24 +1,13 @@
-const shapeValue = 'round';
-Component({
-  name: 'Checkbox',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
+import { LinComponent } from "../common/component";
+const shapeValue = "round";
+LinComponent({
+  field: true,
+  classes: ["icon-class", "label-class"],
+  relation: {
+    type: "ancestor",
+    name: "checkbox-group"
   },
-  behaviors: ['wx://form-field'],
-  externalClasses: ['custom-class', 'icon-class', 'label-class'],
-  relations: {
-    '../checkbox-group/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-      },
-      unlinked() {
-        this.parent = null;
-      }
-    }
-  },
-  properties: {
+  props: {
     // 是否为选中状态
     value: Boolean,
     // 是否禁用单选框
@@ -26,7 +15,7 @@ Component({
     // 形状
     shape: {
       type: String,
-      options: ['round', 'square'],
+      options: ["round", "square"],
       value: shapeValue
     },
     // 选中状态颜色
@@ -34,7 +23,7 @@ Component({
     // icon 图标大小
     iconSize: {
       type: [String, Number],
-      value: '40rpx'
+      value: "40rpx"
     },
     // 是否使用 icon slot
     useIconSlot: Boolean,
@@ -45,9 +34,9 @@ Component({
       type: null
     }
   },
-  observers: {
+  watch: {
     // 监听数据变化
-    'value,shape': function (value, shape) {
+    "value,shape": function (value, shape) {
       let iconName = shape;
       if (value) {
         // 选中状态的图标需要加个active
@@ -67,7 +56,7 @@ Component({
   methods: {
     // 切换状态
     toggle() {
-      if (this.properties.disabled || this.data.parentDisabled) {
+      if (this.data.disabled || this.data.parentDisabled) {
         return;
       }
       // 发射事件
@@ -76,9 +65,9 @@ Component({
     // 点击文本
     onLabelClick() {
       if (
-        this.properties.disabled ||
+        this.data.disabled ||
         this.data.parentDisabled ||
-        this.properties.labelDisabled
+        this.data.labelDisabled
       ) {
         return;
       }
@@ -88,19 +77,19 @@ Component({
     emitChange() {
       if (this.parent) {
         // 存在CheckboxGroup父元素，则由父元素发射事件
-        this.setParentValue(!this.properties.value);
+        this.setParentValue(!this.data.value);
       } else {
-        this.triggerEvent('change', !this.properties.value);
+        this.triggerEvent("change", !this.data.value);
       }
     },
     // 设置父元素的值
     setParentValue(value) {
       // 获取父元素的绑定值
-      let { value: parentValue } = this.parent.properties;
-      const { max } = this.parent.properties;
+      let { value: parentValue } = this.parent.data;
+      const { max } = this.parent.data;
       // 浅拷贝一份
       parentValue = parentValue.slice();
-      const { name } = this.properties;
+      const { name } = this.data;
       if (value) {
         // 选中状态
         if (max && parentValue.length >= max) {
@@ -123,10 +112,5 @@ Component({
         }
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
