@@ -58,7 +58,7 @@ LinComponent({
         return;
       }
       this.position = position;
-      if (this.properties.asyncClose) {
+      if (this.data.asyncClose) {
         // 异步关闭，需要手动关闭
         this.triggerEvent("before-close", {
           position,
@@ -93,13 +93,13 @@ LinComponent({
     emitClose(position) {
       this.triggerEvent("close", {
         position: position || this.position,
-        name: this.properties.name,
+        name: this.data.name,
         instance: this
       });
     },
     // 打开左侧或者右侧
     open(position) {
-      const { disabled, disabledLeft, disabledRight } = this.properties;
+      const { disabled, disabledLeft, disabledRight } = this.data;
       if (!position || disabled) {
         return;
       }
@@ -115,7 +115,7 @@ LinComponent({
     },
     // 发射open事件
     emitOpen(position) {
-      const { name } = this.properties;
+      const { name } = this.data;
       this.triggerEvent("open", {
         position,
         name,
@@ -131,7 +131,7 @@ LinComponent({
         disabled,
         disabledLeft,
         disabledRight
-      } = this.properties;
+      } = this.data;
       if (disabled) {
         return;
       }
@@ -166,7 +166,7 @@ LinComponent({
         disabled,
         disabledLeft,
         disabledRight
-      } = this.properties;
+      } = this.data;
       if (disabled) {
         return;
       }
@@ -199,7 +199,7 @@ LinComponent({
     },
     // 手指刚触摸屏幕
     onTouchstart(event) {
-      const { disabled } = this.properties;
+      const { disabled } = this.data;
       if (disabled) {
         return;
       }
@@ -218,7 +218,7 @@ LinComponent({
     },
     // 获取左侧宽度
     getLeftWidth() {
-      const { showLeft, leftWidth } = this.properties;
+      const { showLeft, leftWidth } = this.data;
       if (showLeft) {
         // 需要显示左侧的时候才获取宽度
         if (leftWidth) {
@@ -236,7 +236,7 @@ LinComponent({
     },
     // 获取右侧宽度
     getRightWidth() {
-      const { showRight, rightWidth } = this.properties;
+      const { showRight, rightWidth } = this.data;
       if (showRight) {
         // 需要显示右侧的时候才获取宽度
         if (rightWidth) {

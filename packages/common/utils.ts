@@ -51,7 +51,7 @@ export function getAllRect(
     | WechatMiniprogram.Component.TrivialInstance
     | WechatMiniprogram.Page.TrivialInstance,
   element: string
-) {
+): Promise<WechatMiniprogram.BoundingClientRectCallbackResult[]> {
   return new Promise((resolve) => {
     wx.createSelectorQuery()
       .in(context)

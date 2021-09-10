@@ -75,13 +75,13 @@ LinComponent({
   methods: {
     // 更新价格文本
     updatePrice() {
-      const { price } = this.properties;
+      const { price } = this.data;
       this.setData(this.handelPrice(price));
     },
     // 处理价格
     handelPrice(price) {
       // 小数点长度部分
-      const { decimalLength } = this.properties;
+      const { decimalLength } = this.data;
       const priceObj = {
         integer: "0",
         decimal: "00"

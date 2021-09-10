@@ -1,21 +1,17 @@
-Component({
-  name: 'Tag',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class'],
-  properties: {
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  props: {
     // 类型
     type: {
       type: String,
-      value: 'primary',
-      options: ['primary', 'success', 'danger', 'warning', 'info']
+      value: "primary",
+      options: ["primary", "success", "danger", "warning", "info"]
     },
     // 大小
     size: {
       type: String,
-      options: ['large', 'medium']
+      options: ["large", "medium"]
     },
     // 标签颜色
     color: String,
@@ -30,15 +26,9 @@ Component({
     // 是否为可关闭标签
     closeable: Boolean
   },
-  data: {},
   methods: {
     onClick() {
-      this.triggerEvent('close', false);
+      this.triggerEvent("close", false);
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

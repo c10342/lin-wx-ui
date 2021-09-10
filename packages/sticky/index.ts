@@ -8,7 +8,7 @@ LinComponent({
   mixins: [
     pageScrollBehavior(function (event) {
       // @ts-ignore
-      if (this.properties.scrollTop != null) {
+      if (this.data.scrollTop != null) {
         return;
       }
       // @ts-ignore
@@ -57,7 +57,7 @@ LinComponent({
   methods: {
     // 滚动事件
     onScroll({ scrollTop } = {}) {
-      const { container, offsetTop, disabled } = this.properties;
+      const { container, offsetTop, disabled } = this.data;
       if (disabled) {
         // 禁用情况
         this.setDataAfterDiff({
@@ -118,7 +118,7 @@ LinComponent({
     setDataAfterDiff(data) {
       wx.nextTick(() => {
         const diff = Object.keys(data).reduce((prev, key) => {
-          if (data[key] !== this.properties[key]) {
+          if (data[key] !== this.data[key]) {
             prev[key] = data[key];
           }
           return prev;
@@ -134,7 +134,7 @@ LinComponent({
     },
     getContainerRect() {
       // 返回容器对应的 NodesRef 节点
-      const nodeRef = this.properties.container();
+      const nodeRef = this.data.container();
       return new Promise((resolve) => {
         nodeRef.boundingClientRect(resolve).exec();
       });

@@ -50,7 +50,7 @@ LinComponent({
   methods: {
     // 点击组件
     onClick() {
-      const { disabled, checked } = this.properties;
+      const { disabled, checked } = this.data;
       if (disabled) {
         return;
       }
@@ -58,7 +58,7 @@ LinComponent({
     },
     // 更新value值
     updateValue() {
-      const { checked, activeValue, inactiveValue } = this.properties;
+      const { checked, activeValue, inactiveValue } = this.data;
       if (checked) {
         this.setData({
           value: activeValue

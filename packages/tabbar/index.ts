@@ -1,33 +1,25 @@
-import { getRect } from '../common/utils';
+import { LinComponent } from "../common/component";
 
-Component({
-  name: 'Tabbar',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'placeholder-class'],
-  relations: {
-    '../tabbar-item/index': {
-      type: 'descendant',
-      linked(child) {
-        this.children = this.children || [];
-        this.children.push(child);
-        child.index = this.children.length - 1;
-        this.updateChildren();
-      },
-      unlinked(child) {
-        this.children = (this.children || [])
-          .filter((it) => it !== child)
-          .map((childData, index) => {
-            childData.index = index;
-            return childData;
-          });
-        this.updateChildren();
-      }
+import { getRect } from "../common/utils";
+
+LinComponent({
+  classes: ["placeholder-class"],
+  relation: {
+    type: "descendant",
+    name: "tabbar-item",
+    linked(child) {
+      child.index = this.children.length - 1;
+      this.updateChildren();
+    },
+    unlinked() {
+      this.children = (this.children || []).map((childData, index) => {
+        childData.index = index;
+        return childData;
+      });
+      this.updateChildren();
     }
   },
-  properties: {
+  props: {
     // 当前选中标签的索引
     active: {
       type: [String, Number],
@@ -40,12 +32,12 @@ Component({
     fixed: {
       type: Boolean,
       value: true,
-      observer: 'initPlaceholderView'
+      observer: "initPlaceholderView"
     },
     // 固定在底部时，是否在标签位置生成一个等高的占位元素
     placeholder: {
       type: Boolean,
-      observer: 'initPlaceholderView'
+      observer: "initPlaceholderView"
     },
     // 是否展示外边框
     border: {
@@ -57,12 +49,12 @@ Component({
     // 选中标签的颜色
     activeColor: {
       type: String,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 未选中标签的颜色
     inactiveColor: {
       type: String,
-      observer: 'updateChildren'
+      observer: "updateChildren"
     },
     // 是否为 iPhoneX 留出底部安全距离
     safeAreaInsetBottom: {
@@ -85,7 +77,7 @@ Component({
     },
     // 更新选中的索引号
     updateCurrentIndex() {
-      const { active } = this.properties;
+      const { active } = this.data;
       (this.children || []).forEach((child, index) => {
         if (active === child.getComponentName()) {
           this.setData({
@@ -97,21 +89,16 @@ Component({
       });
     },
     emitChange(name) {
-      this.triggerEvent('change', name);
+      this.triggerEvent("change", name);
     },
     // 生成等高占位元素
     initPlaceholderView() {
-      const { placeholder, fixed } = this.properties;
+      const { placeholder, fixed } = this.data;
       if (placeholder && fixed) {
-        getRect(this, '.lin-tabbar').then((res) => {
+        getRect(this, ".lin-tabbar").then((res) => {
           this.setData({ height: res.height });
         });
       }
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

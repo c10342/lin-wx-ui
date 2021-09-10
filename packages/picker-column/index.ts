@@ -1,5 +1,5 @@
 import { LinComponent } from "../common/component";
-import { isObject } from "../common/is.js";
+import { isObject } from "../common/is";
 
 interface OptionsListItem {
   disabled?: boolean;

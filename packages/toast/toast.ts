@@ -1,9 +1,9 @@
-import { isObject } from '../common/is.js';
+import { isObject } from "../common/is";
 
 // 默认配置
 const defaultOptions = {
   // 提示类型
-  type: 'text',
+  type: "text",
   // 是否显示遮罩层
   mask: false,
   // 是否显示
@@ -13,15 +13,15 @@ const defaultOptions = {
   // 展示时长(ms)，值为 0 时，toast 不会消失
   duration: 2000,
   // 位置
-  position: 'middle',
+  position: "middle",
   // 是否禁止背景点击
   forbidClick: false,
   // 自定义选择器
-  selector: '#lin-toast'
+  selector: "#lin-toast"
 };
 
 // 存储所有实例
-let queue = [];
+let queue: WechatMiniprogram.Component.TrivialInstance[] = [];
 
 // 当前配置
 let currentOptions = { ...defaultOptions };
@@ -44,10 +44,12 @@ function Toast(options) {
   // 获取上下文
   const context = options.context || getContext();
   // 获取组件实例
-  const toast = context.selectComponent(options.selector);
+  const toast = context.selectComponent(
+    options.selector
+  ) as WechatMiniprogram.Component.TrivialInstance;
 
   if (!toast) {
-    console.warn('未找到 lin-toast 节点，请确认 selector 及 context 是否正确');
+    console.warn("未找到 lin-toast 节点，请确认 selector 及 context 是否正确");
     return;
   }
 
@@ -86,9 +88,9 @@ const createMethod = (type) => (options) =>
     ...parseOptions(options)
   });
 
-Toast.loading = createMethod('loading');
-Toast.success = createMethod('success');
-Toast.fail = createMethod('fail');
+Toast.loading = createMethod("loading");
+Toast.success = createMethod("success");
+Toast.fail = createMethod("fail");
 
 // 清除所有toast
 Toast.clear = () => {

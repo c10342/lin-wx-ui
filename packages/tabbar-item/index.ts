@@ -1,23 +1,15 @@
-Component({
-  name: 'TabbarItem',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class', 'content-class'],
-  relations: {
-    '../tabbar/index': {
-      type: 'ancestor',
-      linked(parent) {
-        this.parent = parent;
-        this.updateFromParent();
-      },
-      unlinked() {
-        this.parent = null;
-      }
+import { LinComponent } from "../common/component";
+
+LinComponent({
+  classes: ["content-class"],
+  relation: {
+    type: "ancestor",
+    name: "tabbar",
+    linked() {
+      this.updateFromParent();
     }
   },
-  properties: {
+  props: {
     // 标签名称，作为匹配的标识符
     name: {
       type: [String, Number]
@@ -37,14 +29,14 @@ Component({
     // 是否选中状态
     active: false,
     // 选中标签的颜色
-    activeColor: '',
+    activeColor: "",
     // 未选中标签的颜色
-    inactiveColor: ''
+    inactiveColor: ""
   },
   methods: {
     // 获取组件唯一标识
     getComponentName() {
-      const { name } = this.properties;
+      const { name } = this.data;
       if (name != null) {
         return name;
       }
@@ -53,13 +45,13 @@ Component({
     // 从父组件中获取数据并更新
     updateFromParent() {
       if (this.parent) {
-        const params = {};
-        const { children, properties } = this.parent;
+        const params: any = {};
+        const { children, data } = this.parent;
         const width = `${100 / children.length}%`;
         params.width = width;
-        params.active = properties.active === this.getComponentName();
-        params.activeColor = properties.activeColor;
-        params.inactiveColor = properties.inactiveColor;
+        params.active = data.active === this.getComponentName();
+        params.activeColor = data.activeColor;
+        params.inactiveColor = data.inactiveColor;
         this.setDiffData(params);
       }
     },
@@ -85,10 +77,5 @@ Component({
       }
       this.parent.emitChange(this.getComponentName());
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });

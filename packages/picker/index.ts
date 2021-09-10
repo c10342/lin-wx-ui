@@ -1,5 +1,5 @@
 import { LinComponent } from "../common/component";
-import { isUndef } from "../common/is.js";
+import { isUndef } from "../common/is";
 
 LinComponent({
   classes: ["active-class", "toolbar-class", "column-class"],

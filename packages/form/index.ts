@@ -1,5 +1,5 @@
 import { LinComponent } from "../common/component";
-import { isFunction } from "../common/is.js";
+import { isFunction } from "../common/is";
 
 LinComponent({
   mixins: ["footer-class"],

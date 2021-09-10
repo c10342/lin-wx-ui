@@ -17,7 +17,7 @@ function isImageUrl(url) {
 // 判断是否为图片类型文件
 export function isImageFile(item) {
   if (item.type) {
-    return item.type === 'image';
+    return item.type === "image";
   }
   if (item.path) {
     return isImageUrl(item.path);
@@ -40,7 +40,7 @@ export function chooseFile({
   maxCount
 }) {
   switch (accept) {
-    case 'image':
+    case "image":
       return new Promise((resolve, reject) => {
         // 从本地相册选择图片或使用相机拍照。
         wx.chooseImage({
@@ -54,7 +54,7 @@ export function chooseFile({
           fail: reject
         });
       });
-    case 'media':
+    case "media":
       return new Promise((resolve, reject) => {
         // 拍摄或从手机相册中选择图片或视频。
         wx.chooseMedia({
@@ -70,7 +70,7 @@ export function chooseFile({
           fail: reject
         });
       });
-    case 'video':
+    case "video":
       return new Promise((resolve, reject) => {
         // 拍摄视频或从手机相册中选视频。
         wx.chooseVideo({
@@ -92,7 +92,7 @@ export function chooseFile({
         wx.chooseMessageFile({
           count: multiple ? maxCount : 1, // 最多可以选择的数量，如果不支持多选则数量为1
           // 所选的文件的类型
-          type: 'file',
+          type: "file",
           success: resolve,
           fail: reject
         });
@@ -102,17 +102,17 @@ export function chooseFile({
 
 // 是否为视频类型
 export function isVideo(res, accept) {
-  return accept === 'video';
+  return accept === "video";
 }
 
 // 是否为函数
 export function isFunction(val) {
-  return typeof val === 'function';
+  return typeof val === "function";
 }
 
 // 是否为对象
 export function isObject(val) {
-  return val != null && typeof val === 'object';
+  return val != null && typeof val === "object";
 }
 
 // 是否为Promise实例

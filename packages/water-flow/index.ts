@@ -1,44 +1,36 @@
-import { getRect } from '../common/utils';
+import { LinComponent } from "../common/component";
 
-Component({
-  name: 'WaterFlow',
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true
-  },
-  externalClasses: ['custom-class'],
-  relations: {
-    '../water-flow-item/index': {
-      type: 'descendant',
-      linked(child) {
-        this.children = this.children || [];
-        this.children.push(child);
-        this.renderWaterFlow();
-      },
-      unlinked(child) {
-        this.children = (this.children || []).filter((it) => it !== child);
-        this.renderWaterFlow();
-      }
+import { getRect } from "../common/utils";
+
+LinComponent({
+  relation: {
+    type: "descendant",
+    name: "water-flow-item",
+    linked() {
+      this.renderWaterFlow();
+    },
+    unlinked() {
+      this.renderWaterFlow();
     }
   },
-  properties: {
+  props: {
     // 需要监听的数据变化，数据变化的时候会自动进行排版
     watchData: {
       type: Array,
       value: [],
-      observer: 'renderWaterFlow'
+      observer: "renderWaterFlow"
     },
     // 垂直边距
     verticalMargin: {
       type: Number,
       value: 20,
-      observer: 'renderWaterFlow'
+      observer: "renderWaterFlow"
     },
     // 水平边距
     horizontalMargin: {
       type: Number,
       value: 10,
-      observer: 'renderWaterFlow'
+      observer: "renderWaterFlow"
     }
   },
   data: {
@@ -48,7 +40,7 @@ Component({
   methods: {
     // 计算子组件WaterFlowItem位置
     renderWaterFlow() {
-      getRect(this, '.lin-water-flow').then((rect) => {
+      getRect(this, ".lin-water-flow").then((rect) => {
         // 设置子组件的宽度
         this.setChildWidth(rect);
         // 设置子组件的位置
@@ -58,7 +50,7 @@ Component({
     // 设置子组件的宽度
     setChildWidth(parentContainer) {
       // 水平间距
-      const { horizontalMargin } = this.properties;
+      const { horizontalMargin } = this.data;
       const width = parentContainer.width / 2 - horizontalMargin;
       (this.children || []).forEach((child) => {
         child.setWidth(width);
@@ -68,14 +60,14 @@ Component({
     setChildrenPosition() {
       wx.nextTick(() => {
         // 获取水平边距和垂直边距
-        const { verticalMargin, horizontalMargin } = this.properties;
+        const { verticalMargin, horizontalMargin } = this.data;
         // 瀑布流分2栏
         // 左侧高度
         let leftHeight = 0;
         // 右侧高度
         let rightHeight = 0;
         // 任务队列
-        const tasks = [];
+        const tasks: Promise<WechatMiniprogram.BoundingClientRectCallbackResult>[] = [];
         (this.children || []).forEach((child) => {
           // 获取子组件元素信息
           tasks.push(child.getRect());
@@ -106,10 +98,5 @@ Component({
         });
       });
     }
-  },
-  created() {},
-  attached() {},
-  ready() {},
-  moved() {},
-  detached() {}
+  }
 });
