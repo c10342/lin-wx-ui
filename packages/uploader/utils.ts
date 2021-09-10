@@ -38,7 +38,7 @@ export function chooseFile({
   sizeType,
   camera,
   maxCount
-}) {
+}): Promise<any> {
   switch (accept) {
     case "image":
       return new Promise((resolve, reject) => {

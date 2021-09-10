@@ -114,9 +114,9 @@ LinComponent({
       chooseFile({
         ...this.data,
         maxCount: maxCount - lists.length
-      })
-        .then((res) => {
-          let file = null;
+      } as any)
+        .then((res: Record<string, any>) => {
+          let file: any = null;
           if (isVideo(res, accept)) {
             // 视频文件
             file = {
