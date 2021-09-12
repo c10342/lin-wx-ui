@@ -1,12 +1,12 @@
-import Request from './core/Request';
+import Request from "./core/Request";
 
-import defaultConfig from './default';
+import defaultConfig from "./default";
 
-import CancelToken from './cancel/CancelToken';
+import CancelToken from "./cancel/CancelToken";
 
-import Cancel, { isCancel } from './cancel/Cancel';
+import Cancel, { isCancel } from "./cancel/Cancel";
 
-import { extend, deepMerge } from './helpers/utils';
+import { extend, deepMerge } from "./helpers/utils";
 
 // 创建实例
 function createInstance(config) {

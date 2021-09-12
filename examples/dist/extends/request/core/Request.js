@@ -1,6 +1,6 @@
-import dispatchRequest from './dispatchRequest';
-import InterceptorManager from './interceptorManager';
-import { deepMerge } from '../helpers/utils';
+import dispatchRequest from "./dispatchRequest";
+import InterceptorManager from "./interceptorManager";
+import { deepMerge } from "../helpers/utils";
 
 export default function Request(config) {
   // 默认配置
@@ -16,7 +16,7 @@ export default function Request(config) {
 // request('/abc',{...})
 // request({...})
 Request.prototype.request = function (url, config = {}) {
-  if (typeof url === 'string') {
+  if (typeof url === "string") {
     if (!config) {
       config = {};
     }
@@ -58,16 +58,16 @@ Request.prototype.request = function (url, config = {}) {
 
 // 微信小程序method 的合法值
 const methodList = [
-  'options',
-  'get',
-  'head',
-  'post',
-  'put',
-  'delete',
-  'trace',
-  'connect',
-  'download',
-  'upload'
+  "options",
+  "get",
+  "head",
+  "post",
+  "put",
+  "delete",
+  "trace",
+  "connect",
+  "download",
+  "upload"
 ];
 
 methodList.forEach((method) => {

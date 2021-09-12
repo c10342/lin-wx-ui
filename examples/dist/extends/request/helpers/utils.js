@@ -2,12 +2,12 @@ const toString = Object.prototype.toString;
 
 // 判断是否为普通对象
 export function isPlainObject(value) {
-  return toString.call(value) === '[object Object]';
+  return toString.call(value) === "[object Object]";
 }
 
 // 判断是否为对象
 export function isArr(val) {
-  return toString.call(val) === '[object Array]';
+  return toString.call(val) === "[object Array]";
 }
 
 // 深拷贝
@@ -16,7 +16,7 @@ export function deepClone(obj) {
     const ret = {};
     for (const key in obj) {
       const val = obj[key];
-      if (typeof val === 'object') {
+      if (typeof val === "object") {
         ret[key] = deepClone(val);
       } else {
         ret[key] = val;
@@ -27,7 +27,7 @@ export function deepClone(obj) {
     const ret = [];
     for (let i = 0; i < obj.length; i++) {
       const val = obj[i];
-      if (typeof val === 'object') {
+      if (typeof val === "object") {
         ret.push(deepClone(val));
       } else {
         ret.push(val);
@@ -82,7 +82,7 @@ export function isAbsoluteURL(url) {
 //   合并地址
 export function combineURL(baseURL, url) {
   return url
-    ? baseURL.replace(/\/+$/, '') + '/' + url.replace(/^\/+/, '')
+    ? baseURL.replace(/\/+$/, "") + "/" + url.replace(/^\/+/, "")
     : baseURL;
 }
 
@@ -105,15 +105,15 @@ export function extend(to, from) {
 export function getDefaultAdapter(config) {
   const { method } = config;
   let adapter;
-  if (method === 'upload') {
+  if (method === "upload") {
     // 上传
-    adapter = require('../adapters/upload').default;
-  } else if (method === 'download') {
+    adapter = require("../adapters/upload").default;
+  } else if (method === "download") {
     // 下载
-    adapter = require('../adapters/download').default;
+    adapter = require("../adapters/download").default;
   } else {
     // 普通网络请求
-    adapter = require('../adapters/xhr').default;
+    adapter = require("../adapters/xhr").default;
   }
 
   return adapter;

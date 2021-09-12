@@ -1,4 +1,4 @@
-import Cancel from './Cancel';
+import Cancel from "./Cancel";
 
 export default class CancelToken {
   constructor(executor) {

@@ -2,7 +2,7 @@ import {
   handelResponse,
   handelCancel,
   handelFail
-} from '../helpers/handelRequest';
+} from "../helpers/handelRequest";
 
 export default function xhr(config) {
   return new Promise((resolve, reject) => {
@@ -40,29 +40,29 @@ export default function xhr(config) {
     function handelRequestData() {
       // 微信小程序wx.request支持的参数列表
       const dataArr = [
-        'url',
-        'data',
-        'timeout',
-        'dataType',
-        'responseType',
-        'enableHttp2',
-        'enableQuic',
-        'enableCache'
+        "url",
+        "data",
+        "timeout",
+        "dataType",
+        "responseType",
+        "enableHttp2",
+        "enableQuic",
+        "enableCache"
       ];
       const params = {
-        method: 'GET'
+        method: "GET"
       };
 
-      if (typeof config.headers !== 'undefined') {
+      if (typeof config.headers !== "undefined") {
         // 微信小程序是header
         params.header = config.headers;
       }
-      if (typeof config.method !== 'undefined') {
+      if (typeof config.method !== "undefined") {
         // 微信小程序method需要大写
         params.method = config.method.toLocaleUpperCase();
       }
       dataArr.forEach((key) => {
-        if (typeof config[key] !== 'undefined') {
+        if (typeof config[key] !== "undefined") {
           params[key] = config[key];
         }
       });

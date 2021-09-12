@@ -1,6 +1,6 @@
-import { initData, isNotDefine, checkExpire, isFlag } from './utils';
+import { initData, isNotDefine, checkExpire, isFlag } from "./utils";
 
-import { isOverLimitSize, deleteCacheKey, addCacheKey } from './cache';
+import { isOverLimitSize, deleteCacheKey, addCacheKey } from "./cache";
 
 let defaultConfig = {};
 

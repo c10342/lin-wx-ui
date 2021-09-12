@@ -1,6 +1,6 @@
-import { isAbsoluteURL, combineURL } from '../helpers/utils';
-import { flattenHeaders } from '../helpers/headers';
-import transform from './transform';
+import { isAbsoluteURL, combineURL } from "../helpers/utils";
+import { flattenHeaders } from "../helpers/headers";
+import transform from "./transform";
 
 export default function dispatchRequest(config) {
   // 发送请求前先检查是否取消过请求
@@ -10,7 +10,7 @@ export default function dispatchRequest(config) {
   const requestFn = config.adapter(config);
   if (!requestFn) {
     // 请求方法不存在，也就是适配器不存在
-    return Promise.reject(new ReferenceError('adapter is undefined'));
+    return Promise.reject(new ReferenceError("adapter is undefined"));
   }
 
   // 进行请求

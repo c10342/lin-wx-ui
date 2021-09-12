@@ -1,4 +1,4 @@
-import { createError } from './error';
+import { createError } from "./error";
 
 // 处理响应
 export function handelResponse({ res, resolve, reject, config, request }) {
@@ -18,7 +18,7 @@ export function handelResponse({ res, resolve, reject, config, request }) {
       createError(
         `Request failed with status code ${response.statusCode}`,
         config,
-        response.statusText || 'error',
+        response.statusText || "error",
         request,
         res
       )
@@ -42,26 +42,26 @@ export function handelCancel({ config, request, reject }) {
 
 // 处理请求错误
 export function handelFail({ reject, config, request, error }) {
-  reject(createError(error.errMsg, config, 'error', request));
+  reject(createError(error.errMsg, config, "error", request));
 }
 
 export function handelUpAndDownRequestData({ config }) {
   // 微信小程序wx.uploadFile和wx.downloadFile支持的参数列表
-  const dataArr = ['url', 'filePath', 'name', 'timeout'];
+  const dataArr = ["url", "filePath", "name", "timeout"];
   const params = {};
 
-  if (typeof config.headers !== 'undefined') {
+  if (typeof config.headers !== "undefined") {
     // 微信小程序是header
     params.header = config.headers;
   }
 
-  if (typeof config.data !== 'undefined') {
+  if (typeof config.data !== "undefined") {
     // 统一请求数据为data
     params.formData = config.data;
   }
 
   dataArr.forEach((key) => {
-    if (typeof config[key] !== 'undefined') {
+    if (typeof config[key] !== "undefined") {
       params[key] = config[key];
     }
   });
