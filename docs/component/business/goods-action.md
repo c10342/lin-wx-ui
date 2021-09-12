@@ -14,9 +14,9 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-goods-action": "/dist/GoodsAction/index",
-   "lin-goods-action-icon": "/dist/GoodsActionIcon/index",
-   "lin-goods-action-button": "/dist/GoodsActionButton/index"
+   "lin-goods-action": "/dist/goods-action/index",
+   "lin-goods-action-icon": "/dist/goods-action-icon/index",
+   "lin-goods-action-button": "/dist/goods-action-button/index"
 }
 ```
 

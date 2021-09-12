@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-popup": "/dist/Popup/index"
+  "lin-calendar": "/dist/calendar/index"
 }
 ```
 

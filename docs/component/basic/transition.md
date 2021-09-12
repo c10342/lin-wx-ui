@@ -17,7 +17,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-transition": "/dist/Transition/index"
+  "lin-transition": "/dist/transition/index"
 }
 ```
 
@@ -261,14 +261,14 @@ Page({
 
 ```css
 .transition-content {
-  width: 200rpx;
-  height: 200rpx;
-  background-color: #409eff;
-  color: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 200rpx;
+  height: 200rpx;
+  color: #fff;
+  background-color: #409eff;
 }
 
 .transition-wrapper {

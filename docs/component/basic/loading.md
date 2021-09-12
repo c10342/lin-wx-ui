@@ -17,7 +17,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-loading": "/dist/Loading/index"
+  "lin-loading": "/dist/loading/index"
 }
 ```
 

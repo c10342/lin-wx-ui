@@ -15,7 +15,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-submit-bar": "/dist/SubmitBar/index"
+   "lin-submit-bar": "/dist/submit-bar/index"
 }
 ```
 
@@ -148,9 +148,9 @@ Page({
 ```css
 .tip-wrapper {
   padding: 16rpx 24rpx;
-  color: #f56723;
   font-size: 24rpx;
   line-height: 1.5;
+  color: #f56723;
   background-color: #fff7cc;
 }
 

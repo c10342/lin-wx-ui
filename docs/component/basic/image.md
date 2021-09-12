@@ -16,7 +16,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-image": "/dist/Image/index"
+  "lin-image": "/dist/image/index"
 }
 ```
 

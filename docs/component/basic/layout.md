@@ -17,8 +17,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-row": "/dist/Row/index",
-  "lin-col": "/dist/Col/index"
+  "lin-row": "/dist/row/index",
+  "lin-col": "/dist/col/index"
 }
 ```
 

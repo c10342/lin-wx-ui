@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-card": "/dist/Card/index"
+   "lin-card": "/dist/card/index"
 }
 ```
 
@@ -65,11 +65,11 @@ pageClass: component-page-class
   thumb="/images/cat.png"
 >
   <view slot="tags">
-    <lin-tag style="margin-right:10rpx" plain type="danger">标签</lin-tag>
+    <lin-tag style="margin-right: 10rpx;" plain type="danger">标签</lin-tag>
     <lin-tag plain type="danger">标签</lin-tag>
   </view>
   <view slot="footer" class="footer">
-    <lin-button style="margin-right:10rpx" size="small">按钮</lin-button>
+    <lin-button style="margin-right: 10rpx;" size="small">按钮</lin-button>
     <lin-button size="small">按钮</lin-button>
   </view>
 </lin-card>

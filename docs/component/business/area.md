@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-area": "/dist/Area/index"
+   "lin-area": "/dist/area/index"
 }
 ```
 

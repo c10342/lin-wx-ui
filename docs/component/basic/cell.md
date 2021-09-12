@@ -16,8 +16,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-cell-group": "/dist/CellGroup/index",
-  "lin-cell": "/dist/Cell/index"
+  "lin-cell-group": "/dist/cell-group/index",
+  "lin-cell": "/dist/cell/index"
 }
 ```
 
