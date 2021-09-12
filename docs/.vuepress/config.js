@@ -9,7 +9,7 @@ function getPath(basePath, arr) {
 
 module.exports = {
   title: "lin-wx-ui",
-  description: "欢迎使用 lin-wx-ui",
+  description: "微信小程序组件库文档",
   plugins: {
     "@vuepress/back-to-top": true,
     "@vuepress/pwa": {
