@@ -2,6 +2,7 @@
 node_modules
 /docs-dist
 /dist
+/docs/.vuepress/dist
 /build/config.js
 /coverage
 debug.log
