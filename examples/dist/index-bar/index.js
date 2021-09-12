@@ -99,7 +99,6 @@ LinComponent({
         (childData) => index === childData.data.index
       );
       if (child) {
-        console.log(child.getContainerRect);
         Promise.all([getViewPort(this), child.getContainerRect()]).then(
           (res) => {
             // 计算子组件需要向上滚动多少距离才能到达顶部

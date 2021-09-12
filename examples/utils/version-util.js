@@ -9,8 +9,8 @@ class VersionUtil {
       if (hasUpdate) {
         updateManager.onUpdateReady(() => {
           wx.showModal({
-            title: '更新提示',
-            content: '有新版本啦！要更新看看吗',
+            title: "更新提示",
+            content: "有新版本啦！要更新看看吗",
             success(res) {
               if (res.confirm) {
                 updateManager.applyUpdate();
@@ -22,8 +22,8 @@ class VersionUtil {
         updateManager.onUpdateFailed(function () {
           // 新版本下载失败
           wx.showModal({
-            title: '更新提示',
-            content: '有新版本啦！删除当前小程序，重新打开就能更新啦！'
+            title: "更新提示",
+            content: "有新版本啦！删除当前小程序，重新打开就能更新啦！"
           });
         });
       }

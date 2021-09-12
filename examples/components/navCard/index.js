@@ -22,7 +22,7 @@ Component({
     onItemTap() {
       // console.log(this.data.dataInfo);
 
-      this.triggerEvent('cardTap', this.data.dataInfo);
+      this.triggerEvent("cardTap", this.data.dataInfo);
     }
   }
 });

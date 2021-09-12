@@ -1,4 +1,4 @@
-import Dialog from '../../../dist/dialog/dialog.js';
+import Dialog from "../../../dist/dialog/dialog.js";
 
 Page({
   /**
@@ -10,44 +10,52 @@ Page({
 
   onClick1() {
     Dialog.alert({
-      title: '标题',
-      message: '弹窗内容'
-    }).then(() => {});
+      title: "标题",
+      message: "弹窗内容"
+    }).then(() => {
+      // todo
+    });
   },
   onClick2() {
     Dialog.alert({
-      message: '弹窗内容'
-    }).then(() => {});
+      message: "弹窗内容"
+    }).then(() => {
+      // todo
+    });
   },
   onClick3() {
     Dialog.confirm({
-      title: '标题',
-      message: '弹窗内容'
+      title: "标题",
+      message: "弹窗内容"
     })
-      .then(() => {})
-      .catch(() => {});
+      .then(() => {
+        // todo
+      })
+      .catch(() => {
+        // todo
+      });
   },
   onClick4() {
     Dialog.alert({
-      title: '标题',
-      message: '弹窗内容',
-      theme: 'round-button'
+      title: "标题",
+      message: "弹窗内容",
+      theme: "round-button"
     }).then(() => {
       // on close
     });
   },
   onClick5() {
     Dialog.alert({
-      message: '弹窗内容',
-      theme: 'round-button'
+      message: "弹窗内容",
+      theme: "round-button"
     }).then(() => {
       // on close
     });
   },
   onClick6() {
     Dialog.confirm({
-      title: '标题',
-      message: '弹窗内容',
+      title: "标题",
+      message: "弹窗内容",
       asyncClose: true
     })
       .then(() => {
@@ -66,45 +74,5 @@ Page({
   },
   onClose() {
     this.setData({ show: false });
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {}
+  }
 });

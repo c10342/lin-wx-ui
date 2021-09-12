@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+const fs = require("fs");
 
-const path = require('path');
+const path = require("path");
 
 const root = process.cwd();
 
 // lin-wx-ui配置文件
-const config = require(path.join(root, './lin-wx-ui.config.json'));
+const config = require(path.join(root, "./lin-wx-ui.config.json"));
 
 // 项目配置文件
-const projectConfigSrc = path.join(root, './project.config.json');
+const projectConfigSrc = path.join(root, "./project.config.json");
 
 // 组件库路径
 const lib = path.join(root, config.lib);
 
-const appJson = require(path.join(root, './app.json'));
+const appJson = require(path.join(root, "./app.json"));
 
 // 获取注册的页面
 const pages = appJson.pages || [];
@@ -38,7 +38,7 @@ function handleGlobalComponent() {
       // 判断该组件是否属于lin-wx-ui的
       if (compSrc.startsWith(lib)) {
         // 以key-value的形式存储
-        const objKey = compSrc.replace(lib, '');
+        const objKey = compSrc.replace(lib, "");
         if (!(objKey in components)) {
           // 记录相对路径
           components[objKey] = path.relative(root, path.dirname(compSrc));
@@ -71,14 +71,14 @@ function handlePageComponent(currentDirname, page) {
   const status = fs.existsSync(pageJsonSrc);
   if (status) {
     // 获取json文件的内容
-    const pageJsonStr = fs.readFileSync(pageJsonSrc, 'utf-8');
+    const pageJsonStr = fs.readFileSync(pageJsonSrc, "utf-8");
     // 获取json文件使用的组件
     const usingComponents = JSON.parse(pageJsonStr).usingComponents || {};
     Object.keys(usingComponents).forEach((key) => {
       const compVal = usingComponents[key];
       // 判断是否为绝对路径
       const isAbsolute = path.isAbsolute(compVal);
-      let compSrc = '';
+      let compSrc = "";
       if (isAbsolute) {
         compSrc = path.join(currentDirname, compVal);
       } else {
@@ -87,7 +87,7 @@ function handlePageComponent(currentDirname, page) {
       if (scaleComponent.findIndex((item) => item === compSrc) === -1) {
         if (compSrc.startsWith(lib)) {
           // 判断该组件是否属于lin-wx-ui的
-          const objKey = compSrc.replace(lib, '');
+          const objKey = compSrc.replace(lib, "");
           if (!(objKey in components)) {
             // 组件还没收集
             components[objKey] = path.relative(root, path.dirname(compSrc));
@@ -129,8 +129,8 @@ dirs.forEach((dir) => {
 
 ignoreComponent.forEach((key) => {
   ignoreArr.push({
-    type: 'folder',
-    value: key.replace(/\\/g, '/')
+    type: "folder",
+    value: key.replace(/\\/g, "/")
   });
 });
 
@@ -152,10 +152,10 @@ ignore = ignore.filter((src) => {
 
 ignore.push(...ignoreArr);
 
-if (ignore.findIndex((item) => item.value === 'lin-wx-ui.config.json') === -1) {
+if (ignore.findIndex((item) => item.value === "lin-wx-ui.config.json") === -1) {
   ignore.push({
-    type: 'file',
-    value: 'lin-wx-ui.config.json'
+    type: "file",
+    value: "lin-wx-ui.config.json"
   });
 }
 
@@ -164,4 +164,4 @@ projectConfig.packOptions.ignore = ignore;
 fs.writeFileSync(projectConfigSrc, JSON.stringify(projectConfig, null, 2));
 
 /* eslint-disable-next-line */
-console.log('执行完毕');
+console.log("执行完毕");

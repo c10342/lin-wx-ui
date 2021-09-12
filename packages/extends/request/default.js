@@ -1,11 +1,11 @@
-import { getDefaultAdapter } from './helpers/utils';
+import { getDefaultAdapter } from "./helpers/utils";
 
-const okErrMsg = ['request:ok', 'downloadFile:ok', 'uploadFile:ok'];
+const okErrMsg = ["request:ok", "downloadFile:ok", "uploadFile:ok"];
 
 // 默认配置
 const defaults = {
   // 创建请求时使用的方法。
-  method: 'get',
+  method: "get",
 
   // `timeout` 指定请求超时的毫秒数(0 表示无超时时间)
   timeout: 0,
@@ -19,7 +19,8 @@ const defaults = {
 
   // 允许在向服务器发送前，修改请求数据
   transformRequest: [
-    function (data, headers) {
+    // data, headers
+    function (data) {
       return data;
     }
   ],

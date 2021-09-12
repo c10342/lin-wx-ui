@@ -1,4 +1,4 @@
-const cacheKey = '_storage_cache_key_';
+const cacheKey = "_storage_cache_key_";
 
 export function addCacheKey(key) {
   const cacheList = wx.getStorageSync(cacheKey) || [];

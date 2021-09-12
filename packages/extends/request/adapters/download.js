@@ -3,7 +3,7 @@ import {
   handelCancel,
   handelFail,
   handelUpAndDownRequestData
-} from '../helpers/handelRequest';
+} from "../helpers/handelRequest";
 
 export default function download(config) {
   return new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ export default function download(config) {
 
     // 监听下载进度
     function handelDownloadProgress() {
-      if (typeof onDownloadProgress === 'function' && request) {
+      if (typeof onDownloadProgress === "function" && request) {
         request.onProgressUpdate(onDownloadProgress);
       }
     }

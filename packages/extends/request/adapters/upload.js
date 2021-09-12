@@ -3,7 +3,7 @@ import {
   handelCancel,
   handelFail,
   handelUpAndDownRequestData
-} from '../helpers/handelRequest';
+} from "../helpers/handelRequest";
 
 export default function upload(config) {
   return new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ export default function upload(config) {
 
     // 监听上传进度
     function handelUploadProgress() {
-      if (typeof onUploadProgress === 'function' && request) {
+      if (typeof onUploadProgress === "function" && request) {
         request.onProgressUpdate(onUploadProgress);
       }
     }

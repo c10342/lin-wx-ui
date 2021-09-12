@@ -1,12 +1,12 @@
-import { getCompId, getElement, render, querySelectorAll } from '../utils.js';
+import { getCompId, getElement, render, querySelectorAll } from "../utils.js";
 
 let id;
 
 beforeAll(() => {
-  id = getCompId('ActionSheet');
+  id = getCompId("ActionSheet");
 });
 
-describe('属性', () => {
+describe("属性", () => {
   let comp;
 
   beforeEach(() => {
@@ -15,53 +15,53 @@ describe('属性', () => {
     });
   });
 
-  test('show', () => {
+  test("show", () => {
     comp = render(id);
-    const popup = getElement(comp, '.jest-test-action-sheet');
+    const popup = getElement(comp, ".jest-test-action-sheet");
     // 默认情况
-    expect(popup.getAttribute('show')).toBeFalsy();
+    expect(popup.getAttribute("show")).toBeFalsy();
     comp.setData({
       show: true
     });
-    expect(popup.getAttribute('show')).toBeTruthy();
+    expect(popup.getAttribute("show")).toBeTruthy();
   });
 
-  test('actions', () => {
+  test("actions", () => {
     const actions = [
-      { name: '选项一' },
-      { name: '选项二' },
-      { name: '选项三' }
+      { name: "选项一" },
+      { name: "选项二" },
+      { name: "选项三" }
     ];
     comp.setData({
       actions
     });
-    const actionsList = querySelectorAll(comp, '.lin-action-sheet-button');
+    const actionsList = querySelectorAll(comp, ".lin-action-sheet-button");
     expect(actionsList.length).toBe(actions.length);
   });
 
-  test('round', () => {
-    const popup = getElement(comp, '.jest-test-action-sheet');
+  test("round", () => {
+    const popup = getElement(comp, ".jest-test-action-sheet");
     // 默认情况
-    expect(popup.getAttribute('round')).toBeTruthy();
+    expect(popup.getAttribute("round")).toBeTruthy();
     comp.setData({
       round: false
     });
-    expect(popup.getAttribute('round')).toBeFalsy();
+    expect(popup.getAttribute("round")).toBeFalsy();
   });
 
-  test('closeOnClickMask', () => {
-    const popup = getElement(comp, '.jest-test-action-sheet');
+  test("closeOnClickMask", () => {
+    const popup = getElement(comp, ".jest-test-action-sheet");
     // 默认情况
-    expect(popup.getAttribute('closeOnClickMask')).toBeTruthy();
+    expect(popup.getAttribute("closeOnClickMask")).toBeTruthy();
     comp.setData({
       closeOnClickMask: false
     });
-    expect(popup.getAttribute('closeOnClickMask')).toBeFalsy();
+    expect(popup.getAttribute("closeOnClickMask")).toBeFalsy();
   });
 
-  test('cancelText', () => {
-    const cancelText = '取消';
-    const cancelView = getElement(comp, '.lin-action-sheet-cancelText');
+  test("cancelText", () => {
+    const cancelText = "取消";
+    const cancelView = getElement(comp, ".lin-action-sheet-cancelText");
     // 默认是隐藏
     expect(cancelView.exists()).toBeFalsy();
     comp.setData({
@@ -71,9 +71,9 @@ describe('属性', () => {
     expect(cancelView.getHtml()).toMatch(cancelText);
   });
 
-  test('description', () => {
-    const description = 'description';
-    const descriptionView = getElement(comp, '.lin-action-sheet-description');
+  test("description", () => {
+    const description = "description";
+    const descriptionView = getElement(comp, ".lin-action-sheet-description");
     expect(descriptionView.exists()).toBeFalsy();
     comp.setData({
       description
@@ -82,9 +82,9 @@ describe('属性', () => {
     expect(descriptionView.getHtml()).toMatch(description);
   });
 
-  test('title', () => {
-    const title = 'title';
-    const titleView = getElement(comp, '.lin-action-sheet-title');
+  test("title", () => {
+    const title = "title";
+    const titleView = getElement(comp, ".lin-action-sheet-title");
     expect(titleView.exists()).toBeFalsy();
     comp.setData({
       title
@@ -93,12 +93,12 @@ describe('属性', () => {
     expect(titleView.getHtml()).toMatch(title);
   });
 
-  test('showCloseIcon', () => {
+  test("showCloseIcon", () => {
     comp = render(id, {
       show: true,
-      title: 'title'
+      title: "title"
     });
-    const icon = getElement(comp, '.lin-action-sheet-close');
+    const icon = getElement(comp, ".lin-action-sheet-close");
     expect(icon.exists()).toBeTruthy();
     comp.setData({
       showCloseIcon: false
@@ -106,30 +106,30 @@ describe('属性', () => {
     expect(icon.exists()).toBeFalsy();
   });
 
-  test('zIndex', () => {
-    const popup = getElement(comp, '.jest-test-action-sheet');
-    expect(popup.getAttribute('zIndex')).toBe(100);
+  test("zIndex", () => {
+    const popup = getElement(comp, ".jest-test-action-sheet");
+    expect(popup.getAttribute("zIndex")).toBe(100);
     comp.setData({
       zIndex: 1
     });
-    expect(popup.getAttribute('zIndex')).toBe(1);
+    expect(popup.getAttribute("zIndex")).toBe(1);
   });
 
-  test('mask', () => {
-    const popup = getElement(comp, '.jest-test-action-sheet');
-    expect(popup.getAttribute('mask')).toBeTruthy();
+  test("mask", () => {
+    const popup = getElement(comp, ".jest-test-action-sheet");
+    expect(popup.getAttribute("mask")).toBeTruthy();
     comp.setData({
       mask: false
     });
-    expect(popup.getAttribute('mask')).toBeFalsy();
+    expect(popup.getAttribute("mask")).toBeFalsy();
   });
 
-  test('safeAreaInsetBottom', () => {
-    const popup = getElement(comp, '.jest-test-action-sheet');
-    expect(popup.getAttribute('safeAreaInsetBottom')).toBeTruthy();
+  test("safeAreaInsetBottom", () => {
+    const popup = getElement(comp, ".jest-test-action-sheet");
+    expect(popup.getAttribute("safeAreaInsetBottom")).toBeTruthy();
     comp.setData({
       safeAreaInsetBottom: false
     });
-    expect(popup.getAttribute('safeAreaInsetBottom')).toBeFalsy();
+    expect(popup.getAttribute("safeAreaInsetBottom")).toBeFalsy();
   });
 });

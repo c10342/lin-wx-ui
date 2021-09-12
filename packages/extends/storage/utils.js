@@ -39,7 +39,7 @@ export function initData(val, options) {
 
 // 判断是否为空值
 export function isNotDefine(val) {
-  return val === null || val === undefined || val === '';
+  return val === null || val === undefined || val === "";
 }
 
 // 判断是不是该工具类存储的数据

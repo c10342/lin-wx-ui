@@ -4,10 +4,10 @@ import {
   render,
   querySelector,
   loadTemplate
-} from '../utils';
-import { canIUseFormFieldButton } from '../../packages/common/version';
+} from "../utils";
+import { canIUseFormFieldButton } from "../../packages/common/version";
 
-jest.mock('../../packages/common/version');
+jest.mock("../../packages/common/version");
 
 canIUseFormFieldButton.mockReturnValue(true);
 
@@ -16,34 +16,34 @@ let id;
 beforeAll(() => {
   // id要唯一，不能每个测试用例都生成一次，不然会报错
   // 或者可以调用  jest.resetModules()，就可以重复生成
-  id = getCompId('Button');
+  id = getCompId("Button");
 });
 
-describe('属性', () => {
+describe("属性", () => {
   let comp;
   let button;
 
   beforeEach(() => {
     comp = render(id);
-    button = getElement(comp, '.lin-button');
+    button = getElement(comp, ".lin-button");
   });
 
   // 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件
-  test('formType', () => {
+  test("formType", () => {
     // 默认情况
-    expect(button.getAttribute('formType')).toBe('');
+    expect(button.getAttribute("formType")).toBe("");
     // 可选值
-    const formTypeList = ['submit', 'reset'];
+    const formTypeList = ["submit", "reset"];
     for (let i = 0; i < formTypeList.length; i++) {
       const formType = formTypeList[i];
       comp.setData({ formType });
-      expect(button.getAttribute('formType')).toBe(formType);
+      expect(button.getAttribute("formType")).toBe(formType);
     }
   });
 
   // 是否禁用按钮
-  test('disabled', () => {
-    const disabledName = 'lin-button-disabled';
+  test("disabled", () => {
+    const disabledName = "lin-button-disabled";
     // 默认情况
     expect(button.hasClassName(disabledName)).toBeFalsy();
     // true的情况
@@ -52,8 +52,8 @@ describe('属性', () => {
   });
 
   // 是否为块级元素
-  test('block', () => {
-    const bolckName = 'lin-button-block';
+  test("block", () => {
+    const bolckName = "lin-button-block";
     // 默认情况
     expect(button.hasClassName(bolckName)).toBeFalsy();
     comp.setData({ block: true });
@@ -61,18 +61,18 @@ describe('属性', () => {
   });
 
   // 按钮类型
-  test('type', () => {
+  test("type", () => {
     // 默认情况
-    expect(button.hasClassName('lin-button-default')).toBeTruthy();
+    expect(button.hasClassName("lin-button-default")).toBeTruthy();
     // 可选值
     const typeList = [
-      'primary',
-      'success',
-      'info',
-      'warning',
-      'danger',
-      'default',
-      'success'
+      "primary",
+      "success",
+      "info",
+      "warning",
+      "danger",
+      "default",
+      "success"
     ];
     for (let i = 0; i < typeList.length; i++) {
       const type = typeList[i];
@@ -82,8 +82,8 @@ describe('属性', () => {
   });
 
   // 是否为朴素按钮
-  test('plain', () => {
-    const plainName = 'lin-button-plain';
+  test("plain", () => {
+    const plainName = "lin-button-plain";
     // 默认情况
     expect(button.hasClassName(plainName)).toBeFalsy();
     comp.setData({ plain: true });
@@ -91,8 +91,8 @@ describe('属性', () => {
   });
 
   // 是否为圆角按钮
-  test('round', () => {
-    const roundName = 'lin-button-round';
+  test("round", () => {
+    const roundName = "lin-button-round";
     // 默认情况
     expect(button.hasClassName(roundName)).toBeFalsy();
     comp.setData({ round: true });
@@ -100,8 +100,8 @@ describe('属性', () => {
   });
 
   // 是否为圆形按钮
-  test('circle', () => {
-    const roundName = 'lin-button-circle';
+  test("circle", () => {
+    const roundName = "lin-button-circle";
     // 默认情况
     expect(button.hasClassName(roundName)).toBeFalsy();
     comp.setData({ circle: true });
@@ -109,23 +109,23 @@ describe('属性', () => {
   });
 
   // 左侧图标相关属性
-  test('icon,iconSize', () => {
+  test("icon,iconSize", () => {
     // 默认情况
-    const icon = getElement(comp, '.lin-button-icon');
+    const icon = getElement(comp, ".lin-button-icon");
     expect(icon.exists()).toBeFalsy();
     comp.setData({
-      icon: 'loading',
-      iconSize: '14px'
+      icon: "loading",
+      iconSize: "14px"
     });
     expect(icon.exists()).toBeTruthy();
-    expect(icon.getAttribute('size')).toBe('14px');
+    expect(icon.getAttribute("size")).toBe("14px");
   });
 
   // 按钮尺寸
-  test('size', () => {
+  test("size", () => {
     // 默认情况
-    expect(button.hasClassName('lin-button-size-default')).toBeTruthy();
-    const sizeList = ['default', 'medium', 'small'];
+    expect(button.hasClassName("lin-button-size-default")).toBeTruthy();
+    const sizeList = ["default", "medium", "small"];
     for (let i = 0; i < sizeList.length; i++) {
       const size = sizeList[i];
       comp.setData({ size });
@@ -134,106 +134,106 @@ describe('属性', () => {
   });
 
   // loading相关属性
-  test('loading,loadingColor,loadingSize', () => {
-    const loading = getElement(comp, '.lin-button-loading');
+  test("loading,loadingColor,loadingSize", () => {
+    const loading = getElement(comp, ".lin-button-loading");
     // 默认情况
     expect(loading.exists()).toBeFalsy();
-    const loadingSize = '20px';
-    const loadingColor = '#fff';
+    const loadingSize = "20px";
+    const loadingColor = "#fff";
     comp.setData({
       loading: true,
       loadingSize,
       loadingColor
     });
     expect(loading.exists()).toBeTruthy();
-    expect(loading.getAttribute('color')).toBe(loadingColor);
-    expect(loading.getAttribute('size')).toBe(loadingSize);
+    expect(loading.getAttribute("color")).toBe(loadingColor);
+    expect(loading.getAttribute("size")).toBe(loadingSize);
   });
 
   // 按钮 dataset，open-type 为 `share` 时，可在 onShareAppMessage 事件的 `event.target.dataset.detail` 中看到传入的值
-  test('dataset', () => {
-    const dataset = { name: 'zhangsan', age: 12 };
+  test("dataset", () => {
+    const dataset = { name: "zhangsan", age: 12 };
     // 默认情况
-    expect(button.getAttribute('data-detail')).toBeNull();
+    expect(button.getAttribute("data-detail")).toBeNull();
     comp.setData({
       dataset
     });
-    expect(button.getAttribute('data-detail')).toEqual(dataset);
+    expect(button.getAttribute("data-detail")).toEqual(dataset);
   });
 
   // 按钮颜色，支持传入 linear-gradient 渐变色
-  test('color', () => {
+  test("color", () => {
     // 默认情况
-    expect(comp.data.baseStyle).toBe('');
+    expect(comp.data.baseStyle).toBe("");
     // 非朴素按钮情况
     comp.setData({
-      color: 'red'
+      color: "red"
     });
-    expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
-      'color:white;background:red;border-color:red;'
+    expect(button.getAttribute("style").replace(/\s+/g, "")).toBe(
+      "color:white;background:red;border-color:red;"
     );
     comp.setData({
-      color: 'green',
+      color: "green",
       plain: true
     });
-    expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
-      'color:green;border-color:green;'
+    expect(button.getAttribute("style").replace(/\s+/g, "")).toBe(
+      "color:green;border-color:green;"
     );
     comp.setData({
-      color: 'linear-gradient(to right, #4bb0ff, #6149f6)'
+      color: "linear-gradient(to right, #4bb0ff, #6149f6)"
     });
-    expect(button.getAttribute('style').replace(/\s+/g, '')).toBe(
-      'color:linear-gradient(to right, #4bb0ff, #6149f6);border:none;'.replace(
+    expect(button.getAttribute("style").replace(/\s+/g, "")).toBe(
+      "color:linear-gradient(to right, #4bb0ff, #6149f6);border:none;".replace(
         /\s+/g,
-        ''
+        ""
       )
     );
   });
 });
 
-describe('事件', () => {
+describe("事件", () => {
   let comp;
   let button;
   beforeEach(() => {
     comp = render(id);
-    button = getElement(comp, '.lin-button');
+    button = getElement(comp, ".lin-button");
   });
   // 点击按钮
-  test('click', async () => {
+  test("click", async () => {
     let fn;
     // 默认情况
-    fn = await button.dispatchEvent('tap');
+    fn = await button.dispatchEvent("tap");
     expect(fn).toBeCalled();
     expect(fn).toHaveBeenCalledTimes(1);
-    expect(fn).toBeCalledWith('click');
+    expect(fn).toBeCalledWith("click");
 
     // 禁用情况
     comp.setData({
       disabled: true
     });
-    fn = await button.dispatchEvent('tap');
+    fn = await button.dispatchEvent("tap");
     expect(fn).not.toBeCalled();
   });
 });
 
-describe('插槽', () => {
-  test('default', () => {
+describe("插槽", () => {
+  test("default", () => {
     const comp = loadTemplate({
       usingComponents: {
-        'lin-button': id
+        "lin-button": id
       },
       template: `<lin-button class='lin-button'>默认按钮</lin-button>`
     });
-    const element = querySelector(comp, '.lin-button');
+    const element = querySelector(comp, ".lin-button");
     expect(element.toJSON()).toMatchSnapshot();
   });
 });
 
-describe('外部样式类', () => {
-  test('externalClasses', () => {
+describe("外部样式类", () => {
+  test("externalClasses", () => {
     const comp = loadTemplate({
       usingComponents: {
-        'lin-button': id
+        "lin-button": id
       },
       template: `
         <lin-button 
@@ -245,14 +245,14 @@ describe('外部样式类', () => {
         ></lin-button>
         `
     });
-    const element = getElement(comp, '.lin-button');
+    const element = getElement(comp, ".lin-button");
     expect(
-      element.hasExternalClass('custom-class', 'class-custom')
+      element.hasExternalClass("custom-class", "class-custom")
     ).toBeTruthy();
     expect(
-      element.hasExternalClass('loading-class', 'class-loading')
+      element.hasExternalClass("loading-class", "class-loading")
     ).toBeTruthy();
-    expect(element.hasExternalClass('icon-class', 'class-icon')).toBeTruthy();
-    expect(element.hasExternalClass('hover-class', 'class-hover')).toBeTruthy();
+    expect(element.hasExternalClass("icon-class", "class-icon")).toBeTruthy();
+    expect(element.hasExternalClass("hover-class", "class-hover")).toBeTruthy();
   });
 });

@@ -1,18 +1,22 @@
-import storage from '../storage/index';
-import request from '../request/index';
+import storage from "../storage/index";
+import request from "../request/index";
 
 let defaultCacheConfig = {
   // cache: false-缓存；1本地有数据就使用本地数据，不请求；2-本地有数据就返回本地数据，然后请求数据回来之后更新缓存
   cache: 1,
-  cacheKey(requestConfig, cacheOptions) {
+  // requestConfig, cacheOptions
+  cacheKey(requestConfig) {
     return requestConfig.url;
   },
-  shouldCache(requestConfig, cacheOptions) {
-    return requestConfig.method === 'get';
+  // requestConfig, cacheOptions
+  shouldCache(requestConfig) {
+    return requestConfig.method === "get";
   }
 };
 
-function ApiCache() {}
+function ApiCache() {
+  // todo
+}
 
 ApiCache.prototype.setCacheConfig = function (config) {
   defaultCacheConfig = Object.assign({}, defaultCacheConfig, config);
@@ -40,7 +44,9 @@ ApiCache.prototype.request = function (method, url, config, cacheOptions) {
           .then((res) => {
             storage.set(cacheKey, res, cacheConfig);
           })
-          .catch(() => {});
+          .catch(() => {
+            // todo
+          });
       }
 
       return Promise.resolve(cacheValue);
@@ -62,16 +68,16 @@ ApiCache.prototype.request = function (method, url, config, cacheOptions) {
 };
 
 const methodList = [
-  'options',
-  'get',
-  'head',
-  'post',
-  'put',
-  'delete',
-  'trace',
-  'connect',
-  'download',
-  'upload'
+  "options",
+  "get",
+  "head",
+  "post",
+  "put",
+  "delete",
+  "trace",
+  "connect",
+  "download",
+  "upload"
 ];
 
 methodList.forEach((method) => {

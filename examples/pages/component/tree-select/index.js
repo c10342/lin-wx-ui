@@ -5,58 +5,58 @@ Page({
   data: {
     items1: [
       {
-        text: '浙江',
+        text: "浙江",
         children: [
           {
-            text: '杭州',
+            text: "杭州",
             id: 1
           },
           {
-            text: '温州',
+            text: "温州",
             id: 2
           },
           {
-            text: '宁波',
+            text: "宁波",
             id: 3,
             disabled: true
           },
           {
-            text: '义乌',
+            text: "义乌",
             id: 4
           }
         ]
       },
       {
-        text: '江苏',
+        text: "江苏",
         children: [
           {
-            text: '南京',
+            text: "南京",
             id: 5
           },
           {
-            text: '无锡',
+            text: "无锡",
             id: 6
           },
           {
-            text: '徐州',
+            text: "徐州",
             id: 7
           },
           {
-            text: '苏州',
+            text: "苏州",
             id: 8
           }
         ]
       },
       {
-        text: '福建',
+        text: "福建",
         disabled: true,
         children: [
           {
-            text: '泉州',
+            text: "泉州",
             id: 9
           },
           {
-            text: '厦门',
+            text: "厦门",
             id: 10
           }
         ]
@@ -73,10 +73,10 @@ Page({
     activeId3: null,
     items3: [
       {
-        text: '分组1'
+        text: "分组1"
       },
       {
-        text: '分组2'
+        text: "分组2"
       }
     ],
 
@@ -84,58 +84,58 @@ Page({
     activeId4: null,
     items4: [
       {
-        text: '浙江',
+        text: "浙江",
         badge: 3,
         children: [
           {
-            text: '杭州',
+            text: "杭州",
             id: 1
           },
           {
-            text: '温州',
+            text: "温州",
             id: 2
           },
           {
-            text: '宁波',
+            text: "宁波",
             id: 3
           },
           {
-            text: '义乌',
+            text: "义乌",
             id: 4
           }
         ]
       },
       {
-        text: '江苏',
+        text: "江苏",
         dot: true,
         children: [
           {
-            text: '南京',
+            text: "南京",
             id: 5
           },
           {
-            text: '无锡',
+            text: "无锡",
             id: 6
           },
           {
-            text: '徐州',
+            text: "徐州",
             id: 7
           },
           {
-            text: '苏州',
+            text: "苏州",
             id: 8
           }
         ]
       },
       {
-        text: '福建',
+        text: "福建",
         children: [
           {
-            text: '泉州',
+            text: "泉州",
             id: 9
           },
           {
-            text: '厦门',
+            text: "厦门",
             id: 10
           }
         ]
@@ -176,45 +176,5 @@ Page({
     this.setData({
       activeId2
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {}
+  }
 });

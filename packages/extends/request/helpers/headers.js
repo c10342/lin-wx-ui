@@ -1,4 +1,4 @@
-import { deepMerge } from './utils';
+import { deepMerge } from "./utils";
 /**
  * 处理headers
  * {
@@ -36,14 +36,14 @@ export function flattenHeaders(headers, method) {
 
   // 需要从headers中删除的无用key
   const methodsToDelete = [
-    'delete',
-    'get',
-    'head',
-    'options',
-    'post',
-    'put',
-    'patch',
-    'common'
+    "delete",
+    "get",
+    "head",
+    "options",
+    "post",
+    "put",
+    "patch",
+    "common"
   ];
 
   methodsToDelete.forEach((key) => {

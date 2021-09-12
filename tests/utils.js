@@ -1,5 +1,5 @@
-import path from 'path';
-import simulate from 'miniprogram-simulate';
+import path from "path";
+import simulate from "miniprogram-simulate";
 
 export function loadTemplate(obj = {}) {
   return render(simulate.load(obj));
@@ -16,7 +16,7 @@ export function getCompId(compName) {
   return simulate.load(
     path.resolve(__dirname, `./../packages/${compName}/index`),
     {
-      rootPath: path.resolve('packages/')
+      rootPath: path.resolve("packages/")
     }
   );
 }
@@ -24,7 +24,7 @@ export function getCompId(compName) {
 // 渲染组件
 export function render(compId, props = {}) {
   const comp = simulate.render(compId, props);
-  comp.attach(document.createElement('parent-wrapper'));
+  comp.attach(document.createElement("parent-wrapper"));
   return comp;
 }
 
@@ -46,7 +46,7 @@ class CompUtils {
 
   getClassNames() {
     this.initDom();
-    return getAttribute(this.component, 'class');
+    return getAttribute(this.component, "class");
   }
 
   hasClassName(className) {
@@ -94,7 +94,7 @@ class CompUtils {
 
 // 判断是否存在类名
 function hasClassName(component, classname) {
-  const classes = getAttribute(component, 'class');
+  const classes = getAttribute(component, "class");
   if (!classes) {
     return false;
   }
