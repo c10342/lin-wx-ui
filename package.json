@@ -7,7 +7,8 @@
   "keywords": [
     "wechat",
     "UI",
-    "Component"
+    "Component",
+    "typescript"
   ],
   "license": "MIT",
   "homepage": "https://github.com/c10342/lin-wx-ui",
@@ -45,12 +46,6 @@
     "prepare": "husky install",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-    }
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
