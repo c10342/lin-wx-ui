@@ -74,6 +74,10 @@ const buildWxml = (srcPath, distPath) => () =>
 const buildJson = (srcPath, distPath) => () =>
   src(srcPath).pipe(jsonmin()).pipe(dest(distPath));
 
+const buildJs = (srcPath, distPath) => () => {
+  return src(srcPath).pipe(jsmin()).pipe(dest(distPath));
+};
+
 const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
 
 const buildImage = (srcPath, distPath) => () =>
@@ -84,6 +88,7 @@ const copyStatic = (srcPath, distPath) => {
     copy(srcPath, distPath, "wxml"),
     copy(srcPath, distPath, "wxs"),
     copy(srcPath, distPath, "json"),
+    copy(srcPath, distPath, "js"),
     copy(srcPath, distPath, "png")
   );
 };
@@ -98,6 +103,7 @@ module.exports = {
   buildWxml,
   buildImage,
   buildJson,
+  buildJs,
   copyStatic,
   clean,
   copy,

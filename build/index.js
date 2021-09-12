@@ -1,5 +1,6 @@
 const {
   buildImage,
+  buildJs,
   buildJson,
   buildWxml,
   buildWxss,
@@ -30,6 +31,7 @@ module.exports = {
       buildWxml(`${packagesPath}/*.wxml`, distPath),
       buildImage(`${packagesPath}/*.png`, distPath),
       buildJson(`${packagesPath}/*.json`, distPath),
+      buildJs(`${packagesPath}/*.js`, distPath),
       buildWxs(`${packagesPath}/*.wxs`, distPath),
       buildTs(`${packagesPath}/*.ts`, distPath)
     )
@@ -51,6 +53,7 @@ module.exports = {
     watch("../packages/**/*.wxml", copy(packagesPath, examplePath, "wxml"));
     watch("../packages/**/*.wxs", copy(packagesPath, examplePath, "wxs"));
     watch("../packages/**/*.json", copy(packagesPath, examplePath, "json"));
+    watch("../packages/**/*.js", copy(packagesPath, examplePath, "js"));
     watch("../packages/**/*.png", copy(packagesPath, examplePath, "png"));
   })
 };
