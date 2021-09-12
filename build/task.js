@@ -16,10 +16,6 @@ const rename = require("gulp-rename");
 
 const insert = require("gulp-insert");
 
-const eslint = require("gulp-eslint7");
-
-const gulpStylelint = require("gulp-stylelint");
-
 const del = require("del");
 
 const path = require("path");
@@ -31,28 +27,14 @@ const tsProject = ts.createProject("../tsconfig.json");
 const isDev = process.env.NODE_ENV === "development";
 
 const buildTs = (srcPath, distPath) => () => {
-  let tsResult = src(srcPath).pipe(tsProject());
-  if (!isDev) {
-    return tsResult.js
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError())
-      .pipe(dest(distPath));
+  if (isDev) {
+    return src(srcPath).pipe(tsProject()).js.pipe(dest(distPath));
   }
-
-  return tsResult.js.pipe(dest(distPath));
+  return src(srcPath).pipe(tsProject()).js.pipe(jsmin()).pipe(dest(distPath));
 };
 
 const buildWxss = (srcPath, distPath) => () => {
-  let p = src(srcPath);
-  if (!isDev) {
-    p = p.pipe(
-      gulpStylelint({
-        reporters: [{ formatter: "string", console: true }]
-      })
-    );
-  }
-  return p
+  return src(srcPath)
     .pipe(sass().on("error", sass.logError))
     .pipe(cssmin())
     .pipe(
@@ -74,11 +56,7 @@ const buildWxss = (srcPath, distPath) => () => {
 };
 
 const copy = (srcPath, distPath, ext) => () => {
-  let p = src(`${srcPath}/*.${ext}`);
-  if (ext === "js" && !isDev) {
-    p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
-  }
-  return p.pipe(dest(distPath));
+  return src(`${srcPath}/*.${ext}`).pipe(dest(distPath));
 };
 
 const buildWxml = (srcPath, distPath) => () =>
@@ -96,15 +74,6 @@ const buildWxml = (srcPath, distPath) => () =>
 const buildJson = (srcPath, distPath) => () =>
   src(srcPath).pipe(jsonmin()).pipe(dest(distPath));
 
-const buildJs = (srcPath, distPath) => () => {
-  let p = src(srcPath);
-  if (!isDev) {
-    p = p.pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError());
-  }
-
-  return p.pipe(jsmin()).pipe(dest(distPath));
-};
-
 const buildWxs = (srcPath, distPath) => () => src(srcPath).pipe(dest(distPath));
 
 const buildImage = (srcPath, distPath) => () =>
@@ -115,7 +84,6 @@ const copyStatic = (srcPath, distPath) => {
     copy(srcPath, distPath, "wxml"),
     copy(srcPath, distPath, "wxs"),
     copy(srcPath, distPath, "json"),
-    copy(srcPath, distPath, "js"),
     copy(srcPath, distPath, "png")
   );
 };
@@ -130,7 +98,6 @@ module.exports = {
   buildWxml,
   buildImage,
   buildJson,
-  buildJs,
   copyStatic,
   clean,
   copy,
