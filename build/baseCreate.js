@@ -10,11 +10,6 @@ const argv = process.argv;
 
 const componentName = argv[2];
 
-const componentNameLine = componentName
-  .replace(/([A-Z])/g, "-$1")
-  .toLowerCase()
-  .substring(1);
-
 const packagesPath = path.resolve(__dirname, "../packages");
 
 const examplePath = path.resolve(__dirname, "../examples");
@@ -23,9 +18,9 @@ const compJsTemplate = template.compJsTemplate();
 
 const compJsonTemplate = template.compJsonTemplate();
 
-const compScssTemplate = template.compScssTemplate(componentNameLine);
+const compScssTemplate = template.compScssTemplate(componentName);
 
-const compWxmlTemplate = template.compWxmlTemplate(componentNameLine);
+const compWxmlTemplate = template.compWxmlTemplate(componentName);
 
 const pageJsTemplate = template.pageJsTemplate();
 
@@ -48,7 +43,7 @@ function createPackagesFile(pathSrc) {
   try {
     const wxml = path.resolve(pathSrc, "./index.wxml");
     const json = path.resolve(pathSrc, "./index.json");
-    const js = path.resolve(pathSrc, "./index.js");
+    const js = path.resolve(pathSrc, "./index.ts");
     const scss = path.resolve(pathSrc, "./index.scss");
     fs.writeFileSync(wxml, compWxmlTemplate);
     fs.writeFileSync(json, compJsonTemplate);
@@ -83,6 +78,5 @@ module.exports = {
   createDir,
   createPackagesFile,
   createExampleFile,
-  componentName,
-  componentNameLine
+  componentName
 };

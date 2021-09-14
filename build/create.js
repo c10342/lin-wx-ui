@@ -25,15 +25,15 @@ function createExampleComponent() {
   const pathSrc = path.resolve(
     utils.examplePath,
     "./pages/component",
-    utils.componentNameLine
+    utils.componentName
   );
   const result = utils.createDir(pathSrc);
   if (result) {
     const flag = utils.createExampleFile(pathSrc);
     if (flag) {
-      appJson.pages.push(`pages/component/${utils.componentNameLine}/index`);
+      appJson.pages.push(`pages/component/${utils.componentName}/index`);
       appJson.usingComponents[
-        `lin-${utils.componentNameLine}`
+        `lin-${utils.componentName}`
       ] = `/dist/${utils.componentName}/index`;
       fs.writeFileSync(
         path.resolve(utils.examplePath, "./app.json"),

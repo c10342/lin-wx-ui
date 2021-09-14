@@ -23,7 +23,7 @@ function createPackageComponent() {
 
 function registExampleComponent() {
   appJson.usingComponents[
-    `lin-${utils.componentNameLine}`
+    `lin-${utils.componentName}`
   ] = `/dist/${utils.componentName}/index`;
   fs.writeFileSync(
     path.resolve(utils.examplePath, "./app.json"),

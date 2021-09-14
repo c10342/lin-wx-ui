@@ -1,20 +1,12 @@
 const compJsTemplate = () => {
   return `
-Component({
-    options: {
-      addGlobalClass: true,
-      multipleSlots: true,
-    },
-    externalClasses: ["custom-class"],
-    properties: {},
+  import { LinComponent } from "../common/component";
+  LinComponent({
+    classes: [],
+    props: {},
     data: {},
     methods: {},
-    created: function () {},
-    attached: function () {},
-    ready: function () {},
-    moved: function () {},
-    detached: function () {},
-});
+  });
 `;
 };
 
@@ -26,17 +18,17 @@ const compJsonTemplate = () => {
 `;
 };
 
-const compScssTemplate = (componentNameLine) => {
+const compScssTemplate = (componentName) => {
   return `
-.lin-${componentNameLine}{
+.lin-${componentName}{
     
 }
 `;
 };
 
-const compWxmlTemplate = (componentNameLine) => {
+const compWxmlTemplate = (componentName) => {
   return `
-<view class='custom-class lin-${componentNameLine}'>
+<view class='custom-class lin-${componentName}'>
     
 </view>
 `;
