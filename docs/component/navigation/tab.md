@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-tab": "/dist/Tab/index",
-   "lin-tabs": "/dist/Tabs/index"
+   "lin-tab": "/dist/tab/index",
+   "lin-tabs": "/dist/tabs/index"
 }
 ```
 
@@ -311,7 +311,7 @@ Page({
 ::: details 代码示例
 
 ```html
-<lin-button style="margin-left:20rpx;" bind:click="onClick">显示</lin-button>
+<lin-button style="margin-left: 20rpx;" bind:click="onClick">显示</lin-button>
 
 <lin-popup show="{ { show }}" position="bottom" bind:mask-click="onMaskClick">
   <lin-tabs

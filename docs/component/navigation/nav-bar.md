@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-nav-bar": "/dist/NavBar/index"
+   "lin-nav-bar": "/dist/nav-bar/index"
 }
 ```
 

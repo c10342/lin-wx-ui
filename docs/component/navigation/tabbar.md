@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-tabbar": "/dist/Tabbar/index",
-   "lin-tabbar-item": "/dist/TabbarItem/index"
+   "lin-tabbar": "/dist/tabbar/index",
+   "lin-tabbar-item": "/dist/tabbar-item/index"
 }
 ```
 

@@ -9,7 +9,7 @@ Api 缓存是 `request`网络请求和`storage`本地缓存结合的产物。目
 在 index.js 中引入
 
 ```javascript
-import apiCache from '/dist/extends/apiCache/index';
+import apiCache from '/dist/extends/api-cache/index';
 ```
 
 ## 特性

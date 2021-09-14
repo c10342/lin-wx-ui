@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-slider": "/dist/Slider/index"
+  "lin-slider": "/dist/slider/index"
 }
 ```
 

@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-checkbox": "/dist/Checkbox/index",
-  "lin-checkbox-group": "/dist/CheckboxGroup/index"
+  "lin-checkbox": "/dist/checkbox/index",
+  "lin-checkbox-group": "/dist/checkbox-group/index"
 }
 ```
 

@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-empty": "/dist/Empty/index"
+  "lin-empty": "/dist/empty/index"
 }
 ```
 
@@ -71,10 +71,10 @@ pageClass: component-page-class
 
 ```css
 .bottom-button {
+  justify-content: center;
   width: 160px;
   height: 40px;
   text-align: center;
-  justify-content: center;
 }
 ```
 

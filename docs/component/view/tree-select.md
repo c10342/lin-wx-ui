@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-tree-select": "/dist/TreeSelect/index"
+  "lin-tree-select": "/dist/tree-select/index"
 }
 ```
 

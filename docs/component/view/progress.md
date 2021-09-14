@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-progress": "/dist/Progress/index"
+  "lin-progress": "/dist/progress/index"
 }
 ```
 

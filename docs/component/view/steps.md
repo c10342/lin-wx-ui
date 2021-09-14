@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-steps": "/dist/Steps/index"
+  "lin-steps": "/dist/steps/index"
 }
 ```
 

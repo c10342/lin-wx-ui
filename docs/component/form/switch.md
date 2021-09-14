@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-switch": "/dist/Switch/index"
+  "lin-switch": "/dist/switch/index"
 }
 ```
 

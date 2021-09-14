@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-sidebar": "/dist/Sidebar/index",
-   "lin-sidebar-item": "/dist/SidebarItem/index"
+   "lin-sidebar": "/dist/sidebar/index",
+   "lin-sidebar-item": "/dist/sidebar-item/index"
 }
 ```
 

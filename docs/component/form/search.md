@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-search": "/dist/Search/index"
+  "lin-search": "/dist/search/index"
 }
 ```
 

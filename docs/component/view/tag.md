@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-tag": "/dist/Tag/index"
+  "lin-tag": "/dist/tag/index"
 }
 ```
 

@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-grid": "/dist/Grid/index",
-  "lin-grid-item": "/dist/GridItem/index"
+  "lin-grid": "/dist/grid/index",
+  "lin-grid-item": "/dist/grid-item/index"
 }
 ```
 

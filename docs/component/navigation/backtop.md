@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-backtop": "/dist/Backtop/index"
+  "lin-backtop": "/dist/backtop/index"
 }
 ```
 

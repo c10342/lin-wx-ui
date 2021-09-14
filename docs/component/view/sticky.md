@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-sticky": "/dist/Sticky/index"
+  "lin-sticky": "/dist/sticky/index"
 }
 ```
 
@@ -40,7 +40,7 @@ pageClass: component-page-class
 
 ```html
 <lin-sticky offset-top="{ { 50 }}">
-  <lin-button style="margin-left:100px" type="primary">吸顶距离</lin-button>
+  <lin-button style="margin-left: 100px;" type="primary">吸顶距离</lin-button>
 </lin-sticky>
 ```
 
@@ -55,7 +55,7 @@ pageClass: component-page-class
 ```html
 <view id="container" style="height: 150px;">
   <lin-sticky container="{ { container }}">
-    <lin-button style="margin-left:200px" type="warning">
+    <lin-button style="margin-left: 200px;" type="warning">
       指定容器
     </lin-button>
   </lin-sticky>

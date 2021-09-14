@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-water-flow": "/dist/WaterFlow/index",
-  "lin-water-flow-item": "/dist/WaterFlowItem/index"
+  "lin-water-flow": "/dist/water-flow/index",
+  "lin-water-flow-item": "/dist/water-flow-item/index"
 }
 ```
 
@@ -98,10 +98,10 @@ Page({
 
 ```css
 .water-flow-item-wrapper {
-  border-radius: 10rpx;
   overflow: hidden;
   font-size: 26rpx;
-  background-color: #ffffff;
+  background-color: #fff;
+  border-radius: 10rpx;
 }
 
 .image {
@@ -109,16 +109,16 @@ Page({
 }
 
 .title {
+  padding: 20rpx;
   font-weight: 500;
   line-height: 16px;
-  padding: 20rpx;
 }
 
 .describe {
-  color: #646566;
-  line-height: 20px;
   padding: 20rpx;
   padding-top: 0;
+  line-height: 20px;
+  color: #646566;
 }
 ```
 

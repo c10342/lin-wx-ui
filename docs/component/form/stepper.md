@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-stepper": "/dist/Stepper/index"
+  "lin-stepper": "/dist/stepper/index"
 }
 ```
 

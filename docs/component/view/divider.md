@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-divider": "/dist/Divider/index"
+  "lin-divider": "/dist/divider/index"
 }
 ```
 

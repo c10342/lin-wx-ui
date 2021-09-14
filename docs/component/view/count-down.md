@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-count-down": "/dist/CountDown/index"
+  "lin-count-down": "/dist/count-down/index"
 }
 ```
 

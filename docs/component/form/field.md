@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-field": "/dist/Field/index"
+  "lin-field": "/dist/field/index"
 }
 ```
 

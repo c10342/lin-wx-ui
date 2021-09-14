@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-picker": "/dist/Picker/index"
+  "lin-picker": "/dist/picker/index"
 }
 ```
 

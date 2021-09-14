@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-skeleton": "/dist/Skeleton/index"
+  "lin-skeleton": "/dist/skeleton/index"
 }
 ```
 

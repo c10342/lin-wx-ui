@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-   "lin-index-bar": "/dist/IndexBar/index",
-   "lin-index-anchor": "/dist/IndexAnchor/index"
+   "lin-index-bar": "/dist/index-bar/index",
+   "lin-index-anchor": "/dist/index-anchor/index"
 }
 ```
 

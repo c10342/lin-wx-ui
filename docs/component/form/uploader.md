@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-uploader": "/dist/Uploader/index"
+  "lin-uploader": "/dist/uploader/index"
 }
 ```
 

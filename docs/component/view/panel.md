@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-panel": "/dist/Panel/index"
+  "lin-panel": "/dist/panel/index"
 }
 ```
 

@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-float-button": "/dist/FloatButton/index"
+  "lin-float-button": "/dist/float-button/index"
 }
 ```
 

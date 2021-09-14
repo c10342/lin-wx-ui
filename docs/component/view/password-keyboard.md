@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-password-keyboard": "/dist/PasswordKeyboard/index"
+  "lin-password-keyboard": "/dist/password-keyboard/index"
 }
 ```
 

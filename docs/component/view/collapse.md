@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-collapse": "/dist/Collapse/index",
-  "lin-collapse-item": "/dist/CollapseItem/index"
+  "lin-collapse": "/dist/collapse/index",
+  "lin-collapse-item": "/dist/collapse-item/index"
 }
 ```
 

@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-rate": "/dist/Rate/index"
+  "lin-rate": "/dist/rate/index"
 }
 ```
 

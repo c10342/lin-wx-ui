@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-radio": "/dist/Radio/index",
-  "lin-radio-group": "/dist/RadioGroup/index",
+  "lin-radio": "/dist/radio/index",
+  "lin-radio-group": "/dist/radio-group/index",
 }
 ```
 

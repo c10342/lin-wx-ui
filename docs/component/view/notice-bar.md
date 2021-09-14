@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-notice-bar": "/dist/NoticeBar/index"
+  "lin-notice-bar": "/dist/notice-bar/index"
 }
 ```
 
@@ -42,7 +42,7 @@ pageClass: component-page-class
 ```html
 <!-- 文字较短时，通过设置 scrollable 属性开启滚动播放 -->
 <lin-notice-bar speed="20" scrollable text="技术是开发它的人的共同灵魂。" />
-<view style="height:40rpx;"></view>
+<view style="height: 40rpx;"></view>
 <!-- 文字较长时，通过禁用 scrollable 属性关闭滚动播放 -->
 <lin-notice-bar
   scrollable="{ { false }}"
@@ -81,7 +81,7 @@ pageClass: component-page-class
   mode="closeable"
   text="技术是开发它的人的共同灵魂。"
 />
-<view style="height:40rpx;"></view>
+<view style="height: 40rpx;"></view>
 <!-- link 模式，在右侧显示链接箭头 -->
 <lin-notice-bar
   scrollable="{ { false }}"

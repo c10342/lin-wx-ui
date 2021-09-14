@@ -14,8 +14,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-form": "/dist/Form/index",
-  "lin-form-item": "/dist/FormItem/index"
+  "lin-form": "/dist/form/index",
+  "lin-form-item": "/dist/form-item/index"
 }
 ```
 
@@ -44,8 +44,8 @@ pageClass: component-page-class
       value="{ { student1.hobby }}"
       bind:change="onChange"
     >
-      <lin-checkbox style="margin-right:10rpx;" name="a">篮球</lin-checkbox>
-      <lin-checkbox style="margin-right:10rpx;" name="b">足球</lin-checkbox>
+      <lin-checkbox style="margin-right: 10rpx;" name="a">篮球</lin-checkbox>
+      <lin-checkbox style="margin-right: 10rpx;" name="b">足球</lin-checkbox>
       <lin-checkbox name="c">排球</lin-checkbox>
     </lin-checkbox-group>
   </lin-form-item>
@@ -56,7 +56,7 @@ pageClass: component-page-class
       value="{ { student1.sex }}"
       bind:change="onChange"
     >
-      <lin-radio style="margin-right:10rpx;" name="man">男</lin-radio>
+      <lin-radio style="margin-right: 10rpx;" name="man">男</lin-radio>
       <lin-radio name="woman">女</lin-radio>
     </lin-radio-group>
   </lin-form-item>
@@ -69,7 +69,7 @@ pageClass: component-page-class
   </lin-form-item>
   <view slot="footer">
     <lin-button type="primary" bind:click="submit1">提交</lin-button>
-    <lin-button style="margin-left:20rpx;" bind:click="reset1">重置</lin-button>
+    <lin-button style="margin-left: 20rpx;" bind:click="reset1">重置</lin-button>
   </view>
 </lin-form>
 ```
@@ -141,8 +141,8 @@ Page({
       value="{ { student2.hobby }}"
       bind:change="onChange"
     >
-      <lin-checkbox style="margin-right:10rpx;" name="a">篮球</lin-checkbox>
-      <lin-checkbox style="margin-right:10rpx;" name="b">足球</lin-checkbox>
+      <lin-checkbox style="margin-right: 10rpx;" name="a">篮球</lin-checkbox>
+      <lin-checkbox style="margin-right: 10rpx;" name="b">足球</lin-checkbox>
       <lin-checkbox name="c">排球</lin-checkbox>
     </lin-checkbox-group>
   </lin-form-item>
@@ -153,7 +153,7 @@ Page({
       value="{ { student2.sex }}"
       bind:change="onChange"
     >
-      <lin-radio style="margin-right:10rpx;" name="man">男</lin-radio>
+      <lin-radio style="margin-right: 10rpx;" name="man">男</lin-radio>
       <lin-radio name="woman">女</lin-radio>
     </lin-radio-group>
   </lin-form-item>
@@ -166,7 +166,7 @@ Page({
   </lin-form-item>
   <view slot="footer">
     <lin-button type="primary" bind:click="submit2">提交</lin-button>
-    <lin-button style="margin-left:20rpx;" bind:click="reset2">重置</lin-button>
+    <lin-button style="margin-left: 20rpx;" bind:click="reset2">重置</lin-button>
   </view>
 </lin-form>
 ```
