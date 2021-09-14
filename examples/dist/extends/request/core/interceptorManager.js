@@ -3,7 +3,6 @@ export default class InterceptorManager {
     // 存储拦截器
     this.interceptor = [];
   }
-
   // 添加拦截器
   use(resolve, reject) {
     this.interceptor.push({
@@ -13,7 +12,6 @@ export default class InterceptorManager {
     // id值，用来删除拦截器的
     return this.interceptor.length - 1;
   }
-
   // 遍历拦截器
   forEach(callback) {
     this.interceptor.forEach((i) => {
@@ -22,7 +20,6 @@ export default class InterceptorManager {
       }
     });
   }
-
   // 删除拦截器
   eject(id) {
     if (this.interceptor[id]) {

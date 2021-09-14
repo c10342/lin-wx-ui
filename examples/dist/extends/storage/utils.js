@@ -7,7 +7,6 @@ export function checkExpire(val) {
   }
   return false;
 }
-
 // promise化函数
 export function promisify(fnName) {
   return function (options = {}) {
@@ -16,15 +15,15 @@ export function promisify(fnName) {
       return wx[fnName](options);
     }
     return new Promise((resolve, reject) => {
-      wx[fnName]({
-        ...options,
-        fail: reject,
-        success: resolve
-      });
+      wx[fnName](
+        Object.assign(Object.assign({}, options), {
+          fail: reject,
+          success: resolve
+        })
+      );
     });
   };
 }
-
 // 将开发者需要存储的数据转化为工具类要求的格式
 export function initData(val, options) {
   const valueObj = {
@@ -36,17 +35,14 @@ export function initData(val, options) {
   }
   return valueObj;
 }
-
 // 判断是否为空值
 export function isNotDefine(val) {
   return val === null || val === undefined || val === "";
 }
-
 // 判断是不是该工具类存储的数据
 export const isFlag = (val) => {
   if (!val) {
     return false;
   }
-
   return !!val._flag_;
 };

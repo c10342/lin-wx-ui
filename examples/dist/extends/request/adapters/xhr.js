@@ -3,39 +3,36 @@ import {
   handelCancel,
   handelFail
 } from "../helpers/handelRequest";
-
 export default function xhr(config) {
   return new Promise((resolve, reject) => {
     // 先处理一下请求数据
     const params = handelRequestData();
-
-    const request = wx.request({
-      ...params,
-      success(res) {
-        handelResponse({
-          res,
-          config,
-          request,
-          resolve,
-          reject
-        });
-      },
-      fail(error) {
-        handelFail({
-          reject,
-          config,
-          request,
-          error
-        });
-      }
-    });
-
+    const request = wx.request(
+      Object.assign(Object.assign({}, params), {
+        success(res) {
+          handelResponse({
+            res,
+            config,
+            request,
+            resolve,
+            reject
+          });
+        },
+        fail(error) {
+          handelFail({
+            reject,
+            config,
+            request,
+            error
+          });
+        }
+      })
+    );
     handelCancel({
       config,
       request,
       reject
     });
-
     // 处理请求数据
     function handelRequestData() {
       // 微信小程序wx.request支持的参数列表
@@ -52,7 +49,6 @@ export default function xhr(config) {
       const params = {
         method: "GET"
       };
-
       if (typeof config.headers !== "undefined") {
         // 微信小程序是header
         params.header = config.headers;

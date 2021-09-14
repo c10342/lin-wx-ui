@@ -1,6 +1,5 @@
 import storage from "../storage/index";
 import request from "../request/index";
-
 let defaultCacheConfig = {
   // cache: false-缓存；1本地有数据就使用本地数据，不请求；2-本地有数据就返回本地数据，然后请求数据回来之后更新缓存
   cache: 1,
@@ -13,21 +12,17 @@ let defaultCacheConfig = {
     return requestConfig.method === "get";
   }
 };
-
 function ApiCache() {
   // todo
 }
-
 ApiCache.prototype.setCacheConfig = function (config) {
   defaultCacheConfig = Object.assign({}, defaultCacheConfig, config);
 };
-
 ApiCache.prototype.request = function (method, url, config, cacheOptions) {
   const requestConfig = Object.assign({}, config || {}, {
     method,
     url
   });
-
   const cacheConfig = Object.assign({}, defaultCacheConfig, cacheOptions);
   if (
     cacheConfig.cache &&
@@ -48,7 +43,6 @@ ApiCache.prototype.request = function (method, url, config, cacheOptions) {
             // todo
           });
       }
-
       return Promise.resolve(cacheValue);
     } else {
       //   不存在缓存值得时候
@@ -66,7 +60,6 @@ ApiCache.prototype.request = function (method, url, config, cacheOptions) {
     return request.request(requestConfig);
   }
 };
-
 const methodList = [
   "options",
   "get",
@@ -79,13 +72,10 @@ const methodList = [
   "download",
   "upload"
 ];
-
 methodList.forEach((method) => {
   ApiCache.prototype[method] = function (url, config, cacheOptions) {
     return this.request(method, url, config, cacheOptions);
   };
 });
-
 const apiCache = new ApiCache();
-
 export default apiCache;

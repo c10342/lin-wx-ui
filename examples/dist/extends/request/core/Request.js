@@ -1,21 +1,21 @@
 import dispatchRequest from "./dispatchRequest";
 import InterceptorManager from "./interceptorManager";
 import { deepMerge } from "../helpers/utils";
-
 export default function Request(config) {
   // 默认配置
+  // @ts-ignore
   this.defaults = config;
   // 拦截器
+  // @ts-ignore
   this.interceptors = {
     request: new InterceptorManager(),
     respond: new InterceptorManager()
   };
 }
-
 // 函数重载
 // request('/abc',{...})
 // request({...})
-Request.prototype.request = function (url, config = {}) {
+Request.prototype.request = function (url, config) {
   if (typeof url === "string") {
     if (!config) {
       config = {};
@@ -27,8 +27,8 @@ Request.prototype.request = function (url, config = {}) {
   // 合并配置
   config = deepMerge(this.defaults, config);
   // 将请求方法统一转成小写
+  // @ts-ignore
   config.method = config.method.toLocaleLowerCase();
-
   // 定义一个数组，实现链式调用
   const chain = [
     {
@@ -36,7 +36,6 @@ Request.prototype.request = function (url, config = {}) {
       reject: undefined
     }
   ];
-
   // 请求拦截器往前面放，这也是为什么请求拦截器后声明的先执行
   this.interceptors.request.forEach((interceptor) => {
     chain.unshift(interceptor);
@@ -52,10 +51,8 @@ Request.prototype.request = function (url, config = {}) {
     const { resolve, reject } = chain.shift();
     promise = promise.then(resolve, reject);
   }
-
   return promise;
 };
-
 // 微信小程序method 的合法值
 const methodList = [
   "options",
@@ -69,13 +66,11 @@ const methodList = [
   "download",
   "upload"
 ];
-
 methodList.forEach((method) => {
   Request.prototype[method] = function (url, config = {}) {
     return this._request(method, url, config);
   };
 });
-
 Request.prototype._request = function (method, url, config) {
   return this.request(
     Object.assign(config || {}, {

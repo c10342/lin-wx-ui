@@ -33,7 +33,6 @@ export function flattenHeaders(headers, method) {
     return headers;
   }
   headers = deepMerge(headers.common, headers[method], headers);
-
   // 需要从headers中删除的无用key
   const methodsToDelete = [
     "delete",
@@ -45,10 +44,8 @@ export function flattenHeaders(headers, method) {
     "patch",
     "common"
   ];
-
   methodsToDelete.forEach((key) => {
     delete headers[key];
   });
-
   return headers;
 }

@@ -3,7 +3,6 @@ export default class Cancel {
     this.message = message;
   }
 }
-
 export function isCancel(value) {
   return value instanceof Cancel;
 }

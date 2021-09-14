@@ -1,5 +1,4 @@
 const cacheKey = "_storage_cache_key_";
-
 export function addCacheKey(key) {
   const cacheList = wx.getStorageSync(cacheKey) || [];
   const index = cacheList.findIndex((k) => key === k);
@@ -9,7 +8,6 @@ export function addCacheKey(key) {
   cacheList.push(key);
   wx.setStorageSync(cacheKey, cacheList);
 }
-
 export function deleteCacheKey(key) {
   const cacheList = wx.getStorageSync(cacheKey) || [];
   const index = cacheList.findIndex((k) => key === k);
@@ -18,16 +16,13 @@ export function deleteCacheKey(key) {
   }
   wx.setStorageSync(cacheKey, cacheList);
 }
-
 export function getCahceKey() {
   return wx.getStorageSync(cacheKey) || [];
 }
-
 export function removeCacheKey(key) {
   wx.removeStorageSync(key);
   deleteCacheKey(key);
 }
-
 export function isOverLimitSize(maxSize) {
   const info = wx.getStorageInfoSync();
   let limitSize = info.limitSize;
