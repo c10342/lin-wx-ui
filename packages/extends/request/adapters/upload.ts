@@ -4,8 +4,9 @@ import {
   handelFail,
   handelUpAndDownRequestData
 } from "../helpers/handelRequest";
+import { UploadRequestConfig } from "../types";
 
-export default function upload(config) {
+export default function upload(config: UploadRequestConfig) {
   return new Promise((resolve, reject) => {
     const { onUploadProgress } = config;
     // 先处理一下请求数据
@@ -20,7 +21,7 @@ export default function upload(config) {
           request,
           resolve,
           reject
-        });
+        } as any);
       },
       fail(error) {
         handelFail({

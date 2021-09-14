@@ -1,11 +1,14 @@
 import dispatchRequest from "./dispatchRequest";
 import InterceptorManager from "./interceptorManager";
 import { deepMerge } from "../helpers/utils";
+import { RequestConfig } from "../types";
 
-export default function Request(config) {
+export default function Request(config: RequestConfig) {
   // 默认配置
+  // @ts-ignore
   this.defaults = config;
   // 拦截器
+  // @ts-ignore
   this.interceptors = {
     request: new InterceptorManager(),
     respond: new InterceptorManager()
@@ -15,10 +18,13 @@ export default function Request(config) {
 // 函数重载
 // request('/abc',{...})
 // request({...})
-Request.prototype.request = function (url, config = {}) {
+Request.prototype.request = function (
+  url: string | RequestConfig,
+  config?: RequestConfig
+) {
   if (typeof url === "string") {
     if (!config) {
-      config = {};
+      config = {} as RequestConfig;
     }
     config.url = url;
   } else {
@@ -27,12 +33,13 @@ Request.prototype.request = function (url, config = {}) {
   // 合并配置
   config = deepMerge(this.defaults, config);
   // 将请求方法统一转成小写
+  // @ts-ignore
   config.method = config.method.toLocaleLowerCase();
 
   // 定义一个数组，实现链式调用
   const chain = [
     {
-      resolve: dispatchRequest,
+      resolve: dispatchRequest as any,
       reject: undefined
     }
   ];
@@ -49,7 +56,7 @@ Request.prototype.request = function (url, config = {}) {
   let promise = Promise.resolve(config);
   // 开始链式调用，这也是为什么请求/响应拦截必须返回config或者data
   while (chain.length) {
-    const { resolve, reject } = chain.shift();
+    const { resolve, reject } = chain.shift()!;
     promise = promise.then(resolve, reject);
   }
 

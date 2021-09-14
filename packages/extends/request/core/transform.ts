@@ -1,5 +1,9 @@
 // 处理 transformRequest transformRespond
-export default function transform(data, headers, fns) {
+export default function transform(
+  data: any,
+  headers: any,
+  fns: Array<Function> | Function
+) {
   if (!fns) {
     return data;
   }

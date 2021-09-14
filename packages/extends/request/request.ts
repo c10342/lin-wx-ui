@@ -7,9 +7,10 @@ import CancelToken from "./cancel/CancelToken";
 import Cancel, { isCancel } from "./cancel/Cancel";
 
 import { extend, deepMerge } from "./helpers/utils";
+import { RequestConfig } from "./types";
 
 // 创建实例
-function createInstance(config) {
+function createInstance(config: RequestConfig) {
   const context = new Request(config);
 
   const instance = Request.prototype.request.bind(context);
@@ -20,10 +21,10 @@ function createInstance(config) {
   return instance;
 }
 
-const request = createInstance(defaultConfig);
+const request = createInstance(defaultConfig as any);
 
 // 创建一个新的实例
-request.create = function (config) {
+request.create = function (config: RequestConfig) {
   return createInstance(deepMerge(defaultConfig, config));
 };
 
@@ -40,7 +41,7 @@ request.all = function (promises) {
 
 request.spread = function (callback) {
   return function (arr) {
-    return callback.apply(null, arr);
+    return callback(...arr);
   };
 };
 

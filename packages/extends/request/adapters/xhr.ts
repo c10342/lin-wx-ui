@@ -3,8 +3,19 @@ import {
   handelCancel,
   handelFail
 } from "../helpers/handelRequest";
+import { XhrRequestConfig } from "../types";
 
-export default function xhr(config) {
+type MethodType =
+  | "OPTIONS"
+  | "GET"
+  | "HEAD"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "TRACE"
+  | "CONNECT";
+
+export default function xhr(config: XhrRequestConfig) {
   return new Promise((resolve, reject) => {
     // 先处理一下请求数据
     const params = handelRequestData();
@@ -18,7 +29,7 @@ export default function xhr(config) {
           request,
           resolve,
           reject
-        });
+        } as any);
       },
       fail(error) {
         handelFail({
@@ -37,7 +48,7 @@ export default function xhr(config) {
     });
 
     // 处理请求数据
-    function handelRequestData() {
+    function handelRequestData(): XhrRequestConfig & { method: MethodType } {
       // 微信小程序wx.request支持的参数列表
       const dataArr = [
         "url",
@@ -49,7 +60,7 @@ export default function xhr(config) {
         "enableQuic",
         "enableCache"
       ];
-      const params = {
+      const params: any = {
         method: "GET"
       };
 

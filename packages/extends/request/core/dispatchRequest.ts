@@ -1,13 +1,14 @@
 import { isAbsoluteURL, combineURL } from "../helpers/utils";
 import { flattenHeaders } from "../helpers/headers";
 import transform from "./transform";
+import { RequestConfig } from "../types";
 
-export default function dispatchRequest(config) {
+export default function dispatchRequest(config: RequestConfig) {
   // 发送请求前先检查是否取消过请求
   throwIfCancellationRequested(config);
   // 先处理一下config配置
   processConfig(config);
-  const requestFn = config.adapter(config);
+  const requestFn = config.adapter!(config);
   if (!requestFn) {
     // 请求方法不存在，也就是适配器不存在
     return Promise.reject(new ReferenceError("adapter is undefined"));
@@ -21,9 +22,9 @@ export default function dispatchRequest(config) {
 }
 
 // 已经取消过请求就不用在次发送请求了
-function throwIfCancellationRequested(config) {
-  if (config.canceltoken) {
-    config.canceltoken.throwIfRequested();
+function throwIfCancellationRequested(config: RequestConfig) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
   }
 }
 
@@ -33,8 +34,9 @@ function throwIfCancellationRequested(config) {
  * @param {} config
  * @returns {}
  */
-export function transformURL(config) {
-  let { url, baseURL } = config;
+export function transformURL(config: RequestConfig) {
+  const baseURL = config.baseURL;
+  let url = config.url;
   if (baseURL && !isAbsoluteURL(url)) {
     url = combineURL(baseURL, url);
   }
@@ -46,11 +48,12 @@ export function transformURL(config) {
  *
  * @param {} config
  */
-function processConfig(config) {
+function processConfig(config: RequestConfig) {
   // 请求处理url
   config.url = transformURL(config);
 
   // 转换请求数据，默认不做处理，给什么数据就返回什么数据，用户可自定义转换数据方法
+  // @ts-ignore
   config.data = transform(config.data, config.headers, config.transformRequest);
 
   // 合并默认配置headers和用户输入的配置headers

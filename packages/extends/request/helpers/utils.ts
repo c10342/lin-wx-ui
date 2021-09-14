@@ -1,17 +1,19 @@
+import { RequestConfig } from "../types";
+
 const toString = Object.prototype.toString;
 
 // 判断是否为普通对象
-export function isPlainObject(value) {
+export function isPlainObject(value: any): value is Object {
   return toString.call(value) === "[object Object]";
 }
 
 // 判断是否为对象
-export function isArr(val) {
+export function isArr(val: any): val is Array<any> {
   return toString.call(val) === "[object Array]";
 }
 
 // 深拷贝
-export function deepClone(obj) {
+export function deepClone(obj: any) {
   if (isPlainObject(obj)) {
     const ret = {};
     for (const key in obj) {
@@ -24,7 +26,7 @@ export function deepClone(obj) {
     }
     return ret;
   } else if (isArr(obj)) {
-    const ret = [];
+    const ret: any[] = [];
     for (let i = 0; i < obj.length; i++) {
       const val = obj[i];
       if (typeof val === "object") {
@@ -73,14 +75,14 @@ export function deepMerge(...objs) {
  * @param {string} url
  * @returns {boolean}
  */
-export function isAbsoluteURL(url) {
+export function isAbsoluteURL(url: string) {
   // 以http,https等开头的都是绝对地址
   // eslint-disable-next-line
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 }
 
 //   合并地址
-export function combineURL(baseURL, url) {
+export function combineURL(baseURL: string, url: string) {
   return url
     ? baseURL.replace(/\/+$/, "") + "/" + url.replace(/^\/+/, "")
     : baseURL;
@@ -102,7 +104,7 @@ export function extend(to, from) {
 }
 
 // 分发函数，根据配置选择不同文件
-export function getDefaultAdapter(config) {
+export function getDefaultAdapter(config: RequestConfig) {
   const { method } = config;
   let adapter;
   if (method === "upload") {

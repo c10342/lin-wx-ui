@@ -4,8 +4,9 @@ import {
   handelFail,
   handelUpAndDownRequestData
 } from "../helpers/handelRequest";
+import { DownloadRequestConfig } from "../types";
 
-export default function download(config) {
+export default function download(config: DownloadRequestConfig) {
   return new Promise((resolve, reject) => {
     const { onDownloadProgress } = config;
     // 先处理一下请求数据
@@ -20,7 +21,7 @@ export default function download(config) {
           request,
           resolve,
           reject
-        });
+        } as any);
       },
       fail(error) {
         handelFail({

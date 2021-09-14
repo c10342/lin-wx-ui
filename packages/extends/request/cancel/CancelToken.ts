@@ -1,6 +1,8 @@
 import Cancel from "./Cancel";
 
 export default class CancelToken {
+  promise!: Promise<Cancel>;
+  reason: Cancel;
   constructor(executor) {
     let resolvePromise;
     this.promise = new Promise((resolve) => {

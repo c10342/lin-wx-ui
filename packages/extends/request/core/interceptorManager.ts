@@ -1,11 +1,20 @@
+import { RequestConfig } from "../types";
+
+type InterceptorFn = (config: RequestConfig) => Promise<RequestConfig>;
+interface InterceptorItem {
+  resolve: InterceptorFn;
+  reject?: InterceptorFn;
+}
+
 export default class InterceptorManager {
+  interceptor: Array<InterceptorItem | null>;
   constructor() {
     // 存储拦截器
     this.interceptor = [];
   }
 
   // 添加拦截器
-  use(resolve, reject) {
+  use(resolve: InterceptorFn, reject?: InterceptorFn) {
     this.interceptor.push({
       resolve,
       reject
