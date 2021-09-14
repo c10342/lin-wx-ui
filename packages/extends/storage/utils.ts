@@ -9,8 +9,8 @@ export function checkExpire(val) {
 }
 
 // promise化函数
-export function promisify(fnName) {
-  return function (options = {}) {
+export function promisify(fnName: string) {
+  return function (options: any = {}) {
     // options不包含 success/fail/complete 时将默认返回 promise，否则仍按回调方式执行
     if (options.success || options.fail || options.complete) {
       return wx[fnName](options);
@@ -27,7 +27,7 @@ export function promisify(fnName) {
 
 // 将开发者需要存储的数据转化为工具类要求的格式
 export function initData(val, options) {
-  const valueObj = {
+  const valueObj: { data: any; _flag_: boolean; expire?: number } = {
     data: val,
     _flag_: true
   };

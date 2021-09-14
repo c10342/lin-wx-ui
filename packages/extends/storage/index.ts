@@ -5,7 +5,8 @@ import { isOverLimitSize, deleteCacheKey, addCacheKey } from "./cache";
 let defaultConfig = {};
 
 class Storage {
-  setMaxSize(maxSize) {
+  maxSize: number;
+  setMaxSize(maxSize: number) {
     this.maxSize = maxSize;
   }
 
@@ -24,7 +25,7 @@ class Storage {
   }
 
   // 获取值
-  get(key, def) {
+  get(key: string, def?: any) {
     const val = wx.getStorageSync(key);
     if (isNotDefine(val)) {
       return def;
