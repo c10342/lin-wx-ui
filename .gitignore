@@ -6,6 +6,7 @@ node_modules
 /build/config.js
 /coverage
 debug.log
+package-lock.json
 
 
 # local env files
