@@ -2,12 +2,36 @@ import { logsType } from "../../../config/index";
 
 export default [
   {
+    version: "2.0.0",
+    time: "2021-09-16",
+    content: [
+      {
+        title: "重构",
+        list: ["使用 typescript 编写组件", "升级组件文档"],
+        type: logsType.ADDCOMPONENT
+      },
+      {
+        title: "Bug 修复",
+        list: [
+          {
+            subTitle: "IndexBar",
+            subList: ["修复索引点击不能跳转"]
+          },
+          {
+            subTitle: "WaterFlow",
+            subList: ["修复组件未渲染完毕就获取组件高度，导致组件位置显示异常"]
+          }
+        ]
+      }
+    ]
+  },
+  {
     version: "1.3.0",
     time: "2021-07-03",
     content: [
       {
         title: "新增扩展功能",
-        list: ["新增 ApiCache 请求缓存"],
+        list: ["新增 ApiCache 接口缓存"],
         type: logsType.ADDCOMPONENT
       }
     ]
