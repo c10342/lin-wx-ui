@@ -1,6 +1,6 @@
 
 
-<wxs module="styleUtils" src="../wxs/style.wxs"></wxs>
+<wxs module="styleUtils" src="../wxs/style.wxs" />
 <view class="custom-class lin-rate">
     <view class="lin-rate-o" id="lin-rate-o">
         <lin-icon custom-class="void-icon-class" id="lin-rate-{{index}}" color='{{voidColor}}' data-index='{{index}}' bind:tap="onClick" style="margin-right:{{index===innerCountArray.length-1?'0':styleUtils.addUnit(gutter)}}" size='{{iconSize}}' icon='{{voidIcon}}' wx:for="{{innerCountArray}}" wx:key="index"></lin-icon>
