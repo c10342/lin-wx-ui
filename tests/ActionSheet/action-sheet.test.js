@@ -3,7 +3,7 @@ import { getCompId, getElement, render, querySelectorAll } from "../utils.js";
 let id;
 
 beforeAll(() => {
-  id = getCompId("ActionSheet");
+  id = getCompId("action-sheet");
 });
 
 describe("属性", () => {

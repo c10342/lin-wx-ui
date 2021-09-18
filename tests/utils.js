@@ -14,9 +14,9 @@ export function mounted(compName, props = {}) {
 
 export function getCompId(compName) {
   return simulate.load(
-    path.resolve(__dirname, `./../packages/${compName}/index`),
+    path.resolve(__dirname, `./../examples/dist/${compName}/index`),
     {
-      rootPath: path.resolve("packages/")
+      rootPath: path.resolve("examples/dist/")
     }
   );
 }

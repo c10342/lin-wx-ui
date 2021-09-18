@@ -5,9 +5,9 @@ import {
   querySelector,
   loadTemplate
 } from "../utils";
-import { canIUseFormFieldButton } from "../../packages/common/version";
+import { canIUseFormFieldButton } from "../../examples/dist/common/version";
 
-jest.mock("../../packages/common/version");
+jest.mock("../../examples/dist/common/version");
 
 canIUseFormFieldButton.mockReturnValue(true);
 
@@ -16,7 +16,7 @@ let id;
 beforeAll(() => {
   // id要唯一，不能每个测试用例都生成一次，不然会报错
   // 或者可以调用  jest.resetModules()，就可以重复生成
-  id = getCompId("Button");
+  id = getCompId("button");
 });
 
 describe("属性", () => {

@@ -48,6 +48,8 @@
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/wechat-miniprogram": "^3.4.0",
