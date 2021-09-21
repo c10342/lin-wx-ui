@@ -18,6 +18,6 @@ module.exports = {
     // '!<rootDir>/packages/common/**',
     // '!<rootDir>/packages/behaviors/**',
     // '!<rootDir>/packages/wxs/**'
-    "<rootDir>/packages/Button/**/*.js"
+    "<rootDir>/examples/dist/button/**/*.js"
   ]
 };
