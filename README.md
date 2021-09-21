@@ -31,17 +31,19 @@
 
 ## 预览
 
+
 扫描下方小程序二维码，体验组件库示例：
-<img alt="qrcode" src="http://wxui.linjiafu.top/static/images/qrcode.jpg" style="margin-top: 10px;"/>
+
+![qrcode](http://wxui.linjiafu.top/static/images/qrcode.jpg)
+
 
 ## 特性
 
-- 基于 `原生微信小程序` 开发的 UI 组件
-- 基于 `typescript` 开发
+- 基于 `原生微信小程序` 开发的 UI 组件库
+- 使用 `typescript` 编写
 - 使用 npm + gulp 的工作流
-- 提供友好的 API，可灵活的使用组件
-- 支持按需引入，减少项目打包体积
-- 提供完善的文档
+- 提供单元测试用例
+- 提供完善的使用文档
 
 ## 安装
 
