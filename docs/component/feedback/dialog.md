@@ -21,7 +21,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-dialog": "/dist/Dialog/index"
+  "lin-dialog": "/dist/dialog/index"
 }
 ```
 

@@ -18,7 +18,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-share-sheet": "/dist/ShareSheet/index"
+  "lin-share-sheet": "/dist/share-sheet/index"
 }
 ```
 

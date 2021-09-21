@@ -15,7 +15,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-notify": "/dist/Notify/index"
+  "lin-notify": "/dist/notify/index"
 }
 ```
 

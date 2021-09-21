@@ -15,8 +15,8 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-dropdown-menu": "/dist/DropdownMenu/index",
-  "lin-dropdown-item": "/dist/DropdownItem/index"
+  "lin-dropdown-menu": "/dist/dropdown-menu/index",
+  "lin-dropdown-item": "/dist/dropdown-item/index"
 }
 ```
 
@@ -103,7 +103,7 @@ Page({
       <lin-switch
         slot="right-icon"
         size="24px"
-        style="height: 26px"
+        style="height: 26px;"
         checked="{ { switch1 }}"
         data-key="switch1"
         active-color="#ee0a24"
@@ -115,7 +115,7 @@ Page({
         data-key="switch2"
         slot="right-icon"
         size="24px"
-        style="height: 26px"
+        style="height: 26px;"
         checked="{ { switch2 }}"
         active-color="#ee0a24"
         bind:change="onSwitchChange"

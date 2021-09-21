@@ -15,7 +15,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-toast": "/dist/Toast/index"
+  "lin-toast": "/dist/toast/index"
 }
 ```
 

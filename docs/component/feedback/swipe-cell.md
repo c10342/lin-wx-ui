@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-swipe-cell": "/dist/SwipeCell/index"
+  "lin-swipe-cell": "/dist/swipe-cell/index"
 }
 ```
 
@@ -34,9 +34,9 @@ pageClass: component-page-class
 
 ```css
 .common-button {
+  height: 76rpx;
   padding: 0 15px;
   font-size: 14px;
-  height: 76rpx;
   line-height: 76rpx;
   text-align: center;
 }
@@ -105,9 +105,9 @@ Page({
 
 ```css
 .common-button {
+  height: 76rpx;
   padding: 0 15px;
   font-size: 14px;
-  height: 76rpx;
   line-height: 76rpx;
   text-align: center;
 }
@@ -132,11 +132,11 @@ Page({
 ::: details 代码示例
 
 ```html
-<view style="margin-bottom:10px">
-  <lin-button bind:click="openLeft" style="margin-right:10px"
+<view style="margin-bottom: 10px;">
+  <lin-button bind:click="openLeft" style="margin-right: 10px;"
     >打开左侧</lin-button
   >
-  <lin-button bind:click="openRight" style="margin-right:10px"
+  <lin-button bind:click="openRight" style="margin-right: 10px;"
     >打开右侧</lin-button
   >
   <lin-button bind:click="close">关闭</lin-button>
@@ -206,9 +206,9 @@ Page({
 
 ```css
 .common-button {
+  height: 76rpx;
   padding: 0 15px;
   font-size: 14px;
-  height: 76rpx;
   line-height: 76rpx;
   text-align: center;
 }

@@ -15,7 +15,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-action-sheet": "/dist/ActionSheet/index"
+  "lin-action-sheet": "/dist/action-sheet/index"
 }
 ```
 
@@ -239,7 +239,7 @@ Page({
   title="标题"
   bind:close="onClose"
 >
-  <view style="height:400rpx;">内容</view>
+  <view style="height: 400rpx;">内容</view>
 </lin-action-sheet>
 ```
 

@@ -152,7 +152,7 @@ module.exports = {
         {
           title: "扩展",
           collapsable: false,
-          children: ["request", "storage", "apiCache"]
+          children: ["request", "storage", "api-cache"]
         }
       ]
     }

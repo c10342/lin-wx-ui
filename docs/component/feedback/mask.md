@@ -14,7 +14,7 @@ pageClass: component-page-class
 
 ```json
 "usingComponents": {
-  "lin-mask": "/dist/Mask/index"
+  "lin-mask": "/dist/mask/index"
 }
 ```
 

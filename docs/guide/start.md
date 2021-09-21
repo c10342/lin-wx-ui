@@ -51,4 +51,4 @@ cd lin-wx-ui && npm install
 npm run dev
 ```
 
-接着打开微信开发者工具，导入example目录的项目就可以预览示例了。
+接着打开微信开发者工具，导入examples目录的项目就可以预览示例了。
