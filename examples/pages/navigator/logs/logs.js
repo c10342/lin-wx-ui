@@ -3,7 +3,7 @@ import { logsType } from "../../../config/index";
 export default [
   {
     version: "2.0.0",
-    time: "2021-09-16",
+    time: "2021-09-21",
     content: [
       {
         title: "重构",
