@@ -57,7 +57,6 @@
     "@typescript-eslint/parser": "^4.30.0",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.2",
-    "cheerio": "^1.0.0-rc.3",
     "codecov": "^3.8.1",
     "commitizen": "^4.2.2",
     "cross-env": "^7.0.3",
