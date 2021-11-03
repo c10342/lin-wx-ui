@@ -4,6 +4,7 @@ node_modules
 /dist
 /docs/.vuepress/dist
 /build/config.js
+/scripts/config.js
 /coverage
 debug.log
 package-lock.json
