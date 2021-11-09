@@ -1,6 +1,3 @@
-const path = require("path");
-const fs = require("fs");
-
 function getPath(basePath, arr) {
   return arr.map((item) => {
     return `${basePath}/${item}`;
@@ -12,6 +9,7 @@ module.exports = {
   description: "一款轻量灵活的微信小程序组件库",
   plugins: {
     "@vuepress/back-to-top": true,
+    "@vuepress/medium-zoom": true,
     "@vuepress/pwa": {
       serviceWorker: true,
       updatePopup: {
