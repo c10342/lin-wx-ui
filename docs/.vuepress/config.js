@@ -41,7 +41,8 @@ module.exports = {
         text: "其他",
         items: [
           { text: "vue2组件库", link: "http://ui.linjiafu.top/" },
-          { text: "视频播放器", link: "http://player.linjiafu.top/" }
+          { text: "axios源码解析", link: "http://axios.linjiafu.top/" },
+          { text: "H5 视频播放器", link: "http://player.linjiafu.top/" }
         ]
       }
     ],
