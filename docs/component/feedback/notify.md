@@ -11,7 +11,7 @@ pageClass: component-page-class
 
 ## 引入
 
-在 app.json 或 index.json 中引入组件，详细介绍见[快速上手](/guide/start)
+在 app.json 或 index.json 中引入组件，详细介绍见[快速上手](/guide/start.html)
 
 ```json
 "usingComponents": {
