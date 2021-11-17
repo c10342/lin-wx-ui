@@ -98,7 +98,7 @@ npm run dev
 
 打开[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，把`lin-wx-ui/example`目录添加进去就可以预览示例了。
 
-## 贡献
+## 贡献 
 
 如果你在使用 `lin-wx-ui` 时遇到问题，或者有好的建议，欢迎给我提 [Issue](https://github.com/c10342/lin-wx-ui/issues)
 
