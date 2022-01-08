@@ -1,15 +1,9 @@
 <div align='center' >
-<img alt="logo" src="http://wxui.linjiafu.top/images/logo_sub.jpg" style="margin-bottom: 10px;"/>
+<img alt="logo" src="http://wxui.linjiafu.top/images/logo_sub.png" style="margin-bottom: 10px;"/>
 <h1 style='font-weight: 700;'>轻量、灵活的微信小程序组件</h1>
 </div>
 
 <p align="center">
-    <a href="https://travis-ci.org/c10342/lin-wx-ui">
-      <img src="https://travis-ci.org/c10342/lin-wx-ui.svg?branch=master" alt='CICD'>
-    </a>
-    <a href='https://coveralls.io/github/c10342/lin-wx-ui?branch=master'>
-      <img src='https://coveralls.io/repos/github/c10342/lin-wx-ui/badge.svg?branch=master' alt='Coverage Status' />
-    </a>
     <a href="https://www.npmjs.org/package/lin-wx-ui">
       <img src="https://img.shields.io/npm/v/lin-wx-ui.svg" alt='npm version' />
     </a>
