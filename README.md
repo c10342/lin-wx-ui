@@ -1,5 +1,5 @@
 <div align='center' >
-<img alt="logo" src="http://wxui.linjiafu.top/static/images/logo.png" style="margin-bottom: 10px;"/>
+<img alt="logo" src="http://wxui.linjiafu.top/images/logo_sub.jpg" style="margin-bottom: 10px;"/>
 <h1 style='font-weight: 700;'>轻量、灵活的微信小程序组件</h1>
 </div>
 
@@ -34,7 +34,7 @@
 
 扫描下方小程序二维码，体验组件库示例：
 
-![qrcode](http://wxui.linjiafu.top/static/images/qrcode.jpg)
+![qrcode](http://wxui.linjiafu.top/images/qrcode.jpg)
 
 
 ## 特性
